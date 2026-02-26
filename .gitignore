@@ -1,4 +1,5 @@
 _build/
 docs/_build/
-tmp
 .vscode/
+*/thumbs.db
+tmp
