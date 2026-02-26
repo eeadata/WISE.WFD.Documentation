@@ -1,0 +1,13 @@
+﻿.. metadata-placeholder
+
+   :DC.title: 
+      Generic references to be available in all documents
+   :DC.creator: 
+      Nery, Fernanda
+
+.. rubric:: References
+
+.. inspire data models
+
+.. [INSPIRE_SU]   INSPIRE Data Specification on Statistical Units - Draft Technical Guidelines. Version D2.8.III.1_v3.0RC3. URL: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_SU_v3.0rc3.pdf
+.. [INSPIRE_GCM]  INSPIRE Generic Conceptual Model. Version D2.5_v3.4rc3. URL: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/D2.5_v3.4rc3.pdf
