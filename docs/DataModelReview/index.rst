@@ -9,3 +9,7 @@ WFD - Data Model Review
       Measures
       EconomicAnalysis
       ProtectedAreas
+
+.. substitutions-placeholder
+
+.. include:: ../_sharedFiles/substitutions.rst      

@@ -4,7 +4,7 @@ WFD - River Basin Districts & Competent Authorities
 **PROPOSAL - Version 2026.02.13**
 :download:`PDF<pdf/WFD_4rd_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf>`
 
-.. contents:: Table of Contents
+.. contents:: On this page:
    :depth: 2
    :local:
 
@@ -198,5 +198,4 @@ comparison to version 7.06 used in the |3rd| cycle of reporting):
 
 .. substitutions-placeholder
 
-.. |3rd| replace:: 3\ :sup:`rd`  
-.. |4th| replace:: 4\ :sup:`th`  
+.. include:: ../_sharedFiles/substitutions.rst

@@ -5,7 +5,9 @@ The **Water Framework Directive Documentation** is organized into the following 
 
 *  **Data Model Review**
    
-   This section contains documentation about proposed changes for the 4th cycle of electronic reporting under the Water Framework Directive.
+   This section contains documentation about proposed changes for the |4th| cycle of electronic reporting under the Water Framework Directive.
+   The documentation about monitoring, methodologies, water body status assessement and exemptions will be made available in April.
+   The WISE GIS Guidance is also under review.
  
 *  **Testing Phase**
 
@@ -23,3 +25,17 @@ Data Model Review
       :maxdepth: 2
       
       DataModelReview/index
+
+Testing phase
+=================
+
+*Coming soon.*
+
+Reporting phase
+=================
+
+*Coming soon.*
+
+.. substitutions-placeholder
+
+.. include:: _sharedFiles/substitutions.rst
