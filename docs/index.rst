@@ -1,17 +1,26 @@
-Water Framework Directive - River Basin Districts and Competent Authorities
-***************************************************************************
+WISE Documentation - Water Framework Directive
+*****************************************************
 
-The **Water Framework Directive - River Basin Districts and Competent Authorities** documentation is organized into the following sections:
+The **Water Framework Directive Documentation** is organized into the following sections:
 
-*  **4th cycle proposed changes**: 
-
-   This section describes the proposed changes to the electronic reporting, applicable to the 4th cycle of reporting under the |WFD|.
-
-Additional sections with be added as the implementation process progresses.
-
-.. toctree:: 
-   :maxdepth: 2
-   :caption: Sections:
+*  **Data Model Review**
    
-   Proposal/index
-   
+   This section contains documentation about proposed changes for the 4th cycle of electronic reporting under the Water Framework Directive.
+ 
+*  **Testing Phase**
+
+   As soon as each dataflow is open for testing, this section will provide technical guidance on the process.
+
+*  **Reporting Phase**
+
+   As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.
+
+
+Data Model Review
+=================
+
+   .. toctree:: 
+      :maxdepth: 2
+      :caption: Sections:
+      
+      DataModelReview/index

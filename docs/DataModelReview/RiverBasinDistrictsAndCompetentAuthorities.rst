@@ -1,9 +1,10 @@
-Water Framework Directive - River Basin Districts & Competent Authorities
-#########################################################################
+WFD - River Basin Districts & Competent Authorities
+***************************************************
 
 | **PROPOSAL**
 | **Version 2026.02.13**
   
+:download:`PDF document<pdf/WFD_4rd_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf>`
 
 .. contents:: Table of Contents
    :depth: 2
