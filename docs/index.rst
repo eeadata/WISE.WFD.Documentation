@@ -21,6 +21,5 @@ Data Model Review
 
    .. toctree:: 
       :maxdepth: 2
-      :caption: Sections:
       
       DataModelReview/index

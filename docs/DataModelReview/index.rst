@@ -6,3 +6,6 @@ WFD - Data Model Review
       :caption: Sections:
       
       RiverBasinDistrictsAndCompetentAuthorities
+      Measures
+      EconomicAnalysis
+      ProtectedAreas

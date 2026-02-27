@@ -59,7 +59,7 @@ html_static_path = ['_static']
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'WISE.Documentation'
+project = 'WISE.WFD.Documentation'
 copyright = '2013-2026. These pages aggregate content from multiple sources (refer to the metadata).'
 author = 'Fernanda Nery'
 version = '0.1'
