@@ -15,7 +15,8 @@ if on_rtd:
                  'myst_parser',
                  'sphinx.ext.todo', 
                  'sphinx.ext.imgmath', 
-                 'sphinx.ext.mathjax', 
+                 'sphinx.ext.mathjax',
+                 'sphinxcontrib.mermaid',  
                  'sphinx.ext.graphviz']
 else:
    extensions = ['sphinx.ext.autodoc',
@@ -55,7 +56,9 @@ html_show_copyright = False
 # Logos/Favicons: Images referenced directly in your theme configuration.
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
-
+html_css_files = [
+    'customTable.css',
+]
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 

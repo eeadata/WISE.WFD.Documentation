@@ -6,9 +6,10 @@ WFD - Data Model Review
       :caption: Sections:
       
       RiverBasinDistrictsAndCompetentAuthorities
-      Measures
-      EconomicAnalysis
-      ProtectedAreas
+      WFDMeasures
+      WFDEconomicAnalysis
+      ProtectedAreas4thcycle
+      
 
 .. substitutions-placeholder
 
