@@ -4,7 +4,7 @@
 
 **PROPOSAL - Version 2026.02.20** {download}`PDF <pdf/WFD_4rd_cycle_EconomicAnalysis_v20260220.pdf>`
 
-**WD Data Models and Dataflows**
+**WFD Data Model and Dataflow**
 
 
 
