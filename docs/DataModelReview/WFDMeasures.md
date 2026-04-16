@@ -13,7 +13,7 @@
 flowchart 
 
 %% 
-title@{ shape: braces, label: "WISE Dataflow XPTO \n Status update: 2026-03-26" }
+title@{ shape: braces, label: "WISE Dataflow Measures \n Status update: 2026-04-16" }
 
 %% Defining the nodes and overall flow
         
@@ -207,11 +207,20 @@ classDef initial fill:#000,stroke:#000,stroke-width:2px
 classDef final fill:#000,stroke:#aaa,stroke-width:4px
 
 %% STATUS UPDATES
-%% 2026-03-26
+%% 2026-04-16
 class P1 inProgress
 class MD inProgress
+class RepD inProgress
+class CL inProgress
+class RefD inProgress
+class TF inProgress
+class QC inProgress
 
-class MD1 validated;
+class MD1 inProgress;
 class MD2 inProgress;
-class MD3 implemented;
+class RepD1 inProgress;
+class CL1 inProgress;
+class RefD1 inProgress;
+class TF1 inProgress;
+class QC1 inProgress;
 ```
