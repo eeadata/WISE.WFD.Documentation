@@ -1,4 +1,6 @@
-# Reporting of Exemptions - 3rd cycle
+# WFD Exemptions
+
+## Reporting of Exemptions - 3rd cycle
 
 * The information related to exemptions in the surface water methodologies schema (SWExemption class)
   will no longer requested in the structured data reporting for the 4th cycle (i.e. it is provided only in the RBMP documents).
@@ -22,49 +24,49 @@ classDiagram
 namespace SWMET{
 class SWExemptions <<XSDComplexType>> {
   <<XSElement>>
-  +swExemption44Impact: SignificantImpactType_Enum [1..*]
-  +swExemption44Driver: Driver_Enum [1..*]
-  +swExemption45Impact: SignificantImpactType_Enum [1..*]
-  +swExemption45Driver: Driver_Enum [1..*]
-  +swDisproportionateCost: YesNoCode_Enum
-  +swDisproportionateCostScale: GeographicalScale_Enum [0..*]
-  +swDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
-  +swDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
-  +swDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
-  +swTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
-  +swNaturalConditions: SWNaturalConditions_Enum [1..*]
-  +swExemption46: Exemption46_Enum [1..*]
-  +swExemption47: Exemption47_Enum [1..*]
-  +swExemptionsTransboundary: YesNoNotApplicable_Union_Enum
-  +swExemptionsReference: ReferenceType [1..*]
-  +driversSWExemptionsReference: ReferenceType [1..*]
+  + swExemption44Impact: SignificantImpactType_Enum [1..*]
+  + swExemption44Driver: Driver_Enum [1..*]
+  + swExemption45Impact: SignificantImpactType_Enum [1..*]
+  + swExemption45Driver: Driver_Enum [1..*]
+  + swDisproportionateCost: YesNoCode_Enum
+  + swDisproportionateCostScale: GeographicalScale_Enum [0..*]
+  + swDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
+  + swDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
+  + swDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
+  + swTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
+  + swNaturalConditions: SWNaturalConditions_Enum [1..*]
+  + swExemption46: Exemption46_Enum [1..*]
+  + swExemption47: Exemption47_Enum [1..*]
+  + swExemptionsTransboundary: YesNoNotApplicable_Union_Enum
+  + swExemptionsReference: ReferenceType [1..*]
+  + driversSWExemptionsReference: ReferenceType [1..*]
 }
 }
 namespace GWMET{
 class GWExemptions <<XSDComplexType>> {
   <<XSDElement>>
-  +gwExemption44Impact: SignificantImpactType_Enum [1..*]
-  +gwExemption44Driver: Driver_Enum [1..*]
-  +gwExemption45Impact: SignificantImpactType_Enum [1..*]
-  +gwExemption45Driver: Driver_Enum [1..*]
-  +gwDisproportionateCost: YesNoCode_Enum
-  +gwDisproportionateCostScale: GeographicalScale_Enum [0..*]
-  +gwDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
-  +gwDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
-  +gwDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
-  +gwTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
-  +gwNaturalConditions: GWNaturalConditions_Enum [1..*]
-  +gwExemption46: Exemption46_Enum [1..*]
-  +gwExemption47: Exemption47_Enum [1..*]
-  +gwExemptionsTransboundary: YesNoNotApplicable_Union_Enum
-  +gwExemptionsReference: ReferenceType [1..*]
-  +driversGWExemptionsReference: ReferenceType [1..*]
+  + gwExemption44Impact: SignificantImpactType_Enum [1..*]
+  + gwExemption44Driver: Driver_Enum [1..*]
+  + gwExemption45Impact: SignificantImpactType_Enum [1..*]
+  + gwExemption45Driver: Driver_Enum [1..*]
+  + gwDisproportionateCost: YesNoCode_Enum
+  + gwDisproportionateCostScale: GeographicalScale_Enum [0..*]
+  + gwDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
+  + gwDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
+  + gwDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
+  + gwTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
+  + gwNaturalConditions: GWNaturalConditions_Enum [1..*]
+  + gwExemption46: Exemption46_Enum [1..*]
+  + gwExemption47: Exemption47_Enum [1..*]
+  + gwExemptionsTransboundary: YesNoNotApplicable_Union_Enum
+  + gwExemptionsReference: ReferenceType [1..*]
+  + driversGWExemptionsReference: ReferenceType [1..*]
 }
 }
 
 ```
 
-# Reporting of Exemptions - 4th cycle
+## Reporting of Exemptions - 4th cycle
 
 The reporting of ecological, chemical and quantitative exemptions is aligned into tables with a similar structure:
 
