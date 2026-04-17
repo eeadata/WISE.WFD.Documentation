@@ -10,16 +10,6 @@
   
   
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Exemption - surface water methodologies and groundwater methodologies - 3rd cycle 
----
-
 classDiagram 
 namespace SWMET{
 class SWExemptions <<XSDComplexType>> {
@@ -84,15 +74,6 @@ The *exemptionPeriod* covers the period until good status is achieved: this attr
 
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: 
----
 classDiagram
 class Exemption <<Abstract>>{
     / exemptionType : ExemptionType
@@ -115,105 +96,23 @@ Ecological exemptions are reported at Quality Element level only:
 * exemptions are not applicable to quality elements not used in the ecological status assessment.
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Surface Water Body - Ecological Exemptions - 4th cycle
----
+%%{init: {'theme': 'default'}}%%
 classDiagram
-class SWEcologicalExemption{
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + qeCode : QualityElement 
-    / exemptionType : ExemptionType
-    + exemptionRationale : ExemptionRationale [1..n]
-    + exemptionPeriod : ExemptionPeriod
-    + exemptionReference : referenceIdentifier [0..1]
-    + significantPressureType : PressureType [1..n]
-}
+	class SWEcologicalExemption{
+		+ euSurfaceWaterBodyCode : wiseIdentifier
+		+ qeCode : QualityElement 
+		/ exemptionType : ExemptionType
+		+ exemptionRationale : ExemptionRationale [1..n]
+		+ exemptionPeriod : ExemptionPeriod
+		+ exemptionReference : referenceIdentifier [0..1]
+		+ significantPressureType : PressureType [1..n]
+	}
 ```
 
 The diagram below presents the applicability criteria for the different exemption types.
 
 ```{mermaid}
-%%{init: {'theme': 'neutral'}}%%
-
-flowchart LR
-
-%% Ecological Status Exemptions - Quality Elements
-title@{ shape: braces, label: "Surface Water Ecological Status Exemptions at Quality Element level, for QE1% and QE3%" }
-
-%% Defining the nodes
-		
-initial([start])
-final([end])
-
-%% duplicate nodes for just for flowchart readability
-hasNoApplicableExemption_1("no exemption \n applicable"):::stateRed
-hasNoApplicableExemption_2("no exemption \n required"):::stateBlue
-hasNoApplicableExemption_3("no exemption \n applicable"):::stateRed
-
-hasExemption44n("Article 4(4) \n Extension of deadline \n (natural conditions)"):::state
-hasExemption45("Article 4(5) \n Less stringent objectives"):::state
-hasExemption46("Article 4(6) \n Temporary deterioration"):::state
-hasExemption47("Article 4(7) \n New modification/project"):::state
-
-%% Defining the decisions
-
-isStatusIn2027{"Ecological Status \n or Potential \n in 2027?"}
-isDeteriorationExpected{"Deterioration expected \n beyond 2027?"}
-isDeteriorationObserved{"Deterioration observed \n in 2027 or earlier?"}
-isGoodStatusAchievable{"Is good status \n achievable?"}
-isDelayDueToNaturalConditions{"Delay due to \n natural conditions?"}
-
-%% Flow to TERMINATORS
-
-initial --> isStatusIn2027
-hasNoApplicableExemption_1 --> final
-hasNoApplicableExemption_2 --> final
-hasNoApplicableExemption_3 --> final
-hasExemption47 --> final 
-hasExemption46 --> final 
-hasExemption45 --> final 
-hasExemption44n --> final 
-
-%% THE IMPORTANT PART STARTS HERE
-
-    %% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
-    isStatusIn2027 ==>|"unknown"|hasNoApplicableExemption_1
-
-    %% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
-    isStatusIn2027 ==>|"not failing \n [ high OR maximum OR good ]"|isDeteriorationExpected
-    isDeteriorationExpected ==>|no|hasNoApplicableExemption_2
-
-    %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-    isDeteriorationExpected ==>|"yes \n [new modification \n OR sustainable human development]"|hasExemption47
-        
-    %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
-    isStatusIn2027 ==>|"failing \n [ moderate OR poor OR bad \n OR lessThanGood ]"|isDeteriorationObserved
-    isDeteriorationObserved ==>|"yes \n [new modification \n OR sustainable human development]"|hasExemption47
-    isDeteriorationObserved ==>|"yes \n [accidents  \n OR force majeure  \n OR natural causes]"|hasExemption46
-    isDeteriorationObserved ==>|no|isGoodStatusAchievable
-
-    %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
-    isGoodStatusAchievable ==>|no|hasExemption45
-
-    %% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
-    isGoodStatusAchievable ==>|yes|isDelayDueToNaturalConditions
-            
-    isDelayDueToNaturalConditions ==>|yes|hasExemption44n
-            
-    %% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - NO EXEMPTION POSSIBLE
-    isDelayDueToNaturalConditions ==>|no|hasNoApplicableExemption_3
-
-%% styling
-classDef state stroke-width:4px,fill:transparent
-classDef stateRed stroke:red,fill:transparent
-classDef stateBlue stroke:blue,fill:transparent
-
+:file: mmd/EcologicalExemptionType_Flowchart.mmd
 ```
 
 ## Surface Water Bodies - Chemical exemptions by Priority Substance
