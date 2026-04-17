@@ -409,31 +409,82 @@ Data providers can specify which datasets are being updated (spatial data, descr
 
 (Figure 3)=
 ```{mermaid}
-%%{init: {'theme': 'default'}}%%
-flowchart LR
+classDiagram
+direction TB
+namespace a. Documents {
+class dcMetadata {
++ title: nvarchar(4000)
++ creatorOrganisationName: nvarchar(4000)
++ creatorElectronicMailAddress: Email - varchar(250)
++ description: nvarchar(4000) [0..1]
++ created: Date [0..1]
++ language: Language [1..n]
++ license: URL - varchar(2100)
++ rights: nvarchar(4000) [0..1]
++ rightsHolder: nvarchar(4000) [0..1]
++ licenseDocument: documentCode [0..*]
++ metadataDocument: documentCode [0..*]
++ updateCompetentAuthorities: YesNo
++ updateSpatialData: YesNo
+}
+class Document {
++ documentCode: WISEIdentifier - varchar(42)
++ documentName: nvarchar(250)
++ hyperlink: URL - varchar(2100) [0..1]
++ documentFile: Attachment [0..1]
+}
+}
+namespace b.Descriptivedata {
+class CompetentAuthority {
++ euCACode: WISEIdentifier - varchar(42)
++ competentAuthorityName: varchar(100)
++ competentAuthorityNameNL: nvarchar(100)
++ competentAuthorityNameNLLanguage: Language
++ acronym: nvarchar(100) [0..1]
++ street: nvarchar(100)
++ city: nvarchar(100)
++ country: nvarchar(100)
++ postCode: nvarchar(50) [0..1]
++ url: URL - varchar(2100)
+}
+class RiverBasinDistrictCompetentAuthority {
++ euRBDCode: WISEIdentifier - varchar(42)
++ euCACode: WISEIdentifier - varchar(42)
++ roleCode: Role [1..*]
+}
+}
+namespace c.Spatialdata {
+class RiverBasinDistrict {
++ geometry_polygon: geometry_multipolygon
++ inspireIdLocalId: String
++ inspireIdNamespace: String
++ inspireIdVersionId: String [0..1]
++ thematicIdIdentifier: WISEIdentifier
++ thematicIdIdentifierScheme: IdentifierScheme
++ beginLifespanVersion: Date
++ endLifespanVersion: Date [0..1]
++ predecessorsIdentifier: comma-separated list of WISEIdentifier [0..1]
++ predecessorsIdentifierScheme: IdentifierScheme [0..1]
++ successorsIdentifier: comma-separated list of WISEIdentifier [0..1]
++ successorsIdentifierScheme: IdentifierScheme [0..1]
++ wiseEvolutionType: WiseEvolutionType
++ nameTextInternational: String
++ nameText: String
++ nameLanguage: Language
++ designationPeriodBegin: Date
++ designationPeriodEnd: Date [0..1]
++ zoneType: ZoneType
++ specialisedZoneType: SpecialisedZoneType
++ legalBasisName: String [0..1]
++ legalBasisLink: url [0..1]
++ legalBasisLevel: LegislationLevelValue [0..1]
++ link: url [0..1]
+}
+}
 
-    subgraph A["a) Documents"]
-        direction TB
-        dcMetadata["dcMetadata<br/>―――――――――――<br/>+ title: nvarchar(4000)<br/>+ creatorOrganisationName: nvarchar(4000)<br/>+ creatorElectronicMailAddress: Email - varchar(250)<br/>+ description: nvarchar(4000) [0..1]<br/>+ created: Date [0..1]<br/>+ language: Language [1..n]<br/>+ license: URL - varchar(2100)<br/>+ rights: nvarchar(4000) [0..1]<br/>+ rightsHolder: nvarchar(4000) [0..1]<br/>+ licenseDocument: documentCode [0..*]<br/>+ metadataDocument: documentCode [0..*]<br/>+ updateCompetentAuthorities: YesNo<br/>+ updateSpatialData: YesNo"]
-        Document["Document<br/>―――――――――――<br/>+ documentCode: WISEIdentifier - varchar(42)<br/>+ documentName: nvarchar(250)<br/>+ hyperlink: URL - varchar(2100) [0..1]<br/>+ documentFile: Attachment [0..1]"]
-        dcMetadata -->|"0..*"| Document
-    end
-
-    subgraph B["b) Descriptive data"]
-        direction TB
-        CompetentAuthority["CompetentAuthority<br/>―――――――――――<br/>+ euCACode: WISEIdentifier - varchar(42)<br/>+ competentAuthorityName: varchar(100)<br/>+ competentAuthorityNameNL: nvarchar(100)<br/>+ competentAuthorityNameNLLanguage: Language<br/>+ acronym: nvarchar(100) [0..1]<br/>+ street: nvarchar(100)<br/>+ city: nvarchar(100)<br/>+ country: nvarchar(100)<br/>+ postCode: nvarchar(50) [0..1]<br/>+ url: URL - varchar(2100)"]
-        RBDCA["RiverBasinDistrictCompetentAuthority<br/>―――――――――――<br/>+ euRBDCode: WISEIdentifier - varchar(42)<br/>+ euCACode: WISEIdentifier - varchar(42)<br/>+ roleCode: Role [1..*]"]
-        CompetentAuthority -->|"1..*"| RBDCA
-    end
-
-    subgraph C["c) Spatial data"]
-        direction TB
-        RiverBasinDistrict["RiverBasinDistrict<br/>―――――――――――<br/>+ geometry_polygon: geometry_multipolygon<br/>+ inspireIdLocalId: String<br/>+ inspireIdNamespace: String<br/>+ inspireIdVersionId: String [0..1]<br/>+ thematicIdIdentifier: WISEIdentifier<br/>+ thematicIdIdentifierScheme: IdentifierScheme<br/>+ beginLifespanVersion: Date<br/>+ endLifespanVersion: Date [0..1]<br/>+ predecessorsIdentifier: comma-separated list of WISEIdentifier [0..1]<br/>+ predecessorsIdentifierScheme: IdentifierScheme [0..1]<br/>- successorsIdentifier: comma-separated list of WISEIdentifier [0..1]<br/>- successorsIdentifierScheme: IdentifierScheme [0..1]<br/>+ wiseEvolutionType: WiseEvolutionType<br/>+ nameTextInternational: String<br/>+ nameText: String<br/>+ nameLanguage: Language<br/>+ designationPeriodBegin: Date<br/>+ designationPeriodEnd: Date [0..1]<br/>+ zoneType: ZoneType<br/>+ specialisedZoneType: SpecialisedZoneType<br/>+ legalBasisName: String [0..1]<br/>+ legalBasisLink: url [0..1]<br/>+ legalBasisLevel: LegislationLevelValue [0..1]<br/>+ link: url [0..1]"]
-    end
-
-    A ~~~ B ~~~ C
+dcMetadata --> "0..*" Document
+CompetentAuthority --> "1..*" RiverBasinDistrictCompetentAuthority
 ```
-
 
 ## Documents dataset - 4ᵗʰ cycle
 
