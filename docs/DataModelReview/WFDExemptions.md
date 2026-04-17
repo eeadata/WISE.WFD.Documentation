@@ -188,8 +188,8 @@ class SWAssociatedProtectedArea{
 	+ euSurfaceWaterBodyCode : wiseIdentifier
 	+ euProtectedAreaType : ProtectedAreaType 
 	+ euProtectedAreaCode : wiseIdentifier [0..1]
-	+ swProtectedAreaObjectivesSet : YesNo
-	+ swProtectedAreaObjectivesMet : YesNoUnknown
+	+ protectedAreaObjectivesSet : YesNo
+	+ protectedAreaObjectivesMet : YesNoUnknown
 	/ exemptionType : ExemptionType [0..1]
 	+ exemptionRationale : ExemptionRationale [0..n]
 	+ exemptionPeriod : ExemptionPeriod [0..1]
@@ -276,8 +276,8 @@ class GWAssociatedProtectedArea{
 	+ euGroundWaterBodyCode : wiseIdentifier
 	+ euProtectedAreaType : ProtectedAreaType
 	+ euProtectedAreaCode : wiseIdentifier [0..1]
-	+ gwProtectedAreaObjectivesSet : YesNo
-	+ gwProtectedAreaObjectivesMet : YesNoUnknown
+	+ protectedAreaObjectivesSet : YesNo
+	+ protectedAreaObjectivesMet : YesNoUnknown
 	/ exemptionType : ExemptionType [0..1]
 	+ exemptionRationale : ExemptionRationale [0..n]
 	+ exemptionPeriod : ExemptionPeriod [0..1]
