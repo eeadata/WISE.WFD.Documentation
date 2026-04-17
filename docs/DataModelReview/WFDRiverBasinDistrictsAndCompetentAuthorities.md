@@ -1,4 +1,4 @@
-# WFD - River Basin Districts And Competent Authorities 4th cycle
+# WFD - River Basin Districts And Competent Authorities
 
 Water Framework Directive – Electronic reporting data model review 
 River Basin Districts & Competent Authorities 

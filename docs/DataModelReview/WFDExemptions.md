@@ -9,7 +9,7 @@
   will no longer requested in the structured data reporting for the 4th cycle (i.e. it is provided only in the RBMP documents).
   
   
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -83,7 +83,7 @@ Ecological exemptions are only reported at quality element level, avoiding dupli
 The *exemptionPeriod* covers the period until good status is achieved: this attribute replaces the former attributes  *swEcologicalStatusOrPotentialExpectedAchievementDate*, *swChemicalStatusExpectedAchievementDate*, *gwChemicalStatusExpectedAchievementDate* and *gwQuantitativeStatusExpectedAchievementDate*.
 
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -114,7 +114,7 @@ Ecological exemptions are reported at Quality Element level only:
 * exemptions are not applicable to quality elements with unknown status
 * exemptions are not applicable to quality elements not used in the ecological status assessment.
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -138,7 +138,7 @@ class SWEcologicalExemption{
 
 The diagram below presents the applicability criteria for the different exemption types.
 
-```mermaid
+```{mermaid}
 %%{init: {'theme': 'neutral'}}%%
 
 flowchart LR
@@ -231,7 +231,7 @@ Article 4(7) exemptions may be applicable for indirect deterioration of chemical
 In the 4th cycle of reporting, exemptions associated with river basin specific pollutants 
 are reported as exemptions associated with the quality element "QE3-3 - River Basin Specific Pollutants".
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -255,7 +255,7 @@ class SWChemicalExemption{
 
 The diagram below presents the applicability criteria for the different exemption types.
 
-```mermaid
+```{mermaid}
 %%{init: {'theme': 'neutral'}}%%
 
 flowchart LR
@@ -362,7 +362,7 @@ If the specific objectives have not been met, then exemptions may be reported.
 
 (Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -396,7 +396,7 @@ Chemical exemptions are reported at Pollutant level only:
 
 Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -427,7 +427,7 @@ chemical exemptions can be applied to any groundwater pollutant.
 Reporting is mandatory if the following conditions apply:
 * the waterbody is failing to achieve good quantitative status
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -451,7 +451,7 @@ class GWQuantitativeExemption{
 The diagram below presents the applicability criteria for the different exemption types.
 
 
-```mermaid
+```{mermaid}
 %%{init: {'theme': 'neutral'}}%%
 
 flowchart LR
@@ -539,7 +539,7 @@ If the specific objectives have not been met, then exemptions may be reported.
 
 (Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
@@ -570,7 +570,7 @@ Note the dependencies between the two codelists, which will be verified by the q
 * the allowable values for the exemption rationale depend on the exemption type
 
 
-```mermaid
+```{mermaid}
 ---
 config:
   class:
