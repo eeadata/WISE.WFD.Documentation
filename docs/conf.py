@@ -35,7 +35,9 @@ bibtex_bibfiles = ['./_sharedFiles/bibliography.bib']
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','*.txt']
 numfig = True
-
+numfig_format = {
+    'figure': 'Figure %s. ',
+}
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
