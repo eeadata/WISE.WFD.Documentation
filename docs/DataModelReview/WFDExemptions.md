@@ -1,4 +1,4 @@
-# WFD Exemptions
+# WFD - Exemptions
 
 ## Reporting of Exemptions - 3rd cycle
 
@@ -10,10 +10,15 @@
   
   
 ```{mermaid}
+:name: SWExemptions_GWExemptions
+:caption: SWExemptions and GWExemptions - 3rd cycle [no longer requested]
+:align: center
+
 classDiagram 
 namespace SWMET{
-class SWExemptions <<XSDComplexType>> {
-  <<XSElement>>
+class SWExemptions ["«XSDcomplexType»
+SWExemptions"]{
+  «XSElement»
   + swExemption44Impact: SignificantImpactType_Enum [1..*]
   + swExemption44Driver: Driver_Enum [1..*]
   + swExemption45Impact: SignificantImpactType_Enum [1..*]
@@ -33,8 +38,8 @@ class SWExemptions <<XSDComplexType>> {
 }
 }
 namespace GWMET{
-class GWExemptions <<XSDComplexType>> {
-  <<XSDElement>>
+class GWExemptions["«XSDcomplexType» GWExemptions"]{
+  «XSDElement»
   + gwExemption44Impact: SignificantImpactType_Enum [1..*]
   + gwExemption44Driver: Driver_Enum [1..*]
   + gwExemption45Impact: SignificantImpactType_Enum [1..*]
@@ -56,6 +61,7 @@ class GWExemptions <<XSDComplexType>> {
 
 ```
 
+
 ## Reporting of Exemptions - 4th cycle
 
 The reporting of ecological, chemical and quantitative exemptions is aligned into tables with a similar structure:
@@ -74,8 +80,12 @@ The *exemptionPeriod* covers the period until good status is achieved: this attr
 
 
 ```{mermaid}
+:name: ExemptionAbstractClass
+:caption: Exemption - 4th cycle - Abstract pattern for illustrative purposes
+:align: center
 classDiagram
-class Exemption <<Abstract>>{
+class Exemption ["«Abstract»
+Exemption"]{
     / exemptionType : ExemptionType
     + exemptionRationale : ExemptionRationale [1..n]
     + exemptionPeriod : ExemptionPeriod
@@ -96,23 +106,27 @@ Ecological exemptions are reported at Quality Element level only:
 * exemptions are not applicable to quality elements not used in the ecological status assessment.
 
 ```{mermaid}
-%%{init: {'theme': 'default'}}%%
+:name: SWEcologicalExemptionClass
+:caption: Surface Water Body - Ecological Exemption - 4th cycle
+:align: center
 classDiagram
-	class SWEcologicalExemption{
-		+ euSurfaceWaterBodyCode : wiseIdentifier
-		+ qeCode : QualityElement 
-		/ exemptionType : ExemptionType
-		+ exemptionRationale : ExemptionRationale [1..n]
-		+ exemptionPeriod : ExemptionPeriod
-		+ exemptionReference : referenceIdentifier [0..1]
-		+ significantPressureType : PressureType [1..n]
-	}
+class SWEcologicalExemption{
+    + euSurfaceWaterBodyCode : wiseIdentifier
+    + qeCode : QualityElement 
+    / exemptionType : ExemptionType
+    + exemptionRationale : ExemptionRationale [1..n]
+    + exemptionPeriod : ExemptionPeriod
+    + exemptionReference : referenceIdentifier [0..1]
+    + significantPressureType : PressureType [1..n]
+}
 ```
 
 The diagram below presents the applicability criteria for the different exemption types.
 
-```{mermaid}
-:file: mmd/EcologicalExemptionType_Flowchart.mmd
+```{mermaid} /DataModelReview/mmd/EcologicalExemption_Flowchart.mmd
+:name: SWEcologicalExemptionFlowchart
+:caption: Surface Water Body - Ecological Exemption Decision Tree - 4th cycle
+:align: center
 ```
 
 ## Surface Water Bodies - Chemical exemptions by Priority Substance
@@ -131,15 +145,9 @@ In the 4th cycle of reporting, exemptions associated with river basin specific p
 are reported as exemptions associated with the quality element "QE3-3 - River Basin Specific Pollutants".
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Surface Water Body - Chemical Exemptions - 4th cycle
----
+:name: SWChemicalExemptionClass
+:caption: Surface Water Body - Chemical Exemption - 4th cycle
+:align: center
 classDiagram
 class SWChemicalExemption{
     + euSurfaceWaterBodyCode : wiseIdentifier
@@ -154,102 +162,12 @@ class SWChemicalExemption{
 
 The diagram below presents the applicability criteria for the different exemption types.
 
-```{mermaid}
-%%{init: {'theme': 'neutral'}}%%
-
-flowchart LR
-
-%% Surface Water Chemical Exemptions and Groundwater Chemical Exemptions
-title@{ shape: braces, label: "Surface Water Chemical Exemptions \n and Groundwater Chemical Exemptions" }
-
-%% Defining the nodes
-		
-initial([start])
-final([end])
-
-%% duplicate nodeS for just for flowchart readability
-hasNoApplicableExemption_1("no exemption \n required"):::stateBlue
-hasNoApplicableExemption_2("no exemption \n applicable"):::stateRed
-hasNoApplicableExemption_3("no exemption \n required"):::stateBlue
-hasNoApplicableExemption_4("no exemption \n applicable"):::stateRed
-
-hasExemption44("Article 4(4) \n Extension of deadline"):::state
-hasExemption45("Article 4(5) \n Less stringent objectives"):::state
-hasExemption46("Article 4(6) \n Temporary deterioration"):::state
-hasExemption47("Article 4(7) \n New modification/project"):::state
-
-%% Defining the decisions
-
-%% WE NEED THE LISTS!
-is2026Substance{"2008 or 2013 \n priority substance?"}
-is2013Substance{"2013 substance?"}
-
-isCausingFailureIn2027{"Causing failure \n in 2027?"}
-isDeteriorationExpected{"Deterioration expected \n beyond 2027?"}
-isDeteriorationObserved{"Deterioration observed \n in 2027 or earlier?"}
-isGoodStatusAchievable{"Is good status \n achievable?"}
-isDelayDueToNaturalConditions{"Delay due to \n natural conditions?"}
-isDelayDueToFeasibilityOrCost{"Delay due to \n technical feasibility OR \n disproportionate cost?"}
-
-%% Flow to TERMINATORS
-
-initial --> is2026Substance
-hasNoApplicableExemption_1 --> final
-hasNoApplicableExemption_2 --> final
-hasNoApplicableExemption_3 --> final
-hasNoApplicableExemption_4 --> final
-
-hasExemption47 --> final 
-hasExemption46 --> final 
-hasExemption45 --> final 
-hasExemption44 --> final 
-
-%% THE IMPORTANT PART STARTS HERE
-
-    %% EXEMPTIONS DON'T APPLY TO 2026 SUBSTANCES
-    is2026Substance ==> |no| hasNoApplicableExemption_1
-    is2026Substance ==> |yes| isCausingFailureIn2027
-
-    %% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
-    isCausingFailureIn2027 ==> |unknown| hasNoApplicableExemption_2
-
-    %% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
-    isCausingFailureIn2027 ==> |no| isDeteriorationExpected
-    isDeteriorationExpected ==> |no| hasNoApplicableExemption_3
-
-    %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-    isDeteriorationExpected ==> |"yes \n [new modification \n OR sustainable human development]"| hasExemption47
-        
-    %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
-    isCausingFailureIn2027 ==> |yes| isDeteriorationObserved
-    isDeteriorationObserved ==> |"yes \n [new modification \n OR sustainable human development]"| hasExemption47
-    isDeteriorationObserved ==> |"yes \n [accidents  \n OR force majeure  \n OR natural causes]"| hasExemption46
-    isDeteriorationObserved ==> |no| isGoodStatusAchievable
-
-    %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
-    isGoodStatusAchievable ==>|no| hasExemption45
-
-    %% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
-    isGoodStatusAchievable ==> |yes| isDelayDueToNaturalConditions
-            
-    isDelayDueToNaturalConditions ==> |yes| hasExemption44
-            
-    %% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - ONLY FOR 2013 SUBSTANCES
-    isDelayDueToNaturalConditions ==> |no| isDelayDueToFeasibilityOrCost
-    isDelayDueToFeasibilityOrCost ==> |yes| is2013Substance
-
-    is2013Substance ==> |yes| hasExemption44
-
-    is2013Substance ==> |no| hasNoApplicableExemption_4
-
-    isDelayDueToFeasibilityOrCost ==> |no| hasNoApplicableExemption_4
-    
-
-%% styling
-classDef state stroke-width:4px,fill:transparent
-classDef stateRed stroke:red,fill:transparent
-classDef stateBlue stroke:blue,fill:transparent
+```{mermaid} /DataModelReview/mmd/ChemicalExemption_Flowchart.mmd
+:name: ChemicalExemptionFlowchart
+:caption: Surface Water Body - Chemical Exemption Decision Tree - 4th cycle
+:align: center
 ```
+
 ## Surface Water Bodies - Protected area exemptions
 
 Specific objectives may be set for waterbodies associated with some types of protected areas:
@@ -262,15 +180,9 @@ If the specific objectives have not been met, then exemptions may be reported.
 (Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Surface Water Body - Protected Area Exemptions - 4th cycle
----
+:name: SWAssociatedProtectedAreaClass
+:caption: Surface Water Body - Associated Protected Area Exemption - 4th cycle
+:align: center
 classDiagram
 class SWAssociatedProtectedArea{
 	+ euSurfaceWaterBodyCode : wiseIdentifier
@@ -296,15 +208,9 @@ Chemical exemptions are reported at Pollutant level only:
 Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Groundwater Body - Chemical Exemptions - 4th cycle
----
+:name: GWChemicalExemptionClass
+:caption: Groundwater Body - Chemical Exemption - 4th cycle
+:align: center
 classDiagram
 class GWChemicalExemption{
 	+ euGroundWaterBodyCode : wiseIdentifier
@@ -327,15 +233,9 @@ Reporting is mandatory if the following conditions apply:
 * the waterbody is failing to achieve good quantitative status
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Groundwater Body - Quantitative Exemptions - 4th cycle
----
+:name: GWQuantitativeExemptionClass
+:caption: Groundwater Body - Quantitative Exemption - 4th cycle
+:align: center
 classDiagram
 class GWQuantitativeExemption{
 	+ euGroundWaterBodyCode : wiseIdentifier
@@ -350,81 +250,10 @@ class GWQuantitativeExemption{
 The diagram below presents the applicability criteria for the different exemption types.
 
 
-```{mermaid}
-%%{init: {'theme': 'neutral'}}%%
-
-flowchart LR
-
-%% Groundwater Quantitative Status Exemptions
-title@{ shape: braces, label: "Groundwater Quantitative Status Exemptions" }
-
-%% Defining the nodes
-		
-initial([start])
-final([end])
-
-%% duplicate nodeS for just for flowchart readability
-hasNoApplicableExemption_1("no exemption \n applicable"):::stateRed
-hasNoApplicableExemption_2("no exemption \n required"):::stateBlue
-hasNoApplicableExemption_3("no exemption \n applicable"):::stateRed
-
-hasExemption44n("Article 4(4) \n Extension of deadline \n (natural conditions)"):::state
-hasExemption45("Article 4(5) \n Less stringent objectives"):::state
-hasExemption46("Article 4(6) \n Temporary deterioration"):::state
-hasExemption47("Article 4(7) \n New modification/project"):::state
-
-%% Defining the decisions
-
-isQuantitativeStatusIn2027{"Quantitative \n Status \n in 2027?"}
-isDeteriorationExpected{"Deterioration expected \n beyond 2027?"}
-isDeteriorationObserved{"Deterioration observed \n in 2027 or earlier?"}
-isGoodStatusAchievable{"Is good status \n achievable?"}
-isDelayDueToNaturalConditions{"Delay due to \n natural conditions?"}
-
-%% Flow to TERMINATORS
-
-initial --> isQuantitativeStatusIn2027
-hasNoApplicableExemption_1 --> final
-hasNoApplicableExemption_2 --> final
-hasNoApplicableExemption_3 --> final
-hasExemption47 --> final 
-hasExemption46 --> final 
-hasExemption45 --> final 
-hasExemption44n --> final 
-
-%% THE IMPORTANT PART STARTS HERE
-
-    %% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
-    isQuantitativeStatusIn2027 ==>|unknown|hasNoApplicableExemption_1
-
-    %% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
-    isQuantitativeStatusIn2027 ==>|not failing|isDeteriorationExpected
-    isDeteriorationExpected ==>|no|hasNoApplicableExemption_2
-
-    %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-    isDeteriorationExpected ==>|"yes \n [new modification \n OR sustainable human development]"|hasExemption47
-        
-    %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
-    isQuantitativeStatusIn2027 ==>|failing|isDeteriorationObserved
-    isDeteriorationObserved ==>|"yes \n [new modification \n OR sustainable human development]"|hasExemption47
-    isDeteriorationObserved ==>|"yes \n [accidents  \n OR force majeure  \n OR natural causes]"|hasExemption46
-    isDeteriorationObserved ==>|no|isGoodStatusAchievable
-
-    %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
-    isGoodStatusAchievable ==>|no|hasExemption45
-
-    %% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
-    isGoodStatusAchievable ==>|yes|isDelayDueToNaturalConditions
-            
-    isDelayDueToNaturalConditions ==>|yes|hasExemption44n
-            
-    %% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - NO EXEMPTION POSSIBLE
-    isDelayDueToNaturalConditions ==>|no|hasNoApplicableExemption_3
-
-%% styling
-classDef state stroke-width:4px,fill:transparent
-classDef stateRed stroke:red,fill:transparent
-classDef stateBlue stroke:blue,fill:transparent
+```{mermaid} /DataModelReview/mmd/QuantitativeExemption_Flowchart.mmd
+:name: QuantitativeExemptionFlowchart
+:caption: Surface Water Body - Quantitative Exemption Decision Tree - 4th cycle
+:align: center
 ```
 
 ## Groundwater Bodies - Protected area exemptions
@@ -439,15 +268,9 @@ If the specific objectives have not been met, then exemptions may be reported.
 (Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: Groundwater - Protected Area Exemptions - 4th cycle
----
+:name: GWAssociatedProtectedAreaClass
+:caption: Groundwater Body - Associated Protected Area Exemption - 4th cycle
+:align: center
 classDiagram
 class GWAssociatedProtectedArea{
 	+ euGroundWaterBodyCode : wiseIdentifier
@@ -470,15 +293,9 @@ Note the dependencies between the two codelists, which will be verified by the q
 
 
 ```{mermaid}
----
-config:
-  class:
-    hideEmptyMembersBox: true
-  layout: dagre
-  theme: neutral
-  look: neo
-title: DRAFT - Exemptions - Codelists
----
+:name: ExemptionCodelist
+:caption: Codelists associated with the Exemption classes - 4th cycle
+:align: center
 classDiagram
 class ExemptionType{
     <<enumeration>>
@@ -515,15 +332,18 @@ class ExemptionRationale{
 class ExemptionPeriod{
     <<enumeration>>
     until2027
-	until2033
-	until2039
-	lessStringentObjectiveAlreadyAchieved
-	indeterminate
+    until2033
+    until2039
+    lessStringentObjectiveAlreadyAchieved
+    indeterminate
     }
 ```
 
 
-## Exploratory analysis of the data reported in the 3rd cycle
+## Annex - Exploratory analysis of data reported in the 3rd cycle
+
+This section is not relevant for the understanding of the proposed model. 
+It contains some of the data analysis that supported the revision of the data model.
 
 ### Surface water - ecological exemptions at water body - 3rd cycle 
 
@@ -532,54 +352,49 @@ In the 3rd cycle, the reporting of ecological exemptions was requested:
 * directly at surface water body level, in the SWEcologicalExemptionType class
 * also at quality element level, in the qeEcologicalExemptionType element of the QualityElement class.
 
-In 96.5% of the cases, the data reported is redundant.
-
-| exemptionTypeTable | numberOfRecords | numberOfSurfaceWaterBodies | numberOfCountries |
-|---|---:|---:|---:|
-| Both | 63044 | 61709 | 27 |
-| SWB | 2267 | 2105 | 13 |
+In 96.5% of the cases, the data reported is redundant with regard to the reporting at quality element level.
 
 <details>
 <summary>Show code</summary>
 
 ```sql
---  https://discodata.eea.europa.eu
 
-SELECT [exemptionTypeTable],
-COUNT (*) AS [numberOfRecords],
-COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfSurfaceWaterBodies],
-COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-FROM
-(
-SELECT COALESCE(qe.[countryCode], swb.[countryCode]) AS [countryCode],
-	COALESCE(qe.[euSurfaceWaterBodyCode], swb.[euSurfaceWaterBodyCode]) AS [euSurfaceWaterBodyCode],
-	COALESCE(qe.[exemptionType_QE], swb.[exemptionType_SWB]) AS [exemptionType],
-	IIF(qe.[exemptionType_QE] IS NOT NULL AND swb.[exemptionType_SWB] IS NOT NULL, 'Both', 
-		IIF(qe.[exemptionType_QE] IS NOT NULL, 'QE', 
-			IIF(swb.[exemptionType_SWB] IS NOT NULL, 'SWB', 'None'))) AS [exemptionTypeTable]
-FROM 
-	(SELECT DISTINCT [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[qeEcologicalExemptionTypeGroup] AS [exemptionType_QE]
-	  FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  and [qeEcologicalExemptionTypeGroup] != 'None'
-	  and [cYear] = 2022
-	  ) qe
-FULL OUTER JOIN 
-	(SELECT DISTINCT [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[swEcologicalExemptionTypeGroup] AS [exemptionType_SWB]
-	  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWEcologicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  and [swEcologicalExemptionTypeGroup] != 'None'
-	  and [cYear] = 2022
-	  ) swb
-ON qe.[countryCode] = swb.[countryCode]
-AND qe.[euSurfaceWaterBodyCode] = swb.[euSurfaceWaterBodyCode]
-AND qe.[exemptionType_QE] = swb.[exemptionType_SWB] ) t
+  --  https://discodata.eea.europa.eu
 
-GROUP BY [exemptionTypeTable]
+  SELECT [exemptionTypeTable],
+  COUNT (*) AS [numberOfRecords],
+  COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfSurfaceWaterBodies],
+  COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM
+  (
+  SELECT COALESCE(qe.[countryCode], swb.[countryCode]) AS [countryCode],
+    COALESCE(qe.[euSurfaceWaterBodyCode], swb.[euSurfaceWaterBodyCode]) AS [euSurfaceWaterBodyCode],
+    COALESCE(qe.[exemptionType_QE], swb.[exemptionType_SWB]) AS [exemptionType],
+    IIF(qe.[exemptionType_QE] IS NOT NULL AND swb.[exemptionType_SWB] IS NOT NULL, 'Both', 
+      IIF(qe.[exemptionType_QE] IS NOT NULL, 'QE', 
+        IIF(swb.[exemptionType_SWB] IS NOT NULL, 'SWB', 'None'))) AS [exemptionTypeTable]
+  FROM 
+    (SELECT DISTINCT [countryCode]
+        ,[euSurfaceWaterBodyCode]
+        ,[qeEcologicalExemptionTypeGroup] AS [exemptionType_QE]
+      FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      and [qeEcologicalExemptionTypeGroup] != 'None'
+      and [cYear] = 2022
+      ) qe
+  FULL OUTER JOIN 
+    (SELECT DISTINCT [countryCode]
+        ,[euSurfaceWaterBodyCode]
+        ,[swEcologicalExemptionTypeGroup] AS [exemptionType_SWB]
+      FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWEcologicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      and [swEcologicalExemptionTypeGroup] != 'None'
+      and [cYear] = 2022
+      ) swb
+  ON qe.[countryCode] = swb.[countryCode]
+  AND qe.[euSurfaceWaterBodyCode] = swb.[euSurfaceWaterBodyCode]
+  AND qe.[exemptionType_QE] = swb.[exemptionType_SWB] ) t
+  GROUP BY [exemptionTypeTable]
 
 ```
 
@@ -592,58 +407,59 @@ Based on the analysis of the remaining 3.5% of cases, it is likely that the miss
 
 ```sql
 
-SELECT COALESCE(qe.[countryCode], swb.[countryCode]) AS [countryCode],
-	COALESCE(qe.[euSurfaceWaterBodyCode], swb.[euSurfaceWaterBodyCode]) AS [euSurfaceWaterBodyCode],
-	COALESCE(qe.[swEcologicalStatusOrPotentialValue], swb.[swEcologicalStatusOrPotentialValue]) AS [swEcologicalStatusOrPotentialValue],
-	COALESCE(qe.[exemptionType_QE], swb.[exemptionType_SWB]) AS [exemptionType],
-	IIF(qe.[exemptionType_QE] IS NOT NULL AND swb.[exemptionType_SWB] IS NOT NULL, 'Both', 
-		IIF(qe.[exemptionType_QE] IS NOT NULL, 'QE', 
-			IIF(swb.[exemptionType_SWB] IS NOT NULL, 'SWB', 'None'))) AS [exemptionTypeTable],
-			
-	[numberOfQualityElementWithExemptions],
-	[numberOfQualityElementExemptionTypes]
-FROM 
-	(SELECT DISTINCT [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[swEcologicalStatusOrPotentialValue]
-		  ,[qeEcologicalExemptionTypeGroup] AS [exemptionType_QE]
-	  FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  AND [qeEcologicalExemptionTypeGroup] != 'None'
-	  AND [cYear] = 2022
-	  ) qe
-FULL OUTER JOIN 
-	(SELECT DISTINCT [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[swEcologicalStatusOrPotentialValue]
-		  ,[swEcologicalExemptionTypeGroup] AS [exemptionType_SWB]
-	  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWEcologicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  AND [swEcologicalExemptionTypeGroup] != 'None'
-	  AND [cYear] = 2022
-	  ) swb
-ON qe.[euSurfaceWaterBodyCode] = swb.[euSurfaceWaterBodyCode]
-AND qe.[exemptionType_QE] = swb.[exemptionType_SWB] 
+  --  https://discodata.eea.europa.eu
 
-LEFT JOIN 
+  SELECT COALESCE(qe.[countryCode], swb.[countryCode]) AS [countryCode],
+    COALESCE(qe.[euSurfaceWaterBodyCode], swb.[euSurfaceWaterBodyCode]) AS [euSurfaceWaterBodyCode],
+    COALESCE(qe.[swEcologicalStatusOrPotentialValue], swb.[swEcologicalStatusOrPotentialValue]) 
+      AS [swEcologicalStatusOrPotentialValue],
+    COALESCE(qe.[exemptionType_QE], swb.[exemptionType_SWB]) AS [exemptionType],
+    IIF(qe.[exemptionType_QE] IS NOT NULL AND swb.[exemptionType_SWB] IS NOT NULL, 'Both', 
+      IIF(qe.[exemptionType_QE] IS NOT NULL, 'QE', 
+        IIF(swb.[exemptionType_SWB] IS NOT NULL, 'SWB', 'None'))) AS [exemptionTypeTable],  
+    [numberOfQualityElementWithExemptions],
+    [numberOfQualityElementExemptionTypes]
+  FROM 
+    (SELECT DISTINCT [countryCode]
+        ,[euSurfaceWaterBodyCode]
+        ,[swEcologicalStatusOrPotentialValue]
+        ,[qeEcologicalExemptionTypeGroup] AS [exemptionType_QE]
+      FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      AND [qeEcologicalExemptionTypeGroup] != 'None'
+      AND [cYear] = 2022
+      ) qe
+  FULL OUTER JOIN 
+    (SELECT DISTINCT [countryCode]
+        ,[euSurfaceWaterBodyCode]
+        ,[swEcologicalStatusOrPotentialValue]
+        ,[swEcologicalExemptionTypeGroup] AS [exemptionType_SWB]
+      FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWEcologicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      AND [swEcologicalExemptionTypeGroup] != 'None'
+      AND [cYear] = 2022
+      ) swb
+  ON qe.[euSurfaceWaterBodyCode] = swb.[euSurfaceWaterBodyCode]
+  AND qe.[exemptionType_QE] = swb.[exemptionType_SWB] 
 
-	(SELECT [euSurfaceWaterBodyCode],
-			COUNT (DISTINCT [qeCode]) AS [numberOfQualityElementWithExemptions],
-		    COUNT (DISTINCT [qeEcologicalExemptionTypeGroup]) AS [numberOfQualityElementExemptionTypes]
-	  FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  AND [qeEcologicalExemptionTypeGroup] != 'None'
-	  AND [cYear] = 2022
-	  GROUP BY [euSurfaceWaterBodyCode]
-	  ) swb_with_qe_exemption
+  LEFT JOIN 
 
-ON swb_with_qe_exemption.[euSurfaceWaterBodyCode] = swb.[euSurfaceWaterBodyCode] 
+    (SELECT [euSurfaceWaterBodyCode],
+        COUNT (DISTINCT [qeCode]) AS [numberOfQualityElementWithExemptions],
+          COUNT (DISTINCT [qeEcologicalExemptionTypeGroup]) AS [numberOfQualityElementExemptionTypes]
+      FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      AND [qeEcologicalExemptionTypeGroup] != 'None'
+      AND [cYear] = 2022
+      GROUP BY [euSurfaceWaterBodyCode]
+      ) swb_with_qe_exemption
 
-WHERE qe.[exemptionType_QE] IS NULL 
-AND [numberOfQualityElementExemptionTypes] IS NULL
--- AND swb.[swEcologicalStatusOrPotentialValue] IN ('1','2')
-ORDER BY [numberOfQualityElementExemptionTypes]
-	
+  ON swb_with_qe_exemption.[euSurfaceWaterBodyCode] = swb.[euSurfaceWaterBodyCode] 
+
+  WHERE qe.[exemptionType_QE] IS NULL 
+  AND [numberOfQualityElementExemptionTypes] IS NULL
+  -- AND swb.[swEcologicalStatusOrPotentialValue] IN ('1','2')
+  ORDER BY [numberOfQualityElementExemptionTypes]
 ```
 
 </details>
@@ -656,24 +472,26 @@ In 98.9% of the cases, only one type of exemption was reported per quality eleme
 <summary>Show code</summary>
 
 ```sql
---  https://discodata.eea.europa.eu
 
-SELECT [numberOfExemptionTypes],
-	COUNT  (*) AS [numberOfRecords],
-	COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies],
-	COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-FROM 
-	(SELECT [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[qeCode]
-		  ,COUNT(DISTINCT [qeEcologicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
-	  FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  and [qeEcologicalExemptionTypeGroup] != 'None'
-	  and [cYear] = 2022
-	  GROUP BY [countryCode],[euSurfaceWaterBodyCode],[qeCode]) t
-GROUP BY [numberOfExemptionTypes]
-ORDER BY [numberOfExemptionTypes] ASC
+  --  https://discodata.eea.europa.eu
+
+    SELECT [numberOfExemptionTypes],
+      COUNT  (*) AS [numberOfRecords],
+      COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies],
+      COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+    FROM 
+      (SELECT [countryCode]
+          ,[euSurfaceWaterBodyCode]
+          ,[qeCode]
+          ,COUNT(DISTINCT [qeEcologicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
+        FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
+        WHERE hasDescriptiveData = 1
+        and [qeEcologicalExemptionTypeGroup] != 'None'
+        and [cYear] = 2022
+        GROUP BY [countryCode],[euSurfaceWaterBodyCode],[qeCode]) t
+    GROUP BY [numberOfExemptionTypes]
+    ORDER BY [numberOfExemptionTypes] ASC
+
 ```
 
 </details>
@@ -687,27 +505,28 @@ In 99.1% of the cases, only one type of exemption was reported per priority subs
 	
 ```sql
 
--- https://discodata.eea.europa.eu/
+  -- https://discodata.eea.europa.eu/
 
-SELECT [numberOfExemptionTypes],
-	COUNT  (*) AS [numberOfRecords],
-	COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies],
-	COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-FROM 
-	(SELECT [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[swPrioritySubstanceCode]
-		  ,COUNT(DISTINCT [swChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
-	  FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_SWPrioritySubstance_SWChemicalExemptionType]
-	  WHERE hasDescriptiveData = 1
-	  and [swChemicalExemptionTypeGroup] != 'None'
-	  and [cYear] = 2022
-	  GROUP BY
-		   [countryCode]
-		  ,[euSurfaceWaterBodyCode]
-		  ,[swPrioritySubstanceCode]) t
-  GROUP BY [numberOfExemptionTypes]
-  ORDER BY [numberOfExemptionTypes] ASC
+  SELECT [numberOfExemptionTypes],
+    COUNT  (*) AS [numberOfRecords],
+    COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies],
+    COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM 
+    (SELECT [countryCode]
+        ,[euSurfaceWaterBodyCode]
+        ,[swPrioritySubstanceCode]
+        ,COUNT(DISTINCT [swChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
+      FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_SWPrioritySubstance_SWChemicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      and [swChemicalExemptionTypeGroup] != 'None'
+      and [cYear] = 2022
+      GROUP BY
+        [countryCode]
+        ,[euSurfaceWaterBodyCode]
+        ,[swPrioritySubstanceCode]) t
+    GROUP BY [numberOfExemptionTypes]
+    ORDER BY [numberOfExemptionTypes] ASC
+
 ```	  
 
 </details>
@@ -721,27 +540,28 @@ In 99.5% of the cases, only one type of exemption was reported per pollutant and
 	
 ```sql
 
--- https://discodata.eea.europa.eu/
+  -- https://discodata.eea.europa.eu/
 
-SELECT [numberOfExemptionTypes],
-COUNT  (*) AS [numberOfRecords],
-COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
-COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-FROM 
-(SELECT [countryCode]
-        ,[euGroundWaterBodyCode]
-        ,[gwPollutantCode]+isnull([gwPollutantOther],'') AS [pollutantCode]
-        ,COUNT(DISTINCT [gwChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
-    FROM [WISE_WFD].[LATEST].[GWB_GroundWaterBody_GWPollutant_GWChemicalExemptionType]
-    WHERE hasDescriptiveData = 1
-    and [gwChemicalExemptionTypeGroup] != 'None'
-    and [cYear] = 2022
-    GROUP BY
-        [countryCode]
-        ,[euGroundWaterBodyCode]
-        ,[gwPollutantCode]+isnull([gwPollutantOther],'') ) t
-GROUP BY [numberOfExemptionTypes]
-ORDER BY [numberOfExemptionTypes] ASC
+  SELECT [numberOfExemptionTypes],
+  COUNT  (*) AS [numberOfRecords],
+  COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
+  COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM 
+  (SELECT [countryCode]
+          ,[euGroundWaterBodyCode]
+          ,[gwPollutantCode]+isnull([gwPollutantOther],'') AS [pollutantCode]
+          ,COUNT(DISTINCT [gwChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
+      FROM [WISE_WFD].[LATEST].[GWB_GroundWaterBody_GWPollutant_GWChemicalExemptionType]
+      WHERE hasDescriptiveData = 1
+      and [gwChemicalExemptionTypeGroup] != 'None'
+      and [cYear] = 2022
+      GROUP BY
+          [countryCode]
+          ,[euGroundWaterBodyCode]
+          ,[gwPollutantCode]+isnull([gwPollutantOther],'') ) t
+  GROUP BY [numberOfExemptionTypes]
+  ORDER BY [numberOfExemptionTypes] ASC
+
 ```	   
 
 </details>
@@ -754,25 +574,27 @@ In 93.7% of the cases, only one type of exemption was reported per water body.
 <summary>Show code</summary>
 	
 ```sql
---   https://discodata.eea.europa.eu/
 
-SELECT [numberOfExemptionTypes],
-	COUNT  (*) AS [numberOfRecords],
-	COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
-	COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-FROM 
-(SELECT [countryCode]
-        ,[euGroundWaterBodyCode]
-        ,COUNT(DISTINCT [gwQuantitativeExemptionTypeGroup]) AS [numberOfExemptionTypes]
-    FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_gwQuantitativeExemptionType]
-    WHERE hasDescriptiveData = 1
-    and [gwQuantitativeExemptionTypeGroup] != 'None'
-    and [cYear] = 2022
-    GROUP BY
-        [countryCode]
-        ,[euGroundWaterBodyCode] ) t
-GROUP BY [numberOfExemptionTypes]
-ORDER BY [numberOfExemptionTypes] ASC
+  --   https://discodata.eea.europa.eu/
+
+  SELECT [numberOfExemptionTypes],
+    COUNT  (*) AS [numberOfRecords],
+    COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
+    COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM 
+  (SELECT [countryCode]
+          ,[euGroundWaterBodyCode]
+          ,COUNT(DISTINCT [gwQuantitativeExemptionTypeGroup]) AS [numberOfExemptionTypes]
+      FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_gwQuantitativeExemptionType]
+      WHERE hasDescriptiveData = 1
+      and [gwQuantitativeExemptionTypeGroup] != 'None'
+      and [cYear] = 2022
+      GROUP BY
+          [countryCode]
+          ,[euGroundWaterBodyCode] ) t
+  GROUP BY [numberOfExemptionTypes]
+  ORDER BY [numberOfExemptionTypes] ASC
+
 ```
 	
 </details>
@@ -785,17 +607,19 @@ This information is only reported for drinking waters, shellfish designated wate
 <summary>Show code</summary>
 	
 ```sql
---   https://discodata.eea.europa.eu/
-SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-    ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
-    ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-	,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
-WHERE hasDescriptiveData = 1
-    AND [cYear] = 2022
-    AND [protectedAreaType] IN ('Drinking water protection area','Shellfish designated water','Natura 2000 protected site')
-    AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
-GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+
+  --   https://discodata.eea.europa.eu/
+  SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+      ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
+      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
+    ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
+  WHERE hasDescriptiveData = 1
+      AND [cYear] = 2022
+      AND [protectedAreaType] IN ('Drinking water protection area','Shellfish designated water','Natura 2000 protected site')
+      AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
+  GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet]
+
 ```
 </details>
 	
@@ -805,21 +629,23 @@ Exemptions were reported for a total of 667 water bodies associated with a total
 <summary>Show code</summary>
 
 ```sql
---   https://discodata.eea.europa.eu/
- 
- SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
-      ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
-      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-	  ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption]
-  WHERE hasDescriptiveData = 1
-    AND [cYear] = 2022
-    AND [protectedAreaExemption] IS NOT NULL
-    AND [protectedAreaExemption] != 'None'
-    AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site','Shellfish designated water')
-    AND [protectedAreaObjectivesMet] = 'No'
-  GROUP BY
-      LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
+
+  --   https://discodata.eea.europa.eu/
+  
+  SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
+        ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
+        ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
+      ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+    FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption]
+    WHERE hasDescriptiveData = 1
+      AND [cYear] = 2022
+      AND [protectedAreaExemption] IS NOT NULL
+      AND [protectedAreaExemption] != 'None'
+      AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site','Shellfish designated water')
+      AND [protectedAreaObjectivesMet] = 'No'
+    GROUP BY
+        LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
+
  ```
 
 </details>
@@ -833,27 +659,29 @@ This information is only reported for drinking waters and Natura 2000 protected 
 <summary>Show code</summary>
 	
 ```sql
-SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-    ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
-    ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-	,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea]
-WHERE hasDescriptiveData = 1
-    AND [cYear] = 2022
-    AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site')
-    AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
-GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
 
-SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-    ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
-    ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-	,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
-WHERE hasDescriptiveData = 1
-    AND [cYear] = 2022
-    AND [protectedAreaType] IN ('Drinking water protection area','Shellfish designated water','Natura 2000 protected site')
-    AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
-GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+  SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+      ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
+      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
+    ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea]
+  WHERE hasDescriptiveData = 1
+      AND [cYear] = 2022
+      AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site')
+      AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
+  GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+
+  SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+      ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
+      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
+    ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
+  WHERE hasDescriptiveData = 1
+      AND [cYear] = 2022
+      AND [protectedAreaType] IN ('Drinking water protection area','Shellfish designated water','Natura 2000 protected site')
+      AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
+  GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+
 ```
 </details>
 	
@@ -863,21 +691,23 @@ Exemptions were reported for a total of 198 water bodies associated with a total
 <summary>Show code</summary>
 	
 ```sql
---   https://discodata.eea.europa.eu/
 
-SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
-      ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
-      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-	  ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption]
-  WHERE hasDescriptiveData = 1
-    AND [cYear] = 2022
-    AND [protectedAreaExemption] IS NOT NULL
-    AND [protectedAreaExemption] != 'None'
-    AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site')
-    AND [protectedAreaObjectivesMet] = 'No'
-  GROUP BY
-      LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
+  --   https://discodata.eea.europa.eu/
+
+  SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
+        ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
+        ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
+      ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+    FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption]
+    WHERE hasDescriptiveData = 1
+      AND [cYear] = 2022
+      AND [protectedAreaExemption] IS NOT NULL
+      AND [protectedAreaExemption] != 'None'
+      AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site')
+      AND [protectedAreaObjectivesMet] = 'No'
+    GROUP BY
+        LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
+
  ```
 	
 </details>

@@ -1,12 +1,6 @@
-# WFD Protected Areas 
+# WFD - Protected Areas 
 
-Water Framework Directive – Electronic reporting data model review
-
-Protected Areas
-
-**PROPOSAL**
-
-Version 2026.02.13
+**PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4rd_cycle_ProtectedAreas_v20260220.pdf>`
 
 ## Purpose and overview
 
