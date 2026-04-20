@@ -765,7 +765,7 @@ At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoi
 :width: 100%
 :align: center
 
-| qeCode | records | sites | waterBodies | cCountries |
+| qeCode | records | sites | waterBodies | countries |
 | --- | --- | --- | --- | --- |
 | QE1-1 - Phytoplankton | 10751 | 10751 | 8168 | 25 |
 | QE1-2 - Other aquatic flora | 10582 | 10582 | 7864 | 7 |
