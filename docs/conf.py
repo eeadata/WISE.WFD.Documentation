@@ -37,11 +37,16 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','*.txt']
 numfig = True
 numfig_format = {
-    'figure': 'Figure %s. ',
+    'figure': 'Figure %s',
 }
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+
+# Mermaid 
+
+mermaid_params = ['--theme', 'neutral', '--backgroundColor', 'transparent']
 
 # Support for todo items: If this is True, todo and todolist produce output, else they produce nothing. The default is False.
 todo_include_todos = True
@@ -62,7 +67,7 @@ html_show_copyright = False
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
 html_css_files = [
-    'customTable.css',
+    'customTable.css'
 ]
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information

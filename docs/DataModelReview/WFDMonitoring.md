@@ -5,7 +5,7 @@
 ### Background
 
 The 2016 and 2022 WFD reporting guidance documents 
-clarify the content of the information requested in the `Monitoring` schema, in accordance to Article 8 of the WFD.  
+clarify the content of the information requested in the **Monitoring** schema, in accordance to Article 8 of the WFD.  
 The information requested in the electronic reporting refers to past monitoring, and not to planned monitoring, 
 with exceptional cases allowed for in the 3rd cycle reporting guidance (see excerpts below).
 
@@ -16,13 +16,13 @@ thus making redundant the electronic reporting under the RBMPs.
 
 Given that, in 2016, the WISE SoE dataflows were under revision, 
 information about the 2nd cycle monitoring programmes was requested in the WFD 2016 electronic reporting 
-(see the `Monitoring_2016` diagram below).
+(see {numref}`Monitoring_2016`).
 
-For the 3rd cycle reporting, in 2022, 
+For the 3ʳᵈ cycle reporting, in 2022, 
 the analysis of the content of the WISE SoE reporting showed issues 
 in the completeness of the voluntary reporting of monitoring results for water quality: 
 it would not have been possible to derive the requested monitoring information from the EEA Waterbases.
-Therefore, the reporting schema was simplified (see the `Monitoring_2022` diagram below),
+Therefore, the reporting schema was simplified (see {numref}`Monitoring_2022`),
 but kept in the WFD 2022 electronic reporting.
 
 In preparation on the 4th cycle reporting,
@@ -35,54 +35,67 @@ that likely reflects the existing WFD monitoring programmes.
 For such Member States, reporting derived statistics about sampling frequency and period 
 in the 4th cycle electronic reporting is duplicate reporting and an unnecessary reporting burden.
 
-![Monitoring_2016 Schema](https://cdr.eionet.europa.eu/help/WFD/WFD_521_2016/UML/Monitoring_2016.png)
-
-![Monitoring_2022 Schema](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/Monitoring_2022.png)
-
 
 ***Extracts from 2016 WFD Reporting Guidance for the 2nd cycle (pg. 93-100)***
 
-> Reporting should reflect the monitoring carried out that has informed the second RBMPs. 
+> "Reporting should reflect the monitoring carried out that has informed the second RBMPs. 
 > Given that monitoring programmes are usually dynamic and multi‐annual 
 > (i.e. in the cases of quality elements with lower frequencies of monitoring), 
 > reporting should reflect, as accurately as possible, 
 > the monitoring that has informed the preparation of the second RBMPs. 
-> Reporting is not intended to include information regarding future monitoring programmes or planned changes.
+> Reporting is not intended to include information regarding future monitoring programmes or planned changes."
   
-> The data and information on monitoring to be reported under Article 8 of the WFD 
+> "The data and information on monitoring to be reported under Article 8 of the WFD 
 > include a description of the monitoring sites, a specification of the different QEs and chemical substances
-> monitored at each site, and information relating to the associated monitoring programmes.
+> monitored at each site, and information relating to the associated monitoring programmes."
   
-> Member States are expected to report to EEA WISE SoE:
+> "Member States are expected to report to EEA WISE SoE:
 > * Water quality results including Priority Substances and River Basin Specific Pollutants 
 >   to EEAs Waterbases on groundwater, rivers, lakes, transitional waters and coastal waters
 > * Results from monitoring Biological Quality Elements 
->   to EEAs Waterbases on rivers, lakes, transitional waters and coastal waters.
+>   to EEAs Waterbases on rivers, lakes, transitional waters and coastal waters."
+
+```{figure} img/Monitoring_2016.png
+:name: Monitoring_2016
+:align: center
+:width: 75%
+
+Monitoring_2016 Schema - 2nd cycle - Obsolete
+```
+
 
 ***Extracts from the 2022 WFD Reporting Guidance for the 3rd cycle (pg. 90-97)***
 
-> Reporting should reflect the monitoring that was carried out and informed the third RBMPs. 
+> "Reporting should reflect the monitoring that was carried out and informed the third RBMPs. 
 > It is not intended to include information regarding future monitoring programmes. 
 > It can include planned changes when sufficient information is already available 
 > on the QEs, substances or parameters that will be monitored and at which frequency. 
-> In these cases, the date of the last monitoring should be reported as ‘9999’, as mentioned in the specific guidance below.
+> In these cases, the date of the last monitoring should be reported as ‘9999’, as mentioned in the specific guidance below."
   
-> The data and information on monitoring to be reported under Article 8 of the WFD 
+> "The data and information on monitoring to be reported under Article 8 of the WFD 
 > include a description of the monitoring sites, a specification of the different QEs and chemical substances
-> monitored at each site, and information relating to the associated monitoring programmes.
+> monitored at each site, and information relating to the associated monitoring programmes."
   
-> Member States are expected to report to EEA WISE SoE:
+> "Member States are expected to report to EEA WISE SoE:
 > * Water quality results, including Priority Substances and River Basin Specific Pollutants, 
 >   to Waterbases on groundwater, rivers, lakes, transitional waters and coastal waters
-> * Results from monitoring Biological Quality Elements to Waterbases on rivers, lakes, transitional waters and coastal waters
+> * Results from monitoring Biological Quality Elements to Waterbases on rivers, lakes, transitional waters and coastal waters"
 
+
+```{figure} img/Monitoring_2022.png
+:name: Monitoring_2022
+:align: center
+:width: 75%
+
+Monitoring_2022 Schema - 3rd cycle - Obsolete
+```
 
 ## Monitoring table - 4th cycle
 
-For the 4th cycle of reporting, the requested information is simplified:
+For the 4th cycle of reporting, the requested information is further simplified (see {numref}`DescriptiveMonitoring4thcycle`):
 
 * Information about the monitoring programmes is provided in the RBMP documents only: 
-  only the reference to the supporting documents is requested in the `MonitoringProgrammes` table. 
+  only the reference to the supporting documents is requested in the ``MonitoringProgrammes`` table. 
 
   The information can be provided at national level (by ommitting the euRBDCode), 
   or the River Basin District level (by providing the euRBDCode each of the national RBDs). 
@@ -118,6 +131,8 @@ For the 4th cycle of reporting, the requested information is simplified:
 :name: DescriptiveMonitoring4thcycle
 :caption:  Descriptive data - Monitoring - 4th cycle
 :align: center
+:zoom:
+%%{init: {'theme': 'neutral'}}%%
 classDiagram
 direction LR
 
@@ -160,6 +175,8 @@ Note also that the option 'EEA_00-00-0 - Other parameter' will **not** be availa
 :name: CodelistsDescriptiveMonitoring4thcycle
 :caption:  Codelists - Monitoring - 4th cycle
 :align: center
+:zoom:
+%%{init: {'theme': 'neutral'}}%%
 classDiagram
 direction LR
 namespace Codelist{
@@ -241,21 +258,39 @@ Note that the execution of the queries is slow and may timeout for the entire Eu
 
 ### Monitoring of CAS_1912-24-9 - Atrazine 
 
-*Example* - Monitoring of Atrazine in the period 2016-2021, by water body category, in all matrices, according to the WFD RBMP Monitoring schema reporting.
+See {numref}`atrazine_wfd2022` for the information about the monitoring of Atrazine in the period 2016-2021, by water body category, in all matrices, according to the data reported under the WFD2022 Monitoring schema.
 
-| waterBodyCategory | numberOfCountries | numberOfWaterBodies | numberOfSites | **numberOfRecords** |
+See {numref}`atrazine_2016_2021_waterbase` for the monitoring results for Atrazine in the period 2016-2021, by water body category, in water, according to the data available in the Waterbase_T_WISE6_DisaggregatedData table (reported under WISE SoE Water Quality - WISE-6).
+
+See {numref}`atrazine_2016_2021_waterbase_country` for the monitoring results for Atrazine in the period 2016-2021, by water body category **and country**, in water, according to the data available in the Waterbase_T_WISE6_DisaggregatedData table (reported under WISE SoE Water Quality - WISE-6). *Note that over 61% of the data was reported by Italy and France.*
+
+See {numref}`atrazine_2022_2027_waterbase` for the monitoring results for Atrazine in the period 2022-2027, by water body category, in water, according to the data available in the Waterbase_T_WISE6_DisaggregatedData table (reported under WISE SoE Water Quality - WISE-6). *Note that only data until 2023 has been reported so far.*
+
+See {numref}`atrazine_2022_2027_waterbase_country` for the monitoring results for Atrazine in the period 2016-2021, by water body category **and country**, in water, according to the data available in the Waterbase_T_WISE6_DisaggregatedData table (reported under WISE SoE Water Quality - WISE-6). *Note that over 64% of the data was reported by Italy and France.*
+
+
+```{table} Monitoring of Atrazine in the period 2016-2021, according to the WFD2022 reporting.
+:name: atrazine_wfd2022
+:width: 100%
+:align: center
+
+| wbCategory | countries | waterBodies | sites | **records** |
 | --- | --- | --- | --- | --- |
 | GW | 18 | 2764 | 16028 | 16028 |
 | LW | 23 | 2658 | 2798 | 2975 |
 | RW | 26 | 14990 | 16880 | 17217 |
 | TW | 14 | 393 | 481 | 532 |
 | CW | 18 | 591 | 859 | 1017 |
-| TeW | 8 | 13 | 37 | 45 |
+| TeW | 8 | 13 | 37 | 45 |`
 
-*Example* - Data related to Atrazine in the period 2016-2021, by water body category, in water, 
-in Waterbase_T_WISE6_DisaggregatedData.
+```
 
-| waterBodyCategory | numberOfCountries | numberOfWaterBodies | numberOfSites | **numberOfSamples** |
+```{table} Data related to Atrazine in the period 2016-2021, in Waterbase_T_WISE6_DisaggregatedData, by water category.
+:name: atrazine_2016_2021_waterbase
+:width: 100%
+:align: center
+
+| wbCategory | countries | waterBodies | sites |  **samples** |
 | --- | --- | --- | --- | --- |
 |GW | 15 | 2302 | 8351 | 59586 |
 | LW | 15 | 738 | 782 | 10484 |
@@ -264,10 +299,14 @@ in Waterbase_T_WISE6_DisaggregatedData.
 | CW | 7 | 238 | 337 | 3586 |
 | TeW | 1 | 1 | 1 | 12 |
 
-*Example* - Data related to Atrazine in the period 2016-2021, by country and water body category, in water, 
-in Waterbase_T_WISE6_DisaggregatedData.
+```
 
-| countryCode | GW | LW | RW | TW | CW | numberOfSites |
+```{table} Data related to Atrazine in the period 2016-2021, in Waterbase_T_WISE6_DisaggregatedData, by country and water category.
+:name: atrazine_2016_2021_waterbase_country
+:width: 100%
+:align: center
+
+| country | GW | LW | RW | TW | CW | total |
 | --- | --- | --- | --- | --- | --- | --- |
 | IT | 2925 | 144 | 1828 | 84 | 185 | 5166 |
 | FR | 1703 | 137 | 1605 | 6 |  | 3451 |
@@ -291,12 +330,16 @@ in Waterbase_T_WISE6_DisaggregatedData.
 | LT |  | 1 | 19 | 6 |  | 26 |
 | FI |  |  | 14 |  |  | 14 |
 | SE |  |  | 2 |  |  | 2 |
-| numberOfSites | 8351 | 782 | 4380 | 178 | 337 | 14028 |
+| total | 8351 | 782 | 4380 | 178 | 337 | 14028 |
 
-*Example* - Provisional data related to Atrazine in the period 2022-2027, by country and water body category, in water, 
-in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is available).
+```
 
-| waterBodyCategory | numberOfCountries | numberOfWaterBodies | numberOfSites | numberOfSamples |
+```{table} Provisional data related to Atrazine in the period 2022-2027, in Waterbase_T_WISE6_DisaggregatedData, by water category.
+:name: atrazine_2022_2027_waterbase
+:width: 100%
+:align: center
+
+| wbCategory | countries | waterBodies | sites |  **samples** |
 | --- | --- | --- | --- | --- |
 | GW | 15 | 2271 | 7991 | 23378 |
 | LW | 11 | 314 | 343 | 2811 |
@@ -304,10 +347,14 @@ in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is availa
 | TW | 8 | 89 | 122 | 1621 |
 | CW | 6 | 116 | 145 | 1129 |
 
-*Example* - Data related to Atrazine in the period 2022-2027, by country and water body category, in water, 
-in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is available).
+```
 
-| countryCode | GW | LW | RW | TW | CW | numberOfSites |
+```{table} Provisional data related to Atrazine in the period 2022-2027, in Waterbase_T_WISE6_DisaggregatedData, by water category and country
+:name: atrazine_2022_2027_waterbase_country
+:width: 100%
+:align: center
+
+| country | GW | LW | RW | TW | CW | total |
 | --- | --- | --- | --- | --- | --- | --- |
 | IT | 2552 | 104 | 1649 | 96 | 106 | 4507 |
 | FR | 1942 | 51 | 1277 |  |  | 3270 |
@@ -328,15 +375,22 @@ in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is availa
 | LT |  |  | 27 | 6 | 2 | 35 |
 | SI | 5 |  | 6 |  |  | 11 |
 | SE |  |  | 2 |  |  | 2 |
-| numberOfSites | 7991 | 343 | 3503 | 122 | 145 | 12104 |
+| total | 7991 | 343 | 3503 | 122 | 145 | 12104 |
 
-*Example* - Data related to Atrazine in the period 2016-2021, by country and water body category, in the EEA pesticides indicator.
+```
 
-| waterBodyCategory | numberOfCountries | numberOfWaterBodies | numberOfSites | numberOfSamples |
+```{table} Data related to Atrazine in the period 2016-2021, by country and water body category, in the EEA pesticides indicator.
+:name: atrazine_2016_2021_pesticides
+:width: 100%
+:align: center
+
+| wbCategory | countries | waterBodies | sites |  **samples** |
 | --- | --- | --- | --- | --- |
 | GW | 17 | 2973 | 11871 | 82989 |
 | LW | 16 | 1176 | 1275 | 16841 |
 | RW | 21 | 6553 | 7023 | 152628 |
+
+```
 
 *Note* - The queries below illustrate the use of the existing European datasets, and do not necessarily match the queries used to obtain the tables above (although they may be adjusted for that purpose).
 
@@ -344,8 +398,13 @@ in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is availa
 <summary>Show code</summary>
 
 ```sql
+
 -- https://discodata.eea.europa.eu
 -- Warning: the query may timeout in the public interface.
+
+/**
+    Monitoring programmes reported in WFD2022 for CAS_1912-24-9 - Atrazine
+**/
 
   SELECT [parameterCode],[waterBodyCategory]
       ,count(*) as [numberOfRecords]
@@ -360,7 +419,7 @@ in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is availa
   GROUP BY [parameterCode],[waterBodyCategory]
   ORDER BY [numberOfRecords] DESC
 ```
-</details>
+</details><br/>
 
 
 <details>
@@ -371,12 +430,8 @@ in Waterbase_T_WISE6_DisaggregatedData (currently only data until 2023 is availa
 -- Warning: the query may timeout in the public interface.
 
 /**
-    RESULTS BASED ONLY IN [Waterbase_T_WISE6_DisaggregatedData].
-
-    CAS_1912-24-9 - Atrazine
-    Monitoring sites in the WISE SOE database 
-    with at least 1 valid observation of Atrazine in the period 2016-2021, 
-    by water body category,
+    Monitoring results for CAS_1912-24-9 - Atrazine available in [Waterbase_T_WISE6_DisaggregatedData].
+    Monitoring sites with at least 1 valid observation of Atrazine in the period 2016-2021, by water body category,
     where the analysed matrix is Water (total or dissolved fraction).
 **/
 
@@ -400,7 +455,7 @@ SELECT [parameterWaterBodyCategory] AS [waterBodyCategory],
   GROUP BY [parameterWaterBodyCategory]
 
 ```
-</details>
+</details><br/>
 
 
 <details>
@@ -411,11 +466,7 @@ SELECT [parameterWaterBodyCategory] AS [waterBodyCategory],
 -- Warning: the query may timeout in the public interface.
 
 /**
-    CAS_1912-24-9 - Atrazine
-    Monitoring sites used in the EEA pesticides indicator
-    with at least 1 valid observation of Atrazine in the period 2016-2021, 
-    by country and water body category,
-    where the analysed matrix is Water (total or dissolved).
+    Monitoring results for CAS_1912-24-9 - Atrazine used in the EEA pesticides indicator.
 **/
 
 SELECT [waterBodyCategory],
@@ -443,7 +494,7 @@ FROM
   GROUP BY [waterBodyCategory],[countryCode],[waterBodyIdentifier],[monitoringSiteIdentifier]
   ORDER BY [waterBodyCategory],[countryCode],[waterBodyIdentifier],[monitoringSiteIdentifier]
 ```
-</details>
+</details><br/>
   
 <details>
 <summary>Show code</summary>
@@ -453,8 +504,9 @@ FROM
 -- Warning: the query may timeout in the public interface.
 
 /**
-    CAS_1912-24-9 - Atrazine
-    Results per water category
+    Monitoring results for CAS_1912-24-9 - Atrazine used in the EEA pesticides indicator.
+    RESULTS BY WATER CATEGORY
+
 **/
 
 SELECT [waterBodyCategory],
@@ -479,8 +531,9 @@ FROM
   ) AS t
   GROUP BY [waterBodyCategory]
   ORDER BY [waterBodyCategory]
-</details>
-  
+```
+</details><br/>
+
 ### Monitoring - Groundwater quantitative monitoring - 3rd cycle
 
 <details>
@@ -501,17 +554,22 @@ FROM
   GROUP BY [parameterCode]
 
 ```
-</details>  
+</details><br/>  
 
 ### Monitoring - Groundwater chemical monitoring - 3rd cycle
-
-Except 'EEA_00-00-0 - Other parameter'.
 
 <details>
 <summary>Show code</summary>
 
 ```sql
   --   https://discodata.eea.europa.eu/
+
+  /**
+
+  Groundwater chemical monitoring programmes reported in WFD2022 
+  Except 'EEA_00-00-0 - Other parameter'.
+
+  **/
 
   SELECT [parameterCode]
       ,count(*) as [numberOfRecords]
@@ -528,7 +586,7 @@ Except 'EEA_00-00-0 - Other parameter'.
   ORDER BY [numberOfRecords] DESC
 
 ```
-</details>  
+</details><br/>  
 
 ### Monitoring - Surface water chemical monitoring - 3rd cycle
 
@@ -540,6 +598,14 @@ Note, however, that more substances are being monitored, according to the report
 
 ```sql
   --   https://discodata.eea.europa.eu/
+
+  /**
+
+  List of priority substances and river basin specific pollutants reported in WFD2022.
+  Except 'EEA_00-00-0 - Other parameter'.
+
+  **/
+
   SELECT DISTINCT [swPrioritySubstanceCode]  AS [substanceCode] , 'ps' as [substanceType]
   FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWPrioritySubstance]
   WHERE [hasDescriptiveData] = 1
@@ -557,19 +623,26 @@ Note, however, that more substances are being monitored, according to the report
   AND [swFailingRBSP] NOT IN ('CAS_14797-55-8 - Nitrate','CAS_14797-65-0 - Nitrite','CAS_14798-03-9 - Ammonium','CAS_18785-72-3 - Sulphate','EEA_31613-01-1 - Non-ionised ammonia')
  
 ```
-</details>  
+</details><br/>  
 
-Note that substances like Nitrate, Nitrite, Ammonium, Sulphate, and Non-ionised ammonia are reported 
+See {numref}`rbsp_qe31`: note that substances like Nitrate, Nitrite, Ammonium, Sulphate, and Non-ionised ammonia are sometimes reported 
 both as quality elements, and as river basin specific pollutants. There are additional substances in the 2nd cycle.
-These cases were explicitly excluded in the query above.
 
-| swFailingRBSP | qeCode | numberOfWaterBodiesFailing | numberOfCountries | exampleCountry |
+These situations should be clarified with MS (and clear guidelines provided so that the quality control is implemented correctly).
+
+```{table} Substances reported as River Basin Specific Pollutants that are also classified as QE3-1.
+:name: rbsp_qe31
+:width: 100%
+:align: center
+
+| swFailingRBSP | qeCode | waterBodiesFailing | countries | country |
 | --- | --- | --- | --- | --- |
 | CAS_14797-55-8 - Nitrate | QE3-1-6-1-1 - Nitrate | 57 | 1 | SE |
 | CAS_14797-65-0 - Nitrite | QE3-1-6-1-2 - Nitrite | 23 | 1 | BE |
 | CAS_14798-03-9 - Ammonium | QE3-1-6-1-4 - Ammonium | 510 | 1 | NL |
 | CAS_18785-72-3 - Sulphate | QE3-1-4-2 - Other determinand for salinity | 3 | 1 | SI |
 | EEA_31613-01-1 - Non-ionised ammonia | QE3-1-6-1-3 - Non-ionised ammonia | 126 | 1 | SE |
+```
 
 <details>
 <summary>Show code</summary>
@@ -674,13 +747,25 @@ FROM (VALUES
   GROUP BY [swFailingRBSP], [qeCode]
 
 ```
-</details>  
+</details><br/>  
 
 ### Monitoring - Surface water ecological monitoring - 3rd cycle
 
-*Example* - Data reported in the 3rd cycle
+See {numref}`sw_ecological_monitoring`: for an overview of the Surface water ecological monitoring reported in the 3rd cycle RBMPs.
+Note that more than one substance or parameter can be aggregated under each Quality Element code.
 
-| qeCode | numberOfRecords | numberOfSites | numberOfWaterBodies | numberOfCountries |
+For QE3-1 (General parameters), it is preferable to use the substance code and agregate the reported data to the corresponding quality element. 
+Given that both options - quality element code and substance code - were used in the reporting, the query is more complex. 
+
+In the 4th cycle, the use of the CAS and EEA codes should be recommended.
+At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoided.
+
+```{table} Surface water ecological monitoring, as reported in the 3rd cycle RBMPs.
+:name: sw_ecological_monitoring
+:width: 100%
+:align: center
+
+| qeCode | records | sites | waterBodies | cCountries |
 | --- | --- | --- | --- | --- |
 | QE1-1 - Phytoplankton | 10751 | 10751 | 8168 | 25 |
 | QE1-2 - Other aquatic flora | 10582 | 10582 | 7864 | 7 |
@@ -721,12 +806,7 @@ FROM (VALUES
 | QE3-1-6-3 - Silicate | 2001 | 2001 | 1483 | 10 |
 | QE3-1-6-4 - Other determinand for nutrient conditions | 818 | 818 | 487 | 8 |
 | QE3-3 - River Basin Specific Pollutants | 9174 | 9174 | 7591 | 14 |
-
-For QE3-1 (General parameters), it is preferable to use the substance code and agregate the reported data to the corresponding quality element. 
-Given that both options - quality element code and substance code - were used in the reporting, the query is more complex. 
-
-In the 4th cycle, the use of the CAS and EEA codes should be recommended.
-At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoided.
+```
 
 <details>
 <summary>Show code</summary>
@@ -831,15 +911,24 @@ At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoi
   AND (a.[parameterCode] LIKE 'QE%' OR b.[qeCode] IS NOT NULL)
   GROUP BY COALESCE(b.[qeCode], a.[parameterCode])
 ```
-</details>  
+</details><br/>  
 
 ### Assessment method for quality elements - 3rd cycle
+
+All the information analysed above refers to "in-situ" data, i.e. conventional monitoring.
 
 <details>
 <summary>Show code</summary>
 
 ```sql
   --   https://discodata.eea.europa.eu/
+
+  /**
+  
+  For the 4th cycle, the assessment methods codelist provided with QualityElement table must also include non-conventional monitoring. 
+  
+  **/
+
 SELECT [qeCode]
       ,[qeMonitoringResults]
       ,count(*) as [numberOfWaterBodies]
@@ -851,4 +940,4 @@ SELECT [qeCode]
   GROUP BY [qeCode], [qeMonitoringResults]
   ORDER BY [qeCode], [qeMonitoringResults]
   ```
-</details>  
+</details><br/>  

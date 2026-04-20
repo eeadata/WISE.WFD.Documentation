@@ -712,9 +712,3 @@ Exemptions were reported for a total of 198 water bodies associated with a total
 	
 </details>
 
-
-```{figure} https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/GWB_2022.png
-
-legend
-
-```
