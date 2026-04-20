@@ -28,6 +28,7 @@ else:
                  'sphinxcontrib.bibtex', 
                  'sphinxcontrib.mermaid', 
                  'sphinxcontrib.xlsxtable']
+   
 	
 
 bibtex_bibfiles = ['./_sharedFiles/bibliography.bib']

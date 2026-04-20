@@ -10,6 +10,7 @@ WFD - Data Model Review
       WFDEconomicAnalysis
       WFDProtectedAreas
       WFDExemptions
+      WFDMonitoring
 
 .. substitutions-placeholder
 
