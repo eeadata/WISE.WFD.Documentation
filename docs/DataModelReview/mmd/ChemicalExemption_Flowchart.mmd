@@ -15,6 +15,7 @@ hasNoApplicableExemption_1("no exemption \n required"):::stateBlue
 hasNoApplicableExemption_2("no exemption \n applicable"):::stateRed
 hasNoApplicableExemption_3("no exemption \n required"):::stateBlue
 hasNoApplicableExemption_4("no exemption \n applicable"):::stateRed
+hasNoApplicableExemption_5("no exemption \n applicable"):::stateRed
 
 hasExemption44("Article 4(4) \n Extension of deadline"):::state
 hasExemption45("Article 4(5) \n Less stringent objectives"):::state
@@ -31,6 +32,7 @@ isCausingFailureIn2027{"Causing failure \n in 2027?"}
 isDeteriorationExpected{"Deterioration expected \n beyond 2027?"}
 isDeteriorationObserved{"Deterioration observed \n in 2027 or earlier?"}
 isGoodStatusAchievable{"Is good status \n achievable?"}
+isUnfeasibleOrCostly{"Are measures \n unfeasible or \n disproportionately \n costly?"}
 isDelayDueToNaturalConditions{"Delay due to \n natural conditions?"}
 isDelayDueToFeasibilityOrCost{"Delay due to \n technical feasibility OR \n disproportionate cost?"}
 
@@ -41,6 +43,7 @@ hasNoApplicableExemption_1 --> final
 hasNoApplicableExemption_2 --> final
 hasNoApplicableExemption_3 --> final
 hasNoApplicableExemption_4 --> final
+hasNoApplicableExemption_5 --> final
 
 hasExemption47 --> final 
 hasExemption46 --> final 
@@ -70,7 +73,9 @@ hasExemption44 --> final
     isDeteriorationObserved ==> |no| isGoodStatusAchievable
 
     %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
-    isGoodStatusAchievable ==>|no| hasExemption45
+    isGoodStatusAchievable ==>|no|isUnfeasibleOrCostly
+    isUnfeasibleOrCostly ==> |yes|hasExemption45
+    isUnfeasibleOrCostly ==> |no|hasNoApplicableExemption_4
 
     %% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
     isGoodStatusAchievable ==> |yes| isDelayDueToNaturalConditions
@@ -83,9 +88,9 @@ hasExemption44 --> final
 
     is2013Substance ==> |yes| hasExemption44
 
-    is2013Substance ==> |no| hasNoApplicableExemption_4
+    is2013Substance ==> |no| hasNoApplicableExemption_5
 
-    isDelayDueToFeasibilityOrCost ==> |no| hasNoApplicableExemption_4
+    isDelayDueToFeasibilityOrCost ==> |no| hasNoApplicableExemption_5
     
 
 %% styling

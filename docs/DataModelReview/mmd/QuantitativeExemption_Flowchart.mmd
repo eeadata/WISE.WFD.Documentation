@@ -14,6 +14,7 @@ final([end])
 hasNoApplicableExemption_1("no exemption \n applicable"):::stateRed
 hasNoApplicableExemption_2("no exemption \n required"):::stateBlue
 hasNoApplicableExemption_3("no exemption \n applicable"):::stateRed
+hasNoApplicableExemption_4("no exemption \n applicable"):::stateRed
 
 hasExemption44n("Article 4(4) \n Extension of deadline \n (natural conditions)"):::state
 hasExemption45("Article 4(5) \n Less stringent objectives"):::state
@@ -26,6 +27,7 @@ isQuantitativeStatusIn2027{"Quantitative \n Status \n in 2027?"}
 isDeteriorationExpected{"Deterioration expected \n beyond 2027?"}
 isDeteriorationObserved{"Deterioration observed \n in 2027 or earlier?"}
 isGoodStatusAchievable{"Is good status \n achievable?"}
+isUnfeasibleOrCostly{"Are measures \n unfeasible or \n disproportionately \n costly?"}
 isDelayDueToNaturalConditions{"Delay due to \n natural conditions?"}
 
 %% Flow to TERMINATORS
@@ -34,6 +36,7 @@ initial --> isQuantitativeStatusIn2027
 hasNoApplicableExemption_1 --> final
 hasNoApplicableExemption_2 --> final
 hasNoApplicableExemption_3 --> final
+hasNoApplicableExemption_4 --> final
 hasExemption47 --> final 
 hasExemption46 --> final 
 hasExemption45 --> final 
@@ -58,17 +61,19 @@ hasExemption44n --> final
     isDeteriorationObserved ==>|no|isGoodStatusAchievable
 
     %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
-    isGoodStatusAchievable ==>|no|hasExemption45
+    isGoodStatusAchievable ==>|no|isUnfeasibleOrCostly
+    isUnfeasibleOrCostly ==> |yes|hasExemption45
+    isUnfeasibleOrCostly ==> |no|hasNoApplicableExemption_4
 
     %% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
     isGoodStatusAchievable ==>|yes|isDelayDueToNaturalConditions
-            
-    isDelayDueToNaturalConditions ==>|yes|hasExemption44n
-            
+                    
     %% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - NO EXEMPTION POSSIBLE
-    isDelayDueToNaturalConditions ==>|no|hasNoApplicableExemption_3
+    isDelayDueToNaturalConditions ==>|no|hasNoApplicableExemption_4
+    isDelayDueToNaturalConditions ==>|yes|hasExemption44n
 
 %% styling
 classDef state stroke-width:4px,fill:transparent
 classDef stateRed stroke:red,fill:transparent
 classDef stateBlue stroke:blue,fill:transparent
+

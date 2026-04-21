@@ -101,11 +101,13 @@ Ecological exemptions are reported using the table in {numref}`SWEcologicalExemp
 Ecological exemptions are not applicable to Territorial Waters.
 For other surface water body categories, reporting is mandatory when the following conditions apply:
 * the qeCode value starts with QE1 or qeCode starts with QE3 
-* and the quality element is causing failing to achieve good status, i.e. qeStatusOrPotentialValue in (3, 4, 5).
+* and the quality element is causing failure to achieve good status, i.e. qeStatusOrPotentialValue in (3, 4, 5).
 
 Ecological exemptions are reported at Quality Element level only:
 * exemptions are not applicable to quality elements with unknown status
 * exemptions are not applicable to quality elements not used in the ecological status assessment.
+
+(Note that the duplicate reporting of the ecological exemptions - both at surface water body level *and* at quality element level - is removed in the revised model for the 4th cycle reporting.)
 
 ```{mermaid}
 :name: SWEcologicalExemptionClass
@@ -138,7 +140,7 @@ Chemical exemptions are reported using the table in {numref}`SWChemicalExemption
 
 Reporting is mandatory if the following conditions apply:
 * the swPollutantCode value is a 2013 Priority Substance  
-* all the Priority Substance is causing failing to achieve good status (i.e. swPollutantCausingFailure = 'Yes').
+* all the Priority Substance is causing failure to achieve good status (i.e. swPollutantCausingFailure = 'Yes').
 
 Chemical exemptions are reported at Pollutant level only:
 * exemptions are only applicable to priority substances
@@ -210,7 +212,7 @@ class SWAssociatedProtectedArea{
 Chemical exemptions are reported using the table in {numref}`GWChemicalExemptionClass`.
 
 Reporting is mandatory if the following condition applies:
-* the substance is causing failing to achieve good status (i.e. gwPollutantCausingFailure = 'Yes').
+* the substance is causing failure to achieve good status (i.e. gwPollutantCausingFailure = 'Yes').
 
 Chemical exemptions are reported at Pollutant level only:
 * exemptions are not applicable to substances with unknown status.
@@ -333,7 +335,7 @@ class ExemptionRationale{
     article44_technicalFeasibility
     article44_disproportionateCost
     article44_naturalConditions
-    article45_technicalFeasibility
+    article45_feasibility
     article45_disproportionateCost
     article46_naturalCauses
     article46_forceMajeure
