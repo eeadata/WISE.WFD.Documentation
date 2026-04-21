@@ -252,7 +252,7 @@ Specific objectives may be set for some types of protected areas:
 
 For Freshwater fish designated waters, the WFD good ecological status fully integrates the integrate Fish Directive (2006/44/EC) objectives. Similarly, the WFD good status integrates the Nitrates Directive and UWWTD objectives related to eutrophication. Therefore, no information on specific objectives is requested or expected for these types of protected area or for bathing waters.
 
-The data reported for the 3ʳᵈ>` cycle can be used to estimate the impact of the simplification:
+The data reported for the 3ʳᵈ cycle can be used to estimate the impact of the simplification:
 
 - 46% of the 84560 records reported for groundwater associated protected areas would not have been reported.
 - 72% of the 71726 records reported for surface water associated protected areas would not have been reported.
