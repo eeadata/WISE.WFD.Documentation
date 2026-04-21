@@ -382,6 +382,12 @@ In 96.5% of the cases, the data reported is redundant with regard to the reporti
 
 ```sql
 
+  /**
+    "Duplicate" reporting of ecological exemptions 
+    at surface water body level and at quality element level 
+    in the 3rd cycle reporting
+  **/
+
   --  https://discodata.eea.europa.eu
 
   SELECT [exemptionTypeTable],
@@ -429,6 +435,13 @@ Based on the analysis of the remaining 3.5% of cases, it is likely that the miss
 <summary>Show code</summary>
 
 ```sql
+
+  /**
+    Analysis of the cases where 
+    ecological exemptions reported at surface water body level
+    do not match an exemption reported at quality element level 
+    in the 3rd cycle reporting
+  **/
 
   --  https://discodata.eea.europa.eu
 
@@ -496,6 +509,13 @@ In 98.9% of the cases, only one type of exemption was reported per quality eleme
 
 ```sql
 
+  /**
+    Analysis of the number of different exemptions 
+    reported at quality element level,
+    for a given water body and quality element, 
+    in the 3rd cycle reporting
+  **/
+
   --  https://discodata.eea.europa.eu
 
     SELECT [numberOfExemptionTypes],
@@ -527,6 +547,13 @@ In 99.1% of the cases, only one type of exemption was reported per priority subs
 <summary>Show code</summary>
 	
 ```sql
+
+  /**
+    Analysis of the number of different exemptions 
+    reported at priority substance level,
+    for a given water body and priority substance, 
+    in the 3rd cycle reporting
+  **/
 
   -- https://discodata.eea.europa.eu/
 
@@ -563,6 +590,13 @@ In 99.5% of the cases, only one type of exemption was reported per pollutant and
 	
 ```sql
 
+  /**
+    Analysis of the number of different exemptions 
+    reported at pollutant level,
+    for a given water body and pollutant, 
+    in the 3rd cycle reporting
+  **/
+
   -- https://discodata.eea.europa.eu/
 
   SELECT [numberOfExemptionTypes],
@@ -598,6 +632,12 @@ In 93.7% of the cases, only one type of exemption was reported per water body.
 	
 ```sql
 
+  /**
+    Analysis of the number of different exemptions 
+    reported for a given water body 
+    in the 3rd cycle reporting
+  **/
+
   --   https://discodata.eea.europa.eu/
 
   SELECT [numberOfExemptionTypes],
@@ -630,6 +670,12 @@ This information is only reported for drinking waters, shellfish designated wate
 <summary>Show code</summary>
 	
 ```sql
+  /**
+    Analysis of the water bodies 
+    for which specific objectives where set
+    due to associated protected areas
+    in the 3rd cycle reporting
+  **/
 
   --   https://discodata.eea.europa.eu/
   SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
@@ -639,7 +685,10 @@ This information is only reported for drinking waters, shellfish designated wate
   FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
   WHERE hasDescriptiveData = 1
       AND [cYear] = 2022
-      AND [protectedAreaType] IN ('Drinking water protection area','Shellfish designated water','Natura 2000 protected site')
+      AND [protectedAreaType] 
+        IN ('Drinking water protection area',
+            'Shellfish designated water',
+            'Natura 2000 protected site')
       AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
   GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet]
 
@@ -652,6 +701,14 @@ Exemptions were reported for a total of 667 water bodies associated with a total
 <summary>Show code</summary>
 
 ```sql
+  
+  /**
+    Analysis of the water bodies 
+    for which exemptions were applied 
+    when specific objectives set due to associated protected areas
+    where not met
+    in the 3rd cycle reporting
+  **/
 
   --   https://discodata.eea.europa.eu/
   
@@ -664,7 +721,10 @@ Exemptions were reported for a total of 667 water bodies associated with a total
       AND [cYear] = 2022
       AND [protectedAreaExemption] IS NOT NULL
       AND [protectedAreaExemption] != 'None'
-      AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site','Shellfish designated water')
+      AND [protectedAreaType] IN 
+        ('Drinking water protection area',
+         'Natura 2000 protected site',
+         'Shellfish designated water')
       AND [protectedAreaObjectivesMet] = 'No'
     GROUP BY
         LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
@@ -682,6 +742,15 @@ This information is only reported for drinking waters and Natura 2000 protected 
 <summary>Show code</summary>
 	
 ```sql
+  
+  /**
+    Analysis of the water bodies 
+    for which specific objectives where set
+    due to associated protected areas
+    in the 3rd cycle reporting
+  **/
+
+  --   https://discodata.eea.europa.eu/
 
   SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
       ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
@@ -690,18 +759,8 @@ This information is only reported for drinking waters and Natura 2000 protected 
   FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea]
   WHERE hasDescriptiveData = 1
       AND [cYear] = 2022
-      AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site')
-      AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
-  GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-
-  SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-      ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
-      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-    ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
-  WHERE hasDescriptiveData = 1
-      AND [cYear] = 2022
-      AND [protectedAreaType] IN ('Drinking water protection area','Shellfish designated water','Natura 2000 protected site')
+      AND [protectedAreaType] 
+        IN ('Drinking water protection area','Natura 2000 protected site')
       AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
   GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
 
@@ -715,6 +774,14 @@ Exemptions were reported for a total of 198 water bodies associated with a total
 	
 ```sql
 
+  /**
+    Analysis of the water bodies 
+    for which exemptions were applied 
+    when specific objectives set due to associated protected areas
+    where not met
+    in the 3rd cycle reporting
+  **/
+
   --   https://discodata.eea.europa.eu/
 
   SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
@@ -726,7 +793,8 @@ Exemptions were reported for a total of 198 water bodies associated with a total
       AND [cYear] = 2022
       AND [protectedAreaExemption] IS NOT NULL
       AND [protectedAreaExemption] != 'None'
-      AND [protectedAreaType] IN ('Drinking water protection area','Natura 2000 protected site')
+      AND [protectedAreaType] 
+        IN ('Drinking water protection area','Natura 2000 protected site')
       AND [protectedAreaObjectivesMet] = 'No'
     GROUP BY
         LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
