@@ -95,36 +95,36 @@ Monitoring_2022 Schema - 3rd cycle - Obsolete
 For the 4th cycle of reporting, the requested information is further simplified (see {numref}`DescriptiveMonitoring4thcycle`):
 
 * Information about the monitoring programmes is provided in the RBMP documents only: 
-  only the reference to the supporting documents is requested in the ``MonitoringProgrammes`` table. 
+  only the reference to the supporting documents is requested in the **MonitoringProgrammes** table. 
 
   The information can be provided at national level (by ommitting the euRBDCode), 
   or the River Basin District level (by providing the euRBDCode each of the national RBDs). 
 
   Note that:
 
-  * the options `gwChemicalMonitoringReference = NULL` and `gwQuantitativeMonitoringReference =  NULL` 
+  * the options **gwChemicalMonitoringReference = NULL** and **gwQuantitativeMonitoringReference =  NULL** 
     are only valid if applied to River Basin Districts without designated groundwater bodies;
-  * the options `swChemicalMonitoringReference =  NULL` and `swEcologicalMonitoringReference =  NULL` 
+  * the options **swChemicalMonitoringReference =  NULL** and **swEcologicalMonitoringReference =  NULL** 
    are only valid  if applied to River Basin Districts without designated surface water bodies (if any).
    
-* The `useWaterbaseForMonitoringData` attribute allows data provider to indicate that the monitoring data statistics 
+* The **useWaterbaseForMonitoringData** attribute allows data provider to indicate that the monitoring data statistics 
   should be derived from the data reported to Waterbase.
   
   Note that:
   
   * This applies to all surface water monitoring 
-    **except Biological Quality Elements (QE1) and Hydromorphological Quality Elements (QE2)**
+    *except Biological Quality Elements (QE1) and Hydromorphological Quality Elements (QE2)*
     
   * This applies to all groundwater monitoring
-    **except Quantitative Monitoring**
+    *except Quantitative Monitoring*
 
-* Finally, a single simplified `Monitoring` table is proposed.
+* Finally, a single simplified **Monitoring** table is proposed.
 
   For the 5th cycle of reporting, in 2033, it is expected that information about monitoring parameters, frequency, etc., 
   can be derived from monitoring observations reported under the WISE-2, WISE-6 and WISE-3 dataflow.
   The derived information would then fully replace the Monitoring table in the RBMP electronic reporting.
   
-  * The `frequency` and `cycle` values are codified, to avoid ambiguities in the reporting and interpretation of results,
+  * The **frequency** and **cycle** values are codified, to avoid ambiguities in the reporting and interpretation of results,
     while mantaining the definitions used in the 2nd and 3rd RBMPs.
 
 ```{mermaid}
@@ -166,10 +166,10 @@ namespace Reporting{
 
 ## Codelists associated with the Monitoring table - 4th cycle
 
-The diagram below present the codelists applicable to `Monitoring` table, which simplify and clarify codelists adopted in the 3rd cycle.
+The diagram below present the codelists applicable to **Monitoring** table, which simplify and clarify codelists adopted in the 3rd cycle.
 
 Note that for quality elements under QE3 (General parameters), the CAS code or EEA code must be used.
-Note also that the option 'EEA_00-00-0 - Other parameter' will **not** be available in the 4th cycle of reporting.
+Note also that the option 'EEA_00-00-0 - Other parameter' will *not* be available in the 4th cycle of reporting.
 
 ```{mermaid}
 :name: CodelistsDescriptiveMonitoring4thcycle

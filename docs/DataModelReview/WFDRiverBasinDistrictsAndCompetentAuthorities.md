@@ -3,20 +3,21 @@
 Water Framework Directive – Electronic reporting data model review 
 River Basin Districts & Competent Authorities 
 
-**PROPOSAL - Version Version 2026.02.13** {download}`PDF <pdf/WFD_4rd_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf>`
+**PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4rd_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf>`
 
 ## Purpose and overview
 The document revises the River Basin Districts, Subunits and Competent
 Authorities classes used in the 3ʳᵈ cycle of reporting of the
-Water Framework Directive River Basin Management Plans ({ref}`Figure 1 <Figure 1>`), as
+Water Framework Directive River Basin Management Plans ({numref}`RBDSUCA_3rdCycle`), as
 well as the associated spatial data in the RiverBasinDistrict dataset
-and SubUnit dataset ({ref}`Figure 2 <Figure 2>`).
+and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).
 
-*Figure 1. Class diagram for River Basin Districts, Subunits and Competent
-Authorities schema - 3ʳᵈ cycle.*
 
-(Figure 1)=
 ```{mermaid}
+:name: RBDSUCA_3rdCycle
+:caption: Class diagram for River Basin Districts, Subunits and Competent Authorities schema - 3ʳᵈ cycle
+:align: center
+:zoom:
 %%{init: {'theme': 'default'}}%%
 classDiagram
 direction TB
@@ -84,10 +85,11 @@ direction TB
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
 
 
-*Figure 2. Partial class diagram for RiverBasinDistrict and Subunit classes.*
-
-(Figure 2)=
 ```{mermaid}
+:name: RBDSU_3rdCycle_Spatial
+:caption: Partial class diagram for RiverBasinDistrict and Subunit classes - 3ʳᵈ cycle
+:align: center
+:zoom:
 %%{init: {'theme': 'default'}}%%
 classDiagram
 direction TB
@@ -184,67 +186,93 @@ Reporting is only requested under the following conditions:
 
 Data providers can specify which datasets are being updated (spatial data, descriptive data, or both). Information about subunits is no longer requested. The reporting of metadata has also been simplified.
 
-*Figure 3. River Basin Districts and Competent Authorities - 4ᵗʰ cycle*
 
-(Figure 3)=
+
 ```{mermaid}
+:name: RBDCA_4thCycle_Documents
+:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Documents
+:align: center
+:zoom:
+%%{init: {'theme': 'neutral'}}%%
 classDiagram
-direction TB
-namespace a. Documents {
+direction LR
+namespace Documents {
 class dcMetadata {
-+ title: nvarchar(4000)
-+ creatorOrganisationName: nvarchar(4000)
-+ creatorElectronicMailAddress: Email - varchar(250)
-+ description: nvarchar(4000) [0..1]
-+ created: Date [0..1]
-+ language: Language [1..n]
-+ license: URL - varchar(2100)
-+ rights: nvarchar(4000) [0..1]
-+ rightsHolder: nvarchar(4000) [0..1]
-+ licenseDocument: documentCode [0..*]
-+ metadataDocument: documentCode [0..*]
-+ updateCompetentAuthorities: YesNo
-+ updateSpatialData: YesNo
++ title : String4000
++ creatorOrganisationName : String4000
++ creatorElectronicMailAddress : Email
++ description : String4000 [0..1]
++ created : Date [0..1]
++ language : Language [1..n]
++ license : URL
++ rights : String4000 [0..1]
++ rightsHolder : String4000 [0..1]
++ licenseDocument : documentCode [0..*]
++ metadataDocument : documentCode [0..*]
++ updateCompetentAuthorities : YesNo
++ updateSpatialData : YesNo
 }
 class Document {
-+ documentCode: WISEIdentifier - varchar(42)
-+ documentName: nvarchar(250)
-+ hyperlink: URL - varchar(2100) [0..1]
-+ documentFile: Attachment [0..1]
++ documentCode : wiseIdentifier
++ documentName : String250
++ hyperlink : URL [0..1]
++ documentFile : Attachment [0..1]
 }
 }
-namespace b.Descriptivedata {
+dcMetadata -- "0..*" Document
+```
+
+```{mermaid}
+:name: RBDCA_4thCycle_Descriptive
+:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Descriptive Data
+:align: center
+:zoom:
+%%{init: {'theme': 'neutral'}}%%
+classDiagram
+direction LR
+namespace Descriptivedata {
 class CompetentAuthority {
-+ euCACode: WISEIdentifier - varchar(42)
-+ competentAuthorityName: varchar(100)
-+ competentAuthorityNameNL: nvarchar(100)
-+ competentAuthorityNameNLLanguage: Language
-+ acronym: nvarchar(100) [0..1]
-+ street: nvarchar(100)
-+ city: nvarchar(100)
-+ country: nvarchar(100)
-+ postCode: nvarchar(50) [0..1]
-+ url: URL - varchar(2100)
++ euCACode : wiseIdentifier
++ competentAuthorityName : String
++ competentAuthorityNameNL : String
++ competentAuthorityNameNLLanguage : Language
++ acronym : String [0..1]
++ street : String
++ city : String
++ country : String
++ postCode : String [0..1]
++ url : URL
 }
 class RiverBasinDistrictCompetentAuthority {
-+ euRBDCode: WISEIdentifier - varchar(42)
-+ euCACode: WISEIdentifier - varchar(42)
++ euRBDCode: wiseIdentifier
++ euCACode: wiseIdentifier
 + roleCode: Role [1..*]
 }
 }
-namespace c.Spatialdata {
+CompetentAuthority -- "1..*" RiverBasinDistrictCompetentAuthority
+```
+
+```{mermaid}
+:name: RBDCA_4thCycle_Spatial
+:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Spatial Data
+:align: center
+:zoom:
+%%{init: {'theme': 'neutral'}}%%
+classDiagram
+direction LR
+namespace Spatialdata {
 class RiverBasinDistrict {
 + geometry_polygon: geometry_multipolygon
 + inspireIdLocalId: String
 + inspireIdNamespace: String
 + inspireIdVersionId: String [0..1]
-+ thematicIdIdentifier: WISEIdentifier
++ thematicIdIdentifier: wiseIdentifier
 + thematicIdIdentifierScheme: IdentifierScheme
 + beginLifespanVersion: Date
 + endLifespanVersion: Date [0..1]
-+ predecessorsIdentifier: comma-separated list of WISEIdentifier [0..1]
++ predecessorsIdentifier: comma-separated list of wiseIdentifier [0..1]
 + predecessorsIdentifierScheme: IdentifierScheme [0..1]
-+ successorsIdentifier: comma-separated list of WISEIdentifier [0..1]
++ successorsIdentifier: comma-separated list of wiseIdentifier [0..1]
 + successorsIdentifierScheme: IdentifierScheme [0..1]
 + wiseEvolutionType: WiseEvolutionType
 + nameTextInternational: String
@@ -255,19 +283,16 @@ class RiverBasinDistrict {
 + zoneType: ZoneType
 + specialisedZoneType: SpecialisedZoneType
 + legalBasisName: String [0..1]
-+ legalBasisLink: url [0..1]
++ legalBasisLink: URL [0..1]
 + legalBasisLevel: LegislationLevelValue [0..1]
-+ link: url [0..1]
++ link: URL [0..1]
 }
 }
-
-dcMetadata --> "0..*" Document
-CompetentAuthority --> "1..*" RiverBasinDistrictCompetentAuthority
 ```
 
 ## Documents dataset - 4ᵗʰ cycle
 
-The Documents dataset ({ref}`Figure 3.a <Figure 3>`) follows the standard structure used in various WISE dataflows:
+The Documents dataset ({numref}`RBDCA_4thCycle_Documents`) follows the standard structure used in various WISE dataflows:
 
 - The **dcMetadata** table is required and contains only one record per delivery (i.e. per country). It provides the basic Dublin Core metadata elements about the delivery.<br/>It also functions as a "manifest file" explaining if the delivery contains an update of the spatial data (updateSpatialData = 'Yes') and/or of the competent authorities (updateCompetentAuthorities= 'Yes'). If required by the data providers, and especially if spatial data is being reported, the licenseDocument and the metadataDocument attributes allow the provision of additional information.
 
@@ -276,7 +301,7 @@ The Documents dataset ({ref}`Figure 3.a <Figure 3>`) follows the standard struct
 
 ## Descriptive dataset - 4ᵗʰ cycle
 
-The Descriptive dataset ({ref}`Figure 3.b <Figure 3>`) contains two tables:
+The Descriptive dataset ({numref}`RBDCA_4thCycle_Descriptive`) contains two tables:
 
 - The **CompetentAuthority** table contains basic information about each Competent Authority.
 
@@ -285,7 +310,7 @@ The Descriptive dataset ({ref}`Figure 3.b <Figure 3>`) contains two tables:
 
 ## Spatial dataset - 4ᵗʰ cycle
 
-The Spatial dataset ({ref}`Figure 3.c <Figure 3>`) contains only the RiverBasinDistrict spatial table.
+The Spatial dataset ({numref}`RBDCA_4thCycle_Spatial`)  contains only the RiverBasinDistrict spatial table.
 As stated before, Subunits are no longer requested in the 4ᵗʰ cycle of reporting.
 
 The following changes have been made to the RiverBasinDistrict table (in comparison to version 7.06 used in the 3ʳᵈ cycle of reporting):
