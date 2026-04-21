@@ -1,28 +1,17 @@
-# WFD Protected Areas 4th cycle
+# WFD - Protected Areas
 
-Water Framework Directive – Electronic reporting data model review
-
-Protected Areas
-
-**PROPOSAL**
-
-Version 2026.02.13
-
+**PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4rd_cycle_ProtectedAreas_v20260220.pdf>`
 
 ## Purpose and overview
 
 "According to Article 6 and Annex IV of the WFD, Member States shall ensure the establishment of a register or registers of all areas lying within each River Basin District which have been designated as requiring special protection under specific Community legislation for the protection of their surface water and groundwater, or for the conservation of habitats and species directly depending on water, including the protection of Natura 2000 sites and economically significant aquatic species (e.g. shellfish)."[^1].
 
-[^1]: Extracts from the “Clarification note in relation to the reporting of spatial data for Water Framework Directive (WFD) protected areas, in the context of the March 2016 reporting of the second River Basin Management Plans (RBMPs)” [http://cdr.eionet.europa.eu/help/WFD/WFD_521_2016/GISGuidance/Clarification%20note%20protected%20areas.pdf](http://cdr.eionet.europa.eu/help/WFD/WFD_521_2016/GISGuidance/Clarification%20note%20protected%20areas.pdf) See also the “Clarification note in relation to the reporting of spatial data for Water Framework Directive (WFD) protected areas, in the context of the March 2022 reporting of the third River Basin Management Plans (RBMPs) 28 April 2022” [https://cdr.eionet.europa.eu/help/WFD/WFD_780_2022/GISGuidance/PA_Clarification_Note.pdf](https://cdr.eionet.europa.eu/help/WFD/WFD_780_2022/GISGuidance/PA_Clarification_Note.pdf)
-
-
 The document revises the reporting of WFD Protected Areas in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans (Figure 1), as well as the associated spatial data (Figure 2). A proposal is presented for the electronic reporting in the 4ᵗʰ cycle. Aspects related to exemptions are addressed in a later document.
-
-
 
 *Figure 1. Partial class diagram for Protected Areas related data in the 3ʳᵈ cycle of reporting.*
 
 (Figure 1)=
+
 ```{mermaid}
 %%{init: {'theme': 'default', 'flowchart': {'rankDir': 'TB'}}}%%
 classDiagram
@@ -63,12 +52,11 @@ Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specifi
 
 *Figure 2. Partial class diagram for the ProtectedArea class – 3ʳᵈ cycle of reporting.*
 
-
 ```{mermaid}
 classDiagram
     class ProtectedArea["«FeatureType»
     ProtectedArea"]  {
-        
+      
         +geometry: GM_MultiSurface
         +inspireIdLocalId: String254LeadingLetterOrNum
         +inspireIdNamespace: String254LeadingLetterOrNum
@@ -104,13 +92,12 @@ classDiagram
         FeatureType
     }
    
-    
+  
     ProtectedArea "1..*" <-- FeatureCollection : +featureMember
 
 ```
+
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
-
-
 
 ## Spatial data reporting – 2ⁿᵈ and 3ʳᵈ cycle
 
@@ -137,6 +124,7 @@ The principles above were applied for all WFD protected area types,except Natura
 *Table 1. WFD Protected Area spatial data reporting requirements – 2ⁿᵈ and 3ʳᵈ cycle of reporting*
 
 (table-1)=
+
 | Reporting requirements under the WFD 2ⁿᵈ and 3ʳᵈ cycle of electronic reporting | Observations |
 |---|---|
 | **Drinking water protection areas** <br/>*Water bodies identified under WFD Article 7(1) are the only protected areas that are purely designated by WFD, i.e., there is no process to identify and designate these areas under other pieces of legislation, although obviously they are relevant for drinking water supply.* […] <br/><br/> *Member States practice varies in the designation of Drinking Water protected areas. The following two broad approaches could be identified in the first RBMP (River Basin Management Plans), for which guidance is provided as regards reporting of spatial data:*<br/>*a) Some Member States follow WFD Article 7 and designate as protected areas the water bodies used for the abstraction of water intended for human consumption (and those intended for such future use). Therefore, there is no different spatial delineation of the protected areas: these are coincident with the WFD water bodies. Therefore, no reporting of spatial data under the WFD is expected in this case.*<br/> *b) Some Member States delineate the part of the water bodies which they consider are protected areas. The spatial extent of the protected areas can therefore be different, typically smaller than WFD water bodies. This is often the case in large groundwater bodies. In this case the Member State is required to report the spatial extent of the protected areas* […]. | `zoneType = 'drinkingWaterProtectionArea'` |
@@ -146,8 +134,6 @@ The principles above were applied for all WFD protected area types,except Natura
 | **UWWTD Sensitive Areas** <br/>*Reporting of spatial extent of sensitive areas is done through the regular reporting under the Urban Waste Water Directive 91/271/EEC* ([cdr.eionet.europa.eu/help/UWWTD](http://cdr.eionet.europa.eu/help/UWWTD)). […] *Sensitive areas are identified through a unique ID* […]. | `zoneType = 'sensitiveArea'` AND `specialisedZoneType in ('catchmentOfSensitiveArea', 'lessSensitiveArea', 'coastalSensitiveArea', 'transitionalSensitiveArea', 'lakeSensitiveArea', 'riverSensitiveArea', 'coastalBathingWater')` |
 | **Bathing Waters** <br/>*The annual reporting under Bathing Water Directive 2006/7/EC* ([cdr.eionet.europa.eu/help/BWD](http://cdr.eionet.europa.eu/help/BWD)) *requires the identification of bathing waters by providing a point* […]. *As* [an] *optional element, the* […] *surface water body* [identifier is] *provided for each bathing water site* […]. | `ZoneType = 'bathingWaters'` AND `specialisedZoneType in ('transitionalBathingWater', 'lakeBathingWater', 'riverBathingWater')` |
 | **Habitats and Birds Directives protected sites** <br/>*Reporting of protected sites is done under the Habitats and Birds reporting processes for Natura 2000 sites* ([rod.eionet.europa.eu/obligations/274](http://rod.eionet.europa.eu/obligations/274) *and* [rod.eionet.europa.eu/obligations/616](http://rod.eionet.europa.eu/obligations/616)). […] *Member States are expected to identify the water dependent protected areas associated with water bodies under the WFD* [reporting]. *This is done by reporting the Habitats and Birds Directive site code in the attribute euProtectedAreaCode. The WFD reporting process will automatically cross-check if the site ID is on the list of reported Natura 2000 areas. If this is not the case, the system will generate an error.* […] <br/>*No reporting of spatial data regarding Natura 2000* […] *protected areas is expected under the WFD.* | `<< not applicable >>` |
-
-
 
 Source: Text in *italics* extracted from the documents referenced in footnote (1).
 
@@ -161,22 +147,25 @@ The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle o
 - The data model for the Nitrate Vulnerable Zones reporting is aligned with the model used for the other protected areas (except Natura 2000 protected sites).
 - The reporting of the association between the protected areas and the water bodies is done only once – in the spatial data reporting (except Natura 2000 protected sites).
 
-
 *Table 2. EU legal instruments under which the WFD Protected Areas are defined.*
 
 (table-2)=
-| Acronym             | Name                                                                                                                                                                                                                      | ELI                                        | Reporting obligation                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| WFD                 | **Directive 2000/60/EC of the European Parliament and of the Council of 23 October 2000 establishing a framework for Community action in the field of water policy**                                                | [Dir 2000](http://data.europa.eu/eli/dir/2000/60/oj)   | ([Obligations](https://rod.eionet.europa.eu/obligations/780) reporting under revision)                                              |
-| Shellfish Directive | Directive 2006/113/EC of the European Parliament and of the Council of 12 December 2006 on the quality required of shellfish waters*Note: implicitly repealed by WFD*                                                   | [Dir 2006/113](http://data.europa.eu/eli/dir/2006/113/oj)  | ([included](https://rod.eionet.europa.eu/obligations/) under WFD)                                                       |
-| Fish Directive      | Directive 2006/44/EC of the European Parliament and of the Council of 6 September 2006 on the quality of fresh waters needing protection or improvement in order to support fish life*Note: implicitly repealed by WFD* | [Dir 2006/44](http://data.europa.eu/eli/dir/2006/44/oj)   | ([included](https://rod.eionet.europa.eu/obligations/) under WFD)                                                       |
-| BWD                 | Directive 2006/7/EC of the European Parliament and of the Council of 15 February 2006 concerning the management of bathing water quality and repealing Directive 76/160/EEC                                               | [Dir 2006/7](http://data.europa.eu/eli/dir/2006/7/oj)    | [Obligations](https://rod.eionet.europa.eu/obligations/788 )                                                                       |
-| DWD (recast)        | Directive (EU) 2020/2184 of the European Parliament and of the Council of 16 December 2020 on the quality of water intended for human consumption (recast)                                                                | [Dir 2020](http://data.europa.eu/eli/dir/2020/2184/oj) | [Instruments](https://rod.eionet.europa.eu/instruments/699) (reporting under revision)                                              |
-| NITRATES            | Council Directive of 12 December 1991 concerning the protection of waters against pollution caused by nitrates from agricultural sources (91/676/EEC)                                                                     | [Dir 1991](http://data.europa.eu/eli/dir/1991/676/oj)  | ([reporting](https://rod.eionet.europa.eu/obligations/106) under revision) |
-| UWWTD (recast)      | Directive (EU) 2024/3019 of the European Parliament and of the Council of 27 N[Dir 1991]ovember 2024 concerning urban wastewater treatment (recast)                                                                                 | [Dir 2024](http://data.europa.eu/eli/dir/2024/3019/oj) | [Obligations](https://rod.eionet.europa.eu/obligations/613) (reporting under revision)                                              |
+
+| Acronym             | Name                                                                                                                                                                                                                      | ELI                                                    | Reporting obligation                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| WFD                 | **Directive 2000/60/EC of the European Parliament and of the Council of 23 October 2000 establishing a framework for Community action in the field of water policy**    | <http://data.europa.eu/eli/dir/2000/60/oj>               | <https://rod.eionet.europa.eu/obligations/780> (reporting under revision) |
+| Shellfish Directive | Directive 2006/113/EC of the European Parliament and of the Council of 12 December 2006 on the quality required of shellfish waters *Note: implicitly repealed by WFD*                                                   | <http://data.europa.eu/eli/dir/2006/113/oj> | (included under WFD)                      |
+| Fish Directive      | Directive 2006/44/EC of the European Parliament and of the Council of 6 September 2006 on the quality of fresh waters needing protection or improvement in order to support fish life *Note: implicitly repealed by WFD* | <http://data.europa.eu/eli/dir/2006/44/oj>  | (included under WFD)                      |
+| BWD                 | Directive 2006/7/EC of the European Parliament and of the Council of 15 February 2006 concerning the management of bathing water quality and repealing Directive 76/160/EEC                                               | <http://data.europa.eu/eli/dir/2006/7/oj>     | <https://rod.eionet.europa.eu/obligations/788>                            |
+| DWD (recast)        | Directive (EU) 2020/2184 of the European Parliament and of the Council of 16 December 2020 on the quality of water intended for human consumption (recast)                                                                | <http://data.europa.eu/eli/dir/2020/2184/oj>    | <https://rod.eionet.europa.eu/instruments/699> (reporting under revision) |
+| NITRATES            | Council Directive of 12 December 1991 concerning the protection of waters against pollution caused by nitrates from agricultural sources (91/676/EEC)                                                                     | <http://data.europa.eu/eli/dir/1991/676/oj>     | <https://rod.eionet.europa.eu/obligations/106> (reporting under revision)             |
+| UWWTD (recast)      | Directive (EU) 2024/3019 of the European Parliament and of the Council of 27 November 2024 concerning urban wastewater treatment (recast)                                                                                 | <http://data.europa.eu/eli/dir/2024/3019/oj>    | <https://rod.eionet.europa.eu/obligations/613> (reporting under revision) |
+| Birds directive     | Directive 2009/147/EC of the European Parliament and of the Council of 30 November 2009 on the conservation of wild birds                                                                                                 | <http://data.europa.eu/eli/dir/2024/3019/oj>    | <https://rod.eionet.europa.eu/obligations/613> (reporting under revision) |
+| Habitats directive  | Council Directive 92/43/EEC of 21 May 1992 on the conservation of natural habitats and of wild fauna and flora                                                                                                            | <http://data.europa.eu/eli/dir/2024/3019/oj>    | <https://rod.eionet.europa.eu/obligations/613> (reporting under revision) |
 
 *Table 3. WFD Protected Area spatial data reporting requirements – 4ᵗʰ cycle of reporting*
 (table-3)=
+
 | Reporting requirements under the WFD 4ᵗʰ cycle of electronic reporting | Observations |
 |---|---|
 | **Drinking Water protection areas** <br/>The spatial data reporting *moves to the recast Drinking Water Directive*. Information about the drinking water protection areas and safeguard zones is part of the reporting under Article 8 of the recast DWD, on the risk assessment and management of catchment areas for abstraction points of water intended for human consumption.<br/> **The new spatial data model is similar to the WFD ProtectedArea model previously used.** The dataflow is currently being implemented in RN3 and will soon be available for testing.<br/>• Unique identifiers must be reported, following the WISE identifier syntax. <br/>• The association between protected areas and water bodies **must** be reported using the relatedZone columns. <br/>• A new **confidentialityStatus** column was added to allow data providers to report spatial data that will not be published. <br/>• The **specialisedZoneType** column allows the distinction between different types of protected area. <br/>Data providers are referred to the document *"Risk assessment and risk management of the catchment areas for abstraction points of water intended for human consumption. Conceptual model proposal for the electronic reporting under the recast Drinking Water Directive Article 8. Version 2025-12-18."* available [here](https://circabc.europa.eu/ui/group/65764c73-4a57-45dc-8199-473014cf65bf/library/c17c6a2e-41e5-482f-b353-3fd651bd9aca/details) for further information. | `zoneType = 'drinkingWaterProtectionArea'` AND `specialisedZoneType in ('catchmentArea', 'waterBody', 'waterAbstractionSafeguardZone')` |
@@ -197,7 +186,6 @@ The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle o
   published WISE datasets that refer to the previous reporting cycles).
 
 *Figure 3. Class diagram for an abstract ProtectedArea dataset – 4ᵗʰ cycle of reporting.*
-
 
 ```{mermaid}
 classDiagram
@@ -234,15 +222,11 @@ classDiagram
     }
 ```
 
-
-
 ## Special case – the Natura2000 protected sites
 
 The Natura2000 dataflows do not include information about the association between protected sites and WFD water bodies. Therefore, a different approach is necessary to simplify the WFD reporting.
 A provisional prefilled list of "water-dependent" Natura 2000 protected sites will be created, based on the Natura2000 reporting based on the habitat type and species type [^2]
 
-[^2]: See for example Table 1 in the document "Links between the Water Framework Directive (WFD 2000/60/EC) and Nature Directives (BirdsDirective 2009/147/EC and Habitats Directive 92/43/EEC)."[https://circabc.europa.eu/ui/group/3f466d71-92a7-49eb-9c63-6cb0fadf29dc/library/f214c3f5-bf5c-404a-a18b-02c0553b82ad/details](https://circabc.europa.eu/ui/group/3f466d71-92a7-49eb-9c63-6cb0fadf29dc/library/f214c3f5-bf5c-404a-a18b-02c0553b82ad/details?open=true)
-    
 A Natura 2000 site should be designated as "water-dependent" if it contains Annex I habitat types or Annex II species (Habitats Directive),or bird species (Birds Directive),  whose presence was the primary reason for the area's designation and that meet the ecological criteria below:
 
 - habitats consisting of surface water or occurring entirely within surface water as defined by the WFD
@@ -275,8 +259,8 @@ The data reported for the 3ʳᵈ cycle can be used to estimate the impact of the
 
 The analysis of the 3ʳᵈ cycle reveals that no specific objectives were set for Nationally Designated Areas (NatDA, formerly known as CDDA). Information about this type of protected sites will no longer be requested.
 
-
-
 [def]: #purpose-and-overview
 [def2]: #_Toc222336798
-
+[^1]: Extracts from the “Clarification note in relation to the reporting of spatial data for Water Framework Directive (WFD) protected areas, in the context of the March 2016 reporting of the second River Basin Management Plans (RBMPs)” [http://cdr.eionet.europa.eu/help/WFD/WFD_521_2016/GISGuidance/Clarification%20note%20protected%20areas.pdf](http://cdr.eionet.europa.eu/help/WFD/WFD_521_2016/GISGuidance/Clarification%20note%20protected%20areas.pdf) See also the “Clarification note in relation to the reporting of spatial data for Water Framework Directive (WFD) protected areas, in the context of the March 2022 reporting of the third River Basin Management Plans (RBMPs) 28 April 2022” [https://cdr.eionet.europa.eu/help/WFD/WFD_780_2022/GISGuidance/PA_Clarification_Note.pdf](https://cdr.eionet.europa.eu/help/WFD/WFD_780_2022/GISGuidance/PA_Clarification_Note.pdf)
+    
+[^2]: See for example Table 1 in the document "Links between the Water Framework Directive (WFD 2000/60/EC) and Nature Directives (BirdsDirective 2009/147/EC and Habitats Directive 92/43/EEC)."[https://circabc.europa.eu/ui/group/3f466d71-92a7-49eb-9c63-6cb0fadf29dc/library/f214c3f5-bf5c-404a-a18b-02c0553b82ad/details](https://circabc.europa.eu/ui/group/3f466d71-92a7-49eb-9c63-6cb0fadf29dc/library/f214c3f5-bf5c-404a-a18b-02c0553b82ad/details?open=true)

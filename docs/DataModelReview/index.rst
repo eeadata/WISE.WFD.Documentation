@@ -8,8 +8,9 @@ WFD - Data Model Review
       WFDRiverBasinDistrictsAndCompetentAuthorities
       WFDMeasures
       WFDEconomicAnalysis
-      ProtectedAreas4thcycle
-      
+      WFDProtectedAreas
+      WFDExemptions
+      WFDMonitoring
 
 .. substitutions-placeholder
 
