@@ -1,6 +1,6 @@
 # WFD - Measures
 
-**PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4rd_cycle_Measures_v20260217.pdf>`
+**PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
 
 ## Purpose and Overview
 
