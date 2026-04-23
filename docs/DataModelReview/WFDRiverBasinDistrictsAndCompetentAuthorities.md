@@ -208,7 +208,7 @@ The following changes have been made to the RiverBasinDistrict table (in compari
 
 *  Likewise, the attributes **successorsIdentifier** and **successorsIdentifierScheme** have been kept for clarity's sake. *In the reported datasets*, the values of these attributes will always be NULL. The appropriate value will be derived and included in the published WISE datasets (for the 1st cycle, 2nd cycle and 3rd cycle RiverBasinDistrict datasets).
 
-## Annexes
+## Annex - Exploratory analysis of data reported in the 3rd cycle
 
 ### National and International River Basins Districts - 3rd cycle
 
@@ -250,8 +250,11 @@ SELECT [countryCode],
        [roleCode]
 FROM [WISE_WFD]. [latest]. [RBDSUCA_RBD_primeCompetentAuthority] vBase
 
-JOIN ( SELECT [euCACode],STRING_AGG(b.[roleCode], ',') AS [roleCode]
+JOIN 
+
+    ( SELECT [euCACode],STRING_AGG(b.[roleCode], ',') AS [roleCode]
        FROM
+
         (SELECT [euCACode], [otherRole] AS [roleCode] 
          FROM [WISE_WFD]. [latest]. [RBDSUCA_CompetentAuthority_otherRole] 
          WHERE [cYear] = 2022 AND [otherRole] IS NOT NULL
@@ -260,25 +263,30 @@ JOIN ( SELECT [euCACode],STRING_AGG(b.[roleCode], ',') AS [roleCode]
 
          SELECT [euCACode], [mainRole] AS [roleCode] 
          FROM [WISE_WFD]. [latest]. [RBDSUCA_CompetentAuthority_mainRole] 
-         WHERE [cYear] = 2022 AND [mainRole] IS NOT NULL ) AS vUnion
- JOIN (
-    SELECT *
-    FROM (VALUES
-    ('1 - Pressure and impact analysis',  'pressureAndImpactAnalysis'),
-    ('2 - Economic analysis',  'economicAnalysis'),
-    ('3 - Monitoring of surface water',  'monitoringOfSurfaceWater'),
-    ('4 - Monitoring of groundwater',  'monitoringOfGroundwater'),
-    ('5 - Assessment of status of surface water',  'assessmentOfStatusOfSurfaceWater'),
-    ('6 - Assessment of status of groundwater',  'assessmentOfStatusOfGroundwater'),
-    ('7 - Preparation of RBMP',  'preparationOfRBMP'),
-    ('8 - Preparation of PoM',  'preparationOfPoM'),
-    ('9 - Implementation of measures',  'implementationOfMeasures'),
-    ('10 - Public participation', 'publicParticipation'),
-    ('11 - Enforcement of regulations', 'enforcementOfRegulations'),
-    ('12 - Co-ordination of implementation', 'coordinationOfImplementation'),
-    ('13 - Reporting to the European Commission', 'reportingToTheEuropeanCommission')
-) AS t(originalValue, roleCode) ) AS b
-   ON vUnion.roleCode = b.originalValue
+         WHERE [cYear] = 2022 AND [mainRole] IS NOT NULL ) 
+        
+        AS vUnion
+ 
+        JOIN 
+    
+        (SELECT *
+        FROM (VALUES
+        ('1 - Pressure and impact analysis',  'pressureAndImpactAnalysis'),
+        ('2 - Economic analysis',  'economicAnalysis'),
+        ('3 - Monitoring of surface water',  'monitoringOfSurfaceWater'),
+        ('4 - Monitoring of groundwater',  'monitoringOfGroundwater'),
+        ('5 - Assessment of status of surface water',  'assessmentOfStatusOfSurfaceWater'),
+        ('6 - Assessment of status of groundwater',  'assessmentOfStatusOfGroundwater'),
+        ('7 - Preparation of RBMP',  'preparationOfRBMP'),
+        ('8 - Preparation of PoM',  'preparationOfPoM'),
+        ('9 - Implementation of measures',  'implementationOfMeasures'),
+        ('10 - Public participation', 'publicParticipation'),
+        ('11 - Enforcement of regulations', 'enforcementOfRegulations'),
+        ('12 - Co-ordination of implementation', 'coordinationOfImplementation'),
+        ('13 - Reporting to the European Commission', 'reportingToTheEuropeanCommission')
+        ) AS t(originalValue, roleCode)) AS b
+
+        ON vUnion.roleCode = b.originalValue
 
     GROUP BY [euCACode] ) AS vRoles
     ON vBase.primeCompetentAuthority = vRoles.euCACode
