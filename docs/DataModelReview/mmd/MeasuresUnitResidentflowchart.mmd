@@ -1,0 +1,31 @@
+flowchart TB
+
+    A[Is the unit resident?]
+
+    A -->|Yes| B[Is the unit a household?]
+    A -->|No| RoW[RoW]
+
+    B -->|No| C[Is the unit a non-market producer?]
+    B -->|Yes| Households[Households]
+
+    C -->|Yes| D[Is the unit controlled by government?]
+    C -->|No| E[Does the unit produce financial services?]
+
+    D -->|No| NPISH[NPISH]
+    D -->|Yes| GG[General government]
+
+    E -->|No| NFC[Non-financial corporations]
+    E -->|Yes| FC[Financial corporations]
+
+    %% --- FIX: give unique IDs to repeated decision boxes ---
+    NFC --> D1[Is the unit controlled by general government?]
+    
+
+    D1 -->|Yes| PNFC[Public non-financial corporations]
+    D1 -->|No| PRNFC
+
+    FC -->D2[Is the unit controlled by general government?]
+    
+
+    D2 -->|Yes| PUFC[Public financial corporations]
+    D2 -->|No| PRFC

@@ -1,0 +1,16 @@
+classDiagram
+
+class Progress {
+    + euRBDCode : wiseIdentifier [1]
+
+    + previousRBMPMeasureStatus : PlannedOngoingExecutedCancelledCodelist value [1]
+    + percentageInStatus : Percentage [1]
+
+    + obstaclesGovernance : YesNo [1]
+    + obstaclesDelays : YesNo [1]
+    + obstaclesLackOfFinance : YesNo [1]
+    + obstaclesLackOfMechanism : YesNo [1]
+    + obstaclesMeasureNotEffective : YesNo [1]
+    + obstaclesMeasureNotCostEffective : YesNo [1]
+    + obstaclesExtremeEvents : YesNo [1]
+}

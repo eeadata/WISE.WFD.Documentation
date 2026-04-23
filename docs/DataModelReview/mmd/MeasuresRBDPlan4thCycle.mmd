@@ -1,0 +1,37 @@
+classDiagram
+
+class RiverBasinManagementPlan {
+    + euRBDCode : wiseldentifier [1]
+    + rbmpName : text (1000) [1]
+    + rbmpTimetablePublicationDate : Date [1]
+    + rbmpProgrammePublicationDate : Date [1]
+    + rbmpConsultationPublicationDate : Date [1]
+    + rbmpInterimOverviewDate : Date [1]
+    + rbmpDraftVersionDate : Date [1]
+    + finalRBMPPublicationDate : Date [1]
+
+    + subPlans : YesNo [1]
+    + subPlansCoverage : SubPlansCodelist value [0..1]
+    + subPlansReference : DocumentReference [0..n]
+
+    + sea : YesNo [1]
+    + seaReference : DocumentReference [0..n]
+
+    + documentAvailability : YesNo [1]
+
+    + ongoingStakeholderInvolvement : OngoingStakeholderInvolvementCodelist value [0..n]
+    + stakeholderGroups : StakeholderGroupsCodelist value [0..n]
+
+    + internationalCoordination : InternationalCoordinationCodelist value [0..1]
+    + internationalCoordinationPublicParticipation : YesNo [0..1]
+    + pomCoordinationArt5SWMI : CoordinationCodelist value [1]
+    + pomCoordinationIRBMPPoM : CoordinationCodelist value [1]
+    + pomCoordinationRoofReport : CoordinationCodelist value [1]
+    + pomCoordinationFinancial : CoordinationCodelist value [1]
+
+    + integrationFloodsDirective : YesNo [1]
+    + coordinationFloodsDirective : YesNoNotApplicable [1]
+    + coordinationMSFD : YesNoNotApplicable [1]
+
+    + coordinationNRRRReference : DocumentReference [1..n]
+}

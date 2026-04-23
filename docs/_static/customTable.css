@@ -8,3 +8,33 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+/* Allow line wrapping in headings */
+.wy-nav-content h1,
+.wy-nav-content h2,
+.wy-nav-content h3,
+.wy-nav-content h4,
+.wy-nav-content h5,
+.wy-nav-content h6 {
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Force wrapping in table headers */
+.wy-table-responsive table.docutils th {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+.wy-table-responsive {
+    overflow-x: visible !important;
+}
+
+
+.wy-table-responsive table {
+    display: table !important;
+    width: 100% !important;
+    table-layout: auto !important;
+}

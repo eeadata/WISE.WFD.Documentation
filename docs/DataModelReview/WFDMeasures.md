@@ -20,99 +20,8 @@ Source : (https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specif
 **Figure 2.** *River Basin Management Plan & Programme of Measures – 4ᵗʰ cycle of reporting*
 
 (Figure 2)=
-```{mermaid}
-classDiagram
-
-class RiverBasinManagementPlan {
-    euRBMPCode : wideIdentifier [1]
-    rbmpName : text (1000) [1]
-    rbmpEstablishmentDate : Date [1]
-    rbmpEndDate : Date [0..1]
-    firstRBMPPublicationDate : Date [0..1]
-    secondRBMPPublicationDate : Date [0..1]
-    thirdRBMPPublicationDate : Date [0..1]
-    rbmpStatus : YesNo [1]
-    subPlans : YesNo [1]
-    subPlanCoverageCodeList value [0..1]
-    subPlanReference : DocumentReference [0..*]
-    relatedPlans : DocumentReference [0..*]
-    documentAvailability : YesNo [1]
-    originalDataBasedEnvironment : OriginalDataBasedEnvironmentCodeList value [0..1]
-    stakeholderGroups : StakeholderGroupCodeList value [0..*]
-    coordinationRBMPWithFloodDirective : CoordinationCodeList value [1]
-    coordinationRBMPWithMarineDirective : CoordinationCodeList value [1]
-    coordinationRBMPWithNatureDirective : CoordinationCodeList value [1]
-    integrationFloodDirective : YesNo [1]
-    integrationMarineDirective : YesNo [1]
-    coordinationRBMPWithNatureDirectiveApplicable : YesNo [1]
-    coordinationRBMPWithNatureDirectiveApplicableText : text (1000) [0..1]
-    coordinationRBMPReference : DocumentReference [0..*]
-}
-
-class Progress {
-    euRBMPCode : wideIdentifier [1]
-    plannedRBMPMeasuresStatus : PlannedOngoingExecutedCancelledCodeList value [1]
-    preventedRBMPMeasure : YesNo [1]
-    achievedRBMPMeasure : YesNo [1]
-    achievedRBMPMeasureText : text (1000) [0..1]
-    achievedRBMPMeasureTextReference : DocumentReference [0..*]
-    achievedRBMPMeasureTextNote : text (1000) [0..1]
-    achievedRBMPMeasureTextNoteReference : DocumentReference [0..*]
-}
-
-class TargetedQuestions {
-    euRBMPCode : wideIdentifier [1]
-    basicMeasuresAgriculture : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresIndustry : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresUrbanWasteWater : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresDrinkingWater : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresDiffusePollution : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresGroundwater : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresHydromorphological : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresOther : BasicMeasuresChangeCodeList value [1]
-    supplementaryMeasuresAgriculture : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresIndustry : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresUrbanWasteWater : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresDrinkingWater : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresDiffusePollution : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresGroundwater : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresHydromorphological : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresOther : SupplementaryMeasuresChangeCodeList value [1]
-    floodMeasures : YesNo [1]
-    droughtMeasures : YesNo [1]
-    protectedAreaMeasures : YesNo [1]
-}
-
-class Measure {
-    measureCode : wideIdentifier [1]
-    measureName : text (1000) [1]
-    measureReference : DocumentReference [0..*]
-    measureType : MeasureTypeCodeList value [1]
-    mainPressureType : HierarchicalPressureCodeList value [1]
-    mainKeyType : HierarchicalKeyCodeList value [1]
-    mainSubstanceType : HierarchicalSubstanceCodeList value [1]
-    mainFieldRelevance : YesNo [1]
-    floodRelevance : YesNo [1]
-    droughtRelevance : YesNo [1]
-    protectedAreaRelevance : YesNo [1]
-    geographicalCoverage : WFDGeographicalCoverageCodeList value [1]
-    euRBMPCode : wideIdentifier [1]
-    waterCategory : HierarchicalWaterCategoryCodeList value [1]
-    protectedAreaType : ProtectedAreaTypeCodeList value [0..*]
-    implementationPeriod : YearRangeType [0..1]
-    implementationStatus : PlannedOngoingExecutedCancelledCodeList value [1]
-}
-
-class ExpendituresPerMeasurePerSector {
-    measureCode : wideIdentifier [1]
-    expenditureDataAvailable : YesNoNotApplicable [1]
-    institutionalSector : isco2010SectionCodeList value [0..1]
-    totalCapitalExpenditureBudgetCycle : NonNegativeNumberDecimalType [0..1]
-    totalCurrentExpenditureBudgetCycle : NonNegativeNumberDecimalType [0..1]
-    totalCapitalExpenditureDuringCycle : NonNegativeNumberDecimalType [0..1]
-    totalCurrentExpenditureDuringCycle : NonNegativeNumberDecimalType [0..1]
-    millionNationalCurrency : CurrencyCode value [0..1]
-}
+```{mermaid} /DataModelReview/mmd/MeasuresRBDPlan.mmd
+:align: center
 ```
 
 ### Current structure (3rd cycle of reporting)
@@ -147,10 +56,9 @@ Reporting by MS should not present technical difficulties, and there is limited 
 Progress since the previous cycle – 3ʳᵈ cycle of reporting*
 
 (Figure 3)=
-![RBMP diagram](img/MeasuresFigure3.jpeg)
-
-
-
+```{mermaid} /DataModelReview/mmd/MeasuresRBMP3rdcycle.mmd
+:align: center
+```
 
 
 ### RiverBasinManagementPlan – 4ᵗʰ cycle of reporting
@@ -165,44 +73,8 @@ The reporting of the **pomCoordinationArt5SWMI**, **pomCoordinationIRBMPPoM**, *
 
 
 (Figure 4)=
-```{mermaid}
-classDiagram
-
-class RiverBasinManagementPlan {
-    + euRBDCode : wiseldentifier [1]
-    + rbmpName : text (1000) [1]
-    + rbmpTimetablePublicationDate : Date [1]
-    + rbmpProgrammePublicationDate : Date [1]
-    + rbmpConsultationPublicationDate : Date [1]
-    + rbmpInterimOverviewDate : Date [1]
-    + rbmpDraftVersionDate : Date [1]
-    + finalRBMPPublicationDate : Date [1]
-
-    + subPlans : YesNo [1]
-    + subPlansCoverage : SubPlansCodelist value [0..1]
-    + subPlansReference : DocumentReference [0..n]
-
-    + sea : YesNo [1]
-    + seaReference : DocumentReference [0..n]
-
-    + documentAvailability : YesNo [1]
-
-    + ongoingStakeholderInvolvement : OngoingStakeholderInvolvementCodelist value [0..n]
-    + stakeholderGroups : StakeholderGroupsCodelist value [0..n]
-
-    + internationalCoordination : InternationalCoordinationCodelist value [0..1]
-    + internationalCoordinationPublicParticipation : YesNo [0..1]
-    + pomCoordinationArt5SWMI : CoordinationCodelist value [1]
-    + pomCoordinationIRBMPPoM : CoordinationCodelist value [1]
-    + pomCoordinationRoofReport : CoordinationCodelist value [1]
-    + pomCoordinationFinancial : CoordinationCodelist value [1]
-
-    + integrationFloodsDirective : YesNo [1]
-    + coordinationFloodsDirective : YesNoNotApplicable [1]
-    + coordinationMSFD : YesNoNotApplicable [1]
-
-    + coordinationNRRRReference : DocumentReference [1..n]
-}
+```{mermaid} /DataModelReview/mmd/MeasuresRBDPlan4thCycle.mmd
+:align: center
 ```
 
 
@@ -215,23 +87,8 @@ The only constraint is that, for each RBD, the sum of the values in **percentage
 **Figure 5.** *Progress table – 4ᵗʰ cycle of reporting.*
 
 (Figure 5)=
-```{mermaid}
-classDiagram
-
-class Progress {
-    + euRBDCode : wiseIdentifier [1]
-
-    + previousRBMPMeasureStatus : PlannedOngoingExecutedCancelledCodelist value [1]
-    + percentageInStatus : Percentage [1]
-
-    + obstaclesGovernance : YesNo [1]
-    + obstaclesDelays : YesNo [1]
-    + obstaclesLackOfFinance : YesNo [1]
-    + obstaclesLackOfMechanism : YesNo [1]
-    + obstaclesMeasureNotEffective : YesNo [1]
-    + obstaclesMeasureNotCostEffective : YesNo [1]
-    + obstaclesExtremeEvents : YesNo [1]
-}
+```{mermaid} /DataModelReview/mmd/MeasuresProgressTable.mmd
+:align: center
 ```
 
 
@@ -277,78 +134,8 @@ In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised seve
 
 **Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
 (Figure 8)=
-```{mermaid}
-classDiagram
-    direction TB
-
-    class TargetedQ {
-        <<XSDcomplexType>>
-        + basicMeasuresArt113c: BasicMeasuresChanges_Enum
-        + basicMeasuresArt113d: BasicMeasuresArt113d_Enum
-        + basicMeasuresArt113ePermit: BasicMeasuresArt113ePermit_Enum
-        + basicMeasuresArt113gRegister: BasicMeasuresArt113gRegister_Enum
-        + basicMeasuresArt113hThreshold: BasicMeasuresArt113hThreshold_Enum [0..1]
-        + basicMeasuresArt113iImpoundment: BasicMeasuresArt113iImpoundment_Enum
-        + basicMeasuresArt113jIssues: BasicMeasuresArt113jIssues_Enum
-        + basicMeasuresArt113kRules: BasicMeasuresArt113kRules_Enum
-        + basicMeasuresArt113lRepair: YesNoCode_Enum [0..1]
-        + basicMeasuresArt113mPermit: YesNoCode_Enum [0..1]
-        + basicMeasuresArt113nReference: ReferenceType [1..*]
-        + ecologicalFlow: EcologicalFlow_Enum
-        + ecologicalFlowImplementation: EcologicalFlowImplementation_Enum [0..1]
-        + climateChangeGuidance: YesNoCode_Enum [0..1]
-        + climateChangeAspectsConsidered: ClimateChangeAspectsConsidered_Enum [0..1]
-        + floodsDirective: YesNoCode_Enum
-        + winWinWithDrugsNodes: YesNoCode_Enum
-        + structuralMeasures: YesNoCode_Enum
-        + mtdCfCombination: YesNoRelevant_Union_Enum
-        + mtdCfAssessment: YesNoRelevant_Union_Enum
-        + mtdCfMSFDMeasuresNeeded: MSFDMeasuresNeeded_Enum [0..*]
-        + otherAspectsReference: ReferenceType [0..*]
-    }
-
-    class Costs {
-        <<XSDcomplexType>>
-        + costOfMeasureScale20152021: MIsorRBD_Enum
-        + costOfMeasurePeriod20152021: YearRange1Type
-        + investmentCosts20152021: NumberDecimalType
-        + costExplanation20152021Reference: ReferenceType [1..*]
-        + costOfMeasureScale20212027: MIsorRBD_Enum
-        + costOfMeasurePeriod20212027: YearRange1Type
-        + investmentCosts20212027: NumberDecimalType
-        + annualCosts20212027: NumberDecimalType
-        + depreciation20212027: YesNoCode_Enum
-        + costExplanation20212027Reference: ReferenceType [1..*]
-        + euFunds20152021: NumberDecimalType
-        + euFunds20212027: NumberDecimalType
-    }
-
-    class Measure {
-        <<XSDcomplexType>>
-        + measureCode: String1000Type
-        + measureName: String1000Type
-        + measureType: MeasureType_Enum
-        + basicMeasureType: BasicMeasureType_Enum [0..*]
-        + msfdRelevance: YesNoNotRelevantUnclear_Union_Enum
-        + measureReference: ReferenceType [1..*]
-    }
-
-    class KTM {
-        <<XSDcomplexType>>
-        + keyTypeMeasure: KTM_Enum
-        + keyTypeMeasureOther: String1000Type [0..1]
-    }
-
-    class RBMPoM {
-        <<XSDcomplexType>>
-        + countryCode: CountryCode_Enum
-        + euRBDCode: FeatureUniqueEUCodeType
-    }
-
-    TargetedQ <-- RBMPoM : +TargetedQ 1..1
-    Costs <-- RBMPoM : +Costs 1..1
-    Measure <-- RBMPoM : +Measure 1..*
-    KTM <-- RBMPoM : +KTM 1..*
+```{mermaid} /DataModelReview/mmd/MeasuresRBMPPoM_2022schema.mmd
+:align: center
 ```
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 
@@ -361,40 +148,8 @@ Reporting by MS should not present technical difficulties, and there is limited 
 **Figure 9.** *TargetedQuestions table - 4ᵗʰ cycle of reporting.* 
 
 (Figure 9)=
-```{mermaid}
-classDiagram
-
-class TargetedQuestions {
-    + euRBDCode : wisedIdentifier [1]
-
-    + basicMeasuresArt113c : BasicMeasuresChangesCodelist value [1]
-    + basicMeasuresArt113d : BasicMeasuresArt113dCodelist value [1]
-    + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113iImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
-    + basicMeasuresArt113j : BasicMeasuresChangesCodelist value [1]
-
-    + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
-
-    + basicMeasuresArt113ePermit : YesNo [1]
-    + basicMeasuresArt113gRegister : YesNo [1]
-    + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
-    + basicMeasuresArt113k : YesNo [1]
-
-    + waterReuseMeasure : YesNo [1]
-    + ecologicalFlow : EcologicalFlowCodelist value [1]
-    + ecologicalFlowImplementation : EcologicalFlowImplementationCodelist value [1]
-    + climateChange : YesNo [1]
-    + climateChangeGuidance : YesNo [1]
-    + floodsDirective : YesNo [1]
-    + structuralMeasures : YesNo [1]
-    + msfdCoOrdination : YesNoNotRelevant [1]
-    + msfdAssessment : YesNoNotRelevant [1]
-}
+```{mermaid} /DataModelReview/mmd/MeasuresTargetedQuestions.mmd
+:align: center
 ```
 
 ### Measure – 4ᵗʰ cycle of reporting 
@@ -403,35 +158,8 @@ Figure 10 illustrates the simplified Measure table proposed for the 4ᵗʰ cycle
 **Figure 10.** *Measure table – 4ᵗʰ cycle of reporting.*
 
 (Figure 10)=
-```{mermaid}
-classDiagram
-
-class Measure {
-    + measureCode : wiselIdentifier [1]
-    + measureName : text (1000) [1]
-    + measureReference : DocumentReference [0..1]
-
-    + measureType : MeasureTypeCodelist value [1]
-    + mainLegalInstrument : LegalInstrumentCodelist value [1]
-    + mainKeyTypeOfMeasure : MainKeyTypeOfMeasureCodelist value [1]
-
-    + mainPressureType : HierarchicalPressureTypeCodelist value [0..1]
-    + mainSubstanceType : HierarchicalSubstanceTypeCodelist value [0..1]
-
-    + msfdRelevance : YesNo [1]
-    + floodsRelevance : YesNo [1]
-    + natureRestorationRegulationRelevance : YesNo [1]
-    + draughtManagementPlanRelevance : YesNo [1]
-    + climateAdaptationPlanRelevance : YesNo [1]
-
-    + geographicalCoverage : WFDGeographicCoverageCodelist value [1]
-    + euRBDCode : wiselIdentifier [0..n]
-    + waterCategory : HierarchicalWaterCategoryCodelist value [0..1]
-    + protectedAreaType : ProtectedAreaTypeCodelist value [0..1]
-
-    + implementationPeriod : YearRangeType [1]
-    + implementationStatus : PlannedOngoingExecutedCancelledCodelist value [1]
-}
+```{mermaid} /DataModelReview/mmd/MeasuresTable.mmd
+:align: center
 ```
 
 
@@ -598,25 +326,8 @@ In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported i
 **Figure 11.** Class diagram for the RBMPPoM_2022 schema: Costs – 3ʳᵈ cycle of reporting.
 
 (Figure 11)=
-```{mermaid}
-classDiagram
-
-class Costs {
-    + costOfMeasuresScale20152021 : MSorRBD_Enum
-    + costOfMeasurePeriod20152021 : YearRangeType
-    + investmentCosts20152021 : NumberDecimalType
-    + costExplanation20152021Reference : ReferenceType [1..*]
-
-    + costOfMeasuresScale20212027 : MSorRBD_Enum
-    + costOfMeasurePeriod20212027 : YearRangeType
-    + investmentCosts20212027 : NumberDecimalType
-    + annualCosts20212027 : NumberDecimalType
-    + depreciation20212027 : YesNoCode_Enum
-    + costExplanation20212027Reference : ReferenceType [1..*]
-
-    + euFunds20152021 : NumberDecimalType
-    + euFunds20212027 : NumberDecimalType
-}
+```{mermaid} /DataModelReview/mmd/MeasuresCosts.mmd
+:align: center
 ```
 
 The variability of the geographical and temporal coverage of the reported data adds to the difficulty in achieving a meaningful analysis.{ref}`Table 4 <Table 4>` illustrates the issues regarding temporal coverage. {ref}`Table 5 <Table 5>` illustrates the issue with geographical coverage.
@@ -675,22 +386,8 @@ hould use the relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, 
 **Figure 12.** *ExpenditurePerMeasurePerSector – 4ᵗʰ cycle of reporting.*
 
 
-```{mermaid}
-classDiagram
-
-class ExpenditurePerMeasurePerSector {
-    + measureCode : wiselIdentifier [1]
-    + expenditureDataAvailable : YesNoNotApplicable [1]
-    + institutionalSector : sea2010SectorCodeList value [0..1]
-
-    + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-
-    + totalCapitalExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCurrentExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-
-    + millionUnitsOfNationalCurrency : CurrencyCode value [0..1]
-}
+```{mermaid} /DataModelReview/mmd/MeasuresExpenditure.mmd
+:align: center
 ```
 
 
@@ -733,38 +430,9 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 
 **Figure 13.** *European System of Accounts (ESA 2010) allocation of institutional units to sectors.*
 
-```{mermaid}
-flowchart TB
-
-    A[Is the unit resident?]
-
-    A -->|Yes| B[Is the unit a household?]
-    A -->|No| RoW[RoW]
-
-    B -->|No| C[Is the unit a non-market producer?]
-    B -->|Yes| Households[Households]
-
-    C -->|Yes| D[Is the unit controlled by government?]
-    C -->|No| E[Does the unit produce financial services?]
-
-    D -->|No| NPISH[NPISH]
-    D -->|Yes| GG[General government]
-
-    E -->|No| NFC[Non-financial corporations]
-    E -->|Yes| FC[Financial corporations]
-
-    %% --- FIX: give unique IDs to repeated decision boxes ---
-    NFC --> D1[Is the unit controlled by general government?]
-    
-
-    D1 -->|Yes| PNFC[Public non-financial corporations]
-    D1 -->|No| PRNFC
-
-    FC -->D2[Is the unit controlled by general government?]
-    
-
-    D2 -->|Yes| PUFC[Public financial corporations]
-    D2 -->|No| PRFC
+(Figure 13)=
+```{mermaid} /DataModelReview/mmd/MeasuresUnitResidentflowchart.mmd
+:align: center
 ```
 
 
