@@ -277,7 +277,89 @@ In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised seve
 
 **Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
 (Figure 8)=
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![RBMP diagram](img/MeasuresFigure8.jpeg)
+=======
+=======
+>>>>>>> Stashed changes
+```{mermaid}
+classDiagram
+    direction TB
+
+    class TargetedQ {
+        <<XSDcomplexType>>
+        + basicMeasuresArt113c: BasicMeasuresChanges_Enum
+        + basicMeasuresArt113d: BasicMeasuresArt113d_Enum
+        + basicMeasuresArt113ePermit: BasicMeasuresArt113ePermit_Enum
+        + basicMeasuresArt113gRegister: BasicMeasuresArt113gRegister_Enum
+        + basicMeasuresArt113hThreshold: BasicMeasuresArt113hThreshold_Enum [0..1]
+        + basicMeasuresArt113iImpoundment: BasicMeasuresArt113iImpoundment_Enum
+        + basicMeasuresArt113jIssues: BasicMeasuresArt113jIssues_Enum
+        + basicMeasuresArt113kRules: BasicMeasuresArt113kRules_Enum
+        + basicMeasuresArt113lRepair: YesNoCode_Enum [0..1]
+        + basicMeasuresArt113mPermit: YesNoCode_Enum [0..1]
+        + basicMeasuresArt113nReference: ReferenceType [1..*]
+        + ecologicalFlow: EcologicalFlow_Enum
+        + ecologicalFlowImplementation: EcologicalFlowImplementation_Enum [0..1]
+        + climateChangeGuidance: YesNoCode_Enum [0..1]
+        + climateChangeAspectsConsidered: ClimateChangeAspectsConsidered_Enum [0..1]
+        + floodsDirective: YesNoCode_Enum
+        + winWinWithDrugsNodes: YesNoCode_Enum
+        + structuralMeasures: YesNoCode_Enum
+        + mtdCfCombination: YesNoRelevant_Union_Enum
+        + mtdCfAssessment: YesNoRelevant_Union_Enum
+        + mtdCfMSFDMeasuresNeeded: MSFDMeasuresNeeded_Enum [0..*]
+        + otherAspectsReference: ReferenceType [0..*]
+    }
+
+    class Costs {
+        <<XSDcomplexType>>
+        + costOfMeasureScale20152021: MIsorRBD_Enum
+        + costOfMeasurePeriod20152021: YearRange1Type
+        + investmentCosts20152021: NumberDecimalType
+        + costExplanation20152021Reference: ReferenceType [1..*]
+        + costOfMeasureScale20212027: MIsorRBD_Enum
+        + costOfMeasurePeriod20212027: YearRange1Type
+        + investmentCosts20212027: NumberDecimalType
+        + annualCosts20212027: NumberDecimalType
+        + depreciation20212027: YesNoCode_Enum
+        + costExplanation20212027Reference: ReferenceType [1..*]
+        + euFunds20152021: NumberDecimalType
+        + euFunds20212027: NumberDecimalType
+    }
+
+    class Measure {
+        <<XSDcomplexType>>
+        + measureCode: String1000Type
+        + measureName: String1000Type
+        + measureType: MeasureType_Enum
+        + basicMeasureType: BasicMeasureType_Enum [0..*]
+        + msfdRelevance: YesNoNotRelevantUnclear_Union_Enum
+        + measureReference: ReferenceType [1..*]
+    }
+
+    class KTM {
+        <<XSDcomplexType>>
+        + keyTypeMeasure: KTM_Enum
+        + keyTypeMeasureOther: String1000Type [0..1]
+    }
+
+    class RBMPoM {
+        <<XSDcomplexType>>
+        + countryCode: CountryCode_Enum
+        + euRBDCode: FeatureUniqueEUCodeType
+    }
+
+    TargetedQ <-- RBMPoM : +TargetedQ 1..1
+    Costs <-- RBMPoM : +Costs 1..1
+    Measure <-- RBMPoM : +Measure 1..*
+    KTM <-- RBMPoM : +KTM 1..*
+```
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 
 

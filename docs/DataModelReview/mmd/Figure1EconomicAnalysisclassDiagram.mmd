@@ -1,0 +1,56 @@
+classDiagram
+    direction TB
+
+    class EconomicAnalysis {
+        <<XSDcomplexType>>
+        + updatedEconomicAnalysis: YesNoPartially_Union_Enum
+        + economicAnalysisReference: ReferenceType [0..*]
+        + costEffectiveness: CostEffectiveness_Enum
+        + costEffectivenessReference: ReferenceType [0..*]
+        + article9DrinkingWater: YesNoCode_Enum
+        + article9Wastewater: YesNoCode_Enum
+        + article9Irrigation: YesNoCode_Enum
+        + article9SelfAbstraction: YesNoCode_Enum
+        + article9WaterStorage: YesNoCode_Enum
+        + article9FloodProtection: YesNoCode_Enum
+        + article9Navigation: YesNoCode_Enum
+        + articleOther: String1000Type [0..1]
+        + article94: YesNoCode_Enum
+        + article94Reference: ReferenceType [0..*]
+        + costRecoveryReference: ReferenceType [1..*]
+    }
+
+    class Service {
+        <<XSDcomplexType>>
+        + service: ServiceType_Enum
+        + serviceOther: String1000Type [0..1]
+        + serviceCostInstrument: YesNoPartially_Union_Enum
+        + serviceCostInstrumentReference: ReferenceType [0..*]
+        + serviceVolumetricCharges: YesNoPartially_Union_Enum
+        + servicePriceLevel: ThresholdType
+        + serviceFinancialCostIncluded: YesNoPartially_Union_Enum
+        + serviceFinancialCostCalculation: YesNoPartially_Union_Enum
+        + serviceFinancialCostRecovery: NumberPercentageAboveType
+        + serviceEnvironmentalCharge: YesNoCode_Enum
+        + serviceEnvironmentalChargeScale: MoSRBD_Enum [0..1]
+        + serviceEnvironmentalChargeRevenue: NumberDecimalType [0..1]
+        + serviceEnvironmentalChargeRevenueUse: YesNoPartially_Union_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCost: YesNoCode_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCostSignificance: YesNoCode_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCostInternalisation: YesNoPartially_Union_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCostJustification: String2500Type [0..1]
+        + serviceWaterUseHouseholds: YesNoCode_Enum
+        + serviceWaterUseIndustry: YesNoCode_Enum
+        + serviceWaterUseAgriculture: YesNoCode_Enum
+        + serviceWaterUseOther: String1000Type [0..1]
+        + serviceWaterUseContribution: YesNoCode_Enum
+    }
+
+    class RBMPPoM {
+        <<XSDcomplexType>>
+        + countryCode: CountryCode_Enum
+        + euRBDCode: FeatureUniqueEUCodeType
+    }
+
+    EconomicAnalysis --> RBMPPoM : 1..1
+    Service --> RBMPPoM : 1..*

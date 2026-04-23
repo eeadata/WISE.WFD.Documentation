@@ -1,0 +1,50 @@
+classDiagram
+    direction TB
+
+    class CostRecovery {
+        + euRBDCode: wiseIdentifier [1]
+
+        <<Adequate Contribution>>
+        + adequateContributionAccount: YesNo [1]
+        + adequateContributionSectoral: YesNo [1]
+
+        <<Polluter Pays Principle>>
+        + pppAccount: YesNo [1]
+        + pppERCBased: YesNo [1]
+        + pppTargetPolluters: YesNo [1]
+
+        <<Incentives>>
+        + incentivesAccount: YesNo [1]
+        + incentivesEmpiricalInformation: YesNo [1]
+        + incentivesDifferentiated: YesNo [0..1]
+        + incentivesWaterScarcityUse: YesNo [1]
+    }
+
+    class CostRecoveryPerService {
+        + euRBDCode: wiseIdentifier [1]
+        + waterService: WFDWaterServiceCodelist value [1]
+
+        <<Cost Recovery Principle Application>>
+        + costRecoveryFull: YesNoNotApplicable [1]
+        + costRecoveryCorroborated: YesNo [0..1]
+
+        <<Justification>>
+        + nationalMethodologyApplied: YesNo [0..1]
+        + justificationLessFullRecovery: YesNo [0..1]
+        + justificationFactor: Text(4000) [0..1]
+        + justificationSectoralInformation: YesNo [0..1]
+
+        <<Exemption>>
+        + article94Exemption: YesNo [0..1]
+        + article94Justification: YesNo [0..1]
+    }
+
+    class VolumeRevenueCostPerService {
+        + geo: wiseIdentifier [1]
+        + time: Year [1]
+        + dimension: VolumeRevenueCostCodelist value [1]
+        + obs_value: NonNegativeValue [1]
+        + obs_unit: UnitOfMeasureCodeList [1]
+        + obs_status: ObservationStatusCode [0..1]
+        + obs_comment: Text(4000) [0..1]
+    }
