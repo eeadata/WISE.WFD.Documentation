@@ -1,8 +1,6 @@
 # WFD - Economic Analysis
 
 **PROPOSAL - Version 2026.02.20** {download}`PDF <pdf/WFD_4rd_cycle_EconomicAnalysis_v20260220.pdf>`
-<<<<<<< Updated upstream
-=======
 ## Purpose and Overview
 
 The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({ref}`Figure 1 <Figure 1>`) and presents a proposal for the electronic reporting in the 4th cycle ({ref}`Figure 2 <Figure 2>`).
@@ -15,21 +13,22 @@ The *Service* table is removed. Information about volumes, revenues and costs is
 
 
 
-```{mermaid} /DataModelReview/mmd/Figure1EconomicAnalysisclassDiagram.mmd
-:name: Figure 1
-:caption: Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.
+(Figure 1)=
+```{mermaid} /DataModelReview/mmd/EconomicAnalysisclassDiagram.mmd
 :align: center
 ```
+
+*Figure 1 Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.*
 Source : [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
 
 
-
-```{mermaid} /DataModelReview/mmd/Figure2EconomicAnalysis.mmd
-:name: Figure 2
-:caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting
+(Figure 2)=
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_RevenueandCosts.mmd
 :align: center
 
 ```
+
+*Figure 2.Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting*
 
 ## Cost Recovery – 4ᵗʰ Cycle of Reporting
 
@@ -66,56 +65,11 @@ Table 1 lists the content of the questionnaire.
 |                        | article94Justification          | If article94Exemption = 'Yes', is there a justification for this exemption?                                                                                                                                       |
 
 
-**Figure 3.** *CostRecovery – 4ᵗʰ cycle of reporting.*     **Figure 4.** *CostRecoveryPerService – 4ᵗʰ cycle of reporting.*
 (Figure 3)=
-```{mermaid}
-classDiagram
-    direction TB
-
-    namespace Figure 3.CostRecovery4thcycleofreporting{
-        class CostRecovery {
-            + euRBDCode: wiseIdentifier [1]
-
-            ------Adequate Contribution--------
-            + adequateContributionAccount: YesNo [1]
-            + adequateContributionSectoral: YesNo [1]
-
-            ------Polluter Pays Principle-------
-            + pppAccount: YesNo [1]
-            + pppERCBased: YesNo [1]
-            + pppTargetPolluters: YesNo [1]
-
-            -----------Incentives---------
-            + incentivesAccount: YesNo [1]
-            + incentivesEmpiricalInformation: YesNo [1]
-            + incentivesDifferentiated: YesNo [0..1]
-            + incentivesWaterScarcityUse: YesNo [1]
-        }
-    }
-
-    namespace Figure 4. CostRecoveryPerService 4th cycle of reporting{
-        class CostRecoveryPerService {
-            + euRBDCode: wiseIdentifier [1]
-            + waterService: WFDWaterServiceCodelist value [1]
-
-            ---Cost Recovery Principle Application---
-
-            + costRecoveryFull: YesNoNotApplicable [1]
-            + costRecoveryCorroborated: YesNo [0..1]
-
-            ---Justification---
-            + nationalMethodologyApplied: YesNo [0..1]
-            + justificationLessFullRecovery: YesNo [0..1]
-            + justificationFactor: Text(4000) [0..1]
-            + justificationSectoralInformation: YesNo [0..1]
-
-            ---Exemption---
-            + article94Exemption: YesNo [0..1]
-            + article94Justification: YesNo [0..1]
-        }
-    }
+```{mermaid} /DataModelReview/mmd/Figure3EconomicAnalysis.mmd
+:align: center
 ```
-
+*Figure 3. CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
 
 
 
@@ -131,9 +85,7 @@ Information is requested:<br>• about the physical volumes of water, the revenu
 (Figure 5)=
 | a) | b) and c) |
 |---------|---------|
-| <img src="EconomicAnalysisImg/image6.PNG" width="300"> | <img src="EconomicAnalysisImg/image7.PNG" width="300"> |
-
-
+| <img src="img/EconomicAnalysisPhysicalvolume.PNG" width="300"> | <img src="img/EconomicAnalysisRevenue.PNG" width="300"> |
 
 
 <div style="display: flex; gap: 20px;">
@@ -165,7 +117,7 @@ The requested data on water volumes is detailed in ({ref}`Figure 6 <Figure 6>`).
 
 
 (Figure 6)=
-![RBMP diagram](EconomicAnalysisImg/image8.PNG)
+![RBMP diagram](img/EconomicAnalysisConceptualVolume.PNG)
 
 **Table 2.** Concepts and definitions applicable to water user sectors – 4ᵗʰ cycle of reporting.
 
@@ -220,7 +172,7 @@ The following generic guidelines apply to the reporting of revenues:<br>• Wate
 
 
 (Figure 7)=
-![RBMP diagram](EconomicAnalysisImg/image9.PNG)
+![RBMP diagram](img/EconomicAnalysisConceptualRevenue.PNG)
 
 Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in Figure 7, as well as the estimated global cost recovery rate.
 
@@ -230,31 +182,20 @@ The following generic guidelines apply to the reporting of costs:<br>• Grant�
 [^1]: According to Eurostat’s methodological frameworks, specifically the Environmental Protection Expenditure Accounts (EPEA) and the European System of Accounts (ESA 2010), grant-financed assets should be included in capital expenditure (CAPEX) estimates for the sector that acquires and owns the asset. In Eurostat statistics, CAPEX is primarily measured as Gross Fixed Capital Formation (GFCF). GFCF consists of resident producers' acquisitions, less disposals, of fixed assets during a given period. The recording of an asset's acquisition in GFCF is based on the change of ownership and the total value of the asset at the time of purchase. It does not depend on whether the purchase was funded through internal cash flow, loans, or external grants.
 [^2]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
 
-Figure 8 presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
+({ref}`Figure 8 <Figure 8>`) presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
 
 The dimension codes for the reporting of costs per water service are presented in {ref}`Table 5 <Table 5>`.  
 The dimension codes for the reporting of volumes and revenues are presented in {ref}`Table 6 <Table 6>`.
 
-**Figure 8.** Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting  
-
 
 (Figure 8)=
-```{mermaid}
-classDiagram
-    direction TB
-
-    class VolumeRevenueCostPerService {
-        + geo: wiseIdentifier [1]
-        + time: Year [1]
-        + dimension: VolumeRevenueCostCodelist value [1]
-        + cbs_value: NonNegativeValue [1]
-        + cbs_unit: UnitOfMeasureCodeList [1]
-        + cbs_status: ObservationStatusCode [0..1]
-        + cbs_comment: Text(4000) [0..1]
-    }
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_Volume.mmd
+:name: EconomicAnalysis_Volume
+:caption: Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting  
+:align: center
 ```
 See also in ([^3])
-[^3]: Figure 8 presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+[^3]: ({ref}`Figure 8 <Figure 8>`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
 
 **Table 5.** Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting  
 
@@ -391,5 +332,4 @@ Table 7 provides an overview of some of the OECD/Eurostat Joint Questionnaire ta
 | VOL_WWV     | DIS_IND_IW_AT    | of which: Discharges to inland waters after treatment                   |
 | VOL_WWV     | DIS_IND_IW_NT    | of which: Discharges to inland waters without treatment                 |
 | VOL_WWV     | DIS              | Total discharges of WWTP’s (urban and other) – after treatment          |
->>>>>>> Stashed changes
 

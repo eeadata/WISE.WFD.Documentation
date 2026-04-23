@@ -277,12 +277,6 @@ In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised seve
 
 **Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
 (Figure 8)=
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-![RBMP diagram](img/MeasuresFigure8.jpeg)
-=======
-=======
->>>>>>> Stashed changes
 ```{mermaid}
 classDiagram
     direction TB
@@ -356,10 +350,6 @@ classDiagram
     Measure <-- RBMPoM : +Measure 1..*
     KTM <-- RBMPoM : +KTM 1..*
 ```
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 
 
