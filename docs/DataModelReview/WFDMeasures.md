@@ -25,7 +25,7 @@ classDiagram
 
 class RiverBasinManagementPlan {
     + euRBDCode : wiseldentifier [1]
-    + rbmpName : text (1000) [1]
+    + rbmpName : String1000 [1]
     + rbmpTimetablePublicationDate : Date [1]
     + rbmpProgrammePublicationDate : Date [1]
     + rbmpConsultationPublicationDate : Date [1]
@@ -108,7 +108,7 @@ class TargetedQuestions {
 
 class Measure {
     + measureCode : wiselIdentifier [1]
-    + measureName : text (1000) [1]
+    + measureName : String1000 [1]
     + measureReference : DocumentReference [0..1]
 
     + measureType : MeasureTypeCodelist value [1]
@@ -202,7 +202,7 @@ classDiagram
 
 class RiverBasinManagementPlan {
     + euRBDCode : wiseldentifier [1]
-    + rbmpName : text (1000) [1]
+    + rbmpName : String1000 [1]
     + rbmpTimetablePublicationDate : Date [1]
     + rbmpProgrammePublicationDate : Date [1]
     + rbmpConsultationPublicationDate : Date [1]
@@ -368,7 +368,7 @@ classDiagram
 
 class Measure {
     + measureCode : wiselIdentifier [1]
-    + measureName : text (1000) [1]
+    + measureName : String1000 [1]
     + measureReference : DocumentReference [0..1]
 
     + measureType : MeasureTypeCodelist value [1]
