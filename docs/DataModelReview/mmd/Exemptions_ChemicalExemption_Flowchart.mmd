@@ -1,0 +1,96 @@
+%%{init: {'theme': 'neutral'}}%%
+
+flowchart LR
+
+%% Surface Water Chemical Exemptions and Groundwater Chemical Exemptions
+title@{ shape: braces, label: "Surface Water Chemical Exemptions and Groundwater Chemical Exemptions" }
+
+%% Defining the nodes
+		
+initial([start])
+final([end])
+
+%% duplicate nodeS for just for flowchart readability
+hasNoApplicableExemption_1("no exemption required"):::stateBlue
+hasNoApplicableExemption_2("no exemption applicable"):::stateRed
+hasNoApplicableExemption_3("no exemption required"):::stateBlue
+hasNoApplicableExemption_4("no exemption applicable"):::stateRed
+hasNoApplicableExemption_5("no exemption applicable"):::stateRed
+
+hasExemption44("Article 4(4) - Extension of deadline"):::state
+hasExemption45("Article 4(5) - Less stringent objectives"):::state
+hasExemption46("Article 4(6) - Temporary deterioration"):::state
+hasExemption47("Article 4(7) - New modification/project"):::state
+
+%% Defining the decisions
+
+%% WE NEED THE LISTS!
+is2026Substance{"2008 or 2013 priority substance?"}
+is2013Substance{"2013 substance?"}
+
+isCausingFailureIn2027{"Causing failure in 2027?"}
+isDeteriorationExpected{"Deterioration expected beyond 2027?"}
+isDeteriorationObserved{"Deterioration observed in 2027 or earlier?"}
+isGoodStatusAchievable{"Is good status achievable?"}
+isUnfeasibleOrCostly{"Are measures unfeasible or disproportionately costly?"}
+isDelayDueToNaturalConditions{"Delay due to natural conditions?"}
+isDelayDueToFeasibilityOrCost{"Delay due to technical feasibility OR disproportionate cost?"}
+
+%% Flow to TERMINATORS
+
+initial --> is2026Substance
+hasNoApplicableExemption_1 --> final
+hasNoApplicableExemption_2 --> final
+hasNoApplicableExemption_3 --> final
+hasNoApplicableExemption_4 --> final
+hasNoApplicableExemption_5 --> final
+
+hasExemption47 --> final 
+hasExemption46 --> final 
+hasExemption45 --> final 
+hasExemption44 --> final 
+
+%% THE IMPORTANT PART STARTS HERE
+
+%% EXEMPTIONS DON'T APPLY TO 2026 SUBSTANCES
+is2026Substance ==> |no| hasNoApplicableExemption_1
+is2026Substance ==> |yes| isCausingFailureIn2027
+
+%% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
+isCausingFailureIn2027 ==> |unknown| hasNoApplicableExemption_2
+
+%% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
+isCausingFailureIn2027 ==> |no| isDeteriorationExpected
+isDeteriorationExpected ==> |no| hasNoApplicableExemption_3
+
+%% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
+isDeteriorationExpected ==> |"yes [new modification OR sustainable human development]"| hasExemption47
+
+%% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
+isCausingFailureIn2027 ==> |yes| isDeteriorationObserved
+isDeteriorationObserved ==> |"yes [new modification OR sustainable human development]"| hasExemption47
+isDeteriorationObserved ==> |"yes [accidents OR force majeure OR natural causes]"| hasExemption46
+isDeteriorationObserved ==> |no| isGoodStatusAchievable
+
+%% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
+isGoodStatusAchievable ==>|no|isUnfeasibleOrCostly
+isUnfeasibleOrCostly ==> |yes|hasExemption45
+isUnfeasibleOrCostly ==> |no|hasNoApplicableExemption_4
+
+%% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
+isGoodStatusAchievable ==> |yes| isDelayDueToNaturalConditions
+isDelayDueToNaturalConditions ==> |yes| hasExemption44
+
+%% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - ONLY FOR 2013 SUBSTANCES
+isDelayDueToNaturalConditions ==> |no| isDelayDueToFeasibilityOrCost
+isDelayDueToFeasibilityOrCost ==> |yes| is2013Substance
+
+is2013Substance ==> |yes| hasExemption44
+is2013Substance ==> |no| hasNoApplicableExemption_5
+
+isDelayDueToFeasibilityOrCost ==> |no| hasNoApplicableExemption_5
+
+%% styling
+classDef state stroke-width:4px,fill:transparent
+classDef stateRed stroke:red,fill:transparent
+classDef stateBlue stroke:blue,fill:transparent
