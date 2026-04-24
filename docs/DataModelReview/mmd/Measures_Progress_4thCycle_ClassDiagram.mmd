@@ -1,0 +1,35 @@
+%%{init : {'theme' : 'neutral'}}%%
+classDiagram
+direction LR
+namespace ReportingData{
+class Progress{
++ euRBDCode :  wiseIdentifier
+
++ previousRBMPMeasureStatus : PlannedOngoingExecutedCancelled
++ percentageInStatus : Percentage
+
++ obstaclesGovernance : YesNo
++ obstaclesDelays : YesNo
++ obstaclesLackOfFinance : YesNo
++ obstaclesLackOfMechanism : YesNo
++ obstaclesMeasureNotEffective : YesNo
++ obstaclesMeasureNotCostEffective : YesNo
++ obstaclesExtremeEvents : YesNo
+
+}
+}
+
+namespace Codelist{
+class PlannedOngoingExecutedCancelled{
+    <<enumeration>>
+    planned
+    ongoing
+    executed
+    cancelled
+    }
+class YesNo{
+    <<enumeration>>
+    yes
+    no
+    }
+}

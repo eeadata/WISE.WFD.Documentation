@@ -4,165 +4,40 @@
 
 ## Purpose and Overview
 
-This document revises the **River Basin Management Plan & Programme of Measures** schema used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({ref}`Figure 1 <Figure 1>`). It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle ({ref}`Figure 2 <Figure 2>`).
+This section revises the **River Basin Management Plan & Programme of Measures** schema used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
+It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
 
 Not all information in the RBMPs can be accurately provided using a common European model. However, it is possible to improve and simplify the reporting of structured data, accepting that part of the relevant information will remain in documentation to be analysed during the Commission's implementation assessment.
 
 Using this principle, the data model can focus on aspects that are suitable for structured reporting, allowing adequate comparisons between different river basin districts (RBDs). Specific or more detailed information can be kept in the RBMP documents, the analysis of which can in the future be facilitated using, for example, large language models (LLMs) supported by retrieval‑augmented generation (RAG) techniques.
 
-**Figure 1.** *Partial class diagram for River Basin Management Plan & Programme of Measures (RBMPPoM_2022) schema.*
-(Figure 1)=
-![RBMP diagram](img/ClassDiagram_RBMPPoM_2022.png)
-
-
-Source : (https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
-
-**Figure 2.** *River Basin Management Plan & Programme of Measures – 4ᵗʰ cycle of reporting*
-
-(Figure 2)=
-```{mermaid}
-classDiagram
-
-class RiverBasinManagementPlan {
-    + euRBDCode : wiseldentifier [1]
-    + rbmpName : String1000 [1]
-    + rbmpTimetablePublicationDate : Date [1]
-    + rbmpProgrammePublicationDate : Date [1]
-    + rbmpConsultationPublicationDate : Date [1]
-    + rbmpInterimOverviewDate : Date [1]
-    + rbmpDraftVersionDate : Date [1]
-    + finalRBMPPublicationDate : Date [1]
-
-    + subPlans : YesNo [1]
-    + subPlansCoverage : SubPlansCodelist value [0..1]
-    + subPlansReference : DocumentReference [0..n]
-
-    + sea : YesNo [1]
-    + seaReference : DocumentReference [0..n]
-
-    + documentAvailability : YesNo [1]
-
-    + ongoingStakeholderInvolvement : OngoingStakeholderInvolvementCodelist value [0..n]
-    + stakeholderGroups : StakeholderGroupsCodelist value [0..n]
-
-    + internationalCoordination : InternationalCoordinationCodelist value [0..1]
-    + internationalCoordinationPublicParticipation : YesNo [0..1]
-    + pomCoordinationArt5SWMI : CoordinationCodelist value [1]
-    + pomCoordinationIRBMPPoM : CoordinationCodelist value [1]
-    + pomCoordinationRoofReport : CoordinationCodelist value [1]
-    + pomCoordinationFinancial : CoordinationCodelist value [1]
-
-    + integrationFloodsDirective : YesNo [1]
-    + coordinationFloodsDirective : YesNoNotApplicable [1]
-    + coordinationMSFD : YesNoNotApplicable [1]
-
-    + coordinationNRRRReference : DocumentReference [1..n]
-}
-
-class Progress {
-    + euRBDCode : wiseIdentifier [1]
-
-    + previousRBMPMeasureStatus : PlannedOngoingExecutedCancelledCodelist value [1]
-    + percentageInStatus : Percentage [1]
-
-    + obstaclesGovernance : YesNo [1]
-    + obstaclesDelays : YesNo [1]
-    + obstaclesLackOfFinance : YesNo [1]
-    + obstaclesLackOfMechanism : YesNo [1]
-    + obstaclesMeasureNotEffective : YesNo [1]
-    + obstaclesMeasureNotCostEffective : YesNo [1]
-    + obstaclesExtremeEvents : YesNo [1]
-} 
-
-class TargetedQuestions {
-    + euRBDCode : wisedIdentifier [1]
-
-    + basicMeasuresArt113c : BasicMeasuresChangesCodelist value [1]
-    + basicMeasuresArt113d : BasicMeasuresArt113dCodelist value [1]
-    + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113eImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
-    + basicMeasuresArt113f : BasicMeasuresChangesCodelist value [1]
-
-    + basicMeasuresArt113gPermit : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
-
-    + basicMeasuresArt113iPermit : YesNo [1]
-    + basicMeasuresArt113iRegister : YesNo [1]
-    + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
-    + basicMeasuresArt113k : YesNo [1]
-
-    + waterReuseMeasure : YesNo [1]
-    + ecologicalFlow : EcologicalFlowCodelist value [1]
-    + ecologicalFlowImplementation : EcologicalFlowImplementationCodelist value [1]
-    + climateChange : YesNo [1]
-    + climateChangeGuidance : YesNo [1]
-    + floodsDirective : YesNo [1]
-    + structuralMeasures : YesNo [1]
-    + msfdCoOrdination : YesNoNotRelevant [1]
-    + msfdAssessment : YesNoNotRelevant [1]
-}
-
-class Measure {
-    + measureCode : wiselIdentifier [1]
-    + measureName: String1000 [1]
-    + measureReference : DocumentReference [0..1]
-
-    + measureType : MeasureTypeCodelist value [1]
-    + mainLegalInstrument : LegalInstrumentCodelist value [1]
-    + mainKeyTypeOfMeasure : MainKeyTypeOfMeasureCodelist value [1]
-
-    + mainPressureType : HierarchicalPressureTypeCodelist value [0..1]
-    + mainSubstanceType : HierarchicalSubstanceTypeCodelist value [0..1]
-
-    + msfdRelevance : YesNo [1]
-    + floodsRelevance : YesNo [1]
-    + natureRestorationRegulationRelevance : YesNo [1]
-    + draughtManagementPlanRelevance : YesNo [1]
-    + climateAdaptationPlanRelevance : YesNo [1]
-
-    + geographicalCoverage : WFDGeographicCoverageCodelist value [1]
-    + euRBDCode : wiselIdentifier [0..n]
-    + waterCategory : HierarchicalWaterCategoryCodelist value [0..1]
-    + protectedAreaType : ProtectedAreaTypeCodelist value [0..1]
-
-    + implementationPeriod : YearRangeType [1]
-    + implementationStatus : PlannedOngoingExecutedCancelledCodelist value [1]
-}
-
-class ExpenditurePerMeasurePerSector {
-    + measureCode : wiselIdentifier [1]
-    + expenditureDataAvailable : YesNoNotApplicable [1]
-
-    + institutionalSector : sea2010SectorCodeList value [0..1]
-
-    + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCapitalExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCurrentExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-    + millionUnitsOfNationalCurrency : CurrencyCode value [0..1]
-}
-```
-
 ### Current structure (3rd cycle of reporting)
 
-The schema used in the 3rd cycle of reporting contains 3 main groups:
-1. Summary information about the **RBMP**, the Progress since the previous RBMP, the mechanisms of international **Coordination** (if applicable).
-2. Information about the **Programme of Measures**, comprising a summary questionnaire of **Targeted Questions** and aggregated data about the overall Cost of measures. 
-Disaggregated information is requested about each **Measure** and its classification into key type of measures (**KTM**) and basic type of measures (if applicable).
-3. Summary information about pressures and substances causing failure and their link to **KTM Indicators** and **Indicator Gaps**.
+The schema used in the 3rd cycle of reporting contained 3 main groups ({numref}`ProgrammeOfMeasures_3rdCycle`):
+
+1. Summary information about the *River Basin Management Plan*, the Progress since the previous River Basin Management Plan, 
+ and the mechanisms of international Coordination (if applicable).
+2. Information about the *Programme of Measures*, comprising a summary questionnaire of Targeted Questions and aggregated data about the overall Cost of measures. 
+ Disaggregated information was requested about each Measure and its classification into key type of measures (*KTM*) and basic type of measures (if applicable).
+3. Summary information about pressures and substances causing failure was also requested, along with their link to *KTM Indicators* and *Indicator Gaps*.
+
+```{figure} img/ClassDiagram_RiverBasinManagementPlan_ProgrammeOfMeasures_3rdCycle.png
+:name: ProgrammeOfMeasures_3rdCycle
+:align: center
+:width: 100%
+
+River Basin Management Plan & Programme of Measures - 3rd cycle - OBSOLETE
+```
 
 ### Proposed structure (4th cycle of reporting)
 
-1. The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan table**, containing a selected subset of attributes. The Progress table is modified to request only aggregated information about the overall status of the measures of the previous cycle (3rd cycle).
-2. The reporting of the Programme of Measures is also simplified. The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified. Information about measures is requested in a single **Measure** table. Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if data is available.
+1. The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan** table, containing a selected subset of attributes. 
+ The **Progress** table is modified to request only aggregated information about the overall status of the measures of the previous cycle (3rd cycle).
+2. The reporting of the Programme of Measures is also simplified. 
+ The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified. 
+ Information about measures is requested in a single **Measure** table. 
+ Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if data is available.
 3. The KTM indicators and indicator gaps group is completely removed.
-
-
-
 
 
 ## River Basin Management Plan, Coordination and Progress
@@ -179,7 +54,7 @@ Reporting by MS should not present technical difficulties, and there is limited 
 Progress since the previous cycle – 3ʳᵈ cycle of reporting*
 
 (Figure 3)=
-![RBMP diagram](img/MeasuresFigure3.png)
+![RBMP diagram](img/MeasuresFigure3.jpeg)
 
 
 
@@ -187,231 +62,129 @@ Progress since the previous cycle – 3ʳᵈ cycle of reporting*
 
 ### RiverBasinManagementPlan – 4ᵗʰ cycle of reporting
 
-The simplified **RiverBasinManagementPlan** table ({ref}`Figure 4 <Figure 4>`) contains a subset of the data previously requested in the RBMP and Coordination classes in the 3ʳᵈ cycle.
+The simplified **RiverBasinManagementPlan** table contains a subset of the data previously requested in the RBMP and Coordination classes in the 3ʳᵈ cycle ({numref}`RiverBasinManagementPlan_4thCycle_ClassDiagram`):
 
-A new attribute, **coordinationNRRReference**, allows the reporting of information related to coordination with the **Nature Restoration Regulation**.
+* A new attribute, **coordinationNRRReference**, allows the reporting of information related to coordination with the *Nature Restoration Regulation*.
 
-The reporting of the **pomCoordinationArt5SWMI**, **pomCoordinationIRBMPPoM**, **pomCoordinationRoofReport** and **pomCoordinationFinancial** attributes is only required for international RBDs. 
+* The reporting of the **pomCoordinationArt5SWMI**, **pomCoordinationIRBMPPoM**, **pomCoordinationRoofReport** and **pomCoordinationFinancial** attributes 
+ is only required for international RBDs. 
 
-**Figure 4.** *RiverBasinManagementPlan table – 4ᵗʰ cycle of reporting.*
-
-
-(Figure 4)=
-```{mermaid}
-classDiagram
-
-class RiverBasinManagementPlan {
-    + euRBDCode : wiseldentifier [1]
-    + rbmpName : String1000 [1]
-    + rbmpTimetablePublicationDate : Date [1]
-    + rbmpProgrammePublicationDate : Date [1]
-    + rbmpConsultationPublicationDate : Date [1]
-    + rbmpInterimOverviewDate : Date [1]
-    + rbmpDraftVersionDate : Date [1]
-    + finalRBMPPublicationDate : Date [1]
-
-    + subPlans : YesNo [1]
-    + subPlansCoverage : SubPlansCodelist value [0..1]
-    + subPlansReference : DocumentReference [0..n]
-
-    + sea : YesNo [1]
-    + seaReference : DocumentReference [0..n]
-
-    + documentAvailability : YesNo [1]
-
-    + ongoingStakeholderInvolvement : OngoingStakeholderInvolvementCodelist value [0..n]
-    + stakeholderGroups : StakeholderGroupsCodelist value [0..n]
-
-    + internationalCoordination : InternationalCoordinationCodelist value [0..1]
-    + internationalCoordinationPublicParticipation : YesNo [0..1]
-    + pomCoordinationArt5SWMI : CoordinationCodelist value [1]
-    + pomCoordinationIRBMPPoM : CoordinationCodelist value [1]
-    + pomCoordinationRoofReport : CoordinationCodelist value [1]
-    + pomCoordinationFinancial : CoordinationCodelist value [1]
-
-    + integrationFloodsDirective : YesNo [1]
-    + coordinationFloodsDirective : YesNoNotApplicable [1]
-    + coordinationMSFD : YesNoNotApplicable [1]
-
-    + coordinationNRRRReference : DocumentReference [1..n]
-}
+```{mermaid} /DataModelReview/mmd/Measures_RiverBasinManagementPlan_4thCycle_ClassDiagram.mmd
+:name: RiverBasinManagementPlan_4thCycle_ClassDiagram
+:caption: River Basin Management Plan table – 4ᵗʰ cycle of reporting
+:align: center
 ```
-
 
 ## Progress – 4ᵗʰ cycle of reporting
 
-The **Progress** table is modified to provide an overview of the proportion of the measures of the 3ʳᵈ RBMPs that were executed, cancelled, or otherwise affected, as well as the obstacles encountered during the implementation of the 3ʳᵈ RBMP Programme of Measures ({ref}`Figure 5 <Figure 5>`).
+The **Progress** table is modified to provide an overview of the proportion of the measures of the 3ʳᵈ RBMPs that were executed, cancelled, or otherwise affected, 
+as well as the obstacles encountered during the implementation of the 3ʳᵈ RBMP Programme of Measures ({numref}`Progress_4thCycle_ClassDiagram`).
 
-The only constraint is that, for each RBD, the sum of the values in **percentageInStatus** must be **100**. The level of detail can be adapted depending on needs and the data available.
+The only constraint is that, for each RBD, the sum of the values in **percentageInStatus** must be **100**. 
+The level of detail can be adapted depending on the needs and the data available at national level.
 
-**Figure 5.** *Progress table – 4ᵗʰ cycle of reporting.*
-
-(Figure 5)=
-```{mermaid}
-classDiagram
-
-class Progress {
-    + euRBDCode : wiseIdentifier [1]
-
-    + previousRBMPMeasureStatus : PlannedOngoingExecutedCancelledCodelist value [1]
-    + percentageInStatus : Percentage [1]
-
-    + obstaclesGovernance : YesNo [1]
-    + obstaclesDelays : YesNo [1]
-    + obstaclesLackOfFinance : YesNo [1]
-    + obstaclesLackOfMechanism : YesNo [1]
-    + obstaclesMeasureNotEffective : YesNo [1]
-    + obstaclesMeasureNotCostEffective : YesNo [1]
-    + obstaclesExtremeEvents : YesNo [1]
-}
+```{mermaid} /DataModelReview/mmd/Measures_Progress_4thCycle_ClassDiagram.mmd
+:name: Progress_4thCycle_ClassDiagram
+:caption: Progress table – 4ᵗʰ cycle of reporting
+:align: center
 ```
 
+A numerical example illustrates per proposed approach. 
+Consider a hypothetical 3ʳᵈ RBMP Programme of Measures with 10 different measures, 
+which are in different statuses and may have faced different obstacles ({numref}`measures_example_ten_measures`). 
 
-A numerical example illustrates per proposed approach.
-Consider a hypothetical 3ʳᵈ RBMP Programme of Measures with 10 different measures, which are in different statuses and may have faced different obstacles ({ref}`Figure 6 <Figure 6>`). The example in Figure 7 illustrates how to synthesize the information in the Progress table. 
+The example in {numref}`measures_example_progress` illustrates how to synthesize the information in the Progress table. 
 
+```{table} Illustrative example - hypothetical list with the status of the 10 measures of the 3ʳᵈ cycle.
+:name: measures_example_ten_measures
+:width: 100%
+:align: left
 
-**Figure 6.** *Illustrative example -  hypothetical list with the status of the 10 measures of the 3ʳᵈ cycle.*
+| Measure | Status | Obstacles |
+| --- | --- | --- |
+| M01 | Ongoing | No obstacles. |
+| M02 | Executed | No obstacles. |
+| M03 | Executed | No obstacles. |
+| M04 | Executed | Extreme event. |
+| M05 | Executed | Extreme event. |
+| M06 | Cancelled | Extreme event. |
+| M07 | Cancelled | Extreme event. |
+| M08 | Postponed to the next cycle | Delays, Lack of finance. |
+| M09 | Postponed to the next cycle | Delays, Lack of finance. |
+| M10 | Cancelled | Not cost effective. |
 
+```
 
-(Figure 6)=
-| Measure | Status                       | Obstacles                 |
-|---------|------------------------------|---------------------------|
-| M01     | Ongoing                      | No obstacles.             |
-| M02     | Executed                     | No obstacles.             |
-| M03     | Executed                     | No obstacles.             |
-| M04     | Executed                     | Extreme event.            |
-| M05     | Executed                     | Extreme event.            |
-| M06     | Cancelled                    | Extreme event.            |
-| M07     | Cancelled                    | Extreme event.            |
-| M08     | Postponed to the next cycle  | Delays, Lack of finance.  |
-| M09     | Postponed to the next cycle  | Delays, Lack of finance.  |
-| M10     | Cancelled                    | Not cost effective.       |
+```{table} Illustrative example - **Progress** table records for the example in the previous table.
+:name: measures_example_progress
+:width: 100%
+:align: left
 
-
-**Figure 7.** *Illustrative example: Progress table records for the example in Figure 6.*
-
-
-(Figure 7)=
 | previousRBMPMeasureStatus | percentageInStatus | obstaclesDelays | obstaclesLackOfFinance | obstaclesMeasureNotCostEffective | obstaclesExtremeEvents |
-|---------------------------|--------------------|------------------|-------------------------|----------------------------------|-------------------------|
-| Ongoing                   | 10                 | No               | No                      | No                               | No                      |
-| Executed                  | 20                 | No               | No                      | No                               | No                      |
-| Executed                  | 20                 | No               | No                      | No                               | Yes                     |
-| Cancelled                 | 20                 | No               | No                      | No                               | Yes                     |
-| Planned                   | 20                 | Yes              | Yes                     | Yes                              | No                      |
-| Cancelled                 | 10                 | No               | No                      | Yes                              | No                      |
+| --- | --- | --- | --- | --- | --- |
+| ongoing | 10 | No | No | No | No |
+| executed | 20 | No | No | No | No |
+| executed | 20 | No | No | No | Yes |
+| cancelled | 20 | No | No | No | Yes |
+| planned | 20 | Yes | Yes | Yes | No |
+| cancelled | 10 | No | No | Yes | No |
 
+```
 
 ## Programme of Measures
 
-In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised several tables ({ref}`Figure 8 <Figure 8>`). Most of the analysis in the current document is focused on ways to clarify and simplify the reporting of measures and the classification of measures.
-
-**Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
-(Figure 8)=
-![RBMP diagram](img/MeasuresFigure8.png)
+Most of the analysis in the current section is focused on ways to clarify and simplify the reporting of measures and the classification of measures.
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 
 
-The **TargetedQuestions** table collects summary information about the measures in the RBMP, and the progress since the previous cycle. For each RBMP, only one record is required. The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers.   
-Reporting by MS should not present technical difficulties, and there is limited scope for any technical simplification. The Commission has revised and simplified the **TargetedQuestions** table ({ref}`Figure 9 <Figure 9>`), keeping a subset of the questions requested in the previous cycle.
+The **TargetedQuestions** table collects summary information about the measures in the RBMP, and the progress since the previous cycle. 
+For each RBMP, only one record is required. The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers. 
+
+Reporting by MS should not present technical difficulties, and there is limited scope for any technical simplification. 
+The Commission has revised and simplified the **TargetedQuestions** table, keeping a subset of the questions requested in the previous cycle
+ ({numref}`TargetedQuestions_4thCycle_ClassDiagram`).
 
 
-
-**Figure 9.** *TargetedQuestions table - 4ᵗʰ cycle of reporting.* 
-
-(Figure 9)=
-```{mermaid}
-classDiagram
-
-class TargetedQuestions {
-    + euRBDCode : wisedIdentifier [1]
-
-    + basicMeasuresArt113c : BasicMeasuresChangesCodelist value [1]
-    + basicMeasuresArt113d : BasicMeasuresArt113dCodelist value [1]
-    + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113eImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
-    + basicMeasuresArt113f : BasicMeasuresChangesCodelist value [1]
-
-    + basicMeasuresArt113gPermit : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113gThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
-
-    + basicMeasuresArt113iPermit : YesNo [1]
-    + basicMeasuresArt113iRegister : YesNo [1]
-    + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
-    + basicMeasuresArt113k : YesNo [1]
-
-    + waterReuseMeasure : YesNo [1]
-    + ecologicalFlow : EcologicalFlowCodelist value [1]
-    + ecologicalFlowImplementation : EcologicalFlowImplementationCodelist value [1]
-    + climateChange : YesNo [1]
-    + climateChangeGuidance : YesNo [1]
-    + floodsDirective : YesNo [1]
-    + structuralMeasures : YesNo [1]
-    + msfdCoOrdination : YesNoNotRelevant [1]
-    + msfdAssessment : YesNoNotRelevant [1]
-}
+```{mermaid} /DataModelReview/mmd/Measures_TargetedQuestions_4thCycle_ClassDiagram.mmd
+:name: TargetedQuestions_4thCycle_ClassDiagram
+:caption: TargetedQuestions table – 4ᵗʰ cycle of reporting
+:align: center
 ```
 
 ### Measure – 4ᵗʰ cycle of reporting 
-Figure 10 illustrates the simplified Measure table proposed for the 4ᵗʰ cycle. 
 
-**Figure 10.** *Measure table – 4ᵗʰ cycle of reporting.*
-
-(Figure 10)=
-```{mermaid}
-classDiagram
-
-class Measure {
-    + measureCode : wiselIdentifier [1]
-    + measureName : String1000 [1]
-    + measureReference : DocumentReference [0..1]
-
-    + measureType : MeasureTypeCodelist value [1]
-    + mainLegalInstrument : LegalInstrumentCodelist value [1]
-    + mainKeyTypeOfMeasure : MainKeyTypeOfMeasureCodelist value [1]
-
-    + mainPressureType : HierarchicalPressureTypeCodelist value [0..1]
-    + mainSubstanceType : HierarchicalSubstanceTypeCodelist value [0..1]
-
-    + msfdRelevance : YesNo [1]
-    + floodsRelevance : YesNo [1]
-    + natureRestorationRegulationRelevance : YesNo [1]
-    + draughtManagementPlanRelevance : YesNo [1]
-    + climateAdaptationPlanRelevance : YesNo [1]
-
-    + geographicalCoverage : WFDGeographicCoverageCodelist value [1]
-    + euRBDCode : wiselIdentifier [0..n]
-    + waterCategory : HierarchicalWaterCategoryCodelist value [0..1]
-    + protectedAreaType : ProtectedAreaTypeCodelist value [0..1]
-
-    + implementationPeriod : YearRangeType [1]
-    + implementationStatus : PlannedOngoingExecutedCancelledCodelist value [1]
-}
-```
-
+The simplified Measure table proposed for the 4ᵗʰ cycle is illustrated in ({numref}`Measure_4thCycle_ClassDiagram`). 
 
 For each measure:
 
-- Use a unique persistent European identifier for each **measureCode**.
-- Use the original **measureName** (or an English translation thereof).
-- If needed, provide a link to documentation (**measureReference**).
-- Identify the primary **measureLegalInstrument**, using a single codelist value.
-- Identify the **measureType**, using a single codelist value.
-- Classify the measure using a single **mainKeyTypeOfMeasure** codelist value from a simplified classification. The closest match should be selected.
-- Optionally or if applicable, identify the main pressure or pressure group addressed by the measure using the **measurePressureType** attribute, at the level of detail deemed more adequate. The closest match should be selected.
-- Optionally or if applicable, identify the main substance or group of substances addressed by the measure using the **measureSubstanceType** attribute, at the level of detail deemed more adequate.
-- Flag the sectoral plans for which the measure might be relevant using the **msfdRelevance**, **floodsRelevance**, **natureRestorationRegulationRelevance**, **draughtManagementPlanRelevance** and **climateAdaptationPlanRelevance** attributes.
-- Specify the **geographicalCoverage** and **temporalCoverage** of the measure.
+* Use a unique persistent European identifier for each **measureCode**.
+* Use the original **measureName** (or an English translation thereof).
+* If needed, provide a link to documentation (**measureReference**).
+* Identify the primary **measureLegalInstrument**, using a single codelist value.
+* Identify the **measureType**, using a single codelist value.
+* Classify the measure using a single **mainKeyTypeOfMeasure** codelist value from a simplified classification. The closest match should be selected.
+* Optionally or if applicable, identify the main pressure or pressure group addressed by the measure using the **measurePressureType** attribute, 
+ at the level of detail deemed more adequate. The closest match should be selected.
+* Optionally or if applicable, identify the main substance or group of substances addressed by the measure using the **measureSubstanceType** attribute, 
+ at the level of detail deemed more adequate.
+* Flag the sectoral plans for which the measure might be relevant 
+ using the **msfdRelevance**, **floodsRelevance**, **natureRestorationRegulationRelevance**, **draughtManagementPlanRelevance** and **climateAdaptationPlanRelevance** attributes.
+* Specify the **geographicalCoverage** and **temporalCoverage** of the measure.
 
-Narrative description:
+
+```{mermaid} /DataModelReview/mmd/Measures_Measure_4thCycle_ClassDiagram.mmd
+:name: Measure_4thCycle_ClassDiagram
+:caption: Measure table – 4ᵗʰ cycle of reporting
+:align: center
+```
 
 
-Each different measure must have a persistent unique identifier at national level and European level (**measureCode**), a descriptive name (**measureName**), and zero or more links to documentation (**measureReference**). The **measureType** typology is described in ({ref}`Table 1 <Table 1>`). The primary **measureLegalInstrument** under which the measure was defined must be clearly identified. This avoids double reporting in other Directives: the measures can be reported only once under the RBMP electronic reporting. An updated list of EU water and other environmental legislation is provided (Table 2).
+### Measure – 4ᵗʰ cycle of reporting - narrative description
+
+Each different measure must have a persistent unique identifier at national level and European level (**measureCode**), a descriptive name (**measureName**), and zero or more links to documentation (**measureReference**). 
+The **measureType** typology is described in ({ref}`Table 1 <Table 1>`). 
+The primary **measureLegalInstrument** under which the measure was defined must be clearly identified. This avoids double reporting in other Directives: the measures can be reported only once under the RBMP electronic reporting. 
+An updated list of EU water and other environmental legislation is provided (Table 2).
 
 The scope of some basic measures is clearly linked to the two Daughter directives:
 
@@ -423,13 +196,13 @@ These two legal instruments are part of the codelist (see {ref}`Table 2 <Table 2
 *Table 1. Types of measures: proposed measureType values, definitions and example – 4ᵗʰ cycle of reporting.*
 
 (Table 1)=
-| Measure Type                       | Definition                                                                                                                                     | Examples |
-|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| LegislativeOrRegulatoryMeasure     | Measures that involve the adoption or modification of laws, by-laws, and binding standards to restrict activities or enforce compliance with environmental objectives. | Legislative and regulatory measures include water-related actions. Nitrates Action Plans: Measures to reduce nutrient pollution from agriculture through regulatory changes (e.g., Germany, Netherlands). Bans on Substances: Prohibitions on specific hazardous substances (e.g., PAH coatings in the Netherlands). Ecological Flow Standards: Establishing legally binding standards for ecological flows in rivers. |
-| AdministrativeOrGovernanceMeasure  | Procedural actions taken by competent authorities to manage water use, including permits, inspections, and governance structures.               | Permitting and Authorization: Controlling activities through licensing systems (e.g., Germany, Spain). Review of Permits: Periodic updates of existing licenses (e.g., France). Registers: Maintaining databases of physical modifications (e.g., Latvia). Inspections: Enforcement activities to ensure compliance (e.g., Estonia). Advisory Services: Support for environment-friendly practices (e.g., Finland). |
-| PhysicalOrTechnicalMeasure         | Concrete interventions involving construction, removal, or modification of infrastructure to reduce emissions or restore morphology.            | Wastewater Infrastructure: Construction or upgrade of wastewater treatment plants (e.g., Czechia, Romania). River Continuity and Restoration: Removal of barriers or installation of passes (e.g., Austria, Luxembourg). Reduction of Leakages: Improving irrigation infrastructure (e.g., Spain). Remediation: Cleanup of contaminated sites (e.g., Czechia, 15,772 km²). |
-| EconomicOrFinancialMeasure         | Economic and financial instruments, taxes, or subsidies designed to influence behavior for environmental improvements.                          | Water Pricing: Application of tariffs for water services (e.g., Italy, Hungary). Subsidies and Compensation: Payments to support sustainable practices (e.g., Estonia, Slovakia, Netherlands). |
-| KnowledgeOrPreparatoryMeasure      | Actions focused on research, data collection, and gap analyses to reduce uncertainty and inform future decision-making.                         | Research Studies: Poland studied 23% of its 3rd RBMP measures to improve knowledge base. Gap Analyses: Poland performed gap assessments for nutrient reductions. Source Identification: Finland completed detailed work to identify point sources and diffuse emissions for 53 monitored substances. |
+| Measure Type | Definition  | Examples |
+| --- | --- | --- |
+| LegislativeOrRegulatoryMeasure | Measures that involve the adoption or modification of laws, by-laws, and binding standards to restrict activities or enforce compliance with environmental objectives. | Legislative and regulatory measures include water-related actions. Nitrates Action Plans: Measures to reduce nutrient pollution from agriculture through regulatory changes (e.g., Germany, Netherlands). Bans on Substances: Prohibitions on specific hazardous substances (e.g., PAH coatings in the Netherlands). Ecological Flow Standards: Establishing legally binding standards for ecological flows in rivers. |
+| AdministrativeOrGovernanceMeasure | Procedural actions taken by competent authorities to manage water use, including permits, inspections, and governance structures. | Permitting and Authorization: Controlling activities through licensing systems (e.g., Germany, Spain). Review of Permits: Periodic updates of existing licenses (e.g., France). Registers: Maintaining databases of physical modifications (e.g., Latvia). Inspections: Enforcement activities to ensure compliance (e.g., Estonia). Advisory Services: Support for environment-friendly practices (e.g., Finland). |
+| PhysicalOrTechnicalMeasure | Concrete interventions involving construction, removal, or modification of infrastructure to reduce emissions or restore morphology. | Wastewater Infrastructure: Construction or upgrade of wastewater treatment plants (e.g., Czechia, Romania). River Continuity and Restoration: Removal of barriers or installation of passes (e.g., Austria, Luxembourg). Reduction of Leakages: Improving irrigation infrastructure (e.g., Spain). Remediation: Cleanup of contaminated sites (e.g., Czechia, 15,772 km²). |
+| EconomicOrFinancialMeasure | Economic and financial instruments, taxes, or subsidies designed to influence behavior for environmental improvements. | Water Pricing: Application of tariffs for water services (e.g., Italy, Hungary). Subsidies and Compensation: Payments to support sustainable practices (e.g., Estonia, Slovakia, Netherlands). |
+| KnowledgeOrPreparatoryMeasure | Actions focused on research, data collection, and gap analyses to reduce uncertainty and inform future decision-making. | Research Studies: Poland studied 23% of its 3rd RBMP measures to improve knowledge base. Gap Analyses: Poland performed gap assessments for nutrient reductions. Source Identification: Finland completed detailed work to identify point sources and diffuse emissions for 53 monitored substances. |
 
 
 *Table 2. Legal instruments: proposed measureLegalInstrument options – 4ᵗʰ cycle of reporting. *
@@ -462,27 +235,27 @@ The **mainKeyTypeOfMeasure** attribute contains the classification to be used fo
 
 *Table 3. Proposed simplified classification of measures: mainKeyTypeOfMeasure – 4ᵗʰ cycle of reporting.*
 (Table 3)=
-| mainKeyTypeOfMeasure (4th cycle)                                                                 | mainPressureType     | mainSubstanceType |
-|--------------------------------------------------------------------------------------------------|-----------------------|--------------------|
-| B - Measure to implement recovery of costs for water services                                    | P3%,P1%,P2%           | optional           |
-| C - Measure to promote efficient and sustainable water use                                       | P3%                   | optional           |
-| D - Measure to protect drinking water quality and reduce the level of treatment required         | P1%,P2%,P3%,P9        | optional           |
-| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water| P3%                   | not applicable     |
-| F - Measure to control artificial recharge or augmentation of groundwater                        | P6%                   | not applicable     |
-| G - Measure to control point source discharges                                                   | P1%                   | optional           |
-| H - Measure to prevent or control inputs of diffuse pollutants                                   | P2%                   | optional           |
-| J - Measure to prohibit direct discharges to groundwater                                         | P1%,P2%               | optional           |
-| K - Measure to eliminate Priority Substances and reduce pollution by other substances            | P1%,P2%               | optional           |
-| L - Measure to prevent accidental pollution                                                      | P1%,P2%,P9            | optional           |
-| I2-2 - Measure to address significant impacts on surface waters - Altered habitats (hydrological)| P4-3%                 | not applicable     |
-| I2-3 - Measure to address significant impacts on surface waters - Altered habitats (morphology)  | P4%                   | not applicable     |
-| I2-4 - Measure to address significant impacts on surface waters - Acidification                  | P2-7, others?         | optional           |
-| P - Measure to address significant pressures on surface waters                                   | P%                    | conditional        |
-| X01 - Construction or upgrades of wastewater treatment plants                                    | P1%,P2%               | optional           |
-| X12 - Advisory services                                                                          | P%                    | optional           |
-| X14 - Research, improvement of knowledge base reducing uncertainty                               | P%                    | optional           |
-| X23 - Natural water retention measures                                                           | P%                    | optional           |
-| X24 - Climate change adaptation measure                                                          | P%                    | optional           |
+| mainKeyTypeOfMeasure (4th cycle) | mainPressureType | mainSubstanceType |
+| --- | --- | --- |
+| B - Measure to implement recovery of costs for water services | P3%,P1%,P2% | optional |
+| C - Measure to promote efficient and sustainable water use | P3% | optional |
+| D - Measure to protect drinking water quality and reduce the level of treatment required | P1%,P2%,P3%,P9 | optional |
+| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water| P3% | not applicable |
+| F - Measure to control artificial recharge or augmentation of groundwater | P6% | not applicable |
+| G - Measure to control point source discharges | P1% | optional |
+| H - Measure to prevent or control inputs of diffuse pollutants | P2% | optional |
+| J - Measure to prohibit direct discharges to groundwater | P1%,P2% | optional |
+| K - Measure to eliminate Priority Substances and reduce pollution by other substances | P1%,P2% | optional |
+| L - Measure to prevent accidental pollution | P1%,P2%,P9 | optional |
+| I2-2 - Measure to address significant impacts on surface waters - Altered habitats (hydrological)| P4-3% | not applicable |
+| I2-3 - Measure to address significant impacts on surface waters - Altered habitats (morphology) | P4% | not applicable |
+| I2-4 - Measure to address significant impacts on surface waters - Acidification | P2-7, others? | optional |
+| P - Measure to address significant pressures on surface waters | P% | conditional |
+| X01 - Construction or upgrades of wastewater treatment plants | P1%,P2% | optional |
+| X12 - Advisory services | P% | optional |
+| X14 - Research, improvement of knowledge base reducing uncertainty | P% | optional |
+| X23 - Natural water retention measures | P% | optional |
+| X24 - Climate change adaptation measure | P% | optional |
 
 
 
@@ -491,8 +264,8 @@ In the **3ʳᵈ cycle**, the reporting guidance stated that *“the name should 
 
 It is easier to keep the **original name of the measure**, and to allow MS to optionally select the **mainPressureType** that the measure addresses, at the adequate level of detail (e.g. a generic measure may address **P2 – Diffuse sources**, while a more targeted measure may address only **P2‑5 – Diffuse – Contaminated sites or abandoned industrial sites**).
 
-The **mainPressureType** attribute allows more clarity and flexibility and can be applied to supplementary measures too.  
-The **mainPressureType** attribute is optional, except for measures of type **G** and **H**.  
+The **mainPressureType** attribute allows more clarity and flexibility and can be applied to supplementary measures too. 
+The **mainPressureType** attribute is optional, except for measures of type **G** and **H**. 
 For measures of type G and H, the Commission requires additional information to differentiate measures addressing issues related to Urban Waste Water (**P1‑1**) and diffuse pollution from Agriculture (**P2‑2**).
 
 *If needed and applicable*, a similar approach can be used for **mainSubstanceType**, allowing MS to identify measures targeting specific substances or groups of substances.
@@ -507,11 +280,11 @@ If appropriate and necessary, it is possible to specify that a measure only appl
 
 If appropriate and necessary, it is possible to specify that a measure only applies to a specific type of WFD protected area, using the optional **protectedAreaType** attribute.
 
-The option **geographicalCoverage = ‘waterBody’** should be reserved for measures that target specific water bodies (for example, a given river, or a set of lakes).  
-The option **geographicalCoverage = ‘protectedArea’** should be reserved for measures that target specific protected areas (for example, a set of bathing waters or a specific UWWTD sensitive area).  
+The option **geographicalCoverage = ‘waterBody’** should be reserved for measures that target specific water bodies (for example, a given river, or a set of lakes). 
+The option **geographicalCoverage = ‘protectedArea’** should be reserved for measures that target specific protected areas (for example, a set of bathing waters or a specific UWWTD sensitive area). 
 In these cases, it is not requested to individually identify the waterbodies or protected areas.
 
-The temporal scope of a measure is provided in the **implementationPeriod** – the range of years indicated is used to check the reporting of information related to expenditures (e.g. if a measure is yet to start, then no past expenditures exist).  
+The temporal scope of a measure is provided in the **implementationPeriod** – the range of years indicated is used to check the reporting of information related to expenditures (e.g. if a measure is yet to start, then no past expenditures exist). 
 The **implementationStatus** attribute allows the distinction between planned and ongoing measures – and may also be used for measures planned for the 3ʳᵈ cycle but already executed or cancelled by the end of 2027.
 
 ## Economic data in the Programme of Measures
@@ -527,7 +300,7 @@ The 6ᵗʰ WFD Implementation Report notes that the Member States’ reporting o
 
 [^2]: 6th WFD Implementation Report,[ COM(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15. The table concerns Table 4, p24, of [SWD(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970) – note that the differentiation is based.
 
-The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^3]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs, long‑term investment plans should be developed and the source of financing for each measure clearly identified.”  
+The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^3]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs, long‑term investment plans should be developed and the source of financing for each measure clearly identified.” 
 Good planning is also necessary for the acquisition of support from EU Funds, the EIB, and other promotional banks.
 
 
@@ -540,8 +313,8 @@ It is natural to consider the PoM as a **budget of government outlays** – howe
 
 The budget orientation would imply focusing on foreseen *spending amounts*. This has three consequences:
 
-- ‘Welfare costs’ should not be included in the reporting. However, they can be taken up as “negative benefits” in the **CEA (cost‑effectiveness analysis)**.  
-- The reporting concerns investment spending (purchases / commitments) and not capital costs (depreciation).  
+- ‘Welfare costs’ should not be included in the reporting. However, they can be taken up as “negative benefits” in the **CEA (cost‑effectiveness analysis)**. 
+- The reporting concerns investment spending (purchases / commitments) and not capital costs (depreciation). 
 - To link with financial support from **EU Funds**, **EIB**, and other promotional banks, it is necessary to distinguish OPEX and CAPEX when reporting investment costs.
 
 There is a readily available conceptual basis for the reporting on the PoM investment and other costs, with which the Member States are already familiar, namely the **environmental protection expenditures**. They are required to collect and report this data annually to Eurostat ([^4]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one of the environmental‑economic satellite accounts to the economic National Accounts.The EPEA are based on a clear, publicly available protocol (following UN statistical standards), defining the environmental domains, spending economic sectors, and expenditure types. The latter includes the distinction between **capital** and **current** expenditures. Hence, it meets the features described in the three points above.
@@ -555,6 +328,9 @@ In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported i
 
  Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not have data on operational costs and 64 do not have data on EU funds. 
 
+
+
+
 **Figure 11.** Class diagram for the RBMPPoM_2022 schema: Costs – 3ʳᵈ cycle of reporting.
 
 (Figure 11)=
@@ -562,20 +338,20 @@ In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported i
 classDiagram
 
 class Costs {
-    + costOfMeasuresScale20152021 : MSorRBD_Enum
-    + costOfMeasurePeriod20152021 : YearRangeType
-    + investmentCosts20152021 : NumberDecimalType
-    + costExplanation20152021Reference : ReferenceType [1..*]
+ + costOfMeasuresScale20152021 : MSorRBD_Enum
+ + costOfMeasurePeriod20152021 : YearRangeType
+ + investmentCosts20152021 : NumberDecimalType
+ + costExplanation20152021Reference : ReferenceType [1..*]
 
-    + costOfMeasuresScale20212027 : MSorRBD_Enum
-    + costOfMeasurePeriod20212027 : YearRangeType
-    + investmentCosts20212027 : NumberDecimalType
-    + annualCosts20212027 : NumberDecimalType
-    + depreciation20212027 : YesNoCode_Enum
-    + costExplanation20212027Reference : ReferenceType [1..*]
+ + costOfMeasuresScale20212027 : MSorRBD_Enum
+ + costOfMeasurePeriod20212027 : YearRangeType
+ + investmentCosts20212027 : NumberDecimalType
+ + annualCosts20212027 : NumberDecimalType
+ + depreciation20212027 : YesNoCode_Enum
+ + costExplanation20212027Reference : ReferenceType [1..*]
 
-    + euFunds20152021 : NumberDecimalType
-    + euFunds20212027 : NumberDecimalType
+ + euFunds20152021 : NumberDecimalType
+ + euFunds20212027 : NumberDecimalType
 }
 ```
 
@@ -587,20 +363,20 @@ The variability of the geographical and temporal coverage of the reported data a
 (Table 4)=
 | costOfMeasurePeriod20152021 | costOfMeasurePeriod20212027 | Number of RBDs |
 |------------------------------|------------------------------|----------------|
-| 2014--2020                   | 2022--2027                   | 5              |
-| 2015--2020                   | 2021--2027                   | 1              |
-| 2015--2020                   | 2022--2027                   | 2              |
-| 2015--2021                   | 2007--2027                   | 1              |
-| 2015--2021                   | 2021--2027                   | 62             |
-| 2015--2021                   | 2022--2027                   | 23             |
-| 2016--2021                   | 2009--2015                   | 1              |
-| 2016--2021                   | 2010--2015                   | 7              |
-| 2016--2021                   | 2021--2027                   | 4              |
-| 2016--2021                   | 2022--2027                   | 40             |
-| 2016--2022                   | 2023--2027                   | 4              |
-| 2016--2027                   | 2019                         | 4              |
-| 2017--2021                   | 2021--2027                   | 4              |
-| 2017--2021                   | 2022--2027                   | 1              |
+| 2014--2020 | 2022--2027 | 5 |
+| 2015--2020 | 2021--2027 | 1 |
+| 2015--2020 | 2022--2027 | 2 |
+| 2015--2021 | 2007--2027 | 1 |
+| 2015--2021 | 2021--2027 | 62 |
+| 2015--2021 | 2022--2027 | 23 |
+| 2016--2021 | 2009--2015 | 1 |
+| 2016--2021 | 2010--2015 | 7 |
+| 2016--2021 | 2021--2027 | 4 |
+| 2016--2021 | 2022--2027 | 40 |
+| 2016--2022 | 2023--2027 | 4 |
+| 2016--2027 | 2019 | 4 |
+| 2017--2021 | 2021--2027 | 4 |
+| 2017--2021 | 2022--2027 | 1 |
 
 
 
@@ -609,10 +385,10 @@ The variability of the geographical and temporal coverage of the reported data a
 (Table 5)=
 | costOfMeasuresScale20152021 | costOfMeasuresScale20212027 | Number of RBDs |
 |------------------------------|------------------------------|----------------|
-| National                     | National                     | 48             |
-| River Basin District         | River Basin District         | 103            |
-| National                     | River Basin District         | 4              |
-| River Basin District         | National                     | 7              |
+| National | National | 48 |
+| River Basin District | River Basin District | 103 |
+| National | River Basin District | 4 |
+| River Basin District | National | 7 |
 
 
 
@@ -632,24 +408,11 @@ The attribute **millionUnitsOfNationalCurrency** was introduced to facilitate re
 [^6]: Data must be reported in Millions of Euro for Euro Area Member States, and in Millions of National currency for non-Euro Area countries. (The unit multiplier is set to 6 and it is applied to all the data, so it doesn't need to be specified.) Non-Euro Area countries 
 hould use the relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC). Euro Area countries must use EUR. Generally, the number of decimal digits is “0”. If a country wants to send a figure lower than 1 million, decimals may be used. In this case, the separator must be a dot (.). (Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent). If necessary the proposal can be modified to use a different multiplier (e.g. thousands). 
 
-**Figure 12.** *ExpenditurePerMeasurePerSector – 4ᵗʰ cycle of reporting.*
 
-
-```{mermaid}
-classDiagram
-
-class ExpenditurePerMeasurePerSector {
-    + measureCode : wiselIdentifier [1]
-    + expenditureDataAvailable : YesNoNotApplicable [1]
-
-    + institutionalSector : sea2010SectorCodeList value [0..1]
-
-    + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCapitalExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-    + totalCurrentExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-    + millionUnitsOfNationalCurrency : CurrencyCode value [0..1]
-}
+```{mermaid} /DataModelReview/mmd/Measures_ExpenditurePerMeasurePerSector_4thCycle_ClassDiagram.mmd
+:name: ExpenditurePerMeasurePerSector_4thCycle_ClassDiagram
+:caption: Expenditure per Measure per Sector table – 4ᵗʰ cycle of reporting
+:align: center
 ```
 
 
@@ -657,14 +420,14 @@ A clear separation is made between **capital** expenditure vs. **current** expen
 
 The **institutionalSector** attribute identifies the institutional sector doing the outlay. This aspect is explained below.
 
-The European System of Accounts (ESA 2010) has a standard classification of institutional sectors (see {ref}`Table 6 <Table 6>`).  
-The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly, the 3ʳᵈ cycle of WFD reporting used it.  
+The European System of Accounts (ESA 2010) has a standard classification of institutional sectors (see {ref}`Table 6 <Table 6>`). 
+The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly, the 3ʳᵈ cycle of WFD reporting used it. 
 The dichotomous key in Figure 13 clarifies the allocation of units to sectors.
 
 The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors ([^7]):
 
 [^7]: See e.g. the Environmental protection expenditure accounts Handbook , 2017 edition [https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000](https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000)
-- S13 and S15 – General government and **NPISH**  
+- S13 and S15 – General government and **NPISH** 
 - S11 and S12 – Corporations
 - S14 – Households
 - S2 – Rest of the World
@@ -695,35 +458,35 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 ```{mermaid}
 flowchart TB
 
-    A[Is the unit resident?]
+ A[Is the unit resident?]
 
-    A -->|Yes| B[Is the unit a household?]
-    A -->|No| RoW[RoW]
+ A -->|Yes| B[Is the unit a household?]
+ A -->|No| RoW[RoW]
 
-    B -->|No| C[Is the unit a non-market producer?]
-    B -->|Yes| Households[Households]
+ B -->|No| C[Is the unit a non-market producer?]
+ B -->|Yes| Households[Households]
 
-    C -->|Yes| D[Is the unit controlled by government?]
-    C -->|No| E[Does the unit produce financial services?]
+ C -->|Yes| D[Is the unit controlled by government?]
+ C -->|No| E[Does the unit produce financial services?]
 
-    D -->|No| NPISH[NPISH]
-    D -->|Yes| GG[General government]
+ D -->|No| NPISH[NPISH]
+ D -->|Yes| GG[General government]
 
-    E -->|No| NFC[Non-financial corporations]
-    E -->|Yes| FC[Financial corporations]
+ E -->|No| NFC[Non-financial corporations]
+ E -->|Yes| FC[Financial corporations]
 
-    %% --- FIX: give unique IDs to repeated decision boxes ---
-    NFC --> D1[Is the unit controlled by general government?]
-    
+ %% --- FIX: give unique IDs to repeated decision boxes ---
+ NFC --> D1[Is the unit controlled by general government?]
+ 
 
-    D1 -->|Yes| PNFC[Public non-financial corporations]
-    D1 -->|No| PRNFC
+ D1 -->|Yes| PNFC[Public non-financial corporations]
+ D1 -->|No| PRNFC
 
-    FC -->D2[Is the unit controlled by general government?]
-    
+ FC -->D2[Is the unit controlled by general government?]
+ 
 
-    D2 -->|Yes| PUFC[Public financial corporations]
-    D2 -->|No| PRFC
+ D2 -->|Yes| PUFC[Public financial corporations]
+ D2 -->|No| PRFC
 ```
 
 
@@ -735,51 +498,51 @@ It is also important to provide technical guidance and examples on the proper re
 
 
 (Table 7)=
-| ESA Sector*      | Definition and comments |
+| ESA Sector* | Definition and comments |
 |------------------|--------------------------|
-| S.1              | Total economy. Allows the provision of aggregated data. |
-| S.13             | General government. The "default" option, if the RBMPs only include government outlays. |
-| S.13_S.15        | General government + NPISH. Aligned with EPEA, can be used if preferred. |
-| S.11_S.12        | Corporations. Aligned with EPEA, can be used if preferred. |
-| S.11             | Non-financial corporations. Can be used if the distinction of outlays by public and private companies is not relevant. |
-| S.11001          | Public non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
-| S.11002_S.11003  | Private non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
-| S.212            | Institutions and bodies of the European Union (e.g. European Central Bank, European Commission). |
+| S.1 | Total economy. Allows the provision of aggregated data. |
+| S.13 | General government. The "default" option, if the RBMPs only include government outlays. |
+| S.13_S.15 | General government + NPISH. Aligned with EPEA, can be used if preferred. |
+| S.11_S.12 | Corporations. Aligned with EPEA, can be used if preferred. |
+| S.11 | Non-financial corporations. Can be used if the distinction of outlays by public and private companies is not relevant. |
+| S.11001 | Public non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
+| S.11002_S.11003 | Private non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
+| S.212 | Institutions and bodies of the European Union (e.g. European Central Bank, European Commission). |
 
 
 
-It is also important to address the reporting of transfers of EU Funds.  
+It is also important to address the reporting of transfers of EU Funds. 
 If institutionalSector = 'S.212' then the value represents a transfer of EU funds into the national economy. Depending on the purpose, it can be a capital transfer (e.g. to build a new UWWT plant), or a current transfer (e.g. a CAP subsidy to pay farmers to reduce or eliminate pesticides). It is not necessary to identify which sector receives the transfer.
 
 A numerical example can be used to illustrate the proposed approach.
 
 A new Urban Waste Water Treatment Plant required a total capital expenditure of 10M€.
 
-• Scenario 1 : the General Government (S.13) built the plant using national funds.  
-• Scenario 2 : a public utility company (S.11001) built the plant, using 10M€ of national funds transferred by the government.  
-• Scenario 3 : the government built the plant using 8M€ of national funds and 2M€ from the EU Cohesion Fund.  
-• Scenario 4 : a public utility company (S.11001) built the plant, using 8M€ of national funds transferred by the General Government (S.13) to the company and 2M€ of EU funds transferred to the company via the national government.  
+• Scenario 1 : the General Government (S.13) built the plant using national funds. 
+• Scenario 2 : a public utility company (S.11001) built the plant, using 10M€ of national funds transferred by the government. 
+• Scenario 3 : the government built the plant using 8M€ of national funds and 2M€ from the EU Cohesion Fund. 
+• Scenario 4 : a public utility company (S.11001) built the plant, using 8M€ of national funds transferred by the General Government (S.13) to the company and 2M€ of EU funds transferred to the company via the national government. 
 • Scenario 5 : a public utility company (S.11001) built the plant, using 5M€ of their own funds, 4M€ of national funds transferred by the General Government (S.13) to the company and 1M€ of EU funds transferred to the company via the national government.
 
 Table 8 illustrates the reporting of the different scenarios.
 
-Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view.  
+Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view. 
 Likewise, scenario 3 and scenario 4 are identical.
 
 *Table 8. Illustrative example with the reporting of expenditure per sector.*
 
 (Table 8)
-| Scenario | Institutional Sector                                   | Total Capital Expenditure |
-|----------|---------------------------------------------------------|----------------------------|
-| 1        | S.13 – General Government                               | 10 M€                      |
-| 2        | S.13 – General Government                               | 10 M€                      |
-| 3        | S.13 – General Government                               | 8 M€                       |
-| 3        | S.212 – Institutions and bodies of the European Union   | 2 M€                       |
-| 4        | S.13 – General Government                               | 8 M€                       |
-| 4        | S.212 – Institutions and bodies of the European Union   | 2 M€                       |
-| 5        | S.11001 – Public non-financial corporations             | 5 M€                       |
-| 5        | S.13 – General Government                               | 4 M€                       |
-| 5        | S.212 – Institutions and bodies of the European Union   | 1 M€                       |
+| Scenario | Institutional Sector | Total Capital Expenditure |
+| --- | --- | --- |
+| 1 | S.13 – General Government | 10 M€ |
+| 2 | S.13 – General Government | 10 M€ |
+| 3 | S.13 – General Government | 8 M€ |
+| 3 | S.212 – Institutions and bodies of the European Union | 2 M€ |
+| 4 | S.13 – General Government | 8 M€ |
+| 4 | S.212 – Institutions and bodies of the European Union | 2 M€ |
+| 5 | S.11001 – Public non-financial corporations | 5 M€ |
+| 5 | S.13 – General Government | 4 M€ |
+| 5 | S.212 – Institutions and bodies of the European Union | 1 M€ |
 
 
 
@@ -791,7 +554,7 @@ Alignment with the Classification of environmental protection activities
 
 The EPEA categorises activities using the Classification of environmental protection activities (CEPA 2000, {ref}`Table 10 <Table 10>`). The proposed classification of Measures using the mainKeyTypeOfMeasure value ({ref}`Table 3 <Table 3>`) is not based on the CEPA 2000 classification.
 
-Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation) and excludes Resource Management (saving water or energy), which falls under CReMA([^8])  (Classification of Resource Management Activities).
+Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation) and excludes Resource Management (saving water or energy), which falls under CReMA([^8]) (Classification of Resource Management Activities).
 
 [^8]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
 
@@ -805,13 +568,13 @@ The mapping and post-classification can be done by the Commission, using the rep
 
 This annex presents the **mainKeyTypeOfMeasure**, a simplified classification of measures that consolidates and replaces the **basicMeasureType** and the **keyTypeOfMeasure** classifications used in the 3ʳᵈ cycle.
 
-The purpose of the simplified classification is:  
-• To reduce the number of classes to a manageable set (19 options).  
-• To use a single classification scheme applicable to both basic measures and supplementary measures.  
-• To avoid redundancy and reporting burden in the classification of the measures.  
-• To maintain the options directly linked to the basic measure types in Articles 11(3)(b) to 11(3)(l) of the WFD – see codes B, C, D, E, F, G, H, J, K, L.  
-• To maintain the disaggregation in the measures to address significant impacts in the status of water as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.  
-• To allow flexibility in the reporting of the measures to address significant pressures, when combined with the optional mainPressureType attribute.  
+The purpose of the simplified classification is: 
+• To reduce the number of classes to a manageable set (19 options). 
+• To use a single classification scheme applicable to both basic measures and supplementary measures. 
+• To avoid redundancy and reporting burden in the classification of the measures. 
+• To maintain the options directly linked to the basic measure types in Articles 11(3)(b) to 11(3)(l) of the WFD – see codes B, C, D, E, F, G, H, J, K, L. 
+• To maintain the disaggregation in the measures to address significant impacts in the status of water as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4. 
+• To allow flexibility in the reporting of the measures to address significant pressures, when combined with the optional mainPressureType attribute. 
 • To maintain the previous KTM that do not fit the criteria above and were reported with high frequency in the 3ʳᵈ cycle – see codes X01, X12, X14, X23 and X24.
 
 Table 9 aligns the **mainKeyTypeOfMeasure** with the previous separate classification 
@@ -827,32 +590,32 @@ Regarding the measures to address significant impacts in the status of water as 
 keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle).*
 
 (Table 9)=
-| mainKeyTypeOfMeasure (4th cycle)                                                               | basicMeasureType (2nd and 3rd cycle)                                      | keyTypeOfMeasure (2nd and 3rd cycle) |
+| mainKeyTypeOfMeasure (4th cycle) | basicMeasureType (2nd and 3rd cycle) | keyTypeOfMeasure (2nd and 3rd cycle) |
 |------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------|
-| B - Measure to implement recovery of costs for water services                                  | Measure to implement recovery of costs for water services                 | KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households; KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry; KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture |
-| C - Measure to promote efficient and sustainable water use                                     | Measure to promote efficient and sustainable water use                    | KTM8 - Water efficiency, technical measures for irrigation, industry, energy and households |
-| D - Measure to protect drinking water quality and reduce the level of treatment required       | Measure to protect drinking water quality and reduce the level of treatment required | KTM13 - Drinking water protection measures (e.g. establishment of safeguard zones, buffer zones etc) |
-| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water | Measure to control abstraction from surface and groundwater               |                                       |
-| F - Measure to control artificial recharge or augmentation of groundwater                      | Measure to control recharging of groundwater                              |                                       |
-| G - Measure to control point source discharges                                                 | Measure to control point source discharges                                |                                       |
-| H - Measure to prevent or control inputs of diffuse pollutants                                 | Measure to prevent or control inputs of diffuse pollutants                | KTM17 - Measures to reduce sediment from soil erosion and surface run-off; KTM2 - Reduce nutrient pollution from agriculture; KTM21 - Measures to prevent or control the input of pollution from urban areas, transport, and built infrastructure; KTM22 - Measures to prevent or control the input of pollution from forestry; KTM7 - Improvements in flow regime and/or establishment of ecological flows |
-| I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes   | Measure to address significant impacts on the hydromorphological conditions | KTM5 - Improving longitudinal continuity (e.g. establishing fish passes, demolishing old dams); KTM6 - Improving hydromorphological conditions of water bodies other than longitudinal continuity |
-| I2-4 - Measure to address significant impacts - Acidification                                  |                                                                           | KTM25 - Measures to counteract acidification |
-| J - Measure to prohibit direct discharges to groundwater                                       | Measure to prohibit direct discharges to groundwater                      |                                       |
-| K - Measure to eliminate by Priority Substances and reduce pollution by other substances       | Measure to eliminate or reduce pollution by Priority Substances           | KTM15 - Measures for the phasing-out of emissions, discharges and losses of Priority Hazardous Substances or for the reduction of emissions, discharges and losses of Priority Substances; KTM3 - Reduce pesticides pollution from agriculture |
-| L - Measure to prevent accidental pollution                                                    | Measure to prevent accidental pollution                                   | KTM18 - Measures to prevent or control the adverse impacts of invasive alien species, and introduced diseases; KTM19 - Measures to prevent or control the adverse impacts of recreation including angling; KTM20 - Measures to prevent or control the adverse impacts of fishing and other exploitation/removal of animal and plants; KTM4 - Remediation of contaminated sites (historical pollution including sediments, groundwater, soil) |
-| X01 - Construction or upgrades of wastewater treatment plants                                  |                                                                           | KTM1 - Construction or upgrades of wastewater treatment plants; KTM16 - Upgrades or improvements of industrial wastewater treatment plants (including farms) |
-| X12 - Advisory services                                                                        |                                                                           | KTM12 - Advisory services for agriculture |
-| X14 - Research, improvement of knowledge, base reducing uncertainty                            |                                                                           | KTM14 - Research, improvement of knowledge base reducing uncertainty |
-| X23 - Natural water retention measures                                                         |                                                                           | KTM23 - Natural water retention measures |
-| X24 - Climate change adaptation measure                                                        |                                                                           | KTM24 - Adaptation to climate change |
+| B - Measure to implement recovery of costs for water services | Measure to implement recovery of costs for water services | KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households; KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry; KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture |
+| C - Measure to promote efficient and sustainable water use | Measure to promote efficient and sustainable water use | KTM8 - Water efficiency, technical measures for irrigation, industry, energy and households |
+| D - Measure to protect drinking water quality and reduce the level of treatment required | Measure to protect drinking water quality and reduce the level of treatment required | KTM13 - Drinking water protection measures (e.g. establishment of safeguard zones, buffer zones etc) |
+| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water | Measure to control abstraction from surface and groundwater | |
+| F - Measure to control artificial recharge or augmentation of groundwater | Measure to control recharging of groundwater | |
+| G - Measure to control point source discharges | Measure to control point source discharges | |
+| H - Measure to prevent or control inputs of diffuse pollutants | Measure to prevent or control inputs of diffuse pollutants | KTM17 - Measures to reduce sediment from soil erosion and surface run-off; KTM2 - Reduce nutrient pollution from agriculture; KTM21 - Measures to prevent or control the input of pollution from urban areas, transport, and built infrastructure; KTM22 - Measures to prevent or control the input of pollution from forestry; KTM7 - Improvements in flow regime and/or establishment of ecological flows |
+| I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes | Measure to address significant impacts on the hydromorphological conditions | KTM5 - Improving longitudinal continuity (e.g. establishing fish passes, demolishing old dams); KTM6 - Improving hydromorphological conditions of water bodies other than longitudinal continuity |
+| I2-4 - Measure to address significant impacts - Acidification | | KTM25 - Measures to counteract acidification |
+| J - Measure to prohibit direct discharges to groundwater | Measure to prohibit direct discharges to groundwater | |
+| K - Measure to eliminate by Priority Substances and reduce pollution by other substances | Measure to eliminate or reduce pollution by Priority Substances | KTM15 - Measures for the phasing-out of emissions, discharges and losses of Priority Hazardous Substances or for the reduction of emissions, discharges and losses of Priority Substances; KTM3 - Reduce pesticides pollution from agriculture |
+| L - Measure to prevent accidental pollution | Measure to prevent accidental pollution | KTM18 - Measures to prevent or control the adverse impacts of invasive alien species, and introduced diseases; KTM19 - Measures to prevent or control the adverse impacts of recreation including angling; KTM20 - Measures to prevent or control the adverse impacts of fishing and other exploitation/removal of animal and plants; KTM4 - Remediation of contaminated sites (historical pollution including sediments, groundwater, soil) |
+| X01 - Construction or upgrades of wastewater treatment plants | | KTM1 - Construction or upgrades of wastewater treatment plants; KTM16 - Upgrades or improvements of industrial wastewater treatment plants (including farms) |
+| X12 - Advisory services | | KTM12 - Advisory services for agriculture |
+| X14 - Research, improvement of knowledge, base reducing uncertainty | | KTM14 - Research, improvement of knowledge base reducing uncertainty |
+| X23 - Natural water retention measures | | KTM23 - Natural water retention measures |
+| X24 - Climate change adaptation measure | | KTM24 - Adaptation to climate change |
 
 
 
 ## Classification of environmental protection activities (CEPA 2000)
 
 *Table 10. Subset of CEPA classes potentially applicable to the classification of WFD Measures.* 
-Based on the information in (http://publications.europa.eu/resource/dataset/cepa2000).  
+Based on the information in (http://publications.europa.eu/resource/dataset/cepa2000). 
 **Note: this table is not relevant for the reporting process, it is only relevant for the analysis of reported data.**
 
 (Table 10)=
@@ -898,26 +661,22 @@ Based on the information in (http://publications.europa.eu/resource/dataset/cepa
 **Note: this table is not relevant for the reporting process, it is only relevant for the analysis of reported data.**
 
 (Table 11)=
-| mainKeyTypeOfMeasure (4th cycle)                                                               | Primary CEPA 2000 class | Rationale / Notes |
-|------------------------------------------------------------------------------------------------|--------------------------|--------------------|
-| B - Measure to implement recovery of costs for water services                                  | 14.2                     | Measures related to the recovery of costs for water services. |
-| C - Measure to promote efficient and sustainable water use                                     | 14.2                     | Measures related to the efficient and sustainable use of water. |
-| D - Measure to protect drinking water quality and reduce the level of treatment required       | 14.1                     | Measures related to the protection of drinking water quality. |
-| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water | 14.1                  | Measures related to abstraction control. |
-| F - Measure to control artificial recharge or augmentation of groundwater                      | 14.1                     | Measures related to groundwater recharge. |
-| G - Measure to control point source discharges                                                 | 14.1                     | Measures related to point source pollution control. |
-| H - Measure to prevent or control inputs of diffuse pollutants                                 | 14.1                     | Measures related to diffuse pollution control. |
-| I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes   | 12.1 / 12.2              | Measures related to hydromorphological pressures. |
-| I2-4 - Measure to address significant impacts - Acidification                                  | 14.1                     | Measures related to acidification. |
-| J - Measure to prohibit direct discharges to groundwater                                       | 14.1                     | Measures related to groundwater protection. |
-| K - Measure to eliminate Priority Substances and reduce pollution by other substances          | 14.1                     | Measures related to Priority Substances and other pollutants. |
-| L - Measure to prevent accidental pollution                                                    | 14.1                     | Measures related to accidental pollution. |
-| X01 - Construction or upgrades of wastewater treatment plants                                  | 14.1                     | Measures related to wastewater treatment infrastructure. |
-| X12 - Advisory services                                                                        | 14.1                     | Measures related to advisory services. |
-| X14 - Research, improvement of knowledge, base reducing uncertainty                            | 14.1                     | Measures related to research and knowledge improvement. |
-| X23 - Natural water retention measures                                                         | 12.1 / 12.2              | Measures related to natural water retention. |
-| X24 - Climate change adaptation measure                                                        | 14.1                     | Measures related to climate change adaptation. |
-
-
-
-
+| mainKeyTypeOfMeasure (4th cycle) | Primary CEPA 2000 class | Rationale / Notes |
+| --- | --- | --- | --- |
+| B - Measure to implement recovery of costs for water services | 14.2 | Measures related to the recovery of costs for water services. |
+| C - Measure to promote efficient and sustainable water use | 14.2 | Measures related to the efficient and sustainable use of water. |
+| D - Measure to protect drinking water quality and reduce the level of treatment required | 14.1 | Measures related to the protection of drinking water quality. |
+| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water | 14.1 | Measures related to abstraction control. |
+| F - Measure to control artificial recharge or augmentation of groundwater | 14.1 | Measures related to groundwater recharge. |
+| G - Measure to control point source discharges | 14.1 | Measures related to point source pollution control. |
+| H - Measure to prevent or control inputs of diffuse pollutants | 14.1 | Measures related to diffuse pollution control. |
+| I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes | 12.1 / 12.2 | Measures related to hydromorphological pressures. |
+| I2-4 - Measure to address significant impacts - Acidification | 14.1 | Measures related to acidification. |
+| J - Measure to prohibit direct discharges to groundwater | 14.1 | Measures related to groundwater protection. |
+| K - Measure to eliminate Priority Substances and reduce pollution by other substances | 14.1 | Measures related to Priority Substances and other pollutants. |
+| L - Measure to prevent accidental pollution | 14.1 | Measures related to accidental pollution. |
+| X01 - Construction or upgrades of wastewater treatment plants | 14.1 | Measures related to wastewater treatment infrastructure. |
+| X12 - Advisory services | 14.1 | Measures related to advisory services. |
+| X14 - Research, improvement of knowledge, base reducing uncertainty | 14.1 | Measures related to research and knowledge improvement. |
+| X23 - Natural water retention measures | 12.1 / 12.2 | Measures related to natural water retention. |
+| X24 - Climate change adaptation measure | 14.1 | Measures related to climate change adaptation. |

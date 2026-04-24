@@ -1,0 +1,63 @@
+%%{init : {'theme' : 'neutral'}}%%
+classDiagram
+direction LR
+namespace ReportingData{
+class RiverBasinManagementPlan{
++ euRBDCode :  wiseIdentifier
++ rbmpName : String1000
+
++ rbmpTimetablePublicationDate : Date 
++ rbmpProgrammePublicationDate : Date 
++ rbmpConsultationPublicationDate : Date 
++ rbmpInterimOverviewDate : Date 
++ rbmpDraftVersionDate : Date 
++ finalRBMPPublicationDate : Date 
+
++ subPlans : YesNo
++ subPlansCoverage : SubPlansCoverage [0..1]
++ subPlansReference : referenceIdentifier [0..n]
+
++ sea : YesNo
++ seaReference : referenceIdentifier [0..n]
+
++ documentAvailability  : YesNo
+
++ ongoingStakeholderInvolvement : OngoingStakeholderInvolvement [0..n]
++ stakeholderGroups : StakeholderGroups [0..n]
+
++ internationalCoordination : InternationalCoordination [0..1]
++ internationalCoordinationPublicParticipation : YesNo [0..1]
++ pomCoordinationArt5SWMI : Coordination
++ pomCoordinationIRBMPPoM : Coordination
++ pomCoordinationRoofReport : Coordination
++ pomCoordinationFinancial : Coordination
+
++ integrationFloodsDirective : YesNo
++ coordinationFloodsDirective : YesNoNotApplicable
++ coordinationMSFD : YesNoNotApplicable
+
++ coordinationNRRReference : referenceIdentifier [1..n]
+}
+}
+namespace Codelist{
+class SubPlansCoverage{
+    <<enumeration>>
+    }
+class OngoingStakeholderInvolvement{
+    <<enumeration>>
+    }
+class Coordination{
+    <<enumeration>>
+    }
+class YesNo{
+    <<enumeration>>
+    yes
+    no
+    }
+class YesNoNotApplicable{
+    <<enumeration>>
+    yes
+    no
+    notApplicable
+    }
+}

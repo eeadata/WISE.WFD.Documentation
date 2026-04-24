@@ -1,0 +1,74 @@
+%%{init : {'theme' : 'neutral'}}%%
+classDiagram
+direction LR
+namespace ReportingData{
+class TargetedQuestions{
++ euRBDCode : wiseIdentifier [1]
+
++ basicMeasuresArt113c : BasicMeasuresChanges
++ basicMeasuresArt113d : BasicMeasuresArt113d
++ basicMeasuresArt113ePermit : BasicMeasures
++ basicMeasuresArt113eRegister : BasicMeasures
++ basicMeasuresArt113eThreshold : BasicMeasuresArt113eThreshold
++ basicMeasuresArt113eImpoundment : BasicMeasuresArt113eImpoundment
++ basicMeasuresArt113f : BasicMeasuresChanges
++ basicMeasuresArt113gPermit : BasicMeasures
++ basicMeasuresArt113gRegister : BasicMeasures
++ basicMeasuresArt113gThreshold : BasicMeasuresArt113gThreshold
++ basicMeasuresArt113hRules : BasicMeasuresArt113hRules
++ basicMeasuresArt113iPermit : YesNo 
++ basicMeasuresArt113iRegister : YesNo 
++ basicMeasuresArt113j : BasicMeasuresArt113j
++ basicMeasuresArt113k : YesNo 
+
++ waterReUseMeasure : YesNo
++ ecologicalFlow : EcologicalFlow
++ ecologicalFlowImplementation : EcologicalFlowImplementation
++ climateChange : YesNo
++ climateChangeGuidance : YesNo
++ floodsDirective : YesNo
++ structuralMeasures : YesNo
++ msfdCoOrdination : YesNoNotRelevant
++ msfdAssessment : YesNoNotRelevant
+}
+}
+namespace Codelist{
+class BasicMeasuresChanges{
+    <<enumeration>>
+    }
+class BasicMeasures{
+    <<enumeration>>
+    }
+class BasicMeasuresArt113eThreshold{
+    <<enumeration>>
+    }
+class BasicMeasuresArt113eImpoundment{
+    <<enumeration>>
+    }
+class BasicMeasuresArt113gThreshold{
+    <<enumeration>>
+    }
+class BasicMeasuresArt113hRules{
+    <<enumeration>>
+    }
+class BasicMeasuresArt113j{
+    <<enumeration>>
+    }
+class EcologicalFlow{
+    <<enumeration>>
+    }
+class EcologicalFlowImplementation{
+    <<enumeration>>
+    }
+class YesNo{
+    <<enumeration>>
+    yes
+    no
+    }
+class YesNoNotRelevant{
+    <<enumeration>>
+    yes
+    no
+    notApplicable
+    }
+}
