@@ -1,6 +1,6 @@
 # WFD - Protected Areas
 
-**PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4rd_cycle_ProtectedAreas_v20260220.pdf>`
+**PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4th_cycle_ProtectedAreas_v20260220.pdf>`
 
 ## Purpose and overview
 
