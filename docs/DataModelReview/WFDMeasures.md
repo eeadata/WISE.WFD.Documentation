@@ -12,7 +12,7 @@ Using this principle, the data model can focus on aspects that are suitable for 
 
 **Figure 1.** *Partial class diagram for River Basin Management Plan & Programme of Measures (RBMPPoM_2022) schema.*
 (Figure 1)=
-![RBMP diagram](img/ClassDiagram_RBMPPoM_2022.jpeg)
+![RBMP diagram](img/ClassDiagram_RBMPPoM_2022.png)
 
 
 Source : (https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
@@ -108,7 +108,7 @@ class TargetedQuestions {
 
 class Measure {
     + measureCode : wiselIdentifier [1]
-    + measureName : String1000 [1]
+    + measureName: String1000 [1]
     + measureReference : DocumentReference [0..1]
 
     + measureType : MeasureTypeCodelist value [1]
@@ -179,7 +179,7 @@ Reporting by MS should not present technical difficulties, and there is limited 
 Progress since the previous cycle – 3ʳᵈ cycle of reporting*
 
 (Figure 3)=
-![RBMP diagram](img/MeasuresFigure3.jpeg)
+![RBMP diagram](img/MeasuresFigure3.png)
 
 
 
@@ -309,7 +309,7 @@ In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised seve
 
 **Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
 (Figure 8)=
-![RBMP diagram](img/MeasuresFigure8.jpeg)
+![RBMP diagram](img/MeasuresFigure8.png)
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 
 
