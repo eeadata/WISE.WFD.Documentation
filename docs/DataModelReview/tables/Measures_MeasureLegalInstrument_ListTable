@@ -1,0 +1,87 @@
+```{list-table} Legal instruments - proposed measureLegalInstrument options – 4ᵗʰ cycle.
+:name: measures_measureLegalInstrument_definitions
+:width: 100%
+:align: left
+:header-rows: 1
+
+* - Acronym
+  - Name
+  - ELI
+
+* - WFD
+  - Directive 2000/60/EC of the European Parliament and of the Council of 23 October 2000 establishing a framework for Community action in the field of water policy 
+  - http://data.europa.eu/eli/dir/2000/60/oj 
+
+* - FLOODS
+  - Directive 2007/60/EC of the European Parliament and of the Council of 23 October 2007 on the assessment and management of flood risks 
+  - http://data.europa.eu/eli/dir/2007/60/oj 
+
+* - MSFD 
+  - Directive 2008/56/EC of the European Parliament and of the Council of 17 June 2008 establishing a framework for community action in the field of marine environmental policy (Marine Strategy Framework Directive) 
+  - http://data.europa.eu/eli/dir/2008/56/2017-06-07 
+
+* - BWD
+  - Directive 2006/7/EC of the European Parliament and of the Council of 15 February 2006 concerning the management of bathing water quality and repealing Directive 76/160/EEC 
+  - http://data.europa.eu/eli/dir/2006/7/oj 
+
+* - DWD (recast) 
+  - Directive (EU) 2020/2184 of the European Parliament and of the Council of 16 December 2020 on the quality of water intended for human consumption (recast) 
+  - http://data.europa.eu/eli/dir/2020/2184/oj
+
+* - EIA Directive 
+  - Directive 2011/92/EU of the European Parliament and of the Council of 13 December 2011 on the assessment of the effects of certain public and private projects on the environment 
+  - http://data.europa.eu/eli/dir/2011/92/2014-15-15 
+
+* - EQSD2008 
+  - Directive 2008/105/EC of the European Parliament and of the Council of 16 December 2008 on environmental quality standards in the field of water policy, 
+    amending and subsequently repealing Council Directives 82/176/EEC, 83/513/EEC, 84/156/EEC, 84/491/EEC, 86/280/EEC and amending Directive 2000/60/EC of the European Parliament and of the Council 
+  - http://data.europa.eu/eli/dir/2008/105 
+
+* - EQSD2013 
+  - Directive 2013/39/EU of the European Parliament and of the Council of 12 August 2013 amending Directives 2000/60/EC and 2008/105/EC as regards priority substances in the field of water policy 
+  - http://data.europa.eu/eli/dir/2008/105/2013-09-13 
+
+* - GWD 
+  - Directive 2006/118/EC of the European Parliament and of the Council of 12 December 2006 on the protection of groundwater against pollution and deterioration 
+  - http://data.europa.eu/eli/dir/2006/118/oj 
+
+* - Birds Directive 
+  - Directive 2009/147/EC of the European Parliament and of the Council of 30 November 2009 on the conservation of wild birds 
+  - http://data.europa.eu/eli/dir/2009/147/2019-06-26 
+
+* - Habitats Directive 
+  - Council Directive 92/43/EEC of 21 May 1992 on the conservation of natural habitats and of wild fauna and flora 
+  - http://data.europa.eu/eli/dir/1992/43/2025-07-14 
+
+* - IED (formerly IPPC) 
+  - Directive 2010/75/EU of the European Parliament and of the Council of 24 November 2010 on industrial emissions (integrated pollution prevention and control) 
+  - http://data.europa.eu/eli/dir/2010/75/2024-08-04 
+
+* - NRR 
+  - Regulation (EU) 2024/1991 of the European Parliament and of the Council of 24 June 2024 on nature restoration and amending Regulation (EU) 2022/869 
+  - http://data.europa.eu/eli/reg/2024/1991/oj 
+
+* - NITRATES 
+  - Council Directive of 12 December 1991 concerning the protection of waters against pollution caused by nitrates from agricultural sources (91/676/EEC) 
+  - http://data.europa.eu/eli/dir/1991/676/oj 
+
+* - PPP (formerly PPPD) 
+  - Regulation (EC) No 1107/2009 of the European Parliament and of the Council of 21 October 2009 concerning the placing of plant protection products on the market and repealing Council Directives 79/117/EEC and 91/414/EEC 
+  - http://data.europa.eu/eli/reg/2009/1107/2022-11-21 
+
+* - Seveso III Directive 
+  - Directive 2012/18/EU of the European Parliament and of the Council of 4 July 2012 on the control of major-accident hazards involving dangerous substances, amending and subsequently repealing Council Directive 96/82/EC
+  - http://data.europa.eu/eli/dir/2012/18/oj 
+
+* - Sewage Sludge Directive 
+  - Council Directive of 12 June 1986 on the protection of the environment, and in particular of the soil, when sewage sludge is used in agriculture (86/278/EEC) 
+  - http://data.europa.eu/eli/dir/1986/278/2022-01-01 
+
+* - UWWTD (recast) 
+  - Directive (EU) 2024/3019 of the European Parliament and of the Council of 27 November 2024 concerning urban wastewater treatment (recast) 
+  - http://data.europa.eu/eli/dir/2024/3019/oj 
+
+* - WRR 
+  - Regulation (EU) 2020/741 of the European Parliament and of the Council of 25 May 2020 on minimum requirements for water reuse 
+  - http://data.europa.eu/eli/reg/2020/741/oj 
+```

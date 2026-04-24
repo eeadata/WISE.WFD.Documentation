@@ -1,0 +1,107 @@
+```{list-table} Simplified classification of measures - proposed mainKeyTypeOfMeasure options – 4ᵗʰ cycle.
+:name: measures_mainKeyTypeOfMeasure_definitions
+:width: 100%
+:align: left
+:header-rows: 1
+
+* - mainKeyTypeOfMeasure 
+  - definition
+  - mainPressureType 
+  - mainSubstanceType 
+
+* - B
+  - Measure to implement recovery of costs for water services 
+  - P3%,P1%,P2% 
+  - optional
+
+* - C
+  - Measure to promote efficient and sustainable water use 
+  - P3% 
+  - optional 
+
+* - D
+  - Measure to protect drinking water quality and reduce the level of treatment required 
+  - P1%,P2%,P3%,P9 
+  - optional 
+
+* - E
+  - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+  - P3% 
+  - not applicable 
+
+* - F
+  - Measure to control artificial recharge or augmentation of groundwater 
+  - P6% 
+  - not applicable 
+
+* - G
+  - Measure to control point source discharges 
+  - P1% 
+  - optional 
+
+* - H
+  - Measure to prevent or control inputs of diffuse pollutants 
+  - P2% 
+  - optional 
+
+* - J
+  - Measure to prohibit direct discharges to groundwater 
+  - P1%,P2% 
+  - optional 
+
+* - K
+  - Measure to eliminate Priority Substances and reduce pollution by other substances 
+  - P1%,P2% 
+  - optional 
+
+* - L
+  - Measure to prevent accidental pollution 
+  - P1%,P2%,P9 
+  - optional 
+
+* - I2-2
+  - Measure to address significant impacts on surface waters - Altered habitats (hydrological)
+  - P4-3% 
+  - not applicable 
+
+* - I2-3
+  - Measure to address significant impacts on surface waters - Altered habitats (morphology) 
+  - P4% 
+  - not applicable 
+
+* - I2-4
+  - Measure to address significant impacts on surface waters - Acidification 
+  - P2-7, others? 
+  - optional 
+
+* - P
+  - Measure to address significant pressures on surface waters 
+  - P% 
+  - conditional 
+
+* - X01
+  - Construction or upgrades of wastewater treatment plants 
+  - P1%,P2% 
+  - optional 
+
+* - X12
+  - Advisory services 
+  - P% 
+  - optional 
+
+* - X14
+  - Research, improvement of knowledge base reducing uncertainty 
+  - P% 
+  - optional 
+
+* - X23
+  - Natural water retention measures 
+  - P% 
+  - optional 
+
+* - X24
+  - Climate change adaptation measure 
+  - P% 
+  - optional 
+
+  ```
