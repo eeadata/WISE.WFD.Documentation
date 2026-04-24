@@ -1,5 +1,10 @@
 # WFD - Monitoring
 
+```{warning}
+The online version of the text is being reviewed.  
+It will be modified to include the combined reporting of the MonitoringSite dataset and the Monitoring data.
+```
+
 ## Monitoring schema - 3rd cycle 
 
 ### Background

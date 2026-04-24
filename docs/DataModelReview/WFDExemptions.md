@@ -1,5 +1,14 @@
 # WFD - Exemptions
 
+```{warning}
+The online version of the text is being reviewed.  
+The questions raised in the WG DIS meeting 2026-04-22 regarding:
+* Exemptions related to UWWT 
+* Exemptions related to protected areas
+* Exemptions related to River Basin Specific Pollutants
+have not yet been addressed.
+```
+
 ## Reporting of Exemptions - 3rd cycle
 
 * The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`SWExemptions_GWExemptions`)
