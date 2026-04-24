@@ -24,94 +24,126 @@ Source : (https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specif
 classDiagram
 
 class RiverBasinManagementPlan {
-    euRBMPCode : wideIdentifier [1]
-    rbmpName : text (1000) [1]
-    rbmpEstablishmentDate : Date [1]
-    rbmpEndDate : Date [0..1]
-    firstRBMPPublicationDate : Date [0..1]
-    secondRBMPPublicationDate : Date [0..1]
-    thirdRBMPPublicationDate : Date [0..1]
-    rbmpStatus : YesNo [1]
-    subPlans : YesNo [1]
-    subPlanCoverageCodeList value [0..1]
-    subPlanReference : DocumentReference [0..*]
-    relatedPlans : DocumentReference [0..*]
-    documentAvailability : YesNo [1]
-    originalDataBasedEnvironment : OriginalDataBasedEnvironmentCodeList value [0..1]
-    stakeholderGroups : StakeholderGroupCodeList value [0..*]
-    coordinationRBMPWithFloodDirective : CoordinationCodeList value [1]
-    coordinationRBMPWithMarineDirective : CoordinationCodeList value [1]
-    coordinationRBMPWithNatureDirective : CoordinationCodeList value [1]
-    integrationFloodDirective : YesNo [1]
-    integrationMarineDirective : YesNo [1]
-    coordinationRBMPWithNatureDirectiveApplicable : YesNo [1]
-    coordinationRBMPWithNatureDirectiveApplicableText : text (1000) [0..1]
-    coordinationRBMPReference : DocumentReference [0..*]
+    + euRBDCode : wiseldentifier [1]
+    + rbmpName : text (1000) [1]
+    + rbmpTimetablePublicationDate : Date [1]
+    + rbmpProgrammePublicationDate : Date [1]
+    + rbmpConsultationPublicationDate : Date [1]
+    + rbmpInterimOverviewDate : Date [1]
+    + rbmpDraftVersionDate : Date [1]
+    + finalRBMPPublicationDate : Date [1]
+
+    + subPlans : YesNo [1]
+    + subPlansCoverage : SubPlansCodelist value [0..1]
+    + subPlansReference : DocumentReference [0..n]
+
+    + sea : YesNo [1]
+    + seaReference : DocumentReference [0..n]
+
+    + documentAvailability : YesNo [1]
+
+    + ongoingStakeholderInvolvement : OngoingStakeholderInvolvementCodelist value [0..n]
+    + stakeholderGroups : StakeholderGroupsCodelist value [0..n]
+
+    + internationalCoordination : InternationalCoordinationCodelist value [0..1]
+    + internationalCoordinationPublicParticipation : YesNo [0..1]
+    + pomCoordinationArt5SWMI : CoordinationCodelist value [1]
+    + pomCoordinationIRBMPPoM : CoordinationCodelist value [1]
+    + pomCoordinationRoofReport : CoordinationCodelist value [1]
+    + pomCoordinationFinancial : CoordinationCodelist value [1]
+
+    + integrationFloodsDirective : YesNo [1]
+    + coordinationFloodsDirective : YesNoNotApplicable [1]
+    + coordinationMSFD : YesNoNotApplicable [1]
+
+    + coordinationNRRRReference : DocumentReference [1..n]
 }
 
 class Progress {
-    euRBMPCode : wideIdentifier [1]
-    plannedRBMPMeasuresStatus : PlannedOngoingExecutedCancelledCodeList value [1]
-    preventedRBMPMeasure : YesNo [1]
-    achievedRBMPMeasure : YesNo [1]
-    achievedRBMPMeasureText : text (1000) [0..1]
-    achievedRBMPMeasureTextReference : DocumentReference [0..*]
-    achievedRBMPMeasureTextNote : text (1000) [0..1]
-    achievedRBMPMeasureTextNoteReference : DocumentReference [0..*]
-}
+    + euRBDCode : wiseIdentifier [1]
+
+    + previousRBMPMeasureStatus : PlannedOngoingExecutedCancelledCodelist value [1]
+    + percentageInStatus : Percentage [1]
+
+    + obstaclesGovernance : YesNo [1]
+    + obstaclesDelays : YesNo [1]
+    + obstaclesLackOfFinance : YesNo [1]
+    + obstaclesLackOfMechanism : YesNo [1]
+    + obstaclesMeasureNotEffective : YesNo [1]
+    + obstaclesMeasureNotCostEffective : YesNo [1]
+    + obstaclesExtremeEvents : YesNo [1]
+} 
 
 class TargetedQuestions {
-    euRBMPCode : wideIdentifier [1]
-    basicMeasuresAgriculture : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresIndustry : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresUrbanWasteWater : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresDrinkingWater : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresDiffusePollution : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresGroundwater : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresHydromorphological : BasicMeasuresChangeCodeList value [1]
-    basicMeasuresOther : BasicMeasuresChangeCodeList value [1]
-    supplementaryMeasuresAgriculture : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresIndustry : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresUrbanWasteWater : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresDrinkingWater : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresDiffusePollution : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresGroundwater : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresHydromorphological : SupplementaryMeasuresChangeCodeList value [1]
-    supplementaryMeasuresOther : SupplementaryMeasuresChangeCodeList value [1]
-    floodMeasures : YesNo [1]
-    droughtMeasures : YesNo [1]
-    protectedAreaMeasures : YesNo [1]
+    + euRBDCode : wisedIdentifier [1]
+
+    + basicMeasuresArt113c : BasicMeasuresChangesCodelist value [1]
+    + basicMeasuresArt113d : BasicMeasuresArt113dCodelist value [1]
+    + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
+    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
+    + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+    + basicMeasuresArt113eImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
+    + basicMeasuresArt113f : BasicMeasuresChangesCodelist value [1]
+
+    + basicMeasuresArt113gPermit : BasicMeasuresCodelist value [1]
+    + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
+    + basicMeasuresArt113gThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+    + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
+
+    + basicMeasuresArt113iPermit : YesNo [1]
+    + basicMeasuresArt113iRegister : YesNo [1]
+    + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
+    + basicMeasuresArt113k : YesNo [1]
+
+    + waterReuseMeasure : YesNo [1]
+    + ecologicalFlow : EcologicalFlowCodelist value [1]
+    + ecologicalFlowImplementation : EcologicalFlowImplementationCodelist value [1]
+    + climateChange : YesNo [1]
+    + climateChangeGuidance : YesNo [1]
+    + floodsDirective : YesNo [1]
+    + structuralMeasures : YesNo [1]
+    + msfdCoOrdination : YesNoNotRelevant [1]
+    + msfdAssessment : YesNoNotRelevant [1]
 }
 
 class Measure {
-    measureCode : wideIdentifier [1]
-    measureName : text (1000) [1]
-    measureReference : DocumentReference [0..*]
-    measureType : MeasureTypeCodeList value [1]
-    mainPressureType : HierarchicalPressureCodeList value [1]
-    mainKeyType : HierarchicalKeyCodeList value [1]
-    mainSubstanceType : HierarchicalSubstanceCodeList value [1]
-    mainFieldRelevance : YesNo [1]
-    floodRelevance : YesNo [1]
-    droughtRelevance : YesNo [1]
-    protectedAreaRelevance : YesNo [1]
-    geographicalCoverage : WFDGeographicalCoverageCodeList value [1]
-    euRBMPCode : wideIdentifier [1]
-    waterCategory : HierarchicalWaterCategoryCodeList value [1]
-    protectedAreaType : ProtectedAreaTypeCodeList value [0..*]
-    implementationPeriod : YearRangeType [0..1]
-    implementationStatus : PlannedOngoingExecutedCancelledCodeList value [1]
+    + measureCode : wiselIdentifier [1]
+    + measureName : text (1000) [1]
+    + measureReference : DocumentReference [0..1]
+
+    + measureType : MeasureTypeCodelist value [1]
+    + mainLegalInstrument : LegalInstrumentCodelist value [1]
+    + mainKeyTypeOfMeasure : MainKeyTypeOfMeasureCodelist value [1]
+
+    + mainPressureType : HierarchicalPressureTypeCodelist value [0..1]
+    + mainSubstanceType : HierarchicalSubstanceTypeCodelist value [0..1]
+
+    + msfdRelevance : YesNo [1]
+    + floodsRelevance : YesNo [1]
+    + natureRestorationRegulationRelevance : YesNo [1]
+    + draughtManagementPlanRelevance : YesNo [1]
+    + climateAdaptationPlanRelevance : YesNo [1]
+
+    + geographicalCoverage : WFDGeographicCoverageCodelist value [1]
+    + euRBDCode : wiselIdentifier [0..n]
+    + waterCategory : HierarchicalWaterCategoryCodelist value [0..1]
+    + protectedAreaType : ProtectedAreaTypeCodelist value [0..1]
+
+    + implementationPeriod : YearRangeType [1]
+    + implementationStatus : PlannedOngoingExecutedCancelledCodelist value [1]
 }
 
-class ExpendituresPerMeasurePerSector {
-    measureCode : wideIdentifier [1]
-    expenditureDataAvailable : YesNoNotApplicable [1]
-    institutionalSector : isco2010SectionCodeList value [0..1]
-    totalCapitalExpenditureBudgetCycle : NonNegativeNumberDecimalType [0..1]
-    totalCurrentExpenditureBudgetCycle : NonNegativeNumberDecimalType [0..1]
-    totalCapitalExpenditureDuringCycle : NonNegativeNumberDecimalType [0..1]
-    totalCurrentExpenditureDuringCycle : NonNegativeNumberDecimalType [0..1]
-    millionNationalCurrency : CurrencyCode value [0..1]
+class ExpenditurePerMeasurePerSector {
+    + measureCode : wiselIdentifier [1]
+    + expenditureDataAvailable : YesNoNotApplicable [1]
+
+    + institutionalSector : sea2010SectorCodeList value [0..1]
+
+    + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
+    + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
+    + totalCapitalExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
+    + totalCurrentExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
+    + millionUnitsOfNationalCurrency : CurrencyCode value [0..1]
 }
 ```
 
@@ -300,16 +332,16 @@ class TargetedQuestions {
     + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
     + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
     + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
-    + basicMeasuresArt113iImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
-    + basicMeasuresArt113j : BasicMeasuresChangesCodelist value [1]
+    + basicMeasuresArt113eImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
+    + basicMeasuresArt113f : BasicMeasuresChangesCodelist value [1]
 
-    + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
+    + basicMeasuresArt113gPermit : BasicMeasuresCodelist value [1]
     + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
-    + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+    + basicMeasuresArt113gThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
     + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
 
-    + basicMeasuresArt113ePermit : YesNo [1]
-    + basicMeasuresArt113gRegister : YesNo [1]
+    + basicMeasuresArt113iPermit : YesNo [1]
+    + basicMeasuresArt113iRegister : YesNo [1]
     + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
     + basicMeasuresArt113k : YesNo [1]
 
@@ -609,14 +641,13 @@ classDiagram
 class ExpenditurePerMeasurePerSector {
     + measureCode : wiselIdentifier [1]
     + expenditureDataAvailable : YesNoNotApplicable [1]
+
     + institutionalSector : sea2010SectorCodeList value [0..1]
 
     + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
     + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
-
     + totalCapitalExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
     + totalCurrentExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
-
     + millionUnitsOfNationalCurrency : CurrencyCode value [0..1]
 }
 ```
