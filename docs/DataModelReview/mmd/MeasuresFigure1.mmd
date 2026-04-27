@@ -1,0 +1,204 @@
+classDiagram
+    direction TB
+
+    class RBMP {
+        <<XSComplexType>>
+        <XSElement>
+        + rbmpName: String1000Type
+        + rbmpTimetablePublicationDate: DateType
+        + rbmpProgrammePublicationDate: DateType
+        + rbmpConsultationPublicationDate: DateType
+        + rbmpInterimOverviewDate: DateType
+        + rbmpDraftVersionDate: DateType
+        + finalRBMPPublicationDate: DateType
+        + subPlans: YesNoCode_Enum
+        + subPlansCoverage: SubPlansCoverage_Enum [0..*]
+        + subPlansCoverageOther: String1000Type [0..1]
+        + subPlansReference: ReferenceType [0..*]
+        + sea: YesNoCode_Enum
+        + seaReference: ReferenceType [0..*]
+        + publicConsultationInformation: PublicConsultationInformation_Enum [1..*]
+        + publicConsultationInformationOther: String1000Type [0..1]
+        + rbmpConsultation: RBMPConsultation_Enum [1..*]
+        + rbmpConsultationOther: String1000Type [0..1]
+        + documentProvision: DocumentProvision_Enum [1..*]
+        + documentProvisionOther: String1000Type [0..1]
+        + documentAvailability: YesNoCode_Enum
+        + ongoingStakeholderInvolvement: OngoingStakeholderInvolvement_Enum [1..*]
+        + ongoingStakeholderInvolvementOtherOutreach: String1000Type [0..1]
+        + ongoingStakeholderInvolvementOther: String1000Type [0..1]
+        + stakeholderGroups: StakeholderGroups_Enum [1..*]
+        + stakeholderGroupsOther: String1000Type [0..1]
+        + impactPublicParticipation: ImpactPublicParticipation_Enum [1..*]
+        + impactPublicParticipationOther: String1000Type [0..1]
+        + internationalCoOrdination: InternationalCoOrdination_Enum [1..*]
+        + internationalCoOrdinationOther: String1000Type [0..1]
+        + publicParticipationReference: ReferenceType [0..*]
+        + consultationResponseReference: ReferenceType [0..*]
+        + integrationFloodsDirective: YesNoCode_Enum
+        + coOrdinationMSFD: YesNoNotApplicable_Union_Enum
+        + coOrdinationReference: ReferenceType [0..*]
+        + msfdCoordinationReference: ReferenceType [0..*]
+    }
+
+    class CoOrd {
+        <<XSComplexType>>
+        <XSElement>
+        + pomCoOrdinationJointVision: Coord_Enum
+        + pomCoOrdinationArt5SWMI: Coord_Enum
+        + pomCoOrdinationIRBMPPoM: Coord_Enum
+        + pomCoOrdinationRoofReport: Coord_Enum
+        + pomCoOrdinationLinks: Coord_Enum [0..1]
+        + pomCoOrdinationSectors: Coord_Enum [0..1]
+        + pomCoOrdinationTransparency: Coord_Enum
+        + pomCoOrdinationFinancial: Coord_Enum
+        + iRBMPIssuesNutrient: YesNoCode_Enum [0..1]
+        + iRBMPIssuesSediment: YesNoCode_Enum [0..1]
+        + iRBMPIssuesChemical: YesNoCode_Enum [0..1]
+        + iRBMPIssuesRiverContinuity: YesNoCode_Enum [0..1]
+        + iRBMPIssuesOtherHydromorphological: YesNoCode_Enum [0..1]
+        + iRBMPIssuesOther: String1000Type [0..1]
+        + iRBMPReference: ReferenceType [0..*]
+    }
+
+    class Progress {
+        <<XSComplexType>>
+        <XSElement>
+        + rbmpGeneralProgress: String4000Type [0..1]
+        + financeSecured: YesNoCode_Enum
+        + financeSecuredAgriculture: YesNoNotApplicable_Union_Enum
+        + financeSecuredIndustry: YesNoNotApplicable_Union_Enum
+        + financeSecuredTransport: YesNoNotApplicable_Union_Enum
+        + financeSecuredHydropower: YesNoNotApplicable_Union_Enum
+        + financeSecuredAquaculture: YesNoNotApplicable_Union_Enum
+        + financeSecuredFloodProtection: YesNoNotApplicable_Union_Enum
+        + newRegulation: YesNoCode_Enum
+        + statusImplementationPoM: StatusImplementationPoM_Enum
+        + improvementInStatusGeneral: ImprovementInStatusGeneral_Enum
+        + improvementInStatusEcologicalSWB: ImprovementInStatusEcologicalSWB_Enum
+        + improvementInStatusChemicalSWB: ImprovementInStatusChemicalSWB_Enum
+        + improvementInStatusQuantitativeGWB: ImprovementInStatusQuantitativeGWB_Enum
+        + improvementInStatusChemicalGWB: ImprovementInStatusChemicalGWB_Enum
+        + obstaclesGovernance: YesNoCode_Enum
+        + obstaclesDelays: YesNoCode_Enum
+        + obstaclesLackOfFinance: YesNoCode_Enum
+        + obstaclesLackOfMechanisms: YesNoCode_Enum
+        + obstaclesLackOfMeasures: YesNoCode_Enum
+        + obstaclesNotCostEffective: YesNoCode_Enum
+        + obstaclesExtremeEvents: YesNoCode_Enum
+        + obstaclesOther: String1000Type [0..1]
+        + measuresFromPreviousProgrammeReference: ReferenceType [1..*]
+    }
+
+ class TargetedQ {
+        <<XSDcomplexType>>
+        + euRBDCode : wisedIdentifier [1]
+
+        + basicMeasuresArt113c : BasicMeasuresChangesCodelist value [1]
+        + basicMeasuresArt113d : BasicMeasuresArt113dCodelist value [1]
+        + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+        + basicMeasuresArt113eImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
+        + basicMeasuresArt113f : BasicMeasuresChangesCodelist value [1]
+
+        + basicMeasuresArt113gPermit : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113gThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+        + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
+
+        + basicMeasuresArt113iPermit : YesNo [1]
+        + basicMeasuresArt113iRegister : YesNo [1]
+        + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
+        + basicMeasuresArt113k : YesNo [1]
+
+        + waterReuseMeasure : YesNo [1]
+        + ecologicalFlow : EcologicalFlowCodelist value [1]
+        + ecologicalFlowImplementation : EcologicalFlowImplementationCodelist value [1]
+        + climateChange : YesNo [1]
+        + climateChangeGuidance : YesNo [1]
+        + floodsDirective : YesNo [1]
+        + structuralMeasures : YesNo [1]
+        + msfdCoOrdination : YesNoNotRelevant [1]
+        + msfdAssessment : YesNoNotRelevant [1]
+    }
+
+    class Costs {
+        <<XSDcomplexType>>
+        + costOfMeasuresScale20152021 : MSorRBD_Enum
+        + costOfMeasurePeriod20152021 : YearRangeType
+        + investmentCosts20152021 : NumberDecimalType
+        + costExplanation20152021Reference : ReferenceType [1..*]
+
+        + costOfMeasuresScale20212027 : MSorRBD_Enum
+        + costOfMeasurePeriod20212027 : YearRangeType
+        + investmentCosts20212027 : NumberDecimalType
+        + annualCosts20212027 : NumberDecimalType
+        + depreciation20212027 : YesNoCode_Enum
+        + costExplanation20212027Reference : ReferenceType [1..*]
+
+        + euFunds20152021 : NumberDecimalType
+        + euFunds20212027 : NumberDecimalType
+    }
+
+    class Measure {
+        <<XSDcomplexType>>
+        + measureCode: String1000Type
+        + measureName: String1000Type
+        + measureType: MeasureType_Enum
+        + basicMeasureType: BasicMeasureType_Enum [0..*]
+        + msfdRelevance: YesNoNotRelevantUnclear_Union_Enum
+        + measureReference: ReferenceType [1..*]
+    }
+
+    class KTM {
+        <<XSDcomplexType>>
+        + keyTypeMeasure: KTM_Enum
+        + keyTypeMeasureOther: String1000Type [0..1]
+    }
+
+    class RBMPoM {
+        <<XSDcomplexType>>
+        + countryCode: CountryCode_Enum
+        + euRBDCode: FeatureUniqueEUCodeType
+    }
+class IndicatorGap {
+        <<XSComplexType>>
+        + indicatorGap: IndicatorPressure_Enum
+        + indicatorGapOther: String1000Type [0..1]
+        + indicatorGapValue2021: NumberDecimalType [0..1]
+    }
+
+    class KeyTypeMeasureIndicator {
+        <<XSComplexType>>
+        + keyTypeMeasure: KTM_Enum
+        + keyTypeMeasureOther: String1000Type [0..1]
+        + keyTypeMeasureIndicator: IndicatorKTM_Enum
+        + keyTypeMeasureIndicatorOther: String1000Type [0..1]
+        + keyTypeMeasureIndicatorValue2021: NumberDecimalType [0..1]
+    }
+
+    class SignificantPressureSubstanceFailing {
+        <<XSComplexType>>
+        + significantPressure: SignificantPressureType_Enum [0..1]
+        + substanceFailing: ChemicalSubstances_Union_Enum [0..1]
+        + otherSubstanceFailing: OtherType [0..1]
+        + useArticle58Beyond2027: UseArticle58Beyond2027_Enum
+    }
+
+    class PoM {
+        <<XSComplexType>>
+        + euSubUnitCode: FeatureUniqueEUCodeType [0..1]
+        + surfaceWaterOrGroundwater: SWBorGWB_Enum
+    }
+     RBMP <-- RBMPoM : +RBMP 1..1
+    CoOrd <-- RBMPoM : +CoOrd 0..1
+    Progress <-- RBMPoM : +Progress 1..1
+    TargetedQ <-- RBMPoM : +TargetedQ 1..1
+    Costs <-- RBMPoM : +Costs 1..1
+    Measure <-- KTM : +Measure 1..*
+    KTM <-- RBMPoM : +KTM 1..*
+    PoM <-- RBMPoM : +PoM 1..*
+    SignificantPressureSubstanceFailing <-- PoM  : +SignificantPressureSubstanceFailing [0..*]
+    KeyTypeMeasureIndicator <--  SignificantPressureSubstanceFailing : +KeyTypeMeasureIndicator 1..*
+    IndicatorGap <--  SignificantPressureSubstanceFailing : +IndicatorGap 1..*

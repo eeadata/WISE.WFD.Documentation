@@ -12,38 +12,8 @@ The document revises the reporting of WFD Protected Areas in the 2ⁿᵈ and 3ʳ
 
 (Figure 1)=
 
-```{mermaid}
-%%{init: {'theme': 'default', 'flowchart': {'rankDir': 'TB'}}}%%
-classDiagram
-    class SWB_2022 SWAssociatedProtectedArea["«XSDcomplexType»
-    SWB_2022::SWAssociatedProtectedArea"]  {
-        XSDcomplexType SWB_2022
-        +euProtectedAreaCode: FeatureUniqueEUCodeType
-        +protectedAreaType: ProtectedAreaType_Enum
-        +protectedAreaObjectivesSet: ProtectedAreaObjective_Enum [0..1]
-        +protectedAreaObjectivesMet: YesNoNoInformation_Union_Enum [0..1]
-        +protectedAreaComment: String1000Type [0..1]
-        +protectedAreaExemption: ExemptionType_Enum [1..*]
-    }
-    class SurfaceWaterBody {
-        XSDcomplexType SWB_2022
-    }
-    class GWB_2022 GWAssociatedProtectedArea["«XSDcomplexType»
-    GWB_2022::GWAssociatedProtectedArea"] {
-        XSDcomplexType GWB_2022
-        +euProtectedAreaCode: FeatureUniqueEUCodeType
-        +protectedAreaType: ProtectedGWAreaType_Enum
-        +protectedAreaObjectivesSet: ProtectedAreaObjective_Enum [0..1]
-        +protectedAreaObjectivesMet: YesNoNoInformation_Union_Enum [0..1]
-        +protectedAreaComment: String1000Type [0..1]
-        +protectedAreaExemption: ExemptionType_Enum [1..*]
-    }
-    class GroundWaterBody {
-        XSDcomplexType GWB_2022
-    }
-
-   SWB_2022 SWAssociatedProtectedArea "0..*" --> "1" SurfaceWaterBody : +SWAssociatedProtectedArea
-   GWB_2022 GWAssociatedProtectedArea "0..*" --> "1" GroundWaterBody : +GWAssociatedProtectedArea
+```{mermaid} /DataModelReview/mmd/ProtectedAreasClassdiagram.mmd
+:align: center
 ```
 
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
@@ -52,49 +22,8 @@ Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specifi
 
 *Figure 2. Partial class diagram for the ProtectedArea class – 3ʳᵈ cycle of reporting.*
 
-```{mermaid}
-classDiagram
-    class ProtectedArea["«FeatureType»
-    ProtectedArea"]  {
-      
-        +geometry: GM_MultiSurface
-        +inspireIdLocalId: String254LeadingLetterOrNum
-        +inspireIdNamespace: String254LeadingLetterOrNum
-        +inspireIdVersionId: String25Type [0..1]
-        +thematicIdentifier: FeatureUniqueEUCodeType
-        +thematicIdentifierScheme: IdentifierScheme
-        +beginLifespanVersion: WiseDateTimeType [0..1]
-        +endLifespanVersion: WiseDateTimeType [0..1]
-        +predecessorsIdentifier: String254LeadingLetterOrNum [0..1]
-        +predecessorsIdentifierScheme: IdentifierScheme [0..1]
-        +successorsIdentifier: String254LeadingLetterOrNum [0..1]
-        +successorsIdentifierScheme: IdentifierScheme [0..1]
-        +wiseEvolutionType: WiseEvolutionTypeValue
-        +nameTextInternational: String254Latin
-        +nameText: String254Type
-        +nameLanguage: WiseLanguageCode_Enum
-        +designationPeriodBegin: WiseDateTimeType
-        +designationPeriodEnd: WiseDateTimeType [0..1]
-        +zoneType: ZoneTypeCode
-        +specialisedZoneType: SpecialisedZoneTypeCode [0..1]
-        +specialisedZoneIdentifier: String254LeadingLetterOrNum
-        +legalBasisName: String254LeadingLetterOrNum [0..1]
-        +legalBasisLink: URLType
-        +legalBasisLevel: LegislationLevelValue
-        +relatedZoneIdentifier: FeatureUniqueEUCodeType [0..1]
-        +relatedZoneIdentifierScheme: IdentifierScheme [0..1]
-        +sizeValue: PositiveDecimalType [0..1]
-        +sizeUom: UomSize [0..1]
-        +link: URLType [0..1]
-    }
-    class FeatureCollection ["«FeatureType»
-    FeatureCollection"] {
-        FeatureType
-    }
-   
-  
-    ProtectedArea "1..*" <-- FeatureCollection : +featureMember
-
+```{mermaid} /DataModelReview/mmd/ProtectedAreasClassdiagram2.mmd
+:align: center
 ```
 
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
@@ -187,39 +116,8 @@ The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle o
 
 *Figure 3. Class diagram for an abstract ProtectedArea dataset – 4ᵗʰ cycle of reporting.*
 
-```{mermaid}
-classDiagram
-    class ProtectedArea {
-        +geometry_polygon: geometry [0..1]
-        +geometry_line: geometry [0..1]
-        +geometry_point: geometry [0..1]
-        +inspireIdLocalId: String
-        +inspireIdNamespace: String
-        +inspireIdVersionId: String [0..1]
-        +thematicIdIdentifier: WISEIdentifier
-        +thematicIdIdentifierScheme: IdentifierScheme
-        +beginLifespanVersion: Date
-        +endLifespanVersion: Date [0..1]
-        +predecessorsIdentifier: comma-separated list of WISEIdentifier [0..1]
-        +predecessorsIdentifierScheme: IdentifierScheme [0..1]
-        -successorsIdentifier: comma-separated list of WISEIdentifier [0..1]
-        -successorsIdentifierScheme: IdentifierScheme [0..1]
-        +wiseEvolutionType: WiseEvolutionType
-        +nameTextInternational: String
-        +nameText: String
-        +nameLanguage: Language
-        +designationPeriodBegin: Date
-        +designationPeriodEnd: Date [0..1]
-        +zoneType: ZoneType
-        +specialisedZoneType: SpecialisedZoneType
-        +legalBasisName: String [0..1]
-        +legalBasisLink: url [0..1]
-        +legalBasisLevel: LegislationLevelValue [0..1]
-        +relateZoneIdentifier: comma-separated list of WISEIdentifier
-        +relatedZoneIdentifierScheme: IdentifierScheme
-        +confidentialityStatus: ConfidentialityStatusValue [0..1]
-        +link: url [0..1]
-    }
+```{mermaid} /DataModelReview/mmd/ProtectedAreasDataset.mmd
+:align: center
 ```
 
 ## Special case – the Natura2000 protected sites

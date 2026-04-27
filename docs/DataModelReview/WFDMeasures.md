@@ -12,7 +12,9 @@ Using this principle, the data model can focus on aspects that are suitable for 
 
 **Figure 1.** *Partial class diagram for River Basin Management Plan & Programme of Measures (RBMPPoM_2022) schema.*
 (Figure 1)=
-![RBMP diagram](img/ClassDiagram_RBMPPoM_2022.jpeg)
+```{mermaid} /DataModelReview/mmd/MeasuresFigure1.mmd
+:align: center
+```
 
 
 Source : (https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
@@ -56,9 +58,8 @@ Reporting by MS should not present technical difficulties, and there is limited 
 Progress since the previous cycle – 3ʳᵈ cycle of reporting*
 
 (Figure 3)=
-```{mermaid} /DataModelReview/mmd/MeasuresRBMP3rdcycle.mmd
-:align: center
-```
+![RBMP diagram](img/MeasuresFigure3.JPEG)
+
 
 
 ### RiverBasinManagementPlan – 4ᵗʰ cycle of reporting
@@ -133,10 +134,10 @@ Consider a hypothetical 3ʳᵈ RBMP Programme of Measures with 10 different meas
 In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised several tables ({ref}`Figure 8 <Figure 8>`). Most of the analysis in the current document is focused on ways to clarify and simplify the reporting of measures and the classification of measures.
 
 **Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
+
 (Figure 8)=
-```{mermaid} /DataModelReview/mmd/MeasuresRBMPPoM_2022schema.mmd
-:align: center
-```
+![RBMP diagram](img/MeasuresFigure8.JPEG)
+
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 
 
@@ -257,10 +258,10 @@ The **mainKeyTypeOfMeasure** attribute contains the classification to be used fo
 
 In the **3ʳᵈ cycle**, the reporting guidance stated that *“the name should reflect the pressure that is being tackled by the measure”* — meaning the pressure(s) should be described textually in the name of the measure. This recommendation was not consistently followed, and an analysis of the measure names across Europe does not yield useful results.
 
-It is easier to keep the **original name of the measure**, and to allow MS to optionally select the **mainPressureType** that the measure addresses, at the adequate level of detail (e.g. a generic measure may address **P2 – Diffuse sources**, while a more targeted measure may address only **P2‑5 – Diffuse – Contaminated sites or abandoned industrial sites**).
+It is easier to keep the **original name of the measure**, and to allow MS to optionally select the **mainPressureType** that the measure addresses, at the adequate level of detail (e.g. a generic measure may address **P2 – Diffuse sources**, while a more targeted measure may address only P2‑5 – Diffuse – Contaminated sites or abandoned industrial sites).
 
 The **mainPressureType** attribute allows more clarity and flexibility and can be applied to supplementary measures too.  
-The **mainPressureType** attribute is optional, except for measures of type **G** and **H**.  
+The mainPressureType attribute is optional, except for measures of type **G** and **H**.  
 For measures of type G and H, the Commission requires additional information to differentiate measures addressing issues related to Urban Waste Water (**P1‑1**) and diffuse pollution from Agriculture (**P2‑2**).
 
 *If needed and applicable*, a similar approach can be used for **mainSubstanceType**, allowing MS to identify measures targeting specific substances or groups of substances.
@@ -317,6 +318,8 @@ There is a readily available conceptual basis for the reporting on the PoM inves
 
 [^4]: An obligation under Regulation (EU) No 691/2011, amended by Commission Delegated Regulation (EU) 2022/125; the consolidated 
 version can be found [here](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011R0691-20250624)
+
+
 A brief review of the reported data confirms the issues mentioned above.
 
 In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class ({ref}`Figure 11 <Figure 11>`). Reporting of costs was, de facto, optional – since all numerical attributes admitted the option **–9999** to denote “data not available”.
@@ -496,7 +499,7 @@ The Commission must provide guidance on the reporting of expenditure for measure
 mainKeyTypeOfMeasure IN ('C - Measure to promote efficient and sustainable water use', 'E - Measure to control abstraction from surface and groundwater, and impoundment of surface 
 water') which may be outside the scope of the EPEA.
 
-Alignment with the Classification of environmental protection activities
+**Alignment with the Classification of environmental protection activities**
 
 The EPEA categorises activities using the Classification of environmental protection activities (CEPA 2000, {ref}`Table 10 <Table 10>`). The proposed classification of Measures using the mainKeyTypeOfMeasure value ({ref}`Table 3 <Table 3>`) is not based on the CEPA 2000 classification.
 

@@ -1,0 +1,23 @@
+%%{init: {'theme': 'neutral'}}%%
+classDiagram
+direction LR
+namespace Descriptivedata {
+class CompetentAuthority {
++ euCACode : wiseIdentifier
++ competentAuthorityName : String
++ competentAuthorityNameNL : String
++ competentAuthorityNameNLLanguage : Language
++ acronym : String [0..1]
++ street : String
++ city : String
++ country : String
++ postCode : String [0..1]
++ url : URL
+}
+class RiverBasinDistrictCompetentAuthority {
++ euRBDCode: wiseIdentifier
++ euCACode: wiseIdentifier
++ roleCode: Role [1..*]
+}
+}
+CompetentAuthority -- "1..*" RiverBasinDistrictCompetentAuthority

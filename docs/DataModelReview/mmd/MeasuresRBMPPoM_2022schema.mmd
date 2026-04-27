@@ -3,44 +3,53 @@ classDiagram
 
     class TargetedQ {
         <<XSDcomplexType>>
-        + basicMeasuresArt113c: BasicMeasuresChanges_Enum
-        + basicMeasuresArt113d: BasicMeasuresArt113d_Enum
-        + basicMeasuresArt113ePermit: BasicMeasuresArt113ePermit_Enum
-        + basicMeasuresArt113gRegister: BasicMeasuresArt113gRegister_Enum
-        + basicMeasuresArt113hThreshold: BasicMeasuresArt113hThreshold_Enum [0..1]
-        + basicMeasuresArt113iImpoundment: BasicMeasuresArt113iImpoundment_Enum
-        + basicMeasuresArt113jIssues: BasicMeasuresArt113jIssues_Enum
-        + basicMeasuresArt113kRules: BasicMeasuresArt113kRules_Enum
-        + basicMeasuresArt113lRepair: YesNoCode_Enum [0..1]
-        + basicMeasuresArt113mPermit: YesNoCode_Enum [0..1]
-        + basicMeasuresArt113nReference: ReferenceType [1..*]
-        + ecologicalFlow: EcologicalFlow_Enum
-        + ecologicalFlowImplementation: EcologicalFlowImplementation_Enum [0..1]
-        + climateChangeGuidance: YesNoCode_Enum [0..1]
-        + climateChangeAspectsConsidered: ClimateChangeAspectsConsidered_Enum [0..1]
-        + floodsDirective: YesNoCode_Enum
-        + winWinWithDrugsNodes: YesNoCode_Enum
-        + structuralMeasures: YesNoCode_Enum
-        + mtdCfCombination: YesNoRelevant_Union_Enum
-        + mtdCfAssessment: YesNoRelevant_Union_Enum
-        + mtdCfMSFDMeasuresNeeded: MSFDMeasuresNeeded_Enum [0..*]
-        + otherAspectsReference: ReferenceType [0..*]
+        + euRBDCode : wisedIdentifier [1]
+
+        + basicMeasuresArt113c : BasicMeasuresChangesCodelist value [1]
+        + basicMeasuresArt113d : BasicMeasuresArt113dCodelist value [1]
+        + basicMeasuresArt113ePermit : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113hThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+        + basicMeasuresArt113eImpoundment : BasicMeasuresArt113iImpoundmentCodelist value [1]
+        + basicMeasuresArt113f : BasicMeasuresChangesCodelist value [1]
+
+        + basicMeasuresArt113gPermit : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113gRegister : BasicMeasuresCodelist value [1]
+        + basicMeasuresArt113gThreshold : BasicMeasuresArt113hThresholdCodelist value [1]
+        + basicMeasuresArt113hRules : BasicMeasuresArt113hRulesCodelist value [1]
+
+        + basicMeasuresArt113iPermit : YesNo [1]
+        + basicMeasuresArt113iRegister : YesNo [1]
+        + basicMeasuresArt113j : BasicMeasuresArt113jCodelist value [1]
+        + basicMeasuresArt113k : YesNo [1]
+
+        + waterReuseMeasure : YesNo [1]
+        + ecologicalFlow : EcologicalFlowCodelist value [1]
+        + ecologicalFlowImplementation : EcologicalFlowImplementationCodelist value [1]
+        + climateChange : YesNo [1]
+        + climateChangeGuidance : YesNo [1]
+        + floodsDirective : YesNo [1]
+        + structuralMeasures : YesNo [1]
+        + msfdCoOrdination : YesNoNotRelevant [1]
+        + msfdAssessment : YesNoNotRelevant [1]
     }
 
     class Costs {
         <<XSDcomplexType>>
-        + costOfMeasureScale20152021: MIsorRBD_Enum
-        + costOfMeasurePeriod20152021: YearRange1Type
-        + investmentCosts20152021: NumberDecimalType
-        + costExplanation20152021Reference: ReferenceType [1..*]
-        + costOfMeasureScale20212027: MIsorRBD_Enum
-        + costOfMeasurePeriod20212027: YearRange1Type
-        + investmentCosts20212027: NumberDecimalType
-        + annualCosts20212027: NumberDecimalType
-        + depreciation20212027: YesNoCode_Enum
-        + costExplanation20212027Reference: ReferenceType [1..*]
-        + euFunds20152021: NumberDecimalType
-        + euFunds20212027: NumberDecimalType
+        + costOfMeasuresScale20152021 : MSorRBD_Enum
+        + costOfMeasurePeriod20152021 : YearRangeType
+        + investmentCosts20152021 : NumberDecimalType
+        + costExplanation20152021Reference : ReferenceType [1..*]
+
+        + costOfMeasuresScale20212027 : MSorRBD_Enum
+        + costOfMeasurePeriod20212027 : YearRangeType
+        + investmentCosts20212027 : NumberDecimalType
+        + annualCosts20212027 : NumberDecimalType
+        + depreciation20212027 : YesNoCode_Enum
+        + costExplanation20212027Reference : ReferenceType [1..*]
+
+        + euFunds20152021 : NumberDecimalType
+        + euFunds20212027 : NumberDecimalType
     }
 
     class Measure {

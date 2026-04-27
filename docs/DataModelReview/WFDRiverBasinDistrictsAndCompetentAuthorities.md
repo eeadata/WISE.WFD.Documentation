@@ -13,162 +13,20 @@ well as the associated spatial data in the RiverBasinDistrict dataset
 and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).
 
 
-```{mermaid}
+```{mermaid} /DataModelReview/mmd/RBDsubunitsAndCompetentAuthority.mmd
 :name: RBDSUCA_3rdCycle
 :caption: Class diagram for River Basin Districts, Subunits and Competent Authorities schema - 3ʳᵈ cycle
 :align: center
 :zoom:
-%%{init: {'theme': 'default'}}%%
-classDiagram
-direction TB
-
-    class CompetentAuthority["«XSDcomplexType»
-    CompetentAuthority"] {
-        «XSDelement»
-        +euCACode: FeatureUniqueEUCodeType
-        +competentAuthorityName: String250Type
-        +competentAuthorityNameNL: String250Type
-        +competentAuthorityNameNLLanguage: LanguageCode_Enum
-        +linkToCompetentAuthority: String1000Type
-        +acronym: String100Type [0..1]
-        +street: String100Type [0..1]
-        +city: String100Type [0..1]
-        +cityNL: String100Type [0..1]
-        +country: String100Type [0..1]
-        +postcode: String100Type [0..1]
-        +mainRole: Roles_Enum [1..*]
-        +otherRole: Roles_Enum [0..*]
-    }
-
-    class RBD["«XSDcomplexType»
-    RBD"] {
-        «XSDelement»
-        +euRBDCode: FeatureUniqueEUCodeType
-        +euSubUnitCode: FeatureUniqueEUCodeType [0..*]
-        +internationalRBD: YesNoCode_Enum
-        +internationalRBDName: String250Type [0..1]
-        +primeCompetentAuthority: FeatureUniqueEUCodeType [1..*]
-        +otherCompetentAuthority: FeatureUniqueEUCodeType [0..*]
-        +subUnitsDefined: YesNoCode_Enum
-    }
-
-    class dcMetadata["WFDCommon_2022::dcMetadata"] {
-        «XSDelement»
-        +created: WiseDateTime [0..1]
-        +creatorElectronicMailAddress: EmailType
-        +creatorOrganisationName: String4000Type
-        +description: String4000Type [0..1]
-        +language: LanguageCode_Enum
-        +license: URLType
-        +title: String4000Type [0..1]
-        +rights: String4000Type [0..1]
-        +rightsHolder: String4000Type [0..1]
-    }
-
-    class RBDSUCA["«XSDcomplexType»
-    RBDSUCA"] {
-        «XSDelement»
-        +countryCode: CountryCode_Enum
-    }
-
-  
-    class RBDSUCATop["«XSDtopLev...
-    RBDSUCA"] {
-    }
-
-    CompetentAuthority "1..*" <-- RBDSUCA : +CompetentAuthority
-    RBD "1..*" <-- RBDSUCA : +RBD
-    RBDSUCA "1..1" --> dcMetadata
-    RBDSUCATop --|> RBDSUCA
-    
 ```
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
 
 
-```{mermaid}
+```{mermaid} /DataModelReview/mmd/RBDsubunitsClassdiagram.mmd
 :name: RBDSU_3rdCycle_Spatial
 :caption: Partial class diagram for RiverBasinDistrict and Subunit classes - 3ʳᵈ cycle
 :align: center
 :zoom:
-%%{init: {'theme': 'default'}}%%
-classDiagram
-direction TB
-
-    class RiverBasinDistrict["«FeatureType»
-    RiverBasinDistrict"] {
-        +geometry: GM_MultiSurface
-        +inspireIdLocalId: String254LeadingLetterOrNum
-        +inspireIdNamespace: String254LeadingLetterOrNum
-        +inspireIdVersionId: String25Type [0..1]
-        +thematicIdIdentifier: FeatureUniqueEUCodeType
-        +thematicIdIdentifierScheme: IdentifierScheme
-        +beginLifespanVersion: WiseDateTimeType [0..1]
-        +endLifespanVersion: WiseDateTimeType [0..1]
-        +predecessorsIdentifier: String254LeadingLetterOrNum [0..1]
-        +predecessorsIdentifierScheme: IdentifierScheme [0..1]
-        +successorsIdentifier: String254LeadingLetterOrNum [0..1]
-        +successorsIdentifierScheme: IdentifierScheme [0..1]
-        +wiseEvolutionType: WiseEvolutionTypeValue
-        +nameTextInternational: String254Latin
-        +nameText: String254Type
-        +nameLanguage: WiseLanguageCode_Enum
-        +designationPeriodBegin: WiseDateTimeType
-        +designationPeriodEnd: WiseDateTimeType [0..1]
-        +zoneType: ZoneTypeCode
-        +legalBasisName: String254LeadingLetterOrNum [0..1]
-        +legalBasisLink: URLType [0..1]
-        +legalBasisLevel: LegislationLevelValue [0..1]
-        +relatedZoneTransboundaryIdentifier: String254LeadingLetterOrNum [0..1]
-        +relatedZoneTransboundaryIdentifierScheme: IdentifierScheme [0..1]
-        +sizeValue: PositiveDecimalType [0..1]
-        +sizeUom: UomSize [0..1]
-        +link: URLType [0..1]
-    }
-
-    class FeatureCollectionRBD["«FeatureType»
-    FeatureCollection"] {
-    }
-
-    class SubUnit["«FeatureType»
-    SubUnit"] {
-        +geometry: GM_MultiSurface
-        +inspireIdLocalId: String254LeadingLetterOrNum
-        +inspireIdNamespace: String254LeadingLetterOrNum
-        +inspireIdVersionId: String25Type [0..1]
-        +thematicIdIdentifier: FeatureUniqueEUCodeType
-        +thematicIdIdentifierScheme: IdentifierScheme
-        +beginLifespanVersion: WiseDateTimeType [0..1]
-        +endLifespanVersion: WiseDateTimeType [0..1]
-        +predecessorsIdentifier: String254LeadingLetterOrNum [0..1]
-        +predecessorsIdentifierScheme: IdentifierScheme [0..1]
-        +successorsIdentifier: String254LeadingLetterOrNum [0..1]
-        +successorsIdentifierScheme: IdentifierScheme [0..1]
-        +wiseEvolutionType: WiseEvolutionTypeValue
-        +nameTextInternational: String254Latin
-        +nameText: String254Type
-        +nameLanguage: WiseLanguageCode_Enum
-        +designationPeriodBegin: WiseDateTimeType
-        +designationPeriodEnd: WiseDateTimeType [0..1]
-        +zoneType: ZoneTypeCode
-        +specialisedZoneType: SpecialisedZoneTypeCode
-        +legalBasisName: String254LeadingLetterOrNum [0..1]
-        +legalBasisLink: URLType [0..1]
-        +legalBasisLevel: LegislationLevelValue [0..1]
-        +relatedZoneIdentifier: FeatureUniqueEUCodeType
-        +relatedZoneIdentifierScheme: IdentifierScheme
-        +relatedZoneTransboundaryIdentifier: String254LeadingLetterOrNum [0..1]
-        +relatedZoneTransboundaryIdentifierScheme: IdentifierScheme [0..1]
-        +sizeValue: PositiveDecimalType [0..1]
-        +sizeUom: UomSize [0..1]
-        +link: URLType [0..1]
-    }
-
-    class FeatureCollectionSU["«FeatureType»
-    FeatureCollection"] {
-    }
-
-    RiverBasinDistrict "1..*" <-- FeatureCollectionRBD : +featureMember
-    SubUnit "1..*" <-- FeatureCollectionSU : +featureMember
 ```
 
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP ](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP )
@@ -188,106 +46,26 @@ Data providers can specify which datasets are being updated (spatial data, descr
 
 
 
-```{mermaid}
-:name: RBDCA_4thCycle_Documents
+```{mermaid} /DataModelReview/mmd/RBDCA4thCycle.mmd
+:name: RBDCA_4thCycle_Documents 
 :caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Documents
 :align: center
 :zoom:
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-direction LR
-namespace Documents {
-class dcMetadata {
-+ title : String4000
-+ creatorOrganisationName : String4000
-+ creatorElectronicMailAddress : Email
-+ description : String4000 [0..1]
-+ created : Date [0..1]
-+ language : Language [1..n]
-+ license : URL
-+ rights : String4000 [0..1]
-+ rightsHolder : String4000 [0..1]
-+ licenseDocument : documentCode [0..*]
-+ metadataDocument : documentCode [0..*]
-+ updateCompetentAuthorities : YesNo
-+ updateSpatialData : YesNo
-}
-class Document {
-+ documentCode : wiseIdentifier
-+ documentName : String250
-+ hyperlink : URL [0..1]
-+ documentFile : Attachment [0..1]
-}
-}
-dcMetadata -- "0..*" Document
 ```
 
-```{mermaid}
+```{mermaid} /DataModelReview/mmd/RBDdescriptiveData.mmd
 :name: RBDCA_4thCycle_Descriptive
 :caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Descriptive Data
 :align: center
 :zoom:
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-direction LR
-namespace Descriptivedata {
-class CompetentAuthority {
-+ euCACode : wiseIdentifier
-+ competentAuthorityName : String
-+ competentAuthorityNameNL : String
-+ competentAuthorityNameNLLanguage : Language
-+ acronym : String [0..1]
-+ street : String
-+ city : String
-+ country : String
-+ postCode : String [0..1]
-+ url : URL
-}
-class RiverBasinDistrictCompetentAuthority {
-+ euRBDCode: wiseIdentifier
-+ euCACode: wiseIdentifier
-+ roleCode: Role [1..*]
-}
-}
-CompetentAuthority -- "1..*" RiverBasinDistrictCompetentAuthority
+
 ```
 
-```{mermaid}
+```{mermaid} /DataModelReview/mmd/RBD.mmd
 :name: RBDCA_4thCycle_Spatial
 :caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Spatial Data
 :align: center
 :zoom:
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-direction LR
-namespace Spatialdata {
-class RiverBasinDistrict {
-+ geometry_polygon: geometry_multipolygon
-+ inspireIdLocalId: String
-+ inspireIdNamespace: String
-+ inspireIdVersionId: String [0..1]
-+ thematicIdIdentifier: wiseIdentifier
-+ thematicIdIdentifierScheme: IdentifierScheme
-+ beginLifespanVersion: Date
-+ endLifespanVersion: Date [0..1]
-+ predecessorsIdentifier: comma-separated list of wiseIdentifier [0..1]
-+ predecessorsIdentifierScheme: IdentifierScheme [0..1]
-+ successorsIdentifier: comma-separated list of wiseIdentifier [0..1]
-+ successorsIdentifierScheme: IdentifierScheme [0..1]
-+ wiseEvolutionType: WiseEvolutionType
-+ nameTextInternational: String
-+ nameText: String
-+ nameLanguage: Language
-+ designationPeriodBegin: Date
-+ designationPeriodEnd: Date [0..1]
-+ zoneType: ZoneType
-+ specialisedZoneType: SpecialisedZoneType
-+ legalBasisName: String [0..1]
-+ legalBasisLink: URL [0..1]
-+ legalBasisLevel: LegislationLevelValue [0..1]
-+ link: URL [0..1]
-}
-}
 ```
 
 ## Documents dataset - 4ᵗʰ cycle
