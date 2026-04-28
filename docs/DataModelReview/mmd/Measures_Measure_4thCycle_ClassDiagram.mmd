@@ -1,0 +1,31 @@
+%%{init : {'theme' : 'neutral'}}%%
+classDiagram
+direction LR
+namespace ReportingData{
+class Measure {
+ + measureCode : wiselIdentifier
+ + measureName : String1000
+ + measureReference : referenceIdentifier [0..1]
+
+ + measureType : MeasureType 
+ + mainLegalInstrument : LegalInstrument
+ + mainKeyTypeOfMeasure : MainKeyTypeOfMeasure
+
+ + mainPressureType : HierarchicalPressureType [0..1]
+ + mainSubstanceType : HierarchicalSubstanceType [0..1]
+
+ + msfdRelevance : YesNo
+ + floodsRelevance : YesNo
+ + natureRestorationRegulationRelevance : YesNo
+ + draughtManagementPlanRelevance : YesNo
+ + climateAdaptationPlanRelevance : YesNo
+
+ + geographicalCoverage : WFDGeographicCoverage
+ + euRBDCode : wiselIdentifier [0..n]
+ + waterCategory : HierarchicalWaterCategory [0..1]
+ + protectedAreaType : ProtectedAreaType [0..1]
+
+ + implementationPeriod : YearRangeType
+ + implementationStatus : PlannedOngoingExecutedCancelled
+}
+}

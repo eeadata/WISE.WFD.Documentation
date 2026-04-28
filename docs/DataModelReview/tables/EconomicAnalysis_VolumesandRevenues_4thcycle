@@ -1,0 +1,142 @@
+```{list-table} Dimension codes for the reporting of volumes and revenues – 4ᵗʰ cycle of reporting
+:name: EconomicAnalysis_VolumesandRevenues_4thcycle
+:width: 100%
+:header-rows: 1
+
+* - Diagram
+  - Dimension
+  - Description
+  - From
+  - To
+
+* - V1
+  - VOL_ABS_SS_AGR_IR
+  - Volume – Water abstraction – self‑supply for the agriculture sector
+  - Environment (inland waters)
+  - Agriculture (NACE 01)
+
+* - V2
+  - VOL_ABS_SS_IND_C
+  - Volume – Water abstraction – for self‑supply for the manufacturing industry sector
+  - Environment (inland waters)
+  - Manufacturing industry (NACE 10–33)
+
+* - V3
+  - VOL_ABS_SS_HH
+  - Volume – Water abstraction – for self‑supply for households
+  - Environment (inland waters)
+  - Households
+
+* - V4
+  - VOL_ABS_OS_AGR_IR
+  - Volume – Water abstraction – for other water supply of irrigation water
+  - Environment (inland waters)
+  - Water collection, treatment and supply (NACE 36)
+
+* - V5
+  - VOL_ABS_PWS_DRI
+  - Volume – Water abstraction – for public water supply of drinking water
+  - Environment (inland waters)
+  - Water collection, treatment and supply (NACE 36)
+
+* - V41
+  - VOL_USE_OS_AGR_IR
+  - Volume – Water use – for other water supply of irrigation water
+  - Water collection, treatment and supply (NACE 36)
+  - Agriculture (NACE 01)
+
+* - V52
+  - VOL_USE_PWS_DRI_IND_C
+  - Volume – Water use – from public water supply of drinking water to the manufacturing industry sector
+  - Water collection, treatment and supply (NACE 36)
+  - Manufacturing industry (NACE 10–33)
+
+* - V53
+  - VOL_USE_PWS_DRI_HH
+  - Volume – Water use – from public water supply of drinking water to households
+  - Water collection, treatment and supply (NACE 36)
+  - Households
+
+* - V62
+  - VOL_WWT_IND_C
+  - Volume – Sewerage – Collection and treatment of wastewater from the manufacturing industry
+  - Manufacturing industry (NACE 10–33)
+  - Sewerage (NACE 37)
+
+* - V63
+  - VOL_WWT_HH
+  - Volume – Sewerage – Collection and treatment of wastewater from households
+  - Households
+  - Sewerage (NACE 37)
+
+* - V6
+  - VOL_DIS_TWW
+  - Volume – Water returns – Discharge of treated effluents
+  - Sewerage (NACE 37)
+  - Environment
+
+* - R1
+  - REV_ABS_SS_AGR_IR
+  - Revenue – Water abstraction – from self‑supply for the agriculture sector
+  - Agriculture (NACE 01)
+  - General government*
+
+* - R2
+  - REV_ABS_SS_IND_C
+  - Revenue – Water abstraction – from self‑supply for the manufacturing industry sector
+  - Manufacturing industry (NACE 10–33)
+  - General government*
+
+* - R3
+  - REV_ABS_SS_HH
+  - Revenue – Water abstraction – from self‑supply for households
+  - Households
+  - General government*
+
+* - R4
+  - REV_ABS_OS_AGR_IR
+  - Revenue – Water abstraction – from other water supply of irrigation water
+  - Water collection, treatment and supply (NACE 36)
+  - General government*
+
+* - R5
+  - REV_ABS_PWS_DRI
+  - Revenue – Water abstraction – from public water supply of drinking water
+  - Water collection, treatment and supply (NACE 36)
+  - General government*
+
+* - R41
+  - REV_USE_OS_AGR_IR
+  - Revenue – Water use – from other water supply of irrigation water
+  - Agriculture (NACE 01)
+  - Water collection, treatment and supply (NACE 36)
+
+* - R52
+  - REV_USE_PWS_DRI_IND_C
+  - Revenue – Water use – from public water supply of drinking water to the manufacturing industry sector
+  - Manufacturing industry (NACE 10–33)
+  - Water collection, treatment and supply (NACE 36)
+
+* - R53
+  - REV_USE_PWS_DRI_HH
+  - Revenue – Water use – from public water supply of drinking water to households
+  - Households
+  - Water collection, treatment and supply (NACE 36)
+
+* - R62
+  - REV_WWT_IND_C
+  - Revenue – Sewerage – from collection and treatment of wastewater from the manufacturing industry
+  - Manufacturing industry (NACE 10–33)
+  - Sewerage (NACE 37)
+
+* - R63
+  - REV_WWT_HH
+  - Revenue – Sewerage – from collection and treatment of wastewater from households
+  - Households
+  - Sewerage (NACE 37)
+
+* - R6
+  - REV_DIS_TWW
+  - Revenue – Water returns – Discharge of treated effluents
+  - Sewerage (NACE 37)
+  - General government*

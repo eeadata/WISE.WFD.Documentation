@@ -1,5 +1,14 @@
 # WFD - Exemptions
 
+```{warning}
+The online version of the text is being reviewed.  
+The questions raised in the WG DIS meeting 2026-04-22 regarding:
+* Exemptions related to UWWT 
+* Exemptions related to protected areas
+* Exemptions related to River Basin Specific Pollutants
+have not yet been addressed.
+```
+
 ## Reporting of Exemptions - 3rd cycle
 
 * The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`SWExemptions_GWExemptions`)
@@ -9,58 +18,11 @@
   will no longer requested in the structured data reporting for the 4th cycle (i.e. it is provided only in the RBMP documents).
   
   
-```{mermaid}
+```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram.mmd
 :name: SWExemptions_GWExemptions
 :caption: SWExemptions and GWExemptions - 3rd cycle - OBSOLETE
 :align: center
-%%{init: {'theme': 'neutral'}}%%
-classDiagram 
-namespace SWMET{
-class SWExemptions ["«XSDcomplexType»
-SWExemptions"]{
-  «XSElement»
-  + swExemption44Impact: SignificantImpactType_Enum [1..*]
-  + swExemption44Driver: Driver_Enum [1..*]
-  + swExemption45Impact: SignificantImpactType_Enum [1..*]
-  + swExemption45Driver: Driver_Enum [1..*]
-  + swDisproportionateCost: YesNoCode_Enum
-  + swDisproportionateCostScale: GeographicalScale_Enum [0..*]
-  + swDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
-  + swDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
-  + swDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
-  + swTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
-  + swNaturalConditions: SWNaturalConditions_Enum [1..*]
-  + swExemption46: Exemption46_Enum [1..*]
-  + swExemption47: Exemption47_Enum [1..*]
-  + swExemptionsTransboundary: YesNoNotApplicable_Union_Enum
-  + swExemptionsReference: ReferenceType [1..*]
-  + driversSWExemptionsReference: ReferenceType [1..*]
-}
-}
-namespace GWMET{
-class GWExemptions["«XSDcomplexType» GWExemptions"]{
-  «XSDElement»
-  + gwExemption44Impact: SignificantImpactType_Enum [1..*]
-  + gwExemption44Driver: Driver_Enum [1..*]
-  + gwExemption45Impact: SignificantImpactType_Enum [1..*]
-  + gwExemption45Driver: Driver_Enum [1..*]
-  + gwDisproportionateCost: YesNoCode_Enum
-  + gwDisproportionateCostScale: GeographicalScale_Enum [0..*]
-  + gwDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
-  + gwDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
-  + gwDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
-  + gwTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
-  + gwNaturalConditions: GWNaturalConditions_Enum [1..*]
-  + gwExemption46: Exemption46_Enum [1..*]
-  + gwExemption47: Exemption47_Enum [1..*]
-  + gwExemptionsTransboundary: YesNoNotApplicable_Union_Enum
-  + gwExemptionsReference: ReferenceType [1..*]
-  + driversGWExemptionsReference: ReferenceType [1..*]
-}
-}
-
 ```
-
 
 ## Reporting of Exemptions - 4th cycle
 
@@ -128,7 +90,7 @@ class SWEcologicalExemption{
 
 The diagram below presents the applicability criteria for the different exemption types ({numref}`SWEcologicalExemptionFlowchart`).
 
-```{mermaid} /DataModelReview/mmd/EcologicalExemption_Flowchart.mmd
+```{mermaid} /DataModelReview/mmd/Exemptions_EcologicalExemption_Flowchart.mmd
 :name: SWEcologicalExemptionFlowchart
 :caption: Surface Water Body - Ecological Exemption Decision Tree - 4th cycle
 :align: center
@@ -170,7 +132,7 @@ class SWChemicalExemption{
 
 The diagram below presents the applicability criteria for the different exemption types ({numref}`ChemicalExemptionFlowchart`).
 
-```{mermaid} /DataModelReview/mmd/ChemicalExemption_Flowchart.mmd
+```{mermaid} /DataModelReview/mmd/Exemptions_ChemicalExemption_Flowchart.mmd
 :name: ChemicalExemptionFlowchart
 :caption: Surface Water Body - Chemical Exemption Decision Tree - 4th cycle
 :align: center
@@ -267,7 +229,7 @@ The diagram below presents the applicability criteria for the different exemptio
  ({numref}`QuantitativeExemptionFlowchart`).
 
 
-```{mermaid} /DataModelReview/mmd/QuantitativeExemption_Flowchart.mmd
+```{mermaid} /DataModelReview/mmd/Exemptions_QuantitativeExemption_Flowchart.mmd
 :name: QuantitativeExemptionFlowchart
 :caption: Surface Water Body - Quantitative Exemption Decision Tree - 4th cycle
 :align: center

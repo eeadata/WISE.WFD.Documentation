@@ -1,6 +1,7 @@
 # WFD - Economic Analysis
 
-**PROPOSAL - Version 2026.02.20** {download}`PDF <pdf/WFD_4rd_cycle_EconomicAnalysis_v20260220.pdf>`
+**PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4th_cycle_EconomicAnalysis_v20260220.pdf>`
+
 ## Purpose and Overview
 
 The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({ref}`Figure 1 <Figure 1>`) and presents a proposal for the electronic reporting in the 4th cycle ({ref}`Figure 2 <Figure 2>`).
@@ -36,40 +37,17 @@ The former questionnaire in the *EconomicAnalysis* class is removed.
 
 The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({ref}`Figure 3 <Figure 3>`, {ref}`Figure 4 <Figure 3>`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
 
-Table 1 lists the content of the questionnaire.
+({numref}`EconomicAnalysis_CostRecoveryTable`) lists the content of the questionnaire.
 
-**Table 1.** Questionnaire about *CostRecovery* and *CostRecoveryPerService* – 4ᵗʰ cycle of reporting.
-
-(Table 1)=
-| Table                  | Column                         | Value / Question                                                                                                                                                                                                 |
-|------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **CostRecovery**       | euRBDCode                       | Identifier of the River Basin District                                                                                                                                                                            |
-|                        | adequateContributionAccount     | Is there an account of adequate contribution to service costs?                                                                                                                                                    |
-|                        | adequateContributionSectoral    | Is such an account based on sectoral cost recovery rates?                                                                                                                                                         |
-|                        | pppAccount                      | Is there an account of the application of the Polluter Pays Principle (PPP)?                                                                                                                                      |
-|                        | pppERCBased                     | Is the account based on estimates of Environmental & Resource Costs (ERC)?                                                                                                                                        |
-|                        | pppTargetPolluters              | Does the account describe how charges target relevant polluters?                                                                                                                                                  |
-|                        | incentivesAccount               | Is there an account of adequate incentives of the pricing instruments?                                                                                                                                            |
-|                        | incentivesEmpiricalInformation  | Is the account based on empirical information on tariff schemes?                                                                                                                                                  |
-|                        | incentivesDifferentiated        | If incentivesEmpiricalInformation = 'Yes', is the information differentiated over sectors or services?                                                                                                            |
-|                        | incentivesWaterScarcityUse      | Is there information on economic instruments used for water scarcity?                                                                                                                                             |
-| **CostRecoveryPerService** | euRBDCode                   | Identifier of the River Basin District                                                                                                                                                                            |
-|                        | waterService                    | Information is requested for each of the following services: 'Irrigation water service', 'Drinking water service', 'Sewerage service'                                                                             |
-|                        | costRecoveryFull                | Does the RBMP report whether cost recovery is (nearly) full? Note: the option 'NotApplicable' is only valid for waterService = 'Irrigation water service', if that specific service does not exist in the RBD.     |
-|                        | costRecoveryCorroborated        | Is the extent of cost recovery corroborated with rate calculations?                                                                                                                                                |
-|                        | nationalMethodologyApplied      | Is there a national methodology applied in these calculations?                                                                                                                                                    |
-|                        | justificationCostRecovery       | If costRecoveryFull = 'No', is there a justification based on mitigation factors (Art 9(1))?                                                                                                                      |
-|                        | justificationFactor             | If justificationCostRecovery = 'Yes', report the mitigation factors.                                                                                                                                              |
-|                        | justificationSectoralInfo       | If justificationCostRecovery = 'Yes', does this justification use sectoral information?                                                                                                                           |
-|                        | article94Exemption              | Does the RBMP mention the ‘established practices’ exemption (Art 9(4))?                                                                                                                                           |
-|                        | article94Justification          | If article94Exemption = 'Yes', is there a justification for this exemption?                                                                                                                                       |
+```{include} tables/EconomicAnalysis_CostRecoveryTable
+```
 
 
 (Figure 3)=
 ```{mermaid} /DataModelReview/mmd/Figure3EconomicAnalysis.mmd
 :align: center
+:caption: CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
 ```
-*Figure 3. CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
 
 
 
@@ -78,7 +56,7 @@ Table 1 lists the content of the questionnaire.
 
 The data structure was simplified to a core set of quantitative data for a limited number of water services and water user sectors. The purpose is to obtain a consistent overview across Europe, at river basin district level.
 
-Information is requested:<br>• about the physical volumes of water, the revenues and the costs ({ref}`Figure 5 <Figure 5>`),<br>• for three water user sectors – agriculture, industry and households ({ref}`Table 2 <Table 2>`),<br>• and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
+Information is requested:<br>• about the physical volumes of water, the revenues and the costs ({ref}`Figure 5 <Figure 5>`),<br>• for three water user sectors – agriculture, industry and households ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`),<br>• and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
 
 **Figure 5.** *Overview diagram for the requested data on volumes, revenues and costs – 4ᵗʰ cycle of reporting.*
 
@@ -107,59 +85,41 @@ The requested data are the estimated average annual total revenue in million uni
 <strong>c) Cost</strong><br>
 For the provision of the services quantified in a) and b), the total costs are to be quantified, distinguishing between CAPEX and OPEX.
 
-The requested data on water volumes is detailed in ({ref}`Figure 6 <Figure 6>`). The relevant concepts are aligned with the OECD/Eurostat Joint Questionnaire on Inland Waters and the Eurostat Regional Water Questionnaire and defined in ({ref}`Table 4 <Table 4>`).</p>
+</p>
 </div>
 
 </div>
 
+The requested data on water volumes is detailed in ({numref}`conceptualvolume`). The relevant concepts are aligned with the OECconceptualvolumeD/Eurostat Joint Questionnaire on Inland Waters and the Eurostat Regional Water Questionnaire and defined in ({numref}`EconomicAnalysis_Conceptsanddefinitions`).
 
-**Figure 6.** Conceptual diagram for the requested data on volumes – 4ᵗʰ cycle of reporting.
-
-
-(Figure 6)=
-![RBMP diagram](img/EconomicAnalysisConceptualVolume.PNG)
-
-**Table 2.** Concepts and definitions applicable to water user sectors – 4ᵗʰ cycle of reporting.
-
-(Table 2)=
-| Water user sector       | Definition                                                                                                                                                                                                 | Notes                                                                                                                                                                                                                                                                                                                                                 |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **AGRICULTURE**         | *Includes:*<br>NACE 01 – Crop and animal production, hunting and related service activities<br><br>*Excludes:*<br>NACE 02 – Forestry and logging<br>NACE 03 – Fishing and aquaculture                       |                                                                                                                                                                                                                                                                                                                                                       |
-| **MANUFACTURING INDUSTRY** | *Includes:*<br>NACE 10–33 – Manufacturing industry (NACE Section C)<br><br>*Excludes:*<br>NACE 05–09 – Mining and quarrying<br>NACE 35 – Electricity, gas, steam and air conditioning supply<br>NACE 36 – Water collection, treatment and supply<br>NACE 37 – Sewerage<br>NACE 38 – Waste collection, recovery and disposal activities; waste management and remediation activities<br>NACE 39 – Remediation activities and other waste management service activities<br>NACE 41–43 – Construction | By definition, the volume of **water abstraction** by the MANUFACTURING INDUSTRY (NACE 10–33) sector for self‑supply excludes water abstraction by NACE 36 entities.<br><br>For the 4ᵗʰ cycle of electronic reporting under the WFD, the volume of **water use** by the MANUFACTURING INDUSTRY sector refers only to drinking water provided via public water supply (V52). |
-| **HOUSEHOLDS**          | Aligned with the *OECD/Eurostat Joint Questionnaire on Inland Waters*, the term “Households” refers to the resident population as final users of supplied water and generators of domestic wastewater.<br><br>Households are consumption units, not economic production units, hence there is no applicable NACE code. |                                                                                                                                                                                                                                                                                                                                                       |
-
-*Table 3. Concepts and definitions applicable to water services – 4th cycle of reporting.*
+```{figure} img/EconomicAnalysisConceptualVolume.PNG
+:name: conceptualvolume
+:align: center
+:width: 100%
+Conceptual diagram for the requested data on volumes – 4ᵗʰ cycle of reporting.
+```
 
 
-(Table 3)=
-| Water service              | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Notes                                                                                                                                                                                                                     |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **DRINKING WATER SERVICE** | Water supplied by economic units engaged in collection, purification and distribution of water, i.e. under NACE Code 36.00 (Water collection, treatment and supply).<br><br>The term "public" means publicly accessible service – provided either by public or private operators – not "public sector". The term "Public water supply" is equivalent to collective water supply.|For the purposes of the 4ᵗʰ cycle of electronic reporting, note the restriction to "drinking water supply".<br><br>Synonyms:<br>• PUBLIC DRINKING WATER SUPPLY<br>• COLLECTIVE DRINKING WATER SUPPLY |                                                                                                                                                                                                                           |
-| **IRRIGATION WATER SERVICE** | Same as above.|For the purposes of the 4ᵗʰ cycle of electronic reporting, note the restriction to "irrigation water supply".<br><br>Synonyms:<br>• PUBLIC IRRIGATION WATER SUPPLY<br>• COLLECTIVE IRRIGATION WATER SUPPLY                                                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                           |
-| **SEWERAGE SERVICE**       | Wastewater collection, treatment and discharge services provided by economic units under NACE Code 37.00 (Sewerage).<br><br>Operation of sewer systems or sewage treatment facilities; collecting and transporting of human or industrial wastewater from one or several users, as well as rain water by means of sewerage networks, collectors, tanks and other means of transport (sewage vehicles etc.); emptying and cleaning of cesspools and septic tanks, sinks and pits from sewage; and treating wastewater (physical, chemical and biological processes like dilution, screening, filtering, sedimentation, etc.).|For the purposes of the 4ᵗʰ cycle of electronic reporting, note the restriction to the treatment of urban wastewater.<br><br>Synonyms:<br>• SANITARY SERVICE<br>• COLLECTION, TREATMENT AND DISCHARGE OF URBAN WASTE WATER |                                                                                                                                                                                                                           |
+
+```{include} tables/EconomicAnalysis_WaterSectors4thcycle _Table
+```                                                                                                                                              
+
+
+```{include} tables/EconomicAnalysis_WaterServices_Table
+```  
 
 
 All the information is requested at river basin district level and must refer to the same reference year, preferably close to the programming period.
 
-The following generic guidelines apply to the reporting of volumes:<br>• Volumes related to **water abstraction** (V1, V2, V3, V4, V5 in Figure 6) are reported based on the location of the point of abstraction. Only abstractions from freshwater surface water bodies (rivers and lakes, including reservoirs) and groundwater bodies are considered.<br>• Volumes related to **water use** (V41, V52, V53 in {ref}`Figure 6 <Figure 6>`) are reported based on the location of the point of use/consumption. In other words, the volumes refer to water used in the river basin district.<br>• Volumes related to **water returns** (V6 in {ref}`Figure 6 <Figure 6>`) are reported based on the location of the point of wastewater discharge. This includes discharges also to transitional and coastal water bodies located in the river basin district.<br>
+The following generic guidelines apply to the reporting of volumes:<br>• Volumes related to **water abstraction** (V1, V2, V3, V4, V5 in ({numref}`conceptualvolume`)) are reported based on the location of the point of abstraction. Only abstractions from freshwater surface water bodies (rivers and lakes, including reservoirs) and groundwater bodies are considered.<br>• Volumes related to **water use** (V41, V52, V53 in ({numref}`conceptualvolume`)) are reported based on the location of the point of use/consumption. In other words, the volumes refer to water used in the river basin district.<br>• Volumes related to **water returns** (V6 in ({numref}`conceptualvolume`) are reported based on the location of the point of wastewater discharge. This includes discharges also to transitional and coastal water bodies located in the river basin district.<br>
 
 Given the guidelines above, and the fact that the data is requested at river basin district level (RBD), the following corollaries apply:
 <br>• The balance condition V4 ≈ V41 is not expected to hold, due to losses during transport and water returned without use (which result in V4 > V41) or due to transfers between river basin districts (which may result in V41 > V4).<br>• The balance condition V5 ≈ V52 + V53 is not expected to hold, again due to losses and transfers between river basin districts, including the cases where the user/consumer is outside the river basin district where the water is abstracted.<br>• Note that V62 and V63 refer to the volume of wastewater collected and treated by the sanitary services, and not to the amount of wastewater generated by the manufacturing industry and household sectors. Note also that the condition V62 + V63 ⪅ V6 is expected to hold, because V62 and V63 represent a partial apportionment of V6, i.e. of the total volume of treated effluents discharged in the river basin district. The equality V62 + V63 ≈ V6 is not expected to hold (it would only hold if the contribution both of urban run‑off and wastewater from other water user sectors were negligible).<br>• Finally, the condition V52 + V53 ≈ V62 + V63 is not expected to hold if the discharges include a significant amount of wastewater collected from users located outside the basin.
 
-**Table 4.** Concepts and definitions for requested data on volumes – 4ᵗʰ cycle of reporting.
 
 
-
-(Table 4)=
-| Diagram | Concept | Relevant concepts | Notes |
-|----------|----------|------------------|--------|
-| **V1, V2, V3** | *Water abstraction – for self‑supply* | “Self‑supply” refers to the abstraction of water directly by the user for their own final use, rather than obtaining water from a public water supplier or another user.<br>Self‑supply occurs when an entity (e.g. a farm, industrial facility, household, or institution) withdraws water from the environment — such as from a well, borehole, river, lake, or spring — to meet its own operational or domestic needs.<br>It is reported separately from “public water supply” and “other supply” in the OECD/Eurostat Joint Questionnaire. | The volumes are reported in the river basin district where the point of abstraction is located. |
-| **V4** | *Water abstraction – for other water supply + irrigation water* | Volume of water abstracted for the purpose of collective irrigation water supply.<br>Note that the balance condition V4 ≈ V41 is not expected to hold, due to losses during transport and water returned without use (which result in V4 > V41) or due to transfers between river basin districts (which may result in V4 < V41). | The volumes are reported in the river basin district where the point of abstraction is located. |
-| **V41** | *Water use – from other water supply + irrigation water* | To maintain alignment with the OECD/Eurostat Joint Questionnaire, the term “Other water supply + irrigation water” refers to the portion of water supplied to agriculture that is not counted under either “self‑supply” or “public water supply.” This includes all irrigation systems operations that are not individual (on‑farm) irrigation systems, and may also include some water originating from self‑supply that is subsequently distributed to other users.<br>See Table 2 for the definition of the water user sector Agriculture. | The volumes are reported in the river basin district where the point of use/consumption is located. |
-| **V5** | *Water abstraction – for public water supply + drinking water* | Volume of water abstracted for the purpose of collective drinking water supply.<br>Note that the balance condition V5 ≈ V52 + V53 is not expected to hold, again due to losses and transfers, including cases where the user/consumer is outside the river basin district where the water is abstracted. | The volumes are reported in the river basin district where the point of abstraction is located. |
-| **V52, V53** | *Water use – from public water supply + drinking water* | Water supplied by economic units engaged in collection, purification and distribution of water. The term “public” means publicly accessible service — provided either by public or private operators — not “public sector.” The term “Public water supply” is equivalent to “drinking water supply.”<br>See Table 2 for the definition of the water user sectors: Manufacturing Industry for V52, and Households for V53.<br><br>*Excludes:*<br>– Non‑drinking water (unsafe for human consumption)<br>– Treatment of wastewater done solely to prevent pollution<br>– Operation of systems for agricultural irrigation (e.g. irrigation canals) — this falls under “Other supply” in the OECD/Eurostat Joint Questionnaire and under “Other water supply – irrigation water” in the 4ᵗʰ cycle of electronic reporting under WFD.<br>– Deliveries of water from one public supplier to another to avoid double counting.<br><br>Note that desalination of marine water to produce water as the principal product is included in the Public Water Supply definition and reporting under the OECD/Eurostat Joint Questionnaire (see ABS, PWS). However, under the 4ᵗʰ cycle of electronic reporting under the WFD, the volumes reported for “Water use – from public water supply – drinking water” (V52 and V53) do not include desalinated water. | The volumes are reported in the river basin district where the point of use/consumption is located. |
-| **V6** | *Water returns – Discharge of treated effluents* | The volume of wastewater that has undergone a treatment process in an urban wastewater treatment plant (UWWTP) and is subsequently released back into the environment — typically into rivers, lakes, transitional waters, coastal waters, or infiltrated into the soil or groundwater.<br>This return flow is measured after the application of the highest treatment level that the wastewater receives.<br>Note the restriction to urban wastewater, defined as the mix of domestic wastewater, urban run‑off, and non‑domestic wastewater collected in sewerage networks and conveyed to treatment plants. It includes wastewater from households and services, wastewater entering combined sewers, and wastewater from other urban sources discharged into the public sewer system.<br>See Table 2 for the definition of the water user sector Manufacturing Industry (for V62) and Households (for V63). | The volumes are reported as an apportionment of the volume of treated effluents discharged in the river basin district. |
-| **V62, V63** | *Sewerage – Collection and treatment of wastewater* | The following definitions from the OECD/Eurostat Joint Questionnaire are relevant for the correct apportionment of the volume reported under V6:<br>– “Treatment in UWWTPs – Total inflow” (TREAT_URL_IF)<br>– “Generation of Wastewater – Manufacturing Industry” (GEN_MAN)<br>– “Generation of Wastewater – Private Households” (GEN_HH).<br>Total inflow refers to the total volume of wastewater entering wastewater treatment plants (UWWTPs). This includes all wastewater collected and conveyed to the plant before any treatment is applied.<br>It covers inflows to urban wastewater treatment plants (UWWTPs) as well as other inflows.<br>It also includes wastewater transported periodically by trucks from independent storage tanks to UWWTPs.<br>Inflows are reported prior to determining the treatment level (primary, secondary, or tertiary). | The volumes are reported in the river basin district. |
+```{include} tables/EconomicAnalysis_Conceptsanddefinitions
+```
 
 
 *Adapted from: Eurostat & OECD. (2024). Data Collection Manual for the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire (Version 5). Eurostat.*
@@ -182,10 +142,10 @@ The following generic guidelines apply to the reporting of costs:<br>• Grant�
 [^1]: According to Eurostat’s methodological frameworks, specifically the Environmental Protection Expenditure Accounts (EPEA) and the European System of Accounts (ESA 2010), grant-financed assets should be included in capital expenditure (CAPEX) estimates for the sector that acquires and owns the asset. In Eurostat statistics, CAPEX is primarily measured as Gross Fixed Capital Formation (GFCF). GFCF consists of resident producers' acquisitions, less disposals, of fixed assets during a given period. The recording of an asset's acquisition in GFCF is based on the change of ownership and the total value of the asset at the time of purchase. It does not depend on whether the purchase was funded through internal cash flow, loans, or external grants.
 [^2]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
 
-({ref}`Figure 8 <Figure 8>`) presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
+({numref}`EconomicAnalysis_Volume`) presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
 
 The dimension codes for the reporting of costs per water service are presented in {ref}`Table 5 <Table 5>`.  
-The dimension codes for the reporting of volumes and revenues are presented in {ref}`Table 6 <Table 6>`.
+The dimension codes for the reporting of volumes and revenues are presented in ({numref}`EconomicAnalysis_VolumesandRevenues_4thcycle`).
 
 
 (Figure)=
@@ -195,7 +155,7 @@ The dimension codes for the reporting of volumes and revenues are presented in {
 :align: center
 ```
 See also in ([^3])
-[^3]: ({ref}`Figure 8 <Figure>`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+[^3]: ({numref}`EconomicAnalysis_Volume`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
 
 **Table 5.** Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting  
 
@@ -221,40 +181,14 @@ See also in ([^3])
 :align: center
 ```
 
-**Table 6.** Dimension codes for the reporting of volumes and revenues – 4ᵗʰ cycle of reporting
 
-
-(Table 6)=
-| Diagram | Dimension                 | Description                                                                                                   | From                                              | To                                                |
-|---------|----------------------------|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| V1      | VOL_ABS_SS_AGR_IR         | Volume – Water abstraction – self‑supply for the agriculture sector                                          | Environment (inland waters)                       | Agriculture (NACE 01)                             |
-| V2      | VOL_ABS_SS_IND_C          | Volume – Water abstraction – for self‑supply for the manufacturing industry sector                           | Environment (inland waters)                       | Manufacturing industry (NACE 10–33)               |
-| V3      | VOL_ABS_SS_HH             | Volume – Water abstraction – for self‑supply for households                                                  | Environment (inland waters)                       | Households                                        |
-| V4      | VOL_ABS_OS_AGR_IR         | Volume – Water abstraction – for other water supply of irrigation water                                      | Environment (inland waters)                       | Water collection, treatment and supply (NACE 36)  |
-| V5      | VOL_ABS_PWS_DRI           | Volume – Water abstraction – for public water supply of drinking water                                       | Environment (inland waters)                       | Water collection, treatment and supply (NACE 36)  |
-| V41     | VOL_USE_OS_AGR_IR         | Volume – Water use – for other water supply of irrigation water                                              | Water collection, treatment and supply (NACE 36)  | Agriculture (NACE 01)                             |
-| V52     | VOL_USE_PWS_DRI_IND_C     | Volume – Water use – from public water supply of drinking water to the manufacturing industry sector         | Water collection, treatment and supply (NACE 36)  | Manufacturing industry (NACE 10–33)               |
-| V53     | VOL_USE_PWS_DRI_HH        | Volume – Water use – from public water supply of drinking water to households                                | Water collection, treatment and supply (NACE 36)  | Households                                        |
-| V62     | VOL_WWT_IND_C             | Volume – Sewerage – Collection and treatment of wastewater from the manufacturing industry                   | Manufacturing industry (NACE 10–33)               | Sewerage (NACE 37)                                |
-| V63     | VOL_WWT_HH                | Volume – Sewerage – Collection and treatment of wastewater from households                                   | Households                                        | Sewerage (NACE 37)                                |
-| V6      | VOL_DIS_TWW               | Volume – Water returns – Discharge of treated effluents                                                      | Sewerage (NACE 37)                                | Environment                                       |
-| R1      | REV_ABS_SS_AGR_IR         | Revenue – Water abstraction – from self‑supply for the agriculture sector                                    | Agriculture (NACE 01)                             | General government*                               |
-| R2      | REV_ABS_SS_IND_C          | Revenue – Water abstraction – from self‑supply for the manufacturing industry sector                         | Manufacturing industry (NACE 10–33)               | General government*                               |
-| R3      | REV_ABS_SS_HH             | Revenue – Water abstraction – from self‑supply for households                                                | Households                                        | General government*                               |
-| R4      | REV_ABS_OS_AGR_IR         | Revenue – Water abstraction – from other water supply of irrigation water                                    | Water collection, treatment and supply (NACE 36)  | General government*                               |
-| R5      | REV_ABS_PWS_DRI           | Revenue – Water abstraction – from public water supply of drinking water                                     | Water collection, treatment and supply (NACE 36)  | General government*                               |
-| R41     | REV_USE_OS_AGR_IR         | Revenue – Water use – from other water supply of irrigation water                                            | Agriculture (NACE 01)                             | Water collection, treatment and supply (NACE 36)  |
-| R52     | REV_USE_PWS_DRI_IND_C     | Revenue – Water use – from public water supply of drinking water to the manufacturing industry sector        | Manufacturing industry (NACE 10–33)               | Water collection, treatment and supply (NACE 36)  |
-| R53     | REV_USE_PWS_DRI_HH        | Revenue – Water use – from public water supply of drinking water to households                               | Households                                        | Water collection, treatment and supply (NACE 36)  |
-| R62     | REV_WWT_IND_C             | Revenue – Sewerage – from collection and treatment of wastewater from the manufacturing industry             | Manufacturing industry (NACE 10–33)               | Sewerage (NACE 37)                                |
-| R63     | REV_WWT_HH                | Revenue – Sewerage – from collection and treatment of wastewater from households                             | Households                                        | Sewerage (NACE 37)                                |
-| R6      | REV_DIS_TWW               | Revenue – Water returns – Discharge of treated effluents                                                     | Sewerage (NACE 37)                                | General government*                               |
-
+```{include} tables/EconomicAnalysis_VolumesandRevenues_4thcycle
+```
 
 
 *Includes both direct and indirect payments to the general government institutional sector. May also include payments to private sector owners.*  
 
-**Codes used in the diagrams of {ref}`Figure 6 <Figure 6>` and {ref}`Figure 7 <Figure 7>`.**
+**Codes used in the diagrams of ({numref}`conceptualvolume`) and {ref}`Figure 7 <Figure 7>`.**
 
 ## Ancillary Data Sources
 

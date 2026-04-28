@@ -1,0 +1,255 @@
+```{list-table} Subset of CEPA classes potentially applicable to the classification of WFD Measures.
+:name: measures_SubsetOfCEPAClasses
+:width: 100%
+:header-rows: 1
+
+* - CODE 
+  - NAME 
+  - SCOPE 
+
+* - CEPA 2
+  - Wastewater management
+  - Wastewater is defined as water that is of no further immediate value for the purpose for which it was used or in the pursuit of which it was produced because of quality, quantity, or time of its occurrence.   
+    Wastewater management comprises activities and measures aimed at the prevention of pollution of surface water through the reduction of the release of wastewater into inland surface water and seawater.  
+    It includes:  
+    • the collection, treatment of wastewater;  
+    • monitoring and regulation activities;  
+    • septic tanks.  
+    Septic tanks are settling tanks through which wastewater is flowing and the suspended matter is decanted as sludge.  
+    Organic matter (in the water and in the sludge) is partly decomposed by anaerobic bacteria and other micro-organisms.  
+    It excludes:  
+    • actions and activities aiming to protect groundwater from pollutant infiltration and the cleaning up of water bodies after pollution (see CEPA 4).
+
+* - CEPA 2.1 
+  - Prevention of pollution through in-process modifications 
+  - Activities and measures aimed at reducing the generation of wastewater through IPMs related to:  
+    • cleaner and more efficient production processes and other technologies (cleaner technologies);  
+    • the consumption or use of ‘cleaner’ (adapted) products.  
+    It includes:  
+    • replacing existing production processes with new processes designed to reduce water pollutants or wastewater generated during production 
+    (e.g., separation of networks, treatment and re-use of water used in production processes);  
+    • modifying or adapting an existing production process or facilities to enable substitution of raw materials, catalysts and other inputs by non- or less‑polluting products.
+    
+* - CEPA 2.2 
+  - Sewerage networks 
+  - Activities aimed at the operation, maintenance and repair of sewerage networks.  
+    Sewerage networks are systems of collectors, pipelines, vehicles, tanks, conduits and pumps used to transport wastewater 
+    (rainwater, domestic and other wastewater) from points of generation to a sewage treatment plant or discharge point. 
+
+* - CEPA 2.3 
+  - Wastewater treatment 
+  - Wastewater treatment is the process which brings wastewater up to environmental standards or other quality norms.  
+    
+    Three broad types of treatment:  
+    • Mechanical treatment – separation of wastewater into treated water and sludge (sedimentation, screening, flotation).  
+    • Biological treatment – aerobic or anaerobic microorganisms treat wastewater (activated sludge, anaerobic digestion).  
+    • Advanced treatment – removal of specific constituents (metals, nitrates, phosphorous, oxidisable non‑biodegradable matter).  
+    
+    Also included:  
+    • septic tanks, their maintenance and emptying;  
+    • construction and operation of sewage treatment plants;  
+    • treatment of sewage sludge for disposal or reuse (agriculture, incineration with energy recovery, biogas). 
+
+* - CEPA 2.4 
+  - Treatment of cooling water 
+  - Processes which bring cooling water up to environmental standards before release.  
+    Cooling water is used to remove heat. 
+    Activities include:  
+    • air cooling (extra cost vs. water cooling);  
+    • cooling towers (when required for pollution reduction);  
+    • cooling circuits for processing water and vapour condensation;  
+    • equipment to enhance dispersion of cooling water;  
+    • closed cooling circuits;<br>• circuits for using cooling water for heating purposes.  
+    Includes activities reducing cooling water use and improving efficiency in the energy sector.  
+
+* - CEPA 2.5 
+  - Measurement, control, laboratories and the like 
+  - Activities aimed at monitoring pollutant concentrations in wastewater and the quality of inland surface water and marine water at discharge points.  
+    Includes analysis and measurement of pollutants. 
+    
+* - CEPA 2.6 
+  - Other activities 
+  - All other activities and measures aimed at wastewater management, including regulation and ETIGA activities specific to CEPA 2, when separable from other CEPA classes. 
+
+* - CEPA 4 
+  - Protection and remediation of soil, groundwater and surface water 
+  - Protection and remediation of soil and water concerns surface water, groundwater and marine waters.  
+    Includes prevention of pollutant infiltration, cleaning up of soils and water bodies, protection of soil from erosion and degradation (including salinisation), and monitoring of soil and groundwater pollution.  
+    Excludes:  
+    • wastewater management (CEPA 2);  
+    • soil protection in forests (CReMA 11A);  
+    • biodiversity and landscape protection (CEPA 6).  
+    Aquaculture is excluded except organic aquaculture (CEPA 4.3). 
+
+* - CEPA 4.1 
+  - Prevention of pollutant infiltration 
+  - Activities and measures aimed at reducing or eliminating penetration of polluting substances into soil and water.  
+  
+    It includes:  
+    • sealing of soils of industrial plants;  
+    • installation of catchment for pollutant run-offs and leaks;  
+    • strengthening of storage facilities;  
+    • transportation of pollutant products.  
+
+* - CEPA 4.2 
+  - Cleaning up of soil and water bodies 
+  - Processes to reduce pollutants in soil and water bodies either in situ or in installations.  
+    It includes:  
+    • soil decontamination at industrial sites, landfills, black spots;  
+    • dredging pollutants from water bodies;  
+    • cleaning up surface water after accidental pollution;  
+    • cleaning up oil spills on land, inland waters and seas.  
+    It excludes:  
+    • liming of lakes and artificial oxygenation (CEPA 6);  
+    • civil protection services (outside CEPA/CReMA).  
+
+* - CEPA 4.3 
+  - Protection of soil from erosion and other physical degradation 
+  - Activities aimed at protecting soil from erosion and physical/chemical degradation.  
+    It includes:  
+    • restoring protective vegetal cover;  
+    • anti‑erosion walls;  
+    • organic farming and less harmful agricultural practices;  
+    • organic aquaculture.  
+    It excludes:  
+    • conventional agriculture (outside CEPA/CReMA);  
+    • protection of settlements against natural hazards.  
+    Includes definition of soil erosion.  
+
+* - CEPA 4.4 
+  - Prevention and remediation of soil salinity 
+  - Activities aimed at preventing or reducing soil and groundwater salinity.  
+    It includes:  
+    • increasing groundwater tables to prevent seawater intrusion;  
+    • lowering groundwater tables via re‑vegetation, irrigation changes.  
+    It excludes:  
+    • measures for economic purposes (conventional agriculture, land reclamation).  
+    
+* - CEPA 4.5 
+  - Measurement, control, laboratories and the like 
+  - Monitoring soil, groundwater and surface water quality, erosion and salinity.  
+    It includes:  
+    • monitoring systems;  
+    • inventories of black spots;  
+    • maps and databases of pollution, erosion, salinity.  
+
+* - CEPA 4.6 
+  - Other activities 
+  - All other activities aimed at protecting and remediating soil, groundwater, surface water and marine waters.  
+    Includes ETIGA activities specific to CEPA 4. 
+
+* - CEPA 6 
+  - Protection of biodiversity and landscapes 
+  - Activities aimed at protecting and replenishing wild fauna and flora, habitats, ecosystems, and natural/semi‑natural landscapes.  
+    Includes rehabilitation of abandoned mining/quarrying sites.  
+    Excludes:  
+    • historic monuments;  
+    • weed control for agriculture;  
+    • recreational structures (parks, golf courses);  
+    • zoos, aquariums, city greenery;  
+    • roadside green spaces;  
+    • extraction activities (hunting, fishing);  
+    • conventional farming/gardening (except organic farming under CEPA 4).  
+    Forest fire protection is reported under CReMA 11A. 
+
+* - CEPA 6.1 
+  - Protection and rehabilitation of species and habitats 
+  - Activities aimed at conservation, reintroduction, recovery of species and restoration of habitats.  
+    It includes:  
+    • conserving genetic heritage;  
+    • ecological infrastructure (green bridges, passages);  
+    • re‑introduction of native species;  
+    • control of invasive species;<br>• restoration of wild flora/fauna stocks;  
+    • land purchase for habitat protection;  
+    • low‑impact fishing nets, pesticides, turbine shutdown algorithms, bat protection systems. 
+
+* - CEPA 6.2 
+  - Protection of natural and semi-natural landscapes 
+  - Activities aimed at protecting natural and semi‑natural landscapes.  
+    It includes:  
+    • preservation of protected natural objects;  
+    • rehabilitation of mining/quarrying sites;  
+    • renaturalisation of river banks;  
+    • burying electricity lines;  
+    • maintenance of traditional landscapes;  
+    • restoration of water bodies as habitats;  
+    • biodiversity/landscape protection in agriculture.  
+    It excludes:  
+    • protection of historic monuments;  
+    • aesthetic landscaping for economic purposes;  
+    • protection of built‑up landscapes. 
+
+* - CEPA 6.3 
+  - Measurement, control, laboratories and the like 
+  - Monitoring, analysis and inspection activities not classified elsewhere.<br><br>Includes censuses, inventories, databases of flora and fauna. 
+
+* - CEPA 6.4 
+  - Other activities 
+  - All other activities aimed at protecting species, habitats and landscapes.  
+    Includes ETIGA activities specific to CEPA 6 and government activities for quotas, regulation, monitoring, control (e.g., fishing), management of wild game reserves. 
+
+* - CEPA 8 
+  - Research and development 
+  - R&D for prevention and elimination of pollution and for pollution measurement and analysis.  
+    Includes:  
+    • identification and analysis of pollution sources, dispersion mechanisms, effects on humans and ecosystems.
+    Excludes:  
+    • R&D related to natural resource management (CReMA 15).
+
+* - CEPA 8.2 
+  - Protection of water 
+  - 
+
+* - CEPA 8.4 
+  - Protection of soil and groundwater 
+  - 
+
+* - CEPA 8.6 
+  - Protection of species and habitats 
+  - 
+
+* - CEPA 8.8 
+  - Other research on the environment 
+  - 
+
+* - CEPA 9 
+  - Other environmental protection activities 
+  - Regulation and ETIGA activities not classified elsewhere.  
+    Includes:  
+    • support to environmental decision‑making;  
+    • regulation by government bodies;  
+    • environmental management by businesses;  
+    • activities not elsewhere classified. 
+
+* - CEPA 9.1 
+  - General environmental administration and management 
+  - Includes:  
+    • administration, management and support to environmental protection decisions;  
+    • preparation of declarations or requests for permission;  
+    • internal environmental management;  
+    • environmental certification processes;  
+    • consultancy, supervision and analysis;  
+    • regulation by government. 
+
+* - CEPA 9.1.1 
+  - General administration, regulation and the like 
+  -
+
+* - CEPA 9.1.2 
+  - Environmental management 
+  - 
+
+* - CEPA 9.2 
+  - Education, training and information 
+  - Activities aimed at providing environmental education, training and information.  
+    Includes:
+    • high school programs;  
+    • university degrees or special courses;  
+    • environmental reports and communication. 
+
+* - CEPA 9.4 
+  - Activities not elsewhere classified 
+  - Environmental protection activities not classifiable under other CEPA classes.  
+    Includes international financial aid where attribution to specific CEPA classes is difficult. 
+
+```    

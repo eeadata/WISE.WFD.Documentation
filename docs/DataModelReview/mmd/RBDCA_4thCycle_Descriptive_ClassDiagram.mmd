@@ -1,17 +1,17 @@
 %%{init: {'theme': 'neutral'}}%%
 classDiagram
 direction LR
-namespace Descriptivedata {
+namespace DescriptiveData {
 class CompetentAuthority {
 + euCACode : wiseIdentifier
-+ competentAuthorityName : String
-+ competentAuthorityNameNL : String
++ competentAuthorityName : String250
++ competentAuthorityNameNL : String250
 + competentAuthorityNameNLLanguage : Language
-+ acronym : String [0..1]
-+ street : String
-+ city : String
-+ country : String
-+ postCode : String [0..1]
++ acronym : String100 [0..1]
++ street : String100
++ city : String100
++ country : String100
++ postCode : String100 [0..1]
 + url : URL
 }
 class RiverBasinDistrictCompetentAuthority {

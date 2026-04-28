@@ -1,0 +1,95 @@
+```{list-table} Tentative mapping between the proposed *mainKeyTypeOfMeasure* WFD Code and the CEPA 2000 classification.
+:name: measures_mainKeyTypeOfMeasure_to_CEPA2000_mapping
+:width: 100%
+:header-rows: 1
+
+* - WFD Code
+  - Definition
+  - CEPA2000
+  - Rationale / Notes
+
+* - B
+  - Measure to implement recovery of costs for water services
+  - 14.2
+  - Measures related to the recovery of costs for water services.
+
+* - C
+  - Measure to promote efficient and sustainable water use
+  - 14.2
+  - Measures related to the efficient and sustainable use of water.
+
+* - D
+  - Measure to protect drinking water quality and reduce the level of treatment required
+  - 14.1
+  - Measures related to the protection of drinking water quality.
+
+* - E
+  - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+  - 14.1
+  - Measures related to abstraction control.
+
+* - F 
+  - Measure to control artificial recharge or augmentation of groundwater
+  - 14.1
+  - Measures related to groundwater recharge.
+
+* - G 
+  - Measure to control point source discharges
+  - 14.1
+  - Measures related to point source pollution control.
+
+* - H 
+  - Measure to prevent or control inputs of diffuse pollutants
+  - 14.1
+  - Measures related to diffuse pollution control.
+
+* - I2-2 
+  - Measure to address significant impacts - Altered habitats due to hydrological changes
+  - 12.1 / 12.2
+  - Measures related to hydromorphological pressures.
+
+* - I2-4 
+  - Measure to address significant impacts - Acidification
+  - 14.1
+  - Measures related to acidification.
+
+* - J
+  - Measure to prohibit direct discharges to groundwater
+  - 14.1
+  - Measures related to groundwater protection.
+
+* - K
+  - Measure to eliminate Priority Substances and reduce pollution by other substances
+  - 14.1
+  - Measures related to Priority Substances and other pollutants.
+
+* - L
+  - Measure to prevent accidental pollution
+  - 14.1
+  - Measures related to accidental pollution.
+
+* - X01
+  - Construction or upgrades of wastewater treatment plants
+  - 14.1
+  - Measures related to wastewater treatment infrastructure.
+
+* - X12
+  - Advisory services
+  - 14.1
+  - Measures related to advisory services.
+
+* - X14
+  - Research, improvement of knowledge, base reducing uncertainty
+  - 14.1
+  - Measures related to research and knowledge improvement.
+
+* - X23
+  - Natural water retention measures
+  - 12.1 / 12.2
+  - Measures related to natural water retention.
+
+* - X24
+  - Climate change adaptation measure
+  - 14.1
+  - Measures related to climate change adaptation.
+
