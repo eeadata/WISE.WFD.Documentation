@@ -1,43 +1,42 @@
 # WFD - Measures
 
-**PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4rd_cycle_Measures_v20260217.pdf>`
+Last update: 2026-04-24
+
+```{warning} 
+The online version of the text is being reviewed.  
+See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
+```
 
 ## Purpose and Overview
 
-This document revises the **River Basin Management Plan & Programme of Measures** schema used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({ref}`Figure 1 <Figure 1>`). It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle ({ref}`Figure 2 <Figure 2>`).
+This section revises the **River Basin Management Plan & Programme of Measures** schema used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
+
+It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
 
 Not all information in the RBMPs can be accurately provided using a common European model. However, it is possible to improve and simplify the reporting of structured data, accepting that part of the relevant information will remain in documentation to be analysed during the Commission's implementation assessment.
 
 Using this principle, the data model can focus on aspects that are suitable for structured reporting, allowing adequate comparisons between different river basin districts (RBDs). Specific or more detailed information can be kept in the RBMP documents, the analysis of which can in the future be facilitated using, for example, large language models (LLMs) supported by retrieval‑augmented generation (RAG) techniques.
 
-**Figure 1.** *Partial class diagram for River Basin Management Plan & Programme of Measures (RBMPPoM_2022) schema.*
+
+## Current structure -3ʳᵈ cycle 
+
+1. Summary information about the *River Basin Management Plan*, the Progress since the previous River Basin Management Plan, 
+ and the mechanisms of international Coordination (if applicable).
+2. Information about the *Programme of Measures*, comprising a summary questionnaire of Targeted Questions and aggregated data about the overall Cost of measures. 
+ Disaggregated information was requested about each Measure and its classification into key type of measures (*KTM*) and basic type of measures (if applicable).
+3. Summary information about pressures and substances causing failure was also requested, along with their link to *KTM Indicators* and *Indicator Gaps*.
+
 (Figure 1)=
 ```{mermaid} /DataModelReview/mmd/MeasuresFigure1.mmd
-:align: center
+:align: center	
+:caption: River Basin Management Plan & Programme of Measures - 3ʳᵈ cycle - OBSOLETE
 ```
 
-
-Source : (https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
-
-**Figure 2.** *River Basin Management Plan & Programme of Measures – 4ᵗʰ cycle of reporting*
-
-(Figure 2)=
-```{mermaid} /DataModelReview/mmd/MeasuresRBDPlan.mmd
-:align: center
-```
-
-### Current structure (3rd cycle of reporting)
-
-The schema used in the 3rd cycle of reporting contains 3 main groups:
-1. Summary information about the **RBMP**, the Progress since the previous RBMP, the mechanisms of international **Coordination** (if applicable).
-2. Information about the **Programme of Measures**, comprising a summary questionnaire of **Targeted Questions** and aggregated data about the overall Cost of measures. 
-Disaggregated information is requested about each **Measure** and its classification into key type of measures (**KTM**) and basic type of measures (if applicable).
-3. Summary information about pressures and substances causing failure and their link to **KTM Indicators** and **Indicator Gaps**.
 
 ### Proposed structure (4th cycle of reporting)
 
-1. The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan table**, containing a selected subset of attributes. The Progress table is modified to request only aggregated information about the overall status of the measures of the previous cycle (3rd cycle).
-2. The reporting of the Programme of Measures is also simplified. The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified. Information about measures is requested in a single **Measure** table. Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if data is available.
+1. The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan table**, containing a selected subset of attributes. The **Progress table** is modified to request only aggregated information about the overall status of the measures of the previous cycle (3ʳᵈ cycle).
+2. The reporting of the Programme of Measures is also simplified. <br>The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified. Information about measures is requested in a single **Measure** table. Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if data is available.
 3. The KTM indicators and indicator gaps group is completely removed.
 
 
@@ -46,9 +45,8 @@ Disaggregated information is requested about each **Measure** and its classifica
 
 ## River Basin Management Plan, Coordination and Progress
 
-### Current structure (3ʳᵈ cycle of reporting)
 
-In the 3ʳᵈ cycle of reporting, this group comprised three tables, collecting summary information about the RBMP, the progress since the previous RBMP, and the mechanisms of international coordination, if applicable ({ref}`Figure 3 <Figure 3>`).
+In the 3ʳᵈ cycle of reporting, this group comprised three tables, collecting summary information about the RBMP, the progress since the previous RBMP, and the mechanisms of international coordination, if applicable ({numref}`ProgrammeOfMeasuresPartial_3rdCycle`).
 
 The data is structured as a simple questionnaire, mostly with Yes/No or multiple‑choice answers, accompanied by links to additional documentation (which can be uploaded or kept on national websites). Only one record per table is required for each River Basin District.
 
@@ -57,9 +55,13 @@ Reporting by MS should not present technical difficulties, and there is limited 
 **Figure 3.** *Class diagram for the RBMPPoM_2022 schema: River Basin Management Plan, international Coordination and 
 Progress since the previous cycle – 3ʳᵈ cycle of reporting*
 
-(Figure 3)=
-![RBMP diagram](img/MeasuresFigure3.JPEG)
 
+```{figure} /DataModelReview/img/MeasuresFigure3.PNG
+:name: ProgrammeOfMeasuresPartial_3rdCycle
+:align: center
+:width: 100%
+River Basin Management Plan, international Coordination and Progress since the previous cycle - 3rd cycle - OBSOLETE
+```
 
 
 ### RiverBasinManagementPlan – 4ᵗʰ cycle of reporting
@@ -70,12 +72,13 @@ A new attribute, **coordinationNRRReference**, allows the reporting of informati
 
 The reporting of the **pomCoordinationArt5SWMI**, **pomCoordinationIRBMPPoM**, **pomCoordinationRoofReport** and **pomCoordinationFinancial** attributes is only required for international RBDs. 
 
-**Figure 4.** *RiverBasinManagementPlan table – 4ᵗʰ cycle of reporting.*
+
 
 
 (Figure 4)=
 ```{mermaid} /DataModelReview/mmd/MeasuresRBDPlan4thCycle.mmd
 :align: center
+:caption: River Basin Management Plan table – 4ᵗʰ cycle of reporting
 ```
 
 
@@ -136,7 +139,7 @@ In the 3ʳᵈ cycle of reporting, the Programme of Measures group comprised seve
 **Figure 8.** *Class diagram for the RBMPPoM_2022 schema: Programme of Measures – 3ʳᵈ cycle of reporting.*
 
 (Figure 8)=
-![RBMP diagram](img/MeasuresFigure8.JPEG)
+![RBMP diagram](img/MeasuresFigure8.PNG)
 
 
 ### TargetedQuestions – 4ᵗʰ cycle of reporting 

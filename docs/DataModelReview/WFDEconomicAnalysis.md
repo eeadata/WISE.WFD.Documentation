@@ -188,14 +188,14 @@ The dimension codes for the reporting of costs per water service are presented i
 The dimension codes for the reporting of volumes and revenues are presented in {ref}`Table 6 <Table 6>`.
 
 
-(Figure 8)=
+(Figure)=
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_Volume.mmd
 :name: EconomicAnalysis_Volume
 :caption: Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting  
 :align: center
 ```
 See also in ([^3])
-[^3]: ({ref}`Figure 8 <Figure 8>`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+[^3]: ({ref}`Figure 8 <Figure>`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
 
 **Table 5.** Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting  
 
