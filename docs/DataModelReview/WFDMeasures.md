@@ -283,16 +283,18 @@ version can be found [here](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=
 
 A brief review of the reported data confirms the issues mentioned above.
 
-In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class ({ref}`Figure 11 <Figure 11>`). Reporting of costs was, de facto, optional – since all numerical attributes admitted the option **–9999** to denote “data not available”.
+In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class ({numref}`Measure_RBMPPoM_2022 schema_Costs_3rdCycle`). Reporting of costs was, de facto, optional – since all numerical attributes admitted the option **–9999** to denote “data not available”.
 
  Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not have data on operational costs and 64 do not have data on EU funds. 
 
 
-**Figure 11.** Class diagram for the RBMPPoM_2022 schema: Costs – 3ʳᵈ cycle of reporting.
 
-(Figure 11)=
+
+
 ```{mermaid} /DataModelReview/mmd/MeasuresCosts.mmd
+:name: Measure_RBMPPoM_2022 schema_Costs_3rdCycle
 :align: center
+:caption: Class diagram for the RBMPPoM_2022 schema: Costs – 3ʳᵈ cycle of reporting.
 ```
 
 
@@ -303,7 +305,6 @@ The variability of the geographical and temporal coverage of the reported data a
 ```{table} Temporal coverage: period to which the reported costs refer – 3ʳᵈ RBMP electronic reporting (including Norway).
 :name: measures_temporalcoverage
 :width: 100%
-:align: left
 | costOfMeasurePeriod20152021 | costOfMeasurePeriod20212027 | Number of RBDs |
 |------------------------------|------------------------------|----------------|
 | 2014--2020 | 2022--2027 | 5 |

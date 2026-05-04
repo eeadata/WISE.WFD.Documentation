@@ -4,7 +4,7 @@
 
 ## Purpose and Overview
 
-The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({ref}`Figure 1 <Figure 1>`) and presents a proposal for the electronic reporting in the 4th cycle ({ref}`Figure 2 <Figure 2>`).
+The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_Classdiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_RevenueandCosts`).
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
@@ -14,28 +14,29 @@ The *Service* table is removed. Information about volumes, revenues and costs is
 
 
 
-(Figure 1)=
+
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysisclassDiagram.mmd
+:name: EconomicAnalysis_Classdiagram
 :align: center
+:caption: Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.
 ```
 
-*Figure 1 Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.*
 Source : [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
 
 
-(Figure 2)=
-```{mermaid} /DataModelReview/mmd/EconomicAnalysis_RevenueandCosts.mmd
-:align: center
 
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_RevenueandCosts.mmd
+:name: EconomicAnalysis_RevenueandCosts
+:align: center
+:caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting
 ```
 
-*Figure 2.Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting*
 
 ## Cost Recovery – 4ᵗʰ Cycle of Reporting
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
-The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({ref}`Figure 3 <Figure 3>`, {ref}`Figure 4 <Figure 3>`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
+The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({numref}`Figure3EconomicAnalysis`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
 
 ({numref}`EconomicAnalysis_CostRecoveryTable`) lists the content of the questionnaire.
 
@@ -45,6 +46,7 @@ The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({re
 
 (Figure 3)=
 ```{mermaid} /DataModelReview/mmd/Figure3EconomicAnalysis.mmd
+:name: Figure3EconomicAnalysis
 :align: center
 :caption: CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
 ```
@@ -58,13 +60,14 @@ The data structure was simplified to a core set of quantitative data for a limit
 
 Information is requested:<br>• about the physical volumes of water, the revenues and the costs ({ref}`Figure 5 <Figure 5>`),<br>• for three water user sectors – agriculture, industry and households ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`),<br>• and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
 
-**Figure 5.** *Overview diagram for the requested data on volumes, revenues and costs – 4ᵗʰ cycle of reporting.*
+
 
 (Figure 5)=
 | a) | b) and c) |
 |---------|---------|
 | <img src="img/EconomicAnalysisPhysicalvolume.PNG" width="300"> | <img src="img/EconomicAnalysisRevenue.PNG" width="300"> |
 
+*Figure 5.Overview diagram for the requested data on volumes, revenues and costs – 4ᵗʰ cycle of reporting.*
 
 <div style="display: flex; gap: 20px;">
 
@@ -124,17 +127,18 @@ Given the guidelines above, and the fact that the data is requested at river bas
 
 *Adapted from: Eurostat & OECD. (2024). Data Collection Manual for the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire (Version 5). Eurostat.*
 
-The requested data on revenues is detailed in Figure 7. The information must refer to the same year and to the same totals reported for the volumes of water.
+The requested data on revenues is detailed in {numref}`Economic_Analysis_ConceptualRevenue`). The information must refer to the same year and to the same totals reported for the volumes of water.
 
-The following generic guidelines apply to the reporting of revenues:<br>• **Water abstraction** revenues (R1, R2, R3, R4, R5 in {ref}`Figure 7 <Figure 7>`) must include all environmental/resource taxes and administrative fees paid (directly or indirectly) to the general government.<br>• **Water supply** revenues (R41, R52, R53 in {ref}`Figure 7 <Figure 7>`) represent the gross revenue of the irrigation water service providers and the drinking water service providers from fees charged to the end‑user sector (agriculture, manufacturing industry and households). The gross revenue must include the base service fee plus any environmental or resource costs incurred during abstraction that are passed through to the consumer to ensure an adequate contribution from that sector.<br>• **Wastewater discharges** revenues (R6 in {ref}`Figure 7 <Figure 7>`) must include all environmental taxes and pollution levies paid directly or indirectly to the government for the emission of pollutants back into the environment.<br>• **Sewerage services** revenues (R62 and R63 in {ref}`Figure 7 <Figure 7>`) represent gross revenue for wastewater collection and treatment services. The revenue must include the service fees charged to users plus any internalised environmental charges related to the final discharge that are passed on to the households or industrial users.
-
-**Figure 7.** Conceptual diagram for the requested data on revenues – 4ᵗʰ cycle of reporting.
+The following generic guidelines apply to the reporting of revenues:<br>• **Water abstraction** revenues (R1, R2, R3, R4, R5 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental/resource taxes and administrative fees paid (directly or indirectly) to the general government.<br>• **Water supply** revenues (R41, R52, R53 in {numref}`Economic_Analysis_ConceptualRevenue`) represent the gross revenue of the irrigation water service providers and the drinking water service providers from fees charged to the end‑user sector (agriculture, manufacturing industry and households). The gross revenue must include the base service fee plus any environmental or resource costs incurred during abstraction that are passed through to the consumer to ensure an adequate contribution from that sector.<br>• **Wastewater discharges** revenues (R6 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental taxes and pollution levies paid directly or indirectly to the government for the emission of pollutants back into the environment.<br>• **Sewerage services** revenues (R62 and R63 in {numref}`Economic_Analysis_ConceptualRevenue`) represent gross revenue for wastewater collection and treatment services. The revenue must include the service fees charged to users plus any internalised environmental charges related to the final discharge that are passed on to the households or industrial users.
 
 
-(Figure 7)=
-![RBMP diagram](img/EconomicAnalysisConceptualRevenue.PNG)
-
-Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in Figure 7, as well as the estimated global cost recovery rate.
+```{figure} img/EconomicAnalysisConceptualRevenue.PNG
+:name: Economic_Analysis_ConceptualRevenue
+:align: center
+:width: 100%
+Conceptual diagram for the requested data on revenues – 4ᵗʰ cycle of reporting.
+```
+Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in ({numref}`Economic_Analysis_ConceptualRevenue`), as well as the estimated global cost recovery rate.
 
 The following generic guidelines apply to the reporting of costs:<br>• Grant‑financed assets should be included in capital expenditure (CAPEX) estimates for the water service that acquires and owns the asset, and regardless of the source of funding ([^1]).<br>• Environmental taxes should be included in the current expenditure (OPEX) estimates for the water services ([^2]).<br>
 
@@ -144,7 +148,7 @@ The following generic guidelines apply to the reporting of costs:<br>• Grant�
 
 ({numref}`EconomicAnalysis_Volume`) presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
 
-The dimension codes for the reporting of costs per water service are presented in {ref}`Table 5 <Table 5>`.  
+The dimension codes for the reporting of costs per water service are presented in {numref}`EconomicAnalysis_Volume`.  
 The dimension codes for the reporting of volumes and revenues are presented in ({numref}`EconomicAnalysis_VolumesandRevenues_4thcycle`).
 
 
@@ -157,10 +161,11 @@ The dimension codes for the reporting of volumes and revenues are presented in (
 See also in ([^3])
 [^3]: ({numref}`EconomicAnalysis_Volume`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
 
-**Table 5.** Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting  
 
+```{table} Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting
+:name: measures_4th cycle reportingcosts_table
+:width: 100%
 
-(Table 5)=
 | Dimension     | Description                                                |
 |---------------|------------------------------------------------------------|
 | CST_IRR_TOT   | Irrigation water services – Total cost                     |
@@ -175,7 +180,7 @@ See also in ([^3])
 | CST_WWT_CAP   | Sewerage services – Capital expenditure                    |
 | CST_WWT_OPE   | Sewerage services – Operational expenditure                |
 | CST_WWT_CRR   | Sewerage services – Cost recovery rate                     |
-
+```
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
 :align: center
@@ -188,7 +193,7 @@ See also in ([^3])
 
 *Includes both direct and indirect payments to the general government institutional sector. May also include payments to private sector owners.*  
 
-**Codes used in the diagrams of ({numref}`conceptualvolume`) and {ref}`Figure 7 <Figure 7>`.**
+**Codes used in the diagrams of ({numref}`conceptualvolume`) and ({numref}`Economic_Analysis_ConceptualRevenue`).**
 
 ## Ancillary Data Sources
 
@@ -198,12 +203,15 @@ Information about annual volumes is reported voluntarily by MS under the OECD/Eu
 
 [^5]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm)
 
-Table 7 provides an overview of some of the OECD/Eurostat Joint Questionnaire tables and dimensions that are directly related to the data requested for the WFD 4ᵗʰ cycle of reporting.
+Tables {numref}`measures_freshwater_abstraction`,{numref}`measures_supplycategory`,{numref}`measures_Wastewater` provides an overview of some of the OECD/Eurostat Joint Questionnaire tables and dimensions that are directly related to the data requested for the WFD 4ᵗʰ cycle of reporting.
 
-**Table 7.** Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionnaire.  
+Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionnaire.  
 
-*TABLE 2: Annual freshwater abstraction by source (dimension 1) and by sector (dimension 2)*
 
+
+```{table} Annual freshwater abstraction by source (dimension 1) and by sector (dimension 2).
+:name: measures_freshwater_abstraction
+:width: 100%
 
 | Dimension 1 | Dimension 2   | Description                                                     |
 |-------------|----------------|-----------------------------------------------------------------|
@@ -219,11 +227,13 @@ Table 7 provides an overview of some of the OECD/Eurostat Joint Questionnaire ta
 | FGW         | ABS_AGR_IR     | of which for irrigation                                         |
 | FGW         | ABS_IND        | by Manufacturing industry (NACE 10–33)                          |
 | FGW         | ABS_HH         | by Private households                                           |
+```
 
 
 
-*TABLE 4: Water use by supply category (dimension 1) and by sector (dimension 2)*
-
+```{table} Water use by supply category (dimension 1) and by sector (dimension 2).
+:name: measures_supplycategory
+:width: 100%
 
 | Dimension 1 | Dimension 2 | Description                                      |
 |-------------|-------------|--------------------------------------------------|
@@ -235,10 +245,11 @@ Table 7 provides an overview of some of the OECD/Eurostat Joint Questionnaire ta
 | SOWS        | A           | Agriculture, forestry, fishing (NACE 01–03)      |
 | SOWS        | C           | – Manufacturing industry (NACE 10–33)            |
 | SOWS        | EP_HH       | Private households                               |
+```
 
-
-
-*TABLE 8: Generation, treatment and discharges of wastewater: volumes (dimension 1)* 
+```{table} Generation, treatment and discharges of wastewater: volumes (dimension 1).
+:name: measures_Wastewater
+:width: 100%
 
 | Dimension 1 | Dimension 2      | Description                                                             |
 |-------------|------------------|-------------------------------------------------------------------------|
@@ -255,4 +266,4 @@ Table 7 provides an overview of some of the OECD/Eurostat Joint Questionnaire ta
 | VOL_WWV     | DIS_IND_IW_AT    | of which: Discharges to inland waters after treatment                   |
 | VOL_WWV     | DIS_IND_IW_NT    | of which: Discharges to inland waters without treatment                 |
 | VOL_WWV     | DIS              | Total discharges of WWTP’s (urban and other) – after treatment          |
-
+```
