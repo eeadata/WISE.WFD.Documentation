@@ -2,7 +2,7 @@
 :name: measures_mainKeyTypeOfMeasure_to_CEPA2000_mapping
 :width: 100%
 :header-rows: 1
-
+:align: left
 * - WFD Code
   - Definition
   - CEPA2000

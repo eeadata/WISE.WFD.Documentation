@@ -2,7 +2,7 @@
 :name: measures_mainKeyTypeOfMeasure_definitions
 :width: 100%
 :header-rows: 1
-
+:align: left
 * - mainKeyTypeOfMeasure 
   - definition
   - mainPressureType 

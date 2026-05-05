@@ -3,21 +3,21 @@ classDiagram
 direction LR
 namespace DescriptiveData {
 class CompetentAuthority {
-+ euCACode : wiseIdentifier
-+ competentAuthorityName : String250
-+ competentAuthorityNameNL : String250
++ euCACode : wiseIdentifier-varchar42
++ competentAuthorityName : varchar100
++ competentAuthorityNameNL : nvarchar100
 + competentAuthorityNameNLLanguage : Language
-+ acronym : String100 [0..1]
-+ street : String100
-+ city : String100
-+ country : String100
-+ postCode : String100 [0..1]
-+ url : URL
++ acronym : nvarchar100 [0..1]
++ street : nvarchar100
++ city : nvarchar100
++ country : nvarchar100
++ postCode : nvarchar50 [0..1]
++ url : URL-varchar2100
 }
 class RiverBasinDistrictCompetentAuthority {
-+ euRBDCode: wiseIdentifier
-+ euCACode: wiseIdentifier
++ euRBDCode: wiseIdentifier-varchar42
++ euCACode: wiseIdentifier-varchar42
 + roleCode: Role [1..*]
 }
 }
-CompetentAuthority -- "1..*" RiverBasinDistrictCompetentAuthority
+CompetentAuthority --> "1..*" RiverBasinDistrictCompetentAuthority

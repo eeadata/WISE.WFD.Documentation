@@ -97,7 +97,6 @@ which are in different statuses and may have faced different obstacles ({numref}
 ```{table} Illustrative example - hypothetical list with the status of the 10 measures of the 3ʳᵈ cycle.
 :name: measures_example_ten_measures
 :width: 100%
-:align: left
 
 | Measure | Status | Obstacles |
 | --- | --- | --- |
@@ -119,7 +118,6 @@ The example in {numref}`measures_example_progress` illustrates how to synthesize
 ```{table} Illustrative example - **Progress** table records for the example in the previous table.
 :name: measures_example_progress
 :width: 100%
-:align: left
 
 | previousRBMPMeasureStatus | percentageInStatus | obstaclesDelays | obstaclesLackOfFinance | obstaclesMeasureNotCostEffective | obstaclesExtremeEvents |
 | --- | --- | --- | --- | --- | --- |

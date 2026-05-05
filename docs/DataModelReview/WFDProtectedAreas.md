@@ -11,12 +11,11 @@ See **PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4th_cycle_Protecte
 
 The document revises the reporting of WFD Protected Areas in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans (Figure 1), as well as the associated spatial data (Figure 2). A proposal is presented for the electronic reporting in the 4ᵗʰ cycle. Aspects related to exemptions are addressed in a later document.
 
-*Figure 1. Partial class diagram for Protected Areas related data in the 3ʳᵈ cycle of reporting.*
-
-(Figure 1)=
 
 ```{mermaid} /DataModelReview/mmd/ProtectedAreasClassdiagram.mmd
+:name: Figure1
 :align: center
+:caption: Partial class diagram for Protected Areas related data in the 3ʳᵈ cycle of reporting.
 ```
 
 Source: [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
@@ -77,7 +76,7 @@ The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle o
 ```{include} tables/ProtectedAreas_Spatialdata4thcycle_Table
 ```
 
-({ref}`Figure 1 <Figure 1>`) presents the class diagram for the proposed generic ProtectedArea dataset:
+({numref}`Figure1`) presents the class diagram for the proposed generic ProtectedArea dataset:
 
 - Depending on the specific dataflow, different geometry types may be requested/allowed (either point, line or polygon).
 - The relatedZoneIdentifier and relatedZoneIdentifierScheme are mandatory, and specific constraints will apply depending on the dataflow (i.e. on the type of protected area).
