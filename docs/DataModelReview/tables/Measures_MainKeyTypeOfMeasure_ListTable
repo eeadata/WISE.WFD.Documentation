@@ -1,9 +1,8 @@
 ```{list-table} Simplified classification of measures - proposed mainKeyTypeOfMeasure options – 4ᵗʰ cycle.
 :name: measures_mainKeyTypeOfMeasure_definitions
 :width: 100%
-:align: left
 :header-rows: 1
-
+:align: left
 * - mainKeyTypeOfMeasure 
   - definition
   - mainPressureType 

@@ -1,0 +1,70 @@
+```{list-table} Concepts and definitions for requested data on volumes – 4ᵗʰ cycle of reporting.
+:name: EconomicAnalysis_Conceptsanddefinitions
+:width: 100%
+:header-rows: 1
+
+* - Diagram
+  - Concept
+  - Relevant concepts
+  - Notes
+
+* - **V1, V2, V3**
+  - *Water abstraction – for self‑supply*
+  - “Self‑supply” refers to the abstraction of water directly by the user for their own final use, rather than obtaining water from a public water supplier or another user.  
+    Self‑supply occurs when an entity (e.g., a farm, industrial facility, household, or institution) withdraws water from the environment – such as from a well, borehole, river, lake, or spring – to meet its own operational or domestic needs.  
+    It is reported separately from “public water supply” and “other supply” in the OECD/Eurostat Joint Questionnaire.
+  - The volumes are reported in the river basin district where the point of abstraction is located.
+
+* - **V4**
+  - *Water abstraction – for other water supply + irrigation water*
+  - Volume of water abstracted for the purpose of collective irrigation water supply.  
+    Note that the balance condition **V4 ≈ V41** is not expected to hold, due to losses during transport and water returned without use (V4 > V41) or due to transfers between river basin districts (V4 < V41).
+  - The volumes are reported in the river basin district where the point of abstraction is located.
+
+* - **V41**
+  - *Water use – from other water supply + irrigation water*
+  - To maintain alignment with the OECD/Eurostat Joint Questionnaire, “Other water supply + irrigation water” refers to the portion of water supplied to agriculture that is not counted under either “self‑supply” or “public water supply.”  
+    This includes all irrigation systems operations that are not individual (on‑farm) irrigation systems, and may also include some water originating from self‑supply that is subsequently distributed to other users.  
+    See Table 2 for the definition of the water user sector Agriculture.
+  - The volumes are reported in the river basin district where the point of use/consumption is located.
+
+* - **V5**
+  - *Water abstraction – for public water supply + drinking water*
+  - Volume of water abstracted for the purpose of collective drinking water supply.  
+    Note that the balance condition **V5 ≈ V52 + V53** is not expected to hold, due to losses and transfers, including cases where the user/consumer is outside the river basin district where the water is abstracted.
+  - The volumes are reported in the river basin district where the point of abstraction is located.
+
+* - **V52, V53**
+  - *Water use – from public water supply + drinking water*
+  - Water supplied by economic units engaged in collection, purification and distribution of water.  
+    “Public” means publicly accessible service — provided either by public or private operators — not “public sector.”  
+    “Public water supply” = “drinking water supply.”  
+    See Table 2 for the definition of the water user sectors: Manufacturing Industry (V52) and Households (V53).  
+    **Excludes:**  
+    – Non‑drinking water (unsafe for human consumption)  
+    – Treatment of wastewater solely to prevent pollution  
+    – Operation of systems for agricultural irrigation (e.g., irrigation canals) — this falls under “Other supply” in the OECD/Eurostat Joint Questionnaire and under “Other water supply – irrigation water” in the 4ᵗʰ cycle of WFD reporting  
+    – Deliveries of water from one public supplier to another (to avoid double counting)
+  - Note that the desalination of marine water to produce water as the principal product is included in the Public Water 
+Supply definition and reporting under the OECD/Eurostat Joint Questionnaire (see ABS_PWS).  However, for the 4th cycle of electronic reporting under the WFD, the volumes reported for 'Water use - from public water supply - drinking water' (see V52 and V53) do not include desalinated water. 
+
+* - **V6**
+  - *Water returns – Discharge of treated effluents*
+  - The volume of wastewater that has undergone a treatment process in an urban wastewater treatment plant (UWWTP) and is subsequently released back into the environment — typically into rivers, lakes, transitional waters, coastal waters, or infiltrated into the soil or groundwater.  
+    This return flow is measured after the application of the highest treatment level that the wastewater receives.  
+    Note the restriction to urban wastewater, defined as the mix of domestic wastewater, urban run‑off, and non‑domestic wastewater collected in sewerage networks and conveyed to treatment plants.  
+    It includes wastewater from households and services, stormwater entering combined sewers, and wastewater from other urban sources discharged into the public sewer system.
+  - The volumes are reported in the river basin district where the point of discharge is located.
+ 
+* - **V62, V63**
+  - *Sewerage – Collection and treatment of wastewater*
+  - See Table 2 for the definition of the water user sector Manufacturing Industry (for V62) and Households (for V63).  
+    The following definitions from the OECD/Eurostat Joint Questionnaire are relevant for the correct apportionment of the volume reported under V6:  
+    – “Treatment in UWWTPs – Total inflow” (TRT_URB_IF)  
+    – “Generation of Wastewater – Manufacturing Industry” (GEN_MAN)  
+    – “Generation of Wastewater – Private Households” (GEN_HH)  
+    Total inflow refers to the total volume of wastewater entering wastewater treatment plants (WWTPs). This includes all wastewater collected and conveyed to the plant before any treatment is applied.  
+    – It covers inflows to urban wastewater treatment plants (UWWTPs) as well as other WWTPs.  
+    – It also includes wastewater transported periodically by trucks from independent storage tanks to UWWTPs.  
+    – Inflow volume is reported prior to determining the treatment level (primary, secondary, or tertiary).
+  - The volumes are reported as an apportionment of the volume of treated effluents discharged in the river basin district.

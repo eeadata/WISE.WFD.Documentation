@@ -1,9 +1,8 @@
 ```{list-table} Subset of CEPA classes potentially applicable to the classification of WFD Measures.
 :name: measures_SubsetOfCEPAClasses
 :width: 100%
-:align: left
 :header-rows: 1
-
+:align: left
 * - CODE 
   - NAME 
   - SCOPE 

@@ -97,7 +97,6 @@ which are in different statuses and may have faced different obstacles ({numref}
 ```{table} Illustrative example - hypothetical list with the status of the 10 measures of the 3ʳᵈ cycle.
 :name: measures_example_ten_measures
 :width: 100%
-:align: left
 
 | Measure | Status | Obstacles |
 | --- | --- | --- |
@@ -119,7 +118,6 @@ The example in {numref}`measures_example_progress` illustrates how to synthesize
 ```{table} Illustrative example - **Progress** table records for the example in the previous table.
 :name: measures_example_progress
 :width: 100%
-:align: left
 
 | previousRBMPMeasureStatus | percentageInStatus | obstaclesDelays | obstaclesLackOfFinance | obstaclesMeasureNotCostEffective | obstaclesExtremeEvents |
 | --- | --- | --- | --- | --- | --- |
@@ -186,7 +184,7 @@ The **measureType** typology is described in {numref}`measures_measureType_defin
 
 The primary **measureLegalInstrument** under which the measure was defined must be clearly identified.  
 This avoids double reporting in other Directives: the measures can be reported only once under the RBMP electronic reporting. 
-An updated list of EU water and other environmental legislation is provided ({numref}`measures_measureLegalInstrument_definitions`).
+An updated list of EU water and other environmental legislation is provided ({numref}`measureLegalInstrument_definitions`).
 
 The scope of some basic measures is clearly linked to the two Daughter directives:
 
@@ -255,7 +253,7 @@ Group Economics, 15 December 2025,[Available](https://circabc.europa.eu/ui/group
 
 The 6ᵗʰ WFD Implementation Report notes that the Member States’ reporting on costs and financing of the PoMs appears overall patchy and that a consultant’s study estimate is an underestimation for the total costs, as there are significant data gaps and it excludes operational and infrastructure maintenance costs. The corresponding investment overview table shows indeed large gaps ([^2]) .
 
-[^2]: 6th WFD Implementation Report,[ COM(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15. The table concerns Table 4, p24, of [SWD(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970) – note that the differentiation is based.
+[^2]: 6th WFD Implementation Report,[ COM(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15. The table concerns {numref}`measures_temporalcoverage`, p24, of [SWD(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970) – note that the differentiation is based.
 
 The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^3]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs, long‑term investment plans should be developed and the source of financing for each measure clearly identified.” 
 Good planning is also necessary for the acquisition of support from EU Funds, the EIB, and other promotional banks.
@@ -279,43 +277,32 @@ There is a readily available conceptual basis for the reporting on the PoM inves
 
 [^4]: An obligation under Regulation (EU) No 691/2011, amended by Commission Delegated Regulation (EU) 2022/125; the consolidated 
 version can be found [here](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011R0691-20250624)
+
+
 A brief review of the reported data confirms the issues mentioned above.
 
-In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class ({ref}`Figure 11 <Figure 11>`). Reporting of costs was, de facto, optional – since all numerical attributes admitted the option **–9999** to denote “data not available”.
+In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class ({numref}`Measure_RBMPPoM_2022 schema_Costs_3rdCycle`). Reporting of costs was, de facto, optional – since all numerical attributes admitted the option **–9999** to denote “data not available”.
 
  Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not have data on operational costs and 64 do not have data on EU funds. 
 
 
-**Figure 11.** Class diagram for the RBMPPoM_2022 schema: Costs – 3ʳᵈ cycle of reporting.
 
-(Figure 11)=
-```{mermaid}
-classDiagram
 
-class Costs {
- + costOfMeasuresScale20152021 : MSorRBD_Enum
- + costOfMeasurePeriod20152021 : YearRangeType
- + investmentCosts20152021 : NumberDecimalType
- + costExplanation20152021Reference : ReferenceType [1..*]
 
- + costOfMeasuresScale20212027 : MSorRBD_Enum
- + costOfMeasurePeriod20212027 : YearRangeType
- + investmentCosts20212027 : NumberDecimalType
- + annualCosts20212027 : NumberDecimalType
- + depreciation20212027 : YesNoCode_Enum
- + costExplanation20212027Reference : ReferenceType [1..*]
-
- + euFunds20152021 : NumberDecimalType
- + euFunds20212027 : NumberDecimalType
-}
+```{mermaid} /DataModelReview/mmd/MeasuresCosts.mmd
+:name: Measure_RBMPPoM_2022 schema_Costs_3rdCycle
+:align: center
+:caption: Class diagram for the RBMPPoM_2022 schema: Costs – 3ʳᵈ cycle of reporting.
 ```
 
-The variability of the geographical and temporal coverage of the reported data adds to the difficulty in achieving a meaningful analysis.{ref}`Table 4 <Table 4>` illustrates the issues regarding temporal coverage. {ref}`Table 5 <Table 5>` illustrates the issue with geographical coverage.
+
+The variability of the geographical and temporal coverage of the reported data adds to the difficulty in achieving a meaningful analysis.{numref}`measures_temporalcoverage` illustrates the issues regarding temporal coverage. {ref}`Table 5 <Table 5>` illustrates the issue with geographical coverage.
 
 
-*Table 4. Temporal coverage: period to which the reported costs refer – 3ʳᵈ RBMP electronic reporting (including Norway).*
 
-(Table 4)=
+```{table} Temporal coverage: period to which the reported costs refer – 3ʳᵈ RBMP electronic reporting (including Norway).
+:name: measures_temporalcoverage
+:width: 100%
 | costOfMeasurePeriod20152021 | costOfMeasurePeriod20212027 | Number of RBDs |
 |------------------------------|------------------------------|----------------|
 | 2014--2020 | 2022--2027 | 5 |
@@ -332,7 +319,7 @@ The variability of the geographical and temporal coverage of the reported data a
 | 2016--2027 | 2019 | 4 |
 | 2017--2021 | 2021--2027 | 4 |
 | 2017--2021 | 2022--2027 | 1 |
-
+```
 
 
 *Table 5. Geographic coverage: scale to which the reported costs refer – 3ʳᵈ RBMP electronic reporting (including Norway).*
@@ -410,37 +397,8 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 
 **Figure 13.** *European System of Accounts (ESA 2010) allocation of institutional units to sectors.*
 
-```{mermaid}
-flowchart TB
-
- A[Is the unit resident?]
-
- A -->|Yes| B[Is the unit a household?]
- A -->|No| RoW[RoW]
-
- B -->|No| C[Is the unit a non-market producer?]
- B -->|Yes| Households[Households]
-
- C -->|Yes| D[Is the unit controlled by government?]
- C -->|No| E[Does the unit produce financial services?]
-
- D -->|No| NPISH[NPISH]
- D -->|Yes| GG[General government]
-
- E -->|No| NFC[Non-financial corporations]
- E -->|Yes| FC[Financial corporations]
-
- %% --- FIX: give unique IDs to repeated decision boxes ---
- NFC --> D1[Is the unit controlled by general government?]
- 
-
- D1 -->|Yes| PNFC[Public non-financial corporations]
- D1 -->|No| PRNFC
-
- FC -->D2[Is the unit controlled by general government?]
- 
- D2 -->|Yes| PUFC[Public financial corporations]
- D2 -->|No| PRFC
+```{mermaid} /DataModelReview/mmd/MeasuresUnitResidentflowchart.mmd
+:align: center
 ```
 
 
@@ -504,7 +462,7 @@ The Commission must provide guidance on the reporting of expenditure for measure
 mainKeyTypeOfMeasure IN ('C - Measure to promote efficient and sustainable water use', 'E - Measure to control abstraction from surface and groundwater, and impoundment of surface 
 water') which may be outside the scope of the EPEA.
 
-Alignment with the Classification of environmental protection activities
+**Alignment with the Classification of environmental protection activities**
 
 The EPEA categorises activities using the Classification of environmental protection activities (CEPA 2000, {numref}`measures_SubsetOfCEPAClasses`). 
 The proposed classification of Measures using the mainKeyTypeOfMeasure value ({numref}`measures_mainKeyTypeOfMeasure_definitions`) is not based on the CEPA 2000 classification.
