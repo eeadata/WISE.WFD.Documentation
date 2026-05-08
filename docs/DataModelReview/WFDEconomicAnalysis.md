@@ -1,6 +1,11 @@
 # WFD - Economic Analysis
 
-**PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4th_cycle_EconomicAnalysis_v20260220.pdf>`
+Last update: 2026-05-08
+
+```{warning}
+The online version of the text is being reviewed.  
+See **PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4th_cycle_EconomicAnalysis_v20260220.pdf>`
+```
 
 ## Purpose and Overview
 
