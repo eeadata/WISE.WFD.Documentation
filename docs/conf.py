@@ -69,6 +69,10 @@ html_static_path = ['_static']
 html_css_files = [
     'customTable.css'
 ]
+myst_enable_extensions = [
+    "html_admonition",
+    "html_image",
+]
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 

@@ -3,25 +3,25 @@ classDiagram
 direction LR
 namespace Documents {
 class dcMetadata {
-+ title : String4000
-+ creatorOrganisationName : String4000
-+ creatorElectronicMailAddress : Email
-+ description : String4000 [0..1]
++ title : nvarchar4000
++ creatorOrganisationName : nvarchar4000
++ creatorElectronicMailAddress : Email-varchar250
++ description : nvarchar4000 [0..1]
 + created : Date [0..1]
 + language : Language [1..n]
-+ license : URL
-+ rights : String4000 [0..1]
-+ rightsHolder : String4000 [0..1]
++ license : URL-varchar2100
++ rights : nvarchar4000 [0..1]
++ rightsHolder : nvarchar4000 [0..1]
 + licenseDocument : documentCode [0..*]
 + metadataDocument : documentCode [0..*]
 + updateCompetentAuthorities : YesNo
 + updateSpatialData : YesNo
 }
 class Document {
-+ documentCode : wiseIdentifier
-+ documentName : String250
-+ hyperlink : URL [0..1]
++ documentCode : wiseIdentifier-varchar42
++ documentName : varchar250
++ hyperlink : URL-varchar2100 [0..1]
 + documentFile : Attachment [0..1]
 }
 }
-dcMetadata -- "0..*" Document
+dcMetadata --> "0..*" Document
