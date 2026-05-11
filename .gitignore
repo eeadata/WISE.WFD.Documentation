@@ -1,5 +1,5 @@
 _build/
 docs/_build/
 .vscode/
-*/thumbs.db
+Thumbs.db
 tmp

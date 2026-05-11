@@ -28,7 +28,8 @@ jobs:
       # Step 3: Install the required Python packages for building the docs
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme myst_parser sphinxcontrib.bibtex sphinxcontrib.mermaid sphinxcontrib.xlsxtable
+          python -m pip install --upgrade pip
+          pip install -r docs/requirements.txt          
           
       # Step 4: Run Sphinx to build the actual HTML documentation
       # This takes the source files from the 'doc' folder and outputs HTML to '_build'

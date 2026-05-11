@@ -1,0 +1,19 @@
+# Moving the list of Sphinx dependencies to a separate file 
+# so that we don't need to edit the GitHub pages build 
+
+# docs/requirements.txt
+
+sphinx
+myst_parser
+
+sphinxcontrib.bibtex
+
+sphinxcontrib.mermaid 
+nbsphinx
+
+sphinxcontrib-excel-table
+sphinxcontrib-xlsxtable==1.1.1
+openpyxl  # Required dependency for xlsxtable
+
+# Add your theme here, e.g., sphinx-rtd-theme
+sphinx_rtd_theme
