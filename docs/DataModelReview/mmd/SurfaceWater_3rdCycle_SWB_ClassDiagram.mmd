@@ -1,13 +1,22 @@
 %%{init : {'theme' : 'default'}}%%
 
 classDiagram
+
+class SWChemicalExemptionType ["«XSDcomplexType»
+SWChemicalExemptionType"]  {
+  «XSElement»
+  + swChemicalExemptionType : ExemptionType_Enum
+  + swChemicalExemptionPressure : SignificantPressureType_Enum
+}
+
+
 class SWPrioritySubstance ["«XSDcomplexType»
 SWPrioritySubstance"]  {
   «XSElement»
   + swPrioritySubstanceCode : PS_Enum
-  + swPrioritySubstanceSupportingValue : YesNoUnknownCode_Enum
-  + swPrioritySubstanceSamplingCode : StandardType_Enum [3]
-  + swPrioritySubstanceExceedanceLimitZone : YesNoCode_Enum [0..1]
+  + swPrioritySubstanceCausingFailure : YesNoUnknownCode_Enum
+  + swPrioritySubstanceExceedanceType : EQStandardType_Enum [0..3]
+  + swPrioritySubstanceExceedanceInMixingZone : YesNoCode_Enum [0..1]
 }
 
 class SWAssociatedProtectedArea ["«XSDcomplexType»
@@ -24,25 +33,21 @@ SWAssociatedProtectedArea"]  {
 class QualityElement ["«XSDcomplexType»
 QualityElement"]  {
   «XSElement»
-  + qualityElementCode : QA_Enum
-  + qualityElementStatus : QAStatusCode_Enum
-  + qualityElementClass : QEClassCode_Enum
-  + qualityElementMonitoringProgram : MonitoringProgramType_Enum [0..1]
-  + qualityElementReference : ReferenceType [0..1]
-  + qualityElementStandard : StandardType_Enum [0..1]
-  + qualityElementAssessment : AssessmentType_Enum [0..1]
-  + qualityElementTrend : TrendType_Enum [0..1]
-  + qualityElementThreshold : ThresholdType [0..1]
-  + qualityElementPressure : SignificantPressureType_Enum [0..1]
-  + qualityElementImpact : SignificantImpactType_Enum [0..1]
+  + qeCode : StatusQE_Enum
+  + qeStatusOrPotentialValue : QEStatusCode_Enum
+  + qeMonitoringResults : MonitoringResults_Enum [0..1]
+  + qeMonitoringPeriod : YearRangeType [0..1]
+  + qeGrouping : FeatureUniqueEUCodeType [0..*]
+  + qeStatusOrPotentialChange: ValueQEX_StatusOrPotentialChange_Enum
+  + qeStatusOrPotentialComparability : SoPComparability_Enum [0..1]
+  + qeEcologicalExemptionType : ExemptionType_Enum [1..*]
 }
 
-class FallingRSP {
-  ["«XSDcomplexType»
-FallingRSP"] 
+class FailingRBSP ["«XSDcomplexType»
+FailingRBSP"]{
   «XSElement»
-  + failingRSP : RSP_Enum
-  + failingRSPOther : OtherType [0..1]
+  + failingRBSP : RBSP_Enum
+  + failingRBSPOther : OtherType [0..1]
 }
 
 class SWEcologicalExemptionType ["«XSDcomplexType»
@@ -91,9 +96,10 @@ SWB"]
   + euRBDCode : FeatureUniqueEUCodeType
 }
 
+SWChemicalExemptionType --> SWPrioritySubstance  : SWChemicalExemptionType
 SWPrioritySubstance --> SurfaceWaterBody  : SWPrioritySubstance
 SWAssociatedProtectedArea --> SurfaceWaterBody  : SWAssociatedProtectedArea
 QualityElement --> SurfaceWaterBody  : QualityElement
-FallingRSP --> SurfaceWaterBody  : FallingRSP
+FailingRBSP --> SurfaceWaterBody  : FailingRBSP
 SWEcologicalExemptionType --> SurfaceWaterBody  : SWEcologicalExemptionType
 SurfaceWaterBody --> SWB  : SurfaceWaterBody

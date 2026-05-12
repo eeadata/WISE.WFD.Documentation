@@ -1,18 +1,17 @@
+(heading_wfd_monitoring)=
 # WFD - Monitoring
 
 ```{warning}
 The online version of the text is being reviewed.  
 It will be modified to include the combined reporting of the MonitoringSite dataset and the Monitoring data.
 ```
-
-## Monitoring schema - 3rd cycle 
-
-### Background
+(heading_wfd_monitoring_3rd_cycle)=
+## Monitoring schema - 3ʳᵈ cycle
 
 The 2016 and 2022 WFD reporting guidance documents 
 clarify the content of the information requested in the **Monitoring** schema, in accordance to Article 8 of the WFD.  
 The information requested in the electronic reporting refers to past monitoring, and not to planned monitoring, 
-with exceptional cases allowed for in the 3rd cycle reporting guidance (see excerpts below).
+with exceptional cases allowed for in the 3ʳᵈ cycle reporting guidance (see excerpts below).
 
 The 2016 and 2022 WFD reporting guidance documents also highlight the connection to the EEA voluntary dataflows,
 and the expectation that Member States report the monitoring results under the WISE SoE dataflows.
@@ -30,7 +29,7 @@ it would not have been possible to derive the requested monitoring information f
 Therefore, the reporting schema was simplified (see {numref}`Monitoring_2022`),
 but kept in the WFD 2022 electronic reporting.
 
-In preparation on the 4th cycle reporting,
+In preparation on the 4ᵗʰ cycle reporting,
 a similar analysis of the current content of the WISE SoE reporting was done.  
 (See examples related to Atrazine in the last section of this document.) 
 
@@ -38,7 +37,7 @@ While the European coverage of the WISE SoE reporting remains fragmentary,
 it is clear that some Member States provide detailed and abundant data 
 that likely reflects the existing WFD monitoring programmes.  
 For such Member States, reporting derived statistics about sampling frequency and period 
-in the 4th cycle electronic reporting is duplicate reporting and an unnecessary reporting burden.
+in the 4ᵗʰ cycle electronic reporting is duplicate reporting and an unnecessary reporting burden.
 
 
 ***Extracts from 2016 WFD Reporting Guidance for the 2nd cycle (pg. 93-100)***
@@ -69,7 +68,7 @@ Monitoring_2016 Schema - 2nd cycle - Obsolete
 ```
 
 
-***Extracts from the 2022 WFD Reporting Guidance for the 3rd cycle (pg. 90-97)***
+***Extracts from the 2022 WFD Reporting Guidance for the 3ʳᵈ cycle (pg. 90-97)***
 
 > "Reporting should reflect the monitoring that was carried out and informed the third RBMPs. 
 > It is not intended to include information regarding future monitoring programmes. 
@@ -92,12 +91,13 @@ Monitoring_2016 Schema - 2nd cycle - Obsolete
 :align: center
 :width: 75%
 
-Monitoring_2022 Schema - 3rd cycle - Obsolete
+Monitoring_2022 Schema - 3ʳᵈ cycle - Obsolete
 ```
 
-## Monitoring table - 4th cycle
+(heading_wfd_monitoring_4th_cycle)=
+## Monitoring table - 4ᵗʰ cycle
 
-For the 4th cycle of reporting, the requested information is further simplified (see {numref}`DescriptiveMonitoring4thcycle`):
+For the 4ᵗʰ cycle of reporting, the requested information is further simplified (see {numref}`DescriptiveMonitoring4thcycle`):
 
 * Information about the monitoring programmes is provided in the RBMP documents only: 
   only the reference to the supporting documents is requested in the **MonitoringProgrammes** table. 
@@ -134,7 +134,7 @@ For the 4th cycle of reporting, the requested information is further simplified 
 
 ```{mermaid}
 :name: DescriptiveMonitoring4thcycle
-:caption:  Descriptive data - Monitoring - 4th cycle
+:caption:  Descriptive data - Monitoring - 4ᵗʰ cycle
 :align: center
 :zoom:
 %%{init: {'theme': 'neutral'}}%%
@@ -168,17 +168,17 @@ namespace Reporting{
 }
 
 ```
+(heading_wfd_monitoring_codelists_4th_cycle)=
+## Codelists associated with the Monitoring table - 4ᵗʰ cycle
 
-## Codelists associated with the Monitoring table - 4th cycle
-
-The diagram below present the codelists applicable to **Monitoring** table, which simplify and clarify codelists adopted in the 3rd cycle.
+The diagram below present the codelists applicable to **Monitoring** table, which simplify and clarify codelists adopted in the 3ʳᵈ cycle.
 
 Note that for quality elements under QE3 (General parameters), the CAS code or EEA code must be used.
-Note also that the option 'EEA_00-00-0 - Other parameter' will *not* be available in the 4th cycle of reporting.
+Note also that the option 'EEA_00-00-0 - Other parameter' will *not* be available in the 4ᵗʰ cycle of reporting.
 
 ```{mermaid}
 :name: CodelistsDescriptiveMonitoring4thcycle
-:caption:  Codelists - Monitoring - 4th cycle
+:caption:  Codelists - Monitoring - 4ᵗʰ cycle
 :align: center
 :zoom:
 %%{init: {'theme': 'neutral'}}%%
@@ -254,7 +254,7 @@ namespace Codelist{
 ```
 
 
-## Annex - Exploratory analysis of data reported in the 3rd cycle
+## Annex - Exploratory analysis of data reported in the 3ʳᵈ cycle
 
 This section is not relevant for the understanding of the proposed model. 
 It contains some of the data analysis that supported the revision of the data model.
@@ -539,7 +539,7 @@ FROM
 ```
 </details><br/>
 
-### Monitoring - Groundwater quantitative monitoring - 3rd cycle
+### Monitoring - Groundwater quantitative monitoring - 3ʳᵈ cycle
 
 <details>
 <summary>Show code</summary>
@@ -561,7 +561,7 @@ FROM
 ```
 </details><br/>  
 
-### Monitoring - Groundwater chemical monitoring - 3rd cycle
+### Monitoring - Groundwater chemical monitoring - 3ʳᵈ cycle
 
 <details>
 <summary>Show code</summary>
@@ -593,7 +593,7 @@ FROM
 ```
 </details><br/>  
 
-### Monitoring - Surface water chemical monitoring - 3rd cycle
+### Monitoring - Surface water chemical monitoring - 3ʳᵈ cycle
 
 The full list of priority substances and river basin specific pollutants (except 'EEA_00-00-0 - Other parameter'), includes 231 substance codes. 
 Note, however, that more substances are being monitored, according to the reported data.
@@ -754,18 +754,18 @@ FROM (VALUES
 ```
 </details><br/>  
 
-### Monitoring - Surface water ecological monitoring - 3rd cycle
+### Monitoring - Surface water ecological monitoring - 3ʳᵈ cycle
 
-See {numref}`sw_ecological_monitoring`: for an overview of the Surface water ecological monitoring reported in the 3rd cycle RBMPs.
+See {numref}`sw_ecological_monitoring`: for an overview of the Surface water ecological monitoring reported in the 3ʳᵈ cycle RBMPs.
 Note that more than one substance or parameter can be aggregated under each Quality Element code.
 
 For QE3-1 (General parameters), it is preferable to use the substance code and agregate the reported data to the corresponding quality element. 
 Given that both options - quality element code and substance code - were used in the reporting, the query is more complex. 
 
-In the 4th cycle, the use of the CAS and EEA codes should be recommended.
+In the 4ᵗʰ cycle, the use of the CAS and EEA codes should be recommended.
 At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoided.
 
-```{table} Surface water ecological monitoring, as reported in the 3rd cycle RBMPs.
+```{table} Surface water ecological monitoring, as reported in the 3ʳᵈ cycle RBMPs.
 :name: sw_ecological_monitoring
 :width: 100%
 :align: center
@@ -918,7 +918,7 @@ At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoi
 ```
 </details><br/>  
 
-### Assessment method for quality elements - 3rd cycle
+### Assessment method for quality elements - 3ʳᵈ cycle
 
 All the information analysed above refers to "in-situ" data, i.e. conventional monitoring.
 
@@ -930,7 +930,7 @@ All the information analysed above refers to "in-situ" data, i.e. conventional m
 
   /**
   
-  For the 4th cycle, the assessment methods codelist provided with QualityElement table must also include non-conventional monitoring. 
+  For the 4ᵗʰ cycle, the assessment methods codelist provided with QualityElement table must also include non-conventional monitoring. 
   
   **/
 

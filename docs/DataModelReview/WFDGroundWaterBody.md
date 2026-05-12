@@ -32,3 +32,17 @@ See:
 * {ref}`heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions`
 * {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
 
+Other simplifications already discussed also apply to the revision of the GWB schema:
+
+* Removal of the textual reporting of "other" pollutants
+* Removal of the textual reporting of "other" pressures
+* Removal of the textual reporting of "other" impacts
+
+{numref}`Groundwater_3rdCycle_GWB_Simplified_ClassDiagram` shows a simplified diagram 
+to help focus the discussion on the remaining issues.
+
+```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_Simplified_ClassDiagram.mmd
+:name: Groundwater_3rdCycle_GWB_Simplified_ClassDiagram
+:align: center
+:caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle of reporting.
+```

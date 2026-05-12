@@ -7,7 +7,7 @@ The online version of the text is being reviewed.
 See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
 ```
 
-## Purpose and Overview
+## Purpose and overview
 
 This section revises the **River Basin Management Plan & Programme of Measures** schema used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
 It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
@@ -18,7 +18,7 @@ Using this principle, the data model can focus on aspects that are suitable for 
 
 ## Current structure - 3ʳᵈ cycle
 
-The schema used in the 3rd cycle of reporting contained 3 main groups ({numref}`ProgrammeOfMeasures_3rdCycle`):
+The schema used in the 3ʳᵈ cycle of reporting contained 3 main groups ({numref}`ProgrammeOfMeasures_3rdCycle`):
 
 1. Summary information about the *River Basin Management Plan*, the Progress since the previous River Basin Management Plan, 
  and the mechanisms of international Coordination (if applicable).
@@ -31,13 +31,13 @@ The schema used in the 3rd cycle of reporting contained 3 main groups ({numref}`
 :align: center
 :width: 100%
 
-River Basin Management Plan & Programme of Measures - 3rd cycle - OBSOLETE
+River Basin Management Plan & Programme of Measures - 3ʳᵈ cycle - OBSOLETE
 ```
 
 ## Proposed structure - 4ᵗʰ cycle
 
 1. The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan** table, containing a selected subset of attributes. 
- The **Progress** table is modified to request only aggregated information about the overall status of the measures of the previous cycle (3rd cycle).
+ The **Progress** table is modified to request only aggregated information about the overall status of the measures of the previous cycle (3ʳᵈ cycle).
 2. The reporting of the Programme of Measures is also simplified. 
  The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified. 
  Information about measures is requested in a single **Measure** table. 
@@ -58,7 +58,7 @@ Reporting by MS should not present technical difficulties, and there is limited 
 :align: center
 :width: 100%
 
-River Basin Management Plan, international Coordination and Progress since the previous cycle - 3rd cycle - OBSOLETE
+River Basin Management Plan, international Coordination and Progress since the previous cycle - 3ʳᵈ cycle - OBSOLETE
 ```
 
 ## RiverBasinManagementPlan – 4ᵗʰ cycle
@@ -192,7 +192,7 @@ The scope of some basic measures is clearly linked to the two Daughter directive
 - Measures to eliminate or reduce pollution by Priority Substances: *Environmental Quality Standards Directive*
 
 These two legal instruments are part of the codelist. 
-The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD), that existed in the 3rd cycle, 
+The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD), that existed in the 3ʳᵈ cycle, 
 is now eliminated because it did not convey relevant information.
 
 ```{include} tables/Measures_MeasureLegalInstrument_ListTable
@@ -501,7 +501,7 @@ Regarding the measures to address significant impacts in the status of water as 
 keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle).*
 
 (Table 9)=
-| mainKeyTypeOfMeasure (4th cycle) | basicMeasureType (2nd and 3rd cycle) | keyTypeOfMeasure (2nd and 3rd cycle) |
+| mainKeyTypeOfMeasure (4ᵗʰ cycle) | basicMeasureType (2nd and 3ʳᵈ cycle) | keyTypeOfMeasure (2nd and 3ʳᵈ cycle) |
 |------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------|
 | B - Measure to implement recovery of costs for water services | Measure to implement recovery of costs for water services | KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households; KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry; KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture |
 | C - Measure to promote efficient and sustainable water use | Measure to promote efficient and sustainable water use | KTM8 - Water efficiency, technical measures for irrigation, industry, energy and households |

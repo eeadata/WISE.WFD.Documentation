@@ -7,7 +7,7 @@ The online version of the text is being reviewed.
 See **PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4th_cycle_EconomicAnalysis_v20260220.pdf>`
 ```
 
-## Purpose and Overview
+## Purpose and overview
 
 The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_Classdiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_RevenueandCosts`).
 
@@ -37,7 +37,7 @@ Source : [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specif
 ```
 
 
-## Cost Recovery – 4ᵗʰ Cycle of Reporting
+## Cost Recovery – 4ᵗʰ cycle
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
@@ -59,7 +59,7 @@ The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({nu
 
 
 
-## Water Services Data – 4ᵗʰ Cycle of Reporting
+## Water Services Data – 4ᵗʰ cycle
 
 The data structure was simplified to a core set of quantitative data for a limited number of water services and water user sectors. The purpose is to obtain a consistent overview across Europe, at river basin district level.
 
