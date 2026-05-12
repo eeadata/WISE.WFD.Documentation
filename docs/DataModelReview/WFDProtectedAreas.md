@@ -121,7 +121,7 @@ The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle o
 :align: center
 ```
 
-
+(heading_wfd_protected_areas_special_case_the_natura2000_protected_sites)=
 ## Special case – the Natura2000 protected sites
 
 The Natura2000 dataflows do not include information about the association between protected sites and WFD water bodies. Therefore, a different approach is necessary to simplify the WFD reporting.
@@ -141,6 +141,7 @@ The provisional prefilled list will be provided to Member States, for validation
 - If incorrect, Natura 2000 protected site identifiers present in the provisional list may be flagged for removal from the WFD register of protected areas.
 - For the Natura 2000 sites to be included in the WFD register of protected areas (because where the maintenance or improvement of water status is a critical factor for their protection), the association to water bodies should be reported.
 
+(heading_wfd_protected_areas_descriptive_data_reporting)=
 ## Descriptive data reporting
 
 Specific objectives may be set for the water body due to an associated protected areas.  
@@ -165,6 +166,11 @@ The descriptive data reporting in the 4th cycle is explained under:
 * {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
 * {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
 
+
+(heading_wfd_protected_areas_references)=
+## References
+
+The full reporting schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
 
 
 ```{warning}

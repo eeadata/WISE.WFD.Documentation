@@ -335,6 +335,12 @@ class ExemptionPeriod{
 ```
 
 
+(heading_wfd_wfd_exemptions_references)=
+## References
+
+The full reporting schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
+
+
 ## Annex - Exploratory analysis of data reported in the 3rd cycle
 
 This section is not relevant for the understanding of the proposed model. 

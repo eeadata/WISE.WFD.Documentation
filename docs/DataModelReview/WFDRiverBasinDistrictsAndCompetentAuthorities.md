@@ -1,7 +1,9 @@
+(heading_wfd_rbd_and_ca)=
 # WFD - River Basin Districts And Competent Authorities
 
 Last update: 2026-04-24
 
+(heading_wfd_rbd_and_ca_purpose_and_overview)=
 ## Purpose and overview
 
 This section revises the River Basin Districts, Subunits and Competent Authorities classes 
@@ -38,7 +40,7 @@ A proposal is presented for the electronic reporting in the 4ᵗʰ cycle:
 
 [^floods-directive-footnote]: See [Floods Directive - Units of Management and Competent Authorities[2025]](https://reportnet.europa.eu/public/dataflow/1473).
 
-
+(heading_wfd_rbd_and_ca_documents_dataset_4th_cycle)=
 ## Documents dataset - 4ᵗʰ cycle
 
 
@@ -66,6 +68,7 @@ or the provision of a hyperlink to a document stored in a publicly accessible na
 :zoom:
 ```
 
+(heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle)=
 ## Descriptive dataset - 4ᵗʰ cycle
 
 The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive`):
@@ -88,6 +91,7 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 :zoom:
 ```
 
+(heading_wfd_rbd_and_ca_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4ᵗʰ cycle
 
 The Spatial dataset contains only the RiverBasinDistrict spatial table ({numref}`RBDCA_4thCycle_Spatial`).  
@@ -201,6 +205,7 @@ JOIN
 
 </details><br/>
 
+(heading_wfd_wfd_rbd_and_ca_references)=
 ## References
 
 The full reporting schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
