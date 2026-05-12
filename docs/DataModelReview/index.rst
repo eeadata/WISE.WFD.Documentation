@@ -11,7 +11,9 @@ WFD - Data Model Review
       WFDProtectedAreas
       WFDExemptions
       WFDMonitoring
+      WFDGroundWaterBody
+      WFDSurfaceWaterBody
 
 .. substitutions-placeholder
 
-.. include:: ../_sharedFiles/substitutions.rst      
+.. include:: ../_sharedFiles/substitutions.rst

@@ -1,0 +1,99 @@
+%%{init : {'theme' : 'default'}}%%
+
+classDiagram
+class SWPrioritySubstance ["«XSDcomplexType»
+SWPrioritySubstance"]  {
+  «XSElement»
+  + swPrioritySubstanceCode : PS_Enum
+  + swPrioritySubstanceSupportingValue : YesNoUnknownCode_Enum
+  + swPrioritySubstanceSamplingCode : StandardType_Enum [3]
+  + swPrioritySubstanceExceedanceLimitZone : YesNoCode_Enum [0..1]
+}
+
+class SWAssociatedProtectedArea ["«XSDcomplexType»
+SWAssociatedProtectedArea"]  {
+  «XSElement»
+  + euProtectedAreaCode : FeatureUniqueEUCodeType
+  + protectedAreaType : ProtectedAreaType_Enum
+  + protectedAreaObjectivesSet : ProtectedAreaObjectivesEnum [0..1]
+  + protectedAreaObjectivesMet : YesNoInformation_Union_Enum [0..1]
+  + protectedAreaComment : String1000Type [0..1]
+  + protectedAreaExemption : ExemptionType_Enum [1..*]
+}
+
+class QualityElement ["«XSDcomplexType»
+QualityElement"]  {
+  «XSElement»
+  + qualityElementCode : QA_Enum
+  + qualityElementStatus : QAStatusCode_Enum
+  + qualityElementClass : QEClassCode_Enum
+  + qualityElementMonitoringProgram : MonitoringProgramType_Enum [0..1]
+  + qualityElementReference : ReferenceType [0..1]
+  + qualityElementStandard : StandardType_Enum [0..1]
+  + qualityElementAssessment : AssessmentType_Enum [0..1]
+  + qualityElementTrend : TrendType_Enum [0..1]
+  + qualityElementThreshold : ThresholdType [0..1]
+  + qualityElementPressure : SignificantPressureType_Enum [0..1]
+  + qualityElementImpact : SignificantImpactType_Enum [0..1]
+}
+
+class FallingRSP {
+  ["«XSDcomplexType»
+FallingRSP"] 
+  «XSElement»
+  + failingRSP : RSP_Enum
+  + failingRSPOther : OtherType [0..1]
+}
+
+class SWEcologicalExemptionType ["«XSDcomplexType»
+SWEcologicalExemptionType"]  {
+  «XSElement»
+  + swEcologicalExemptionType : ExemptionType_Enum
+  + swEcologicalExemptionPressure : SignificantPressureType_Enum
+}
+
+class SurfaceWaterBody ["«XSDcomplexType»
+SurfaceWaterBody"]  {
+  «XSElement»
+  + euSurfaceWaterBodyCode : FeatureUniqueEUCodeType
+  + euSubUnitCode : FeatureUniqueEUCodeType
+  + surfaceWaterBodyCategory : SWCategoryCode_Enum
+  + naturalAWBHMWB : NaturalCode_Enum
+  + hmwbWaterUse : HMWBWaterUse_Enum [0..*]
+  + hmwbPhysicalAlteration : HMWBPhysicalAlteration_Enum [0..*]
+  + reservoir : YesNoUnclearReservoir_Enum [0..1]
+  + surfaceWaterBodyTypeCode : String100Type
+  + surfaceWaterBodyIntercalibrationType : SWIntercalibrationType_Enum [1..*]
+  + surfaceWaterBodyTransboundary : YesNoNotApplicable_Union_Enum
+  + swSignificantPressureType : SignificantPressureType_Enum [1..*]
+  + swPressureOther : String1000Type [0..1]
+  + swSignificantImpactType : SignificantImpactType_Enum [1..*]
+  + swSignificantImpactOther : String1000Type [0..1]
+  + swEcologicalStatusOrPotentialValue : EcologicalStatusCode_Enum
+  + swEcologicalAssessmentYear : YearRangeType
+  + swEcologicalAssessmentConfidence : Confidence_Enum
+  + swEcologicalStatusOrPotentialExpectedAchievementDate : GoodStatus_Enum
+  + swChemicalStatusValue : StatusCode_Enum
+  + swChemicalAssessmentYear : YearRangeType
+  + swChemicalAssessmentConfidence : Confidence_Enum
+  + swChemicalMonitoringResults : ChemicalMonitoringResults_Enum [0..1]
+  + swChemicalStatusGrouping : FeatureUniqueEUCodeType [0..*]
+  + swChemicalStatusExpectedAchievementDate : GoodStatus_Enum
+  + swMixingZones : YesNoNoInformation_Union_Enum
+  + swMixingZonesProportion : NumberPercentageType [0..1]
+}
+
+class SWB {
+  ["«XSDcomplexType»
+SWB"] 
+  «XSElement»
+  + countryCode : CountryCode_Enum
+  + euRBDCode : FeatureUniqueEUCodeType
+}
+
+SWPrioritySubstance --> SurfaceWaterBody  : SWPrioritySubstance
+SWAssociatedProtectedArea --> SurfaceWaterBody  : SWAssociatedProtectedArea
+QualityElement --> SurfaceWaterBody  : QualityElement
+FallingRSP --> SurfaceWaterBody  : FallingRSP
+SWEcologicalExemptionType --> SurfaceWaterBody  : SWEcologicalExemptionType
+SurfaceWaterBody --> SWB  : SurfaceWaterBody
