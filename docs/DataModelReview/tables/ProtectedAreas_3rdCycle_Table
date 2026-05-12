@@ -1,10 +1,11 @@
 ```{list-table} WFD Protected Area spatial data reporting requirements – 2ⁿᵈ and 3ʳᵈ cycle of reporting
-:name: electronic_reporting
-:width: 100%
-:header-rows: 1
+  :name: ProtectedAreas_3rdCycle_Table
+  :width: 100%
+  :widths: 70 30
+  :header-rows: 1
 
-* - Reporting requirements under the WFD 2nd and 3rd cycle of electronic reporting
-  - Observations 
+* - Reporting requirements
+  - **zoneType** and **specialisedZoneType** values
 
 * - **Drinking water protection areas**  
     *Water bodies identified under WFD Article 7(1) are the only protected areas that are purely designated by WFD, i.e., there is no process to identify and designate these areas under other pieces of legislation, although obviously they are relevant for drinking water supply.* […]  
@@ -16,11 +17,11 @@
 * - **Freshwater fish designated waters**  
     *The Freshwater Fish Directive (2006/44/EC) was repealed by the WFD in 2013. The WFD Reporting Guidance recalls that "according to the WFD, the level of protection should be maintained through the inclusion of the designated areas as Protected Areas under WFD". In addition, "it is considered that the WFD objective of good ecological status integrates fully the objectives of the Fish Directive". Some Member States maintain the transposing legislation in order to maintain the same level of protection, and still consider this an important element in the protection of water resources. Spatial delineation of the protected areas under the Freshwater Fish Directive may or may not coincide with the delineation of the WFD water bodies. It is therefore possible to report the spatial extent of these protected areas* […].  
     *The reporting of this information is* **optional**.  
-  - `zoneType = 'designatedWaters'` AND `specialisedZoneType = 'freshwaterFishDesignatedWater'`
+  - `zoneType = 'designatedWaters' AND specialisedZoneType = 'freshwaterFishDesignatedWater'`
 
 * - **Shellfish designated waters**  
     *The Shellfish Directive (2006/113/EC) was repealed by the WFD in 2013. As with the Freshwater Fish Directive, after the repeal, the WFD requires Member States to maintain the same level of protection. However, in the case of the Shellfish Directive, the WFD objective of good ecological status does not integrate fully the objectives of the Shellfish Directive. Indeed, "microbiological standards are essential for the quality of shellfish water", and these are not part of the definition of ecological status. Therefore, "it is requested to report if these standards have been set (or maintained from the shellfish water directive) and if they are met" (WFD Reporting Guidance 2016). Given that the Shellfish Directive is no longer in force and therefore there is no self-standing reporting mechanism to report the protected areas, it is* **required** *that the spatial extents of the protected areas are reported under the WFD* […].  
-  - `zoneType = 'designatedWaters'` AND `specialisedZoneType IN ('shellfishDesignatedWater')`
+  - `zoneType = 'designatedWaters' AND specialisedZoneType IN ('shellfishDesignatedWater')`
 
 * - **Nitrate Vulnerable Zones**  
     *Reporting of Nitrate Vulnerable Zones (NVZs) is done under the Nitrates Directive 91/676/EEC reporting process* (rod.eionet.europa.eu/obligations/106). […]  
@@ -31,15 +32,15 @@
 * - **UWWTD Sensitive Areas**  
     *Reporting of spatial extent of sensitive areas is done through the regular reporting under the Urban Waste Water Directive 91/271/EEC* (cdr.eionet.europa.eu/help/UWWTD). […]  
     *Sensitive areas are identified through a unique ID* […].  
-  - `zoneType = 'sensitiveArea'` AND `specialisedZoneType in ('catchmentOfSensitiveArea', 'lessSensitiveArea', 'coastalSensitiveArea', 'transitionalSensitiveArea', 'lakeSensitiveArea', 'riverSensitiveArea', 'coastalBathingWater')`
+  - `zoneType = 'sensitiveArea' AND specialisedZoneType in ('catchmentOfSensitiveArea', 'lessSensitiveArea', 'coastalSensitiveArea', 'transitionalSensitiveArea', 'lakeSensitiveArea', 'riverSensitiveArea', 'coastalBathingWater')`
 
 * - **Bathing Waters**  
     *The annual reporting under Bathing Water Directive 2006/7/EC* (cdr.eionet.europa.eu/help/BWD) *requires the identification of bathing waters by providing a point* […].  
     *As an optional element, the surface water body identifier is provided for each bathing water site* […].  
-  - `zoneType = 'bathingWaters'` AND `specialisedZoneType in ('transitionalBathingWater', 'lakeBathingWater', 'riverBathingWater')`
+  - `zoneType = 'bathingWaters' AND specialisedZoneType in ('transitionalBathingWater', 'lakeBathingWater', 'riverBathingWater')`
 
 * - **Habitats and Birds Directives protected sites**  
     *Reporting of protected sites is done under the Habitats and Birds reporting processes for Natura 2000 sites* (rod.eionet.europa.eu/obligations/274 and rod.eionet.europa.eu/obligations/616). […]  
     *Member States are expected to identify the water dependent protected areas associated with water bodies under the WFD reporting. This is done by reporting the Habitats and Birds Directive site code in the attribute euProtectedAreaCode. The WFD reporting process will automatically cross‑check if the site ID is on the list of reported Natura 2000 areas. If this is not the case, the system will generate an error.* […]  
     *No reporting of spatial data regarding Natura 2000 protected areas is expected under the WFD.*  
-  - `<< not applicable >>`
+  - «not applicable»

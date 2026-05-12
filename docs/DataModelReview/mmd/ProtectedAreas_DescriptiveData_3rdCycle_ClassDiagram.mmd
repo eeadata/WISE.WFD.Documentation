@@ -1,0 +1,34 @@
+%%{init : {'theme' : 'default'}}%%
+
+classDiagram
+    class SWB_2022 SWAssociatedProtectedArea["«XSDcomplexType»
+    SWB_2022::SWAssociatedProtectedArea"]  {
+        «XSElement»
+        + euProtectedAreaCode : FeatureUniqueEUCodeType
+        + protectedAreaType : ProtectedAreaType_Enum
+        + protectedAreaObjectivesSet : ProtectedAreaObjective_Enum [0..1]
+        + protectedAreaObjectivesMet : YesNoNoInformation_Union_Enum [0..1]
+        + protectedAreaComment : String1000Type [0..1]
+        + protectedAreaExemption : ExemptionType_Enum [1..*]
+    }
+    class SurfaceWaterBody["«XSDcomplexType»
+    SWB_2022::SurfaceWaterBody"]  {
+        
+    }
+    class GWB_2022 GWAssociatedProtectedArea["«XSDcomplexType»
+    GWB_2022::GWAssociatedProtectedArea"] {
+        «XSElement»
+        + euProtectedAreaCode : FeatureUniqueEUCodeType
+        + protectedAreaType : ProtectedGWAreaType_Enum
+        + protectedAreaObjectivesSet : ProtectedAreaObjective_Enum [0..1]
+        + protectedAreaObjectivesMet : YesNoNoInformation_Union_Enum [0..1]
+        + protectedAreaComment : String1000Type [0..1]
+        + protectedAreaExemption : ExemptionType_Enum [1..*]
+    }
+    class GroundWaterBody ["«XSDcomplexType»
+    GWB_2022::GroundWaterBody"]{
+        
+    }
+
+   SWB_2022 SWAssociatedProtectedArea "0..*" <--  SurfaceWaterBody : +SWAssociatedProtectedArea
+   GWB_2022 GWAssociatedProtectedArea "0..*" <--  GroundWaterBody : +GWAssociatedProtectedArea
