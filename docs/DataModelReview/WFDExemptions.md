@@ -1,3 +1,4 @@
+(heading_wfd_exemptions)=
 # WFD - Exemptions
 
 ```{warning}
@@ -9,21 +10,23 @@ The questions raised in the WG DIS meeting 2026-04-22 regarding:
 have not yet been addressed.
 ```
 
+(heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle)=
 ## Reporting of Exemptions - 3rd cycle
 
-* The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`SWExemptions_GWExemptions`)
+* The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram`)
   will no longer requested in the structured data reporting for the 4th cycle (i.e. the it is provided only in the RBMP documents).
   
-* The information related to exemptions in the groundwater water methodologies schema (GWExemption class, see {numref}`SWExemptions_GWExemptions`).
+* The information related to exemptions in the groundwater water methodologies schema (GWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram`).
   will no longer requested in the structured data reporting for the 4th cycle (i.e. it is provided only in the RBMP documents).
   
   
 ```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram.mmd
-:name: SWExemptions_GWExemptions
+:name: Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram
 :caption: SWExemptions and GWExemptions - 3rd cycle - OBSOLETE
 :align: center
 ```
 
+(heading_wfd_exemptions_reporting_of_exemptions_4th_cycle)=
 ## Reporting of Exemptions - 4th cycle
 
 The reporting of ecological, chemical and quantitative exemptions is aligned into tables with a similar structure:
@@ -56,6 +59,7 @@ Exemption"]{
 }
 ```
 
+(heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element)=
 ## Surface Water Bodies - Ecological exemptions by Quality Element
 
 Ecological exemptions are reported using the table in {numref}`SWEcologicalExemptionClass`.
@@ -88,15 +92,16 @@ class SWEcologicalExemption{
 }
 ```
 
-The diagram below presents the applicability criteria for the different exemption types ({numref}`SWEcologicalExemptionFlowchart`).
+The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_EcologicalExemption_Flowchart`).
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_EcologicalExemption_Flowchart.mmd
-:name: SWEcologicalExemptionFlowchart
+:name: Exemptions_EcologicalExemption_Flowchart
 :caption: Surface Water Body - Ecological Exemption Decision Tree - 4th cycle
 :align: center
 ```
 
-## Surface Water Bodies - Chemical exemptions by Priority Substance
+(heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
+## Surface Water Bodies - Chemical exemptions by Pollutant
 
 Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.
 
@@ -130,14 +135,15 @@ class SWChemicalExemption{
 }
 ```
 
-The diagram below presents the applicability criteria for the different exemption types ({numref}`ChemicalExemptionFlowchart`).
+The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_ChemicalExemption_Flowchart`).
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_ChemicalExemption_Flowchart.mmd
-:name: ChemicalExemptionFlowchart
+:name: Exemptions_ChemicalExemption_Flowchart
 :caption: Surface Water Body - Chemical Exemption Decision Tree - 4th cycle
 :align: center
 ```
 
+(heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions)=
 ## Surface Water Bodies - Protected area exemptions
 
 Specific objectives may be set for waterbodies associated with some types of protected areas:
@@ -169,6 +175,7 @@ class SWAssociatedProtectedArea{
 	   } 
 ```
 
+(heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant)=
 ## Groundwater Bodies - Chemical exemptions by Pollutant
 
 Chemical exemptions are reported using the table in {numref}`GWChemicalExemptionClass`.
@@ -198,10 +205,11 @@ class GWChemicalExemption{
 }
 ```
 
-The diagram with the criteria applicable to surface water chemical exemptions ({numref}`ChemicalExemptionFlowchart`)
+The diagram with the criteria applicable to surface water chemical exemptions ({numref}`Exemptions_ChemicalExemption_Flowchart`)
 is also applicable to groundwater bodies: note that, for groundwater, 
 chemical exemptions can be applied to any groundwater pollutant. 
 
+(heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions)=
 ## Groundwater Bodies - Quantitative exemptions 
 
 Quantitative exemptions are reported using the table in {numref}`GWQuantitativeExemptionClass`.
@@ -226,15 +234,16 @@ class GWQuantitativeExemption{
 ```
 
 The diagram below presents the applicability criteria for the different exemption types
- ({numref}`QuantitativeExemptionFlowchart`).
+ ({numref}`Exemptions_QuantitativeExemption_Flowchart`).
 
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_QuantitativeExemption_Flowchart.mmd
-:name: QuantitativeExemptionFlowchart
+:name: Exemptions_QuantitativeExemption_Flowchart
 :caption: Surface Water Body - Quantitative Exemption Decision Tree - 4th cycle
 :align: center
 ```
 
+(heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions)=
 ## Groundwater Bodies - Protected area exemptions
 
 Specific objectives may be set for waterbodies associated with some types of protected areas:
@@ -267,7 +276,8 @@ class GWAssociatedProtectedArea{
 	   } 
 ```
 
-## Codelists associated with the Exemptions
+(heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions)=
+## Codelists associated with the reporting of Exemptions
 
 Codelists associated with the reporting of exemptions are presented in {numref}`ExemptionCodelist`.
 
