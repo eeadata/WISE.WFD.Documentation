@@ -17,7 +17,9 @@ if on_rtd:
                  'sphinx.ext.imgmath', 
                  'sphinx.ext.mathjax',
                  'sphinxcontrib.mermaid',  
-                 'sphinx.ext.graphviz']
+                 'sphinx.ext.graphviz',
+                 'sphinxcontrib.sqltable',
+                 'nbsphinx']
 else:
    extensions = ['sphinx.ext.autodoc',
                  'myst_parser',
@@ -27,26 +29,41 @@ else:
                  'sphinx.ext.graphviz', 
                  'sphinxcontrib.bibtex', 
                  'sphinxcontrib.mermaid', 
-                 'sphinxcontrib.xlsxtable']
-   
-	
+                 'sphinxcontrib.xlsxtable',
+                 'sphinxcontrib.sqltable',
+                 'nbsphinx']
 
 bibtex_bibfiles = ['./_sharedFiles/bibliography.bib']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','*.txt']
+
+# NUMBERING - begin config
+
 numfig = True
+
 numfig_format = {
-    'figure': 'Figure %s',
+    'figure': 'Figure %s',       # Changes "Fig. 1" to "Figure 1"
+    'table': 'Table %s',    
+    'code-block': 'Example %s',  # Changes "Listing 1" to "Example 1"
+    'section': 'Section %s',     
 }
+
+    # The separator must defined in a custom.css
+
+# NUMBERING - end config
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# MERMAID DIAGRAMS - begin config
 
-# Mermaid 
-
+mermaid_init_js = """
+mermaid.initialize({theme:"neutral"});
+"""
 mermaid_params = ['--theme', 'neutral', '--backgroundColor', 'transparent']
+
+# MERMAID DIAGRAMS - end config
 
 # Support for todo items: If this is True, todo and todolist produce output, else they produce nothing. The default is False.
 todo_include_todos = True
