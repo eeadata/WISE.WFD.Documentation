@@ -64,11 +64,11 @@ isCausingFailureIn2027 ==> |no| isDeteriorationExpected
 isDeteriorationExpected ==> |no| hasNoApplicableExemption_3
 
 %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-isDeteriorationExpected ==> |"yes [new modification OR sustainable human development]"| hasExemption47
+isDeteriorationExpected ==> |"yes [new modification OR sustainable human development OR uwwtdArticle15(4)]"| hasExemption47
 
 %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
 isCausingFailureIn2027 ==> |yes| isDeteriorationObserved
-isDeteriorationObserved ==> |"yes [new modification OR sustainable human development]"| hasExemption47
+isDeteriorationObserved ==> |"yes [new modification OR sustainable human development OR uwwtdArticle15(4)]"| hasExemption47
 isDeteriorationObserved ==> |"yes [accidents OR force majeure OR natural causes]"| hasExemption46
 isDeteriorationObserved ==> |no| isGoodStatusAchievable
 

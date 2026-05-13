@@ -1,0 +1,28 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram 
+class GWExemptions["«XSDcomplexType» 
+GWExemptions"]{
+  «XSDElement»
+  + gwExemption44Impact: SignificantImpactType_Enum [1..*]
+  + gwExemption44Driver: Driver_Enum [1..*]
+  + gwExemption45Impact: SignificantImpactType_Enum [1..*]
+  + gwExemption45Driver: Driver_Enum [1..*]
+  + gwDisproportionateCost: YesNoCode_Enum
+  + gwDisproportionateCostScale: GeographicalScale_Enum [0..*]
+  + gwDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
+  + gwDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
+  + gwDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
+  + gwTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
+  + gwNaturalConditions: GWNaturalConditions_Enum [1..*]
+  + gwExemption46: Exemption46_Enum [1..*]
+  + gwExemption47: Exemption47_Enum [1..*]
+  + gwExemptionsTransboundary: YesNoNotApplicable_Union_Enum
+  + gwExemptionsReference: ReferenceType [1..*]
+  + driversGWExemptionsReference: ReferenceType [1..*]
+}

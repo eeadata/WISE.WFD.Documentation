@@ -1,33 +1,43 @@
 (heading_wfd_exemptions)=
 # WFD - Exemptions
 
-```{warning}
-The online version of the text is being reviewed.  
-The questions raised in the WG DIS meeting 2026-04-22 regarding:
-* Exemptions related to UWWT 
-* Exemptions related to protected areas
-* Exemptions related to River Basin Specific Pollutants
-have not yet been addressed.
-```
-
 ```{contents} Table of Contents
 :depth: 2
 :local:
 ```
 
+```{warning}
+
+  See {ref}`heading_wfd_exemptions_clarifications`
+
+```
+
+
+(heading_wfd_exemptions_purpose_and_overview)=
+## Purpose and overview
+
+This section revises the reporting of information related to Exemptions in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans.  
+It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
+
 (heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle)=
 ## Reporting of exemptions - 3ʳᵈ cycle
 
-* The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram`)
+* The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_ClassDiagram`)
   will no longer requested in the structured data reporting for the 4ᵗʰ cycle (i.e. the it is provided only in the RBMP documents).
   
-* The information related to exemptions in the groundwater water methodologies schema (GWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram`).
+* The information related to exemptions in the groundwater water methodologies schema (GWExemption class, see {numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`).
   will no longer requested in the structured data reporting for the 4ᵗʰ cycle (i.e. it is provided only in the RBMP documents).
   
   
-```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram.mmd
-:name: Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram
-:caption: SWExemptions and GWExemptions - 3ʳᵈ cycle - OBSOLETE
+```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_SWMET_ClassDiagram.mmd
+:name: Exemptions_3rdCycle_SWMET_ClassDiagram
+:caption: SWMET schema, SWExemptions class - 3ʳᵈ cycle - OBSOLETE
+:align: center
+```
+
+```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_GWMET_ClassDiagram.mmd
+:name: Exemptions_3rdCycle_GWMET_ClassDiagram
+:caption: GWMET schema, GWExemptions class - 3ʳᵈ cycle - OBSOLETE
 :align: center
 ```
 
@@ -319,6 +329,9 @@ class ExemptionRationale{
     article46_accidents
     article47_newModification
     article47_sustainableHumanDevelopment
+    article47_shortTermImpact
+    article47_relocationOfWaterOrSediment
+    article47_domesticUrbanWasteWaterArticle154
     gwdArticle63_accidentsExceptionalCircumstances
     gwdArticle63_artificialRechargeAugmentation
     gwdArticle63_directDischarges
@@ -331,12 +344,143 @@ class ExemptionRationale{
 	
 class ExemptionPeriod{
     <<enumeration>>
+    upToOneYear
+    upToThreeYears
     until2027
     until2033
     until2039
     lessStringentObjectiveAlreadyAchieved
     indeterminate
     }
+```
+
+(heading_wfd_exemptions_clarifications)=
+## Clarifications requested by Member States
+
+### Exemptions under Article 4(7a) - short term-impact
+
+Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy* [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj). 
+
+
+> ‘7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:
+> 
+> (a) the negative impact is not the result of direct discharges, emissions or losses of a pollutant;
+> 
+> (b) the potential for the negative impact to occur is reliably assessed ex ante by a competent authority, and it is concluded that there would be no negative impact for the body of water concerned or any connected body of water after one year or, for biological quality elements, after a maximum of three years;
+> 
+> (c) an ex post verification is carried out;
+> 
+> (d) all practicable measures are taken to mitigate any negative impacts on the body and any connected bodies of water; and
+> 
+> (e) a summary of the main activities carried out in accordance with this paragraph, the relevant ex post verification results, and the measures taken to mitigate negative impacts, is included in the river basin management plan required under Article 13.
+> 
+> For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring.
+
+**Actions taken:**
+
+* A new code **article47_shortTermImpact** was added to the **ExemptionRationale** codelist (see {numref}`ExemptionCodelist`).
+* Two new codes **upToOneYear** and **upToThreeYears** were added to the **ExemptionPeriod** codelist (see {numref}`ExemptionCodelist`).
+
+**Quality checks to be implemented:**
+
+* For ecological exemptions, the maximum exemption period is 3 years.
+
+  * ERROR: table.name in ('SWEcologicalExemption') 
+    AND exemptionRationale = 'article47_shortTermImpact' 
+    AND exemptionPeriod NOT IN ('upToOneYear','upToThreeYears')
+
+* For other exemptions, the maximum exemption period is 1 year.
+
+  * ERROR: table.name in ('SWChemicalExemption','GWChemicalExemption','GWQuantitativeExemption') 
+    AND exemptionRationale = 'article47_shortTermImpact' 
+    AND exemptionPeriod NOT IN ('upToOneYear')
+
+### Exemptions under Article 4(7b) - relocation of water or sediment
+
+Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy* [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj). 
+
+> 7b. Member States will not be in breach of this Directive when deterioration occurs in the status of a receiving body of surface water as a result of relocating, by human activity, water or sediment from the same or another body of surface water, or from a body of groundwater to the receiving body of surface water, without causing a net increase in pollutant load, and all the following conditions are met:
+> 
+> (a) all practicable steps, in particular the treatment of the water or sediment, if feasible, to minimise the transfer of pollutant load are taken to mitigate the adverse impact on the status of the bodies of water impacted by the relocation;
+> 
+> (b) the composition of the water or sediments to be relocated is established, and the relocation does not increase the overall risk to human health and the environment compared to the existing risk prior to the relocation;
+> 
+> (c) the receiving body of surface water is confirmed as already not being in good chemical status with respect to most of the pollutants relocated, and in particular with respect to the most persistent and bioaccumulative pollutants relocated, and the ecological status or potential of the receiving body of water is not expected to fall into a lower class as a result of the relocation of those pollutants;
+> 
+> (d) the relocation shall not result in an increase in the purification treatment required for the production of drinking water;
+> 
+> (e) within the receiving body of water, a zone where relocation is prohibited has been established around any abstraction point for water intended for human consumption;
+> 
+> (f) there are no significantly better environmental options for reasons of technical feasibility or disproportionate cost;
+> 
+> (g) the relocation is subject to prior regulation or authorisation; and
+> 
+> (h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13.’
+
+**Actions taken:**
+
+* A new code **article47_relocationOfWaterOrSediment** was added to the **ExemptionRationale** codelist (see {numref}`ExemptionCodelist`).
+
+**Quality checks to be implemented:**
+
+* Not applicable to ecological exemptions nor to quantitative exemptions
+
+  * ERROR: table.name in ('SWEcologicalExemption','GWQuantitativeExemption') 
+    AND exemptionRationale = 'article47_relocationOfWaterOrSediment' 
+
+* If applied to chemical exemptions, 
+  the receiving water body must be confirmed as already not being in good chemical status
+
+  * ERROR: table.name in ('SWChemicalExemption','GWChemicalExemption') 
+    AND exemptionRationale = 'article47_relocationOfWaterOrSediment' 
+    AND GroundWaterBody.gwPollutantCausingFailure != 'No'
+
+### Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive 
+
+*Clarification provided by DG ENV 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22:*
+
+> The recast Urban Waste Water Treatment Directive was adopted 27/11/2024 and MS need to transpose the revised provisions by 31 July 2027.
+> 
+> Article 15(4) includes a new exemption from the obligations under the WFD if a water body deteriorates status or does not achieve good status as a result of :
+> -	increased loads of domestic wastewater treated by a new/refurbished urban wastewater treatment plant, otherwise untreated (NOT industrial wastewater). 
+> -	The increase is subject to prior authorisation setting out all technically feasible mitigation measures to minimize the negative impact of the UWWTP on water status
+> -	all technically feasible mitigating measures are implemented to minimise the negative impact of other activities causing similar pressures in the same water bodies  
+> -	There are no better environmental means that are not disproportionately costly (eg alternative points of discharge)
+> -	The authorisation and its conditions are referred to in the RBMP
+
+**Actions taken:**
+
+* A new code **article47_domesticUrbanWasteWaterArticle154** was added to the **ExemptionRationale** codelist (see {numref}`ExemptionCodelist`).
+* The {ref}`Exemptions_EcologicalExemption_Flowchart` was updated.
+* The {ref}`Exemptions_ChemicalExemption_Flowchart` was updated.
+
+**Quality checks to be implemented:**
+
+* Not applicable to quantitative exemptions
+  
+  * ERROR: table.name in ('GWQuantitativeExemption') 
+    AND exemptionRationale = 'article47_domesticUrbanWasteWaterArticle154' 
+
+### Exemptions related to Protected Areas
+
+*Clarification provided by DG ENV 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22:*
+
+> -	Where objectives are set in terms of WFD quality /quantity status elements 
+> (eg stricter quality standards are set for ‘good’ status in view of protecting certain species), 
+> exemptions from good status can be applied. 
+> -	If no such objectives have been set and protected areas objectives are only set under other legislation, 
+> it’s not possible/necessary to exempt from compliance with those objectives: 
+> non compliance would imply a breach of those other directives (and of WFD by virtue of Art 4(1)(c ) WFD)
+
+**Actions taken:**
+
+* no action required.
+
+### Exemptions related to River Basin Specific Pollutants
+
+
+```{warning}
+  Clarification pending
 ```
 
 ## Annex - Exploratory analysis of data reported in the 3ʳᵈ cycle
@@ -720,30 +864,36 @@ This information is only reported for drinking waters and Natura 2000 protected 
 ```sql
   
   /**
-    Analysis of the water bodies 
-    for which specific objectives where set
-    due to associated protected areas
-    in the 3ʳᵈ cycle reporting
+    Exemptions associated to protected areas in the 3ʳᵈ cycle reporting
   **/
 
   --   https://discodata.eea.europa.eu/
 
-  SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-      ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
-      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-    ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea]
-  WHERE hasDescriptiveData = 1
-      AND [cYear] = 2022
-      AND [protectedAreaType] 
-        IN ('Drinking water protection area','Natura 2000 protected site')
-      AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
-  GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
+  SELECT [protectedAreaExemption]
+        ,COUNT(DISTINCT [countryCode]) AS [Countries]
+        ,COUNT(DISTINCT[euGroundWaterBodyCode]) AS [WaterBodies]
+        ,COUNT(DISTINCT[euProtectedAreaCode]) AS [ProtectedAreas]
+    FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption]
+    WHERE [cYear] = 2022 
+    AND [hasDescriptiveData] = 1 
+    AND [protectedAreaType] IN ('Natura 2000 protected site', 'Drinking water protection area')
+    AND [protectedAreaExemption] != 'None'
+    AND [protectedAreaObjectivesMet] = 'No'
+    GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
 
 ```
 </details><br/>
 	
 Exemptions were reported for a total of 198 water bodies associated with a total of 273 protected areas, in 9 countries. 
+
+|protectedAreaExemption	|Countries	|WaterBodies|ProtectedAreas|
+|---|---|---|---|
+|Article 4(4) - Disproportionate cost	|2|	32|	50|
+|Article 4(4) - Natural conditions	|8|	122|	182|
+|Article 4(4) - Technical feasibility	|5|	63|	76|
+|Article 4(5) - Disproportionate cost	|1|	14|	14|
+|Article 4(5) - Technical feasibility	|2|	18|	18|
+
 
 <details>
 <summary>Show code</summary>
@@ -751,34 +901,32 @@ Exemptions were reported for a total of 198 water bodies associated with a total
 ```sql
 
   /**
-    Analysis of the water bodies 
-    for which exemptions were applied 
-    when specific objectives set due to associated protected areas
-    where not met
-    in the 3ʳᵈ cycle reporting
+    Exemptions associated to protected areas in the 3ʳᵈ cycle reporting
   **/
 
   --   https://discodata.eea.europa.eu/
-
-  SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
-        ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies]
-        ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-      ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-    FROM [WISE_WFD].[latest].[GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption]
-    WHERE hasDescriptiveData = 1
-      AND [cYear] = 2022
-      AND [protectedAreaExemption] IS NOT NULL
-      AND [protectedAreaExemption] != 'None'
-      AND [protectedAreaType] 
-        IN ('Drinking water protection area','Natura 2000 protected site')
-      AND [protectedAreaObjectivesMet] = 'No'
-    GROUP BY
-        LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
-
+  SELECT [protectedAreaExemption] 
+        ,COUNT(DISTINCT [countryCode]) AS [Countries]
+        ,COUNT(DISTINCT[euSurfaceWaterBodyCode]) AS [WaterBodies]
+        ,COUNT(DISTINCT[euProtectedAreaCode]) AS [ProtectedAreas]
+    FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption]
+    WHERE [cYear] = 2022 
+    AND [hasDescriptiveData] = 1 
+    AND [protectedAreaType] IN ('Natura 2000 protected site', 'Drinking water protection area','Shellfish designated water')
+    AND [protectedAreaExemption] != 'None'
+    AND [protectedAreaObjectivesMet] = 'No'
+    GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
  ```
 	
 </details><br/>
 
+|protectedAreaExemption|Countries|WaterBodies|ProtectedAreas|
+|---|---|---|---|
+|Article 4(4) - Disproportionate cost|	2|	336|	87|
+|Article 4(4) - Natural conditions|	4|	193|	190|
+|Article 4(4) - Technical feasibility|	4|	426|	123|
+|Article 4(5) - Disproportionate cost|	1|	72|	12|
+|Article 4(5) - Technical feasibility|	2|	74|	14|
 
 (heading_wfd_wfd_exemptions_references)=
 ## References

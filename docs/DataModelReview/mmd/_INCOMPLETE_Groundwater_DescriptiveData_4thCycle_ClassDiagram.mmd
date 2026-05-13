@@ -7,7 +7,7 @@ config:
 ---
 
 classDiagram
-direction LR
+direction TB
 
 class GroundWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
@@ -22,6 +22,14 @@ class LinkSurfaceWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
     + euSurfacedWaterBodyCode : wiseIdentifier
 }
+
+class GroundWaterBodyStatus{
+    + euGroundWaterBodyCode : wiseIdentifier
+    «derived»
+    / gwQuantitativeStatusValue 
+    / gwChemicalStatusValue 
+} 
+
 
 class GWPressureImpact{
     + euGroundWaterBodyCode : wiseIdentifier
@@ -55,9 +63,10 @@ class GWPollutant{
 }     
 
 GroundWaterBody "0..n" -- "0..n" LinkSurfaceWaterBody : {if linkSurfaceWaterBody is Yes}
-GroundWaterBody -- "0..n" GWPressureImpact 
-GroundWaterBody --  GWQuantitativeStatus
-GroundWaterBody -- "0..n" GWPollutant
+GroundWaterBody "1" -- "1" GroundWaterBodyStatus
+GroundWaterBodyStatus -- "0..n" GWPressureImpact 
+GroundWaterBodyStatus --  GWQuantitativeStatus
+GroundWaterBodyStatus -- "0..n" GWPollutant
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
