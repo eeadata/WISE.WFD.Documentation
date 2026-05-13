@@ -5,6 +5,12 @@
 The online version of the text is being reviewed.  
 It will be modified to include the combined reporting of the MonitoringSite dataset and the Monitoring data.
 ```
+
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 (heading_wfd_monitoring_3rd_cycle)=
 ## Monitoring schema - 3ʳᵈ cycle
 
@@ -252,7 +258,6 @@ namespace Codelist{
 }
 
 ```
-
 
 ## Annex - Exploratory analysis of data reported in the 3ʳᵈ cycle
 
@@ -539,7 +544,7 @@ FROM
 ```
 </details><br/>
 
-### Monitoring - Groundwater quantitative monitoring - 3ʳᵈ cycle
+### Groundwater quantitative monitoring - 3ʳᵈ cycle
 
 <details>
 <summary>Show code</summary>
@@ -561,7 +566,7 @@ FROM
 ```
 </details><br/>  
 
-### Monitoring - Groundwater chemical monitoring - 3ʳᵈ cycle
+### Groundwater chemical monitoring - 3ʳᵈ cycle
 
 <details>
 <summary>Show code</summary>
@@ -593,7 +598,7 @@ FROM
 ```
 </details><br/>  
 
-### Monitoring - Surface water chemical monitoring - 3ʳᵈ cycle
+### Surface water chemical monitoring - 3ʳᵈ cycle
 
 The full list of priority substances and river basin specific pollutants (except 'EEA_00-00-0 - Other parameter'), includes 231 substance codes. 
 Note, however, that more substances are being monitored, according to the reported data.
@@ -754,7 +759,7 @@ FROM (VALUES
 ```
 </details><br/>  
 
-### Monitoring - Surface water ecological monitoring - 3ʳᵈ cycle
+### Surface water ecological monitoring - 3ʳᵈ cycle
 
 See {numref}`sw_ecological_monitoring`: for an overview of the Surface water ecological monitoring reported in the 3ʳᵈ cycle RBMPs.
 Note that more than one substance or parameter can be aggregated under each Quality Element code.

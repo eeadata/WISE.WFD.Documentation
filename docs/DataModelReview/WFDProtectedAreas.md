@@ -3,6 +3,11 @@
 
 Last update: 2026-05-12
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 (heading_wfd_protected_areas_purpose_and_overview)=
 ## Purpose and overview
 

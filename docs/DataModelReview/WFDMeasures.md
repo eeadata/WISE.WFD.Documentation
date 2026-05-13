@@ -7,6 +7,11 @@ The online version of the text is being reviewed.
 See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
 ```
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 ## Purpose and overview
 
 This section revises the **River Basin Management Plan & Programme of Measures** schema used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
@@ -45,7 +50,7 @@ River Basin Management Plan & Programme of Measures - 3ʳᵈ cycle - OBSOLETE
 3. The KTM indicators and indicator gaps group is completely removed.
 
 
-## River Basin Management Plan, Coordination and Progress - 3ʳᵈ cycle
+## River basin management plan, coordination and progress - 3ʳᵈ cycle
 
 In the 3ʳᵈ cycle of reporting, this group comprised three tables, collecting summary information about the RBMP, the progress since the previous RBMP, and the mechanisms of international coordination, if applicable ({numref}`ProgrammeOfMeasuresPartial_3rdCycle`).
 
@@ -76,7 +81,7 @@ The simplified **RiverBasinManagementPlan** table contains a subset of the data 
 :align: center
 ```
 
-## Progress – 4ᵗʰ cycle
+## Progress table – 4ᵗʰ cycle
 
 The **Progress** table is modified to provide an overview of the proportion of the measures of the 3ʳᵈ RBMPs that were executed, cancelled, or otherwise affected, 
 as well as the obstacles encountered during the implementation of the 3ʳᵈ RBMP Programme of Measures ({numref}`Progress_4thCycle_ClassDiagram`).
@@ -129,7 +134,7 @@ The example in {numref}`measures_example_progress` illustrates how to synthesize
 | cancelled | 10 | No | No | Yes | No |
 ```
 
-## TargetedQuestions – 4ᵗʰ cycle
+## TargetedQuestions table – 4ᵗʰ cycle
 
 The **TargetedQuestions** table collects summary information about the measures in the RBMP, and the progress since the previous cycle. 
 For each RBMP, only one record is required. The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers. 
@@ -143,7 +148,7 @@ The Commission has revised and simplified the **TargetedQuestions** table, keepi
 :align: center
 ```
 
-## Measure – 4ᵗʰ cycle 
+## Measure table – 4ᵗʰ cycle 
 
 The simplified Measure table proposed for the 4ᵗʰ cycle is illustrated in ({numref}`Measure_4thCycle_ClassDiagram`). 
 
@@ -168,19 +173,19 @@ For each measure:
 :caption: Measure table – 4ᵗʰ cycle of reporting
 :align: center
 ```
-### Measure – 4ᵗʰ cycle - measureCode, measureName and measureReference
+### Measure table – 4ᵗʰ cycle - measureCode, measureName and measureReference
 
 Each different measure must have a persistent unique identifier at national level and European level (**measureCode**), 
 a descriptive name (**measureName**), and zero or more links to documentation (**measureReference**).  
 
-### Measure – 4ᵗʰ cycle - measureType
+### Measure table – 4ᵗʰ cycle - measureType
 
 The **measureType** typology is described in {numref}`measures_measureType_definitions`. 
 
 ```{include} tables/Measures_MeasureType_ListTable
 ```
 
-### Measure – 4ᵗʰ cycle - measureLegalInstrument
+### Measure table – 4ᵗʰ cycle - measureLegalInstrument
 
 The primary **measureLegalInstrument** under which the measure was defined must be clearly identified.  
 This avoids double reporting in other Directives: the measures can be reported only once under the RBMP electronic reporting. 
@@ -198,7 +203,7 @@ is now eliminated because it did not convey relevant information.
 ```{include} tables/Measures_MeasureLegalInstrument_ListTable
 ```
 
-### Measure – 4ᵗʰ cycle - mainKeyTypeOfMeasure
+### Measure table – 4ᵗʰ cycle - mainKeyTypeOfMeasure
 
 The **mainKeyTypeOfMeasure** attribute contains the classification to be used for both basic and supplementary measures (see {numref}`measures_mainKeyTypeOfMeasure_definitions`).  
 It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure classifications used in the 2ʳᵈ and 3ʳᵈ cycles. 
@@ -207,7 +212,7 @@ It simplifies, consolidates and replaces both the basicMeasureType and the keyTy
 ```{include} tables/Measures_MainKeyTypeOfMeasure_ListTable
 ```
 
-### Measure – 4ᵗʰ cycle - mainPressureType and mainSubstanceType
+### Measure table – 4ᵗʰ cycle - mainPressureType and mainSubstanceType
 
 In the **3ʳᵈ cycle**, the reporting guidance stated that *“the name should reflect the pressure that is being tackled by the measure”* 
 — meaning the pressure(s) should be described textually in the name of the measure. 
@@ -222,7 +227,7 @@ For measures of type G and H, the Commission requires additional information to 
 
 *If needed and applicable*, a similar approach can be used for **mainSubstanceType**, allowing MS to identify measures targeting specific substances or groups of substances.
 
-### Measure – 4ᵗʰ cycle - geographicalCoverage
+### Measure table – 4ᵗʰ cycle - geographicalCoverage
 
 The geographical scope of a measure is specified in the **geographicalCoverage** attribute, by selecting the most appropriate option:
 
@@ -237,12 +242,12 @@ The option **geographicalCoverage = 'waterBody'** should be reserved for measure
 The option **geographicalCoverage = 'protectedArea'** should be reserved for measures that target specific protected areas (for example, a set of bathing waters or a specific UWWTD sensitive area). 
 In these cases, it is not requested to individually identify the waterbodies or protected areas.
 
-### Measure – 4ᵗʰ cycle - implementationPeriod and implementationStatus
+### Measure table – 4ᵗʰ cycle - implementationPeriod and implementationStatus
 
 The temporal scope of a measure is provided in the **implementationPeriod** – the range of years indicated is used to check the reporting of information related to expenditures (e.g. if a measure is yet to start, then no past expenditures exist). 
 The **implementationStatus** attribute allows the distinction between planned and ongoing measures – and may also be used for measures planned for the 3ʳᵈ cycle but already executed or cancelled by the end of 2027.
 
-## Economic data in the Programme of Measures
+## Economic data in the programme of measures
 
 The revision of the electronic reporting focuses on the main issues described in the Note to the CIS Working Group Economics ([^1]) quoted below:
 
@@ -335,7 +340,7 @@ The variability of the geographical and temporal coverage of the reported data a
 
 
 
-### ExpenditurePerMeasurePerSector – 4ᵗʰ cycle
+### ExpenditurePerMeasurePerSector table – 4ᵗʰ cycle
 
 Figure 12 illustrates the ExpenditurePerMeasurePerSector table proposed for the 4ᵗʰ cycle.
 

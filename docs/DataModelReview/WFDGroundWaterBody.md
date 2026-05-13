@@ -52,7 +52,7 @@ to help focus the discussion on the remaining issues.
 :caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
 ```
 
-## Groundwater - Descriptive data - 4ᵗʰ cycle - pending issues
+## Groundwater - descriptive data - 4ᵗʰ cycle - pending issues
 
 Based on DG ENV's review, {numref}`_DRAFT_Groundwater_DescriptiveData_4thCycle_ClassDiagram` 
 shows a DRAFT diagram including the issues requiring clarification, in the classes marked in red.
@@ -186,7 +186,7 @@ Also pending discussion is the revision of the **PressureTpe** and **ImpactType*
 ```
 
 
-## Groundwater - Descriptive data - 4ᵗʰ cycle
+## Groundwater - descriptive data - 4ᵗʰ cycle
 
 {numref}`_INCOMPLETE_Groundwater_DescriptiveData_4thCycle_ClassDiagram` shows an INCOMPLETE diagram 
 with the a structure that may not require further internal discussion.
@@ -207,20 +207,24 @@ The data was organised into a relational structure with 4 tables:
     and that do not vary with the status of the waterbody.  
     The geologicalFormation attribute was divided in **aquiferType** and *aquiferProductivity**, 
     using the approach already in place in the published WISE_WFD database.
+
 * - LinkSurfaceWaterBody
   - If **GroundWaterBody.linkSurfaceWaterBody = 'yes'**, 
     then the LinkSurfaceWaterBody table is used to report the identifier(s) 
     of the linked surface water body(ies).
+
 * - GWPressureImpact
   - In the reporting of pressures and impacts is combined into a single GWPressureImpact table.  
     In the 3ʳᵈ cycle, the XML structure did not allow a specific pressure to be associated with a given impact.
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.
+
 * - GWQuantitativeStatus
   - The GWQuantitativeStatus table gathers the data related to quantitative status.  
     The GWQuantitativeStatus data has a one-to-one relationship with the GroundWaterBody.  
     The separation into two tables simplifies the reporting process 
     (by allowing the GroundWaterBody table to be prepared in advance).
+
 * - GWPollutant
   - The GWPollutant table gathers the data related to chemical status.  
     Note that the information about the gwPollutantAssessmentPeriod and gwPollutantAssessmentConfidence is now at gwPollutantCode level, 
@@ -229,7 +233,7 @@ The data was organised into a relational structure with 4 tables:
     If data is not available at pollutant level, 
     use the same values for all pollutants 
     (i.e. use the same approach as in the 3ʳᵈ cycle).
-
+```
 
 ```{mermaid} /DataModelReview/mmd/_INCOMPLETE_Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd
 :name: _INCOMPLETE_Groundwater_DescriptiveData_4thCycle_ClassDiagram
