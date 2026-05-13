@@ -1,47 +1,59 @@
 %%{init: {'theme': 'default'}}%%
 
 classDiagram
-
-
-class GWPollutant {
-  
-  + gwPollutantCode : ChemicalSubstances_Enum
-  + gwPollutantCausingRisk : YesNoUnknown_Linear_Union_Enum
-  + gwPollutantCausingFailure : YesNoCode_Enum
-  + gwPollutantUpwardTrend: YesNoUnknownUnknown_Linear_Union_Enum
-  + gwPollutantTrendReversal : YesNoUnknownNotApplicable_Code_Enum
-  + gwPollutantExceedancesNotCounted : YesNoUnknownCode_Enum
-  + gwPollutantBackgroundLevelSet : YesNoCode_Enum
-  + gwPollutantBackgroundLevelValue : ThresholdType [0..1]
-  + gwPollutantBackgroundLevelUnit : UnitOfMeasure_Enum [0..1]
-  + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableCode_Enum
-}
+direction LR
 
 class GroundWaterBody {
 
   + euGroundWaterBodyCode : FeatureUniqueEUCodeType
+  + geologicalFormation : GeologicalFormation_Enum
+  + groundwaterBodyTransboundary : YesNoCode_Enum
   + linkSurfaceWaterBody : YesNoCode_Enum
   + linkSurfaceWaterBodyCode : FeatureUniqueEUCodeType [0..*]
   + linkTerrestrialEcosystem : YesNoUnknownCode_Enum
-  + geologicalFormation : GeologicalFormation_Enum
-  + groundwaterBodyTransboundary : YesNoCode_Enum
+  
+  «pressures-and-impacts»
   + gwSignificantPressureType : SignificantPressureType_Enum [1..*]
   + gwSignificantImpactType : SignificantImpactType_Enum [1..*]
-  + gwAtRiskQuantitative : YesNoCode_Enum
-  + gwReasonsForRiskQuantitative : QuantitativeFailure_Enum [0..*]
-  + gwEoRiskQuantitative : GWERiskQuantitative_Enum [0..1]
+
+  «quantitative-status»
   + gwQuantitativeStatusValue : StatusCode_Enum
-  + gwQuantitativeReasonsForFailure : QuantitativeFailure_Enum [0..*]
   + gwQuantitativeAssessmentYear : YearRangeType
   + gwQuantitativeAssessmentConfidence : Confidence_Enum
-  + gwQuantitativeExemptionType : ExemptionType_Enum [1..*]
-  + gwQuantitativeExemptionPressure : SignificantPressureType_Enum [0..*]
-  + gwAtRiskChemical : YesNoCode_Enum
-  + gwEoRiskChemical : EORiskChemical_Enum [0..1]
+
+  + gwQuantitativeReasonsForFailure : QuantitativeFailure_Enum [0..*]
+  + gwAtRiskQuantitative : YesNoCode_Enum
+  + gwReasonsForRiskQuantitative : QuantitativeFailure_Enum [0..*]
+  + gwEORiskQuantitative : GWERiskQuantitative_Enum [0..1]
+
+  «chemical-status»
   + gwChemicalStatusValue : StatusCode_Enum
   + gwChemicalReasonsForFailure : ReasonsForFailure_Enum [0..*]
   + gwChemicalAssessmentYear : YearRangeType
   + gwChemicalAssessmentConfidence : Confidence_Enum
+
+  + gwAtRiskChemical : YesNoCode_Enum
+  + gwEORiskChemical : EORiskChemical_Enum [0..1]
 }
 
-GWPollutant --> GroundWaterBody : GWPollutant
+class GWPollutant {
+  
+  + gwPollutantCode : ChemicalSubstances_Enum
+  + gwPollutantCausingFailure : YesNoCode_Enum
+  + gwPollutantCausingRisk : YesNoUnknown_Linear_Union_Enum
+
+  + gwPollutantExceedancesNotCounted : YesNoUnknownCode_Enum
+
+  «trend»
+  + gwPollutantUpwardTrend: YesNoUnknownUnknown_Linear_Union_Enum
+  + gwPollutantTrendReversal : YesNoUnknownNotApplicable_Code_Enum
+  + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableCode_Enum
+
+  «background-level»
+  + gwPollutantBackgroundLevelSet : YesNoCode_Enum
+  + gwPollutantBackgroundLevelValue : ThresholdType [0..1]
+  + gwPollutantBackgroundLevelUnit : UnitOfMeasure_Enum [0..1]
+  
+}
+
+GWPollutant -- GroundWaterBody : GWPollutant

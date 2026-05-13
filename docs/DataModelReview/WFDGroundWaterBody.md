@@ -20,7 +20,7 @@ The information about Groundwater bodies was reported in two separate schemas:
 ```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_ClassDiagram.mmd
 :name: Groundwater_3rdCycle_GWB_ClassDiagram
 :align: center
-:caption: Class diagram for the GWB_2022 schema in the 3ʳᵈ cycle of reporting.
+:caption: Class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
 ```
 
 ## GWB schema - 3ʳᵈ cycle
@@ -44,5 +44,13 @@ to help focus the discussion on the remaining issues.
 ```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_Simplified_ClassDiagram.mmd
 :name: Groundwater_3rdCycle_GWB_Simplified_ClassDiagram
 :align: center
-:caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle of reporting.
+:caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
+```
+
+## Groundwater - Descriptive data - 4ᵗʰ cycle
+
+```{mermaid} /DataModelReview/mmd/Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd
+:name: Groundwater_DescriptiveData_4thCycle_ClassDiagram
+:align: center
+:caption: FIRST REVISION - 4ᵗʰ cycle
 ```

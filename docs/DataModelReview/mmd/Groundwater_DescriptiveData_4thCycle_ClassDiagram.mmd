@@ -1,0 +1,98 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+title: FIRST DRAFT - Groundwater Body
+---
+classDiagram
+direction LR
+
+namespace Reporting{
+
+    class GroundWaterBody{
+        + euGroundWaterBodyCode : wiseIdentifier
+        + aquiferType : AquiferType
+        + aquiferProductivity : AquiferProductivity
+        + groundWaterBodyTransboundary : YesNo
+        + linkSurfaceWaterBody : YesNo
+        + linkTerrestrialEcosystem : YesNoUnknown
+    }
+
+    class LinkSurfaceWaterBody{
+        + euGroundWaterBodyCode : wiseIdentifier
+        + euSurfacedWaterBodyCode : wiseIdentifier
+    }
+
+    class GWPressureImpact:::forFixing{
+        + euGroundWaterBodyCode : wiseIdentifier
+        + gwPressureType : PressureType [0..1]
+        + gwImpactType : ImpactType  [0..1]
+    }
+
+    class GWQuantitativeStatus:::forFixing{
+        + euGroundWaterBodyCode : wiseIdentifier
+        + gwQuantitativeStatusValue : QuantitativeStatus  
+        + gwAtRiskQuantitative : YesNo
+
+        «for-discussion-redundancy»
+        + gwQuantitativeReasonsForFailure : QuantitativeFailure [0..*]
+        + gwReasonsForRiskQuantitative : QuantitativeFailure [0..*]
+
+        «for-discussion-analogy-with-sw»
+        + gwQuantitativeAssessmentPeriod : range
+        + gwQuantitativeAssessmentMethod : AssessmentMethod 
+        + gwQuantitativeAssessmentGrouping : euGroundWaterBodyCode [0..n]
+        + gwQuantitativeConfidence : AssessmentConfidence
+    }
+
+    class GroundWaterBodyStatus:::forFixing{
+        + euGroundWaterBodyCode : wiseIdentifier
+        «status-can-be-derived»
+        / gwQuantitativeStatusValue 
+        / gwChemicalStatusValue : ChemicalStatus
+        «risk-can-be-derived»
+        / gwAtRiskQuantitative : YesNo
+        / gwAtRiskChemical : YesNo
+
+    } 
+
+    class GWPollutant:::forFixing{
+        + euGroundWaterBodyCode : wiseIdentifier
+        + gwPollutantCode : SubstanceCode
+        + gwPollutantCausingFailure : YesNoUnknown
+        + gwPollutantCausingRisk : YesNoUnknownUnclear
+
+        «trend»
+        + gwPollutantUpwardTrend : YesNoUnknownUnclear
+        + gwPollutantTrendReversal : YesNoUnknownNotApplicable
+        + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicable
+
+         «background-level»
+        + gwPollutantBackgroundLevelSet : YesNo
+        + gwPollutantBackgroundLevelValue : range [0..1] 
+        + gwPollutantBackgroundLevelUnit : UnitOfMeasure [0..1] 
+
+        «for-discussion-analogy-with-sw»
+        + gwPollutantExceedanceType : EQStandardType [0..n]
+        + gwPollutantAssessmentPeriod : range
+        + gwPollutantAssessmentMethod : ChemicalAssessmentMethod 
+        + gwPollutantAssessmentGrouping : euGroundWaterBodyCode [0..n]
+        + gwPollutantAssessmentConfidence : AssessmentConfidence    
+
+    }
+
+
+
+}           
+
+GroundWaterBody "0..n" -- "0..n" LinkSurfaceWaterBody : {if linkSurfaceWaterBody is Yes}
+
+GroundWaterBody -- GroundWaterBodyStatus    
+GroundWaterBodyStatus --  GWQuantitativeStatus
+GroundWaterBodyStatus -- "0..n" GWPressureImpact 
+GroundWaterBodyStatus -- "0..n" GWPollutant
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
