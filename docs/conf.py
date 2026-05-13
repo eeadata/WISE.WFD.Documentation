@@ -84,7 +84,8 @@ html_show_copyright = False
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
 html_css_files = [
-    'customTable.css'
+    'customTable.css',
+    'customMermaid.css'
 ]
 myst_enable_extensions = [
     "html_admonition",
