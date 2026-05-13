@@ -10,8 +10,13 @@ The questions raised in the WG DIS meeting 2026-04-22 regarding:
 have not yet been addressed.
 ```
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 (heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle)=
-## Reporting of Exemptions - 3ʳᵈ cycle
+## Reporting of exemptions - 3ʳᵈ cycle
 
 * The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_GWMET_ClassDiagram`)
   will no longer requested in the structured data reporting for the 4ᵗʰ cycle (i.e. the it is provided only in the RBMP documents).
@@ -27,7 +32,7 @@ have not yet been addressed.
 ```
 
 (heading_wfd_exemptions_reporting_of_exemptions_4th_cycle)=
-## Reporting of Exemptions - 4ᵗʰ cycle
+## Reporting of exemptions - 4ᵗʰ cycle
 
 The reporting of ecological, chemical and quantitative exemptions is aligned into tables with a similar structure:
 
@@ -60,7 +65,7 @@ Exemption"]{
 ```
 
 (heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element)=
-## Surface Water Bodies - Ecological exemptions by Quality Element
+## Surface water bodies - ecological exemptions by quality element
 
 Ecological exemptions are reported using the table in {numref}`SWEcologicalExemptionClass`.
 
@@ -101,7 +106,7 @@ The diagram below presents the applicability criteria for the different exemptio
 ```
 
 (heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
-## Surface Water Bodies - Chemical exemptions by Pollutant
+## Surface water bodies - chemical exemptions by pollutant
 
 Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.
 
@@ -144,7 +149,7 @@ The diagram below presents the applicability criteria for the different exemptio
 ```
 
 (heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions)=
-## Surface Water Bodies - Protected area exemptions
+## Surface water bodies - protected area related exemptions
 
 Specific objectives may be set for waterbodies associated with some types of protected areas:
 * Shellfish designated waters
@@ -176,7 +181,7 @@ class SWAssociatedProtectedArea{
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant)=
-## Groundwater Bodies - Chemical exemptions by Pollutant
+## Groundwater bodies - chemical exemptions by pollutant
 
 Chemical exemptions are reported using the table in {numref}`GWChemicalExemptionClass`.
 
@@ -210,7 +215,7 @@ is also applicable to groundwater bodies: note that, for groundwater,
 chemical exemptions can be applied to any groundwater pollutant. 
 
 (heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions)=
-## Groundwater Bodies - Quantitative exemptions 
+## Groundwater bodies - quantitative exemptions 
 
 Quantitative exemptions are reported using the table in {numref}`GWQuantitativeExemptionClass`.
 
@@ -244,7 +249,7 @@ The diagram below presents the applicability criteria for the different exemptio
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions)=
-## Groundwater Bodies - Protected area exemptions
+## Groundwater bodies - protected area exemptions
 
 Specific objectives may be set for waterbodies associated with some types of protected areas:
 
@@ -277,7 +282,7 @@ class GWAssociatedProtectedArea{
 ```
 
 (heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions)=
-## Codelists associated with the reporting of Exemptions
+## Codelists associated with the Exemption tables
 
 Codelists associated with the reporting of exemptions are presented in {numref}`ExemptionCodelist`.
 
@@ -510,7 +515,7 @@ In 98.9% of the cases, only one type of exemption was reported per quality eleme
 
 </details><br/>
 	
-### Surface water - Chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+### Surface water - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
 
 In 99.1% of the cases, only one type of exemption was reported per priority substance and water body.
 	
@@ -552,7 +557,7 @@ In 99.1% of the cases, only one type of exemption was reported per priority subs
 
 </details><br/>
 	
-### Groundwater - Chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+### Groundwater - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
 
 In 99.5% of the cases, only one type of exemption was reported per pollutant and water body.
 
@@ -594,7 +599,7 @@ In 99.5% of the cases, only one type of exemption was reported per pollutant and
 
 </details><br/>
 	
-### Groundwater - Quantitative exemptions by water body - 3ʳᵈ cycle
+### Groundwater - quantitative exemptions by water body - 3ʳᵈ cycle
 
 In 93.7% of the cases, only one type of exemption was reported per water body.
 
@@ -633,7 +638,7 @@ In 93.7% of the cases, only one type of exemption was reported per water body.
 	
 </details><br/>
 	
-### Surface water - Exemptions by associated protected area and water body - 3ʳᵈ cycle
+### Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
 
 This information is only reported for drinking waters, shellfish designated waters, and Natura 2000 protected sites included in the WFD register of protected areas, *if specific objectives have been set for the associated surface water body*.
 
@@ -704,7 +709,7 @@ Exemptions were reported for a total of 667 water bodies associated with a total
 
 </details><br/>
 	
-### Groundwater - Exemptions by associated protected area and water body - 3ʳᵈ cycle
+### Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
 
 This information is only reported for drinking waters and Natura 2000 protected sites included in the WFD register of protected areas,
 *if specific objectives have been set for the associated groundwater body*.

@@ -3,6 +3,11 @@
 
 Last update: 2026-04-24
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 (heading_wfd_rbd_and_ca_purpose_and_overview)=
 ## Purpose and overview
 
@@ -120,9 +125,9 @@ However, all records in the **RiverBasinDistrict** dataset have a fixed value fo
 :zoom:
 ```
 
-## Annex - Exploratory data analysis - 3ʳᵈ cycle
+## Annex - exploratory data analysis - 3ʳᵈ cycle
 
-### National and International River Basins Districts - 3ʳᵈ cycle
+### National and international river basins districts - 3ʳᵈ cycle
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the delineation of the River Basin Districts did not change,
@@ -143,7 +148,7 @@ WHERE [cYear] = 2022
 ```
 </details><br/>
 	
-### Competent Authorities and their roles - 3ʳᵈ cycle
+### Competent authorities and their roles - 3ʳᵈ cycle
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the competent authorities and their roles have not changed,
@@ -205,7 +210,6 @@ JOIN
 
 </details><br/>
 
-(heading_wfd_wfd_rbd_and_ca_references)=
 ## References
 
 The full reporting schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).

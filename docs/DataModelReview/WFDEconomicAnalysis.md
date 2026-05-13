@@ -7,6 +7,11 @@ The online version of the text is being reviewed.
 See **PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4th_cycle_EconomicAnalysis_v20260220.pdf>`
 ```
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 ## Purpose and overview
 
 The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_Classdiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_RevenueandCosts`).

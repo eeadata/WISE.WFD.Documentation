@@ -4,6 +4,11 @@
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
 ```
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
+
 ## Purpose and overview
 
 This section revises the reporting of information related to **Surface Water Bodies** 
