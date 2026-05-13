@@ -1,10 +1,7 @@
 (heading_wfd_exemptions)=
 # WFD - Exemptions
 
-```{contents} Table of Contents
-:depth: 2
-:local:
-```
+Last update: 2026-05-13
 
 ```{warning}
 
@@ -12,6 +9,10 @@
 
 ```
 
+```{contents} Table of Contents
+:depth: 2
+:local:
+```
 
 (heading_wfd_exemptions_purpose_and_overview)=
 ## Purpose and overview

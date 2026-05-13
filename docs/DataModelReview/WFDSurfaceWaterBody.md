@@ -1,5 +1,7 @@
 # WFD - Surface water bodies
 
+Last update: 2026-05-13
+
 ```{warning}
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
 ```
