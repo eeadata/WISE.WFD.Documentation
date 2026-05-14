@@ -12,7 +12,9 @@ WFD - Data Model Review
       WFDExemptions
       WFDMonitoring
       WFDGroundWaterBody
+      WFDGroundwaterMethodologies
       WFDSurfaceWaterBody
+      WFDSurfaceWaterMethodologies
 
 .. substitutions-placeholder
 

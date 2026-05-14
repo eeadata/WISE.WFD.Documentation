@@ -243,4 +243,7 @@ The data was organised into a relational structure with 4 tables:
 :caption: INCOMPLETE DIAGRAM - Groundwater - 4ᵗʰ cycle
 ```
 
+## References
+
+The complete schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
 
