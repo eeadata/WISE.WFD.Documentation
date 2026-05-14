@@ -1,15 +1,21 @@
-%%{init: {'theme': 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
 namespace Documents {
 class dcMetadata {
 + title : nvarchar4000
 + creatorOrganisationName : nvarchar4000
-+ creatorElectronicMailAddress : Email-varchar250
++ creatorElectronicMailAddress : Email
 + description : nvarchar4000 [0..1]
 + created : Date [0..1]
 + language : Language [1..n]
-+ license : URL-varchar2100
++ license : URL
 + rights : nvarchar4000 [0..1]
 + rightsHolder : nvarchar4000 [0..1]
 + licenseDocument : documentCode [0..*]
@@ -18,9 +24,9 @@ class dcMetadata {
 + updateSpatialData : YesNo
 }
 class Document {
-+ documentCode : wiseIdentifier-varchar42
++ documentCode : wiseIdentifier
 + documentName : varchar250
-+ hyperlink : URL-varchar2100 [0..1]
++ hyperlink : URL [0..1]
 + documentFile : Attachment [0..1]
 }
 }

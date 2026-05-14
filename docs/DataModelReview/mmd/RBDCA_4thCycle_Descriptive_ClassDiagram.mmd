@@ -1,9 +1,15 @@
-%%{init: {'theme': 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
 namespace DescriptiveData {
 class CompetentAuthority {
-+ euCACode : wiseIdentifier-varchar42
++ euCACode : wiseIdentifier
 + competentAuthorityName : varchar100
 + competentAuthorityNameNL : nvarchar100
 + competentAuthorityNameNLLanguage : Language
@@ -12,11 +18,11 @@ class CompetentAuthority {
 + city : nvarchar100
 + country : nvarchar100
 + postCode : nvarchar50 [0..1]
-+ url : URL-varchar2100
++ url : URL
 }
 class RiverBasinDistrictCompetentAuthority {
-+ euRBDCode: wiseIdentifier-varchar42
-+ euCACode: wiseIdentifier-varchar42
++ euRBDCode: wiseIdentifier
++ euCACode: wiseIdentifier
 + roleCode: Role [1..*]
 }
 }

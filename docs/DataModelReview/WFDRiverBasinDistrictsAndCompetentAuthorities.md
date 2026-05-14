@@ -1,7 +1,7 @@
 (heading_wfd_rbd_and_ca)=
 # WFD - River Basin Districts And Competent Authorities
 
-Last update: 2026-04-24
+Last update: 2026-05-14
 
 ```{contents} Table of Contents
 :depth: 2
@@ -12,20 +12,20 @@ Last update: 2026-04-24
 ## Purpose and overview
 
 This section revises the River Basin Districts, Subunits and Competent Authorities classes 
-used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`RBDSUCA_3rdCycle`). 
+used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ClassDiagram_RBDSUCA_2022`). 
 It also revises the associated spatial data in the RiverBasinDistrict dataset and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).  
 
-```{figure} img/RBDCA_RBDSUCA_2022_ClassDiagram.png
-:name: RBDSUCA_3rdCycle
+```{figure} img/ClassDiagram_RBDSUCA_2022.png
+:name: ClassDiagram_RBDSUCA_2022
 :align: center
 :width: 75%
 
-River Basin Districts, Subunits and Competent Authorities schema - 3ʳᵈ cycle - OBSOLETE
+River Basin Districts, Subunits and Competent Authorities schema - 3ʳᵈ cycle - Obsolete
 ```
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_3rdCycle_GML_ClassDiagram.mmd
 :name: RBDSU_3rdCycle_Spatial
-:caption: RiverBasinDistrict and Subunit spatial datasets - 3ʳᵈ cycle - OBSOLETE
+:caption: RiverBasinDistrict and Subunit spatial datasets - 3ʳᵈ cycle - Obsolete
 :align: center
 ```
 
@@ -125,7 +125,7 @@ However, all records in the **RiverBasinDistrict** dataset have a fixed value fo
 :zoom:
 ```
 
-## Annex - exploratory data analysis - 3ʳᵈ cycle
+## Annex - Exploratory data analysis - 3ʳᵈ cycle
 
 ### National and international river basins districts - 3ʳᵈ cycle
 
