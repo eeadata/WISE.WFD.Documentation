@@ -1,6 +1,6 @@
 # WFD - Groundwater bodies
 
-Last update: 2026-05-13
+Last update: 2026-05-14
 
 ```{warning}
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
@@ -61,9 +61,9 @@ shows a DRAFT diagram including the issues requiring clarification, in the class
 
 The following elements were removed:
 
-* GroundWaterBody/gwEORiskQuantitative 
-* GroundWaterBody/gwEORiskChemical 
-* GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted
+* GWB/GroundWaterBody/gwEORiskQuantitative 
+* GWB/GroundWaterBody/gwEORiskChemical 
+* GWB/GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted
 
 
 ```{mermaid} /DataModelReview/mmd/_DRAFT_Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd
@@ -85,6 +85,7 @@ Also pending discussion is the revision of the **PressureTpe** and **ImpactType*
 ```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GroundWaterBodyStatus** table
     :name: Groundwater_Issues_Pending_Discussion_GroundWaterBodyStatus
     :width: 100%
+    :widths: 40 40 20
     :header-rows: 1
     :align: left
 
@@ -131,6 +132,7 @@ Also pending discussion is the revision of the **PressureTpe** and **ImpactType*
 ```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GWPollutant** table
     :name: Groundwater_Issues_Pending_Discussion_GWPollutant
     :width: 100%
+    :widths: 40 40 20
     :header-rows: 1
     :align: left
 
@@ -155,6 +157,7 @@ Also pending discussion is the revision of the **PressureTpe** and **ImpactType*
 ```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GWQuantitativeStatus** table
     :name: Groundwater_Issues_Pending_Discussion_GWQuantitativeStatus
     :width: 100%
+    :widths: 40 40 20
     :header-rows: 1
     :align: left
 
@@ -174,6 +177,7 @@ Also pending discussion is the revision of the **PressureTpe** and **ImpactType*
 ```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **LinkSurfaceWaterBody** table
     :name: Groundwater_Issues_Pending_Discussion_LinkSurfaceWaterBody
     :width: 100%
+    :widths: 40 40 20
     :header-rows: 1
     :align: left
 
@@ -193,11 +197,12 @@ Also pending discussion is the revision of the **PressureTpe** and **ImpactType*
 {numref}`_INCOMPLETE_Groundwater_DescriptiveData_4thCycle_ClassDiagram` shows an INCOMPLETE diagram 
 with the a structure that may not require further internal discussion.
 
-The data was organised into a relational structure with 4 tables:
+The data was organised into a relational structure with 6 tables:
 
 ```{list-table} Groundwater - 4ᵗʰ cycle - brief table description
     :name: Groundwater_4th_cycle_brief_table_description
     :width: 100%
+    :widths: 30 70
     :header-rows: 1
     :align: left
 
@@ -205,9 +210,9 @@ The data was organised into a relational structure with 4 tables:
   - Description
 
 * - GroundWaterBody
-  - The GroundWaterBody table contains attributes that describe the groundwater body 
+  - The **GroundWaterBody** table contains attributes that describe the groundwater body 
     and that do not vary with the status of the waterbody.  
-    The geologicalFormation attribute was divided in **aquiferType** and *aquiferProductivity**, 
+    The geologicalFormation attribute was divided in **aquiferType** and **aquiferProductivity**, 
     using the approach already in place in the published WISE_WFD database.
 
 * - LinkSurfaceWaterBody
@@ -216,25 +221,29 @@ The data was organised into a relational structure with 4 tables:
     of the linked surface water body(ies).
 
 * - GWPressureImpact
-  - In the reporting of pressures and impacts is combined into a single GWPressureImpact table.  
+  - In the reporting of pressures and impacts is combined into a single **GWPressureImpact** table.  
     In the 3ʳᵈ cycle, the XML structure did not allow a specific pressure to be associated with a given impact.
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.
 
 * - GWQuantitativeStatus
-  - The GWQuantitativeStatus table gathers the data related to quantitative status.  
+  - The **GWQuantitativeStatus** table gathers the data related to quantitative status.  
     The GWQuantitativeStatus data has a one-to-one relationship with the GroundWaterBody.  
     The separation into two tables simplifies the reporting process 
     (by allowing the GroundWaterBody table to be prepared in advance).
 
 * - GWPollutant
-  - The GWPollutant table gathers the data related to chemical status.  
+  - The **GWPollutant** table gathers the data related to chemical status.  
     Note that the information about the gwPollutantAssessmentPeriod and gwPollutantAssessmentConfidence is now at gwPollutantCode level, 
     and not at water body level.  
     This allows more flexibility in the reporting. 
     If data is not available at pollutant level, 
     use the same values for all pollutants 
     (i.e. use the same approach as in the 3ʳᵈ cycle).
+* - GroundWaterBodyStatus
+  - Finally, the **GroundWaterBodyStatus** table contains information that can be derived from other tables and attributes.  
+    This means that the table *can* possibly be removed from the reporting (depending on the pending decisions),  
+    or can be kept for *quality control purposes* (namely to guarantee that there was no mistake in the reporting of substances causing failure).  
 ```
 
 ```{mermaid} /DataModelReview/mmd/_INCOMPLETE_Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd

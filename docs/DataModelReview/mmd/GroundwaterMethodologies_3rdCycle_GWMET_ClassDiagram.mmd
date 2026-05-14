@@ -1,20 +1,24 @@
-%%{init : {'theme' : 'default'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
 classDiagram
 
-class GWMethodologies ["«XSDcomplexType»
-GWMethodologies"]{
-  «XSDelement»
+class GWMethodologies {
   + gwCharacterisationReference : ReferenceType [1..*]
   + diminutionDamage : YesNoNotApplicable_Union_Enum
   + methodCriterionExtentExceedance : MethodCriterionExtentExceedance_Enum
   + proportionExceedanceAllowed : NumberDecimal0100Type [0..1]
   + impactsGWAbstractionBalance : YesNoCode_Enum
   + impactsGWAbstractionSWObjective : YesNoCode_Enum
-  + impactsGWAbstractionSWDominionStatus : YesNoCode_Enum
+  + impactsGWAbstractionSWDiminutionStatus : YesNoCode_Enum
   + impactsGWAbstractionDamageGWDE : YesNoCode_Enum
   + impactsGWAbstractionSalineIntrusion : YesNoCode_Enum
   + availableGroundwaterResource : YesNoPartially_Union_Enum
-  + needsTerritorialEcologicalSystems : YesNoNotApplicable_Union_Enum
+  + needsTerritorialEcosystems : YesNoNotApplicable_Union_Enum
   + balanceRechargeAbstraction : BalanceRechargeAbstraction_Enum
   + trendAssessmentPerformed : YesNoCode_Enum
   + trendAssessmentMethodology : YesNoCode_Enum [0..1]
@@ -24,19 +28,30 @@ GWMethodologies"]{
   + trendReversalMethodology : YesNoCode_Enum
   + thresholdValueElementProtectionEcosystem : YesNoCode_Enum
   + thresholdValueElementProtectionGWDE : YesNoCode_Enum
-  + thresholdValueElementProtectionSWs : YesNoCode_Enum
-  + thresholdValueElementProtectionSalineIntrusion : YesNoCode_Enum
-  + thresholdValueElementProtectionLevels : ThresholdValueElementProtectionLevels_Enum
-  + transboundaryGWBrPresent : YesNoCode_Enum
+  + thresholdValueElementProtectionUses : YesNoCode_Enum
+  + thresholdValueElementSalineIntrusion : YesNoCode_Enum
+  + thresholdValueBackgroundLevels : ThresholdValueBackgroundLevels_Enum
+  + transboundaryGWBPresent : YesNoCode_Enum
   + transboundaryThresholdValues : YesNoCode_Enum
   + gwMethodologiesChemicalStatusClassificationReference : ReferenceType [1..*]
   + gwMethodologiesQuantitativeClassificationReference : ReferenceType [1..*]
   + gwMethodologiesTransboundaryReference : ReferenceType [0..*]
 }
 
-class ThresholdValue ["«XSDcomplexType»
-GWMethodologies"]{
-  «XSDelement»
+class GWPressures{
+  + gwPressuresNotAssessed : SignificantPressureType_Enum [1..*]
+  + gwSignificantPressurePointSourceTools : SignificantPressureTools_Enum
+  + gwSignificantPressureDiffuseSourceTools : SignificantPressureTools_Enum
+  + gwSignificantPressureWaterAbstractionTools : SignificantPressureTools_Enum
+  + gwSignificantPressureArtificialRecharge : SignificantPressureTools_Enum
+  + gwSignificantPressureOtherSourceTools : SignificantPressureTools_Enum
+  + gwSignificanceDefinition : YesNoCode_Enum
+  + gwSignificanceLinkFailure : YesNoCode_Enum
+  + gwPressuresReference : ReferenceType [1..*]
+}
+
+
+class ThresholdValue{
   + pollutantIndicatorCode : ChemicalSubstances_Union_Enum
   + pollutantIndicatorCodeOther : OtherType [0..1]
   + thresholdValueRange : ThresholdType [0..1]
@@ -54,27 +69,12 @@ GWMethodologies"]{
   + startingPointTrendReversal : ThresholdType
 }
 
-class GWPpressures ["«XSDcomplexType»
-GWMethodologies"]{
-  «XSDelement»
-  + gwPressuresNotAssessed : SignificantPressureType_Enum [1..*]
-  + gwSignificantPressurePointSourceTools : SignificantPressureTools_Enum
-  + gwSignificantPressureDiffuseSourceTools : SignificantPressureTools_Enum
-  + gwSignificantPressureWaterAbstractionTools : SignificantPressureTools_Enum
-  + gwSignificantPressureArtificialRecharge : SignificantPressureTools_Enum
-  + gwSignificantPressureOtherSourceTools : SignificantPressureTools_Enum
-  + gwSignificanceDefinition : YesNoCode_Enum
-  + gwSignificanceLinkFailure : YesNoCode_Enum
-  + gwPressuresReference : ReferenceType [1..*]
-}
 
-class GWMET ["«XSDcomplexType»
-GWMET"]{
-  «XSDelement»
+class GWMET {
   + countryCode : CountryCode_Enum
   + euRBDCode : FeatureUniqueEUCodeType
 }
 
-GWMET --> GWMethodologies  : 1..1
-GWMET --> GWPpressures  : 1..1
-GWMET --> ThresholdValue  : 0..*
+GWMethodologies <-- GWMET  : 1..1
+GWPressures <-- GWMET  : 1..1
+ThresholdValue <-- GWMET  : *..0
