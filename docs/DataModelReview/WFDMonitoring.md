@@ -26,13 +26,13 @@ thus making redundant the electronic reporting under the RBMPs.
 
 Given that, in 2016, the WISE SoE dataflows were under revision, 
 information about the 2nd cycle monitoring programmes was requested in the WFD 2016 electronic reporting 
-(see {numref}`Monitoring_2016`).
+(see {numref}`ClassDiagram_Monitoring_2016`).
 
 For the 3ʳᵈ cycle reporting, in 2022, 
 the analysis of the content of the WISE SoE reporting showed issues 
 in the completeness of the voluntary reporting of monitoring results for water quality: 
 it would not have been possible to derive the requested monitoring information from the EEA Waterbases.
-Therefore, the reporting schema was simplified (see {numref}`Monitoring_2022`),
+Therefore, the reporting schema was simplified (see {numref}`ClassDiagram_Monitoring_2022`),
 but kept in the WFD 2022 electronic reporting.
 
 In preparation on the 4ᵗʰ cycle reporting,
@@ -65,8 +65,8 @@ in the 4ᵗʰ cycle electronic reporting is duplicate reporting and an unnecessa
 > * Results from monitoring Biological Quality Elements 
 >   to EEAs Waterbases on rivers, lakes, transitional waters and coastal waters."
 
-```{figure} img/Monitoring_2016.png
-:name: Monitoring_2016
+```{figure} img/ClassDiagram_Monitoring_2016.png
+:name: ClassDiagram_Monitoring_2016
 :align: center
 :width: 75%
 
@@ -92,8 +92,8 @@ Monitoring_2016 Schema - 2nd cycle - Obsolete
 > * Results from monitoring Biological Quality Elements to Waterbases on rivers, lakes, transitional waters and coastal waters"
 
 
-```{figure} img/Monitoring_2022.png
-:name: Monitoring_2022
+```{figure} img/ClassDiagram_Monitoring_2022.png
+:name: ClassDiagram_Monitoring_2022
 :align: center
 :width: 75%
 
