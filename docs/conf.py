@@ -76,10 +76,11 @@ html_theme_options = {
     "logo": {
         "alt_text": "WISE WFD Documentation",
         "text": "Water Framework Directive",
+    },
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
     "show_toc_level": 3, 
     "use_edit_page_button": True,
-    }
+    "navbar_align": "center"
 }
 
 html_context = {
