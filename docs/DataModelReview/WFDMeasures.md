@@ -1,15 +1,11 @@
-# WFD - Measures
+(heading_wfd_measures)=
+# WFD measures
 
 Last update: 2026-04-24
 
 ```{warning}
 The online version of the text is being reviewed.  
 See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
-```
-
-```{contents} Table of Contents
-:depth: 2
-:local:
 ```
 
 ## Purpose and overview
@@ -480,7 +476,9 @@ Nevertheless, it seems to be possible to map most of the mainKeyTypeOfMeasure cl
 
 The mapping and post-classification can be done by the Commission, using the reported data per Measure, to analyse and aggregate the data according CEPA classes, if that is required.
 
-## Annex - Simplified classification of measures – 4ᵗʰ cycle
+## Annexes 
+
+### Simplified classification of measures – 4ᵗʰ cycle
 
 This annex presents the **mainKeyTypeOfMeasure**, a simplified classification of measures that consolidates and replaces the **basicMeasureType** and the **keyTypeOfMeasure** classifications used in the 3ʳᵈ cycle.
 
@@ -528,7 +526,7 @@ keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle).*
 
 
 
-## Annex - Classification of environmental protection activities (CEPA 2000)
+### Classification of environmental protection activities (CEPA 2000)
 
 Based on the information in (http://publications.europa.eu/resource/dataset/cepa2000). 
 **Note: this table is not relevant for the reporting process, it is only relevant for the analysis of reported data.**
@@ -536,7 +534,7 @@ Based on the information in (http://publications.europa.eu/resource/dataset/cepa
 ```{include} tables/Measures_SubsetOfCEPAClasses_ListTable
 ```
 
-## Annex - Mapping between mainKeyTypeOfMeasure and CEPA 2000 
+### Mapping between mainKeyTypeOfMeasure and CEPA 2000 
 
 ```{include} tables/Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable
 ```

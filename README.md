@@ -5,4 +5,3 @@ This repository contains the public documentation of the
 
 Information will be added as it becomes available. 
 
-* WFD - River Basin Districts and Competent Authorities - 2028

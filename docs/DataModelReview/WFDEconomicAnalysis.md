@@ -1,4 +1,5 @@
-# WFD - Economic Analysis
+(heading_wfd_economic_analysis)=
+# WFD economic analysis
 
 Last update: 2026-05-08
 
@@ -23,16 +24,11 @@ The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables main
 The *Service* table is removed. Information about volumes, revenues and costs is requested in the *VolumeRevenueCostPerService* table, using the standard structure for statistical data commonly used by Eurostat.
 
 
-
-
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysisclassDiagram.mmd
 :name: EconomicAnalysis_Classdiagram
 :align: center
 :caption: Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.
 ```
-
-Source : [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP)
-
 
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_RevenueandCosts.mmd
@@ -40,7 +36,6 @@ Source : [https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specif
 :align: center
 :caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting
 ```
-
 
 ## Cost Recovery – 4ᵗʰ cycle
 
@@ -53,16 +48,12 @@ The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({nu
 ```{include} tables/EconomicAnalysis_CostRecoveryTable
 ```
 
-
 (Figure 3)=
 ```{mermaid} /DataModelReview/mmd/Figure3EconomicAnalysis.mmd
 :name: Figure3EconomicAnalysis
 :align: center
 :caption: CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
 ```
-
-
-
 
 ## Water Services Data – 4ᵗʰ cycle
 

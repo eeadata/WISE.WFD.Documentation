@@ -1,12 +1,7 @@
 (heading_wfd_rbd_and_ca)=
-# WFD - River Basin Districts And Competent Authorities
+# WFD river basin districts and competent authorities
 
 Last update: 2026-05-14
-
-```{contents} Table of Contents
-:depth: 2
-:local:
-```
 
 (heading_wfd_rbd_and_ca_purpose_and_overview)=
 ## Purpose and overview
@@ -125,7 +120,9 @@ However, all records in the **RiverBasinDistrict** dataset have a fixed value fo
 :zoom:
 ```
 
-## Annex - Exploratory data analysis - 3ʳᵈ cycle
+## Annexes
+
+**Exploratory data analysis - 3ʳᵈ cycle**
 
 ### National and international river basins districts - 3ʳᵈ cycle
 

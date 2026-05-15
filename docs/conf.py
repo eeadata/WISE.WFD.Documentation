@@ -10,38 +10,26 @@ on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 
-if on_rtd:
-   extensions = ['sphinx.ext.autodoc',
-                 'myst_parser',
-                 'sphinx.ext.todo', 
-                 'sphinx.ext.imgmath', 
-                 'sphinx.ext.mathjax',
-                 'sphinxcontrib.mermaid',  
-                 'sphinx.ext.graphviz',
-                 'sphinxcontrib.sqltable',
-                 'nbsphinx']
-else:
-   extensions = ['sphinx.ext.autodoc',
-                 'myst_parser',
-                 'sphinx.ext.todo', 
-                 'sphinx.ext.imgmath', 
-                 'sphinx.ext.mathjax', 
-                 'sphinx.ext.graphviz', 
-                 'sphinxcontrib.bibtex', 
-                 'sphinxcontrib.mermaid', 
-                 'sphinxcontrib.xlsxtable',
-                 'sphinxcontrib.sqltable',
-                 'nbsphinx']
+extensions = ['sphinx.ext.autodoc',
+                'myst_parser',
+                'sphinx.ext.todo', 
+                #'sphinx.ext.imgmath', 
+                'sphinx.ext.mathjax', 
+                'sphinx.ext.graphviz', 
+                'sphinxcontrib.bibtex', 
+                'sphinxcontrib.mermaid', 
+                'sphinxcontrib.sqltable',
+                'nbsphinx',
+                'sphinx_design']
 
-bibtex_bibfiles = ['./_sharedFiles/bibliography.bib']
+bibtex_bibfiles = ['./_sharedFiles/Bibliography.bib']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','*.txt']
 
-# NUMBERING - begin config
-
+# NUMBERING
+# The separator must defined in a custom.css :-(
 numfig = True
-
 numfig_format = {
     'figure': 'Figure %s',       # Changes "Fig. 1" to "Figure 1"
     'table': 'Table %s',    
@@ -49,34 +37,31 @@ numfig_format = {
     'section': 'Section %s',     
 }
 
-    # The separator must defined in a custom.css
 
-# NUMBERING - end config
-
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
-
-# MERMAID DIAGRAMS - begin config
-
+# MERMAID DIAGRAMS 
 mermaid_init_js = """
 mermaid.initialize({theme:"neutral"});
 """
-mermaid_params = ['--theme', 'neutral', '--backgroundColor', 'transparent']
 
-# MERMAID DIAGRAMS - end config
+# SYNTAX HIGHLIGHTING - The name of the Pygments style to use.
+pygments_style = 'sphinx'
 
 # Support for todo items: If this is True, todo and todolist produce output, else they produce nothing. The default is False.
 todo_include_todos = True
 
-# To be checked: The imgmath_latex variable specifies the LaTeX command to use for rendering math in the imgmath extension. 
-# The default is 'latex', which uses the standard LaTeX command.
-# You can customize this if you want to use a different command or if you have specific requirements for your math rendering.
-imgmath_latex = 'latex'
+# MATH - Tell MyST to allow dollar signs and advanced math blocks
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath",
+    "colon_fence"
+]
+
+# SQLTABLE - configure the default connection if there is one
+#sqltable_connection_string = ''
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'pydata_sphinx_theme'
 html_show_copyright = False
 # The _static folder is where you place files that should be copied as-is to your final build output (_build/html/_static). It is commonly used for:
 # Custom.css: To override the default theme colors or fonts.
@@ -84,17 +69,30 @@ html_show_copyright = False
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
 html_css_files = [
-    'customTable.css',
-    'customMermaid.css'
+   'customTable.css'
 ]
-myst_enable_extensions = [
-    "html_admonition",
-    "html_image",
-]
-# -- Project information -----------------------------------------------------
+
+html_theme_options = {
+    "logo": {
+        "alt_text": "WISE WFD Documentation",
+        "text": "Water Framework Directive",
+    "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
+    "show_toc_level": 3, 
+    "use_edit_page_button": True,
+    }
+}
+
+html_context = {
+    "github_user": "eeadata",
+    "github_repo": "WISE.WFD.Documentation",
+    "github_version": "main",
+    "doc_path": "docs",
+}
+html_logo = "_static/wise.svg"
+
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'WISE.WFD.Documentation'
-copyright = '2013-2026. These pages aggregate content from multiple sources (refer to the metadata).'
-author = 'Fernanda Nery'
+copyright = '2025-2026'
+author = 'WISEr team'
 version = '0.1'

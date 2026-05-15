@@ -1,14 +1,10 @@
-# WFD - Groundwater bodies
+(heading_wfd_groundwater_bodies)=
+# WFD groundwater bodies
 
 Last update: 2026-05-14
 
 ```{warning}
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
-```
-
-```{contents} Table of Contents
-:depth: 2
-:local:
 ```
 
 ## Purpose and overview

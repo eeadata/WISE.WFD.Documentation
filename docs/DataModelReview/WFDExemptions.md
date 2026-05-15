@@ -1,5 +1,5 @@
 (heading_wfd_exemptions)=
-# WFD - Exemptions
+# WFD exemptions
 
 Last update: 2026-05-13
 
@@ -7,11 +7,6 @@ Last update: 2026-05-13
 
   See {ref}`heading_wfd_exemptions_clarifications`
 
-```
-
-```{contents} Table of Contents
-:depth: 2
-:local:
 ```
 
 (heading_wfd_exemptions_purpose_and_overview)=
@@ -47,10 +42,10 @@ It also presents a proposal for simplifying the electronic reporting in the 4ᵗ
 
 The reporting of ecological, chemical and quantitative exemptions is aligned into tables with a similar structure:
 
-  * The waterbody to which the exemption applies is always identified.
-  * For ecological exemptions, the quality element is identified.
-  * For chemical exemptions, the substance is identified.
-  * For exemptions associated with protected areas were specific objectives were set but not met, the protected area is identified.
+* The waterbody to which the exemption applies is always identified.
+* For ecological exemptions, the quality element is identified.
+* For chemical exemptions, the substance is identified.
+* For exemptions associated with protected areas were specific objectives were set but not met, the protected area is identified.
 
 The remaining attributes (see {numref}`ExemptionAbstractClass`) identify the exemption type (exemptionType), the reason why it is applied (exemptionRationale), the expected exemption period (exemptionPeriod), and the significant pressure causing failure, if applicable (exemptionPressureType).
 Reference to additional information in the RBMPs documentation can be provided via the exemptionReference.
@@ -82,10 +77,12 @@ Ecological exemptions are reported using the table in {numref}`SWEcologicalExemp
 
 Ecological exemptions are not applicable to Territorial Waters.
 For other surface water body categories, reporting is mandatory when the following conditions apply:
+
 * the qeCode value starts with QE1 or qeCode starts with QE3 
 * and the quality element is causing failure to achieve good status, i.e. qeStatusOrPotentialValue in (3, 4, 5).
 
 Ecological exemptions are reported at Quality Element level only:
+
 * exemptions are not applicable to quality elements with unknown status
 * exemptions are not applicable to quality elements not used in the ecological status assessment.
 
@@ -122,10 +119,12 @@ The diagram below presents the applicability criteria for the different exemptio
 Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.
 
 Reporting is mandatory if the following conditions apply:
+
 * the swPollutantCode value is a 2013 Priority Substance  
 * all the Priority Substance is causing failure to achieve good status (i.e. swPollutantCausingFailure = 'Yes').
 
 Chemical exemptions are reported at Pollutant level only:
+
 * exemptions are only applicable to priority substances
 * exemptions are not applicable to substances with unknown status.
 
@@ -163,6 +162,7 @@ The diagram below presents the applicability criteria for the different exemptio
 ## Surface water bodies - protected area related exemptions
 
 Specific objectives may be set for waterbodies associated with some types of protected areas:
+
 * Shellfish designated waters
 * Drinking water protection areas
 * Natura 2000 protected sites included in the WFD register of protected areas
@@ -197,9 +197,11 @@ class SWAssociatedProtectedArea{
 Chemical exemptions are reported using the table in {numref}`GWChemicalExemptionClass`.
 
 Reporting is mandatory if the following condition applies:
+
 * the substance is causing failure to achieve good status (i.e. gwPollutantCausingFailure = 'Yes').
 
 Chemical exemptions are reported at Pollutant level only:
+
 * exemptions are not applicable to substances with unknown status.
 
 Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
@@ -300,7 +302,6 @@ Codelists associated with the reporting of exemptions are presented in {numref}`
 Note the dependencies between the two codelists, which will be verified by the qulaity control:
 * the allowable values for the exemption type depent on the water body type (gwdArticle63_exemptionOfMeasures are not applicable to surface water bodies)
 * the allowable values for the exemption rationale depend on the exemption type
-
 
 ```{mermaid}
 :name: ExemptionCodelist
@@ -479,12 +480,13 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 ### Exemptions related to River Basin Specific Pollutants
 
-
 ```{warning}
   Clarification pending
 ```
 
-## Annex - Exploratory analysis of data reported in the 3ʳᵈ cycle
+## Annexes 
+
+**Exploratory analysis of data reported in the 3ʳᵈ cycle.**
 
 This section is not relevant for the understanding of the proposed model. 
 It contains some of the data analysis that supported the revision of the data model.

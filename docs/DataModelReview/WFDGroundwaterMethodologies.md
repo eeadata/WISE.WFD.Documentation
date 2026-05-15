@@ -1,5 +1,5 @@
 (heading_wfd_groundwater_methodologies)=
-# WFD - Groundwater methodologies
+# WFD groundwater methodologies
 
 Last update: 2026-05-14
 
@@ -7,10 +7,6 @@ Last update: 2026-05-14
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
 ```
 
-```{contents} Table of Contents
-:depth: 2
-:local:
-```
 (heading_wfd_groundwater_methodologies_purpose_and_overview)=
 ## Purpose and overview
 
@@ -20,7 +16,7 @@ in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive Ri
 It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
 
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_3rd_cycle)=
-## Reporting of groundwater methodologies - 3ʳᵈ cycle
+## Groundwater methodologies - 3ʳᵈ cycle
 
 The GWMET schema defined the structure for the information about the groundwater methodologies ({numref}`ClassDiagram_GWMET_2022`).
 
@@ -49,7 +45,7 @@ to help focus the discussion on the remaining issues.
 
 
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_4th_cycle_pending_issues)=
-## Reporting of groundwater methodologies - 4ᵗʰ cycle - pending issues
+## Groundwater methodologies - 4ᵗʰ cycle - pending issues
 
 
 Based on DG ENV's review, {numref}`_DRAFT_GroundwaterMethodologies_4thCycle_ClassDiagram` 

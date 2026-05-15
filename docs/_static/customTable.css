@@ -1,70 +1,39 @@
 /* =========================
-   Responsive table container
+   Table base
 ========================= */
 
-.wy-table-responsive {
-    overflow-x: hidden; /* hide horizontal scroll on desktop */
-}
-
-@media (max-width: 768px) {
-    .wy-table-responsive {
-        overflow-x: auto; /* enable horizontal scroll on mobile */
-    }
-}
-
-
-/* =========================
-   Table base styles
-========================= */
-
-.wy-table-responsive table {
+.rst-content table.docutils {
     width: 100%;
-    display: table;
-    table-layout: fixed; /* prevent overflow */
-    white-space: normal;
+    table-layout: auto;
 }
 
 
 /* =========================
-   Table cells
+   Default cells (legible)
 ========================= */
 
-.wy-table-responsive table th,
-.wy-table-responsive table td {
-    vertical-align: top !important; /* align content to top */
+.rst-content table.docutils th,
+.rst-content table.docutils td {
+    vertical-align: top !important;
     white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-}
-
-
-/* Remove extra top spacing inside cells */
-.wy-table-responsive table td > *:first-child {
-    margin-top: 0;
+    word-break: normal;             
+    overflow-wrap: break-word;        
 }
 
 
 /* =========================
-   Table headers
+   First column (force break ONLY here)
 ========================= */
 
-.wy-table-responsive table.docutils th {
-    word-break: break-word;
-    overflow-wrap: break-word;
+.rst-content table.docutils td:first-child {
+    word-break: break-all !important;
 }
 
-
 /* =========================
-   Headings wrapping
+   Second column protection (VERY IMPORTANT)
 ========================= */
 
-.wy-nav-content h1,
-.wy-nav-content h2,
-.wy-nav-content h3,
-.wy-nav-content h4,
-.wy-nav-content h5,
-.wy-nav-content h6 {
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
+.rst-content table.docutils td:nth-child(2) {
+    word-break: normal !important;
+    white-space: normal;            
 }

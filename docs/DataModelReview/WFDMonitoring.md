@@ -1,14 +1,9 @@
 (heading_wfd_monitoring)=
-# WFD - Monitoring
+# WFD monitoring
 
 ```{warning}
 The online version of the text is being reviewed.  
 It will be modified to include the combined reporting of the MonitoringSite dataset and the Monitoring data.
-```
-
-```{contents} Table of Contents
-:depth: 2
-:local:
 ```
 
 (heading_wfd_monitoring_3rd_cycle)=
@@ -259,7 +254,9 @@ namespace Codelist{
 
 ```
 
-## Annex - Exploratory analysis of data reported in the 3ʳᵈ cycle
+## Annexes
+
+**Exploratory data analysis - 3ʳᵈ cycle**
 
 This section is not relevant for the understanding of the proposed model. 
 It contains some of the data analysis that supported the revision of the data model.

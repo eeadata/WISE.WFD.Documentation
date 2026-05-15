@@ -1,5 +1,5 @@
 (heading_wfd_surface_water_methodologies)=
-# WFD - Surface water methodologies
+# WFD surface water methodologies
 
 Last update: 2026-05-14
 
@@ -20,7 +20,7 @@ in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive Ri
 It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
 
 (heading_wfd_surface_water_methodologies_reporting_of_surface_water_methodologies_3rd_cycle)=
-## Reporting of surface water methodologies - 3ʳᵈ cycle
+## Surface water methodologies - 3ʳᵈ cycle
 
 The SWMET schema defined the structure for the information about the surface water  methodologies ({numref}`SurfaceWaterMethodologies_3rdCycle_SWMET_ClassDiagram`)
 
@@ -39,12 +39,12 @@ See:
 
 
 (heading_wfd_surface_water_methodologies_reporting_of_surface_water_4th_cycle_pending_issues)=
-## Reporting of surface water  methodologies - 4ᵗʰ cycle - pending issues
+## Surface water  methodologies - 4ᵗʰ cycle - pending issues
 
 Placeholder text.
 
 (heading_wfd_surface_water_methodologies_reporting_of_surface_water_methodologies_4th_cycle)=
-## Reporting of surface water methodologies - 4ᵗʰ cycle
+## Surface water methodologies - 4ᵗʰ cycle
 
 Placeholder text.
 

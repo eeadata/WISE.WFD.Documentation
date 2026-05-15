@@ -1,20 +1,23 @@
-WFD - Data Model Review
+:html_theme.sidebar_secondary.remove:
+
+.. _data-model-review:
+
+Data Model Review
 *************************************************************************
 
-   .. toctree:: 
-      :maxdepth: 2
-      :caption: Sections:
-      
-      WFDRiverBasinDistrictsAndCompetentAuthorities
-      WFDMeasures
-      WFDEconomicAnalysis
-      WFDProtectedAreas
-      WFDExemptions
-      WFDMonitoring
-      WFDGroundWaterBody
-      WFDGroundwaterMethodologies
-      WFDSurfaceWaterBody
-      WFDSurfaceWaterMethodologies
+.. toctree:: 
+   :maxdepth: 2
+   
+   WFDRiverBasinDistrictsAndCompetentAuthorities
+   WFDMeasures
+   WFDEconomicAnalysis
+   WFDProtectedAreas
+   WFDExemptions
+   WFDMonitoring
+   WFDGroundWaterBody
+   WFDGroundwaterMethodologies
+   WFDSurfaceWaterBody
+   WFDSurfaceWaterMethodologies
 
 .. substitutions-placeholder
 
