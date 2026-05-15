@@ -80,7 +80,7 @@ html_theme_options = {
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
     "show_toc_level": 3, 
     "use_edit_page_button": True,
-    "navbar_align": "center"
+    "navbar_align": "right"
 }
 
 html_context = {
