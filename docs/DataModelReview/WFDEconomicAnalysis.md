@@ -263,3 +263,9 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 | VOL_WWV     | DIS_IND_IW_NT    | of which: Discharges to inland waters without treatment                 |
 | VOL_WWV     | DIS              | Total discharges of WWTP’s (urban and other) – after treatment          |
 ```
+
+(heading_wfd_wfd_economic_analysis)=
+## References
+
+```{include} FragmentWFD2022ReportingSchemas
+```

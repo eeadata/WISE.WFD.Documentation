@@ -539,6 +539,8 @@ Based on the information in (http://publications.europa.eu/resource/dataset/cepa
 ```{include} tables/Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable
 ```
 
+(heading_wfd_measures_references)=
 ## References
 
-The complete schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
+```{include} FragmentWFD2022ReportingSchemas
+```

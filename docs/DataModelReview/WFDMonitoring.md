@@ -927,3 +927,8 @@ All the information analysed above refers to "in-situ" data, i.e. conventional m
     ORDER BY [qeCode], [qeMonitoringResults]
   ```
  
+ (heading_wfd_monitoring_references)=
+## References
+
+```{include} FragmentWFD2022ReportingSchemas
+```

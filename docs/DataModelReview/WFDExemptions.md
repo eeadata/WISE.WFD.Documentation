@@ -361,22 +361,25 @@ class ExemptionPeriod{
 
 ### Exemptions under Article 4(7a) - short term-impact
 
-Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy* [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj). 
+Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy*. 
 
+```{epigraph}
+‘7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:
+ 
+(a) the negative impact is not the result of direct discharges, emissions or losses of a pollutant;
+ 
+(b) the potential for the negative impact to occur is reliably assessed ex ante by a competent authority, and it is concluded that there would be no negative impact for the body of water concerned or any connected body of water after one year or, for biological quality elements, after a maximum of three years;
 
-> ‘7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:
-> 
-> (a) the negative impact is not the result of direct discharges, emissions or losses of a pollutant;
-> 
-> (b) the potential for the negative impact to occur is reliably assessed ex ante by a competent authority, and it is concluded that there would be no negative impact for the body of water concerned or any connected body of water after one year or, for biological quality elements, after a maximum of three years;
-> 
-> (c) an ex post verification is carried out;
-> 
-> (d) all practicable measures are taken to mitigate any negative impacts on the body and any connected bodies of water; and
-> 
-> (e) a summary of the main activities carried out in accordance with this paragraph, the relevant ex post verification results, and the measures taken to mitigate negative impacts, is included in the river basin management plan required under Article 13.
-> 
-> For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring.
+(c) an ex post verification is carried out;
+ 
+(d) all practicable measures are taken to mitigate any negative impacts on the body and any connected bodies of water; and
+ 
+(e) a summary of the main activities carried out in accordance with this paragraph, the relevant ex post verification results, and the measures taken to mitigate negative impacts, is included in the river basin management plan required under Article 13.
+
+For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring.
+
+-- [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj)
+```
 
 **Actions taken:**
 
@@ -399,25 +402,29 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 ### Exemptions under Article 4(7b) - relocation of water or sediment
 
-Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy* [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj). 
+Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy*.
 
-> 7b. Member States will not be in breach of this Directive when deterioration occurs in the status of a receiving body of surface water as a result of relocating, by human activity, water or sediment from the same or another body of surface water, or from a body of groundwater to the receiving body of surface water, without causing a net increase in pollutant load, and all the following conditions are met:
-> 
-> (a) all practicable steps, in particular the treatment of the water or sediment, if feasible, to minimise the transfer of pollutant load are taken to mitigate the adverse impact on the status of the bodies of water impacted by the relocation;
-> 
-> (b) the composition of the water or sediments to be relocated is established, and the relocation does not increase the overall risk to human health and the environment compared to the existing risk prior to the relocation;
-> 
-> (c) the receiving body of surface water is confirmed as already not being in good chemical status with respect to most of the pollutants relocated, and in particular with respect to the most persistent and bioaccumulative pollutants relocated, and the ecological status or potential of the receiving body of water is not expected to fall into a lower class as a result of the relocation of those pollutants;
-> 
-> (d) the relocation shall not result in an increase in the purification treatment required for the production of drinking water;
-> 
-> (e) within the receiving body of water, a zone where relocation is prohibited has been established around any abstraction point for water intended for human consumption;
-> 
-> (f) there are no significantly better environmental options for reasons of technical feasibility or disproportionate cost;
-> 
-> (g) the relocation is subject to prior regulation or authorisation; and
-> 
-> (h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13.’
+```{epigraph}
+7b. Member States will not be in breach of this Directive when deterioration occurs in the status of a receiving body of surface water as a result of relocating, by human activity, water or sediment from the same or another body of surface water, or from a body of groundwater to the receiving body of surface water, without causing a net increase in pollutant load, and all the following conditions are met:
+ 
+(a) all practicable steps, in particular the treatment of the water or sediment, if feasible, to minimise the transfer of pollutant load are taken to mitigate the adverse impact on the status of the bodies of water impacted by the relocation;
+ 
+(b) the composition of the water or sediments to be relocated is established, and the relocation does not increase the overall risk to human health and the environment compared to the existing risk prior to the relocation;
+ 
+(c) the receiving body of surface water is confirmed as already not being in good chemical status with respect to most of the pollutants relocated, and in particular with respect to the most persistent and bioaccumulative pollutants relocated, and the ecological status or potential of the receiving body of water is not expected to fall into a lower class as a result of the relocation of those pollutants;
+
+(d) the relocation shall not result in an increase in the purification treatment required for the production of drinking water;
+
+(e) within the receiving body of water, a zone where relocation is prohibited has been established around any abstraction point for water intended for human consumption;
+ 
+(f) there are no significantly better environmental options for reasons of technical feasibility or disproportionate cost;
+ 
+(g) the relocation is subject to prior regulation or authorisation; and
+ 
+(h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13.’
+
+-- [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj)
+```
 
 **Actions taken:**
 
@@ -439,16 +446,19 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 ### Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive 
 
-*Clarification provided by DG ENV 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22:*
 
-> The recast Urban Waste Water Treatment Directive was adopted 27/11/2024 and MS need to transpose the revised provisions by 31 July 2027.
-> 
-> Article 15(4) includes a new exemption from the obligations under the WFD if a water body deteriorates status or does not achieve good status as a result of :
-> -	increased loads of domestic wastewater treated by a new/refurbished urban wastewater treatment plant, otherwise untreated (NOT industrial wastewater). 
-> -	The increase is subject to prior authorisation setting out all technically feasible mitigation measures to minimize the negative impact of the UWWTP on water status
-> -	all technically feasible mitigating measures are implemented to minimise the negative impact of other activities causing similar pressures in the same water bodies  
-> -	There are no better environmental means that are not disproportionately costly (eg alternative points of discharge)
-> -	The authorisation and its conditions are referred to in the RBMP
+```{epigraph}
+The recast Urban Waste Water Treatment Directive was adopted 27/11/2024 and MS need to transpose the revised provisions by 31 July 2027.
+ 
+Article 15(4) includes a new exemption from the obligations under the WFD if a water body deteriorates status or does not achieve good status as a result of :
+-	increased loads of domestic wastewater treated by a new/refurbished urban wastewater treatment plant, otherwise untreated (NOT industrial wastewater). 
+-	The increase is subject to prior authorisation setting out all technically feasible mitigation measures to minimize the negative impact of the UWWTP on water status
+-	all technically feasible mitigating measures are implemented to minimise the negative impact of other activities causing similar pressures in the same water bodies  
+-	There are no better environmental means that are not disproportionately costly (eg alternative points of discharge)
+-	The authorisation and its conditions are referred to in the RBMP
+
+-- *Clarification provided by the Commission in 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22*
+```
 
 **Actions taken:**
 
@@ -463,16 +473,21 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
   * ERROR: table.name in ('GWQuantitativeExemption') 
     AND exemptionRationale = 'article47_domesticUrbanWasteWaterArticle154' 
 
+(heading_wfd_exemptions_clarification_protected_areas)=
 ### Exemptions related to Protected Areas
 
-*Clarification provided by DG ENV 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22:*
+```{epigraph}
+-	Where objectives are set in terms of WFD quality /quantity status elements 
+  (eg stricter quality standards are set for ‘good’ status in view of protecting certain species), exemptions from good status can be applied. 
+-	If no such objectives have been set 
+  and protected areas objectives are only set under other legislation, 
+  it’s not possible/necessary to exempt 
+  from compliance with those objectives: 
+  non compliance would imply a breach of those other directives 
+  (and of WFD by virtue of Art 4(1)(c ) WFD)
 
-> -	Where objectives are set in terms of WFD quality /quantity status elements 
-> (eg stricter quality standards are set for ‘good’ status in view of protecting certain species), 
-> exemptions from good status can be applied. 
-> -	If no such objectives have been set and protected areas objectives are only set under other legislation, 
-> it’s not possible/necessary to exempt from compliance with those objectives: 
-> non compliance would imply a breach of those other directives (and of WFD by virtue of Art 4(1)(c ) WFD)
+-- *Clarification provided by the Commission in 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22.*
+```
 
 **Actions taken:**
 
@@ -934,5 +949,6 @@ Exemptions were reported for a total of 198 water bodies associated with a total
 (heading_wfd_wfd_exemptions_references)=
 ## References
 
-The complete schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
+```{include} FragmentWFD2022ReportingSchemas
+```
 

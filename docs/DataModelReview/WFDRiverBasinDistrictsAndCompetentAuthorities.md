@@ -211,7 +211,8 @@ then it is not necessary to report the information again.
 
 ## References
 
-The full reporting schemas for the 3ʳᵈ cycle of reporting can be found in the [WFD2022 EAP file](https://cdr.eionet.europa.eu/help/WFD/WFD_715_2022/UML%20Data%20specification/WFD2022.EAP).
+```{include} FragmentWFD2022ReportingSchemas
+```
 
 ```{warning}
 The original document containing this revised model can still be downloaded but should no longer be used.  
