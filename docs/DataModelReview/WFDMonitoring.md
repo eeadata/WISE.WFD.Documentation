@@ -49,11 +49,11 @@ in the 4ᵗʰ cycle electronic reporting is duplicate reporting and an unnecessa
 > reporting should reflect, as accurately as possible, 
 > the monitoring that has informed the preparation of the second RBMPs. 
 > Reporting is not intended to include information regarding future monitoring programmes or planned changes."
-  
+> [...]
 > "The data and information on monitoring to be reported under Article 8 of the WFD 
 > include a description of the monitoring sites, a specification of the different QEs and chemical substances
 > monitored at each site, and information relating to the associated monitoring programmes."
-  
+> [...]
 > "Member States are expected to report to EEA WISE SoE:
 > * Water quality results including Priority Substances and River Basin Specific Pollutants 
 >   to EEAs Waterbases on groundwater, rivers, lakes, transitional waters and coastal waters
@@ -65,9 +65,8 @@ in the 4ᵗʰ cycle electronic reporting is duplicate reporting and an unnecessa
 :align: center
 :width: 75%
 
-Monitoring_2016 Schema - 2nd cycle - Obsolete
+Monitoring_2016 schema - 2nd cycle - Obsolete
 ```
-
 
 ***Extracts from the 2022 WFD Reporting Guidance for the 3ʳᵈ cycle (pg. 90-97)***
 
@@ -76,11 +75,11 @@ Monitoring_2016 Schema - 2nd cycle - Obsolete
 > It can include planned changes when sufficient information is already available 
 > on the QEs, substances or parameters that will be monitored and at which frequency. 
 > In these cases, the date of the last monitoring should be reported as ‘9999’, as mentioned in the specific guidance below."
-  
+> [...]
 > "The data and information on monitoring to be reported under Article 8 of the WFD 
 > include a description of the monitoring sites, a specification of the different QEs and chemical substances
 > monitored at each site, and information relating to the associated monitoring programmes."
-  
+> [...]
 > "Member States are expected to report to EEA WISE SoE:
 > * Water quality results, including Priority Substances and River Basin Specific Pollutants, 
 >   to Waterbases on groundwater, rivers, lakes, transitional waters and coastal waters
@@ -92,7 +91,7 @@ Monitoring_2016 Schema - 2nd cycle - Obsolete
 :align: center
 :width: 75%
 
-Monitoring_2022 Schema - 3ʳᵈ cycle - Obsolete
+Monitoring_2022 schema - 3ʳᵈ cycle - Obsolete
 ```
 
 (heading_wfd_monitoring_4th_cycle)=
@@ -100,38 +99,35 @@ Monitoring_2022 Schema - 3ʳᵈ cycle - Obsolete
 
 For the 4ᵗʰ cycle of reporting, the requested information is further simplified (see {numref}`DescriptiveMonitoring4thcycle`):
 
-* Information about the monitoring programmes is provided in the RBMP documents only: 
-  only the reference to the supporting documents is requested in the **MonitoringProgrammes** table. 
-
+* Information about the monitoring programmes is provided in the RBMP documents: 
+  only the reference to the supporting documents is requested in the **MonitoringProgrammes** table.  
   The information can be provided at national level (by ommitting the euRBDCode), 
-  or the River Basin District level (by providing the euRBDCode each of the national RBDs). 
-
+  or the River Basin District level (by providing the euRBDCode each of the national RBDs).  
   Note that:
-
   * the options **gwChemicalMonitoringReference = NULL** and **gwQuantitativeMonitoringReference =  NULL** 
     are only valid if applied to River Basin Districts without designated groundwater bodies;
   * the options **swChemicalMonitoringReference =  NULL** and **swEcologicalMonitoringReference =  NULL** 
    are only valid  if applied to River Basin Districts without designated surface water bodies (if any).
    
-* The **useWaterbaseForMonitoringData** attribute allows data provider to indicate that the monitoring data statistics 
-  should be derived from the data reported to Waterbase.
-  
+* The **useWaterbaseForMonitoringData** attribute allows data provider 
+  to indicate that the monitoring data statistics 
+  should be *derived* from the data reported to Waterbase.  
   Note that:
-  
   * This applies to all surface water monitoring 
     *except Biological Quality Elements (QE1) and Hydromorphological Quality Elements (QE2)*
-    
   * This applies to all groundwater monitoring
     *except Quantitative Monitoring*
 
-* Finally, a single simplified **Monitoring** table is proposed.
-
-  For the 5th cycle of reporting, in 2033, it is expected that information about monitoring parameters, frequency, etc., 
-  can be derived from monitoring observations reported under the WISE-2, WISE-6 and WISE-3 dataflow.
-  The derived information would then fully replace the Monitoring table in the RBMP electronic reporting.
-  
-  * The **frequency** and **cycle** values are codified, to avoid ambiguities in the reporting and interpretation of results,
-    while mantaining the definitions used in the 2nd and 3rd RBMPs.
+* Finally, a single simplified **Monitoring** table is proposed.  
+  For the 5th cycle of reporting, in 2033, 
+  it is expected that information about monitoring parameters, frequency, etc., 
+  can be derived from monitoring observations 
+  reported under the WISE-2, WISE-6 and WISE-3 dataflows.
+  The derived information would then fully replace 
+  the Monitoring table in the RBMP electronic reporting.  
+  * The **frequency** and **cycle** values are codified, 
+    to avoid ambiguities in the reporting and interpretation of results, 
+    while mantaining the definitions used in the 2nd and 3rd RBMPs.  
 
 ```{mermaid}
 :name: DescriptiveMonitoring4thcycle
@@ -172,10 +168,12 @@ namespace Reporting{
 (heading_wfd_monitoring_codelists_4th_cycle)=
 ## Codelists associated with the Monitoring table - 4ᵗʰ cycle
 
-The diagram below present the codelists applicable to **Monitoring** table, which simplify and clarify codelists adopted in the 3ʳᵈ cycle.
-
-Note that for quality elements under QE3 (General parameters), the CAS code or EEA code must be used.
-Note also that the option 'EEA_00-00-0 - Other parameter' will *not* be available in the 4ᵗʰ cycle of reporting.
+The diagram below present the codelists applicable to **Monitoring** table, 
+which simplify and clarify codelists adopted in the 3ʳᵈ cycle.  
+Note that for quality elements under QE3 (General parameters), 
+the CAS code or EEA code must be used.  
+Note also that the option 'EEA_00-00-0 - Other parameter' 
+will *not* be available in the 4ᵗʰ cycle of reporting.  
 
 ```{mermaid}
 :name: CodelistsDescriptiveMonitoring4thcycle
@@ -254,14 +252,10 @@ namespace Codelist{
 
 ```
 
-## Annexes
+## Annexes - Data analysis - 3ʳᵈ cycle
 
-**Exploratory data analysis - 3ʳᵈ cycle**
-
-This section is not relevant for the understanding of the proposed model. 
-It contains some of the data analysis that supported the revision of the data model.
-
-Note that the execution of the queries is slow and may timeout for the entire European dataset in the discodata service. 
+```{include} FragmentAnnexesDataAnalysis3rdCycle
+```
 
 ### Monitoring of CAS_1912-24-9 - Atrazine 
 
@@ -401,181 +395,167 @@ See {numref}`atrazine_2022_2027_waterbase_country` for the monitoring results fo
 
 *Note* - The queries below illustrate the use of the existing European datasets, and do not necessarily match the queries used to obtain the tables above (although they may be adjusted for that purpose).
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
-
--- https://discodata.eea.europa.eu
--- Warning: the query may timeout in the public interface.
-
-/**
-    Monitoring programmes reported in WFD2022 for CAS_1912-24-9 - Atrazine
-**/
+  ```{code-block} sql
+  :caption: Monitoring programmes for Atrazine - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
 
   SELECT [parameterCode],[waterBodyCategory]
       ,count(*) as [numberOfRecords]
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
       ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
-  FROM [WISE_WFD].[latest].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
+  FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
   WHERE [hasDescriptiveData] = 1
   AND [cYear] = 2022
   AND [waterBodyCategory] IS NOT NULL
   AND [parameterCode] = 'CAS_1912-24-9 - Atrazine'
   GROUP BY [parameterCode],[waterBodyCategory]
   ORDER BY [numberOfRecords] DESC
-```
-</details><br/>
+  ```
 
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
--- https://discodata.eea.europa.eu
--- Warning: the query may timeout in the public interface.
+  ```{code-block} sql
+  :caption: Monitoring results for Atrazine - Waterbase
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+  -- Warning: the query may timeout in the public interface.
 
-/**
-    Monitoring results for CAS_1912-24-9 - Atrazine available in [Waterbase_T_WISE6_DisaggregatedData].
-    Monitoring sites with at least 1 valid observation of Atrazine in the period 2016-2021, by water body category,
-    where the analysed matrix is Water (total or dissolved fraction).
-**/
+  /**
+      Monitoring results for CAS_1912-24-9 - Atrazine available in [Waterbase_T_WISE6_DisaggregatedData].
+      Monitoring sites with at least 1 valid observation of Atrazine in the period 2016-2021, by water body category,
+      where the analysed matrix is Water (total or dissolved fraction).
+  **/
 
-SELECT [parameterWaterBodyCategory] AS [waterBodyCategory],
-       count(distinct a.[countryCode]) as [numberOfCountries],
-       count(distinct b.[waterBodyIdentifier]) numberOfWaterBodies,
-       count(distinct a.[monitoringSiteIdentifier]) numberOfMonitoringSites,
-       count(*) as numberOfSamples
+  SELECT [parameterWaterBodyCategory] AS [waterBodyCategory],
+        count(distinct a.[countryCode]) as [numberOfCountries],
+        count(distinct b.[waterBodyIdentifier]) numberOfWaterBodies,
+        count(distinct a.[monitoringSiteIdentifier]) numberOfMonitoringSites,
+        count(*) as numberOfSamples
 
-  FROM [WISE_SOE].[latest].[Waterbase_T_WISE6_DisaggregatedData] a
-  JOIN [WISE_SOE].[latest].[Waterbase_S_WISE_SpatialObject_DerivedData] b
-  ON a.monitoringSiteIdentifier = b.monitoringSiteIdentifier
-  AND a.monitoringSiteIdentifierScheme = b.monitoringSiteIdentifierScheme
-  WHERE [observedPropertyDeterminandCode] = 'CAS_1912-24-9' -- Atrazine
-  AND [phenomenonTimeReferenceYear] BETWEEN 2016 AND 2021 -- 2nd cycle
-  AND [procedureAnalysedMatrix] IN ( 'W', 'W-DIS')  -- Water (total or dissolved)
-  AND [metadata_statusCode] in ('accepted', 'valid', 'experimental', 'stable','derived')
-  AND ISNULL([resultObservationStatus],'') NOT IN ('L','M','N','O','Z')
-  AND a.[monitoringSiteIdentifierScheme] = 'euMonitoringSiteCode' -- WFD monitoring sites
-  AND a.[countryCode] != 'UK' -- Exclude the UK 
-  GROUP BY [parameterWaterBodyCategory]
+    FROM [WISE_SOE].[latest].[Waterbase_T_WISE6_DisaggregatedData] a
+    JOIN [WISE_SOE].[latest].[Waterbase_S_WISE_SpatialObject_DerivedData] b
+    ON a.monitoringSiteIdentifier = b.monitoringSiteIdentifier
+    AND a.monitoringSiteIdentifierScheme = b.monitoringSiteIdentifierScheme
+    WHERE [observedPropertyDeterminandCode] = 'CAS_1912-24-9' -- Atrazine
+    AND [phenomenonTimeReferenceYear] BETWEEN 2016 AND 2021 -- 2nd cycle
+    AND [procedureAnalysedMatrix] IN ( 'W', 'W-DIS')  -- Water (total or dissolved)
+    AND [metadata_statusCode] in ('accepted', 'valid', 'experimental', 'stable','derived')
+    AND ISNULL([resultObservationStatus],'') NOT IN ('L','M','N','O','Z')
+    AND a.[monitoringSiteIdentifierScheme] = 'euMonitoringSiteCode' -- WFD monitoring sites
+    AND a.[countryCode] != 'UK' -- Exclude the UK 
+    GROUP BY [parameterWaterBodyCategory]
+  ```
 
-```
-</details><br/>
+```{dropdown} Show code
 
+  ```{code-block} sql
+  :caption: Monitoring results for Atrazine - EEA Pesticides Indicator
+  :linenos:
 
-<details>
-<summary>Show code</summary>
+  SELECT [waterBodyCategory],
+        [countryCode],
+        [waterBodyIdentifier],
+        [monitoringSiteIdentifier],
+        sum([resultNumberOfSamples]) as [totalNumberOfSamples],
+        max([resultNumberOfSamples]) as [maximumNumberOfSamplesPerYear],
+        count(distinct [phenomenonTimeReferenceYear]) as [numberOfSamplingYears]
+  FROM
+  (SELECT [countryCode]
+        ,[monitoringSiteIdentifier]
+        ,[waterBodyIdentifier]
+        ,[waterBodyCategory]
+        ,[phenomenonTimeReferenceYear]
+        ,[eeaIndicator]
+        ,[resultNumberOfSamples]
+        
+    FROM [WISE_Indicators].[latest].[AggregatedData_Pesticides]
+    WHERE [eeaIndicator] = 'CAS_1912-24-9 - Atrazine'
+    AND [phenomenonTimeReferenceYear] BETWEEN 2016 AND 2021 -- 2nd cycle
+    AND [monitoringSiteIdentifierScheme] = 'euMonitoringSiteCode' -- WFD monitoring sites
 
-```sql
--- https://discodata.eea.europa.eu
--- Warning: the query may timeout in the public interface.
+    ) AS t
+    GROUP BY [waterBodyCategory],[countryCode],[waterBodyIdentifier],[monitoringSiteIdentifier]
+    ORDER BY [waterBodyCategory],[countryCode],[waterBodyIdentifier],[monitoringSiteIdentifier]
+  ```
 
-/**
-    Monitoring results for CAS_1912-24-9 - Atrazine used in the EEA pesticides indicator.
-**/
+```{dropdown} Show code
 
-SELECT [waterBodyCategory],
-       [countryCode],
-       [waterBodyIdentifier],
-       [monitoringSiteIdentifier],
-       sum([resultNumberOfSamples]) as [totalNumberOfSamples],
-       max([resultNumberOfSamples]) as [maximumNumberOfSamplesPerYear],
-       count(distinct [phenomenonTimeReferenceYear]) as [numberOfSamplingYears]
-FROM
-(SELECT [countryCode]
-      ,[monitoringSiteIdentifier]
-      ,[waterBodyIdentifier]
-      ,[waterBodyCategory]
-      ,[phenomenonTimeReferenceYear]
-      ,[eeaIndicator]
-      ,[resultNumberOfSamples]
-      
-  FROM [WISE_Indicators].[latest].[AggregatedData_Pesticides]
-  WHERE [eeaIndicator] = 'CAS_1912-24-9 - Atrazine'
-  AND [phenomenonTimeReferenceYear] BETWEEN 2016 AND 2021 -- 2nd cycle
-  AND [monitoringSiteIdentifierScheme] = 'euMonitoringSiteCode' -- WFD monitoring sites
+  ```{code-block} sql
+  :caption: Monitoring results for Atrazine by water category - EEA Pesticides Indicator
+  :linenos:
 
-  ) AS t
-  GROUP BY [waterBodyCategory],[countryCode],[waterBodyIdentifier],[monitoringSiteIdentifier]
-  ORDER BY [waterBodyCategory],[countryCode],[waterBodyIdentifier],[monitoringSiteIdentifier]
-```
-</details><br/>
-  
-<details>
-<summary>Show code</summary>
-  
-```sql
--- https://discodata.eea.europa.eu
--- Warning: the query may timeout in the public interface.
+  -- https://discodata.eea.europa.eu
+  -- Warning: the query may timeout in the public interface.
 
-/**
-    Monitoring results for CAS_1912-24-9 - Atrazine used in the EEA pesticides indicator.
-    RESULTS BY WATER CATEGORY
+  /**
+      Monitoring results for CAS_1912-24-9 - Atrazine used in the EEA pesticides indicator.
+      RESULTS BY WATER CATEGORY
 
-**/
+  **/
 
-SELECT [waterBodyCategory],
-       count(distinct [countryCode]) numberOfCountries,
-       count(distinct [waterBodyIdentifier]) numberOfWaterBodies,
-       count(distinct [monitoringSiteIdentifier]) numberOfMonitoringSites,
-       sum([resultNumberOfSamples]) as numberOfSamples
-FROM
-(SELECT [countryCode]
-      ,[monitoringSiteIdentifier]
-      ,[waterBodyIdentifier]
-      ,[waterBodyCategory]
-      ,[phenomenonTimeReferenceYear]
-      ,[eeaIndicator]
-      ,[resultNumberOfSamples]
-      
-  FROM [WISE_Indicators].[latest].[AggregatedData_Pesticides]
-  WHERE [eeaIndicator] = 'CAS_1912-24-9 - Atrazine'
-  AND [phenomenonTimeReferenceYear] BETWEEN 2016 AND 2021 -- 2nd cycle
-  AND [monitoringSiteIdentifierScheme] = 'euMonitoringSiteCode' -- WFD monitoring sites
+  SELECT [waterBodyCategory],
+        count(distinct [countryCode]) numberOfCountries,
+        count(distinct [waterBodyIdentifier]) numberOfWaterBodies,
+        count(distinct [monitoringSiteIdentifier]) numberOfMonitoringSites,
+        sum([resultNumberOfSamples]) as numberOfSamples
+  FROM
+  (SELECT [countryCode]
+        ,[monitoringSiteIdentifier]
+        ,[waterBodyIdentifier]
+        ,[waterBodyCategory]
+        ,[phenomenonTimeReferenceYear]
+        ,[eeaIndicator]
+        ,[resultNumberOfSamples]
+        
+    FROM [WISE_Indicators].[latest].[AggregatedData_Pesticides]
+    WHERE [eeaIndicator] = 'CAS_1912-24-9 - Atrazine'
+    AND [phenomenonTimeReferenceYear] BETWEEN 2016 AND 2021 -- 2nd cycle
+    AND [monitoringSiteIdentifierScheme] = 'euMonitoringSiteCode' -- WFD monitoring sites
 
-  ) AS t
-  GROUP BY [waterBodyCategory]
-  ORDER BY [waterBodyCategory]
-```
-</details><br/>
+    ) AS t
+    GROUP BY [waterBodyCategory]
+    ORDER BY [waterBodyCategory]
+  ```
 
 ### Groundwater quantitative monitoring - 3ʳᵈ cycle
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
+  ```{code-block} sql
+  :caption: Groundwater quantitative monitoring - 3ʳᵈ cycle
+  :linenos:
   --   https://discodata.eea.europa.eu/
   SELECT [parameterCode]
       ,count(*) as [numberOfRecords]
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
       ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
-  FROM [WISE_WFD].[latest].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
+  FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
   WHERE [hasDescriptiveData] = 1
   AND [cYear] = 2022
   AND [parameterCode] = 'EEA_00-01-1 - Quantitative monitoring'
   AND [waterBodyCategory] = 'GW'
   GROUP BY [parameterCode]
+  ```
 
-```
-</details><br/>  
 
 ### Groundwater chemical monitoring - 3ʳᵈ cycle
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
+  ```{code-block} sql
+  :caption: Groundwater chemical monitoring - 3ʳᵈ cycle
+  :linenos:
   --   https://discodata.eea.europa.eu/
 
   /**
-
   Groundwater chemical monitoring programmes reported in WFD2022 
   Except 'EEA_00-00-0 - Other parameter'.
-
   **/
 
   SELECT [parameterCode]
@@ -583,7 +563,7 @@ FROM
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
       ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
-  FROM [WISE_WFD].[latest].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
+  FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
   WHERE [hasDescriptiveData] = 1
   AND [cYear] = 2022
   AND [parameterCode] != 'EEA_00-00-0 - Other parameter'
@@ -591,19 +571,18 @@ FROM
   AND [waterBodyCategory] = 'GW'
   GROUP BY [parameterCode]
   ORDER BY [numberOfRecords] DESC
-
-```
-</details><br/>  
+  ```
 
 ### Surface water chemical monitoring - 3ʳᵈ cycle
 
 The full list of priority substances and river basin specific pollutants (except 'EEA_00-00-0 - Other parameter'), includes 231 substance codes. 
 Note, however, that more substances are being monitored, according to the reported data.
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
+  ```{code-block} sql
+  :caption: Groundwater chemical monitoring - 3ʳᵈ cycle
+  :linenos:
   --   https://discodata.eea.europa.eu/
 
   /**
@@ -622,7 +601,7 @@ Note, however, that more substances are being monitored, according to the report
   UNION
 
   SELECT DISTINCT [swFailingRBSP] AS [substanceCode] , 'rbsp' as [parameterType]
-  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_FailingRBSP]
+  FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_FailingRBSP]
   WHERE [hasDescriptiveData] = 1
   AND [cYear] = 2022
   AND [swFailingRBSP] != 'EEA_00-00-0 - Other parameter'
@@ -630,7 +609,7 @@ Note, however, that more substances are being monitored, according to the report
   AND [swFailingRBSP] NOT IN ('CAS_14797-55-8 - Nitrate','CAS_14797-65-0 - Nitrite','CAS_14798-03-9 - Ammonium','CAS_18785-72-3 - Sulphate','EEA_31613-01-1 - Non-ionised ammonia')
  
 ```
-</details><br/>  
+
 
 See {numref}`rbsp_qe31`: note that substances like Nitrate, Nitrite, Ammonium, Sulphate, and Non-ionised ammonia are sometimes reported 
 both as quality elements, and as river basin specific pollutants. There are additional substances in the 2nd cycle.
@@ -651,110 +630,110 @@ These situations should be clarified with MS (and clear guidelines provided so t
 | EEA_31613-01-1 - Non-ionised ammonia | QE3-1-6-1-3 - Non-ionised ammonia | 126 | 1 | SE |
 ```
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
+  ```{code-block} sql
+  :caption: River Basin Specific Pollutants - 3ʳᵈ cycle
+  :linenos:
+
   --   https://discodata.eea.europa.eu/
 
-SELECT [swFailingRBSP], [qeCode],
-     count(DISTINCT euSurfaceWaterBodyCode) as [numberOfWaterBodiesFailing],
-     count(DISTINCT countryCode) as [numberOfCountries],
-     max(countryCode) as [exampleCountry]
-FROM [WISE_WFD].[LATEST].[SWB_SurfaceWaterBody_FailingRBSP] a
-JOIN 
-(SELECT *
-FROM (VALUES
-('EEA_11-01-8 - PhytoplanktonEQR_G','QE1-1 - Phytoplankton'),
-('EEA_11-02-9 - PhytoplanktonEQR_H','QE1-1 - Phytoplankton'),
-('EEA_11-03-0 - PhytoplanktonEQR_A','QE1-1 - Phytoplankton'),
-('EEA_11-04-1 - PhytoplanktonEQR_E','QE1-1 - Phytoplankton'),
-('EEA_11-05-2 - Total phytoplankton biomass','QE1-1 - Phytoplankton'),
-('EEA_11-06-3 - Cyanobacteria biomass','QE1-1 - Phytoplankton'),
-('EEA_11-07-4 - Cyanobacteria proportion','QE1-1 - Phytoplankton'),
-('EEA_11-08-5 - PhytoplanktonEQR','QE1-1 - Phytoplankton'),
-('EEA_121-01-7 - MacroalgaeEQR','QE1-2-1 - Macroalgae'),
-('EEA_122-02-1 - AngiospermsEQR','QE1-2-2 - Angiosperms'),
-('EEA_123-01-3 - MacrophyteEQR_G','QE1-2-3 - Macrophytes'),
-('EEA_123-02-4 - MacrophyteEQR_H','QE1-2-3 - Macrophytes'),
-('EEA_123-03-5 - MacrophyteEQR_A','QE1-2-3 - Macrophytes'),
-('EEA_123-04-6 - MacrophyteEQR_E','QE1-2-3 - Macrophytes'),
-('EEA_123-05-7 - Macrophyte depth limit','QE1-2-3 - Macrophytes'),
-('EEA_123-06-8 - Charaphytes presence','QE1-2-3 - Macrophytes'),
-('EEA_123-07-9 - Isoetides presence','QE1-2-3 - Macrophytes'),
-('EEA_124-01-6 - PhytobenthosEQR_G','QE1-2-4 - Phytobenthos'),
-('EEA_124-02-7 - PhytobenthosEQR_H','QE1-2-4 - Phytobenthos'),
-('EEA_124-03-8 - PhytobenthosEQR_A','QE1-2-4 - Phytobenthos'),
-('EEA_124-04-9 - PhytobenthosEQR_E','QE1-2-4 - Phytobenthos'),
-('EEA_13-01-4 - InvertebrateEQR_G','QE1-3 - Benthic invertebrates'),
-('EEA_13-02-5 - InvertebrateEQR_H','QE1-3 - Benthic invertebrates'),
-('EEA_13-03-6 - InvertebrateEQR_A','QE1-3 - Benthic invertebrates'),
-('EEA_13-04-7 - InvertebrateEQR_E','QE1-3 - Benthic invertebrates'),
-('EEA_13-05-8 - InvertebrateEQR','QE1-3 - Benthic invertebrates'),
-('EEA_14-01-7 - FishEQR_G','QE1-4 - Fish'),
-('EEA_14-02-8 - FishEQR_H','QE1-4 - Fish'),
-('EEA_14-03-9 - FishEQR_A','QE1-4 - Fish'),
-('EEA_14-04-0 - FishEQR_E','QE1-4 - Fish'),
-('EEA_14-05-1 - FishEQR','QE1-4 - Fish'),
-('EEA_15-01-0 - Escherichia coli','QE1-5 - Other species'),
-('EEA_15-02-1 - Intestinal enterococci','QE1-5 - Other species'),
-('EEA_15-03-2 - Clostridium perfringens','QE1-5 - Other species'),
-('EEA_15-04-3 - Coliform bacteria','QE1-5 - Other species'),
-('EEA_15-05-4 - Legionella','QE1-5 - Other species'),
-('EEA_15-06-5 - Intestinal nematodes','QE1-5 - Other species'),
-('EEA_3111-01-1 - Secchi depth','QE3-1-1-1 - Secchi disk depth'),
-('EEA_31-02-7 - Total suspended solids','QE3-1-1-2 - Other determinand for transparency'),
-('EEA_31-03-8 - Total dissolved solids','QE3-1-1-2 - Other determinand for transparency'),
-('EEA_3112-01-4 - Turbidity','QE3-1-1-2 - Other determinand for transparency'),
-('EEA_3121-01-5 - Water temperature','QE3-1-2-1 - Water temperature'),
-('EEA_3131-01-9 - Oxygen saturation','QE3-1-3-1 - Oxygen saturation'),
-('EEA_3132-01-2 - Dissolved oxygen','QE3-1-3-2 - Dissolved oxygen'),
-('EEA_3133-01-5 - BOD5','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3133-02-6 - BOD7','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3133-03-7 - CODCr','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3133-04-8 - CODMn','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3133-05-9 - Dissolved organic carbon (DOC)','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3133-06-0 - Total organic carbon (TOC)','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3133-07-1 - Oxidisability','QE3-1-3-3 - Other determinand for oxygenation conditions'),
-('EEA_3141-01-3 - Salinity','QE3-1-4-1 - Practical salinity units'),
-('CAS_16887-00-6 - Chloride','QE3-1-4-2 - Other determinand for salinity'),
-('CAS_18785-72-3 - Sulphate','QE3-1-4-2 - Other determinand for salinity'),
-('EEA_31-01-6 - Hardness','QE3-1-4-2 - Other determinand for salinity'),
-('EEA_3142-01-6 - Electrical conductivity','QE3-1-4-2 - Other determinand for salinity'),
-('EEA_3142-02-7 - Chlorine Cl-','QE3-1-4-2 - Other determinand for salinity'),
-('EEA_3151-01-7 - Acid neutralising capacity','QE3-1-5-1 - Acid neutralising capacity'),
-('EEA_3152-01-0 - pH','QE3-1-5-2 - pH'),
-('CAS_71-52-3 - Hydrogen Carbonate (Bicarbonate) HCO3','QE3-1-5-3 - Other determinand for acidification status'),
-('EEA_3153-01-3 - Acid neutralising capacity to pH 4.5','QE3-1-5-3 - Other determinand for acidification status'),
-('EEA_3153-02-4 - Alkalinity','QE3-1-5-3 - Other determinand for acidification status'),
-('EEA_3161-01-1 - Kjeldahl nitrogen','QE3-1-6-1 - Nitrogen conditions'),
-('EEA_3161-02-2 - Total oxidised nitrogen','QE3-1-6-1 - Nitrogen conditions'),
-('EEA_3161-03-3 - Total organic nitrogen','QE3-1-6-1 - Nitrogen conditions'),
-('EEA_3161-04-4 - Particulate organic nitrogen','QE3-1-6-1 - Nitrogen conditions'),
-('EEA_3161-05-5 - Total inorganic nitrogen','QE3-1-6-1 - Nitrogen conditions'),
-('CAS_14797-55-8 - Nitrate','QE3-1-6-1-1 - Nitrate'),
-('CAS_14797-65-0 - Nitrite','QE3-1-6-1-2 - Nitrite'),
-('EEA_31613-01-1 - Non-ionised ammonia','QE3-1-6-1-3 - Non-ionised ammonia'),
-('CAS_14798-03-9 - Ammonium','QE3-1-6-1-4 - Ammonium'),
-('EEA_31615-01-7 - Total nitrogen','QE3-1-6-1-5 - Total nitrogen'),
-('CAS_14265-44-2 - Phosphate','QE3-1-6-2-1 - Orthophosphate'),
-('CAS_7723-14-0 - Total phosphorus','QE3-1-6-2-2 - Total phosphorus'),
-('EEA_3163-01-7 - Silicate','QE3-1-6-3 - Silicate'),
-('EEA_3164-01-0 - Chlorophyll a','QE3-1-6-4 - Other determinand for nutrient conditions'),
-('EEA_3164-07-6 - Total nitrogen to total phosphorus ratio','QE3-1-6-4 - Other determinand for nutrient conditions'),
-('EEA_3164-08-7 - Nitrate to orthophosphate ratio','QE3-1-6-4 - Other determinand for nutrient conditions')
-) AS t(parameterCode, qeCode))
+  SELECT [swFailingRBSP], [qeCode],
+      count(DISTINCT euSurfaceWaterBodyCode) as [numberOfWaterBodiesFailing],
+      count(DISTINCT countryCode) as [numberOfCountries],
+      max(countryCode) as [exampleCountry]
+  FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_FailingRBSP] a
+  JOIN 
+  (SELECT *
+  FROM (VALUES
+  ('EEA_11-01-8 - PhytoplanktonEQR_G','QE1-1 - Phytoplankton'),
+  ('EEA_11-02-9 - PhytoplanktonEQR_H','QE1-1 - Phytoplankton'),
+  ('EEA_11-03-0 - PhytoplanktonEQR_A','QE1-1 - Phytoplankton'),
+  ('EEA_11-04-1 - PhytoplanktonEQR_E','QE1-1 - Phytoplankton'),
+  ('EEA_11-05-2 - Total phytoplankton biomass','QE1-1 - Phytoplankton'),
+  ('EEA_11-06-3 - Cyanobacteria biomass','QE1-1 - Phytoplankton'),
+  ('EEA_11-07-4 - Cyanobacteria proportion','QE1-1 - Phytoplankton'),
+  ('EEA_11-08-5 - PhytoplanktonEQR','QE1-1 - Phytoplankton'),
+  ('EEA_121-01-7 - MacroalgaeEQR','QE1-2-1 - Macroalgae'),
+  ('EEA_122-02-1 - AngiospermsEQR','QE1-2-2 - Angiosperms'),
+  ('EEA_123-01-3 - MacrophyteEQR_G','QE1-2-3 - Macrophytes'),
+  ('EEA_123-02-4 - MacrophyteEQR_H','QE1-2-3 - Macrophytes'),
+  ('EEA_123-03-5 - MacrophyteEQR_A','QE1-2-3 - Macrophytes'),
+  ('EEA_123-04-6 - MacrophyteEQR_E','QE1-2-3 - Macrophytes'),
+  ('EEA_123-05-7 - Macrophyte depth limit','QE1-2-3 - Macrophytes'),
+  ('EEA_123-06-8 - Charaphytes presence','QE1-2-3 - Macrophytes'),
+  ('EEA_123-07-9 - Isoetides presence','QE1-2-3 - Macrophytes'),
+  ('EEA_124-01-6 - PhytobenthosEQR_G','QE1-2-4 - Phytobenthos'),
+  ('EEA_124-02-7 - PhytobenthosEQR_H','QE1-2-4 - Phytobenthos'),
+  ('EEA_124-03-8 - PhytobenthosEQR_A','QE1-2-4 - Phytobenthos'),
+  ('EEA_124-04-9 - PhytobenthosEQR_E','QE1-2-4 - Phytobenthos'),
+  ('EEA_13-01-4 - InvertebrateEQR_G','QE1-3 - Benthic invertebrates'),
+  ('EEA_13-02-5 - InvertebrateEQR_H','QE1-3 - Benthic invertebrates'),
+  ('EEA_13-03-6 - InvertebrateEQR_A','QE1-3 - Benthic invertebrates'),
+  ('EEA_13-04-7 - InvertebrateEQR_E','QE1-3 - Benthic invertebrates'),
+  ('EEA_13-05-8 - InvertebrateEQR','QE1-3 - Benthic invertebrates'),
+  ('EEA_14-01-7 - FishEQR_G','QE1-4 - Fish'),
+  ('EEA_14-02-8 - FishEQR_H','QE1-4 - Fish'),
+  ('EEA_14-03-9 - FishEQR_A','QE1-4 - Fish'),
+  ('EEA_14-04-0 - FishEQR_E','QE1-4 - Fish'),
+  ('EEA_14-05-1 - FishEQR','QE1-4 - Fish'),
+  ('EEA_15-01-0 - Escherichia coli','QE1-5 - Other species'),
+  ('EEA_15-02-1 - Intestinal enterococci','QE1-5 - Other species'),
+  ('EEA_15-03-2 - Clostridium perfringens','QE1-5 - Other species'),
+  ('EEA_15-04-3 - Coliform bacteria','QE1-5 - Other species'),
+  ('EEA_15-05-4 - Legionella','QE1-5 - Other species'),
+  ('EEA_15-06-5 - Intestinal nematodes','QE1-5 - Other species'),
+  ('EEA_3111-01-1 - Secchi depth','QE3-1-1-1 - Secchi disk depth'),
+  ('EEA_31-02-7 - Total suspended solids','QE3-1-1-2 - Other determinand for transparency'),
+  ('EEA_31-03-8 - Total dissolved solids','QE3-1-1-2 - Other determinand for transparency'),
+  ('EEA_3112-01-4 - Turbidity','QE3-1-1-2 - Other determinand for transparency'),
+  ('EEA_3121-01-5 - Water temperature','QE3-1-2-1 - Water temperature'),
+  ('EEA_3131-01-9 - Oxygen saturation','QE3-1-3-1 - Oxygen saturation'),
+  ('EEA_3132-01-2 - Dissolved oxygen','QE3-1-3-2 - Dissolved oxygen'),
+  ('EEA_3133-01-5 - BOD5','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3133-02-6 - BOD7','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3133-03-7 - CODCr','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3133-04-8 - CODMn','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3133-05-9 - Dissolved organic carbon (DOC)','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3133-06-0 - Total organic carbon (TOC)','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3133-07-1 - Oxidisability','QE3-1-3-3 - Other determinand for oxygenation conditions'),
+  ('EEA_3141-01-3 - Salinity','QE3-1-4-1 - Practical salinity units'),
+  ('CAS_16887-00-6 - Chloride','QE3-1-4-2 - Other determinand for salinity'),
+  ('CAS_18785-72-3 - Sulphate','QE3-1-4-2 - Other determinand for salinity'),
+  ('EEA_31-01-6 - Hardness','QE3-1-4-2 - Other determinand for salinity'),
+  ('EEA_3142-01-6 - Electrical conductivity','QE3-1-4-2 - Other determinand for salinity'),
+  ('EEA_3142-02-7 - Chlorine Cl-','QE3-1-4-2 - Other determinand for salinity'),
+  ('EEA_3151-01-7 - Acid neutralising capacity','QE3-1-5-1 - Acid neutralising capacity'),
+  ('EEA_3152-01-0 - pH','QE3-1-5-2 - pH'),
+  ('CAS_71-52-3 - Hydrogen Carbonate (Bicarbonate) HCO3','QE3-1-5-3 - Other determinand for acidification status'),
+  ('EEA_3153-01-3 - Acid neutralising capacity to pH 4.5','QE3-1-5-3 - Other determinand for acidification status'),
+  ('EEA_3153-02-4 - Alkalinity','QE3-1-5-3 - Other determinand for acidification status'),
+  ('EEA_3161-01-1 - Kjeldahl nitrogen','QE3-1-6-1 - Nitrogen conditions'),
+  ('EEA_3161-02-2 - Total oxidised nitrogen','QE3-1-6-1 - Nitrogen conditions'),
+  ('EEA_3161-03-3 - Total organic nitrogen','QE3-1-6-1 - Nitrogen conditions'),
+  ('EEA_3161-04-4 - Particulate organic nitrogen','QE3-1-6-1 - Nitrogen conditions'),
+  ('EEA_3161-05-5 - Total inorganic nitrogen','QE3-1-6-1 - Nitrogen conditions'),
+  ('CAS_14797-55-8 - Nitrate','QE3-1-6-1-1 - Nitrate'),
+  ('CAS_14797-65-0 - Nitrite','QE3-1-6-1-2 - Nitrite'),
+  ('EEA_31613-01-1 - Non-ionised ammonia','QE3-1-6-1-3 - Non-ionised ammonia'),
+  ('CAS_14798-03-9 - Ammonium','QE3-1-6-1-4 - Ammonium'),
+  ('EEA_31615-01-7 - Total nitrogen','QE3-1-6-1-5 - Total nitrogen'),
+  ('CAS_14265-44-2 - Phosphate','QE3-1-6-2-1 - Orthophosphate'),
+  ('CAS_7723-14-0 - Total phosphorus','QE3-1-6-2-2 - Total phosphorus'),
+  ('EEA_3163-01-7 - Silicate','QE3-1-6-3 - Silicate'),
+  ('EEA_3164-01-0 - Chlorophyll a','QE3-1-6-4 - Other determinand for nutrient conditions'),
+  ('EEA_3164-07-6 - Total nitrogen to total phosphorus ratio','QE3-1-6-4 - Other determinand for nutrient conditions'),
+  ('EEA_3164-08-7 - Nitrate to orthophosphate ratio','QE3-1-6-4 - Other determinand for nutrient conditions')
+  ) AS t(parameterCode, qeCode))
 
-  b
-  on a.[swFailingRBSP] = b.[parameterCode]
-  WHERE [hasDescriptiveData] = 1
-  AND [cYear] = 2022
-  AND [swFailingRBSP] != 'EEA_00-00-0 - Other parameter'
-  AND [swFailingRBSP] != 'None'
-  GROUP BY [swFailingRBSP], [qeCode]
-
-```
-</details><br/>  
+    b
+    on a.[swFailingRBSP] = b.[parameterCode]
+    WHERE [hasDescriptiveData] = 1
+    AND [cYear] = 2022
+    AND [swFailingRBSP] != 'EEA_00-00-0 - Other parameter'
+    AND [swFailingRBSP] != 'None'
+    GROUP BY [swFailingRBSP], [qeCode]
+  ```
 
 ### Surface water ecological monitoring - 3ʳᵈ cycle
 
@@ -767,7 +746,7 @@ Given that both options - quality element code and substance code - were used in
 In the 4ᵗʰ cycle, the use of the CAS and EEA codes should be recommended.
 At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoided.
 
-```{table} Surface water ecological monitoring, as reported in the 3ʳᵈ cycle RBMPs.
+```{table} Surface water ecological monitoring - 3ʳᵈ cycle
 :name: sw_ecological_monitoring
 :width: 100%
 :align: center
@@ -815,17 +794,18 @@ At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoi
 | QE3-3 - River Basin Specific Pollutants | 9174 | 9174 | 7591 | 14 |
 ```
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
+  ```{code-block} sql
+  :caption: Surface water ecological monitoring - 3ʳᵈ cycle
+  :linenos:
   --   https://discodata.eea.europa.eu/
   SELECT COALESCE(b.[qeCode], a.[parameterCode]) AS [qeCode]
       ,count(*) as [numberOfRecords]
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
       ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
-  FROM [WISE_WFD].[latest].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] a
+  FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] a
   LEFT JOIN 
   (
     SELECT *
@@ -917,34 +897,33 @@ At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoi
   AND [waterBodyCategory] != 'GW'
   AND (a.[parameterCode] LIKE 'QE%' OR b.[qeCode] IS NOT NULL)
   GROUP BY COALESCE(b.[qeCode], a.[parameterCode])
-```
-</details><br/>  
-
+  ```
+ 
 ### Assessment method for quality elements - 3ʳᵈ cycle
 
 All the information analysed above refers to "in-situ" data, i.e. conventional monitoring.
 
-<details>
-<summary>Show code</summary>
+```{dropdown} Show code
 
-```sql
+  ```{code-block} sql
+  :caption: Assessment method for quality elements - 3ʳᵈ cycle
+  :linenos:
+
   --   https://discodata.eea.europa.eu/
 
   /**
-  
   For the 4ᵗʰ cycle, the assessment methods codelist provided with QualityElement table must also include non-conventional monitoring. 
-  
   **/
 
-SELECT [qeCode]
-      ,[qeMonitoringResults]
-      ,count(*) as [numberOfWaterBodies]
-      ,count(distinct [countryCode]) as [numberOfCountries]
-  FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_QualityElement]
-  WHERE [hasDescriptiveData] = 1
-  AND [cYear] = 2022
-  AND [qeStatusOrPotentialValue] IN ('1', '2', '3', '4','5')
-  GROUP BY [qeCode], [qeMonitoringResults]
-  ORDER BY [qeCode], [qeMonitoringResults]
+  SELECT [qeCode]
+        ,[qeMonitoringResults]
+        ,count(*) as [numberOfWaterBodies]
+        ,count(distinct [countryCode]) as [numberOfCountries]
+    FROM [WISE_WFD].[latest].[SWB_SurfaceWaterBody_QualityElement]
+    WHERE [hasDescriptiveData] = 1
+    AND [cYear] = 2022
+    AND [qeStatusOrPotentialValue] IN ('1', '2', '3', '4','5')
+    GROUP BY [qeCode], [qeMonitoringResults]
+    ORDER BY [qeCode], [qeMonitoringResults]
   ```
-</details><br/>  
+ 

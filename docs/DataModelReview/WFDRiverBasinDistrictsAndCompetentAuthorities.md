@@ -120,30 +120,33 @@ However, all records in the **RiverBasinDistrict** dataset have a fixed value fo
 :zoom:
 ```
 
-## Annexes
+## Annexes - Data analysis - 3ʳᵈ cycle
 
-**Exploratory data analysis - 3ʳᵈ cycle**
+```{include} FragmentAnnexesDataAnalysis3rdCycle
+```
 
-### National and international river basins districts - 3ʳᵈ cycle
+### National and international RBDs - 3ʳᵈ cycle
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the delineation of the River Basin Districts did not change,
 then it is not necessary to report the RiverBasinDistrict dataset again.
 
-<details>
-<summary>Show code</summary>
-	
-```sql
--- https://discodata.eea.europa.eu/
+```{dropdown} Show code
 
-SELECT [countryCode]
-    ,[euRBDCode] AS [thematicIdIdentifier]
-    ,'euRBDCode' AS [thematicIdIdentifierScheme]
-    ,IIF([internationalRBD] = 'Yes', 'internationalRiverBasionDistrict', 'nationalRiverBasionDistrict') AS [specialisedZoneType]
-FROM [WISE_WFD].[latest].[RBDSUCA_RBD]
-WHERE [cYear] = 2022
-```
-</details><br/>
+  ```{code-block} sql
+  :caption: National and international RBDs - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+
+  SELECT [countryCode]
+      ,[euRBDCode] AS [thematicIdIdentifier]
+      ,'euRBDCode' AS [thematicIdIdentifierScheme]
+      ,IIF([internationalRBD] = 'Yes', 'internationalRiverBasionDistrict', 'nationalRiverBasionDistrict') 
+        AS [specialisedZoneType]
+  FROM [WISE_WFD].[v2r1].[RBDSUCA_RBD]
+  WHERE [cYear] = 2022
+
+  ```
 	
 ### Competent authorities and their roles - 3ʳᵈ cycle
 
@@ -151,61 +154,60 @@ The query below retrieves the information reporting during the 3rd cycle.
 If the information is correct, and the competent authorities and their roles have not changed,
 then it is not necessary to report the information again.
 
-<details>
-<summary>Show code</summary>
-	
-```sql
--- https://discodata.eea.europa.eu/
-SELECT [countryCode],
-    [euRBDCode], 
-    [primeCompetentAuthority] AS [euCACode], 
-    [roleCode]
-FROM [WISE_WFD]. [latest]. [RBDSUCA_RBD_primeCompetentAuthority] vBase
+```{dropdown} Show code
 
-JOIN 
+  ```{code-block} sql
+  :caption: Competent authorities and their roles - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+  SELECT [countryCode],
+      [euRBDCode], 
+      [primeCompetentAuthority] AS [euCACode], 
+      [roleCode]
+  FROM [WISE_WFD]. [v2r1]. [RBDSUCA_RBD_primeCompetentAuthority] vBase
 
-    ( SELECT [euCACode],STRING_AGG(b.[roleCode], ',') AS [roleCode]
-       FROM
+  JOIN 
 
-        (SELECT [euCACode], [otherRole] AS [roleCode] 
-         FROM [WISE_WFD]. [latest]. [RBDSUCA_CompetentAuthority_otherRole] 
-         WHERE [cYear] = 2022 AND [otherRole] IS NOT NULL
+      ( SELECT [euCACode],STRING_AGG(b.[roleCode], ',') AS [roleCode]
+        FROM
 
-         UNION
+          (SELECT [euCACode], [otherRole] AS [roleCode] 
+          FROM [WISE_WFD]. [latest]. [RBDSUCA_CompetentAuthority_otherRole] 
+          WHERE [cYear] = 2022 AND [otherRole] IS NOT NULL
 
-         SELECT [euCACode], [mainRole] AS [roleCode] 
-         FROM [WISE_WFD]. [latest]. [RBDSUCA_CompetentAuthority_mainRole] 
-         WHERE [cYear] = 2022 AND [mainRole] IS NOT NULL ) 
-        
-        AS vUnion
- 
-        JOIN 
-    
-        (SELECT *
-        FROM (VALUES
-        ('1 - Pressure and impact analysis',  'pressureAndImpactAnalysis'),
-        ('2 - Economic analysis',  'economicAnalysis'),
-        ('3 - Monitoring of surface water',  'monitoringOfSurfaceWater'),
-        ('4 - Monitoring of groundwater',  'monitoringOfGroundwater'),
-        ('5 - Assessment of status of surface water',  'assessmentOfStatusOfSurfaceWater'),
-        ('6 - Assessment of status of groundwater',  'assessmentOfStatusOfGroundwater'),
-        ('7 - Preparation of RBMP',  'preparationOfRBMP'),
-        ('8 - Preparation of PoM',  'preparationOfPoM'),
-        ('9 - Implementation of measures',  'implementationOfMeasures'),
-        ('10 - Public participation', 'publicParticipation'),
-        ('11 - Enforcement of regulations', 'enforcementOfRegulations'),
-        ('12 - Co-ordination of implementation', 'coordinationOfImplementation'),
-        ('13 - Reporting to the European Commission', 'reportingToTheEuropeanCommission')
-        ) AS t(originalValue, roleCode)) AS b
+          UNION
 
-        ON vUnion.roleCode = b.originalValue
+          SELECT [euCACode], [mainRole] AS [roleCode] 
+          FROM [WISE_WFD]. [latest]. [RBDSUCA_CompetentAuthority_mainRole] 
+          WHERE [cYear] = 2022 AND [mainRole] IS NOT NULL ) 
+          
+          AS vUnion
+  
+          JOIN 
+      
+          (SELECT *
+          FROM (VALUES
+          ('1 - Pressure and impact analysis',  'pressureAndImpactAnalysis'),
+          ('2 - Economic analysis',  'economicAnalysis'),
+          ('3 - Monitoring of surface water',  'monitoringOfSurfaceWater'),
+          ('4 - Monitoring of groundwater',  'monitoringOfGroundwater'),
+          ('5 - Assessment of status of surface water',  'assessmentOfStatusOfSurfaceWater'),
+          ('6 - Assessment of status of groundwater',  'assessmentOfStatusOfGroundwater'),
+          ('7 - Preparation of RBMP',  'preparationOfRBMP'),
+          ('8 - Preparation of PoM',  'preparationOfPoM'),
+          ('9 - Implementation of measures',  'implementationOfMeasures'),
+          ('10 - Public participation', 'publicParticipation'),
+          ('11 - Enforcement of regulations', 'enforcementOfRegulations'),
+          ('12 - Co-ordination of implementation', 'coordinationOfImplementation'),
+          ('13 - Reporting to the European Commission', 'reportingToTheEuropeanCommission')
+          ) AS t(originalValue, roleCode)) AS b
 
-    GROUP BY [euCACode] ) AS vRoles
-    ON vBase.primeCompetentAuthority = vRoles.euCACode
-    WHERE [cYear] = 2022
-```
+          ON vUnion.roleCode = b.originalValue
 
-</details><br/>
+      GROUP BY [euCACode] ) AS vRoles
+      ON vBase.primeCompetentAuthority = vRoles.euCACode
+      WHERE [cYear] = 2022
+  ```
 
 ## References
 

@@ -1,0 +1,15 @@
+This section contains some of the exploratory data analysis 
+that supported the revision of the data model.
+
+It is not relevant for the understanding of the proposed model,
+but may be informative for data providers involved 
+in the testing phase of the 4ᵗʰ cycle dataflows.
+
+```{admonition} About the EEA discodata service
+:class: dropdown
+The example queries can be executed interactively in the EEA discodata service.  
+Note that some queries may timeout.  
+If you need to analyse the entire European dataset, download it in CSV format.  
+For example, the link `https://discodata.eea.europa.eu/download/WISE_WFD/v2r1/GWB_GroundWaterBody` 
+downloads the data of the `[WISE_WFD].[v2r1].[GWB_GroundWaterBody]` table.
+```
