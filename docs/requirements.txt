@@ -10,6 +10,8 @@ sphinxcontrib.bibtex
 sphinxcontrib.mermaid 
 sphinxcontrib-sqltable
 sphinx-design
+sphinx_copybutton
+sphinx_togglebutton
 nbsphinx
 
 # Add your theme here, e.g., sphinx-rtd-theme

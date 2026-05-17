@@ -20,7 +20,9 @@ extensions = ['sphinx.ext.autodoc',
                 'sphinxcontrib.mermaid', 
                 'sphinxcontrib.sqltable',
                 'nbsphinx',
-                'sphinx_design']
+                'sphinx_design',
+                'sphinx_copybutton',
+                'sphinx_togglebutton']
 
 bibtex_bibfiles = ['./_sharedFiles/Bibliography.bib']
 
@@ -37,6 +39,12 @@ numfig_format = {
     'section': 'Section %s',     
 }
 
+# -- Sphinx-copybutton options ---------------------------------------------
+# Exclude copy button from appearing over notebook cell numbers by using :not()
+# The default copybutton selector is `div.highlight pre`
+# https://github.com/executablebooks/sphinx-copybutton/blob/master/sphinx_copybutton/__init__.py#L82
+copybutton_exclude = ".linenos, .gp"
+copybutton_selector = ":not(.prompt) > div.highlight pre"
 
 # MERMAID DIAGRAMS 
 mermaid_init_js = """
