@@ -3,14 +3,10 @@
 
 Last update: 2026-05-14
 
-```{warning}
+```{danger}
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
 ```
 
-```{contents} Table of Contents
-:depth: 2
-:local:
-```
 (heading_wfd_surface_water_methodologies_purpose_and_overview)=
 ## Purpose and overview
 

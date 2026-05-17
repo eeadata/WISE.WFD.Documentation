@@ -393,7 +393,10 @@ See {numref}`atrazine_2022_2027_waterbase_country` for the monitoring results fo
 
 ```
 
-*Note* - The queries below illustrate the use of the existing European datasets, and do not necessarily match the queries used to obtain the tables above (although they may be adjusted for that purpose).
+```{admonition} About the examples below
+:class: dropdown
+The SQL queries below illustrate the use of the existing European datasets, and do not necessarily match the queries used to obtain the tables above (although they may be adjusted for that purpose).
+```
 
 ```{dropdown} Show code
 

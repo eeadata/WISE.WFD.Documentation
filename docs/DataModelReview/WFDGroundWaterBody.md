@@ -3,7 +3,7 @@
 
 Last update: 2026-05-14
 
-```{warning}
+```{danger}
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
 ```
 

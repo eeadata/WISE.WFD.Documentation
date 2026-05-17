@@ -1,0 +1,69 @@
+---
+config:
+  layout: dagre
+---
+
+flowchart LR
+
+title@{ shape: braces, label: "CIS Guidance document 13, Figure 2" }
+
+    %% Defining the nodes
+
+    initial([start])
+    final([end])
+    
+    Good["Good and above potential"]:::Green
+    Moderate["Moderate potential"]:::Yellow
+    Poor["Poor potential"]:::Orange
+    Bad["Bad potential"]:::Red    
+
+    is_HyMoQE_Good{"Do the hydro-morphological conditions meet maximum ecological potential?"}
+    is_BQE_High{"Do the estimated values for the biological quality elements meet maximum ecological potential conditions?"}
+    is_BQE_Good{"Do the estimated values for the biological quality elements deviate only slightly from maximum ecological potential values?"}
+
+    is_PhysChemQE_High{"Do the physico-chemical conditions meet maximum ecological potential?"}
+    is_PhysChemQE_Good{"Do the physico-chemical conditions ensure ecosystem functioning?"}
+    
+    ClassifyUsingBQEOnly["Classify on the basis of the biological deviation from maximum ecological potential conditions"]
+    is_BQE_Moderate{"Is the deviation moderate?"}
+    is_BQE_Poor{"Is the deviation large?"}
+
+    %% Flow 
+
+    initial --> is_HyMoQE_Good
+    
+    is_HyMoQE_Good ==> |Yes|is_BQE_High
+    is_BQE_High ====> |Yes|is_PhysChemQE_High
+    is_PhysChemQE_High ==>|Yes|Good
+
+    is_PhysChemQE_High ==>|No|is_PhysChemQE_Good
+    is_PhysChemQE_Good ==>|Yes|Good
+
+    is_HyMoQE_Good ==> |No|is_BQE_Good
+    is_BQE_High ==>|No|is_BQE_Good
+    is_BQE_Good ==>|Yes|is_PhysChemQE_Good
+    
+    Good --> final
+    
+    is_PhysChemQE_Good ==>|No|Moderate
+    
+    is_BQE_Good ==>|No|ClassifyUsingBQEOnly
+    ClassifyUsingBQEOnly ==> is_BQE_Moderate
+    is_BQE_Moderate ==>|Yes|Moderate
+    Moderate --> final
+    
+    is_BQE_Moderate ==>|No|is_BQE_Poor
+    is_BQE_Poor ==>|Yes|Poor
+    Poor --> final
+    
+    is_BQE_Poor ==>|Extreme deviation|Bad
+    Bad --> final
+
+    %% styling
+    classDef state stroke-width:4px,fill:transparent
+    classDef Blue fill:#5893A9,stroke:black;
+    classDef Green fill:#6FB22C,stroke:black;
+    classDef Yellow fill:#FFF6A6,stroke:black;
+    classDef Orange fill:#F6A800,black;
+    classDef Red fill:#E63D5C,black;
+    
