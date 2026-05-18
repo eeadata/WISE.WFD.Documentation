@@ -3,7 +3,7 @@
 flowchart LR
 
 %% Groundwater Quantitative Status Exemptions
-title@{ shape: braces, label: "Groundwater Quantitative Status Exemptions" }
+title@{ shape: braces, label: "Groundwater Quantitative <br/>Status Exemptions" }
 
 %% Defining the nodes
 		
@@ -11,23 +11,23 @@ initial([start])
 final([end])
 
 %% duplicate nodeS for just for flowchart readability
-hasNoApplicableExemption_1("no exemption applicable"):::stateRed
-hasNoApplicableExemption_2("no exemption required"):::stateBlue
-hasNoApplicableExemption_3("no exemption applicable"):::stateRed
+hasNoApplicableExemption_1("no exemption <br/>applicable"):::stateRed
+hasNoApplicableExemption_2("no exemption <br/>required"):::stateBlue
+hasNoApplicableExemption_3("no exemption <br/>applicable"):::stateRed
 
-hasExemption44n("Article 4(4) - Extension of deadline (natural conditions)"):::state
-hasExemption45("Article 4(5) - Less stringent objectives"):::state
-hasExemption46("Article 4(6) - Temporary deterioration"):::state
-hasExemption47("Article 4(7) - New modification/project"):::state
+hasExemption44n("Article 4(4) <br/> Extension of deadline (natural conditions)"):::state
+hasExemption45("Article 4(5) <br/> Less stringent objectives"):::state
+hasExemption46("Article 4(6) <br/> Temporary deterioration"):::state
+hasExemption47("Article 4(7) <br/> New modification/project"):::state
 
 %% Defining the decisions
 
-isQuantitativeStatusIn2027{"Quantitative Status in 2027?"}
-isDeteriorationExpected{"Deterioration expected beyond 2027?"}
-isDeteriorationObserved{"Deterioration observed in 2027 or earlier?"}
-isGoodStatusAchievable{"Is good status achievable?"}
-isUnfeasibleOrCostly{"Are measures unfeasible or disproportionately costly?"}
-isDelayDueToNaturalConditions{"Delay due to natural conditions?"}
+isQuantitativeStatusIn2027{"Quantitative Status <br/>in 2027?"}
+isDeteriorationExpected{"Deterioration <br/>expected <br/>beyond 2027?"}
+isDeteriorationObserved{"Deterioration <br/>observed <br/>in 2027 or earlier?"}
+isGoodStatusAchievable{"Is good status <br/>achievable?"}
+isUnfeasibleOrCostly{"Are measures <br/>unfeasible or <br/>disproportionately costly?"}
+isDelayDueToNaturalConditions{"Delay due <br/>to natural conditions?"}
 
 %% Flow to TERMINATORS
 
@@ -50,12 +50,12 @@ isQuantitativeStatusIn2027 ==>|not failing|isDeteriorationExpected
 isDeteriorationExpected ==>|no|hasNoApplicableExemption_2
 
 %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-isDeteriorationExpected ==>|"yes [new modification OR sustainable human development]"|hasExemption47
+isDeteriorationExpected ==>|"yes <br/>[new modification <br/>OR sustainable human development]"|hasExemption47
 
 %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
 isQuantitativeStatusIn2027 ==>|failing|isDeteriorationObserved
-isDeteriorationObserved ==>|"yes \n [new modification OR sustainable human development]"|hasExemption47
-isDeteriorationObserved ==>|"yes \n [accidents OR force majeure OR natural causes]"|hasExemption46
+isDeteriorationObserved ==>|"yes <br/> [new modification <br/>OR sustainable human development]"|hasExemption47
+isDeteriorationObserved ==>|"yes <br/> [accidents <br/>OR force majeure <br/>OR natural causes]"|hasExemption46
 isDeteriorationObserved ==>|no|isGoodStatusAchievable
 
 %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
