@@ -158,8 +158,8 @@ namespace Reporting{
     + parameterCode : ParameterCode
     + chemicalMatrix : ChemicalMatrixType [0..1]
     + chemicalPurpose : ChemicalPurpose [0..1]
-    + frequency : MonitoringFrequencyCode
-    + cycle : MonitoringCycleCode
+    + frequency : MonitoringFrequency
+    + cycle : MonitoringCycle
     + lastMonitored : Year
   }
 }
@@ -224,7 +224,7 @@ namespace Codelist{
         both
         }   
 
-    class MonitoringFrequencyCode{
+    class MonitoringFrequency{
         <<enumeration>>
         continuousSampling
         oneSamplePerMonitoringYear
@@ -235,7 +235,7 @@ namespace Codelist{
         unknown
         }   
 
-    class MonitoringCycleCode{
+    class MonitoringCycle{
         <<enumeration>>
         singleCampaign
         onceEvery1Year
