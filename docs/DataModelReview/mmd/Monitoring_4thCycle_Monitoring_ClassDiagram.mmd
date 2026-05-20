@@ -1,0 +1,13 @@
+%%{init: {'theme': 'neutral'}}%%
+classDiagram
+direction LR
+
+class Monitoring{
+  + euMonitoringSiteCode : wiseIdentifier
+  + parameterCode : ParameterCode
+  + chemicalMatrix : ChemicalMatrixType [0..1]
+  + chemicalPurpose : ChemicalPurpose [0..1]
+  + frequency : MonitoringFrequency
+  + cycle : MonitoringCycle
+  + lastMonitored : Year
+}

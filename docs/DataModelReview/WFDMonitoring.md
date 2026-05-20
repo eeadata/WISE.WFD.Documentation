@@ -72,7 +72,6 @@ Member States are expected to report to EEA WISE SoE:
 Monitoring_2016 schema - 2nd cycle - Obsolete
 ```
 
-
 ```{epigraph}
 
 Reporting should reflect the monitoring that was carried out and informed the third RBMPs. 
@@ -92,7 +91,6 @@ Member States are expected to report to EEA WISE SoE:
 
 -- *Extracts from the 2022 WFD Reporting Guidance for the 3ʳᵈ cycle (pg. 90-97)*
 ```
-
 
 ```{figure} img/ClassDiagram_Monitoring_2022.png
 :name: ClassDiagram_Monitoring_2022
@@ -115,67 +113,64 @@ For the 4ᵗʰ cycle of reporting, the requested information is further simplifi
 
 The information about the monitoring programmes is provided in the RBMP documents: 
 only the reference to the supporting documents is requested 
-in the **MonitoringProgrammes** table (see {numref}`DescriptiveMonitoringProgrammes4thcycle`). 
+in the `MonitoringProgrammes` table (see {numref}`DescriptiveMonitoringProgrammes4thcycle`). 
 
-* The **MonitoringProgrammes** table *must* have one record for each of the River Basin Districts being reported.  
-  The River Basin District is identified by its **euRBDCode** identifier.
-
-* The **MonitoringProgrammes** table *may* have one record for the national level.  
-  The information applicable at national level is provided by ommitting the **euRBDCode** value.
-
-* The options **gwChemicalMonitoringReference = NULL** and **gwQuantitativeMonitoringReference =  NULL** 
-  are only valid if applied to River Basin Districts without designated groundwater bodies.
-
-* The options **swChemicalMonitoringReference =  NULL** and **swEcologicalMonitoringReference =  NULL** 
-  are only valid  if applied to River Basin Districts without designated surface water bodies (if any).
-   
-* The option **useWaterbaseForMonitoringData = 'Yes'** 
-  indicate that the monitoring data statistics 
-  should be *derived* from the data reported to Waterbase.  
-
-* The **useWaterbaseForMonitoringData** value defines what needs to be reported in the **Monitoring** table:
-  * It applies to all surface water monitoring 
-    *except Biological Quality Elements (QE1) and Hydromorphological Quality Elements (QE2)*
-  * It applies to all groundwater monitoring
-    *except Quantitative Monitoring* (EEA_00-01-1).
-
-* If **euRBDCode IS NULL** the **useWaterbaseForMonitoringData** *must* also be NULL.  
-  In other words, the option to derive the data from Waterbase is defined at RBD level, 
-  and not at national level.
-
-```{mermaid}
+```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_MonitoringProgrammes_ClassDiagram.mmd
 :name: DescriptiveMonitoringProgrammes4thcycle
 :caption:  Descriptive data - Monitoring Programmes - 4ᵗʰ cycle
 :align: center
 :zoom:
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-direction LR
-
-class MonitoringProgrammes{
-  + euRBDCode : wiseIdentifier [0..1]
-  + useWaterbaseForMonitoringData : YesNo [0..1]
-  + programmesReference : referenceIdentifier
-  + investigativeMonitoringReference : referenceIdentifier
-  + operationalMonitoringReference : referenceIdentifier
-  + surveillanceMonitoringReference : referenceIdentifier
-  + gwChemicalMonitoringReference : referenceIdentifier [0..1]
-  + gwQuantitativeMonitoringReference : referenceIdentifier [0..1]
-  + swChemicalMonitoringReference : referenceIdentifier [0..1]
-  + swEcologicalMonitoringReference : referenceIdentifier [0..1]
-}
 ```
+
+The following conditions apply:
+
+01. The `MonitoringProgrammes` table *must* have one record 
+    for each of the river basin districts being reported.  
+    The river basin district is identified by its `euRBDCode` identifier.
+
+03. The `gwChemicalMonitoringReference`  
+    *must* be reported for 
+    every river basin district with 
+    designated groundwater bodies. 
+
+04. Then the `gwQuantitativeMonitoringReference`  
+    *must* be reported for 
+    every river basin district with 
+    designated groundwater bodies. 
+
+05. Then the `swChemicalMonitoringReference`  
+    *must* be reported for 
+    every river basin district with 
+    designated surface water bodies. 
+
+06. Then the `swEcologicalMonitoringReference`  
+    *must* be reported for 
+    every river basin district with 
+    designated surface water bodies 
+    that are not territorial waters. 
+
+The `useWaterbaseForMonitoringData` value defines what needs to be reported in the `Monitoring` table.
+  * It applies to all surface water monitoring 
+    *except Biological Quality Elements (QE1)* 
+    and *Hydromorphological Quality Elements (QE2)*
+  * It applies to all groundwater monitoring
+    *except Quantitative Monitoring* (EEA_00-01-1).
+
+The option `useWaterbaseForMonitoringData = 'yes'` 
+indicates that, for all other parameters,
+the monitoring data statistics 
+should be *derived* from the data reported to Waterbase.  
 
 (heading_wfd_monitoring_monitoring_table_4th_cycle)=
 ### Monitoring table - 4ᵗʰ cycle
 
 A single simplified **Monitoring** table is proposed (see {numref}`DescriptiveMonitoring4thcycle`). 
 
-* The **frequency** and **cycle** values are codified, 
+* The `frequency` and `cycle` values are codified, 
   to avoid ambiguities in the reporting and interpretation of results, 
   while maintaining the definitions used in the 2nd and 3rd RBMPs. 
 
-* The **lastMonitored** value indicates the last year (until 2027, inclusive) 
+* The `lastMonitored` value indicates the last year (until 2027, inclusive) 
   when the parameter was monitored *in situ*, at that site.
   If the parameter *has never been monitored in past*, 
   but *will* be monitored during the 4ᵗʰ cycle, 
@@ -188,160 +183,152 @@ A single simplified **Monitoring** table is proposed (see {numref}`DescriptiveMo
   The derived information would then fully replace 
   the Monitoring table in the RBMP electronic reporting.
 
-* For the 4ᵗʰ cycle, and as described above:
+For the 4ᵗʰ cycle, the following conditions apply:
 
-  * the monitoring of Biological Quality Elements (QE1%) in surface waters must be reported,
-    if the river basin district has surface water bodies (except territorial waters)
-  * the monitoring of Hydromorphological Quality Elements (QE2%) in surface waters must be reported,
-    if the river basin district has surface water bodies (except territorial waters)
-  * the Quantitative Monitoring (EEA_00-01-1) in groundwater bodies must be reported,
-    if the river basin district has groundwater bodies
+01. The `Monitoring` table must always 
+    list the surface water monitoring sites 
+    for Biological Quality Elements (QE1%) 
+    for every river basin distric with 
+    designated surface water bodies 
+    (except territorial waters). 
+
+02. The `Monitoring` table must always 
+    list the surface water monitoring sites 
+    for Hydromorphological Quality Elements (QE2%)
+    for every river basin distric with 
+    designated surface water bodies 
+    (except territorial waters). 
+
+03. The `Monitoring` table must always 
+    list the groundwater monitoring sites 
+    for 'EEA_00-01-1 - Quantitative Monitoring'
+    for every river basin distric with 
+    designated groundwater bodies.
       
-* If **MonitoringProgrammes.useWaterbaseForMonitoringData = 'Yes'** 
-  then the monitoring of other parameters (except QE1%, QE2%, EEA_00-01-1) 
-  *must NOT* be reported in the Monitoring table.
+04. If, for a given river basin district, 
+    the option `useWaterbaseForMonitoringData = 'yes'` 
+    is reported in the `MonitoringProgrammes` table, 
+    then the monitoring of physico-chemical and chemical parameters *must NOT* 
+    be reported in the `Monitoring` table.
 
-* If **MonitoringProgrammes.useWaterbaseForMonitoringData = 'No'** then 
-  the monitoring of all parameters *MUST* be reported in the Monitoring table
-  (including physico-chemical and chemical monitoring).
+05. If, for a given river basin district, 
+    the option `useWaterbaseForMonitoringData = 'no'` 
+    is reported in the `MonitoringProgrammes` table, 
+    then the monitoring of physico-chemical and chemical parameters *must NOT* 
+    be reported in the `Monitoring` table.
 
 The quality control requirements defined in the 3ʳᵈ cycle still apply:
-* **parameterCode = 'EEA_00-01-1'** (Quantitative monitoring) is only valid for monitoring sites in groundwater bodies,
-* **parameterCode LIKE 'QE1-%'** (Biological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies,
-* **parameterCode LIKE 'QE2-%'** (Hydromorphological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies.
+
+06. The option `parameterCode LIKE 'EEA_00-01-1%'`
+    (Quantitative monitoring) is only valid 
+    for monitoring sites in groundwater bodies.
+
+07. The option `parameterCode LIKE 'QE1-%'`
+    (Biological quality elements) is only valid 
+    in rivers, lakes, transitional and coastal water bodies.
+
+08. The `parameterCode LIKE 'QE2-%'`
+    (Hydromorphological quality elements) is only valid 
+    in rivers, lakes, transitional and coastal water bodies.
 
 With regard to chemical monitoring:
-* for sites in surface water bodies, chemical monitoring includes priority substances and river basin specific pollutants
-* for sites in groundwater bodies, chemical monitoring includes priority substances 
-  and the pollutants designated as "river basin specific pollutants" (for surface waters)
-  but it *also* includes other chemical substances where  **parameterCode LIKE 'CAS%'**
-* the **chemicalMatrix** and **chemicalPurpose** values *must* be reported *if and only if* chemical monitoring occurs.  
-* for sites in groundwater bodies where chemical monitoring occurs, 
-  **chemicalMatrix = 'water'**  is the only valid value.
 
-With regard to physico-chemical monitoring, 
-some parameters applicable to surface water are NOT valid in groundwater monitoring sites:
-* EEA_3133-07-1 - Oxidisability
-* EEA_3133-02-6 - BOD7
-* EEA_3111-01-1 - Secchi depth
-* EEA_3161-04-4 - Particulate organic nitrogen
-* EEA_3164-08-7 - Nitrate to orthophosphate ratio
-* EEA_3164-07-6 - Total nitrogen to total phosphorus ratio
-* EEA_3164-01-0 - Chlorophyll a
+09. The `chemicalMatrix` value 
+    *must* be reported 
+    *if and only if* chemical monitoring occurs. 
+   
+10. For sites in groundwater bodies 
+    where chemical monitoring occurs, 
+    `chemicalMatrix = 'water'` 
+    is the only valid option.
+
+11. The `chemicalPurpose` value
+    *must* be reported 
+    *if and only if* chemical monitoring occurs.  
+
+12. For sites in surface water bodies, 
+    chemical monitoring includes 
+    priority substances and 
+    river basin specific pollutants.
+
+13. For sites in groundwater bodies, 
+    chemical monitoring includes 
+    priority substances,  
+    the pollutants designated as "river basin specific pollutants" (for surface waters),
+    and any other chemical substances 
+    where  `parameterCode LIKE 'CAS%'`.
+
+14. Some parameters applicable to surface water 
+    are NOT valid in groundwater monitoring sites:
+
+    * EEA_3133-07-1 - Oxidisability
+    * EEA_3133-02-6 - BOD7
+    * EEA_3111-01-1 - Secchi depth
+    * EEA_3161-04-4 - Particulate organic nitrogen
+    * EEA_3164-08-7 - Nitrate to orthophosphate ratio
+    * EEA_3164-07-6 - Total nitrogen to total phosphorus ratio
+    * EEA_3164-01-0 - Chlorophyll a
 
 See the analysis in {ref}`heading_wfd_monitoring_groundwater_physico_chemical_monitoring_in_waterbase`.
 
-```{mermaid}
+```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Monitoring_ClassDiagram.mmd
 :name: DescriptiveMonitoring4thcycle
 :caption:  Descriptive data - Monitoring - 4ᵗʰ cycle
 :align: center
 :zoom:
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-direction LR
-
-class Monitoring{
-  + euMonitoringSiteCode : wiseIdentifier
-  + parameterCode : ParameterCode
-  + chemicalMatrix : ChemicalMatrixType [0..1]
-  + chemicalPurpose : ChemicalPurpose [0..1]
-  + frequency : MonitoringFrequency
-  + cycle : MonitoringCycle
-  + lastMonitored : Year
-}
 ```
 
 (heading_wfd_monitoring_codelists_4th_cycle)=
 ## Codelists for the Monitoring table - 4ᵗʰ cycle
 
-The diagram below present the codelists applicable to **Monitoring** table, 
+The diagram below presents the codelists applicable to `Monitoring` table, 
 which simplify and clarify codelists adopted in the 3ʳᵈ cycle.  
 Note that for quality elements under QE3 (General parameters), 
 the CAS code or EEA code must be used.  
-Note also that the option 'EEA_00-00-0 - Other parameter' 
+Note also that the option `'EEA_00-00-0 - Other parameter'` 
 will *not* be available in the 4ᵗʰ cycle of reporting.  
 
-```{mermaid}
+```{mermaid}  /DataModelReview/mmd/Monitoring_4thCycle_Codelists_ClassDiagram.mmd
 :name: CodelistsDescriptiveMonitoring4thcycle
 :caption:  Codelists - Monitoring - 4ᵗʰ cycle
 :align: center
+```
+
+(heading_wfd_monitoring_documents_dataset_4th_cycle)=
+## Documents dataset - 4ᵗʰ cycle
+
+```{todo}
+Review
+```
+
+The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`Monitoring_4thCycle_Documents`):
+
+* The `dcMetadata` table is required and contains only one record per delivery (i.e. per country). 
+  It provides the basic Dublin Core metadata elements about the delivery.
+
+* If required by the data providers, and especially if spatial data is being reported, 
+  the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
+
+* The dcMetadata table also functions as a "manifest file" explaining: 
+
+  * if the delivery contains an update of the spatial data (`updateSpatialData = 'yes'`) 
+  * and/or if the delivery contains an update of the monitoring data (`updateMonitoringData= 'yes'`). 
+  
+* The structure of the `Document` table is standard in the WISE dataflows: 
+it allows the upload of documents (for example, PDFs) 
+or the provision of a hyperlink to a document stored in a publicly accessible national web site.
+
+```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Documents_ClassDiagram.mmd
+:name: Monitoring_4thCycle_Documents
+:caption: Monitoring - 4ᵗʰ cycle - Documents
+:align: center
 :zoom:
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-direction LR
-namespace Codelist{
-class ParameterCode{
-  <<enumeration>>
-
-  «quantitative monitoring»
-  EEA_00-01-1 - Quantitative monitoring
-
-  «biological quality elements»
-  QE1-1 - Phytoplankton
-  QE1-2 - Other aquatic flora
-  QE1-2-1 - Macroalgae
-  QE1-2-2 - Angiosperms
-  QE1-2-3 - Macrophytes
-  QE1-2-4 - Phytobenthos
-  QE1-3 - Benthic invertebrates
-  QE1-4 - Fish
-  QE1-5 - Other species
-
-  «hydromorphological quality elements»
-  QE2-1 - Hydrological or tidal regime
-  QE2-2 - River continuity conditions
-  QE2-3 - Morphological conditions
-
-  «CAS codes and EEA codes under WISE-6»
-  ...
-}
-
-class ChemicalMatrixType{
-    <<enumeration>>
-    water
-    biota
-    sediment
-    }
-
-class ChemicalPurpose{
-    <<enumeration>>
-    status
-    trend
-    both
-    }   
-
-class MonitoringFrequency{
-    <<enumeration>>
-    continuousSampling
-    oneSamplePerMonitoringYear
-    from2To6SamplesPerMonitoringYear
-    from7To12SamplesPerMonitoringYear
-    from13To24SamplesPerMonitoringYear
-    moreThan24SamplesPerMonitoringYear
-    unknown
-    }   
-
-class MonitoringCycle{
-    <<enumeration>>
-    singleCampaign
-    onceEvery1Year
-    onceEvery2Years
-    onceEvery3Years
-    onceEvery4Years
-    onceEvery5Years
-    onceEvery6Years
-    onceEvery12Years
-    onceEvery18Years
-    unknown
-    }   
-}
 ```
 
 ## Annexes - Data analysis - 3ʳᵈ cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
-
 
 ```{admonition} About the examples below
 :class: dropdown
@@ -362,7 +349,6 @@ See {numref}`atrazine_2022_2027_waterbase` for the monitoring results for Atrazi
 
 See {numref}`atrazine_2022_2027_waterbase_country` for the monitoring results for Atrazine in the period 2016-2021, by water body category **and country**, in water, according to the data available in the Waterbase_T_WISE6_DisaggregatedData table (reported under WISE SoE Water Quality - WISE-6). *Note that over 64% of the data was reported by Italy and France.*
 
-
 ```{table} Monitoring of Atrazine in the period 2016-2021, according to the WFD2022 reporting.
 :name: atrazine_wfd2022
 :width: 100%
@@ -375,7 +361,7 @@ See {numref}`atrazine_2022_2027_waterbase_country` for the monitoring results fo
 | RW | 26 | 14990 | 16880 | 17217 |
 | TW | 14 | 393 | 481 | 532 |
 | CW | 18 | 591 | 859 | 1017 |
-| TeW | 8 | 13 | 37 | 45 |`
+| TeW | 8 | 13 | 37 | 45 |
 
 ```
 
@@ -506,7 +492,6 @@ See {numref}`atrazine_2022_2027_waterbase_country` for the monitoring results fo
   GROUP BY [parameterCode],[waterBodyCategory]
   ORDER BY [numberOfRecords] DESC
   ```
-
 
 ```{dropdown} Show code
 
@@ -1126,9 +1111,7 @@ During the data analysis, some incorrect data extraction issues where detected.
   AND [waterBodyCategory] is NULL
   ```
 
-
-
- (heading_wfd_monitoring_references)=
+(heading_wfd_monitoring_references)=
 ## References
 
 ```{include} FragmentWFD2022ReportingSchemas
