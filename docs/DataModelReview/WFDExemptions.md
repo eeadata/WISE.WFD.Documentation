@@ -1,7 +1,7 @@
 (heading_wfd_exemptions)=
 # WFD exemptions
 
-Last update: 2026-05-13
+Last update: 2026-05-20
 
 ```{warning}
 
@@ -95,33 +95,33 @@ Ecological exemptions are reported using the table in {numref}`SWEcologicalExemp
 ```
 
 The following conditions apply:
-* Ecological exemptions are not reported for Territorial Waters.
-* Ecological exemptions are not reported for hydromorphological quality elements.
-* Ecological exemptions are not reported for QE3-3 
-  (see {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`).
-* Ecological exemptions are not reported for quality elements not used in the ecological status assessment 
-  (because they are not applicable to a given water category or a given national type).
-* Reporting is mandatory for biological quality elements in moderate, poor or bad status or potential.
-* Reporting is mandatory for physico-chemical quality elements is less than good status or potential.
-* Exemptions are not applicable to quality elements with unknown status.
-* For short-term impacts over biological quality elements, the maximum exemption period is three years.
-* For short-term impacts over physico-chemical quality elements, the maximum exemption period is one year.
-* Exemptions related to relocation of water or sediment are not applicable to biological quality elements.
-* Exemptions under the Groundwater Directive are not allowed for surface waters.
+01. Ecological exemptions are not reported for Territorial Waters.
+02. Ecological exemptions are not reported for hydromorphological quality elements.
+03. Ecological exemptions are not reported for QE3-3 
+    (see {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`).
+04. Ecological exemptions are not reported for quality elements not used in the ecological status assessment 
+    (because they are not applicable to a given water category or a given national type).
+05. Reporting is mandatory for biological quality elements in moderate, poor or bad status or potential.
+06. Reporting is mandatory for physico-chemical quality elements is less than good status or potential.
+07. Exemptions are not applicable to quality elements with unknown status.
+08. For short-term impacts over biological quality elements, the maximum exemption period is three years.
+09. For short-term impacts over physico-chemical quality elements, the maximum exemption period is one year.
+10. Exemptions related to relocation of water or sediment are not applicable to biological quality elements.
+11. Exemptions under the Groundwater Directive are not allowed for surface waters.
 
 ```{admonition} See code
 :class: dropdown
-* Not allowed: `waterBodyCategory = 'TeW'` 
-* Not allowed: `qeCode LIKE 'QE2%'`
-* Not allowed: `qeCode = 'QE3-3'`
-* Not allowed: `qeStatusOrPotentialValue = 'notApplicable'`
-* Mandatory: `qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')`
-* Mandatory: `qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue = '3'`
-* Not allowed: `qeStatusOrPotentialValue = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-* Not allowed: `qeCode LIKE 'QE1%' AND exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','upToThreeYears','until2027')`
-* Not allowed: `qeCode LIKE 'QE3%' AND exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-* Not allowed: `qeCode LIKE 'QE1%' AND exemptionRationale = 'article47_relocationOfWaterOrSediment'`
-* Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
+01. Not allowed: `waterBodyCategory = 'TeW'` 
+02. Not allowed: `qeCode LIKE 'QE2%'`
+03. Not allowed: `qeCode = 'QE3-3'`
+04. Not allowed: `qeStatusOrPotentialValue = 'notApplicable'`
+05. Mandatory: `qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')`
+06. Mandatory: `qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue = '3'`
+07. Not allowed: `qeStatusOrPotentialValue = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
+08. Not allowed: `qeCode LIKE 'QE1%' AND exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','upToThreeYears','until2027')`
+09. Not allowed: `qeCode LIKE 'QE3%' AND exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+10. Not allowed: `qeCode LIKE 'QE1%' AND exemptionRationale = 'article47_relocationOfWaterOrSediment'`
+11. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
 ``` 
 
 The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_EcologicalExemption_Flowchart`).
@@ -148,21 +148,21 @@ and not as exemptions associated with the quality element "QE3-3 - River Basin S
 ```
 
 The following conditions apply:
-* Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance and the pollutant is causing failure to achieve good status.
-* Reporting is mandatory if the pollutant is a river basin specific pollutant causing failure to achieve good status.
-* Exemptions are not applicable to pollutants with unknown status.
-* In 2027, exemptions are not yet required, if the pollutant is a 2026 Priority Substance and the pollutant is causing failure to achieve good status.
-* For short-term impacts, the maximum exemption period is one year.
-* Exemptions under the Groundwater Directive are not allowed for surface waters.
+01. Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance and the pollutant is causing failure to achieve good status.
+02. Reporting is mandatory if the pollutant is a river basin specific pollutant causing failure to achieve good status.
+03. Exemptions are not applicable to pollutants with unknown status.
+04. In 2027, exemptions are not yet required, if the pollutant is a 2026 Priority Substance and the pollutant is causing failure to achieve good status.
+05. For short-term impacts, the maximum exemption period is one year.
+06. Exemptions under the Groundwater Directive are not allowed for surface waters.
 
 ```{admonition} See code
 :class: dropdown
-* Mandatory: `swPollutantCode in ({list-of-2008-or-2013-priority-substances}) AND swPollutantCausingFailure in '3'`
-* Mandatory: `swPollutantCode in ({list-of-river-basin-specific-pollutants}) AND swPollutantCausingFailure in '3'`
-* Not allowed: `swPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-* Not required: `swPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
-* Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-* Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
+01. Mandatory: `swPollutantCode in ({list-of-2008-or-2013-priority-substances}) AND swPollutantCausingFailure in '3'`
+02. Mandatory: `swPollutantCode in ({list-of-river-basin-specific-pollutants}) AND swPollutantCausingFailure in '3'`
+03. Not allowed: `swPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
+04. Not required: `swPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
+05. Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+06. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
 ``` 
 
 The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_ChemicalExemption_Flowchart`).
@@ -212,15 +212,15 @@ Chemical exemptions are reported using the table in {numref}`GWChemicalExemption
 ```
 
 The following conditions apply:
-* Reporting is mandatory if the pollutant or indicator of pollution is causing failure to achieve good status.
-* Exemptions are not applicable to pollutants with unknown status.
-* For short-term impacts, the maximum exemption period is one year.
+01. Reporting is mandatory if the pollutant or indicator of pollution is causing failure to achieve good status.
+02. Exemptions are not applicable to pollutants with unknown status.
+03. For short-term impacts, the maximum exemption period is one year.
 
 ```{admonition} See code
 :class: dropdown
-* Mandatory: `gwPollutantCausingFailure in '3'`
-* Not allowed: `gwPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-* Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+01. Mandatory: `gwPollutantCausingFailure in '3'`
+02. Not allowed: `gwPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
+03. Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 ``` 
 
 Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
@@ -246,17 +246,19 @@ Quantitative exemptions are reported using the table in {numref}`GWQuantitativeE
 ```
 
 The following conditions apply:
-* Reporting is mandatory if the waterbody is in poor quantitative status
-* Exemptions are not applicable to waterbodies with unknown quantitative status.
-* For short-term impacts, the maximum exemption period is one year.
-* Exemptions related to relocation of water or sediment are not applicable quantitative status.
+01. Reporting is mandatory if the waterbody is in poor quantitative status
+02. Exemptions are not applicable to waterbodies with unknown quantitative status.
+03. For short-term impacts, the maximum exemption period is one year.
+04. Exemptions related to relocation of water or sediment are not applicable quantitative status.
+05. Exemptions related to the recast UWWTD are not applicable quantitative status.
 
 ```{admonition} See code
 :class: dropdown
-* Mandatory: `gwQuantitativeStatusValue = '3'`
-* Not allowed: `gwQuantitativeStatusValue = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-* Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-* Not allowed: `exemptionRationale = 'article47_relocationOfWaterOrSediment'`
+01. Mandatory: `gwQuantitativeStatusValue = '3'`
+02. Not allowed: `gwQuantitativeStatusValue = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
+03. Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+04. Not allowed: `exemptionRationale = 'article47_relocationOfWaterOrSediment'`
+05. Not allowed: `exemptionRationale = 'article47_domesticUrbanWasteWaterArticle154'`
 ``` 
 
 The diagram below presents the applicability criteria for the different exemption types
@@ -305,8 +307,8 @@ Codelists associated with the reporting of exemptions are presented in {numref}`
 ```
 
 The following conditions apply:
-* the allowable values for the exemption rationale depend on the exemption type
-* the allowable values for the exemption period depend on the exemption type
+01. the allowable values for the exemption rationale depend on the exemption type
+02. the allowable values for the exemption period depend on the exemption type
 
 ```{todo}
 DG ENV to provide table with valid combinations of ExemptionRationale *versus* ExemptionPeriod
@@ -407,16 +409,13 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 
 **Actions taken:**
 
-* A new code **article47_domesticUrbanWasteWaterArticle154** was added to the **ExemptionRationale** codelist (see {numref}`ExemptionCodelist`).
+* A new code `article47_domesticUrbanWasteWaterArticle154` was added to the `ExemptionRationale` codelist (see {numref}`ExemptionCodelist`).
 * The {ref}`Exemptions_EcologicalExemption_Flowchart` was updated.
 * The {ref}`Exemptions_ChemicalExemption_Flowchart` was updated.
 
 **Quality checks to be implemented:**
 
-* Not applicable to quantitative exemptions
-  
-  * ERROR: table.name in ('GWQuantitativeExemption') 
-    AND exemptionRationale = 'article47_domesticUrbanWasteWaterArticle154' 
+* Not applicable to quantitative exemptions.
 
 (heading_wfd_exemptions_clarification_protected_areas)=
 ### Exemptions related to Protected Areas
@@ -436,7 +435,7 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 
 **Actions taken:**
 
-* no action required.
+* No action required.
 
 ### Exemptions related to River Basin Specific Pollutants
 
@@ -649,7 +648,6 @@ In 99.1% of the cases, only one type of exemption was reported per priority subs
     ORDER BY [numberOfExemptionTypes] ASC
 
 ```	  
-
 	
 ### Groundwater - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
 
