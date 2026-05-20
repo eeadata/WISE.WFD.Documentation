@@ -16,11 +16,14 @@ hasNoApplicableExemption_2("no exemption <br/>applicable"):::stateRed
 hasNoApplicableExemption_3("no exemption <br/>required"):::stateBlue
 hasNoApplicableExemption_4("no exemption <br/>applicable"):::stateRed
 hasNoApplicableExemption_5("no exemption <br/>applicable"):::stateRed
+hasNoApplicableExemption_6("no exemption <br/>applicable"):::stateRed
 
 hasExemption44("Article 4(4) <br/> Extension of deadline"):::state
 hasExemption45("Article 4(5) <br/> Less stringent objectives"):::state
 hasExemption46("Article 4(6) <br/> Temporary deterioration"):::state
-hasExemption47("Article 4(7) <br/> New modification/project"):::state
+
+hasExemption47_1("Article 4(7) <br/> New modification/project"):::state
+hasExemption47_2("Article 4(7) <br/> New modification/project"):::state
 
 %% Defining the decisions
 
@@ -44,8 +47,10 @@ hasNoApplicableExemption_2 --> final
 hasNoApplicableExemption_3 --> final
 hasNoApplicableExemption_4 --> final
 hasNoApplicableExemption_5 --> final
+hasNoApplicableExemption_6 --> final
 
-hasExemption47 --> final 
+hasExemption47_1 --> final 
+hasExemption47_2 --> final 
 hasExemption46 --> final 
 hasExemption45 --> final 
 hasExemption44 --> final 
@@ -64,18 +69,20 @@ isCausingFailureIn2027 ==> |no| isDeteriorationExpected
 isDeteriorationExpected ==> |no| hasNoApplicableExemption_3
 
 %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-isDeteriorationExpected ==> |"yes <br/>[new modification <br/>OR sustainable human development <br/>OR uwwtdArticle15(4)]"| hasExemption47
+isDeteriorationExpected ==> |"yes[new modification <br/> OR sustainable human development <br/> OR short-term <br/> OR relocation <br/> OR uwwtdArticle15(4)]"|hasExemption47_1
+isDeteriorationExpected ==> |"yes[other causes]"|hasNoApplicableExemption_4
 
 %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
 isCausingFailureIn2027 ==> |yes| isDeteriorationObserved
-isDeteriorationObserved ==> |"yes <br/>[new modification <br/>OR sustainable human development <br/>OR uwwtdArticle15(4)]"| hasExemption47
+isDeteriorationObserved ==>|"yes <br/>[other causes]"|hasNoApplicableExemption_4
+isDeteriorationObserved ==> |"yes[new modification <br/> OR sustainable human development <br/> OR short-term <br/> OR relocation <br/> OR uwwtdArticle15(4)]"|hasExemption47_2
 isDeteriorationObserved ==> |"yes <br/>[accidents <br/>OR force majeure <br/>OR natural causes]"| hasExemption46
 isDeteriorationObserved ==> |no| isGoodStatusAchievable
 
 %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
 isGoodStatusAchievable ==>|no|isUnfeasibleOrCostly
 isUnfeasibleOrCostly ==> |yes|hasExemption45
-isUnfeasibleOrCostly ==> |no|hasNoApplicableExemption_4
+isUnfeasibleOrCostly ==> |no|hasNoApplicableExemption_5
 
 %% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
 isGoodStatusAchievable ==> |yes| isDelayDueToNaturalConditions
@@ -86,9 +93,9 @@ isDelayDueToNaturalConditions ==> |no| isDelayDueToFeasibilityOrCost
 isDelayDueToFeasibilityOrCost ==> |yes| is2013Substance
 
 is2013Substance ==> |yes| hasExemption44
-is2013Substance ==> |no| hasNoApplicableExemption_5
+is2013Substance ==> |no| hasNoApplicableExemption_6
 
-isDelayDueToFeasibilityOrCost ==> |no| hasNoApplicableExemption_5
+isDelayDueToFeasibilityOrCost ==> |no| hasNoApplicableExemption_6
 
 %% styling
 classDef state stroke-width:4px,fill:transparent

@@ -1,0 +1,11 @@
+%%{init: {'theme': 'neutral'}}%%
+classDiagram
+class SWChemicalExemption{
+    + euSurfaceWaterBodyCode : wiseIdentifier
+    + swPollutantCode : Substance
+    / exemptionType : ExemptionType
+    + exemptionRationale : ExemptionRationale [1..n]
+    + exemptionPeriod : ExemptionPeriod
+    + exemptionReference : referenceIdentifier [0..1]
+    + significantPressureType : PressureType [1..n]
+}
