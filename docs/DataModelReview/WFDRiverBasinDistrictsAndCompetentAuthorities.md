@@ -43,7 +43,6 @@ A proposal is presented for the electronic reporting in the 4ᵗʰ cycle:
 (heading_wfd_rbd_and_ca_documents_dataset_4th_cycle)=
 ## Documents dataset - 4ᵗʰ cycle
 
-
 The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`RBDCA_4thCycle_Documents`):
 
 * The `dcMetadata` table is required and contains only one record per delivery (i.e. per country). 
@@ -57,7 +56,7 @@ The Documents dataset follows the standard structure used in various WISE datafl
   * if the delivery contains an update of the spatial data (`updateSpatialData = 'yes'`) 
   * and/or if the delivery contains an update of the competent authorities or their roles (`updateCompetentAuthorities= 'yes'`). 
   
-* The structure of the **Document** table is standard in the WISE dataflows: 
+* The structure of the `Document` table is standard in the WISE dataflows: 
 it allows the upload of documents (for example, PDFs) 
 or the provision of a hyperlink to a document stored in a publicly accessible national web site.
 
