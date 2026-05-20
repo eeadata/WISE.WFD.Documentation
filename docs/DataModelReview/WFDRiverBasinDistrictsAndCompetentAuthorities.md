@@ -46,16 +46,16 @@ A proposal is presented for the electronic reporting in the 4ᵗʰ cycle:
 
 The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`RBDCA_4thCycle_Documents`):
 
-* The **dcMetadata** table is required and contains only one record per delivery (i.e. per country). 
+* The `dcMetadata` table is required and contains only one record per delivery (i.e. per country). 
   It provides the basic Dublin Core metadata elements about the delivery.
 
 * If required by the data providers, and especially if spatial data is being reported, 
-  the **licenseDocument** and the **metadataDocument** attributes allow the provision of additional information about the dataset.
+  the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
 
 * The dcMetadata table also functions as a "manifest file" explaining: 
 
-  * if the delivery contains an update of the spatial data (**updateSpatialData = 'Yes'**) 
-  * and/or if the delivery contains an update of the competent authorities or their roles (**updateCompetentAuthorities= 'Yes'**). 
+  * if the delivery contains an update of the spatial data (`updateSpatialData = 'yes'`) 
+  * and/or if the delivery contains an update of the competent authorities or their roles (`updateCompetentAuthorities= 'yes'`). 
   
 * The structure of the **Document** table is standard in the WISE dataflows: 
 it allows the upload of documents (for example, PDFs) 
@@ -73,9 +73,9 @@ or the provision of a hyperlink to a document stored in a publicly accessible na
 
 The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive`):
 
-- The **CompetentAuthority** table contains basic information about each Competent Authority.
+- The `CompetentAuthority` table contains basic information about each Competent Authority.
 
-- The **RiverBasinDistrictCompetentAuthority** table associates each Competent Authority with a River Basin District and specifies the role(s) of the competent authority in that specific RBD.
+- The `RiverBasinDistrictCompetentAuthority` table associates each Competent Authority with a River Basin District and specifies the role(s) of the competent authority in that specific RBD.
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Descriptive_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Descriptive
@@ -99,19 +99,19 @@ As stated before, Subunits are no longer requested in the 4ᵗʰ cycle of report
 
 The following changes have been made to the RiverBasinDistrict table (in comparison to the 3ʳᵈ cycle of reporting):
 
-* Two attributes were removed, because they can be derived from the reported geometry: **sizeValue** and **sizeUom**.
+* Two attributes were removed, because they can be derived from the reported geometry: `sizeValue` and `sizeUom`.
 
-* Two attributes were removed, because they are not required at EU level: **relatedTransboundaryIdentifier** and **relatedTransboundaryIdentifierScheme**.
+* Two attributes were removed, because they are not required at EU level: `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`.
 
-* The date values are now requested as simply as YYYY-MM-DD, because that was the format used by the data providers during the previous cycles, and therefore it is not necessary to mantain more variants. This applies to **beginLifespanVersion**, **endLifespanVersion**, **designationPeriodBegin**, **designationPeriodEnd**.
+* The date values are now requested as simply as YYYY-MM-DD, because that was the format used by the data providers during the previous cycles, and therefore it is not necessary to mantain more variants. This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
 
 * One attribute was moved from the descriptive dataset into the spatial dataset.  
-The **specialisedZoneType** now accepts the options **{'internationalRiverBasinDistrict','nationalRiverBasinDistrict'}**.
+The `specialisedZoneType` now accepts the options `'internationalRiverBasinDistrict'` and `'nationalRiverBasinDistrict'`.
 
-* The attributes **thematicIdIdentifierScheme** and **zoneType** have been kept for clarity's sake.   
-However, all records in the **RiverBasinDistrict** dataset have a fixed value for these attributes.
+* The attributes `thematicIdIdentifierScheme*` and `zoneType` have been kept for clarity's sake.   
+However, all records in the `RiverBasinDistrict` dataset have a fixed value for these attributes.
 
-* Likewise, the attributes **successorsIdentifier** and **successorsIdentifierScheme** have been kept for clarity's sake. *In the reported datasets*, the values of these attributes will always be NULL. The appropriate value will be derived and included in the published WISE datasets (for the 1st cycle, 2nd cycle and 3rd cycle RiverBasinDistrict datasets).
+* Likewise, the attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake. *In the reported datasets*, the values of these attributes will always be NULL. The appropriate value will be derived and included in the published WISE datasets (for the 1st cycle, 2nd cycle and 3rd cycle RiverBasinDistrict datasets).
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Spatial_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Spatial
