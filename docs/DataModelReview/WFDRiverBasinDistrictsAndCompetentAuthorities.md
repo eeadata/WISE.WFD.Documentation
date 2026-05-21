@@ -93,28 +93,37 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 (heading_wfd_rbd_and_ca_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4ᵗʰ cycle
 
-The Spatial dataset contains only the RiverBasinDistrict spatial table ({numref}`RBDCA_4thCycle_Spatial`).  
+(heading_wfd_monitoring_river_basin_district_dataset_4th_cycle)=
+### RiverBasinDistrict spatial data - 4ᵗʰ cycle
+
+The Spatial dataset contains only the RiverBasinDistrict spatial data ({numref}`Spatial_4thCycle_RiverBasinDistrict`).  
 As stated before, Subunits are no longer requested in the 4ᵗʰ cycle of reporting.
 
-The following changes have been made to the RiverBasinDistrict table (in comparison to the 3ʳᵈ cycle of reporting):
+The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3ʳᵈ cycle of reporting):
 
 * Two attributes were removed, because they can be derived from the reported geometry: `sizeValue` and `sizeUom`.
 
 * Two attributes were removed, because they are not required at EU level: `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`.
 
-* The date values are now requested as simply as YYYY-MM-DD, because that was the format used by the data providers during the previous cycles, and therefore it is not necessary to mantain more variants. This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
+* The date values are now requested as simply as YYYY-MM-DD, 
+  because that was the format used by the data providers during the previous cycles, 
+  and therefore it is not necessary to mantain more variants. 
+  This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
 
 * One attribute was moved from the descriptive dataset into the spatial dataset.  
-The `specialisedZoneType` now accepts the options `'internationalRiverBasinDistrict'` and `'nationalRiverBasinDistrict'`.
+  The `specialisedZoneType` now accepts the options `'internationalRiverBasinDistrict'` and `'nationalRiverBasinDistrict'`.
 
-* The attributes `thematicIdIdentifierScheme*` and `zoneType` have been kept for clarity's sake.   
-However, all records in the `RiverBasinDistrict` dataset have a fixed value for these attributes.
+* The attributes `thematicIdIdentifierScheme*` and `zoneType` have been kept for clarity's sake. 
+  However, all records in the `RiverBasinDistrict` dataset have a fixed value for these attributes.
 
-* Likewise, the attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake. *In the reported datasets*, the values of these attributes will always be NULL. The appropriate value will be derived and included in the published WISE datasets (for the 1st cycle, 2nd cycle and 3rd cycle RiverBasinDistrict datasets).
+* Likewise, the attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake. 
+  *In the reported datasets*, the values of these attributes will always be NULL. 
+  The appropriate value will be derived and included in the published WISE datasets 
+  for the 1st, 2nd and 3rd cycle RiverBasinDistrict datasets.
 
-```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Spatial_ClassDiagram.mmd
-:name: RBDCA_4thCycle_Spatial
-:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Spatial Data
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict.mmd
+:name: Spatial_4thCycle_RiverBasinDistrict
+:caption: Spatial dataset - RiverBasinDistrict - 4ᵗʰ cycle
 :align: center
 :zoom:
 ```

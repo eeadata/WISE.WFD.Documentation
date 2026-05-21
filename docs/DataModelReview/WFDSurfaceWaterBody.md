@@ -126,7 +126,6 @@ the following values were also used:
    the QE was monitored but no standard has been developed **and/or** 
    the QE is not used for status assessment
 
-
 ```{dropdown} Show technical detail: encoding quality element status
 
   To harmonise the data in different codelists and reporting cycles, 

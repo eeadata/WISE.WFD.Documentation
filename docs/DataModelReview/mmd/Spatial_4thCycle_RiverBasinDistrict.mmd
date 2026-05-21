@@ -7,31 +7,29 @@ config:
 ---
 classDiagram
 direction LR
-namespace SpatialData {
 class RiverBasinDistrict {
 + geometry_polygon: geometry_multipolygon
-+ inspireIdLocalId: String
-+ inspireIdNamespace: String
-+ inspireIdVersionId: String [0..1]
++ inspireIdLocalId: String254
++ inspireIdNamespace: String254
++ inspireIdVersionId: String25 [0..1]
 + thematicIdIdentifier: wiseIdentifier
 + thematicIdIdentifierScheme: IdentifierScheme
-+ beginLifespanVersion: Date
++ beginLifespanVersion: Date [0..1]
 + endLifespanVersion: Date [0..1]
-+ predecessorsIdentifier: comma-separated list of wiseIdentifier [0..1]
++ predecessorsIdentifier: String500 [0..1]
 + predecessorsIdentifierScheme: IdentifierScheme [0..1]
-+ successorsIdentifier: comma-separated list of wiseIdentifier [0..1]
++ successorsIdentifier: String500 [0..1]
 + successorsIdentifierScheme: IdentifierScheme [0..1]
 + wiseEvolutionType: WiseEvolutionType
-+ nameTextInternational: String
-+ nameText: String
++ nameTextInternational: String254
++ nameText: String254
 + nameLanguage: Language
 + designationPeriodBegin: Date
 + designationPeriodEnd: Date [0..1]
 + zoneType: ZoneType
 + specialisedZoneType: SpecialisedZoneType
-+ legalBasisName: String [0..1]
++ legalBasisName: String254 [0..1]
 + legalBasisLink: URL [0..1]
 + legalBasisLevel: LegislationLevelValue [0..1]
 + link: URL [0..1]
-}
 }
