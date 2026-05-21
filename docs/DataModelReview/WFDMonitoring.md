@@ -133,17 +133,17 @@ The following conditions apply:
     every river basin district with 
     designated groundwater bodies. 
 
-04. Then the `gwQuantitativeMonitoringReference`  
+04. The `gwQuantitativeMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated groundwater bodies. 
 
-05. Then the `swChemicalMonitoringReference`  
+05. The `swChemicalMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated surface water bodies. 
 
-06. Then the `swEcologicalMonitoringReference`  
+06. The `swEcologicalMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated surface water bodies 
