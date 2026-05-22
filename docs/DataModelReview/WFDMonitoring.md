@@ -132,7 +132,9 @@ Monitoring_2022 schema - 3ʳᵈ cycle - Obsolete
 ## Documents dataset - 4ᵗʰ cycle
 
 ```{todo}
-Review
+Monitoring - {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
+
+**Technical** review pending.
 ```
 
 The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`Monitoring_4thCycle_Documents`):
@@ -362,13 +364,12 @@ With regard to chemical monitoring:
 
 
 ```{todo}
-Pending review:
+Monitoring - {ref}`heading_wfd_monitoring_monitoring_table_4th_cycle`
 
-* The quality control related to `frequency`, `cycle` and `lastMonitored` 
-  will likely raise only a WARNING
-
-  * The expected range for the `lastMonitored` year is `{[2022,2017],[9999,9999]}`
-  * Others?
+* ¿Are the quality controls applicable to `frequency` and `cycle` based on the `parameterCode`?
+* ¿The expected range for the `lastMonitored` year is `{[2022,2017],[9999,9999]}`?
+* ¿What if monitoring data is expected, but no records are reported in the `Monitoring` table?
+* ¿What if monitoring data is expected, but no records are reported in the `Monitoring` table for specific parameters?
 ```
 
 (heading_wfd_monitoring_codelists_4th_cycle)=
@@ -427,7 +428,10 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
 ### Codelist for the MonitoringSite spatial data - 4ᵗʰ cycle
 
 ```{todo}
-Specific codelist be included (although tehy have ):
+Monitoring - {ref}`heading_wfd_monitoring_codelists_monitoring_site_4th_cycle`
+
+**Technical issue** 
+Include codelists for:
 
 * ConfidentialityStatus
 * Purpose - the values of Purpose codelist may reported as comma-separated values in the `purpose`attribute.
