@@ -6,22 +6,19 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace Documents {
-    class dcMetadata {
-    }
-    class Reference {
-    }
-    class Document {
-    }
-}
-namespace Descriptive {
-    class Monitoring{
-}
-    class MonitoringProgrammes{
-}
-}
-namespace Spatial {
-    class MonitoringSite{
-}
-}
+direction TB
+
+class dcMetadata{<<documents>>}
+class Reference{<<documents>>}
+class Document {<<documents>>}
+class Monitoring{}
+class MonitoringPurpose{}
+class MonitoringProgrammes{}
+class MonitoringSite{<<spatial>>}
+
+dcMetadata -- Document
+Reference -- Document
+MonitoringProgrammes -- Reference 
+
+MonitoringSite "1" -- "0..3" MonitoringPurpose 
+Monitoring "0..n"-- "1" MonitoringSite 

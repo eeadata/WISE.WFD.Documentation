@@ -1,7 +1,7 @@
 (heading_wfd_monitoring)=
 # WFD monitoring
 
-Last updated: 2026-05-21
+Last updated: 2026-05-22
 
 ```{warning}
 The online version of the text is being reviewed.  
@@ -248,7 +248,7 @@ should be *derived* from the data reported to Waterbase.
 (heading_wfd_monitoring_monitoring_table_4th_cycle)=
 ### Monitoring table - 4ᵗʰ cycle
 
-A single simplified **Monitoring** table is proposed (see {numref}`DescriptiveMonitoring4thcycle`). 
+A simplified `Monitoring` table is proposed (see {numref}`DescriptiveMonitoring4thcycle`). 
 
 * The `frequency` and `cycle` values are codified, 
   to avoid ambiguities in the reporting and interpretation of results, 
@@ -366,18 +366,37 @@ With regard to chemical monitoring:
 ```{todo}
 Monitoring - {ref}`heading_wfd_monitoring_monitoring_table_4th_cycle`
 
-* ¿Are the quality controls applicable to `frequency` and `cycle` based on the `parameterCode`?
+* ¿Are there quality controls applicable to `frequency` and `cycle` based on the `parameterCode`?
 * ¿The expected range for the `lastMonitored` year is `{[2022,2017],[9999,9999]}`?
 * ¿What if monitoring data is expected, but no records are reported in the `Monitoring` table?
 * ¿What if monitoring data is expected, but no records are reported in the `Monitoring` table for specific parameters?
 ```
 
+(heading_wfd_monitoring_monitoring_purpose_table_4th_cycle)=
+### MonitoringPurpose table - 4ᵗʰ cycle
+
+The `MonitoringPurpose` table indicates if a given monitoring site is part of surveillance, operational, and/or investigative monitoring (see {numref}`DescriptiveMonitoringPurpose4thcycle`). 
+
+```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_MonitoringPurpose_ClassDiagram.mmd
+:name: DescriptiveMonitoringPurpose4thcycle
+:caption:  Descriptive data - MonitoringPurpose - 4ᵗʰ cycle
+:align: center
+:zoom:
+```
+
+```{todo}
+Monitoring - {ref}`heading_wfd_monitoring_monitoring_purpose_table_4th_cycle`
+
+* ¿Are there quality controls applicable to `parameterCode`, `frequency` and `cycle` based on the `monitoringPurpose`?
+
+```
+
 (heading_wfd_monitoring_codelists_4th_cycle)=
-### Codelists for the Monitoring table - 4ᵗʰ cycle
+### Codelists for the Monitoring and MonitoringPurpose table - 4ᵗʰ cycle
 
 The diagram below presents the codelists applicable to `Monitoring` table, 
 which simplify and clarify codelists adopted in the 3ʳᵈ cycle.  
-Note that for quality elements under QE3 (General parameters), 
+Note that for quality elements under QE3 (Chemical and physico-chemical quality elements), 
 the CAS code or EEA code must be used.  
 Note also that the option `'EEA_00-00-0 - Other parameter'` 
 will *not* be available in the 4ᵗʰ cycle of reporting.  

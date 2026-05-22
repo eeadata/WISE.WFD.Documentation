@@ -55,15 +55,21 @@ class MonitoringFrequency{
 
 class MonitoringCycle{
     <<enumeration>>
-    singleCampaign
     onceEvery1Year
     onceEvery2Years
     onceEvery3Years
     onceEvery4Years
     onceEvery5Years
     onceEvery6Years
-    onceEvery12Years
-    onceEvery18Years
+    onceEvery2RBMPs
+    onceEvery3RBMPs
     unknown
     }   
+
+class MonitoringPurpose{
+    <<enumeration>>
+    investigativeMonitoring
+    operationalMonitoring
+    surveillanceMonitoring
+    }       
 }
