@@ -126,7 +126,7 @@ The example in {numref}`measures_example_progress` illustrates how to synthesize
 | executed | 20 | No | No | No | No |
 | executed | 20 | No | No | No | Yes |
 | cancelled | 20 | No | No | No | Yes |
-| planned | 20 | Yes | Yes | Yes | No |
+| planned | 20 | Yes | Yes | No | No |
 | cancelled | 10 | No | No | Yes | No |
 ```
 
@@ -171,8 +171,7 @@ For each measure:
 ```
 ### Measure table – 4ᵗʰ cycle - measureCode, measureName and measureReference
 
-Each different measure must have a persistent unique identifier at national level and European level (**measureCode**), 
-a descriptive name (**measureName**), and zero or more links to documentation (**measureReference**).  
+Each different measure must have a persistent unique identifier at national level and European level (**measureCode**), a descriptive name (**measureName**), and zero or more links to documentation (**measureReference**).  
 
 ### Measure table – 4ᵗʰ cycle - measureType
 
@@ -202,7 +201,7 @@ is now eliminated because it did not convey relevant information.
 ### Measure table – 4ᵗʰ cycle - mainKeyTypeOfMeasure
 
 The **mainKeyTypeOfMeasure** attribute contains the classification to be used for both basic and supplementary measures (see {numref}`measures_mainKeyTypeOfMeasure_definitions`).  
-It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure classifications used in the 2ʳᵈ and 3ʳᵈ cycles. 
+It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure classifications used in the 2ⁿᵈ and 3ʳᵈ cycles. 
 
 
 ```{include} tables/Measures_MainKeyTypeOfMeasure_ListTable
@@ -225,7 +224,8 @@ For measures of type G and H, the Commission requires additional information to 
 
 ### Measure table – 4ᵗʰ cycle - geographicalCoverage
 
-The geographical scope of a measure is specified in the **geographicalCoverage** attribute, by selecting the most appropriate option:
+The geographical scope of a measure is specified in the **geographicalCoverage** attribute, by selecting the most appropriate option: {'national' | 'riverBasinDistrict' | 'waterBody' |
+'protectedArea'}
 
 The option **geographicalCoverage = 'national'** should be used for measures that target any waterbody affected by a given significant pressure or substance failing. 
 Similarly, the option **geographicalCoverage = 'riverBasinDistrict'** should be used for measures that target any waterbody affected by a given significant pressure or substance failing within the RBDs indicated in the **euRBDCode** attribute.
@@ -256,24 +256,24 @@ The 6ᵗʰ WFD Implementation Report notes that the Member States’ reporting o
 
 [^2]: 6th WFD Implementation Report,[ COM(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15. The table concerns {numref}`measures_temporalcoverage`, p24, of [SWD(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970) – note that the differentiation is based.
 
-The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^3]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs, long‑term investment plans should be developed and the source of financing for each measure clearly identified.” 
-Good planning is also necessary for the acquisition of support from EU Funds, the EIB, and other promotional banks.
-
+The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^3]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs to develop long‑term investment plans and clearly identifying the source of financing for each measure.” A good planning is also necessary for the acquisition of support from EU Funds, the EIB and other promotional banks.
 
 [^3]: Quotes are from 7th WFD Implementation Report,[ COM(2025) 2](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0002)(p15, p36) 
-*The challenge is thus to improve the reporting of the costs of the PoM measures, including the investment amounts,* and to specify the funding of these investments and other measures. This requires a clear distinction between **capital costs (CAPEX)** and **operational costs (OPEX)**.
+
+*The challenge is thus to improve the reporting of the costs of the PoM measures, including the investment amounts*, and to specify the funding of these investments and other measures. This requires a clear distinction between capital costs (CAPEX) and operational costs (OPEX). […]
 
 The proposal here is to agree on a clear conceptual basis for the PoM costs.
 
-It is natural to consider the PoM as a **budget of government outlays** – however, there can be costs on other economic agents without government payment involved (e.g. banning an activity).
+It is natural to consider the PoM as a **budget of government outlays** – however, there can be costs on other economic agents without government payment involved (cf. banning an activity).
 
-The budget orientation would imply focusing on foreseen *spending amounts*. This has three consequences:
+The budget orientation would imply to look at foreseen **spending amounts**. This has three
+consequences:
 
 - ‘Welfare costs’ should not be included in the reporting. However, they can be taken up as “negative benefits” in the **CEA (cost‑effectiveness analysis)**. 
-- The reporting concerns investment spending (purchases / commitments) and not capital costs (depreciation). 
-- To link with financial support from **EU Funds**, **EIB**, and other promotional banks, it is necessary to distinguish OPEX and CAPEX when reporting investment costs.
+- The reporting is on investment spending (purchases / commitments) and not on capital costs (depreciation). 
+- To make the link with financial support from EU Funds, EIB and other promotional banks, one needs to distinguish OPEX and CAPEX when reporting investment cost.
 
-There is a readily available conceptual basis for the reporting on the PoM investment and other costs, with which the Member States are already familiar, namely the **environmental protection expenditures**. They are required to collect and report this data annually to Eurostat ([^4]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one of the environmental‑economic satellite accounts to the economic National Accounts.The EPEA are based on a clear, publicly available protocol (following UN statistical standards), defining the environmental domains, spending economic sectors, and expenditure types. The latter includes the distinction between **capital** and **current** expenditures. Hence, it meets the features described in the three points above.
+There is a readily available conceptual basis for the reporting on the PoM investment and other costs, with which the Member States are already familiar, namely the **environmental protection expenditures**. They are namely required to collect and report this data annually to Eurostat ([^4]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one of the environmental‑economic satellite accounts to the economic National Accounts.The EPEA are based on a clear, publicly available protocol (following UN statistical standards), defining the environmental domains, spending economic sectors, and expenditure types. The latter includes the distinction between **capital** and **current** expenditures. Hence, it meets the features described in the three bullets points above.
 
 
 [^4]: An obligation under Regulation (EU) No 691/2011, amended by Commission Delegated Regulation (EU) 2022/125; the consolidated 
@@ -297,7 +297,7 @@ In the **3ʳᵈ cycle** of reporting, the overall cost of the PoM was reported i
 ```
 
 
-The variability of the geographical and temporal coverage of the reported data adds to the difficulty in achieving a meaningful analysis.{numref}`measures_temporalcoverage` illustrates the issues regarding temporal coverage. {ref}`Table 5 <Table 5>` illustrates the issue with geographical coverage.
+The variability of the geographical and temporal coverage of the reported data adds to the difficulty in achieving a meaningful analysis.{numref}`measures_temporalcoverage` illustrates the issues regarding temporal coverage. {numref}`measures_geographiccoverage` illustrates the issue with geographical coverage.
 
 
 
@@ -316,24 +316,23 @@ The variability of the geographical and temporal coverage of the reported data a
 | 2016--2021 | 2010--2015 | 7 |
 | 2016--2021 | 2021--2027 | 4 |
 | 2016--2021 | 2022--2027 | 40 |
+| 2016--2021 | 2023--2027 | 3 |
 | 2016--2022 | 2023--2027 | 4 |
 | 2016--2027 | 2019 | 4 |
 | 2017--2021 | 2021--2027 | 4 |
 | 2017--2021 | 2022--2027 | 1 |
 ```
 
-
-*Table 5. Geographic coverage: scale to which the reported costs refer – 3ʳᵈ RBMP electronic reporting (including Norway).*
-
-(Table 5)=
+```{table} Geographic coverage: scale to which the reported costs refer – 3ʳᵈ RBMP electronic reporting (including Norway).
+:name: measures_geographiccoverage
+:width: 100%
 | costOfMeasuresScale20152021 | costOfMeasuresScale20212027 | Number of RBDs |
 |------------------------------|------------------------------|----------------|
 | National | National | 48 |
 | River Basin District | River Basin District | 103 |
 | National | River Basin District | 4 |
 | River Basin District | National | 7 |
-
-
+```
 
 
 ### ExpenditurePerMeasurePerSector table – 4ᵗʰ cycle
@@ -363,7 +362,7 @@ A clear separation is made between **capital** expenditure vs. **current** expen
 
 The **institutionalSector** attribute identifies the institutional sector doing the outlay. This aspect is explained below.
 
-The European System of Accounts (ESA 2010) has a standard classification of institutional sectors (see {ref}`Table 6 <Table 6>`). 
+The European System of Accounts (ESA 2010) has a standard classification of institutional sectors (see {numref}`measures_ESA2010`). 
 The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly, the 3ʳᵈ cycle of WFD reporting used it. 
 The dichotomous key in Figure 13 clarifies the allocation of units to sectors.
 
@@ -375,9 +374,9 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 - S14 – Households
 - S2 – Rest of the World
 
-*Table 6. European System of Accounts (ESA 2010) sectors.*
-
-(Table 6)=
+```{table} European System of Accounts (ESA 2010) sectors.
+:name: measures_ESA2010
+:width: 100%
 | ESA Sector | Definition |
 |------------|------------|
 | S.1 | Total economy |
@@ -393,6 +392,7 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 | S.21 | Member states and institutions and bodies of the European Union. |
 | S.212 | Institutions and bodies of the European Union (e.g., European Central Bank, European Commission). |
 | S.22 | Non-member countries and international organisations non-resident in the European Union. |
+```
 
 
 
@@ -403,14 +403,13 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 ```
 
 
-Table 7 presents a proposed list of institutional sectors that can be used in the **4ᵗʰ cycle** of reporting. The list should be revised and discussed with the CIS WG Economics.
+{numref}`measures_institutionalsectors` presents a proposed list of institutional sectors that can be used in the **4ᵗʰ cycle** of reporting. The list should be revised and discussed with the CIS WG Economics.
 
 It is also important to provide technical guidance and examples on the proper reporting of expenditures. For example, in the context of the EPEA, research and development (R&D) expenditure is primarily classified as current expenditure, while the National Accounts framework (ESA 2010) typically capitalizes R&D as an investment.
 
-*Table 7. Proposed list of institutional sectors – 4ᵗʰ cycle.*
-
-
-(Table 7)=
+```{table} Proposed list of institutional sectors – 4ᵗʰ cycle.
+:name: measures_institutionalsectors
+:width: 100%
 | ESA Sector* | Definition and comments |
 |------------------|--------------------------|
 | S.1 | Total economy. Allows the provision of aggregated data. |
@@ -421,10 +420,12 @@ It is also important to provide technical guidance and examples on the proper re
 | S.11001 | Public non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
 | S.11002_S.11003 | Private non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
 | S.212 | Institutions and bodies of the European Union (e.g. European Central Bank, European Commission). |
+```
+\* *The underscore '_' denotes a list of code values (Code1_Code2). The hyphen '-' denotes a range of code values (StartCode-EndCode)*
 
 
+It is also important to address the reporting of transfers of EU Funds.
 
-It is also important to address the reporting of transfers of EU Funds. 
 If institutionalSector = 'S.212' then the value represents a transfer of EU funds into the national economy. Depending on the purpose, it can be a capital transfer (e.g. to build a new UWWT plant), or a current transfer (e.g. a CAP subsidy to pay farmers to reduce or eliminate pesticides). It is not necessary to identify which sector receives the transfer.
 
 A numerical example can be used to illustrate the proposed approach.
@@ -437,14 +438,14 @@ A new Urban Waste Water Treatment Plant required a total capital expenditure of 
 * Scenario 4 : a public utility company (S.11001) built the plant, using 8M€ of national funds transferred by the General Government (S.13) to the company and 2M€ of EU funds transferred to the company via the national government. 
 * Scenario 5 : a public utility company (S.11001) built the plant, using 5M€ of their own funds, 4M€ of national funds transferred by the General Government (S.13) to the company and 1M€ of EU funds transferred to the company via the national government.
 
-Table 8 illustrates the reporting of the different scenarios.
+{numref}`measures_reportingSectorExample` illustrates the reporting of the different scenarios.
 
-Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view. 
+Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view.  
 Likewise, scenario 3 and scenario 4 are identical.
 
-*Table 8. Illustrative example with the reporting of expenditure per sector.*
-
-(Table 8)
+```{table} Illustrative example with the reporting of expenditure per sector.
+:name: measures_reportingSectorExample
+:width: 100%
 | Scenario | Institutional Sector | Total Capital Expenditure |
 | --- | --- | --- |
 | 1 | S.13 – General Government | 10 M€ |
@@ -456,7 +457,7 @@ Likewise, scenario 3 and scenario 4 are identical.
 | 5 | S.11001 – Public non-financial corporations | 5 M€ |
 | 5 | S.13 – General Government | 4 M€ |
 | 5 | S.212 – Institutions and bodies of the European Union | 1 M€ |
-
+```
 
 
 The Commission must provide guidance on the reporting of expenditure for measures where 
@@ -504,7 +505,7 @@ Regarding the measures to address significant impacts in the status of water as 
 keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle).*
 
 (Table 9)=
-| mainKeyTypeOfMeasure (4ᵗʰ cycle) | basicMeasureType (2nd and 3ʳᵈ cycle) | keyTypeOfMeasure (2nd and 3ʳᵈ cycle) |
+| mainKeyTypeOfMeasure (4ᵗʰ cycle) | basicMeasureType (2ⁿᵈ and 3ʳᵈ cycle) | keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle) |
 |------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------|
 | B - Measure to implement recovery of costs for water services | Measure to implement recovery of costs for water services | KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households; KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry; KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture |
 | C - Measure to promote efficient and sustainable water use | Measure to promote efficient and sustainable water use | KTM8 - Water efficiency, technical measures for irrigation, industry, energy and households |
