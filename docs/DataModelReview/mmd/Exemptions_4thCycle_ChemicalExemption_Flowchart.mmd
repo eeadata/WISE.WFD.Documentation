@@ -18,22 +18,25 @@ hasNoApplicableExemption_4("no exemption <br/>applicable"):::stateRed
 hasNoApplicableExemption_5("no exemption <br/>applicable"):::stateRed
 hasNoApplicableExemption_6("no exemption <br/>applicable"):::stateRed
 
-hasExemption44("Article 4(4) <br/> Extension of deadline"):::state
+hasExemption44("Article 4(4) <br/> Extension of deadline <br/> (natural conditions)"):::state
 hasExemption45("Article 4(5) <br/> Less stringent objectives"):::state
 hasExemption46("Article 4(6) <br/> Temporary deterioration"):::state
 
-hasExemption47_1("Article 4(7) <br/> New modification/project"):::state
-hasExemption47_2("Article 4(7) <br/> New modification/project"):::state
+hasExemption47("Article 4(7) <br/> New modification/project"):::state
+hasExemption47a("Article 4(7a) <br/> Short-term impact"):::state
+hasExemption47b("Article 4(7b) <br/> Relocation of water or sediment"):::state
+hasExemption154("UWWTD Article 15(4) <br/> Domestic wastewater load <br/>from new/refurbished UWWT"):::state
 
 %% Defining the decisions
 
 %% WE NEED THE LISTS!
-is2026Substance{"2008 or 2013 <br/>priority substance?"}
-is2013Substance{"2013 substance?"}
+is2026Substance{"2026 <br/>priority substance?"}
+is2013Substance{"2013 <br/>priority substance?"}
 
 isCausingFailureIn2027{"Causing failure <br/> in 2027?"}
 isDeteriorationExpected{"Deterioration <br/>expected <br/> beyond 2027?"}
 isDeteriorationObserved{"Deterioration <br/>observed <br/> in 2027 or earlier?"}
+isDeteriorationCause{"Is deterioration <br/> caused by?"}
 isGoodStatusAchievable{"Is good status <br/> achievable?"}
 isUnfeasibleOrCostly{"Are measures <br/>unfeasible or <br/>disproportionately costly?"}
 isDelayDueToNaturalConditions{"Delay due <br/>to natural conditions?"}
@@ -49,8 +52,10 @@ hasNoApplicableExemption_4 --> final
 hasNoApplicableExemption_5 --> final
 hasNoApplicableExemption_6 --> final
 
-hasExemption47_1 --> final 
-hasExemption47_2 --> final 
+hasExemption47 --> final 
+hasExemption47a --> final 
+hasExemption47b --> final 
+hasExemption154 --> final 
 hasExemption46 --> final 
 hasExemption45 --> final 
 hasExemption44 --> final 
@@ -58,8 +63,8 @@ hasExemption44 --> final
 %% THE IMPORTANT PART STARTS HERE
 
 %% EXEMPTIONS DON'T APPLY TO 2026 SUBSTANCES
-is2026Substance ==> |no| hasNoApplicableExemption_1
-is2026Substance ==> |yes| isCausingFailureIn2027
+is2026Substance ==> |yes| hasNoApplicableExemption_1
+is2026Substance ==> |no| isCausingFailureIn2027
 
 %% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
 isCausingFailureIn2027 ==> |unknown| hasNoApplicableExemption_2
@@ -69,15 +74,19 @@ isCausingFailureIn2027 ==> |no| isDeteriorationExpected
 isDeteriorationExpected ==> |no| hasNoApplicableExemption_3
 
 %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-isDeteriorationExpected ==> |"yes[new modification <br/> OR sustainable human development <br/> OR short-term <br/> OR relocation <br/> OR uwwtdArticle15(4)]"|hasExemption47_1
-isDeteriorationExpected ==> |"yes[other causes]"|hasNoApplicableExemption_4
+isDeteriorationExpected ==> |yes|isDeteriorationCause
+
+isDeteriorationCause ==> |"[new modification <br/> OR sustainable human development]"|hasExemption47
+isDeteriorationCause ==> |"[short-term impact]"|hasExemption47a
+isDeteriorationCause ==> |"[relocation of <br/>water or sediment]"|hasExemption47b
+isDeteriorationCause ==> |"[increased load <br/>from new/refurbished UWWT]"|hasExemption154
+isDeteriorationCause ==> |"[other causes]"|hasNoApplicableExemption_4
 
 %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
 isCausingFailureIn2027 ==> |yes| isDeteriorationObserved
-isDeteriorationObserved ==>|"yes <br/>[other causes]"|hasNoApplicableExemption_4
-isDeteriorationObserved ==> |"yes[new modification <br/> OR sustainable human development <br/> OR short-term <br/> OR relocation <br/> OR uwwtdArticle15(4)]"|hasExemption47_2
-isDeteriorationObserved ==> |"yes <br/>[accidents <br/>OR force majeure <br/>OR natural causes]"| hasExemption46
-isDeteriorationObserved ==> |no| isGoodStatusAchievable
+isDeteriorationObserved ==>|"yes <br/>[other causes]"|isDeteriorationCause
+isDeteriorationObserved ==>|"yes <br/>[accidents <br/>OR force majeure <br/>OR natural causes]"|hasExemption46
+isDeteriorationObserved ==>|no|isGoodStatusAchievable
 
 %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
 isGoodStatusAchievable ==>|no|isUnfeasibleOrCostly

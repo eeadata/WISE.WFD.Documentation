@@ -19,12 +19,14 @@ hasExemption44n("Article 4(4) <br/> Extension of deadline (natural conditions)")
 hasExemption45("Article 4(5) <br/> Less stringent objectives"):::state
 hasExemption46("Article 4(6) <br/> Temporary deterioration"):::state
 hasExemption47("Article 4(7) <br/> New modification/project"):::state
+hasExemption47a("Article 4(7a) <br/> Short-term impact"):::state
 
 %% Defining the decisions
 
 isQuantitativeStatusIn2027{"Quantitative Status <br/>in 2027?"}
 isDeteriorationExpected{"Deterioration <br/>expected <br/>beyond 2027?"}
 isDeteriorationObserved{"Deterioration <br/>observed <br/>in 2027 or earlier?"}
+isDeteriorationCause{"Is deterioration <br/> caused by?"}
 isGoodStatusAchievable{"Is good status <br/>achievable?"}
 isUnfeasibleOrCostly{"Are measures <br/>unfeasible or <br/>disproportionately costly?"}
 isDelayDueToNaturalConditions{"Delay due <br/>to natural conditions?"}
@@ -36,6 +38,7 @@ hasNoApplicableExemption_1 --> final
 hasNoApplicableExemption_2 --> final
 hasNoApplicableExemption_3 --> final
 hasExemption47 --> final 
+hasExemption47a --> final 
 hasExemption46 --> final 
 hasExemption45 --> final 
 hasExemption44n --> final 
@@ -50,12 +53,14 @@ isQuantitativeStatusIn2027 ==>|not failing|isDeteriorationExpected
 isDeteriorationExpected ==>|no|hasNoApplicableExemption_2
 
 %% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
-isDeteriorationExpected ==>|"yes <br/>[new modification <br/>OR sustainable human development]"|hasExemption47
+isDeteriorationExpected ==> |yes|isDeteriorationCause
+isDeteriorationCause ==> |"[new modification <br/> OR sustainable human development]"|hasExemption47
+isDeteriorationCause ==> |"[short-term impact]"|hasExemption47a
 
 %% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
 isQuantitativeStatusIn2027 ==>|failing|isDeteriorationObserved
-isDeteriorationObserved ==>|"yes <br/> [new modification <br/>OR sustainable human development]"|hasExemption47
-isDeteriorationObserved ==>|"yes <br/> [accidents <br/>OR force majeure <br/>OR natural causes]"|hasExemption46
+isDeteriorationObserved ==>|"yes <br/>[other causes]"|isDeteriorationCause
+isDeteriorationObserved ==>|"yes <br/>[accidents <br/>OR force majeure <br/>OR natural causes]"|hasExemption46
 isDeteriorationObserved ==>|no|isGoodStatusAchievable
 
 %% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES

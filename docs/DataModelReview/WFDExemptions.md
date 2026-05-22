@@ -1,7 +1,7 @@
 (heading_wfd_exemptions)=
 # WFD exemptions
 
-Last update: 2026-05-20
+Last update: 2026-05-22
 
 ```{warning}
 
@@ -94,6 +94,15 @@ Ecological exemptions are reported using the table in {numref}`SWEcologicalExemp
 :align: center
 ```
 
+The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_EcologicalExemption_Flowchart`).
+
+```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_EcologicalExemption_Flowchart.mmd
+:name: Exemptions_EcologicalExemption_Flowchart
+:caption: Surface Water Body - Ecological Exemption Decision Tree - 4ᵗʰ cycle
+:align: center
+```
+
+
 The following conditions apply:
 01. Ecological exemptions are not reported for Territorial Waters.
 02. Ecological exemptions are not reported for hydromorphological quality elements.
@@ -118,19 +127,11 @@ The following conditions apply:
 05. Mandatory: `qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')`
 06. Mandatory: `qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue = '3'`
 07. Not allowed: `qeStatusOrPotentialValue = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-08. Not allowed: `qeCode LIKE 'QE1%' AND exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','upToThreeYears','until2027')`
-09. Not allowed: `qeCode LIKE 'QE3%' AND exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-10. Not allowed: `qeCode LIKE 'QE1%' AND exemptionRationale = 'article47_relocationOfWaterOrSediment'`
+08. Not allowed: `qeCode LIKE 'QE1%' AND exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','upToThreeYears','until2027')`
+09. Not allowed: `qeCode LIKE 'QE3%' AND exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+10. Not allowed: `qeCode LIKE 'QE1%' AND exemptionType = 'article47b_relocationOfWaterOrSediment'`
 11. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
 ``` 
-
-The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_EcologicalExemption_Flowchart`).
-
-```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_EcologicalExemption_Flowchart.mmd
-:name: Exemptions_EcologicalExemption_Flowchart
-:caption: Surface Water Body - Ecological Exemption Decision Tree - 4ᵗʰ cycle
-:align: center
-```
 
 (heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
 ## Surface water chemical exemptions by pollutant
@@ -144,6 +145,22 @@ and not as exemptions associated with the quality element "QE3-3 - River Basin S
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWChemicalExemption_ClassDiagram.mmd
 :name: SWChemicalExemptionClass
 :caption: Surface Water Body - Chemical Exemption - 4ᵗʰ cycle
+:align: center
+```
+
+The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_ChemicalExemption_Flowchart`).
+
+* In 2027, exemptions are not yet required, if the pollutant is causing failure to achieve good status AND:
+
+  * the pollutant is a 2026 Priority Substance,
+  * the pollutant is a 2008 or 2013 Priority Substance for which the EQS was made more strict in 2026
+
+* Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, 
+  where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
+
+```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_ChemicalExemption_Flowchart.mmd
+:name: Exemptions_ChemicalExemption_Flowchart
+:caption: Surface Water Body - Chemical Exemption Decision Tree - 4ᵗʰ cycle
 :align: center
 ```
 
@@ -161,31 +178,26 @@ The following conditions apply:
 02. Mandatory: `swPollutantCode in ({list-of-river-basin-specific-pollutants}) AND swPollutantCausingFailure in '3'`
 03. Not allowed: `swPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
 04. Not required: `swPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
-05. Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+05. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 06. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
 ``` 
 
-The diagram below presents the applicability criteria for the different exemption types ({numref}`Exemptions_ChemicalExemption_Flowchart`).
+```{todo}
+Exemptions - {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
 
-Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, 
-where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
-
-```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_ChemicalExemption_Flowchart.mmd
-:name: Exemptions_ChemicalExemption_Flowchart
-:caption: Surface Water Body - Chemical Exemption Decision Tree - 4ᵗʰ cycle
-:align: center
+EEA Water to provide list of substances under each of the categories (e.g. 2026 PS, 2013 PS, 2008 PS, has2026EQS).
 ```
 
 (heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions)=
 ## Surface water related protected area exemptions
 
-Specific objectives may be set for waterbodies associated with some types of protected areas:
+Specific objectives may be expressed in terms of WFD Water quality elements for waterbodies associated with some types of protected areas:
 
 * Shellfish designated waters
 * Drinking water protection areas
 * Natura 2000 protected sites included in the WFD register of protected areas
 
-*If the specific objectives have not been met*, then exemptions may be reported.
+If the specific objectives have been expressed in terms of WFD quality elements, and have not been met, then exemptions may be reported.
 (Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
 
 Based on the data reported in the 3ʳᵈ cycle, it is likely that the number of exemptions is relatively low. Therefore the attributes of related to exemptions were simply added to the SWAssociatedProtectedArea table ({numref}`SWAssociatedProtectedAreaClass`).
@@ -197,7 +209,10 @@ Based on the data reported in the 3ʳᵈ cycle, it is likely that the number of 
 ```
 
 ```{todo}
-DG ENV to provide draft flowchart and quality control criteria
+Exemptions - {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
+
+DG ENV to provide draft flowchart and quality control criteria 
+for {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`.
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant)=
@@ -220,10 +235,10 @@ The following conditions apply:
 :class: dropdown
 01. Mandatory: `gwPollutantCausingFailure in '3'`
 02. Not allowed: `gwPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-03. Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+03. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 ``` 
 
-Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
+Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent). 
 
 With the necessary adaptations, 
 the diagram with the criteria applicable to surface water chemical exemptions 
@@ -231,7 +246,11 @@ the diagram with the criteria applicable to surface water chemical exemptions
 is also applicable to groundwater pollutants and indicators of pollution.
 
 ```{todo}
-DG ENV to provide adapted flowchart.
+Exemptions - {ref}`heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant`
+
+DG ENV to provide draft flowchart and quality control criteria.
+Specifically: what are the priority substances, other GW pollutants and indicators of pollution 
+to which the exemptions can by applied?
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions)=
@@ -256,9 +275,9 @@ The following conditions apply:
 :class: dropdown
 01. Mandatory: `gwQuantitativeStatusValue = '3'`
 02. Not allowed: `gwQuantitativeStatusValue = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-03. Not allowed: `exemptionRationale = 'article47_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-04. Not allowed: `exemptionRationale = 'article47_relocationOfWaterOrSediment'`
-05. Not allowed: `exemptionRationale = 'article47_domesticUrbanWasteWaterArticle154'`
+03. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+04. Not allowed: `exemptionType = 'article47b_relocationOfWaterOrSediment'`
+05. Not allowed: `exemptionType = 'uwwtdArticle154_domesticUrbanWasteWater'`
 ``` 
 
 The diagram below presents the applicability criteria for the different exemption types
@@ -286,6 +305,8 @@ Based on the data reported in the 3ʳᵈ cycle, it is likely that the number of 
 Therefore the attributes of related to exemptions were simply added to the GWAssociatedProtectedArea table ({numref}`GWAssociatedProtectedAreaClass`).
 
 ```{todo}
+Exemptions: {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
+
 DG ENV to provide draft flowchart and quality control criteria
 ```
 
@@ -311,18 +332,27 @@ The following conditions apply:
 02. the allowable values for the exemption period depend on the exemption type
 
 ```{todo}
-DG ENV to provide table with valid combinations of ExemptionRationale *versus* ExemptionPeriod
+Exemptions - {ref}`heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions`
+
+In {numref}`ExemptionCodelist`: the option to indicate ‘lessStringentObjectiveAlreadyAchieved’ is confusing, as it seems to imply that the exemption is no longer needed; in most cases, when a lower objective is set, it’s set at the level of the current water status; in some cases, it may be set for the future, but even when it will be achieved, it will still be necessary to apply an exemption, including an exemption period (ie 2027-2033 or 2027 – indeterminate or..) 
+
+In {numref}`ExemptionCodelist`: article44_technicalFeasibility and Article 44_disproportionateCost are in principle no longer usable in the 4th RBMPs, except for exemptions for chemical status in relation to substances introduced in 2013 or in relation to priority substances for which a stricter EQS was set in 2013 – maybe this can be mentioned somewhere.
+
+DG ENV to provide table with valid combinations 
+of `ExemptionRationale` and `ExemptionRationale` *vs. `ExemptionPeriod`
+
 ```
 
 (heading_wfd_exemptions_clarifications)=
 ## Clarifications requested by Member States
 
+(heading_wfd_exemptions_clarifications_article47a)=
 ### Exemptions under Article 4(7a) - short term-impact
 
 Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy*. 
 
 ```{epigraph}
-‘7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:
+"7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:
  
 (a) the negative impact is not the result of direct discharges, emissions or losses of a pollutant;
  
@@ -334,27 +364,28 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
  
 (e) a summary of the main activities carried out in accordance with this paragraph, the relevant ex post verification results, and the measures taken to mitigate negative impacts, is included in the river basin management plan required under Article 13.
 
-For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring.
+For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring."
 
 -- [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj)
 ```
 
 **Actions taken:**
 
-* A new value `article47_shortTermImpact` was added to the `ExemptionRationale` codelist (see {numref}`ExemptionCodelist`).
-* Two new values `upToOneYear` and `upToThreeYears` were added to the **ExemptionPeriod** codelist (see {numref}`ExemptionCodelist`).
+* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist (see {numref}`ExemptionCodelist`).
+* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist (see {numref}`ExemptionCodelist`).
 
 **Quality checks to be implemented:**
 
 * For biological quality elements, the maximum exemption period is 3 years.
 * For other exemptions, the maximum exemption period is 1 year.
 
+(heading_wfd_exemptions_clarifications_article47b)=
 ### Exemptions under Article 4(7b) - relocation of water or sediment
 
 Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy*.
 
 ```{epigraph}
-7b. Member States will not be in breach of this Directive when deterioration occurs in the status of a receiving body of surface water as a result of relocating, by human activity, water or sediment from the same or another body of surface water, or from a body of groundwater to the receiving body of surface water, without causing a net increase in pollutant load, and all the following conditions are met:
+"7b. Member States will not be in breach of this Directive when deterioration occurs in the status of a receiving body of surface water as a result of relocating, by human activity, water or sediment from the same or another body of surface water, or from a body of groundwater to the receiving body of surface water, without causing a net increase in pollutant load, and all the following conditions are met:
  
 (a) all practicable steps, in particular the treatment of the water or sediment, if feasible, to minimise the transfer of pollutant load are taken to mitigate the adverse impact on the status of the bodies of water impacted by the relocation;
  
@@ -370,28 +401,35 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
  
 (g) the relocation is subject to prior regulation or authorisation; and
  
-(h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13.’
+(h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13."
 
 -- [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj)
 ```
 
 **Actions taken:**
 
-* A new value `article47_relocationOfWaterOrSediment` was added to the `ExemptionRationale` codelist (see {numref}`ExemptionCodelist`).
+* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist (see {numref}`ExemptionCodelist`).
 
 **Quality checks to be implemented:**
 
-* Not applicable to biological quality element exemptions nor to quantitative exemptions
-
+* Not applicable to biological quality element exemptions.
+* Not applicable to quantitative exemptions
 * If applied to chemical exemptions, 
   the receiving water body must be confirmed as already not being in good chemical status,
   in particular with respect to the most persistent and bioaccumulative pollutants relocated.
 
 ```{todo}
-Reporting guidance to be provided by DG ENV.
-Quality control implementation to be clarified.
+Exemptions - {ref}`heading_wfd_exemptions_clarifications_article47b`
+
+Reporting guidance to be provided by DG ENV.  
+Quality control specification to be verified by DG ENV.  
+
+* ¿Must additional `ExemptionRationale` values be added?
+* ¿Should be linked to the most persistent and bioaccumulative pollutants relocated?
+* ¿Pollutant must already be causing failure to achieve good status?
 ```
 
+(heading_wfd_exemptions_clarifications_uwwtdArticle154)=
 ### Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive 
 
 ```{epigraph}
@@ -409,7 +447,7 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 
 **Actions taken:**
 
-* A new code `article47_domesticUrbanWasteWaterArticle154` was added to the `ExemptionRationale` codelist (see {numref}`ExemptionCodelist`).
+* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist (see {numref}`ExemptionCodelist`).
 * The {ref}`Exemptions_EcologicalExemption_Flowchart` was updated.
 * The {ref}`Exemptions_ChemicalExemption_Flowchart` was updated.
 
@@ -437,11 +475,22 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 
 * No action required.
 
+(heading_wfd_exemptions_clarification_rbsp)=
 ### Exemptions related to River Basin Specific Pollutants
 
+```{epigraph}
+
+- Pending
+
+-- *Clarification to provided by the Commission reply to the clarification request during the WG DIS meeting on 2026-04-22.*
+```
+
+
 ```{todo}
-  Clarification text pending.
-  Exemptions related to RBSPs are reported under chemical exemptions.
+Exemptions - {ref}`heading_wfd_exemptions_clarification_rbsp`
+
+  Clarification to provided by the Commission 
+  in reply to the Member States' clarification request during the WG DIS meeting on 2026-04-22.
 ```
 
 ## Annexes 
