@@ -21,8 +21,3 @@ WFDSurfaceWaterBody
 WFDSurfaceWaterMethodologies
 
 ```
-
-{substitutions-placeholder}
-
-```{include} ../_sharedFiles/substitutions.rst
-```

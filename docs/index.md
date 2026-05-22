@@ -28,7 +28,3 @@ The **Water Framework Directive Documentation** is organized into the following 
 
    As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.
 
-{substitutions-placeholder}
-
-```{include} ../_sharedFiles/substitutions.rst
-```
