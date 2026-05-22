@@ -54,8 +54,11 @@ mermaid.initialize({theme:"neutral"});
 # SYNTAX HIGHLIGHTING - The name of the Pygments style to use.
 pygments_style = 'sphinx'
 
-# Support for todo items: If this is True, todo and todolist produce output, else they produce nothing. The default is False.
+# Support for todo items: 
+# If todo_include_todos = True, todo and todolist produce output, else they produce nothing. The default is False.
 todo_include_todos = True
+# If todo_link_only = True, todolist produce output without file path and line.
+todo_link_only = True
 
 # MATH - Tell MyST to allow dollar signs and advanced math blocks
 myst_enable_extensions = [
