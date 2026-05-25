@@ -9,15 +9,15 @@ classDiagram
 direction LR
 namespace Documents {
 class dcMetadata {
-+ title : nvarchar4000
-+ creatorOrganisationName : nvarchar4000
++ title : String4000
++ creatorOrganisationName : String4000
 + creatorElectronicMailAddress : Email
-+ description : nvarchar4000 [0..1]
++ description : String4000 [0..1]
 + created : Date [0..1]
 + language : Language [1..n]
 + license : URL
-+ rights : nvarchar4000 [0..1]
-+ rightsHolder : nvarchar4000 [0..1]
++ rights : String4000 [0..1]
++ rightsHolder : String4000 [0..1]
 + licenseDocument : documentCode [0..*]
 + metadataDocument : documentCode [0..*]
 + updateCompetentAuthorities : YesNo
@@ -25,7 +25,7 @@ class dcMetadata {
 }
 class Document {
 + documentCode : wiseIdentifier
-+ documentName : nvarchar250
++ documentName : String250
 + hyperlink : URL [0..1]
 + documentFile : Attachment [0..1]
 }
