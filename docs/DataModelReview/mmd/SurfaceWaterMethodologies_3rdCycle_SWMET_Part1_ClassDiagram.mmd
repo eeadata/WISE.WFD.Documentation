@@ -1,0 +1,105 @@
+%%{init : {'theme' : 'default'}}%%
+classDiagram
+
+class SWMET {
+  + countryCode
+  + euRBDCode
+  + dcMetadata
+  + SWMethodologies
+  + SWTargetedQ
+  + SWChemicalStatusClassificationRBD
+  + SWManagementObjectives
+  + SWPressures
+  + SWExemptions
+}
+
+class SWMethodologies {
+  + typologyMethodologyReference[*]
+  + smallWBsMethodologyReference[*]
+  + minimumCatchmentAreaRivers
+  + minimumSurfaceAreaLakes
+  + otherMinimumCriteria
+  + iRBDTypologyCoOrdinationReference[*]
+  + hmwbMethodologyReference[*]
+}
+
+class SWTargetedQ {
+  + oneOutAllOut
+  + groupingExtrapolation
+  + gepDefined
+  + gepLevel
+  + gepApproach
+  + gepBiology
+  + mitigationMeasures[*]
+  + bqeForMEPGEP[*]
+  + gesGepComparison
+  + ecologicalStatusMethodReference[*]
+  + gepMethodReference[*]
+  + driversFailureEcologicalStatusPotentialReference[*]
+}
+
+class SWChemicalStatusClassificationRBD {
+  + approachSWBNotMonitoredChemicalReference[*]
+  + limitOfQuantification
+  + backgroundConcentrations
+  + backgroundConcentrationsReference[*]
+  + bioavailability
+  + bioavailabilityReference[*]
+  + longTermTrendAnalysis
+  + longTermTrendAnalysisReference[*]
+  + mixingZoneMethodology
+  + alternativeMixingZoneMethodologyReference[*]
+  + mixingZoneMeasures
+  + mixingZoneMeasuresReductionReference[*]
+  + chemicalStatusReference[*]
+}
+
+class SWManagementObjectives {
+  + managementObjectivesNutrients
+  + managementObjectivesNutrientsQuantitativeN
+  + managementObjectivesNutrientsQuantitativeP
+  + managementObjectivesContinuity
+  + managementObjectivesContinuityQuantitative
+  + managementObjectivesReference[*]
+  + waterResourcePlans
+  + waterResourcePlansReference[*]
+}
+
+class SWPressures {
+  + swPressuresNotAssessed[*]
+  + swSignificantPressurePointSourceTools
+  + swSignificantPressureDiffuseSourceTools
+  + swSignificantPressureWaterAbstractionTools
+  + swSignificantPressureWaterFlowTools
+  + swSignificantPressureOtherSourceTools
+  + swSignificanceDefinition
+  + swSignificanceLinkFailure
+  + swPressuresReference[*]
+}
+
+class SWExemptions {
+  + swExemption44Impact[*]
+  + swExemption44Driver[*]
+  + swExemption45Impact[*]
+  + swExemption45Driver[*]
+  + swDisproportionateCost
+  + swDisproportionateCostScale[*]
+  + swDisproportionateCostAnalysis[*]
+  + swDisproportionateCostAlternativeFinancing[*]
+  + swDisproportionateCostOtherEULegislation
+  + swTechnicalInfeasibility[*]
+  + swNaturalConditions[*]
+  + swExemption46[*]
+  + swExemption47[*]
+  + swExemptionsTransboundary
+  + swExemptionsReference[*]
+  + driversSWExemptionsReference[*]
+}
+
+
+SWMET "1" *-- "1" SWMethodologies
+SWMET "1" *-- "1" SWTargetedQ
+SWMET "1" *-- "1" SWChemicalStatusClassificationRBD
+SWMET "1" *-- "1" SWManagementObjectives
+SWMET "1" *-- "1" SWPressures
+SWMET "1" *-- "1" SWExemptions

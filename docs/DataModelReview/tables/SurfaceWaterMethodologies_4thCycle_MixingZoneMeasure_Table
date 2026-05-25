@@ -1,0 +1,17 @@
+```{list-table} Surface Water Methodologies - MixingZoneMeasure codelist – 4ᵗʰ cycle.
+:name: SurfaceWaterMethodologies_4thCycle_MixingZoneMeasure_Table
+:width: 100%
+:header-rows: 1
+:align: left
+* - mixingZoneMeasure 
+  - definition
+* - measureArticle113k
+  - Measures according to Article 11(3)(k) of the WFD
+* - reviewOfPermits
+  - Review of permits referred to in the IPPC Directive
+* - priorRegulationsArticle113g
+  - Prior regulations referred to in Article 11(3)(g) of the WFD
+* - other
+  - Other
+* - notApplicable
+  - Not applicable (mixing zones not defined)

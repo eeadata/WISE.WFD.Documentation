@@ -1,0 +1,113 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+namespace Descriptive {
+class SWMethodologies {
+  + euRBDCode : wiseIdentifier
+  + minimumCatchmentAreaRivers : Number
+  + minimumSurfaceAreaLakes : Number
+  + hmwbMethodologyReference : referenceCode [1..n]
+}
+
+class SWTargetedQuestion {
+  + euRBDCode : wiseIdentifier
+  + gepBiology : YesNo
+  + mitigationMeasures : MitigationMeasure [0..n]
+  + bqeForMEPGEP : BiologicalQualityElement [0..n]
+  + ecologicalStatusMethodReference : referenceCode [1..n]
+  + gepMethodReference : referenceCode [1..n]
+}
+
+class SWChemicalStatusClassification {
+  + euRBDCode : wiseIdentifier
+  + limitOfQuantification : YesNo
+  + backgroundConcentrations : YesNo
+  + backgroundConcentrationsReference : referenceCode [0..n]
+  + bioavailability : YesNo
+  + bioavailabilityReference : referenceCode [0..n]
+  + longTermTrendAnalysis : YesNo
+  + longTermTrendAnalysisReference : referenceCode [0..n]
+  + mixingZoneMethodology : YesNo
+  + alternativeMixingZoneMethodologyReference : referenceCode [0..n]
+  + mixingZoneMeasures : MixingZoneMeasure [0..n]
+}
+
+class SWManagementObjectives {
+  + euRBDCode : wiseIdentifier
+  + managementObjectivesNutrients : YesNo
+  + managementObjectivesNutrientsQuantitativeN : YesNo
+  + managementObjectivesNutrientsQuantitativeP : YesNo
+  + managementObjectivesContinuity : YesNo
+  + managementObjectivesReference : referenceCode [1..n]
+  + waterResourcePlans : YesNoRBMP
+  + waterResourcePlansReference : referenceCode [1..n]
+}
+
+class SWPressures {
+  + euRBDCode : wiseIdentifier
+  + swPressuresNotAssessed : PressureType [0..n]
+  + swSignificantPressurePointSourceTools : SignificantPressureTools
+  + swSignificantPressureDiffuseSourceTools : SignificantPressureTools
+  + swSignificantPressureWaterAbstractionTools : SignificantPressureTools
+  + swSignificantPressureWaterFlowTools : SignificantPressureTools
+  + swSignificantPressureOtherSourceTools : SignificantPressureTools
+  + swSignificanceDefinition : YesNo
+  + swSignificanceLinkFailure : YesNo
+}
+}
+namespace Codelist {
+
+class MitigationMeasure{
+  <<enumeration>>
+  fishLadders
+  bypassChannels
+  habitatRestoration
+  sedimentDebrisManagement
+  removalOfStructures
+  reconnectionOfMeanderBendsOrSideArms
+  loweringOfRiverBanks
+  restorationOfBankStructure
+  channelNarrowing
+  settingOfEcologicalFlows
+  inundationOfFloodPlains
+  operationalModificationsForHydroPeaking
+  dredgingMinimisationAndOrModification
+  restorationOfModifiedBedStructure
+  retentionBasins
+}
+
+class MixingZoneMeasure{
+  <<enumeration>>
+   measureArticle113k
+   reviewOfPermits
+   priorRegulationsArticle113g
+   other
+   notApplicable
+  }
+class YesNoRBMP{
+  <<enumeration>>
+  yes
+  no
+  RBMP}
+
+class SignificantPressureTools{
+  <<enumeration>>
+  numericalTools
+  expertJudgement
+  combinationOfBoth
+  notAssessed
+  }
+
+class PressureType{
+  <<enumeration>>}
+
+class BiologicalQualityElement{
+  <<enumeration>>}
+  
+}

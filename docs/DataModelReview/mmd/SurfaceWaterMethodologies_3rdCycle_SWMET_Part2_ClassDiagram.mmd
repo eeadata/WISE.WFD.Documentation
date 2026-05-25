@@ -1,0 +1,104 @@
+%%{init : {'theme' : 'default'}}%%
+classDiagram
+
+class SWMET {
+  + countryCode
+  + euRBDCode
+  + dcMetadata
+  + SWType[*]
+  + BQEMethod[*]
+  + SWSupportingQE[1..9]
+  + SWPhysicoChemicalQE[*]
+  + SWRBSP[*]
+  + SWPrioritySubstance[*]
+}
+
+class SWType {
+  + swTypeCode
+  + swTypeDescription
+  + swIntercalibrationType[*]
+  + swTypeCategory
+  + swTypeSpecificReferenceConditionsForBQEs
+  + swTypeSpecificHyMoConditions
+  + swTypeSpecificPhysChemConditions
+}
+
+class BQEMethod {
+  + bqeMethodName
+  + bqeCode
+  + bqeCategoryRW
+  + bqeCategoryLW
+  + bqeCategoryTW
+  + bqeCategoryCW
+  + bqePercentageOfTypes
+  + bqeSensitivityImpactNutrients
+  + bqeSensitivityImpactOrganic
+  + bqeSensitivityImpactChemical
+  + bqeSensitivityImpactSaline
+  + bqeSensitivityImpactAcidification
+  + bqeSensitivityImpactTemperature
+  + bqeSensitivityImpactHydrological
+  + bqeSensitivityImpactMorphological
+  + bqeSensitivityImpactOther[*]
+}
+
+class SWSupportingQE {
+  + supportingQECode
+  + supportingQESensitivityBQE
+}
+
+class SWPhysicoChemicalQE {
+  + physChemParameter
+  + physChemParameterOther
+  + physChemCategoryRW
+  + physChemCategoryLW
+  + physChemCategoryTW
+  + physChemCategoryCW
+  + physChemTypeCode[*]
+  + physChemValue
+  + physChemUnit
+  + physChemStandardType
+  + physChemGMBoundary
+}
+
+class SWRBSP {
+  + rbspCode
+  + rbspOther
+  + rbspMatrix
+  + rbspCategoryRW
+  + rbspCategoryLW
+  + rbspCategoryTW
+  + rbspCategoryCW
+  + rbspStandardType
+  + rbspValue
+  + rbspUnit
+  + rbspScale
+  + rbspTechGuidance
+  + rbspAnalyticalMethod
+  + rbspAnalyticalMethodBAT
+}
+
+class SWPrioritySubstance {
+  + psCode
+  + psStatusAssessment
+  + psMatrix
+  + psStandardsUsed
+  + psCategoryRW
+  + psCategoryLW
+  + psCategoryTW
+  + psCategoryCW
+  + psCategoryTeW
+  + psStandardType
+  + psValue
+  + psUnit
+  + psScale
+  + psAnalyticalMethod
+  + psAnalyticalMethodBAT
+}
+
+SWMET "1" *-- "*" SWType
+SWMET "1" *-- "*" BQEMethod
+SWMET "1" *-- "1..9" SWSupportingQE
+SWMET "1" *-- "*" SWPhysicoChemicalQE
+SWMET "1" *-- "*" SWRBSP
+SWMET "1" *-- "*" SWPrioritySubstance
