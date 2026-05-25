@@ -43,20 +43,14 @@ class GWQuantitativeStatus:::forFixing{
 }
 
 class GroundWaterBodyStatus:::forFixing{
+    
     + euGroundWaterBodyCode : wiseIdentifier
-
-    «pending-discussion-it-can-be-removed-because-it-can-be-derived»
     / gwQuantitativeStatusValue 
     / gwChemicalStatusValue 
     
-    «pending-discussion-can-it-can-be-removed»
-    + gwAtRiskQuantitative : YesNoUnknown
-    / gwAtRiskChemical : YesNoUnknown
-
     «pending-discussion-overlaps-with-pressures»
     + gwQuantitativeReasonsForFailure : QuantitativeFailure [0..*]
     + gwChemicalReasonsForFailure : ReasonsForFailure [0..*]
-    + gwReasonsForRiskQuantitative : QuantitativeFailure [0..*]
 } 
 
 class GWPollutant:::forFixing{
@@ -75,9 +69,6 @@ class GWPollutant:::forFixing{
     + gwPollutantBackgroundLevelSet : YesNo
     + gwPollutantBackgroundLevelValue : range [0..1] 
     + gwPollutantBackgroundLevelUnit : UnitOfMeasure [0..1] 
-
-    «pending-discussion-time-frame-or-removal-or-subset-of-pollutants»
-    + gwPollutantCausingRisk : YesNoUnknown [0..1]
 
     «pending-discussion-analogy-with-sw»
     + gwPollutantAssessmentMethod : AssessmentMethod 
