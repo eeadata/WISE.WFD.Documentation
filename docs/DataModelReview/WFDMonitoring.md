@@ -131,12 +131,6 @@ Monitoring_2022 schema - 3ʳᵈ cycle - Obsolete
 (heading_wfd_monitoring_documents_dataset_4th_cycle)=
 ## Documents dataset - 4ᵗʰ cycle
 
-```{todo}
-Monitoring - {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
-
-**Technical** review pending.
-```
-
 The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`Monitoring_4thCycle_Documents`):
 
 * The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
@@ -185,10 +179,14 @@ The following criteria apply:
     the quality control will raise an **ERROR**,
     if some, or all, the river basin districts have `includesMonitoringData = no`.
 
+```{todo}
+Monitoring - {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
+
+**Technical** review pending.
+```
 
 (heading_wfd_monitoring_4th_cycle)=
 ## Descriptive dataset - 4ᵗʰ cycle
-
 
 (heading_wfd_monitoring_monitoring_programmes_table_4th_cycle)=
 ### MonitoringProgrammes table - 4ᵗʰ cycle
