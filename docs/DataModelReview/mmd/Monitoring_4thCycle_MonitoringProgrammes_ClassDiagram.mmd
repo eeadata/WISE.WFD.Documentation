@@ -1,16 +1,22 @@
-%%{init: {'theme': 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
 
 class MonitoringProgrammes{
   + euRBDCode : wiseIdentifier
   + useWaterbaseForMonitoringData : YesNo
-  + programmesReference : referenceIdentifier
-  + investigativeMonitoringReference : referenceIdentifier
-  + operationalMonitoringReference : referenceIdentifier
-  + surveillanceMonitoringReference : referenceIdentifier
-  + gwChemicalMonitoringReference : referenceIdentifier [0..1]
-  + gwQuantitativeMonitoringReference : referenceIdentifier [0..1]
-  + swChemicalMonitoringReference : referenceIdentifier [0..1]
-  + swEcologicalMonitoringReference : referenceIdentifier [0..1]
+  + programmesReference : referenceCode
+  + investigativeMonitoringReference : referenceCode
+  + operationalMonitoringReference : referenceCode
+  + surveillanceMonitoringReference : referenceCode
+  + gwChemicalMonitoringReference : referenceCode [0..1]
+  + gwQuantitativeMonitoringReference : referenceCode [0..1]
+  + swChemicalMonitoringReference : referenceCode [0..1]
+  + swEcologicalMonitoringReference : referenceCode [0..1]
 }
