@@ -1,0 +1,24 @@
+```{list-table} Document
+:name: Monitoring_Document
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* -  documentCode 
+  -  WiseIdentifier  
+  -  Unique identifier of the document.The identifier must follow the syntax of the WISE identifiers.<br /> It must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter,<br /> followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters.<br /> The code can optionally end with one character that can be a digit or an uppercase letter. Example: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FR1–XYZ1234–1.<br />Guidance: reporting is required 
+
+* -  documentName 
+  -  Text(250)       
+  -  Name of the document.  reporting is required                                                                                                                                                      
+
+* -  hyperlink    
+  -  URL. Text(2048) 
+  -  URL of the document if available in internet.Either URL or documentFile must be reported, but not both.Guidance: reporting is optional 
+
+* -  documentFile 
+  -  Attachment      
+  -  Document file as an attachment. The size of the file can be up to 100 MB and the valid file extensions are: 'xlsx' (Excel), 'docx' (Word) y 'pdf'.Either URL or documentFile must be reported, but not both.Guidance: reporting is optional  

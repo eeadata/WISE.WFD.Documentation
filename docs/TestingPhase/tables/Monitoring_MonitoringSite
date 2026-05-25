@@ -1,0 +1,112 @@
+```{list-table} 
+:name: Monitoring_
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* -  geometry_point                    
+  -  Point                    
+  -  The location of the MonitoringSite should be reported using a representative point. This also applies to trawl sampling.<br />The element is required.    
+
+* -  inspireIdLocalId                  
+  -  Text(254)                
+  -  A local identifier, assigned by the data provider. The local identifier is unique within the namespace, that is no other spatial object carries the same unique identifier.<br />It is the responsibility of the data provider to guarantee uniqueness of the local identifier within the namespace. <br />Source: https://inspire.ec.europa.eu/data-model/approved/r4618/fc/<br />The element is required.<br />It is recommended that Data Providers reporting under WFD use a localId value identical to the thematicIdIdentifier value.   
+
+* -  inspireIdNamespace                
+  -  Text(254)                
+  -  Namespace uniquely identifying the data source of the spatial object.<br />The namespace value will be owned by the data provider of the spatial object and will be registered in the INSPIRE External Object Identifier Namespaces Register. <br />Source: https://inspire.ec.europa.eu/data-model/approved/r4618/fc/<br />The element is required.<br />Data Providers must report the namespace of the data source of the spatial object, if an INSPIRE data set was used for reporting.<br />For Data Providers in countries not implementing the INSPIRE Directive, the country code (ISO 3166-1 alpha-2) can be used as placeholder.   
+
+* -  inspireIdVersionId                
+  -  Text(25)                 
+  -  The identifier of the particular version of the spatial object, with a maximum length of 25 characters. If the specification of a spatial object type with an external object identifier includes life-cycle information, the version identifier is used to distinguish between the different versions of a spatial object. Within the set of all versions of a spatial object, the version identifier is unique.<br />The maximum length has been selected to allow for time stamps based on ISO 8601, for example, "2007-02-12T12:12:12+05:30" as the version identifier.<br />The property is void, if the spatial data set does not distinguish between different versions of the spatial object. It is missing, if the spatial object type does not support any life-cycle information. <br />Source: https://inspire.ec.europa.eu/data-model/approved/r4618/fc/<br />The element is optional. <br />Data Providers must report the version of spatial object, if an INSPIRE data set was used for reporting and life-cycle info is supported. 
+
+* -  thematicIdIdentifier              
+  -  WiseIdentifier. Text(42) 
+  -  Unique identifier used to identify the spatial object within the specified identification scheme.<br />Source: https://inspire.ec.europa.eu/data-model/approved/r4618/fc/<br />The element is required.<br />Data Providers reporting under WFD must use the euMonitoringSiteCode as the thematicIdIdentifier.<br />The identifier must follow the syntax of the WISE identifiers. It must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters. The code can optionally end with one character that can be a digit or an uppercase letter. Example: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FR1–XYZ1234–1.<br />Required.  
+
+* -  thematicIdIdentifierScheme        
+  -  IdentifierScheme         
+  -  Identifier defining the scheme used to assign the identifier.<br />Reporting requirements for different environmental legislation mandate that each spatial object is assigned an identifier conforming to specific lexical rules.<br />These rules are often inconsistent so a spatial object may be assigned multiple identifiers which are used for object referencing to link information to the spatial object. <br />Source: https://inspire.ec.europa.eu/data-model/approved/r4618/fc/<br />The element is required.<br />Data Providers reporting under WFD (i.e. EU Member States, Norway and Iceland) must use the value 'euMonitoringSiteCode'.<br />Data Providers reporting under WISE-5 (e.g. non-EU countries reporting only under WISE SoE) must use the value 'eionetMonitoringSiteCode'.    
+
+* -  beginLifespanVersion              
+  -  Text(10)                 
+  -  Date at which this version of the spatial object was inserted or changed in the spatial data set. It must follow the format  YYYY-MM-DD<br />The element is conditional.<br />Data Providers should report this information, if available.<br />The beginLifespanVersion value must be reported if the endLifespanVersion value is reported.   
+
+* -  endLifespanVersion                
+  -  Text(10)                 
+  -  Date at which this version of the spatial object was superseded or retired in the spatial data set. It must follow the format of YYYY-MM-DD.<br />The element is optional.<br />Data Providers should report only the latest version of the spatial object: the endLifespanVersion attribute is not required. <br />This element is kept in the data model to allow future updates and support the traceability of changes to objects previously reported, if there are resubmissions. 
+
+* -  supersedesIdentifier              
+  -  Text(500)                
+  -  In a genealogy, the object(s) that has(have) been deactivated/replaced by another one.<br />The supersedesIdentifier value is a comma-separated list with the thematicIdIdentifier of the existing object(s) that were deactivated/replaced.<br />Semantically, the supersedesIdentifier element is equivalent to the predecessorIdentifier element in the SurfaceWaterBody and GroundWaterBody data sets.<br />The element is conditional. <br />It must be reported if, and only if, the object replaces one or more objects that were previously reported. <br />Data Providers should report a comma-separated list with the thematicIdIdentifier of the object(s) that have been replaced.<br />This element does not apply to the case where a newer version of the same object is being reported. In other others, an object never replaces itself.<br />The number of predecessors depends on the wiseEvolutionType value.<br />The objects reported as predecessors must exist in the WISE      
+
+* -  supersedesIdentifierScheme        
+  -  IdentifierScheme         
+  -  Identifier defining the scheme used to assign the identifier value(s) in the supersededIdentifier element.<br />The element is mandatory, if and only if one or more predecessors are reported.<br />All predecessors must belong to the same identifier scheme.<br />The element is conditional. <br />It must be reported if, and only, if the supersedesIdentifier is reported. <br />The supersedesIdentifierScheme value is identical to the thematicIdIdentifierScheme. In other words, the object being reported can only replace another object in the same identifier      
+
+* -  supersededByIdentifier            
+  -  Text(500)                
+  -  In a genealogy, the newly active object(s) that replaces(replace) the current one.<br />The supersededByIdentifier value is a comma-separated list with the thematicIdIdentifier of the object(s) that replace the current object.<br />Semantically, the supersededByIdentifier element is equivalent to the successorsIdentifier element in the SurfaceWaterBody and GroundWaterBody data sets.<br />The element is conditional.<br />It must be reported if, and only if, the reported object has been replaced and no longer exists. <br />Data Providers should report a comma-separated list with the thematicIdIdentifier of the object(s) that replace it.<br />Objects that no longer exist should be reported with wiseEvolutionType = 'deletion'. <br />If the object has not been replaced, the successorsIdentifier element is not reported.    
+
+* -  supersededByIdentifierScheme      
+  -  IdentifierScheme         
+  -  Identifier defining the scheme used to assign the identifier value(s) in the supersedeByIdentifier element.<br />The element is mandatory, if and only if one or more successors are reported.<br />The element is conditional. <br />It must be reported if, and only if, the supersededByIdentifier is reported.<br />(With the exception described below) The supersededByIdentifierScheme value is identical to the thematicIdIdentifierScheme. In other words, the object being reported can only replace another object in the same identifier scheme.<br />Special case: <br />If applicable, Data Providers reporting under WISE-5 may replace obsolete EIONET codes by their corresponding WFD codes, if the WFD data sets have already been reported, accepted, processed and integrated in the WISE    
+
+* -  wiseEvolutionType                 
+  -  WiseEvolutionType        
+  -  Type of event that produced or modified the version of the object being reported (creation, change, deletion, aggregation, splitting). This attribute is required to explicitly report changes and update the current status of the object in the Water Information System for Europe.<br />The allowable values are based on those defined in http://inspire.ec.europa.eu/codelist/EvolutionTypeValue/. <br />See also Annex F of the INSPIRE Data Specification on Statistical Units (D2.8.III.1_v3.0RC3) for examples of application.<br />The element is required.<br />The wiseEvolutionType value determines the type of acceptable values in the predecessorsIdentifier element. <br />Example 1: if the wiseEvolutionType is 'changeCode', then only one predecessor can be reported (the "old code").<br />Example 2: if the wiseEvolutionType is 'aggregation', then more than one predecessor must be reported.<br />Example 3: if the wiseEvolutionType is 'splitting', then one and only one one predecessor must be reported.<br />See the WISE GIS Guidance document for additional information on the management of life-cycle information. 
+
+* -  nameTextInternational             
+  -  Text(254)                
+  -  Name, in English. English exonym, or understandable English version of the name of the geographical feature or spatial object.<br />For this element, the language code is 'eng' (by definition) and is not reported.<br />The element is required.<br />In the 2016 WFD reporting exercise, the element was optional is the spatial data, and mandatory is the descriptive reporting sheets. Presently, the element is only requested in the spatial data.<br />If an English version does not exist, report a transliteration of the national name to the ISO basic Latin alphabet (which uses the same 26 letters that comprise the English alphabet).  
+
+* -  nameText                          
+  -  Text(254)                
+  -  Name, in the national language. National language endonym, or national language version of the name of the geographical feature or spatial object.<br />Source: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_GN_v3.0.1.pdf<br />The element is required.    
+
+* -  nameLanguage                      
+  -  Language                 
+  -  Language code of the language used in the nameText attribute value.<br />Source: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_GN_v3.0.1.pdf<br />The element is required.<br />Use the ISO 639-2/B code of the national language used for the object's geographical name.<br />ISO 639-3 is a code that aims to define three-letter identifiers for all known human languages. <br />See: http://dd.eionet.europa.eu/vocabulary/common/iso639-3/      
+
+* -  operationalActivityPeriodBegin    
+  -  Text(10)                 
+  -  [Beginning of the] period during which the EnvironmentalMonitoringFacility has been up and running. It must follow the format of  YYYY-MM-DD,.<br />The element is required    
+
+* -  operationalActivityPeriodEnd      
+  -  Text(10)                 
+  -  [End of the] period during which the EnvironmentalMonitoringFacility has been up and running. It must follow the format of  YYYY-MM-DD.<br />The element is conditional. <br />Data Providers are required to report this information only if the end of the operational period is known or has already occorred.<br />Data Providers are required to report this information if the object has wiseEvolutionType = 'deletion'.    
+
+* -  featureOfInterestIdentifier       
+  -  WiseIdentifier. Text(42) 
+  -  Identifier of the surface water body or groundwater body being monitored.<br />The element is required.<br />The identifier must follow the syntax of the WISE identifiers. It must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters. The code can optionally end with one character that can be a digit or an uppercase letter. Example: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FR1–XYZ1234–1.  
+
+* -  featureOfInterestIdentifierScheme 
+  -  IdentifierScheme         
+  -  Identifier defining the scheme used to assign the identifier value in the featureOfInterest element.<br />The element is required.<br />Data Providers reporting under WFD should use 'euSurfaceWaterBodyCode' or 'euGroundWaterBodyCode', depending on the type of water body being monitored (and the corresponding featureOfInterestIdentifierScheme).<br />Data Providers not reporting under WFD should use 'eionetSurfaceWaterBodyCode' or 'eionetGroundWaterBodyCode', if the feature of interest is not a WFD water body.   
+
+* -  mediaMonitoredBiota               
+  -  YesNo.                   
+  -  Monitored environmental medium.<br />The element is required.<br />Report "yes" if biota is being monitored, "no" otherwise<br />At least one media must be monitored (biota, water or sediment).  
+
+* -  mediaMonitoredWater               
+  -  YesNo.                   
+  -  Monitored environmental medium.<br />The element is required.<br />Report "yes" if water is being monitored, "no" otherwise<br />At least one media must be monitored (biota, water or sediment).    
+
+* -  mediaMonitoredSediment            
+  -  YesNo.                   
+  -  Monitored environmental medium.<br />The element is required.<br />Report "yes" if sediment is being monitored, "no" otherwise<br />At least one media must be monitored (biota, water or sediment).  
+
+* -  purpose                           
+  -  Purpose. Text(254)       
+  -  Purpose of collection.<br />Optional. More than one purpose can be reported.    
+
+* -  confidentialityStatus             
+  -  ConfidentialityStatus    
+  -  Information about the sensitivity and confidentiality status of the monitoring site location.<br />By default, all data is publicly available and free for publication. For safety or security reasons, Data Providers may flag that the location of some monitoring sites (e.g. drinking water abstractions) should not be published.<br />The element is optional. <br />Data providers reporting under WISE SoE are requested to provide this information for monitoring sites. The default value is 'F' (free for publication). The value 'N' (not from publication, restricted for internal use only) will prevent the publication of the monitoring site's location in the WISE dissemination products.<br />This flag applies only to the location data: the time series will still be made available. <br />This flag does not prevent public access to data files delivered to the EEA's Central Data Repository, if access to the envelopes is not restricted by the Data Provider. 
+
+* -  link                              
+  -  URL. Text(2048)          
+  -  Hyperlink to where additional information about the MonitoringSite is available on the web, at national level.<br />The element is optional.<br />Report only if a stable and resolvable URL can be provided to the specific object being reported (i.e. do not provide generic URLs to institutional internet domains).  

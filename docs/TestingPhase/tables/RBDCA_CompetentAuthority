@@ -1,0 +1,48 @@
+```{list-table} CompetentAuthority
+:name: RBDCA_CompetentAuthority
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* - euCACode
+  - WISEIdentifier - varchar(42)\n
+  - Max length: 42 characters.<br>Required.<br>Unique EU code for the Competent Authority.<br>WISE identifiers must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters. The code can optionally end with one character that can be a digit or an uppercase letter.<br>Examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FRa123. 
+
+* - competentAuthorityName
+  - varchar(100) 
+  - Max length: 100 characters.<br>Required.<br>Official name of the Competent Authority in English.  
+
+* - competentAuthorityNameNL 
+  - nvarchar(100) 
+  - Max length: 100 characters.<br>Required.<br>Official name of the Competent Authority in the Member State’s national language.  
+
+* - competentAuthorityNameNLLanguage 
+  - Language 
+  - Required. <br>Choose from the 'LanguageCode' codelist values.<br>Language used for reporting the name of the Competent Authority in a national language.  
+
+* - acronym 
+  - nvarchar(100) 
+  - Max length: 100 characters.<br>Optional.<br>Acronym for the Competent Authority (if it exists).  
+
+* - street 
+  - nvarchar(100) 
+  - Max length: 100 characters.<br>Required.<br>Street name where Competent Authority is located in latin characters.  
+
+* - city 
+  - nvarchar(100) 
+  - Max length: 100 characters.<br>Required.<br>City where Competent Authority is located in latin characters. 
+
+* - country 
+  - nvarchar(100) 
+  - Max length: 100 characters.<br>Required.<br>Country where the Competent Authority is located in English. 
+
+* - postCode 
+  - nvarchar(50) 
+  - Max length: 50 characters.<br>Optional.<br>Postcode address of the Competent Authority. 
+
+* - url 
+  - URL - varchar(2100) 
+  - Max length: 2100 characters.<br>Required.<br>Website address of the Competent Authority. 

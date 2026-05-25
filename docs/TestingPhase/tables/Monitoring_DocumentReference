@@ -1,0 +1,24 @@
+```{list-table} DocumentReference
+:name: Monitoring_DocumentReference
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* -  referenceCode 
+  -  WiseIdentifier 
+  -  Unique identifier of the reference to a document. Required. 
+
+* -  documentCode  
+  -  WiseIdentifier 
+  -  Link to the document the reference belongs to. Required.    
+
+* -  bookmark      
+  -  Text(500)      
+  -  Bookmark within the document. Required.                     
+
+* -  subject       
+  -  Text(500)      
+  -  Subject of the reference. Required.                         
