@@ -230,12 +230,13 @@ With regard to exemptions related to associated protected areas, see:
 
 ## Annexes - Data analysis - 3ʳᵈ cycle
 
+```{include} FragmentAnnexesDataAnalysis3rdCycle
+```
+
 The data reported for the 3ʳᵈ cycle can be used to estimate the impact of the simplification of the descriptive data reporting:
 
 - 46% of the 84560 records reported for groundwater associated protected areas would not have been reported.
 - 72% of the 71726 records reported for surface water associated protected areas would not have been reported.
-
-
 
 (heading_wfd_protected_areas_references)=
 ## References

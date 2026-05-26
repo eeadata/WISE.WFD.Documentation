@@ -1,8 +1,8 @@
 ```{list-table} WFD Protected Area spatial data reporting requirements – 4ᵗʰ cycle
-  :name: ProtectedAreas_4thCycle_Table
-  :width: 100%
-  :widths: 70 30
-  :header-rows: 1
+:name: ProtectedAreas_4thCycle_Table
+:width: 100%
+:widths: 70 30
+:header-rows: 1
 
 * - Reporting requirements
   - **zoneType** and **specialisedZoneType**

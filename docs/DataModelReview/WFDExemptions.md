@@ -493,12 +493,10 @@ Exemptions - {ref}`heading_wfd_exemptions_clarification_rbsp`
   in reply to the Member States' clarification request during the WG DIS meeting on 2026-04-22.
 ```
 
-## Annexes 
+## Annexes - Data analysis - 3ʳᵈ cycle
 
-**Exploratory analysis of data reported in the 3ʳᵈ cycle.**
-
-This section is not relevant for the understanding of the proposed model. 
-It contains some of the data analysis that supported the revision of the data model.
+```{include} FragmentAnnexesDataAnalysis3rdCycle
+```
 
 ### Surface water - ecological exemptions at water body - 3ʳᵈ cycle 
 
