@@ -211,6 +211,80 @@ The data was organised into a relational structure with 6 tables:
     in the reporting of substances causing failure.  
 ```
 
+## Annexes - Data analysis - 3ʳᵈ cycle
+
+```{include} FragmentAnnexesDataAnalysis3rdCycle
+```
+
+```{dropdown} Show code
+  ```{code-block} sql
+  :caption: [gwChemicalStatusValue] vs [gwChemicalReasonsForFailure] - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+
+  SELECT [gwChemicalStatusValue]
+    ,[gwChemicalReasonsForFailure]
+    ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS numberOfGroundWaterBodies
+    ,COUNT(DISTINCT [countryCode]) AS numberOfCountries
+  FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwChemicalReasonsForFailure]
+  WHERE [cYear] = 2022 AND [hasDescriptiveData] = 1
+  GROUP BY [gwChemicalStatusValue],[gwChemicalReasonsForFailure]
+  ```
+
+```{dropdown} Show code
+  ```{code-block} sql
+  :caption: Number of reasons for chemical failure - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+  SELECT [numberOfReasonsForFailure],
+	COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfGroundWaterBodies],
+	COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+  FROM 
+  (
+  SELECT [countryCode],[euGroundWaterBodyCode]
+    ,COUNT(DISTINCT [gwChemicalReasonsForFailure]) AS [numberOfReasonsForFailure]
+  FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwChemicalReasonsForFailure]
+  WHERE [cYear] = 2022 AND [hasDescriptiveData] = 1 
+  GROUP BY [countryCode],[euGroundWaterBodyCode]
+  ) AS a
+  GROUP BY [numberOfReasonsForFailure]
+  ```
+
+```{dropdown} Show code
+  ```{code-block} sql
+  :caption: [gwQuantitativeStatusValue] vs [gwQuantitativeReasonsForFailure] - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+
+  SELECT [gwQuantitativeStatusValue]
+    ,[gwQuantitativeReasonsForFailure]
+    ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS numberOfGroundWaterBodies
+    ,COUNT(DISTINCT [countryCode]) AS numberOfCountries
+  FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwQuantitativeReasonsForFailure]
+  WHERE [cYear] = 2022 AND [hasDescriptiveData] = 1
+  GROUP BY [gwQuantitativeStatusValue],[gwQuantitativeReasonsForFailure]
+  ```
+
+```{dropdown} Show code
+  ```{code-block} sql
+  :caption: Number of reasons for quantitative failure - 3ʳᵈ cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+
+  SELECT [numberOfReasonsForFailure],
+    COUNT(DISTINCT [euGroundWaterBodyCode]) AS numberOfGroundWaterBodies,
+    COUNT(DISTINCT [countryCode]) AS numberOfCountries
+  FROM 
+  (
+  SELECT [countryCode],[euGroundWaterBodyCode]
+    ,COUNT(DISTINCT [gwQuantitativeReasonsForFailure]) AS [numberOfReasonsForFailure]
+  FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwQuantitativeReasonsForFailure]
+  WHERE [cYear] = 2022 AND [hasDescriptiveData] = 1 
+  GROUP BY [countryCode],[euGroundWaterBodyCode]
+  ) AS a
+  GROUP BY [numberOfReasonsForFailure]
+  ```
+
 (heading_wfd_wfd_groundwater_bodies_references)=
 ## References
 
