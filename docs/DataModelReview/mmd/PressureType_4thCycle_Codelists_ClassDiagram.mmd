@@ -1,0 +1,78 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+namespace Codelist{
+class PressureType{
+  <<enumeration>>
+
+«point»
+P1 - Point sources
+P1-1 - Point - Urban waste water
+P1-2 - Point - Storm overflows
+P1-3 - Point - IED plants
+P1-4 - Point - Non IED plants
+P1-5 - Point - Contaminated sites or abandoned industrial sites
+P1-6 - Point - Waste disposal sites
+P1-7 - Point - Mining
+P1-8 - Point - Aquaculture
+
+«diffuse»
+P2 - Diffuse sources
+P2-1 - Diffuse - Urban run-off
+P2-2 - Diffuse - Agriculture
+P2-3 - Diffuse - Forestry
+P2-4 - Diffuse - Transport
+P2-5 - Diffuse - Contaminated sites or abandoned industrial sites
+P2-6 - Diffuse - Discharges not connected to sewerage network
+P2-7 - Diffuse - Atmospheric deposition
+P2-8 - Diffuse - Mining
+P2-9 - Diffuse - Aquaculture
+
+«abstraction»
+P3 - Abstraction
+P3-1 - Abstraction - Agriculture
+P3-2 - Abstraction - Public water supply
+P3-3 - Abstraction - Industry
+P3-4 - Abstraction - Cooling water
+P3-5 - Abstraction - Hydropower
+P3-6 - Abstraction - Aquaculture
+
+«hidromorphology»
+P4 - Hydromorphology
+P4-1 - Longitudinal barrier
+P4-1-1 - Longitudinal barrier - Flood protection
+P4-1-2 - Longitudinal barrier - Agriculture
+P4-1-3 - Longitudinal barrier - Navigation
+P4-2 - Transversal barrier
+P4-2-1 - Transversal barrier - Hydropower
+P4-2-2 - Transversal barrier - Flood protection
+P4-2-3 -Transversal barrier - Public water supply
+P4-2-4 - Transversal barrier - Agriculture
+P4-2-5 - Transversal barrier - Recreation
+P4-2-6 - Transversal barrier - Industry
+P4-2-7 - Transversal barrier - Navigation
+P4-3 - Hydrological alteration
+P4-3-1 - Hydrological alteration - Agriculture
+P4-3-2 - Hydrological alteration - Transport
+P4-3-3 - Hydrological alteration - Hydropower
+P4-3-4 - Hydrological alteration - Public water supply
+P4-3-5 - Hydrological alteration - Aquaculture
+
+«species-and-litter»
+P5 - Species and litter
+P5-1 - Introduced species and diseases
+P5-2 - Exploitation or removal of animals or plants
+P5-3 - Litter or fly tipping
+«groundwater»
+P6-1 - Groundwater - Recharges
+unknown
+none
+}
+
+}

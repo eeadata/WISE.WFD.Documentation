@@ -21,3 +21,9 @@ WFDSurfaceWaterBody
 WFDSurfaceWaterMethodologies
 
 ```
+
+## Transversal issues
+
+```{toctree}
+:maxdepth: 2
+WFDPressures
