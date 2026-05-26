@@ -57,7 +57,9 @@ P4-3-5 - Hydrological alteration - Aquaculture	P4-3-5 - Hydrological alteration 
 P5-1 - Introduced species and diseases	P5-1 - Introduced species and diseases		
 P5-2 - Exploitation or removal of animals or plants	P5-2 - Exploitation or removal of animals or plants		
 P5-3 - Litter or fly tipping	P5-3 - Litter or fly tipping		
+«none»	P6 - Groundwater	New parent code	WARNING, ERROR, BLOCKER
 P6-1 - Groundwater - Recharges	P6-1 - Groundwater - Recharges		
+P6-2 - Groundwater - Alteration of water level or volume    P6-2 - Groundwater - Alteration of water level or volume        
 P7 - Anthropogenic pressure - Other	unknown		WARNING
 P8 - Anthropogenic pressure - Unknown	unknown		WARNING
 P9 - Anthropogenic pressure - Historical pollution	unknown		WARNING
