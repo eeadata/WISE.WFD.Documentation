@@ -1,29 +1,29 @@
 (heading_wfd_pressures)=
-# Reporting pressures
+# Significant pressure codelist
 
 ## Overview
 
 This section describes the review of the `PressureType` codelist used in the 3ʳᵈ cycle reporting.
 
-The review focused on following aspects:
+The review focused on the following aspects:
 
-* address the issues raised by Member States on the use of option 'P8 - Anthropogenic pressure - Unknown'
-* implement the overall approach of removing textual reporting of 'other' pressures while
-* allowing flexibility in the level of reporting 
+* to address the issues raised by Member States on the use of option 'P8 - Anthropogenic pressure - Unknown'
+* to implement the overall approach of removing textual reporting of 'other' pressures
+* to allow flexibility in the level of reporting 
   (e.g. use 'P2 - Diffuse sources' instead of 'P2-10 - Diffuse - Other' if the applicable pressure is not present in the codelist)
-* revising the wording of some of the options (while mantaining the code structure to facilitate the mapping).
+* to revise the wording of some of the options (while mantaining the code structure to facilitate the mapping).
 
 (heading_wfd_pressure_type_codelist_4th_cycle)=
 ### PressureType codelist - 4ᵗʰ cycle
 
-The `PressureType` codelist is a hierarchical codelis (see {numref}`PressureType_4thCycle_Codelists_ClassDiagram`). 
+The `PressureType` codelist is a hierarchical codelist (see {numref}`PressureType_4thCycle_Codelists_ClassDiagram`). 
 
 The codelist provides the domain for several attributes related to pressures, in different tables.
 
 Depending on the context, the use of some codes may be restricted by quality control.
 (For example, options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater.)
 
-Note the hierarchycal structure: the most detailed applicable option should be selected when reporting.
+Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting.
 
 ```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelists_ClassDiagram.mmd
 :name: PressureType_4thCycle_Codelists_ClassDiagram
