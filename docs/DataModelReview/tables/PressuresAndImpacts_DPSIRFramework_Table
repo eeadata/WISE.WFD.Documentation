@@ -1,0 +1,13 @@
+```{csv-table} The DPSIR framework as used in the pressures and impacts analysis [^dpsir-table-source]. 
+:name: PressuresAndImpacts_DPSIRFramework_Table
+:header-rows: 1
+:delim: tab
+
+Term    Definition
+Driver  an anthropogenic activity that may have an environmental effect (e.g. agriculture, industry)
+Pressure    the direct effect of the driver (for example, an effect that causes a changein flow or a change in the water chemistry)
+State   the condition of the water body resulting from both natural and anthropogenic factors (i.e. physical, chemical and biological characteristics)
+Impact  the environmental effect of the pressure (e.g. fish killed, ecosystem modified)
+Response    the measures taken to improve the state of the water body (e.g. restricting abstraction, limiting point source discharges, developing best practice guidance for agriculture) 
+
+[^dpsir-table-source]: From [Guidance Document No. 3 - Analysis of Pressures and Impacts](https://circabc.europa.eu/sd/a/7e01a7e0-9ccb-4f3d-8cec-aeef1335c2f7/Guidance%20No%203%20-%20pressures%20and%20impacts%20-%20IMPRESS%20(WG%202.1).pdf).

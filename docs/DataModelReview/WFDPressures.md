@@ -1,10 +1,25 @@
 (heading_wfd_pressure_type_codelist_4th_cycle)=
 # PressureType codelist - 4ᵗʰ cycle
 
-The `PressureType` codelist is a hierarchical codelist (see {numref}`PressureType_4thCycle_Codelists_ClassDiagram`) that provides the valid domain for attributes related to pressures in different tables.  
-Depending on the context, the use of some values may be restricted by quality control. (For example, options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater.)
+The `PressureType` codelist is a hierarchical codelist (see {numref}`PressureType_4thCycle_Codelists_ClassDiagram`) that provides the valid domain for attributes related to pressures in different tables. Depending on the context, the use of some values may be restricted by quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
 
-Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting.
+In codelist used in the 2ⁿᵈ and 3ʳᵈ cycle of reporting,
+most options combined both a pressure and a driver (see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
+For example: abstraction + agriculture = 'P3-1 - Abstraction - Agriculture'.
+
+This structure was kept in the current codelist. Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting. If the specific driver is not in the codelist, the higher level code can be used.
+Note that not all the drivers defined in the 3ʳᵈ cycle reporting guidance (see {numref}`DriverType_Definition_3rdCycle_Table`) are listed.
+
+```{include} tables/PressuresAndImpacts_DPSIRFramework_Table
+```
+
+```{include} tables/DriverType_Definition_3rdCycle_Table
+```
+
+```{todo}
+Pressures codelist - Definition of the drivers
+ENV or EEA Water to complete, and define if any should be added.
+```
 
 ```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelists_ClassDiagram.mmd
 :name: PressureType_4thCycle_Codelists_ClassDiagram
@@ -13,13 +28,14 @@ Regardless of the hierarchical structure, the most detailed applicable option sh
 :zoom:
 ```
 
-The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence between codelist values.
+The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence 
+between the codelist values in the 3ʳᵈ cycle and in the 4ᵗʰ cycle.
 
 ```{dropdown} Show mapping table
 ```{include} tables/PressuresType_3rdCycle_4thCycle_MappingTable
 ```
 
-The review of the codelist used in the 3ʳᵈ cycle reporting 
+The review of the codelist used in the 3ʳᵈ cycle of reporting 
 is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
 
 * A generic option 'unknown' was added.
