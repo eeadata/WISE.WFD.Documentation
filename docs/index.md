@@ -9,8 +9,8 @@ html_theme.sidebar_secondary.remove: true
 :hidden:
    
 DataModelReview/index
-DataModelReview/KnownIssues
 TestingPhase/index
+DataModelReview/KnownIssues
 ```
 
 The **Water Framework Directive Documentation** is organized into the following sections:
