@@ -1,0 +1,24 @@
+```{list-table} Document
+:name: RBDCA_Document
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* - documentCode 
+  - WISEIdentifier - varchar(42) 
+  - Max length: 42 characters.<br>Required.<br>Unique identifier of the document.<br>WISE identifiers must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters. The code can optionally end with one character that can be a digit or an uppercase letter.<br>Examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FRa123. 
+
+* - documentName 
+  - nvarchar(250) 
+  - Max length: 250 characters.<br>Required.<br>Name of the document. 
+
+* - hyperlink 
+  - URL - varchar(2100) 
+  - Max length: 2100 characters.<br>Conditional.<br>URL of the document if available on the internet. Either URL or document file as an attachment. The size of the file can be up to 100 MB and the valid file extensions are: 'xlsx' (Excel), 'docx' (Word) and 'pdf'. Either URL or documentFile must be reported, but not both. 
+
+* - documentFile 
+  - Attachment 
+  - Conditional.<br>Document file as an attachment. The size of the file can be up to 100 MB and the valid file extensions are: 'xlsx' (Excel), 'docx' (Word) and 'pdf'. Either URL or documentFile must be reported, but not both. 

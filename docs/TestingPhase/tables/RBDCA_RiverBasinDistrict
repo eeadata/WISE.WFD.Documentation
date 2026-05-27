@@ -1,0 +1,104 @@
+```{list-table} RiverBasinDistrict
+:name: RBDCA_RiverBasinDistrict
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* - geometry_polygon 
+  - geometry_multipolygon 
+  - Required.<br>The geometry representing the spatial extent of the spatial object. The element is required. The geometry of a Management Area, Restriction or Regulation Zone can be reported using a polygon geometry. Only one type of geometry can be used for a given object. Only one type of geometry can be reported in a given data set. 
+
+* - inspireIdLocalID 
+  - String 
+  - Required.<br>Max length: 254 characters.<br>A local identifier, assigned by the data provider. The local identifier is unique within the namespace. It is recommended to use the same value used in the thematicIdIdentifier. The element is required.The geometry of a Management Area, Restriction or Regulation Zone can be reported using a polygon, a polyline or a point geometry. Only one type of geometry can be used for a given object. Only one type of geometry can be reported in a given data set. 
+
+* - inspireIdNamespace 
+  - String 
+  - Required.<br>Max length: 254 characters.<br>Namespace, assigned by the data provider, uniquely identifying the data source of the spatial object.Use country code, if no INSPIRE namespace is defined at national level. 
+
+* - inspireIdVersionId 
+  - String 
+  - Optional.<br>Max length: 25 characters.<br>The identifier of the particular version of the spatial object, with a maximum length of 25 characters. If the specification of a spatial object type with an external object identifier includes life-cycle information, the version identifier is used to distinguish between the different versions of a spatial object. Within the set of all versions of a spatial object, the version identifier is unique.   
+
+* - thematicIdIdentifier 
+  - WISEIdentifier 
+  - Required.<br>Max length: 42 characters.<br>Unique identifier used to identify the spatial object within the specified identification scheme. European identifier, must follow WISE syntax rules. 
+
+* - thematicIdIdentifierScheme 
+  - IdentifierScheme 
+  - Required.<br>Identifier defining the scheme used to assign the identifier. It must be: 'euRBDCode' or 'eionetRBDCode'. 
+
+* - beginLifespanVersion 
+  - Date 
+  - Required.<br>Date at which this version of the spatial object was inserted or changed in the spatial data set. Format: YYYY-MM-DD 
+
+* - endLifespanVersion 
+  - Date 
+  - Optional.<br>Date at which this version of the spatial object was superseded or retired in the spatial data set. Format: YYYY-MM-DD 
+
+* - predecessorsIdentifier 
+  - comma-separated list of WISEIdentifier 
+  - Optional.<br>Max length: 1000 characters. In a genealogy, comma-separeated list of the object(s) that has(have) been deactivated/replaced by another one. 
+
+* - predecessorsIdentifierScheme 
+  - IdentifierScheme 
+  - Optional.<br>Identifier defining the scheme used to assign the identifier value(s) in the predecessorsIdentifier element. It must be equal to the value of thematicIdentifierScheme  
+
+* - successorsIdentifier 
+  - comma-separated list of WISEIdentifier 
+  - Not applicable. 
+
+* - successorsIdentifierScheme 
+  - IdentifierScheme 
+  - Not applicable. 
+
+* - wiseEvolutionType 
+  - WiseEvolutionType 
+  - Required.<br>Type of event that produced or modified the version of the object being reported (noChange, change, changeCode, aggregation, splitting). This attribute is required to explicitly report changes and update the current status of the object in the Water Information System for Europe. 
+
+* - nameTextInternational 
+  - String 
+  - Required.<br>Max length: 254 characters.<br>Name, in English. English exonym or an understandable English version of the name of the geographical feature or spatial object. 
+
+* - nameText 
+  - String 
+  - Required.<br>Max length: 254 characters.<br>Name, in the national language. National language endonym, or national language version of the name of the geographical feature or spatial object. 
+
+* - nameLanguage 
+  - Language 
+  - Required.<br>Language code of the language used in the nameText attribute value. 
+
+* - designationPeriodBegin 
+  - Date 
+  - Required.<br>Beginning of period defining when the management, restriction or regulation zone was legally designated or became effective in the real world. Format: YYYY-MM-DD 
+
+* - designationPeriodEnd 
+  - Date 
+  - Optional.<br>End of the period defining when the management, restriction or regulation zone was legally designated or became effective in the real world. Format: YYYY-MM-DD 
+
+* - zoneType 
+  - ZoneType 
+  - Required.<br>High-level classification defining the type of Management, Restriction or Regulation Zone. 
+
+* - specialisedZoneType 
+  - SpecialisedZoneType 
+  - Required.<br>'internationalRiverBasinDistrict' or 'nationalRiverBasinDistrict' 
+
+* - legalBasisName 
+  - String 
+  - Optional.<br>Max length: 254 characters.<br>Name of the document.  
+
+* - legalBasisLink 
+  - url 
+  - Optional.<br>Max length: 2100 characters.<br>Link to an online version of the document. 
+
+* - legalBasisLevel 
+  - LegislationLevelValue 
+  - Optional.<br>The level at which the legislative instrument is adopted. Allowable values are {'european','international','national','sub-national'}. 
+
+* - link 
+  - url 
+  - Optional.<br>Max length: 2100 characters. 
