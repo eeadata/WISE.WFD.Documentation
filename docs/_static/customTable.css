@@ -1,39 +1,70 @@
 /* =========================
-   Table base
+   Responsive table container
 ========================= */
 
-.rst-content table.docutils {
+.pst-scrollable-table-container {
+    overflow-x: hidden; /* hide horizontal scroll on desktop */
+}
+
+@media (max-width: 768px) {
+    .pst-scrollable-table-container {
+        overflow-x: auto; /* enable horizontal scroll on mobile */
+    }
+}
+
+
+/* =========================
+   Table base styles
+========================= */
+
+.pst-scrollable-table-container table {
     width: 100%;
-    table-layout: auto;
-}
-
-
-/* =========================
-   Default cells (legible)
-========================= */
-
-.rst-content table.docutils th,
-.rst-content table.docutils td {
-    vertical-align: top !important;
+    display: table;
+    table-layout: fixed; /* prevent overflow */
     white-space: normal;
-    word-break: normal;             
-    overflow-wrap: break-word;        
 }
 
 
 /* =========================
-   First column (force break ONLY here)
+   Table cells
 ========================= */
 
-.rst-content table.docutils td:first-child {
-    word-break: break-all !important;
+.pst-scrollable-table-container table th,
+.pst-scrollable-table-container table td {
+    vertical-align: top !important; /* align content to top */
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
+
+/* Remove extra top spacing inside cells */
+.pst-scrollable-table-container table td > *:first-child {
+    margin-top: 0;
+}
+
+
 /* =========================
-   Second column protection (VERY IMPORTANT)
+   Table headers
 ========================= */
 
-.rst-content table.docutils td:nth-child(2) {
-    word-break: normal !important;
-    white-space: normal;            
+.pst-scrollable-table-container table.docutils th {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================
+   Headings wrapping
+========================= */
+
+.wy-nav-content h1,
+.wy-nav-content h2,
+.wy-nav-content h3,
+.wy-nav-content h4,
+.wy-nav-content h5,
+.wy-nav-content h6 {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
