@@ -22,8 +22,8 @@ WFDSurfaceWaterMethodologies
 
 ```
 
-## Transversal issues
+## Codelists and datatypes
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 WFDPressures
