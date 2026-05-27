@@ -4,12 +4,17 @@
 :header-rows: 1
 :align: left
 * - significantPressureTools 
+  - label
   - definition
 * - numericalTools
   - Numerical Tools
+  - 
 * - expertJudgement
   - Expert Judgement
+  - 
 * - combinationOfBoth
   - Combination of Both
+  -
 * - notAssessed
   - Not Assessed
+  - 
