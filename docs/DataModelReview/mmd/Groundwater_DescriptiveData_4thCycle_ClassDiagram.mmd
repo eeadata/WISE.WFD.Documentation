@@ -6,7 +6,13 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
+direction TB
+
+class LinkSurfaceWaterBody{
+    + euGroundWaterBodyCode : wiseIdentifier
+    + euSurfacedWaterBodyCode : wiseIdentifier
+    + linkType : GroundwaterSurfacewaterLinkType [0..1]
+}
 
 class GroundWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
@@ -17,18 +23,16 @@ class GroundWaterBody{
     + linkTerrestrialEcosystem : YesNoUnknown
 }
 
-class LinkSurfaceWaterBody:::forFixing{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + euSurfacedWaterBodyCode : wiseIdentifier
-
-    «pending-further-discussion»
-    + linkType : CodelistToBeDefined [0..1]
-}
-
-class GWPressureImpact:::forFixing{
+class GWPressureImpact{
     + euGroundWaterBodyCode : wiseIdentifier
     + gwPressureType : PressureType [0..1]
     + gwImpactType : ImpactType  [0..1]
+}
+
+class GWReasonForFailure:::forFixing{
+    + euGroundWaterBodyCode : wiseIdentifier
+    + gwQuantitativeReasonsForFailure : ReasonForFailure [0..1]
+    + gwChemicalReasonsForFailure : ReasonForFailure [0..1]
 }
 
 class GWQuantitativeStatus:::forFixing{
@@ -42,15 +46,11 @@ class GWQuantitativeStatus:::forFixing{
     + gwQuantitativeAssessmentGrouping : euGroundWaterBodyCode [0..n]
 }
 
-class GroundWaterBodyStatus:::forFixing{
+class GroundWaterBodyStatus{
     
     + euGroundWaterBodyCode : wiseIdentifier
-    / gwQuantitativeStatusValue 
-    / gwChemicalStatusValue 
-    
-    «pending-discussion-overlaps-with-pressures»
-    + gwQuantitativeReasonsForFailure : QuantitativeFailure [0..*]
-    + gwChemicalReasonsForFailure : ReasonsForFailure [0..*]
+    / gwQuantitativeStatusValue : QuantitativeStatus
+    / gwChemicalStatusValue : ChemicalStatus
 } 
 
 class GWPollutant:::forFixing{
@@ -73,15 +73,16 @@ class GWPollutant:::forFixing{
     «pending-discussion-analogy-with-sw»
     + gwPollutantAssessmentMethod : AssessmentMethod 
     + gwPollutantAssessmentGrouping : euGroundWaterBodyCode [0..n]
-
 }
-
-GroundWaterBody "0..n" -- "0..n" LinkSurfaceWaterBody : {if linkSurfaceWaterBody is Yes}
 
 GroundWaterBody -- GroundWaterBodyStatus    
 GroundWaterBodyStatus --  GWQuantitativeStatus
-GroundWaterBodyStatus -- "0..n" GWPressureImpact 
 GroundWaterBodyStatus -- "0..n" GWPollutant
+GroundWaterBodyStatus -- "0..n" GWPressureImpact
+
+LinkSurfaceWaterBody "0..n" -- "1" GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
+
+GroundWaterBodyStatus -- "0..n" GWReasonForFailure : {gwQuantitativeStatusValue = '3' OR gwChemicalStatusValue = '3'}
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

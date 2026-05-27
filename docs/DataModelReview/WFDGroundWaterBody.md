@@ -35,20 +35,11 @@ See:
 * {ref}`heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions`
 * {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
 
-Other simplifications already discussed also apply to the revision of the GWB schema:
+Other simplifications already discussed also apply to the GWB schema:
 
 * Removal of the textual reporting of "other" pollutants
 * Removal of the textual reporting of "other" pressures
 * Removal of the textual reporting of "other" impacts
-
-{numref}`Groundwater_3rdCycle_GWB_Simplified_ClassDiagram` shows a simplified diagram 
-to help focus the discussion on the remaining issues.
-
-```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_Simplified_ClassDiagram.mmd
-:name: Groundwater_3rdCycle_GWB_Simplified_ClassDiagram
-:align: center
-:caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
-```
 
 Based on the Commission's review of the 3ʳᵈ cycle reporting, the following elements were removed:
 
@@ -58,6 +49,15 @@ Based on the Commission's review of the 3ʳᵈ cycle reporting, the following el
 * GWB/GroundWaterBody/gwAtRiskChemical
 * GWB/GroundWaterBody/gwReasonsForRiskQuantitative
 * GWB/GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted
+
+{numref}`Groundwater_3rdCycle_GWB_Simplified_ClassDiagram` shows a simplified diagram 
+to help focus the discussion on the remaining issues.
+
+```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_Simplified_ClassDiagram.mmd
+:name: Groundwater_3rdCycle_GWB_Simplified_ClassDiagram
+:align: center
+:caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
+```
 
 ## Groundwater - descriptive data - 4ᵗʰ cycle
 
@@ -73,31 +73,10 @@ shows a DRAFT diagram including the issues requiring clarification, in the class
 ```{todo}
 Groundwater - Topics that require discussion and clarification.
 
-  * {ref}`Groundwater_Issues_Pending_Discussion_GroundWaterBodyStatus`
-  * {ref}`Groundwater_Issues_Pending_Discussion_GWPollutant`
-  * {ref}`Groundwater_Issues_Pending_Discussion_GWQuantitativeStatus`
-  * {ref}`Groundwater_Issues_Pending_Discussion_LinkSurfaceWaterBody`
-
-  Also pending discussion is the revision of the **PressureTpe** and **ImpactType** codelists.
-
-```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GroundWaterBodyStatus** table
-    :name: Groundwater_Issues_Pending_Discussion_GroundWaterBodyStatus
-    :width: 100%
-    :widths: 40 40 20
-    :header-rows: 1
-    :align: left
-
-* - Attribute
-  - Description
-  - Status
-
-* - gwQuantitativeReasonsForFailure
-  - To be analysed - potential overlaps with pressures.  
-  - Pending
-
-* - gwChemicalReasonsForFailure
-  - To be analysed - potential overlaps with pressures.  
-  - Pending
+* GWReasonsForFailure - these table could/should be removed.
+* {ref}`Groundwater_Issues_Pending_Discussion_GWPollutant`
+* {ref}`Groundwater_Issues_Pending_Discussion_GWQuantitativeStatus`
+Also pending discussion is the revision of the **PressureTpe** and **ImpactType** codelists.
 ```
 
 ```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GWPollutant** table
@@ -140,22 +119,6 @@ Groundwater - Topics that require discussion and clarification.
   - Pending  
 ```
 
-```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **LinkSurfaceWaterBody** table
-    :name: Groundwater_Issues_Pending_Discussion_LinkSurfaceWaterBody
-    :width: 100%
-    :widths: 40 40 20
-    :header-rows: 1
-    :align: left
-
-* - Attribute
-  - Description
-  - Status
-
-* - linkType
-  - Add attribute to clarify the type of link?
-  - Pending
-```
-
 The data was organised into a relational structure with 6 tables:
 
 ```{list-table} Groundwater - 4ᵗʰ cycle - brief table description
@@ -179,12 +142,15 @@ The data was organised into a relational structure with 6 tables:
     then the `LinkSurfaceWaterBody` table is used to report the identifier(s) 
     of the linked surface water body(ies).
 
-* - `GWPressureImpact`
-  - In the reporting of pressures and impacts 
-    is combined into a single `GWPressureImpact` table.  
-    In the 3ʳᵈ cycle, the XML structure did not allow a specific pressure to be associated with a given impact.
-    In the proposed structure, this is possible (but not mandatory).  
-    Illustrative examples will be provided.
+* - `GroundWaterBodyStatus`
+  - The `GroundWaterBodyStatus` table contains information 
+    that can be derived from the `GWQuantitativeStatus` table
+    and from the `GWPollutant` table. 
+    Strictly speaking, the `GroundWaterBodyStatus` table 
+    could be removed from the reporting, 
+    but will be kept for *quality control purposes*,
+    e.g. to guarantee that there was no mistake 
+    in the reporting of substances causing failure.  
 
 * - `GWQuantitativeStatus`
   - The `GWQuantitativeStatus` table gathers the data related to quantitative status.  
@@ -202,13 +168,21 @@ The data was organised into a relational structure with 6 tables:
     can be used for all pollutants 
     (i.e. use the same approach as in the 3ʳᵈ cycle).
 
-* - `GroundWaterBodyStatus`
-  - Finally, the `GroundWaterBodyStatus` table contains information 
-    that can be derived from other tables and attributes. 
-    The table could be removed from the reporting, 
-    but will be kept for *quality control purposes*,
-    e.g. to guarantee that there was no mistake 
-    in the reporting of substances causing failure.  
+* - `GWPressureImpact`
+  - In the reporting of pressures and impacts 
+    is combined into a single `GWPressureImpact` table.  
+    In the 3ʳᵈ cycle, the XML structure did not allow a specific pressure to be associated with a given impact.
+    In the proposed structure, this is possible (but not mandatory).  
+    Illustrative examples will be provided.
+ 
+```
+
+## Groundwater - codelists - 4ᵗʰ cycle
+
+```{mermaid} /DataModelReview/mmd/Groundwater_Codelist_4thCycle_ClassDiagram.mmd
+:name: Groundwater_Codelist_4thCycle_ClassDiagram
+:align: center
+:caption: DRAFT DIAGRAM - ISSUES PENDING DISCUSSION - Groundwater - codelists - 4ᵗʰ cycle
 ```
 
 ## Annexes - Data analysis - 3ʳᵈ cycle

@@ -1,0 +1,73 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+namespace Codelist{
+  
+class GroundwaterSurfacewaterLinkType{
+<<enumeration>>
+groundwaterDischargesToSurfaceWater
+surfaceWaterRechargesGroundwater
+bidirectionalWaterExchange
+}
+
+class AquiferType{
+<<enumeration>>
+}
+
+class AquiferProductivity{
+<<enumeration>>
+}
+
+
+class PressureType{
+<<enumeration>>
+}
+
+
+class ImpactType{
+<<enumeration>>
+}
+
+class ReasonForFailure{
+<<enumeration>>
+}
+
+class QuantitativeStatus{
+<<enumeration>>
+}
+
+class ChemicalStatus{
+<<enumeration>>
+}
+
+class SubstanceCode{
+<<enumeration>>
+}
+
+class AssessmentConfidence{
+<<enumeration>>
+}
+
+class AssessmentMethod{
+<<enumeration>>
+}
+
+class YesNoUnknown{
+<<enumeration>>
+}
+
+class YesNoUnknownNotApplicable{
+<<enumeration>>
+}
+
+class UnitOfMeasure{
+<<enumeration>>
+}
+
+}
