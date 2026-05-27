@@ -1,0 +1,48 @@
+```{list-table} MonitoringProgrammes
+:name: Monitoring_MonitoringProgrammes
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* -  euRBDCode                         
+  -  WiseIdentifier      
+  -  Unique EU code of each River Basin District. Prefix the RBD’s national, unique code with the Member State’s 2-letter ISO country code. Required.  
+
+* -  useWaterbaseForMonitoringData     
+  -  YesNo               
+  -  indicate that the monitoring data statistics should be derived from the data reported to Waterbase.     
+
+* -  programmesReference               
+  -  ReferenceIdentifier 
+  -  Provide reference to the documents and sections where relevant information relating to the monitoring programmes can be found. Required. 
+
+* -  investigativeMonitoringReference  
+  -  ReferenceIdentifier 
+  - 
+
+* -  operationalMonitoringReference    
+  -  ReferenceIdentifier 
+  - 
+
+* -  surveillanceMonitoringReference   
+  -  ReferenceIdentifier 
+  - 
+
+* -  gwChemicalMonitoringReference     
+  -  ReferenceIdentifier 
+  - 
+
+* -  gwQuantitativeMonitoringReference 
+  -  ReferenceIdentifier 
+  - 
+
+* -  swChemicalMonitoringReference     
+  -  ReferenceIdentifier 
+  - 
+
+* -  swEcologicalMonitoringReference   
+  -  ReferenceIdentifier 
+  - 

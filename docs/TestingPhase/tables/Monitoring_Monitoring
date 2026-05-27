@@ -1,0 +1,36 @@
+```{list-table} Monitoring
+:name: Monitoring_Monitoring
+:width: 100%
+:header-rows: 1
+
+* - Column name
+  - Data type
+  - Definition
+
+* - euMonitoringSiteCode  
+  - WiseIdentifier     
+  - Unique EU code of the monitoring site.Prefix the surface water monitoring site’s national, unique code with the Member State’s 2-letter ISO country code
+
+* - parameterCode 
+  - ParameterCode      
+  - Select from the enumeration list each one the quality elements (QEs), chemical substances or parameters monitored at this monitoring site. Required.
+
+* - chemicalMatrix    
+  - ChemicalMatrixType 
+  - Report the  matrix in which the chemical substance is monitored.
+
+* - chemicalPurpose   
+  - ChemicalPurpose    
+  - If ‘chemicalMonitoring’ is yes, and parameterCode is a chemical parameter report if the monitoring is used for status assessment, trend assessment or both.    Conditional.
+
+* - frequency      
+  - FrequencyCode
+  - Report the frequency at which the parameter is monitored at this monitoring site.  Required.
+
+* - cycle   
+  - CycleCode          
+  - Report the monitoring cycle for this parameter at this monitoring site. Required.
+
+* - lastMonitored 
+  - Year 
+  - Report the most recent year when this parameter was monitored at this monitoring site, in the format YYYY. Enter 9999 if the parameter has yet to be measured. Required.

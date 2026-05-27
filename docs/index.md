@@ -10,6 +10,7 @@ html_theme.sidebar_secondary.remove: true
    
 DataModelReview/index
 DataModelReview/KnownIssues
+TestingPhase/index
 ```
 
 The **Water Framework Directive Documentation** is organized into the following sections:
@@ -20,9 +21,9 @@ The **Water Framework Directive Documentation** is organized into the following 
    The documentation about monitoring, methodologies, water body status assessement and exemptions will be made available in April.
    The WISE GIS Guidance is also under review.
  
-*  **Testing Phase**
+*  {ref}`testing-phase` 
 
-   As soon as each dataflow is open for testing, this section will provide technical guidance on the process.
+   This section contains information of each of the dataflows opened for testing.
 
 *  **Reporting Phase**
 
