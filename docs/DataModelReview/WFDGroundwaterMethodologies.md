@@ -51,7 +51,6 @@ to help focus the discussion on the remaining issues.
 Based on DG ENV's review, {numref}`_DRAFT_GroundwaterMethodologies_4thCycle_ClassDiagram` 
 shows a DRAFT diagram including the issues requiring clarification, in the classes marked in red.
 
-
 The Commission has revised and simplified the **GWMethodologies** class, keeping only a subset of the elements requested in the 3ʳᵈ cycle.  
 The following elements were removed:
 
@@ -164,5 +163,5 @@ See:
 (heading_wfd_groundwater_methodologies_references)=
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```

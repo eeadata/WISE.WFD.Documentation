@@ -1,7 +1,9 @@
 (heading_wfd_exemptions)=
 # WFD exemptions
 
-Last update: 2026-05-22
+Last update: 2026-05-27
+
+Next planned update: 2026-06-15
 
 ```{warning}
 
@@ -84,8 +86,7 @@ Exemption"]{
 (heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element)=
 ## Surface water ecological exemptions by quality element
 
-Ecological exemptions are only reported at quality element level, avoiding duplication.
-
+Ecological exemptions are only reported at quality element level, avoiding duplication.  
 Ecological exemptions are reported using the table in {numref}`SWEcologicalExemptionClass`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram.mmd
@@ -101,7 +102,6 @@ The diagram below presents the applicability criteria for the different exemptio
 :caption: Surface Water Body - Ecological Exemption Decision Tree - 4ᵗʰ cycle
 :align: center
 ```
-
 
 The following conditions apply:
 01. Ecological exemptions are not reported for Territorial Waters.
@@ -136,8 +136,7 @@ The following conditions apply:
 (heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
 ## Surface water chemical exemptions by pollutant
 
-Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.
-
+Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.  
 In the 4ᵗʰ cycle of reporting, exemptions associated with river basin specific pollutants 
 are reported as as chemical exemptions,
 and not as exemptions associated with the quality element "QE3-3 - River Basin Specific Pollutants".
@@ -168,9 +167,14 @@ The following conditions apply:
 01. Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance and the pollutant is causing failure to achieve good status.
 02. Reporting is mandatory if the pollutant is a river basin specific pollutant causing failure to achieve good status.
 03. Exemptions are not applicable to pollutants with unknown status.
-04. In 2027, exemptions are not yet required, if the pollutant is a 2026 Priority Substance and the pollutant is causing failure to achieve good status.
-05. For short-term impacts, the maximum exemption period is one year.
-06. Exemptions under the Groundwater Directive are not allowed for surface waters.
+04. In 2027, exemptions are not yet required, if the pollutant is 
+    a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
+    and the pollutant is causing failure to achieve good status.
+05. In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost 
+    are only applicable if the pollutant is 
+    a 2013 Priority Substance (or a substance for which a stricter EQS was set in 2013).
+06. For short-term impacts, the maximum exemption period is one year.
+07. Exemptions under the Groundwater Directive are not allowed for surface waters.
 
 ```{admonition} See code
 :class: dropdown
@@ -178,8 +182,9 @@ The following conditions apply:
 02. Mandatory: `swPollutantCode in ({list-of-river-basin-specific-pollutants}) AND swPollutantCausingFailure in '3'`
 03. Not allowed: `swPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
 04. Not required: `swPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
-05. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-06. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
+05. Not allowed: `swPollutantCode in ({list-of-2013-priority-substances}) AND ExemptionRationale IN ('article44_technicalFeasibility','article44_disproportionateCost')`
+06. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+07. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
 ``` 
 
 ```{todo}
@@ -227,15 +232,26 @@ Chemical exemptions are reported using the table in {numref}`GWChemicalExemption
 ```
 
 The following conditions apply:
-01. Reporting is mandatory if the pollutant or indicator of pollution is causing failure to achieve good status.
-02. Exemptions are not applicable to pollutants with unknown status.
-03. For short-term impacts, the maximum exemption period is one year.
+01. Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance and the pollutant is causing failure to achieve good status.
+02. Reporting is mandatory if the pollutant is a groundwater pollutant
+    (or indicator of pollution) causing failure to achieve good status.
+03. Exemptions are not applicable to pollutants with unknown status.
+04. In 2027, exemptions are not yet required, if the pollutant is 
+    a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
+    and the pollutant is causing failure to achieve good status.
+05. In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost 
+    are only applicable if the pollutant is 
+    a 2013 Priority Substance (or a substance for which a stricter EQS was set in 2013).
+06. For short-term impacts, the maximum exemption period is one year.
 
 ```{admonition} See code
 :class: dropdown
-01. Mandatory: `gwPollutantCausingFailure in '3'`
-02. Not allowed: `gwPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
-03. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
+01. Mandatory: `gwPollutantCode in ({list-of-2008-or-2013-priority-substances}) AND gwPollutantCausingFailure in '3'`
+02. Mandatory: `gwPollutantCode in ({list-of-other-groundwater-pollutants}) AND gwPollutantCausingFailure in '3'`
+03. Not allowed: `gwPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
+04. Not required: `gwPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
+05. Not allowed: `gwPollutantCode in ({list-of-2013-priority-substances}) AND ExemptionRationale IN ('article44_technicalFeasibility','article44_disproportionateCost')`
+06. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 ``` 
 
 Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent). 
@@ -248,9 +264,8 @@ is also applicable to groundwater pollutants and indicators of pollution.
 ```{todo}
 Exemptions - {ref}`heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant`
 
-DG ENV to provide draft flowchart and quality control criteria.
-Specifically: what are the priority substances, other GW pollutants and indicators of pollution 
-to which the exemptions can by applied?
+DG ENV to provide draft flowchart and quality control criteria:
+* for the cases where GWD Article 6(3) is applicable
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions)=
@@ -283,7 +298,7 @@ The following conditions apply:
 ``` 
 
 ```{todo}
-Exemptions - Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.
+Exemptions - Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.  
 ENV to confirm that this exclusion also applies in the 4th cycle.
 ```
 
@@ -341,13 +356,9 @@ The following conditions apply:
 ```{todo}
 Exemptions - {ref}`heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions`
 
-In {numref}`ExemptionCodelist`: the option to indicate ‘lessStringentObjectiveAlreadyAchieved’ is confusing, as it seems to imply that the exemption is no longer needed; in most cases, when a lower objective is set, it’s set at the level of the current water status; in some cases, it may be set for the future, but even when it will be achieved, it will still be necessary to apply an exemption, including an exemption period (ie 2027-2033 or 2027 – indeterminate or..) 
-
-In {numref}`ExemptionCodelist`: article44_technicalFeasibility and Article 44_disproportionateCost are in principle no longer usable in the 4th RBMPs, except for exemptions for chemical status in relation to substances introduced in 2013 or in relation to priority substances for which a stricter EQS was set in 2013 – maybe this can be mentioned somewhere.
-
 DG ENV to provide table with valid combinations 
-of `ExemptionRationale` and `ExemptionRationale` *vs. `ExemptionPeriod`
-
+of `ExemptionType` and `ExemptionRationale` *vs.* `ExemptionPeriod`
+See **EMPTY TEMPLATE** {download}`EXCEL </DataModelReview/files/Exemptions_QualityChecks.xlsx>`
 ```
 
 (heading_wfd_exemptions_clarifications)=
@@ -514,9 +525,10 @@ In the 3ʳᵈ cycle, the reporting of ecological exemptions was requested:
 
 In 96.5% of the cases, the data reported is redundant with regard to the reporting at quality element level.
 
-```{dropdown} Show code
-```sql
-
+```{dropdown} Show code	
+```{code-block} sql
+:caption: Surface water - duplication between ecological exemptions at water body level *vs.* at quality element level - 3ʳᵈ cycle
+:linenos:
   /**
     "Duplicate" reporting of ecological exemptions 
     at surface water body level and at quality element level 
@@ -561,12 +573,12 @@ In 96.5% of the cases, the data reported is redundant with regard to the reporti
   GROUP BY [exemptionTypeTable]
 ```
 
+Based on the analysis of the remaining 3.5% of cases, it is likely that the missing quality element level exemption is simply a reporting error not detected by the quality control.
 
-Based on the analysis of the remaining 3.5% of cases, it is likely that the missing qualitity element level exemption is simply a reporting error not detected by the quality control.
-
-```{dropdown} Show code
-```sql
-
+```{dropdown} Show code	
+```{code-block} sql
+:caption: Surface water - mismatch between ecological exemptions at water body level *vs.* at quality element level - 3ʳᵈ cycle
+:linenos:
   /**
     Analysis of the cases where 
     ecological exemptions reported at surface water body level
@@ -634,52 +646,11 @@ Based on the analysis of the remaining 3.5% of cases, it is likely that the miss
 
 In 98.9% of the cases, only one type of exemption was reported per quality element and water body.
 
-```{dropdown} Show code
-```sql
-
-  /**
-    Analysis of the number of different exemptions 
-    reported at quality element level,
-    for a given water body and quality element, 
-    in the 3ʳᵈ cycle reporting
-  **/
-
-  --  https://discodata.eea.europa.eu
-
-    SELECT [numberOfExemptionTypes],
-      COUNT  (*) AS [numberOfRecords],
-      COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies],
-      COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-    FROM 
-      (SELECT [countryCode]
-          ,[euSurfaceWaterBodyCode]
-          ,[qeCode]
-          ,COUNT(DISTINCT [qeEcologicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
-        FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
-        WHERE hasDescriptiveData = 1
-        and [qeEcologicalExemptionTypeGroup] != 'None'
-        and [cYear] = 2022
-        GROUP BY [countryCode],[euSurfaceWaterBodyCode],[qeCode]) t
-    GROUP BY [numberOfExemptionTypes]
-    ORDER BY [numberOfExemptionTypes] ASC
-
-```
-	
-### Surface water - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
-
-In 99.1% of the cases, only one type of exemption was reported per priority substance and water body.
-	
 ```{dropdown} Show code	
-```sql
-
-  /**
-    Analysis of the number of different exemptions 
-    reported at priority substance level,
-    for a given water body and priority substance, 
-    in the 3ʳᵈ cycle reporting
-  **/
-
-  -- https://discodata.eea.europa.eu/
+```{code-block} sql
+:caption: Surface water - ecological exemptions at quality element level - 3ʳᵈ cycle
+:linenos:
+--  https://discodata.eea.europa.eu
 
   SELECT [numberOfExemptionTypes],
     COUNT  (*) AS [numberOfRecords],
@@ -688,232 +659,184 @@ In 99.1% of the cases, only one type of exemption was reported per priority subs
   FROM 
     (SELECT [countryCode]
         ,[euSurfaceWaterBodyCode]
-        ,[swPrioritySubstanceCode]
-        ,COUNT(DISTINCT [swChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
-      FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_SWPrioritySubstance_SWChemicalExemptionType]
+        ,[qeCode]
+        ,COUNT(DISTINCT [qeEcologicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
+      FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType]
       WHERE hasDescriptiveData = 1
-      and [swChemicalExemptionTypeGroup] != 'None'
+      and [qeEcologicalExemptionTypeGroup] != 'None'
       and [cYear] = 2022
-      GROUP BY
-        [countryCode]
-        ,[euSurfaceWaterBodyCode]
-        ,[swPrioritySubstanceCode]) t
-    GROUP BY [numberOfExemptionTypes]
-    ORDER BY [numberOfExemptionTypes] ASC
-
-```	  
+      GROUP BY [countryCode],[euSurfaceWaterBodyCode],[qeCode]) t
+  GROUP BY [numberOfExemptionTypes]
+  ORDER BY [numberOfExemptionTypes] ASC
+```
 	
+### Surface water - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+
+In 99.1% of the cases, only one type of exemption was reported per priority substance and water body.
+	
+```{dropdown} Show code	
+```{code-block} sql
+:caption: Surface water - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+:linenos:
+-- https://discodata.eea.europa.eu/
+
+SELECT [numberOfExemptionTypes],
+  COUNT  (*) AS [numberOfRecords],
+  COUNT  (DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies],
+  COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+FROM 
+  (SELECT [countryCode]
+      ,[euSurfaceWaterBodyCode]
+      ,[swPrioritySubstanceCode]
+      ,COUNT(DISTINCT [swChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
+    FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_SWPrioritySubstance_SWChemicalExemptionType]
+    WHERE hasDescriptiveData = 1
+    and [swChemicalExemptionTypeGroup] != 'None'
+    and [cYear] = 2022
+    GROUP BY
+      [countryCode]
+      ,[euSurfaceWaterBodyCode]
+      ,[swPrioritySubstanceCode]) t
+  GROUP BY [numberOfExemptionTypes]
+  ORDER BY [numberOfExemptionTypes] ASC
+```	  
+
 ### Groundwater - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
 
 In 99.5% of the cases, only one type of exemption was reported per pollutant and water body.
 
 ```{dropdown} Show code	
-```sql
+```{code-block} sql
+:caption: Groundwater - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+:linenos:
+-- https://discodata.eea.europa.eu/
 
-  /**
-    Analysis of the number of different exemptions 
-    reported at pollutant level,
-    for a given water body and pollutant, 
-    in the 3ʳᵈ cycle reporting
-  **/
-
-  -- https://discodata.eea.europa.eu/
-
-  SELECT [numberOfExemptionTypes],
-  COUNT  (*) AS [numberOfRecords],
-  COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
-  COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM 
-  (SELECT [countryCode]
-          ,[euGroundWaterBodyCode]
-          ,[gwPollutantCode]+isnull([gwPollutantOther],'') AS [pollutantCode]
-          ,COUNT(DISTINCT [gwChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
-      FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWPollutant_GWChemicalExemptionType]
-      WHERE hasDescriptiveData = 1
-      and [gwChemicalExemptionTypeGroup] != 'None'
-      and [cYear] = 2022
-      GROUP BY
-          [countryCode]
-          ,[euGroundWaterBodyCode]
-          ,[gwPollutantCode]+isnull([gwPollutantOther],'') ) t
-  GROUP BY [numberOfExemptionTypes]
-  ORDER BY [numberOfExemptionTypes] ASC
-
+SELECT [numberOfExemptionTypes],
+COUNT  (*) AS [numberOfRecords],
+COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
+COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+FROM 
+(SELECT [countryCode]
+        ,[euGroundWaterBodyCode]
+        ,[gwPollutantCode]+isnull([gwPollutantOther],'') AS [pollutantCode]
+        ,COUNT(DISTINCT [gwChemicalExemptionTypeGroup]) AS [numberOfExemptionTypes]
+    FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWPollutant_GWChemicalExemptionType]
+    WHERE hasDescriptiveData = 1
+    and [gwChemicalExemptionTypeGroup] != 'None'
+    and [cYear] = 2022
+    GROUP BY
+        [countryCode]
+        ,[euGroundWaterBodyCode]
+        ,[gwPollutantCode]+isnull([gwPollutantOther],'') ) t
+GROUP BY [numberOfExemptionTypes]
+ORDER BY [numberOfExemptionTypes] ASC
 ```	   
-
 	
 ### Groundwater - quantitative exemptions by water body - 3ʳᵈ cycle
 
 In 93.7% of the cases, only one type of exemption was reported per water body.
 
 ```{dropdown} Show code	
-```sql
-
-  /**
-    Analysis of the number of different exemptions 
-    reported for a given water body 
-    in the 3ʳᵈ cycle reporting
-  **/
-
-  --   https://discodata.eea.europa.eu/
-
-  SELECT [numberOfExemptionTypes],
-    COUNT  (*) AS [numberOfRecords],
-    COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
-    COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM 
-  (SELECT [countryCode]
-          ,[euGroundWaterBodyCode]
-          ,COUNT(DISTINCT [gwQuantitativeExemptionTypeGroup]) AS [numberOfExemptionTypes]
-      FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwQuantitativeExemptionType]
-      WHERE hasDescriptiveData = 1
-      and [gwQuantitativeExemptionTypeGroup] != 'None'
-      and [cYear] = 2022
-      GROUP BY
-          [countryCode]
-          ,[euGroundWaterBodyCode] ) t
-  GROUP BY [numberOfExemptionTypes]
-  ORDER BY [numberOfExemptionTypes] ASC
-
+```{code-block} sql
+:caption: Groundwater - quantitative exemptions by water body - 3ʳᵈ cycle
+:linenos:
+--   https://discodata.eea.europa.eu/
+SELECT [numberOfExemptionTypes],
+  COUNT  (*) AS [numberOfRecords],
+  COUNT  (DISTINCT [euGroundWaterBodyCode]) AS [numberOfWaterBodies],
+  COUNT  (DISTINCT [countryCode]) AS [numberOfCountries]
+FROM 
+(SELECT [countryCode]
+        ,[euGroundWaterBodyCode]
+        ,COUNT(DISTINCT [gwQuantitativeExemptionTypeGroup]) AS [numberOfExemptionTypes]
+    FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwQuantitativeExemptionType]
+    WHERE hasDescriptiveData = 1
+    and [gwQuantitativeExemptionTypeGroup] != 'None'
+    and [cYear] = 2022
+    GROUP BY
+        [countryCode]
+        ,[euGroundWaterBodyCode] ) t
+GROUP BY [numberOfExemptionTypes]
+ORDER BY [numberOfExemptionTypes] ASC
 ```
 	
 ### Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
 
 This information is only reported for drinking waters, shellfish designated waters, and Natura 2000 protected sites included in the WFD register of protected areas, *if specific objectives have been set for the associated surface water body*.
 
-```{dropdown} Show code	
-```sql
-  /**
-    Analysis of the water bodies 
-    for which specific objectives where set
-    due to associated protected areas
-    in the 3ʳᵈ cycle reporting
-  **/
+```{csv-table} Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
+:name: Surface_water_protected_area_exemptions_3rdCycle_Table
+:header-rows: 1
+:delim: "|"
 
-  --   https://discodata.eea.europa.eu/
-  SELECT [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet] 
-      ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
-      ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-    ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-  FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea]
-  WHERE hasDescriptiveData = 1
-      AND [cYear] = 2022
-      AND [protectedAreaType] 
-        IN ('Drinking water protection area',
-            'Shellfish designated water',
-            'Natura 2000 protected site')
-      AND [protectedAreaObjectivesMet] in ('No','Yes','Unknown')
-  GROUP BY [protectedAreaType], [protectedAreaObjectivesSet], [protectedAreaObjectivesMet]
-
+Exemption|Countries|WaterBodies|ProtectedAreas
+Article 4(4) - Disproportionate cost|	2|	336|	87
+Article 4(4) - Natural conditions|	4|	193|	190
+Article 4(4) - Technical feasibility|	4|	426|	123
+Article 4(5) - Disproportionate cost|	1|	72|	12
+Article 4(5) - Technical feasibility|	2|	74|	14
 ```
 
-	
-Exemptions were reported for a total of 667 water bodies associated with a total of 327 protected areas, in 7 countries. 
-
-```{dropdown} Show code
-```sql
-  
-  /**
-    Analysis of the water bodies 
-    for which exemptions were applied 
-    when specific objectives set due to associated protected areas
-    where not met
-    in the 3ʳᵈ cycle reporting
-  **/
-
-  --   https://discodata.eea.europa.eu/
-  
-  SELECT LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2) AS [protectedAreaExemptionType]
-        ,COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS [numberOfWaterBodies]
-        ,COUNT(DISTINCT [euProtectedAreaCode]) AS [numberOfAssociatedProtectedAreas]
-      ,COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
-    FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption]
-    WHERE hasDescriptiveData = 1
-      AND [cYear] = 2022
-      AND [protectedAreaExemption] IS NOT NULL
-      AND [protectedAreaExemption] != 'None'
-      AND [protectedAreaType] IN 
-        ('Drinking water protection area',
-         'Natura 2000 protected site',
-         'Shellfish designated water')
-      AND [protectedAreaObjectivesMet] = 'No'
-    GROUP BY
-        LEFT([protectedAreaExemption],CHARINDEX('-',[protectedAreaExemption])-2)
-
+```{dropdown} Show code	
+```{code-block} sql
+:caption: Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
+:linenos:
+--   https://discodata.eea.europa.eu/
+SELECT [protectedAreaExemption] 
+    ,COUNT(DISTINCT [countryCode]) AS [Countries]
+    ,COUNT(DISTINCT[euSurfaceWaterBodyCode]) AS [WaterBodies]
+    ,COUNT(DISTINCT[euProtectedAreaCode]) AS [ProtectedAreas]
+FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption]
+WHERE [cYear] = 2022 
+AND [hasDescriptiveData] = 1 
+AND [protectedAreaType] IN ('Natura 2000 protected site', 'Drinking water protection area','Shellfish designated water')
+AND [protectedAreaExemption] != 'None'
+AND [protectedAreaObjectivesMet] = 'No'
+GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
  ```
 
-	
 ### Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
 
 This information is only reported for drinking waters and Natura 2000 protected sites included in the WFD register of protected areas,
 *if specific objectives have been set for the associated groundwater body*.
 
-```{dropdown} Show code	
-```sql
-  
-  /**
-    Exemptions associated to protected areas in the 3ʳᵈ cycle reporting
-  **/
-
-  --   https://discodata.eea.europa.eu/
-
-  SELECT [protectedAreaExemption]
-        ,COUNT(DISTINCT [countryCode]) AS [Countries]
-        ,COUNT(DISTINCT[euGroundWaterBodyCode]) AS [WaterBodies]
-        ,COUNT(DISTINCT[euProtectedAreaCode]) AS [ProtectedAreas]
-    FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption]
-    WHERE [cYear] = 2022 
-    AND [hasDescriptiveData] = 1 
-    AND [protectedAreaType] IN ('Natura 2000 protected site', 'Drinking water protection area')
-    AND [protectedAreaExemption] != 'None'
-    AND [protectedAreaObjectivesMet] = 'No'
-    GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
-
-```
-	
 Exemptions were reported for a total of 198 water bodies associated with a total of 273 protected areas, in 9 countries. 
 
-|protectedAreaExemption	|Countries	|WaterBodies|ProtectedAreas|
-|---|---|---|---|
-|Article 4(4) - Disproportionate cost	|2|	32|	50|
-|Article 4(4) - Natural conditions	|8|	122|	182|
-|Article 4(4) - Technical feasibility	|5|	63|	76|
-|Article 4(5) - Disproportionate cost	|1|	14|	14|
-|Article 4(5) - Technical feasibility	|2|	18|	18|
+```{csv-table} Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
+:name: Groundwater_protected_area_exemptions_3rdCycle_Table
+:header-rows: 1
+:delim: "|"
 
+Exemption|Countries|WaterBodies|ProtectedAreas
+Article 4(4) - Disproportionate cost|2|32|50
+Article 4(4) - Natural conditions|8|122|182
+Article 4(4) - Technical feasibility|5|63|76
+Article 4(5) - Disproportionate cost|1|14|14
+Article 4(5) - Technical feasibility|2|18|18
+```
 
 ```{dropdown} Show code	
-```sql
+```{code-block} sql
+:caption: Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
+:linenos:
+--   https://discodata.eea.europa.eu/
 
-  /**
-    Exemptions associated to protected areas in the 3ʳᵈ cycle reporting
-  **/
-
-  --   https://discodata.eea.europa.eu/
-  SELECT [protectedAreaExemption] 
-        ,COUNT(DISTINCT [countryCode]) AS [Countries]
-        ,COUNT(DISTINCT[euSurfaceWaterBodyCode]) AS [WaterBodies]
-        ,COUNT(DISTINCT[euProtectedAreaCode]) AS [ProtectedAreas]
-    FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption]
-    WHERE [cYear] = 2022 
-    AND [hasDescriptiveData] = 1 
-    AND [protectedAreaType] IN ('Natura 2000 protected site', 'Drinking water protection area','Shellfish designated water')
-    AND [protectedAreaExemption] != 'None'
-    AND [protectedAreaObjectivesMet] = 'No'
-    GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
- ```
-
-|protectedAreaExemption|Countries|WaterBodies|ProtectedAreas|
-|---|---|---|---|
-|Article 4(4) - Disproportionate cost|	2|	336|	87|
-|Article 4(4) - Natural conditions|	4|	193|	190|
-|Article 4(4) - Technical feasibility|	4|	426|	123|
-|Article 4(5) - Disproportionate cost|	1|	72|	12|
-|Article 4(5) - Technical feasibility|	2|	74|	14|
+SELECT [protectedAreaExemption] AS [Exemption]
+    ,COUNT(DISTINCT [countryCode]) AS [Countries]
+    ,COUNT(DISTINCT[euGroundWaterBodyCode]) AS [WaterBodies]
+    ,COUNT(DISTINCT[euProtectedAreaCode]) AS [ProtectedAreas]
+FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption]
+WHERE [cYear] = 2022 
+AND [hasDescriptiveData] = 1 
+AND [protectedAreaType] IN ('Natura 2000 protected site', 'Drinking water protection area')
+AND [protectedAreaExemption] != 'None'
+AND [protectedAreaObjectivesMet] = 'No'
+GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
+```
 
 (heading_wfd_wfd_exemptions_references)=
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```
 
