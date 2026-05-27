@@ -770,11 +770,11 @@ This information is only reported for drinking waters, shellfish designated wate
 :delim: "|"
 
 Exemption|Countries|WaterBodies|ProtectedAreas
-Article 4(4) - Disproportionate cost|	2|	336|	87
-Article 4(4) - Natural conditions|	4|	193|	190
-Article 4(4) - Technical feasibility|	4|	426|	123
-Article 4(5) - Disproportionate cost|	1|	72|	12
-Article 4(5) - Technical feasibility|	2|	74|	14
+Article 4(4) - Disproportionate cost|2|336|87
+Article 4(4) - Natural conditions|4|193|190
+Article 4(4) - Technical feasibility|4|426|123
+Article 4(5) - Disproportionate cost|1|72|12
+Article 4(5) - Technical feasibility|2|74|14
 ```
 
 ```{dropdown} Show code	
