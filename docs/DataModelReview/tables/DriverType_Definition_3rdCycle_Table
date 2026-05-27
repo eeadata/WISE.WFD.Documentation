@@ -1,19 +1,20 @@
 ```{csv-table} Driver definition [^drivers-table-source]. 
 :name: DriverType_Definition_3rdCycle_Table
 :header-rows: 1
-:delim: tab
+:delim: "|"
 
-Term    Definition
-Agriculture Includes all farming activities, agriculture and livestock 
-Climate change  «missing»
-Energy – hydropower «missing»
-Energy – non-hydropower Including cooling activities for thermal and nuclear plants
-Fisheries and aquaculture   Commercial fishing and aquaculture (not recreational or sports angling, included in category ‘Tourism and recreation’ below)
-Flood protection    «missing»
-Forestry    «missing»
-Industry    All kinds of industry not included under other categories
-Tourism and recreation  Includes bathing, leisure boating and sailing, sports fishing/angling. It does not include the urban development linked to tourism (under category 'Urban development').
-Transport   Road and rail traffic, shipping, aviation
-Urban development   Includes urban development linked to household, non-manufacturing commercial activities, tourism. 
+Term | Definition
+Agriculture | Includes all farming activities, agriculture and livestock 
+Climate change | «missing»
+Energy – hydropower | «missing»
+Energy – non-hydropower | Including cooling activities for thermal and nuclear plants
+Fisheries and aquaculture | Commercial fishing and aquaculture (not recreational or sports angling, included in category ‘Tourism and recreation’ below)
+Flood protection | «missing»
+Forestry | «missing»
+Industry | All kinds of industry not included under other categories
+Tourism and recreation | Includes bathing, leisure boating and sailing, sports fishing/angling. It does not include the urban development linked to tourism (under category 'Urban development').
+Transport | Road and rail traffic, shipping, aviation
+Urban development | Includes urban development linked to household, non-manufacturing commercial activities, tourism. 
+```
 
-[^drivers-table-source]: From WFD Reporting Guidance 2022.
+[^drivers-table-source]: From the WFD Reporting Guidance 2022.

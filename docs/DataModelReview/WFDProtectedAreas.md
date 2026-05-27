@@ -241,7 +241,7 @@ The data reported for the 3ʳᵈ cycle can be used to estimate the impact of the
 (heading_wfd_protected_areas_references)=
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```
 
 ```{warning}

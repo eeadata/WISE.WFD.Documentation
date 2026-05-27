@@ -543,5 +543,5 @@ Based on the information in (http://publications.europa.eu/resource/dataset/cepa
 (heading_wfd_measures_references)=
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```

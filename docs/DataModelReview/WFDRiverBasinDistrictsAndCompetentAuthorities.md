@@ -219,7 +219,7 @@ then it is not necessary to report the information again.
 
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```
 
 ```{warning}

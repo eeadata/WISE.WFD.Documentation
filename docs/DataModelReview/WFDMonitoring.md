@@ -1241,5 +1241,5 @@ AND [waterBodyCategory] is NULL
 (heading_wfd_monitoring_references)=
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```

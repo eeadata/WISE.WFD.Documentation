@@ -25,7 +25,7 @@ The **Water Framework Directive Documentation** is organized into the following 
 
    This section contains information of each of the dataflows opened for testing.
 
-*  **Reporting Phase**
+*  **Reporting phase**
 
    As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.
 

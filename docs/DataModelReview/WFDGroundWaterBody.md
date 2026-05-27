@@ -288,5 +288,5 @@ The data was organised into a relational structure with 6 tables:
 (heading_wfd_wfd_groundwater_bodies_references)=
 ## References
 
-```{include} FragmentWFD2022ReportingSchemas
+```{include} FragmentReportingGuidanceFiles
 ```

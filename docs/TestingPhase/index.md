@@ -3,7 +3,7 @@ html_theme.sidebar_secondary.remove: true
 ---
 (testing-phase)=
 
-# Testing Phase
+# Testing phase
 
 ```{toctree}
 :maxdepth: 2
