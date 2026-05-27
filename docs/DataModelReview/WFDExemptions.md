@@ -270,6 +270,7 @@ The following conditions apply:
 03. For short-term impacts, the maximum exemption period is one year.
 04. Exemptions related to relocation of water or sediment are not applicable quantitative status.
 05. Exemptions related to the recast UWWTD are not applicable quantitative status.
+06. Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.
 
 ```{admonition} See code
 :class: dropdown
@@ -278,7 +279,13 @@ The following conditions apply:
 03. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 04. Not allowed: `exemptionType = 'article47b_relocationOfWaterOrSediment'`
 05. Not allowed: `exemptionType = 'uwwtdArticle154_domesticUrbanWasteWater'`
+06. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
 ``` 
+
+```{todo}
+Exemptions - Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.
+ENV to confirm that this exclusion also applies in the 4th cycle.
+```
 
 The diagram below presents the applicability criteria for the different exemption types
  ({numref}`Exemptions_QuantitativeExemption_Flowchart`).
