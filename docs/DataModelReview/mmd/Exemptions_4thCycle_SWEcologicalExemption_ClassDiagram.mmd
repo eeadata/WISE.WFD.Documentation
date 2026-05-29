@@ -1,4 +1,10 @@
-%%{init: {'theme': 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 class SWEcologicalExemption{
     + euSurfaceWaterBodyCode : wiseIdentifier
@@ -9,3 +15,7 @@ class SWEcologicalExemption{
     + exemptionReference : referenceIdentifier [0..1]
     + significantPressureType : PressureType [1..n]
 }
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

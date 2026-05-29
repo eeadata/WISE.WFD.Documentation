@@ -1,4 +1,10 @@
-%%{init: {'theme': 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 class SWAssociatedProtectedArea{
 	+ euSurfaceWaterBodyCode : wiseIdentifier
@@ -11,3 +17,6 @@ class SWAssociatedProtectedArea{
 	+ exemptionPeriod : ExemptionPeriod [0..1]
 	+ exemptionReference : referenceIdentifier [0..1]
 	   } 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

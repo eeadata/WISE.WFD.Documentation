@@ -1,11 +1,17 @@
-%%{init : {'theme' : 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
 namespace ReportingData{
 class ExpenditurePerMeasurePerSector {
  + measureCode : wiselIdentifier
  + expenditureDataAvailable : YesNoNotApplicable
- + institutionalSector : SEA2010SectorCodeList value [0..1]
+ + institutionalSector : SEA2010SectorCode [0..1]
 
  + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
  + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
@@ -17,7 +23,7 @@ class ExpenditurePerMeasurePerSector {
 }
 }
 namespace Codelist{
-class SEA2010SectorCodeList{
+class SEA2010SectorCode{
     <<enumeration>>
     }
 class CurrencyCode{
@@ -30,3 +36,7 @@ class YesNoNotApplicable{
     notApplicable
     }
 }
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

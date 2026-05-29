@@ -1,4 +1,10 @@
-%%{init: {'theme': 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 class ExemptionType{
     <<enumeration>>
@@ -46,3 +52,7 @@ class ExemptionPeriod{
     indeterminate
     notApplicable
     }
+
+    
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

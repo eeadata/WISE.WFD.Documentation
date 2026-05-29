@@ -1,4 +1,10 @@
-%%{init : {'theme' : 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
 namespace ReportingData{
@@ -72,3 +78,6 @@ class YesNoNotRelevant{
     notApplicable
     }
 }
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

@@ -1,4 +1,10 @@
-%%{init : {'theme' : 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
 namespace Codelist{
@@ -24,9 +30,8 @@ class WFDGeographicCoverage{
 class HierarchicalWaterCategory{
     <<enumeration>>
     }    
-class YesNo{
-    <<enumeration>>
-    yes
-    no
-    }    
 }
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

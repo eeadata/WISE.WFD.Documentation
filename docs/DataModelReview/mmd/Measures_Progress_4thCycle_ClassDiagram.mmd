@@ -1,7 +1,13 @@
-%%{init : {'theme' : 'neutral'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
 direction LR
-namespace ReportingData{
+
 class Progress{
 + euRBDCode :  wiseIdentifier
 
@@ -17,9 +23,7 @@ class Progress{
 + obstaclesExtremeEvents : YesNo
 
 }
-}
 
-namespace Codelist{
 class PlannedOngoingExecutedCancelled{
     <<enumeration>>
     planned
@@ -27,9 +31,6 @@ class PlannedOngoingExecutedCancelled{
     executed
     cancelled
     }
-class YesNo{
-    <<enumeration>>
-    yes
-    no
-    }
-}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
