@@ -22,8 +22,16 @@ WFDSurfaceWaterMethodologies
 
 ```
 
+## Common patterns
+
+```{toctree}
+:maxdepth: 1
+WFDGrouping
+```
+
 ## Codelists and datatypes
 
 ```{toctree}
 :maxdepth: 1
 WFDPressures
+```

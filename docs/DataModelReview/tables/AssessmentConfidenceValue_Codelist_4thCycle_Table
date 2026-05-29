@@ -1,0 +1,47 @@
+```{list-table} AssessmentConfidenceValue codelist – 4ᵗʰ cycle
+:name: AssessmentConfidenceValue_Codelist_4thCycle_Table
+:header-rows: 1
+:align: left
+
+* - Notation
+  - Label
+  - Definition
+  - Notes
+
+* - high
+  - High confidence
+  - 
+  - E.g. good monitoring data and a good conceptual model or 
+    understanding of the system based on information on its natural characteristics 
+    and its pressures 
+    
+* - medium
+  - Medium confidence
+  - 
+  - E.g. limited or insufficiently robust monitoring data 
+    and expert judgment plays a significant role in assessment of status.
+
+* - low
+  - Low confidence
+  - 
+  - E.g. no monitoring data, or no conceptual model or understanding of the system.
+
+* - unknown
+  - Unknown
+  - No information about the confidence level of the status assessment.
+  - 
+
+* - notApplicable
+  - Not applicable
+  - Select this option if the status was not assessed.
+  - This option is only valid if the status is 'unknown'.
+  
+```
+
+Notes:
+
+* Mastrandrea, MD, Field CB, Stocker TF, Edenhofer O, Ebi KL, Frame DJ, Held H, Kriegler E, Mach KJ, Matschoss PR, Plattner GK (2010) 
+  Guidance note for lead authors of the IPCC fifth assessment report on consistent treatment of uncertainties.
+  https://www.ipcc.ch/site/assets/uploads/2017/08/AR5_Uncertainty_Guidance_Note.pdf
+* Mastrandrea, M.D., Mach, K.J., Plattner, GK. et al. (2011) The IPCC AR5 guidance note on consistent treatment of uncertainties: a common approach across the working groups. Climatic Change 108, 675 . https://doi.org/10.1007/s10584-011-0178-6
+* Kause, A., Bruine de Bruin, W., Persson, J. et al. (2022) Confidence levels and likelihood terms in IPCC reports: a survey of experts from different scientific disciplines. Climatic Change 173, 2 . https://doi.org/10.1007/s10584-022-03382-3

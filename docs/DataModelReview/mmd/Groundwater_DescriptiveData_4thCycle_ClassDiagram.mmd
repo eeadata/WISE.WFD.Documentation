@@ -11,13 +11,13 @@ direction TB
 class LinkSurfaceWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
     + euSurfacedWaterBodyCode : wiseIdentifier
-    + linkType : GroundwaterSurfacewaterLinkType [0..1]
+    + linkType : GroundwaterSurfacewaterLinkTypeValue [0..1]
 }
 
 class GroundWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
-    + aquiferType : AquiferType
-    + aquiferProductivity : AquiferProductivity
+    + aquiferType : AquiferMediaTypeValue
+    + aquiferProductivity : AquiferProductivityValue
     + groundWaterBodyTransboundary : YesNo
     + linkSurfaceWaterBody : YesNo
     + linkTerrestrialEcosystem : YesNoUnknown
@@ -29,28 +29,24 @@ class GWPressureImpact{
     + gwImpactType : ImpactType  [0..1]
 }
 
-class GWReasonForFailure:::forFixing{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + gwQuantitativeReasonsForFailure : ReasonForFailure [0..1]
-    + gwChemicalReasonsForFailure : ReasonForFailure [0..1]
-}
 
 class GWQuantitativeStatus:::forFixing{
     + euGroundWaterBodyCode : wiseIdentifier
-    + gwQuantitativeStatusValue : QuantitativeStatus
+    + gwQuantitativeStatusValue : QuantitativeStatusValue
     + gwQuantitativeAssessmentPeriod : range
-    + gwQuantitativeAssessmentConfidence : AssessmentConfidence
-
-    «pending-discussion-analogy-with-sw»
-    + gwQuantitativeAssessmentMethod : AssessmentMethod 
-    + gwQuantitativeAssessmentGrouping : euGroundWaterBodyCode [0..n]
+    + gwQuantitativeAssessmentConfidence : AssessmentConfidenceValue
+    + gwQuantitativeAssessmentMethod : AssessmentMethodValue [1..n]
+    + gwQuantitativeAssessmentGrouping : gwGroupCode [0..n]
 }
 
 class GroundWaterBodyStatus{
     
     + euGroundWaterBodyCode : wiseIdentifier
-    / gwQuantitativeStatusValue : QuantitativeStatus
-    / gwChemicalStatusValue : ChemicalStatus
+    / gwQuantitativeStatusValue : QuantitativeStatusValue
+    / gwChemicalStatusValue : ChemicalStatusValue
+
+    + gwQuantitativeReasonsForFailure : ReasonForFailureValue [1..n]
+    + gwChemicalReasonsForFailure : ReasonForFailureValue [1..n]
 } 
 
 class GWPollutant:::forFixing{
@@ -58,7 +54,9 @@ class GWPollutant:::forFixing{
     + gwPollutantCode : SubstanceCode
     + gwPollutantCausingFailure : YesNoUnknown
     + gwPollutantAssessmentPeriod : range
-    + gwPollutantAssessmentConfidence : AssessmentConfidence 
+    + gwPollutantAssessmentConfidence : AssessmentConfidenceValue 
+    + gwPollutantAssessmentMethod : AssessmentMethodValue [1..n]
+    + gwPollutantAssessmentGrouping : gwGroupCode [0..n]
 
     «trend»
     + gwPollutantUpwardTrend : YesNoUnknown
@@ -69,10 +67,11 @@ class GWPollutant:::forFixing{
     + gwPollutantBackgroundLevelSet : YesNo
     + gwPollutantBackgroundLevelValue : range [0..1] 
     + gwPollutantBackgroundLevelUnit : UnitOfMeasure [0..1] 
+}
 
-    «pending-discussion-analogy-with-sw»
-    + gwPollutantAssessmentMethod : AssessmentMethod 
-    + gwPollutantAssessmentGrouping : euGroundWaterBodyCode [0..n]
+class GWGroup:::forFixing{
+    + gwGroupCode : wiseIdentifier
+    + euGroundWaterBodyCode : wiseIdentifier
 }
 
 GroundWaterBody -- GroundWaterBodyStatus    
@@ -80,9 +79,10 @@ GroundWaterBodyStatus --  GWQuantitativeStatus
 GroundWaterBodyStatus -- "0..n" GWPollutant
 GroundWaterBodyStatus -- "0..n" GWPressureImpact
 
-LinkSurfaceWaterBody "0..n" -- "1" GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
+GWQuantitativeStatus .. GWGroup
+GWPollutant .. GWGroup
 
-GroundWaterBodyStatus -- "0..n" GWReasonForFailure : {gwQuantitativeStatusValue = '3' OR gwChemicalStatusValue = '3'}
+LinkSurfaceWaterBody "0..n" -- "1" GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

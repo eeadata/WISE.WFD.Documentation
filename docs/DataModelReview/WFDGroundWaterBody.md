@@ -1,7 +1,7 @@
 (heading_wfd_groundwater_bodies)=
 # WFD groundwater bodies
 
-Last update: 2026-05-14
+Last update: 2026-05-29
 
 ```{danger}
 DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
@@ -19,12 +19,6 @@ The information about Groundwater bodies was reported in two separate schemas:
 
 * The GWB schema, containing information about each groundwater body ({numref}`Groundwater_3rdCycle_GWB_ClassDiagram`)
 * The GWMET schema, containing information about the methodologies.
-
-```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_ClassDiagram.mmd
-:name: Groundwater_3rdCycle_GWB_ClassDiagram
-:align: center
-:caption: Class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
-```
 
 ## GWB schema - 3ʳᵈ cycle
 
@@ -50,14 +44,14 @@ Based on the Commission's review of the 3ʳᵈ cycle reporting, the following el
 * GWB/GroundWaterBody/gwReasonsForRiskQuantitative
 * GWB/GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted
 
-{numref}`Groundwater_3rdCycle_GWB_Simplified_ClassDiagram` shows a simplified diagram 
-to help focus the discussion on the remaining issues.
-
-```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_Simplified_ClassDiagram.mmd
-:name: Groundwater_3rdCycle_GWB_Simplified_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_ClassDiagram.mmd
+:name: Groundwater_3rdCycle_GWB_ClassDiagram
 :align: center
-:caption: PARTIAL class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
+:caption: Class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
 ```
+
+The remaining attributes were reorganised to try and facilitate the reporting, 
+and the structure was aligned also with the approach proposed for surface water bodies.
 
 ## Groundwater - descriptive data - 4ᵗʰ cycle
 
@@ -67,60 +61,12 @@ shows a DRAFT diagram including the issues requiring clarification, in the class
 ```{mermaid} /DataModelReview/mmd/Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd
 :name: Groundwater_DescriptiveData_4thCycle_ClassDiagram
 :align: center
-:caption: DRAFT DIAGRAM - ISSUES PENDING DISCUSSION - Groundwater - 4ᵗʰ cycle
+:caption: Groundwater - 4ᵗʰ cycle
 ```
 
-```{todo}
-Groundwater - Topics that require discussion and clarification.
+The data was organised into a relational structure with 6 tables (see {numref}`Groundwater_4th_cycle_brief_table_description`).
 
-* GWReasonsForFailure - these table could/should be removed.
-* {ref}`Groundwater_Issues_Pending_Discussion_GWPollutant`
-* {ref}`Groundwater_Issues_Pending_Discussion_GWQuantitativeStatus`
-Also pending discussion is the revision of the **PressureTpe** and **ImpactType** codelists.
-```
-
-```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GWPollutant** table
-    :name: Groundwater_Issues_Pending_Discussion_GWPollutant
-    :width: 100%
-    :widths: 40 40 20
-    :header-rows: 1
-    :align: left
-
-* - Attribute
-  - Description
-  - Status
-
-* - gwPollutantAssessmentMethod
-  - To be discussed together with the SW part.
-  - Pending  
-
-* - gwPollutantAssessmentGrouping
-  - To be discussed together with the SW part.
-  - Pending  
-```
-
-```{list-table} PENDING - Groundwater - 4ᵗʰ cycle - **GWQuantitativeStatus** table
-    :name: Groundwater_Issues_Pending_Discussion_GWQuantitativeStatus
-    :width: 100%
-    :widths: 40 40 20
-    :header-rows: 1
-    :align: left
-
-* - Attribute
-  - Description
-  - Status
-
-* - gwQuantitativeAssessmentMethod
-  - To be discussed together with the SW part.
-  - Pending  
-
-* - gwQuantitativeAssessmentGrouping
-  - To be discussed together with the SW part.
-  - Pending  
-```
-
-The data was organised into a relational structure with 6 tables:
-
+```{dropdown} Show tables definition
 ```{list-table} Groundwater - 4ᵗʰ cycle - brief table description
     :name: Groundwater_4th_cycle_brief_table_description
     :width: 100%
@@ -182,12 +128,61 @@ The data was organised into a relational structure with 6 tables:
 ```{mermaid} /DataModelReview/mmd/Groundwater_Codelist_4thCycle_ClassDiagram.mmd
 :name: Groundwater_Codelist_4thCycle_ClassDiagram
 :align: center
-:caption: DRAFT DIAGRAM - ISSUES PENDING DISCUSSION - Groundwater - codelists - 4ᵗʰ cycle
+:caption: Groundwater - codelists - 4ᵗʰ cycle
+```
+
+### AquiferMediaTypeValue -  4ᵗʰ cycle
+
+The `AquiferMediaTypeValue` codelist was realigned with the INSPIRE codelist to allow more flexibility.
+
+```{dropdown} Show codelist definition
+```{include} /DataModelReview/tables/AquiferMediaTypeValue_Codelist_4thCycle_Table
+```
+
+### AquiferProductivityValue -  4ᵗʰ cycle
+
+```{dropdown} Show codelist definition
+```{include} /DataModelReview/tables/AquiferProductivityValue_Codelist_4thCycle_Table
+```
+
+### AssessmentMethodValue -  4ᵗʰ cycle
+
+```{dropdown} Show codelist definition
+```{include} /DataModelReview/tables/AssessmentMethodValue_Codelist_4thCycle_Table
+```
+
+### AssessmentConfidenceValue -  4ᵗʰ cycle
+
+```{dropdown} Show codelist definition
+```{include} /DataModelReview/tables/AssessmentConfidenceValue_Codelist_4thCycle_Table
+```
+
+### GroundwaterSurfaceWaterLinkType -  4ᵗʰ cycle
+
+```{dropdown} Show codelist definition
+```{include} /DataModelReview/tables/GroundwaterSurfaceWaterLinkType_Codelist_4thCycle_Table
+```
+
+### ReasonForFailure -  4ᵗʰ cycle
+
+```{dropdown} Show codelist definition
+```{include} /DataModelReview/tables/ReasonForFailure_Codelist_4thCycle_Table
+```
+
+```{todo}
+Groundwater - Topics that require discussion and clarification.
+
+* gwPollutantAssessmentMethod and gwPollutantAssessmentGrouping
+* gwQuantitativeAssessmentMethod and gwQuantitativeAssessmentGrouping
+* Also pending discussion is the revision of the **PressureType** and **ImpactType** codelists.
+* GroundwaterSurfaceWaterLinkType table
+* Mapping tables to 3rd cycle codelists
+
 ```
 
 ## Annexes - Data analysis - 3ʳᵈ cycle
 
-```{include} FragmentAnnexesDataAnalysis3rdCycle
+```{include} /DataModelReview/FragmentAnnexesDataAnalysis3rdCycle
 ```
 
 ```{dropdown} Show code

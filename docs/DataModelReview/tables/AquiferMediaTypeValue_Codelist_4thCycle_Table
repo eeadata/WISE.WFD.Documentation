@@ -1,0 +1,14 @@
+```{csv-table} AquiferMediaTypeValue codelist – 4ᵗʰ cycle
+:name: AquiferMediaTypeValue_Codelist_4thCycle_Table
+:header-rows: 1
+:delim: "|"
+
+Notation|Label|Definition|URI
+compound|Compound|A combination of a porous, karstic and/or fractured aquifer.|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/compound
+fractured|Fractured|Fractured aquifers are rocks in which the primary porosity is negligible and the water circulation is through the secondary porosity (fractures, faults, joints, bedding planes).|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/fractured
+karstic|Karstic|Karstic aquifers are fractured aquifers where the cracks and fractures have been enlarged by solution, forming large channels or even caverns.|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/karstic
+karsticAndFractured|Karstic and fractured|A combination of karstic and fractured aquifer.|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/karsticAndFractured
+porous|Porous|Porous aquifers are unconsolidated or consolidated deposits where water circulates through pores between the grains.|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/porous
+porousAndFractured|Porous and fractured|A combination of porous and fractured aquifer.|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/porousAndFractured
+other|Other|Other aquifer media types not covered by the other values.|https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/other
+```

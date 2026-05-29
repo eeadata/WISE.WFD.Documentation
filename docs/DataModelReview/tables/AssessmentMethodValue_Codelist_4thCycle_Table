@@ -1,0 +1,49 @@
+```{list-table} AssessmentMethodValue codelist – 4ᵗʰ cycle
+:name: AssessmentMethodValue_Codelist_4thCycle_Table
+:header-rows: 1
+:align: left
+
+* - Notation
+  - Label
+  - Definition
+  - Notes
+
+* - monitoring
+  - Monitoring
+  - The status assessment used monitoring data collected at the water body being assessed.
+  - This includes monitoring through conventional *in situ* sampling 
+    (including grab sampling, continuous sampling, passive sampling, eDNA sampling, etc.).
+
+* - grouping
+  - Grouping
+  - The status assessment used monitoring data from *other* similar water body(ies).
+  - Choose only 'grouping' if no monitoring data for the water body was used in the assessment, 
+    and only monitoring data from other similar water bodies was used.<br/>
+    Choose 'monitoring' AND 'grouping' if the monitoring data for the water body 
+    was supplemented with monitoring data from other water bodies.
+
+* - remoteSensing
+  - Remote sensing
+  - The status assessment was supported by Earth observation/remote sensing monitoring techniques.
+  - This option can be combined with any of the following options: 'monitoring', 'grouping','modelling'.
+
+* - modelling
+  - Modelling
+  - The status assessment was based on modelling and/or statistical analysis.
+  - This option can be combined with any of the following options: 'monitoring', 'grouping','remoteSensing'.
+
+* - expertJudgement
+  - Expert judgement
+  - The status assessment was based on expert judgement.
+  - Select this option if there is no monitoring data available in this surface water body, 
+    and if monitoring data from other water were also not used, 
+    and if monitoring using remote sensing techniques was also not used. <br/>
+    This option can NOT be combined with any other option.
+    
+* - notApplicable
+  - Not applicable
+  - This option is only valid if there was no assessment of the status 
+    (i.e. if the status is 'unknown').
+  - This option can NOT be combined with any other option.
+
+```

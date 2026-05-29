@@ -16,45 +16,86 @@ surfaceWaterRechargesGroundwater
 bidirectionalWaterExchange
 }
 
-class AquiferType{
+class AquiferMediaTypeValue{
+<<enumeration>>
+compound
+fractured
+karstic
+karsticAndFractured
+porous
+porousAndFractured
+other
+unknown
+}
+
+class AquiferProductivityValue{
+<<enumeration>>
+high
+moderate
+low
+insignificant
+unknown
+}
+
+class ReasonForFailureValue{
+<<enumeration>>
+surfaceWater
+groundWaterDependentTerrestrialEcosystem
+salineOrOtherIntrusion
+waterBalance
+drinkingWaterProtectionArea
+waterQualityAssessment
+notApplicable
+}
+
+class QuantitativeStatusValue{
+<<enumeration>>
+2 - Good status
+3 - Poor status
+U - Unknown status
+}
+
+class ChemicalStatusValue{
+<<enumeration>>
+2 - Good status
+3 - Failing to achieve good status
+U - Unknown status
+}
+
+class AssessmentConfidenceValue{
+<<enumeration>>
+high
+medium
+low
+unknown
+notApplicable
+}
+
+class AssessmentMethodValue{
+<<enumeration>>
+monitoring
+grouping
+remoteSensing
+modelling
+expertJudgement
+notApplicable
+}
+
+}
+namespace GenericCodelist{
+class SubstanceCode{
 <<enumeration>>
 }
 
-class AquiferProductivity{
+class UnitOfMeasure{
 <<enumeration>>
 }
-
 
 class PressureType{
 <<enumeration>>
 }
 
-
 class ImpactType{
-<<enumeration>>
-}
-
-class ReasonForFailure{
-<<enumeration>>
-}
-
-class QuantitativeStatus{
-<<enumeration>>
-}
-
-class ChemicalStatus{
-<<enumeration>>
-}
-
-class SubstanceCode{
-<<enumeration>>
-}
-
-class AssessmentConfidence{
-<<enumeration>>
-}
-
-class AssessmentMethod{
 <<enumeration>>
 }
 
@@ -66,8 +107,10 @@ class YesNoUnknownNotApplicable{
 <<enumeration>>
 }
 
-class UnitOfMeasure{
-<<enumeration>>
 }
 
-}
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+click PressureType href "WFDPressure.html" "See the documentation on Pressure types."
+click AquiferMediaTypeValue href "https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue" "See the INSPIRE registry."
