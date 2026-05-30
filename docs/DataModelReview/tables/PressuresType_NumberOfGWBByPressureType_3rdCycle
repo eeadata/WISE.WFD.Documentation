@@ -1,40 +1,40 @@
 ```{csv-table} Number of groundwater bodies by pressure type - 3ʳᵈ cycle
 :name: PressuresType_NumberOfGWBByPressureType_3rdCycle
 :header-rows: 1
-:delim: tab
+:delim: "|"
 
-gwSignificantPressureTypeGroup	gwSignificantPressureType	numberOfWaterBodies
-P1 - Point sources	P1-1 - Point - Urban waste water	93
-P1 - Point sources	P1-2 - Point - Storm overflows	6
-P1 - Point sources	P1-3 - Point - IED plants	59
-P1 - Point sources	P1-4 - Point - Non IED plants	65
-P1 - Point sources	P1-5 - Point - Contaminated sites or abandoned industrial sites	614
-P1 - Point sources	P1-6 - Point - Waste disposal sites	177
-P1 - Point sources	P1-7 - Point - Mine waters	55
-P1 - Point sources	P1-9 - Point - Other	128
-P2 - Diffuse sources	P2-1 - Diffuse - Urban run-off	514
-P2 - Diffuse sources	P2-2 - Diffuse - Agricultural	2151
-P2 - Diffuse sources	P2-3 - Diffuse - Forestry	75
-P2 - Diffuse sources	P2-4 - Diffuse - Transport	113
-P2 - Diffuse sources	P2-5 - Diffuse - Contaminated sites or abandoned industrial sites	78
-P2 - Diffuse sources	P2-6 - Diffuse - Discharges not connected to sewerage network	350
-P2 - Diffuse sources	P2-8 - Diffuse - Mining	94
-P2 - Diffuse sources	P2-10 - Diffuse - Other	189
-P2-7 - Diffuse - Atmospheric deposition	P2-7 - Diffuse - Atmospheric deposition	68
-P3 - Abstraction	P3-1 - Abstraction - Agriculture	834
-P3 - Abstraction	P3-2 - Abstraction - Public water supply	889
-P3 - Abstraction	P3-3 - Abstraction - Industry	395
-P3 - Abstraction	P3-4 - Abstraction - Cooling water	41
-P3 - Abstraction	P3-5 - Abstraction - Hydropower	5
-P3 - Abstraction	P3-6 - Abstraction - Fish farms	88
-P3 - Abstraction	P3-7 - Abstraction - Other	490
-P4 - Hydromorphology	P4-3-1 - Hydrological alteration - Agriculture	34
-P4 - Hydromorphology	P4-3-4 - Hydrological alteration - Public water supply	22
-P4 - Hydromorphology	P4-3-6 - Hydrological alteration - Other	21
-P4 - Hydromorphology	P4-5 - Hydromorphological alteration - Other	14
-P5 - Introduced species and litter	P5-3 - Litter or fly tipping	24
-P6 - Groundwater recharge or water level	P6-1 - Groundwater - Recharges	5
-P6 - Groundwater recharge or water level	P6-2 - Groundwater - Alteration of water level or volume	161
-P7 - Anthropogenic pressure - Other	P7 - Anthropogenic pressure - Other	159
-P8 - Anthropogenic pressure - Unknown	P8 - Anthropogenic pressure - Unknown	261
-P9 - Anthropogenic pressure - Historical pollution	P9 - Anthropogenic pressure - Historical pollution	439
+PressureTypeGroup|PressureType|number
+P1 - Point sources|P1-1 - Point - Urban waste water|93
+P1 - Point sources|P1-2 - Point - Storm overflows|6
+P1 - Point sources|P1-3 - Point - IED plants|59
+P1 - Point sources|P1-4 - Point - Non IED plants|65
+P1 - Point sources|P1-5 - Point - Contaminated sites or abandoned industrial sites|614
+P1 - Point sources|P1-6 - Point - Waste disposal sites|177
+P1 - Point sources|P1-7 - Point - Mine waters|55
+P1 - Point sources|P1-9 - Point - Other|128
+P2 - Diffuse sources|P2-1 - Diffuse - Urban run-off|514
+P2 - Diffuse sources|P2-2 - Diffuse - Agricultural|2151
+P2 - Diffuse sources|P2-3 - Diffuse - Forestry|75
+P2 - Diffuse sources|P2-4 - Diffuse - Transport|113
+P2 - Diffuse sources|P2-5 - Diffuse - Contaminated sites or abandoned industrial sites|78
+P2 - Diffuse sources|P2-6 - Diffuse - Discharges not connected to sewerage network|350
+P2 - Diffuse sources|P2-8 - Diffuse - Mining|94
+P2 - Diffuse sources|P2-10 - Diffuse - Other|189
+P2-7 - Diffuse - Atmospheric deposition|P2-7 - Diffuse - Atmospheric deposition|68
+P3 - Abstraction|P3-1 - Abstraction - Agriculture|834
+P3 - Abstraction|P3-2 - Abstraction - Public water supply|889
+P3 - Abstraction|P3-3 - Abstraction - Industry|395
+P3 - Abstraction|P3-4 - Abstraction - Cooling water|41
+P3 - Abstraction|P3-5 - Abstraction - Hydropower|5
+P3 - Abstraction|P3-6 - Abstraction - Fish farms|88
+P3 - Abstraction|P3-7 - Abstraction - Other|490
+P4 - Hydromorphology|P4-3-1 - Hydrological alteration - Agriculture|34
+P4 - Hydromorphology|P4-3-4 - Hydrological alteration - Public water supply|22
+P4 - Hydromorphology|P4-3-6 - Hydrological alteration - Other|21
+P4 - Hydromorphology|P4-5 - Hydromorphological alteration - Other|14
+P5 - Introduced species and litter|P5-3 - Litter or fly tipping|24
+P6 - Groundwater recharge or water level|P6-1 - Groundwater - Recharges|5
+P6 - Groundwater recharge or water level|P6-2 - Groundwater - Alteration of water level or volume|161
+P7 - Anthropogenic pressure - Other|P7 - Anthropogenic pressure - Other|159
+P8 - Anthropogenic pressure - Unknown|P8 - Anthropogenic pressure - Unknown|261
+P9 - Anthropogenic pressure - Historical pollution|P9 - Anthropogenic pressure - Historical pollution|439

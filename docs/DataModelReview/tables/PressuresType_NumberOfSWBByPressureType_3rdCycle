@@ -1,61 +1,61 @@
 ```{csv-table} Number of groundwater bodies by pressure type - 3ʳᵈ cycle
 :name: PressuresType_NumberOfSWBByPressureType_3rdCycle
 :header-rows: 1
-:delim: tab
+:delim: "|"
 
-swSignificantPressureTypeGroup	swSignificantPressureType	numberOfWaterBodies
-P1 - Point sources	P1-1 - Point - Urban waste water	13366
-P1 - Point sources	P1-2 - Point - Storm overflows	4844
-P1 - Point sources	P1-3 - Point - IED plants	3727
-P1 - Point sources	P1-4 - Point - Non IED plants	3183
-P1 - Point sources	P1-5 - Point - Contaminated sites or abandoned industrial sites	1947
-P1 - Point sources	P1-6 - Point - Waste disposal sites	1049
-P1 - Point sources	P1-7 - Point - Mine waters	545
-P1 - Point sources	P1-8 - Point - Aquaculture	533
-P1 - Point sources	P1-9 - Point - Other	884
-P2 - Diffuse sources	P2-1 - Diffuse - Urban run-off	8631
-P2 - Diffuse sources	P2-2 - Diffuse - Agricultural	32977
-P2 - Diffuse sources	P2-3 - Diffuse - Forestry	1746
-P2 - Diffuse sources	P2-4 - Diffuse - Transport	3854
-P2 - Diffuse sources	P2-5 - Diffuse - Contaminated sites or abandoned industrial sites	904
-P2 - Diffuse sources	P2-6 - Diffuse - Discharges not connected to sewerage network	11112
-P2-7 - Diffuse - Atmospheric deposition	P2-7 - Diffuse - Atmospheric deposition	51856
-P2 - Diffuse sources	P2-8 - Diffuse - Mining	950
-P2 - Diffuse sources	P2-9 - Diffuse - Aquaculture	286
-P2 - Diffuse sources	P2-10 - Diffuse - Other	3757
-P3 - Abstraction	P3-1 - Abstraction - Agriculture	3641
-P3 - Abstraction	P3-2 - Abstraction - Public water supply	1938
-P3 - Abstraction	P3-3 - Abstraction - Industry	1276
-P3 - Abstraction	P3-4 - Abstraction - Cooling water	53
-P3 - Abstraction	P3-5 - Abstraction - Hydropower	2080
-P3 - Abstraction	P3-6 - Abstraction - Fish farms	191
-P3 - Abstraction	P3-7 - Abstraction - Other	2103
-P4 - Hydromorphology	P4-1-1 - Physical alteration of channel/bed/riparian area/shore - Flood protection	6616
-P4 - Hydromorphology	P4-1-2 - Physical alteration of channel/bed/riparian area/shore - Agriculture	11092
-P4 - Hydromorphology	P4-1-3 - Physical alteration of channel/bed/riparian area/shore - Navigation	849
-P4 - Hydromorphology	P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other	10783
-P4 - Hydromorphology	P4-1-5 - Physical alteration of channel/bed/riparian area/shore - Unknown or obsolete	11279
-P4 - Hydromorphology	P4-2-1 - Dams, barriers and locks - Hydropower	8499
-P4 - Hydromorphology	P4-2-2 - Dams, barriers and locks - Flood protection	4729
-P4 - Hydromorphology	P4-2-3 - Dams, barriers and locks - Drinking water	422
-P4 - Hydromorphology	P4-2-4 - Dams, barriers and locks - Irrigation	2151
-P4 - Hydromorphology	P4-2-5 - Dams, barriers and locks - Recreation	555
-P4 - Hydromorphology	P4-2-6 - Dams, barriers and locks - Industry	481
-P4 - Hydromorphology	P4-2-7 - Dams, barriers and locks - Navigation	493
-P4 - Hydromorphology	P4-2-8 - Dams, barriers and locks - Other	11986
-P4 - Hydromorphology	P4-2-9 - Dams, barriers and locks - Unknown or obsolete	11679
-P4 - Hydromorphology	P4-3-1 - Hydrological alteration - Agriculture	2480
-P4 - Hydromorphology	P4-3-2 - Hydrological alteration - Transport	236
-P4 - Hydromorphology	P4-3-3 - Hydrological alteration - Hydropower	5687
-P4 - Hydromorphology	P4-3-4 - Hydrological alteration - Public water supply	332
-P4 - Hydromorphology	P4-3-5 - Hydrological alteration - Aquaculture	366
-P4 - Hydromorphology	P4-3-6 - Hydrological alteration - Other	8564
-P4 - Hydromorphology	P4-4 - Hydromorphological alteration - Physical loss of whole or part of the water body	1054
-P4 - Hydromorphology	P4-5 - Hydromorphological alteration - Other	4360
-P5 - Introduced species and litter	P5-1 - Introduced species and diseases	3281
-P5 - Introduced species and litter	P5-2 - Exploitation or removal of animals or plants	930
-P5 - Introduced species and litter	P5-3 - Litter or fly tipping	655
-P6 - Groundwater recharge or water level	P6-1 - Groundwater - Recharges	40
-P7 - Anthropogenic pressure - Other	P7 - Anthropogenic pressure - Other	2185
-P8 - Anthropogenic pressure - Unknown	P8 - Anthropogenic pressure - Unknown	37090
-P9 - Anthropogenic pressure - Historical pollution	P9 - Anthropogenic pressure - Historical pollution	2289
+PressureTypeGroup|PressureType|number
+P1 - Point sources|P1-1 - Point - Urban waste water|13366
+P1 - Point sources|P1-2 - Point - Storm overflows|4844
+P1 - Point sources|P1-3 - Point - IED plants|3727
+P1 - Point sources|P1-4 - Point - Non IED plants|3183
+P1 - Point sources|P1-5 - Point - Contaminated sites or abandoned industrial sites|1947
+P1 - Point sources|P1-6 - Point - Waste disposal sites|1049
+P1 - Point sources|P1-7 - Point - Mine waters|545
+P1 - Point sources|P1-8 - Point - Aquaculture|533
+P1 - Point sources|P1-9 - Point - Other|884
+P2 - Diffuse sources|P2-1 - Diffuse - Urban run-off|8631
+P2 - Diffuse sources|P2-2 - Diffuse - Agricultural|32977
+P2 - Diffuse sources|P2-3 - Diffuse - Forestry|1746
+P2 - Diffuse sources|P2-4 - Diffuse - Transport|3854
+P2 - Diffuse sources|P2-5 - Diffuse - Contaminated sites or abandoned industrial sites|904
+P2 - Diffuse sources|P2-6 - Diffuse - Discharges not connected to sewerage network|11112
+P2-7 - Diffuse - Atmospheric deposition|P2-7 - Diffuse - Atmospheric deposition|51856
+P2 - Diffuse sources|P2-8 - Diffuse - Mining|950
+P2 - Diffuse sources|P2-9 - Diffuse - Aquaculture|286
+P2 - Diffuse sources|P2-10 - Diffuse - Other|3757
+P3 - Abstraction|P3-1 - Abstraction - Agriculture|3641
+P3 - Abstraction|P3-2 - Abstraction - Public water supply|1938
+P3 - Abstraction|P3-3 - Abstraction - Industry|1276
+P3 - Abstraction|P3-4 - Abstraction - Cooling water|53
+P3 - Abstraction|P3-5 - Abstraction - Hydropower|2080
+P3 - Abstraction|P3-6 - Abstraction - Fish farms|191
+P3 - Abstraction|P3-7 - Abstraction - Other|2103
+P4 - Hydromorphology|P4-1-1 - Physical alteration of channel/bed/riparian area/shore - Flood protection|6616
+P4 - Hydromorphology|P4-1-2 - Physical alteration of channel/bed/riparian area/shore - Agriculture|11092
+P4 - Hydromorphology|P4-1-3 - Physical alteration of channel/bed/riparian area/shore - Navigation|849
+P4 - Hydromorphology|P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other|10783
+P4 - Hydromorphology|P4-1-5 - Physical alteration of channel/bed/riparian area/shore - Unknown or obsolete|11279
+P4 - Hydromorphology|P4-2-1 - Dams, barriers and locks - Hydropower|8499
+P4 - Hydromorphology|P4-2-2 - Dams, barriers and locks - Flood protection|4729
+P4 - Hydromorphology|P4-2-3 - Dams, barriers and locks - Drinking water|422
+P4 - Hydromorphology|P4-2-4 - Dams, barriers and locks - Irrigation|2151
+P4 - Hydromorphology|P4-2-5 - Dams, barriers and locks - Recreation|555
+P4 - Hydromorphology|P4-2-6 - Dams, barriers and locks - Industry|481
+P4 - Hydromorphology|P4-2-7 - Dams, barriers and locks - Navigation|493
+P4 - Hydromorphology|P4-2-8 - Dams, barriers and locks - Other|11986
+P4 - Hydromorphology|P4-2-9 - Dams, barriers and locks - Unknown or obsolete|11679
+P4 - Hydromorphology|P4-3-1 - Hydrological alteration - Agriculture|2480
+P4 - Hydromorphology|P4-3-2 - Hydrological alteration - Transport|236
+P4 - Hydromorphology|P4-3-3 - Hydrological alteration - Hydropower|5687
+P4 - Hydromorphology|P4-3-4 - Hydrological alteration - Public water supply|332
+P4 - Hydromorphology|P4-3-5 - Hydrological alteration - Aquaculture|366
+P4 - Hydromorphology|P4-3-6 - Hydrological alteration - Other|8564
+P4 - Hydromorphology|P4-4 - Hydromorphological alteration - Physical loss of whole or part of the water body|1054
+P4 - Hydromorphology|P4-5 - Hydromorphological alteration - Other|4360
+P5 - Introduced species and litter|P5-1 - Introduced species and diseases|3281
+P5 - Introduced species and litter|P5-2 - Exploitation or removal of animals or plants|930
+P5 - Introduced species and litter|P5-3 - Litter or fly tipping|655
+P6 - Groundwater recharge or water level|P6-1 - Groundwater - Recharges|40
+P7 - Anthropogenic pressure - Other|P7 - Anthropogenic pressure - Other|2185
+P8 - Anthropogenic pressure - Unknown|P8 - Anthropogenic pressure - Unknown|37090
+P9 - Anthropogenic pressure - Historical pollution|P9 - Anthropogenic pressure - Historical pollution|2289

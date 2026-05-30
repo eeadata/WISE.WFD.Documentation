@@ -1,7 +1,7 @@
 (heading_wfd_pressure_type_codelist_4th_cycle)=
 # PressureType codelist - 4ᵗʰ cycle
 
-The `PressureType` codelist is a hierarchical codelist (see {numref}`PressureType_4thCycle_Codelists_ClassDiagram`) that provides the valid domain for attributes related to pressures in different tables. Depending on the context, the use of some values may be restricted by quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
+The `PressureType` codelist is a hierarchical codelist (see {numref}`PressureType_4thCycle_Codelist_ClassDiagram`) that provides the valid domain for attributes related to pressures in different tables. Depending on the context, the use of some values may be restricted by quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
 
 In codelist used in the 2ⁿᵈ and 3ʳᵈ cycle of reporting,
 most options combined both a pressure and a driver (see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
@@ -21,8 +21,8 @@ Pressures codelist - Definition of the drivers
 ENV or EEA Water to complete, and define if any should be added.
 ```
 
-```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelists_ClassDiagram.mmd
-:name: PressureType_4thCycle_Codelists_ClassDiagram
+```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelist_ClassDiagram.mmd
+:name: PressureType_4thCycle_Codelist_ClassDiagram
 :caption:  Codelist - PressureType - 4ᵗʰ cycle
 :align: center
 :zoom:
