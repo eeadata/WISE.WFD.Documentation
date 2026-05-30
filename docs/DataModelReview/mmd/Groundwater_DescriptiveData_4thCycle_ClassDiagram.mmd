@@ -11,13 +11,13 @@ direction TB
 class LinkSurfaceWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
     + euSurfacedWaterBodyCode : wiseIdentifier
-    + linkType : GroundwaterSurfacewaterLinkTypeValue [0..1]
+    + linkType : GroundwaterSurfacewaterLink
 }
 
 class GroundWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
     + aquiferType : AquiferMediaTypeValue
-    + aquiferProductivity : AquiferProductivityValue
+    + aquiferProductivity : AquiferProductivity
     + groundWaterBodyTransboundary : YesNo
     + linkSurfaceWaterBody : YesNo
     + linkTerrestrialEcosystem : YesNoUnknown
@@ -29,47 +29,44 @@ class GWPressureImpact{
     + gwImpactType : ImpactType  [0..1]
 }
 
-
-class GWQuantitativeStatus:::forFixing{
+class GWQuantitativeStatus{
     + euGroundWaterBodyCode : wiseIdentifier
-    + gwQuantitativeStatusValue : QuantitativeStatusValue
+    + gwQuantitativeStatusValue : QuantitativeStatus
     + gwQuantitativeAssessmentPeriod : range
-    + gwQuantitativeAssessmentConfidence : AssessmentConfidenceValue
-    + gwQuantitativeAssessmentMethod : AssessmentMethodValue [1..n]
-    + gwQuantitativeAssessmentGrouping : gwGroupCode [0..n]
+    + gwQuantitativeAssessmentConfidence : AssessmentConfidence
+    + gwQuantitativeAssessmentMethod : AssessmentMethod [1..n]
+    + gwGroupIdentifier : wiseIdentifier [0..n]
 }
 
 class GroundWaterBodyStatus{
     
     + euGroundWaterBodyCode : wiseIdentifier
-    / gwQuantitativeStatusValue : QuantitativeStatusValue
-    / gwChemicalStatusValue : ChemicalStatusValue
+    / gwQuantitativeStatusValue : QuantitativeStatus
+    / gwChemicalStatusValue : ChemicalStatus
 
-    + gwQuantitativeReasonsForFailure : ReasonForFailureValue [1..n]
-    + gwChemicalReasonsForFailure : ReasonForFailureValue [1..n]
+    + gwQuantitativeReasonsForFailure : ReasonForFailure [1..n]
+    + gwChemicalReasonsForFailure : ReasonForFailure [1..n]
 } 
 
-class GWPollutant:::forFixing{
+class GWPollutant{
     + euGroundWaterBodyCode : wiseIdentifier
     + gwPollutantCode : SubstanceCode
     + gwPollutantCausingFailure : YesNoUnknown
     + gwPollutantAssessmentPeriod : range
-    + gwPollutantAssessmentConfidence : AssessmentConfidenceValue 
-    + gwPollutantAssessmentMethod : AssessmentMethodValue [1..n]
+    + gwPollutantAssessmentConfidence : AssessmentConfidence 
+    + gwPollutantAssessmentMethod : AssessmentMethod [1..n]
     + gwGroupIdentifier : wiseIdentifier [0..n]
 
-    «trend»
     + gwPollutantUpwardTrend : YesNoUnknown
     + gwPollutantTrendReversal : YesNoUnknownNotApplicable
     + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicable
 
-    «background-level»
     + gwPollutantBackgroundLevelSet : YesNo
     + gwPollutantBackgroundLevelValue : range [0..1] 
     + gwPollutantBackgroundLevelUnit : UnitOfMeasure [0..1] 
 }
 
-class GWGrouping:::forFixing{
+class GWGrouping{
     + gwGroupIdentifier : wiseIdentifier
     + euGroundWaterBodyCode : wiseIdentifier
 }

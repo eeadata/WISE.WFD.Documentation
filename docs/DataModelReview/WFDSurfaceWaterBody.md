@@ -54,7 +54,16 @@ to help focus the discussion on the remaining issues.
 :caption: PARTIAL class diagram for the SWB_2022 schema in the 3ʳᵈ cycle of reporting.
 ```
 
+## Surface water - descriptive data - 4ᵗʰ cycle
 
+{numref}`SurfaceWater_DescriptiveData_4thCycle_ClassDiagram` 
+shows a DRAFT diagram including the issues requiring clarification, in the classes marked in red.
+
+```{mermaid} /DataModelReview/mmd/SurfaceWater_DescriptiveData_4thCycle_ClassDiagram.mmd
+:name: SurfaceWater_DescriptiveData_4thCycle_ClassDiagram
+:align: center
+:caption: Surface water - 4ᵗʰ cycle
+```
 
 
 

@@ -61,7 +61,7 @@ The remaining attributes (see {numref}`ExemptionAbstractClass`) identify:
 
 Reference to additional information in the RBMPs documentation can be provided via the `exemptionReference`.
 
-The `exemptionPeriod` (see {numref}`ExemptionCodelist`) replaces the following attributes requested in the  3ʳᵈ cycle:
+The `exemptionPeriod` (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`) replaces the following attributes requested in the  3ʳᵈ cycle:
 * `swEcologicalStatusOrPotentialExpectedAchievementDate`,
 * `swChemicalStatusExpectedAchievementDate`, 
 * `gwChemicalStatusExpectedAchievementDate` and 
@@ -223,10 +223,10 @@ for {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
 (heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant)=
 ## Groundwater chemical exemptions by pollutant
 
-Chemical exemptions are reported using the table in {numref}`GWChemicalExemptionClass`.
+Chemical exemptions are reported using the table in {numref}`Exemptions_4thCycle_GWChemicalExemption_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWChemicalExemption_ClassDiagram.mmd
-:name: GWChemicalExemptionClass
+:name: Exemptions_4thCycle_GWChemicalExemption_ClassDiagram
 :caption: Groundwater Body - Chemical Exemption - 4ᵗʰ cycle
 :align: center
 ```
@@ -271,10 +271,10 @@ DG ENV to provide draft flowchart and quality control criteria:
 (heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions)=
 ## Groundwater quantitative exemptions 
 
-Quantitative exemptions are reported using the table in {numref}`GWQuantitativeExemptionClass`.
+Quantitative exemptions are reported using the table in {numref}`Exemptions_4thCycle_GWQuantitativeExemption_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWQuantitativeExemption_ClassDiagram.mmd
-:name: GWQuantitativeExemptionClass
+:name: Exemptions_4thCycle_GWQuantitativeExemption_ClassDiagram
 :caption: Groundwater Body - Quantitative Exemption - 4ᵗʰ cycle
 :align: center
 ```
@@ -341,10 +341,10 @@ DG ENV to provide draft flowchart and quality control criteria
 (heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions)=
 ## Codelists associated with the Exemption tables
 
-Codelists associated with the reporting of exemptions are presented in {numref}`ExemptionCodelist`.
+Codelists associated with the reporting of exemptions are presented in {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_Codelists_ClassDiagram.mmd 
-:name: ExemptionCodelist
+:name: Exemptions_4thCycle_Codelists_ClassDiagram
 :caption: Codelists associated with the Exemption classes - 4ᵗʰ cycle
 :align: center
 ```
@@ -389,8 +389,8 @@ For the purposes of carrying out the ex -post verification under point (c) of th
 
 **Actions taken:**
 
-* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist (see {numref}`ExemptionCodelist`).
-* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist (see {numref}`ExemptionCodelist`).
+* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
 
 **Quality checks to be implemented:**
 
@@ -426,7 +426,7 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 **Actions taken:**
 
-* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist (see {numref}`ExemptionCodelist`).
+* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
 
 **Quality checks to be implemented:**
 
@@ -465,7 +465,7 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 
 **Actions taken:**
 
-* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist (see {numref}`ExemptionCodelist`).
+* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
 * The {ref}`Exemptions_EcologicalExemption_Flowchart` was updated.
 * The {ref}`Exemptions_ChemicalExemption_Flowchart` was updated.
 
