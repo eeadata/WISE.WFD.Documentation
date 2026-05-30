@@ -5,6 +5,7 @@
 
 sphinx
 myst_parser
+linkify-it-py
 
 sphinxcontrib.bibtex
 sphinxcontrib.mermaid 
