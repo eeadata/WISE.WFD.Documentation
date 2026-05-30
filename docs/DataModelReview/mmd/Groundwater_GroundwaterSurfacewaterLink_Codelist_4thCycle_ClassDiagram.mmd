@@ -1,0 +1,19 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+class GroundwaterSurfacewaterLink{
+<<enumeration>>
+groundwaterDischargesToSurfaceWater
+surfaceWaterRechargesGroundwater
+bidirectionalWaterExchange
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

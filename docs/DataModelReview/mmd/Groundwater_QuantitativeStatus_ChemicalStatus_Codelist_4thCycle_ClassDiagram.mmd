@@ -1,0 +1,26 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class QuantitativeStatus{
+<<enumeration>>
+good
+poor
+unknown
+}
+
+class ChemicalStatus{
+<<enumeration>>
+good
+failing
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

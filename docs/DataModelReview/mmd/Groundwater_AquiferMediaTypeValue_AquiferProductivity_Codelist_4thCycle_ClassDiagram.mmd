@@ -1,0 +1,33 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class AquiferMediaTypeValue{
+<<enumeration>>
+compound
+fractured
+karstic
+karsticAndFractured
+porous
+porousAndFractured
+other
+unknown
+}
+
+class AquiferProductivity{
+<<enumeration>>
+high
+moderate
+low
+insignificant
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

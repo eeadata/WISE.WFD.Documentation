@@ -1,0 +1,31 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class AssessmentMethod{
+<<enumeration>>
+monitoring
+grouping
+remoteSensing
+modelling
+expertJudgement
+notApplicable
+}
+
+class AssessmentConfidence{
+<<enumeration>>
+high
+medium
+low
+unknown
+notApplicable
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
