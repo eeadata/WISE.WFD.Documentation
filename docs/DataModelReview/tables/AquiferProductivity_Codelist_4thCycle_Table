@@ -1,0 +1,27 @@
+```{list-table} AquiferProductivity codelist - 4ᵗʰ cycle
+:name: AquiferProductivity_Codelist_4thCycle_Table
+:header-rows: 1
+:width: 100%
+:widths: 25 25 50 
+:align: left
+
+* - Notation 
+  - Label 
+  - Definition 
+* - high
+  - High productivity
+  - «to-be-provided»
+* - moderate
+  - Moderate productivity
+  - «to-be-provided»
+* - low
+  - Low productivity
+  - «to-be-provided»
+* - insignificant
+  - Insignificant productivity
+  - «to-be-provided»
+* - unknown
+  - Unknown
+  - No information is available about the aquifer's productivity
+```
+

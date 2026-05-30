@@ -1,0 +1,27 @@
+```{list-table} GroundwaterSurfaceWaterLink codelist – 4ᵗʰ cycle
+:name: GroundwaterSurfaceWaterLink_Codelist_4thCycle_Table
+:header-rows: 1
+:width: 100%
+:widths: 30 35 35
+:align: left
+
+* - Notation
+  - Label
+  - Definition
+
+* - groundwaterToSurfaceWater
+  - Grounwater discharges to surface water
+  - «to-be-provided»
+
+* - surfaceWaterToGroundwater
+  - Surface water recharge groundwater
+  - «to-be-provided»
+
+* - bidirectionalWaterExchange
+  - Bidirectional water exchange
+  - «to-be-provided»
+
+* - unknown
+  - Unknown
+  - Use this option in the information requested is not known.
+```

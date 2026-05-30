@@ -1,6 +1,8 @@
-```{list-table} ReasonForFailureValue codelist – 4ᵗʰ cycle
-:name: ReasonForFailureValue_Codelist_4thCycle_Table
+```{list-table} ReasonForFailure codelist – 4ᵗʰ cycle
+:name: ReasonForFailure_Codelist_4thCycle_Table
 :header-rows: 1
+:width: 100%
+:widths: 15 15 35 35
 :align: left
 
 * - Notation

@@ -1,0 +1,41 @@
+```{list-table} AssessmentConfidence codelist - 4ᵗʰ cycle
+:name: AssessmentConfidence_Codelist_4thCycle_Table
+:header-rows: 1
+:width: 100%
+:widths: 15 15 35 35
+:align: left
+
+* - Notation
+  - Label
+  - Definition
+  - Notes
+
+* - high
+  - High confidence
+  - «to-be-provided»
+  - E.g. good monitoring data and a good conceptual model or 
+    understanding of the system based on information on its natural characteristics 
+    and its pressures 
+    
+* - medium
+  - Medium confidence
+  - «to-be-provided»
+  - E.g. limited or insufficiently robust monitoring data 
+    and expert judgment plays a significant role in assessment of status.
+
+* - low
+  - Low confidence
+  - «to-be-provided»
+  - E.g. no monitoring data, or no conceptual model or understanding of the system.
+
+* - unknown
+  - Unknown
+  - No information about the confidence level of the status assessment.
+  - 
+
+* - notApplicable
+  - Not applicable
+  - Select this option if the status was not assessed.
+  - This option is only valid if the status is 'unknown'.
+  
+```
