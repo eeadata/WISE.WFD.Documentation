@@ -14,10 +14,19 @@ class LinkSurfaceWaterBody{
     + linkType : GroundwaterSurfacewaterLink
 }
 
+class NaturalBackgroundLevel{
+    + euGroundWaterBodyCode : wiseIdentifier
+    + parameterCode : ParameterCode
+    + naturalBackgroundLevelSet : YesNoNotApplicable
+    + parameterValue : range  
+    + parameterUnit : UnitOfMeasure
+}
+
 class GroundWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
     + aquiferType : AquiferMediaTypeValue
     + aquiferProductivity : AquiferProductivity
+    + aquiferLithology : LithologyValue
     + groundWaterBodyTransboundary : YesNo
     + linkSurfaceWaterBody : YesNo
     + linkTerrestrialEcosystem : YesNoUnknown
@@ -50,20 +59,16 @@ class GroundWaterBodyStatus{
 
 class GWPollutant{
     + euGroundWaterBodyCode : wiseIdentifier
-    + gwPollutantCode : SubstanceCode
+    + gwPollutantCode : ParameterCode
     + gwPollutantCausingFailure : YesNoUnknown
     + gwPollutantAssessmentPeriod : range
     + gwPollutantAssessmentConfidence : AssessmentConfidence 
     + gwPollutantAssessmentMethod : AssessmentMethod [1..n]
     + gwGroupIdentifier : wiseIdentifier [0..n]
 
-    + gwPollutantUpwardTrend : YesNoUnknown
-    + gwPollutantTrendReversal : YesNoUnknownNotApplicable
-    + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicable
-
-    + gwPollutantBackgroundLevelSet : YesNo
-    + gwPollutantBackgroundLevelValue : range [0..1] 
-    + gwPollutantBackgroundLevelUnit : UnitOfMeasure [0..1] 
+    + gwPollutantUpwardTrend : YesNoUnknownNotAssessed
+    + gwPollutantTrendReversal : YesNoUnknownNotApplicableNotAssessed
+    + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableNotAssessed
 }
 
 class GWGrouping{
@@ -80,6 +85,7 @@ GWQuantitativeStatus "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
 GWPollutant "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
 
 LinkSurfaceWaterBody "0..n" -- "1" GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
+NaturalBackgroundLevel "0..n" -- "1" GroundWaterBody
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

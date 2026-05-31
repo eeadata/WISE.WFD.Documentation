@@ -50,7 +50,7 @@ Based on the Commission's review of the 3ʳᵈ cycle reporting, the following el
 :name: Groundwater_3rdCycle_GWB_ClassDiagram
 :caption: Class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
 :align: center
-```
+``` 
 
 The remaining attributes were reorganised to try and facilitate the reporting, 
 and the structure was aligned also with the approach proposed for surface water bodies.
@@ -59,8 +59,15 @@ and the structure was aligned also with the approach proposed for surface water 
 
 {numref}`Groundwater_DescriptiveData_4thCycle_ClassDiagram` 
 shows proposed structure for the 4ᵗʰ cycle electronic reporting. 
+
+In the 4ᵗʰ cycle of reporting, the data will be delivered in the Reportnet3 platform.
+That requires the reorganisation of the data into a relational (tabular) struture.
+Selective denormalisation was used to keep a relatively low number of tables   
+
 The data was reorganised organised into a relational structure 
 with seven tables (see {numref}`Groundwater_4th_cycle_brief_table_description`).
+
+
 
 ```{mermaid} /DataModelReview/mmd/Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd
 :name: Groundwater_DescriptiveData_4thCycle_ClassDiagram
@@ -98,6 +105,25 @@ with seven tables (see {numref}`Groundwater_4th_cycle_brief_table_description`).
 
     The `linkSurfaceWaterBody` value 
     controls the content of the `LinkSurfaceWaterBody` table.
+
+* - GWNaturalBackGroundLevel
+  - *Modified*
+    The data related to the natural background level (NBL) 
+    of substances in groundwater is moved to a separate table,
+    to facilitate both the reporting and the quality control.
+
+    The usability of the data reported 
+    in the 3rd cycle was severely affected 
+    by data quality problems 
+    likely due to insufficient quality control, 
+    and inadequacy of the ThresholdType datatype 
+    used for the reporting of numeric ranges. 
+
+    The proposed structure is generic, 
+    and allows the reporting of 
+    the natural backgrounf levels of substances, 
+    but also the 
+
 
 * - LinkSurfaceWaterBody
   - *Modified*.  
@@ -303,10 +329,25 @@ Groundwater - Topics that require discussion and clarification.
 * Mapping tables to 3rd cycle codelists
 ```
 
+## Annex - International Hydrogeological Map of Europe
+
+The WFD2016 and WFD2022 *geologicalFormation* attribute values 
+are clearly similar to the *Aquifer Type Code* attribute 
+({numref}`IHME1500_InternationalHydrogeologicalMapOfEurope_Table`) 
+in the International Hydrogeological Map of Europe 1:1,500,000 (IHME1500),
+although there is no reference to that source 
+is made in the WFD Reporting Guidance documents.
+
+```{dropdown} See detailed description
+```{include} /DataModelReview/tables/IHME1500_InternationalHydrogeologicalMapOfEurope_Table
+```
+
 ## Annexes - Data analysis - 3ʳᵈ cycle
 
 ```{include} /DataModelReview/FragmentAnnexesDataAnalysis3rdCycle
 ```
+
+### Reasons for failure 
 
 ```{dropdown} Show code
   ```{code-block} sql
@@ -376,6 +417,23 @@ Groundwater - Topics that require discussion and clarification.
   ) AS a
   GROUP BY [numberOfReasonsForFailure]
   ```
+
+### Natural background levels
+
+In the 3ʳᵈ cycle, natural background levels (NBL) 
+were reported for 8608 waterbodies (38.6%) and over 90 substances. 
+
+An exploratory analysis shows the expected high frequency of reporting of NBLs for metals and metalloids 
+(e.g. arsenic, cadmium or lead), major ions and nutrients
+(e.g. chloride, sulphate, ammonium or nitrate) 
+and physico-chemical parameters like electrical conductivity
+(likely as an indicator of saline intrusion).   
+
+Other parameters are more unexpected and are likely due to reporting errors (e.g. chlorite instead of chloride). 
+
+More importantly, the values reported 
+are sometimes physically impossible (e.g. above 1000mg/L) 
+or clearly unlikely.
 
 (heading_wfd_wfd_groundwater_bodies_references)=
 ## References

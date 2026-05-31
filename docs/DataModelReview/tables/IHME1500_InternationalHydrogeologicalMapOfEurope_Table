@@ -1,0 +1,77 @@
+```{list-table} International Hydrogeological Map of Europe 1:1,500,000 - Attributes
+:name: IHME1500_InternationalHydrogeologicalMapOfEurope_Table
+:header-rows: 1
+:widths: 20 65 15
+:align: left
+
+* - Column  
+  - Description
+  - Example
+
+* - AQUIF_CODE
+  - **Aquifer Type Code**  
+    Code of the six classes of aquifer types specifying productivity and rock type of aquifers supplemented by areas covered by water or ice. 
+    Classification according to the Standard Legend for Hydrogeological Maps (SLHyM).
+
+    1: Highly productive porous aquifers,  
+    2: Low and moderately productive porous aquifers  
+    3: Highly productive fissured aquifers (including karstified rocks)  
+    4: Low and moderately productive fissured aquifers (including karstified rocks)  
+    5: Locally aquiferous rocks, porous or fissured  
+    6: Practically non-aquiferous rocks, porous or fissured  
+    200: Inland water  
+    300: Snow field / ice field  
+
+    Remark: Aquifer type 1 and 2 include less frequently fissured-porous aquifers and aquifer type 3 and 4 include less frequently porous-fissured aquifers.
+  - 5
+
+* - AQUIF_NAME
+  - **Aquifer Type**  
+    Clear name of the six aquifer codes.
+  - Highly productive porous aquifers
+
+* - SALTINTRUS  
+  - **Seawater Intrusion**  
+    Aquifers influenced by seawater intrusion.  
+    0: No influence  
+    1: Seawater intrusion
+  - 0
+
+* - LEVEL1  
+  - **Lithology Level 1**  
+    Lithological description of mapping units 
+    after revision of the original map unit specifications.  
+    Method: Geometrical aggregation, translation of original lithological descriptions into a uniform lithological taxonomy scheme.  
+    Litho1 encompasses 229 classes of lithological descriptions.
+  - Quartzites, sandstones, shales, volcanic rocks
+
+* - LEVEL2  
+  - **Lithology Level 2**  
+    Generalisation of LEVEL1 by further grouping of class descriptions.  
+    Method: Aggregation allowing only for primary and secondary consolidated and/or primary and secondary unconsolidated lithological components in each class description. Each class name starts with the primary consolidated lithological compound (if present).  
+    Litho2 encompasses 86 lithological classes.
+  - Quartzites, sandstones
+
+* - LEVEL3  
+  - **Lithology Level 3**  
+    Generalisation of LEVEL2 by further grouping of class descriptions.  
+    Method: Aggregation allowing only for primary consolidated and/or primary unconsolidated lithological components in each class description. Each class name starts with the consolidated lithological compound (if present).  
+    Litho3 encompasses 29 lithological classes.
+  - Quartzites
+
+* - LEVEL4  
+  - **Lithology Level 4**  
+    Aggregation forming 10 petrographic “supergroups”
+  - Metamorphic rocks
+
+* - LEVEL5  
+  - **Lithology Level 5**  
+    Ternary class division referring to the degree of rock consolidation
+  - Consolidated materials
+```
+
+Copyright: IHME1500 v1.2 © BGR & UNESCO 2019  
+
+Citation: BGR & UNESCO (eds.) (2019): International Hydrogeological Map of Europe 1:1,500,000 (IHME1500). Digital map data v1.2. Hannover/Paris
+
+Source: Documentation of the digital vector dataset. Description of the attribute tables. Shapefile: ihme1500__ec4060_v12_poly
