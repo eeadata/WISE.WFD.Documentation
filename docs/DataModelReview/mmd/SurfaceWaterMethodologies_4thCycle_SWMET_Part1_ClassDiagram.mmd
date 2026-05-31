@@ -6,8 +6,8 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace Descriptive {
+direction TB
+
 class SWMethodologies {
   + euRBDCode : wiseIdentifier
   + minimumCatchmentAreaRivers : Number
@@ -15,7 +15,18 @@ class SWMethodologies {
   + hmwbMethodologyReference : referenceCode [1..n]
 }
 
-class SWTargetedQuestion {
+class SWManagementObjectives {
+  + euRBDCode : wiseIdentifier
+  + managementObjectivesNutrients : YesNo
+  + managementObjectivesNutrientsQuantitativeN : YesNo
+  + managementObjectivesNutrientsQuantitativeP : YesNo
+  + managementObjectivesContinuity : YesNo
+  + managementObjectivesReference : referenceCode [1..n]
+  + waterResourcePlans : YesNoRBMP
+  + waterResourcePlansReference : referenceCode [1..n]
+}
+
+class SWTargetedQuestions{
   + euRBDCode : wiseIdentifier
   + gepBiology : YesNo
   + mitigationMeasures : MitigationMeasure [0..n]
@@ -35,33 +46,24 @@ class SWChemicalStatusClassification {
   + longTermTrendAnalysisReference : referenceCode [0..n]
   + mixingZoneMethodology : YesNo
   + alternativeMixingZoneMethodologyReference : referenceCode [0..n]
-  + mixingZoneMeasures : MixingZoneMeasure [0..n]
+  + mixingZoneMeasure : MixingZoneMeasure [0..n]
 }
 
-class SWManagementObjectives {
+class SWPressureAssessment{
   + euRBDCode : wiseIdentifier
-  + managementObjectivesNutrients : YesNo
-  + managementObjectivesNutrientsQuantitativeN : YesNo
-  + managementObjectivesNutrientsQuantitativeP : YesNo
-  + managementObjectivesContinuity : YesNo
-  + managementObjectivesReference : referenceCode [1..n]
-  + waterResourcePlans : YesNoRBMP
-  + waterResourcePlansReference : referenceCode [1..n]
+  + swPressure : PressureType
+  + swPressureAssessmentMethod : PressureAssessmentMethod
+  + swSignificanceDefinition : YesNoNotApplicable
+  + swSignificanceLinkFailure : YesNoNotApplicable
 }
 
-class SWPressures {
-  + euRBDCode : wiseIdentifier
-  + swPressuresNotAssessed : PressureType [0..n]
-  + swSignificantPressurePointSourceTools : SignificantPressureTools
-  + swSignificantPressureDiffuseSourceTools : SignificantPressureTools
-  + swSignificantPressureWaterAbstractionTools : SignificantPressureTools
-  + swSignificantPressureWaterFlowTools : SignificantPressureTools
-  + swSignificantPressureOtherSourceTools : SignificantPressureTools
-  + swSignificanceDefinition : YesNo
-  + swSignificanceLinkFailure : YesNo
+class PressureAssessmentMethod{
+<<enumeration>>
+numericalTools
+expertJudgment
+combinationOfBoth
+notAssessed 
 }
-}
-namespace Codelist {
 
 class MitigationMeasure{
   <<enumeration>>
@@ -90,24 +92,17 @@ class MixingZoneMeasure{
    other
    notApplicable
   }
+
 class YesNoRBMP{
   <<enumeration>>
   yes
   no
   RBMP}
 
-class SignificantPressureTools{
-  <<enumeration>>
-  numericalTools
-  expertJudgement
-  combinationOfBoth
-  notAssessed
-  }
+SWTargetedQuestions .. MitigationMeasure : MitigationMeasure
+SWChemicalStatusClassification .. MixingZoneMeasure : mixingZoneMeasure
+SWPressureAssessment .. PressureAssessmentMethod : swPressureAssessmentMethod
+SWManagementObjectives .. YesNoRBMP : waterResourcePlans
 
-class PressureType{
-  <<enumeration>>}
-
-class BiologicalQualityElement{
-  <<enumeration>>}
-  
-}
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

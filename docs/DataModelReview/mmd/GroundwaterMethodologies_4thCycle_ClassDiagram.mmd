@@ -1,0 +1,58 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+
+class GWMethodologies:::forFixing {
+  + euRBDCode : wiseIdentifier
+  + gwCharacterisationReference : referenceCode
+  + trendAssessmentPerformed : YesNo
+  + trendAssessmentMethodology : YesNo [0..1]
+  + trendAssessmentTimeSeries : range [0..1]
+  + trendAssessmentStatisticalElements : StatisticalElements [0..1]
+  + additionalTrendAssessment : YesNo
+  + trendReversalMethodology : YesNo
+  + thresholdValueElementProtectionEcosystem : YesNo
+  + transboundaryThresholdValues : YesNoNotApplicable
+  
+  «pending-discussion»
+  + thresholdValueElementProtectionGWDE : YesNo
+  + thresholdValueElementProtectionUses : YesNo
+  + thresholdValueElementSalineIntrusion : YesNo
+  + thresholdValueBackgroundLevels : ThresholdValueBackgroundLevels
+}
+
+
+class ThresholdValue:::forFixing{
+  + gwThresholdIdentifier : wiseIdentifier
+  + gwPollutantCode : SubstanceCode
+  + thresholdValueRange : range [0..1]
+  + thresholdValueUnit : UnitOfMeasure [0..1]
+  + startingPointTrendReversal : range [0..1]
+}
+
+class GWPressureAssessment{
+  + euRBDCode : wiseIdentifier
+  + gwPressure : PressureType
+  + gwPressureAssessmentMethod : PressureAssessmentMethod
+  + gwSignificanceDefinition : YesNoNotApplicable
+  + gwSignificanceLinkFailure : YesNoNotApplicable
+}
+
+class PressureAssessmentMethod{
+<<enumeration>>
+numericalTools
+expertJudgment
+combinationOfBoth
+notAssessed 
+}
+
+
+GWPressureAssessment .. PressureAssessmentMethod : gwPressureAssessmentMethod
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
