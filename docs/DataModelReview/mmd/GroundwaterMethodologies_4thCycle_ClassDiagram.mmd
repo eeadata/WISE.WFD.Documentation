@@ -7,32 +7,20 @@ config:
 ---
 classDiagram
 
-class GWMethodologies:::forFixing {
+class GWMethodologies {
   + euRBDCode : wiseIdentifier
   + gwCharacterisationReference : referenceCode
   + trendAssessmentPerformed : YesNo
   + trendAssessmentMethodology : YesNo [0..1]
   + trendAssessmentTimeSeries : range [0..1]
-  + trendAssessmentStatisticalElements : StatisticalElements [0..1]
+  + trendAssessmentStatisticalMethod : TrendStatisticalMethod [0..1]
   + additionalTrendAssessment : YesNo
   + trendReversalMethodology : YesNo
   + thresholdValueElementProtectionEcosystem : YesNo
   + transboundaryThresholdValues : YesNoNotApplicable
-  
-  «pending-discussion»
   + thresholdValueElementProtectionGWDE : YesNo
   + thresholdValueElementProtectionUses : YesNo
   + thresholdValueElementSalineIntrusion : YesNo
-  + thresholdValueBackgroundLevels : ThresholdValueBackgroundLevels
-}
-
-
-class ThresholdValue:::forFixing{
-  + gwThresholdIdentifier : wiseIdentifier
-  + gwPollutantCode : SubstanceCode
-  + thresholdValueRange : range [0..1]
-  + thresholdValueUnit : UnitOfMeasure [0..1]
-  + startingPointTrendReversal : range [0..1]
 }
 
 class GWPressureAssessment{
@@ -43,6 +31,15 @@ class GWPressureAssessment{
   + gwSignificanceLinkFailure : YesNoNotApplicable
 }
 
+class ThresholdValue{
+  + gwThresholdIdentifier : wiseIdentifier
+  + gwPollutantCode : SubstanceCode
+  + thresholdValueRange : range [0..1]
+  + thresholdValueUnit : UnitOfMeasure [0..1]
+  + startingPointTrendReversal : range [0..1]
+  + naturalBackgroundLevel : YesNoNotApplicable
+}
+
 class PressureAssessmentMethod{
 <<enumeration>>
 numericalTools
@@ -51,8 +48,17 @@ combinationOfBoth
 notAssessed 
 }
 
+class TrendStatisticalMethod{
+<<enumeration>>
+statisticalSignificanceTrendDetection
+confidenceIntervalTrendMagnitude
+none
+}
 
 GWPressureAssessment .. PressureAssessmentMethod : gwPressureAssessmentMethod
+GWMethodologies .. TrendStatisticalMethod : trendAssessmentStatisticalMethod
+
+note for ThresholdValue "Groundwater dataset"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

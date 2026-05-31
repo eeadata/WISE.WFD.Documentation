@@ -61,9 +61,12 @@ class GWPollutant{
     + euGroundWaterBodyCode : wiseIdentifier
     + gwPollutantCode : ParameterCode
     + gwPollutantCausingFailure : YesNoUnknown
+    + gwThresholdIdentifier : wiseIdentifier [0..1]
+
     + gwPollutantAssessmentPeriod : range
     + gwPollutantAssessmentConfidence : AssessmentConfidence 
     + gwPollutantAssessmentMethod : AssessmentMethod [1..n]
+    
     + gwGroupIdentifier : wiseIdentifier [0..n]
 
     + gwPollutantUpwardTrend : YesNoUnknownNotAssessed
