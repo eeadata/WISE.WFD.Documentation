@@ -4,6 +4,9 @@ config:
     hideEmptyMembersBox: true
   layout: dagre
   theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
 ---
 classDiagram
 direction TB
@@ -14,7 +17,7 @@ class LinkSurfaceWaterBody{
     + linkType : GroundwaterSurfacewaterLink
 }
 
-class NaturalBackgroundLevel{
+class GWNaturalBackgroundLevel{
     + euGroundWaterBodyCode : wiseIdentifier
     + parameterCode : ParameterCode
     + naturalBackgroundLevelSet : YesNoNotApplicable
@@ -61,7 +64,7 @@ class GWPollutant{
     + euGroundWaterBodyCode : wiseIdentifier
     + gwPollutantCode : ParameterCode
     + gwPollutantCausingFailure : YesNoUnknown
-    + gwThresholdIdentifier : wiseIdentifier [0..1]
+    + gwThresholdIdentifier : wiseIdentifier
 
     + gwPollutantAssessmentPeriod : range
     + gwPollutantAssessmentConfidence : AssessmentConfidence 
@@ -88,7 +91,9 @@ GWQuantitativeStatus "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
 GWPollutant "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
 
 LinkSurfaceWaterBody "0..n" -- "1" GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
-NaturalBackgroundLevel "0..n" -- "1" GroundWaterBody
+GWNaturalBackgroundLevel "0..n" -- "1" GroundWaterBody
+
+%% note for GWPollutant "GroundwaterMethodologies::ThresholdValue.gwThresholdIdentifier"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

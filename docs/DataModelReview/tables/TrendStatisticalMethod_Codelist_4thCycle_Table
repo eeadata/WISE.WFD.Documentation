@@ -1,0 +1,26 @@
+```{list-table} TrendStatisticalMethod codelist - 4ᵗʰ cycle
+:name: TrendStatisticalMethod_Codelist_4thCycle_Table
+:header-rows: 1
+:width: 100%
+:widths: 15 15 70
+:align: left
+
+* - Notation
+  - Label
+  - Definition
+
+* - statisticalSignificanceTrendDetection
+  - Statistical significance
+  - The existence of a significant trend was assessed using statistical tests.
+    
+* - confidenceIntervalTrendMagnitude
+  - Confidence interval
+  - The existence of a significant trend was assessed using statistical tests, 
+    the magnitude of the trend was quantified and
+    the uncertainty was assessed using confidence intervals.
+
+* - none
+  - None
+  - The trend assessment did not use statistical methods (i.e. expert judgement only)
+  
+```

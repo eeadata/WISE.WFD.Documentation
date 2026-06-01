@@ -90,19 +90,15 @@ The following elements were removed:
 
 The struture of the **GWPressures** class was also revised.
 
-
-
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_4th_cycle_pending_issues)=
 ## Descriptive dataset - 4ᵗʰ cycle
 
-The revised strutured for the groundwater methodologies reporting 
-is presented in the DRAFT {numref}`GroundwaterMethodologies_4thCycle_ClassDiagram`,
-including the issues requiring clarification, in the classes marked in red.
+{numref}`GroundwaterMethodologies_4thCycle_ClassDiagram` shows proposed struture for the groundwater methodologies reporting.
 
-The tables `GWMethodologies` and `ThresholdValue` follow the struture of the corresponding classes 
+The `GWMethodologies` table has a structure similar to the corresponding class 
 in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
 
-The table `GWPressureAssessment` uses a different approach:
+The `GWPressureAssessment` table has a modified structure:
 
 * the reporting of "pressures not assessed" is eliminated,
   because the data was difficult to analyse and contained inconsistencies
@@ -114,54 +110,33 @@ The table `GWPressureAssessment` uses a different approach:
 * the quality control procedure will verify that different levels 
   are not selected simultaneously for any given RBD
 
+The `ThresholdValue` table has a structure similar to the corresponding class 
+in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
+Note that:
+
+* a unique `gwThresholdIdentifier` was introduced to avoid duplication 
+* for naturally occurring substances, if natural background levels 
+  were taken into account in the definition of the threshold value,
+  then the applicable `nblValueRange` is provided 
+  (in the same unit of measure as the `thresholdValueRange`) 
+
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_ClassDiagram
 :align: center
 :caption: Groundwater methodologies - 4ᵗʰ cycle
 ```
 
-Several topics require further discussion and clarification.
-See:
-
-* {ref}`GroundwaterMethodologies_Issues_Pending_Discussion_ThresholdValue`
-
-
-```{list-table} PENDING - Groundwater Methodologies - 4ᵗʰ cycle - **ThresholdValue** table
-    :name: GroundwaterMethodologies_Issues_Pending_Discussion_ThresholdValue
-    :width: 100%
-    :widths: 40 40 20
-    :header-rows: 1
-    :align: left
-
-* - Attribute
-  - Description
-  - Status
-
-* - gwThresholdIdentifier
-  - Addressing duplicates.
-  - Pending
-
-* - startingPointTrendReversal
-  - Addressing ambiguous reporting of percentages & proportions.
-  - Pending
-
-* - (to be defined)
-  - Addressing background levels and other chemical conditions.
-  - Pending
-
-* - (to be defined)
-  - Addressing geographical scope (if needed).
-  - Pending
-
-* - thresholdValueRange
-  - TECHNICAL: discuss and document the range datatype
-  - Pending
-```
-
 (heading_wfd_groundater_methodologies_codelists_4th_cycle)=
 ## Codelists - 4ᵗʰ cycle
 
-Note: this section includes only the codelists specific to the groundwater methodologies.
+* For the `PressureAssessmentMethod`codelist 
+  see {numref}`PressureAssessmentMethod_Codelist_4thCycle_Table`.
+* For the `TrendStatisticalMethod`codelist 
+  see {numref}`TrendStatisticalMethod_Codelist_4thCycle_Table`.
+
+```{dropdown} TrendStatisticalMethod codelist
+```{include} tables/TrendStatisticalMethod_Codelist_4thCycle_Table
+```
 
 (heading_wfd_groundater_methodologies_documents_dataset_4th_cycle)=
 ## Documents dataset - 4ᵗʰ cycle
@@ -270,7 +245,7 @@ The last two records are difficult to interpret, and possibly result from report
   but somehow statistical significance was determined
 
 In conclusion:
-* the trendAssessmentMethodology element appear redundant 
+* the trendAssessmentMethodology element appears to be redundant 
   with respect to the statisticalElements element,
   and may be removed to simplify the reporting and avoid mistakes
 * the meaning of the statisticalElements element should be made clearer 
