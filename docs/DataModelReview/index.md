@@ -34,4 +34,6 @@ WFDGrouping
 ```{toctree}
 :maxdepth: 1
 WFDPressures
+../_sharedFiles/Glossary_Datatypes
 ```
+

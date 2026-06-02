@@ -1,5 +1,5 @@
 (heading_wfd_reported_problems_testing_phase)=
-# WFD Reported Problems during testing phase
+# Issues 
 
 ```{note}
 On this section, a log of the reported problems is maintained.
@@ -7,6 +7,8 @@ On this section, a log of the reported problems is maintained.
 
 Last update: 2026-05-25
 
-## Monitoring
+## River basin districts and competent authorities
 
-## RiverBasinDistrictsAndCompetentAuthorities
+## Monitoring sites
+
+## Monitoring

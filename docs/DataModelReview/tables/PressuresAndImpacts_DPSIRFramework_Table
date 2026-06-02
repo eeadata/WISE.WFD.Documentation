@@ -1,5 +1,6 @@
 ```{csv-table} The DPSIR framework as used in the pressures and impacts analysis [^dpsir-table-source]. 
 :name: PressuresAndImpacts_DPSIRFramework_Table
+:widths: 20 80
 :header-rows: 1
 :delim: "|"
 

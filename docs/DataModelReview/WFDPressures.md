@@ -1,9 +1,36 @@
 (heading_wfd_pressure_type_codelist_4th_cycle)=
 # PressureType codelist - 4ᵗʰ cycle
 
-The `PressureType` codelist is a hierarchical codelist (see {numref}`PressureType_4thCycle_Codelist_ClassDiagram`) that provides the valid domain for attributes related to pressures in different tables. Depending on the context, the use of some values may be restricted by quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
+The review of the pressure types codelist used in the 3ʳᵈ cycle of reporting 
+is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
 
-In codelist used in the 2ⁿᵈ and 3ʳᵈ cycle of reporting,
+* A generic option 'unknown' was added.
+* A generic option 'none' was added.
+* The wording of some of the options was revised (while mantaining the code structure to facilitate the mapping).
+* The option 'P7 - Anthropogenic pressure - Other' was removed.
+* The option 'P8 - Anthropogenic pressure - Unknown' was removed.
+* The option 'P9 - Anthropogenic pressure - Historical pollution' was removed.
+* The option 'P1-9 - Point - Other' was replaced by 'P1 - Point'
+* The option 'P2-10 - Diffuse - Other' was replaced by 'P2 - Diffuse'
+* The option 'P3-7 - Abstraction - Other' was replaced by 'P3 - Abstraction'
+* The option 'P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other' was replaced by 'P4-1 - Longitudinal barrier'
+* The option 'P4-2-8 - Dams, barriers and locks - Other' was replaced by 'P4-2 - Transversal barrier'
+* The option 'P4-3-6 - Hydrological alteration - Other' was replaced by 'P4-3 - Hydrological alteration'
+* The option 'P4-5 - Hydromorphological alteration - Other' was replaced by 'P4-5 - Hydromorphological alteration'
+
+The revised `PressureType` codelist is a hierarchical codelist 
+(see {numref}`PressureType_4thCycle_Codelist_ClassDiagram`).  
+It provides a controlled list of values for different attributes related to pressures.  
+Depending on the attribute and the context, the use of some values may be restricted by the quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
+
+```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelist_ClassDiagram.mmd
+:name: PressureType_4thCycle_Codelist_ClassDiagram
+:caption:  Codelist - PressureType - 4ᵗʰ cycle
+:align: center
+:zoom:
+```
+
+In the pressures codelist used in the 2ⁿᵈ and 3ʳᵈ cycle of reporting,
 most options combined both a pressure and a driver (see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
 For example: abstraction + agriculture = 'P3-1 - Abstraction - Agriculture'.
 
@@ -21,36 +48,12 @@ Pressures codelist - Definition of the drivers
 ENV or EEA Water to complete, and define if any should be added.
 ```
 
-```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelist_ClassDiagram.mmd
-:name: PressureType_4thCycle_Codelist_ClassDiagram
-:caption:  Codelist - PressureType - 4ᵗʰ cycle
-:align: center
-:zoom:
-```
-
 The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence 
 between the codelist values in the 3ʳᵈ cycle and in the 4ᵗʰ cycle.
 
 ```{dropdown} Show mapping table
 ```{include} tables/PressuresType_3rdCycle_4thCycle_MappingTable
 ```
-
-The review of the codelist used in the 3ʳᵈ cycle of reporting 
-is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
-
-* A generic option 'unknown' was added.
-* A generic option 'none' was added.
-* The wording of some of the options was revised (while mantaining the code structure to facilitate the mapping).
-* The option 'P7 - Anthropogenic pressure - Other' was removed.
-* The option 'P8 - Anthropogenic pressure - Unknown' was removed.
-* The option 'P9 - Anthropogenic pressure - Historical pollution' was removed.
-* The option 'P1-9 - Point - Other' was replaced by 'P1 - Point'
-* The option 'P2-10 - Diffuse - Other' was replaced by 'P2 - Diffuse'
-* The option 'P3-7 - Abstraction - Other' was replaced by 'P3 - Abstraction'
-* The option 'P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other' was replaced by 'P4-1 - Longitudinal barrier'
-* The option 'P4-2-8 - Dams, barriers and locks - Other' was replaced by 'P4-2 - Transversal barrier'
-* The option 'P4-3-6 - Hydrological alteration - Other' was replaced by 'P4-3 - Hydrological alteration'
-* The option 'P4-5 - Hydromorphological alteration - Other' was replaced by 'P4-5 - Hydromorphological alteration'
 
 (heading_wfd_pressures_annexes)=
 ## Annexes - Data analysis - 3ʳᵈ cycle

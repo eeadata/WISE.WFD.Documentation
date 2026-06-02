@@ -1,12 +1,22 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
 classDiagram
     direction TB
 
     class VolumeRevenueCostPerService {
-        + geo: wiseIdentifier [1]
-        + time: Year [1]
-        + dimension: VolumeRevenueCostCodelist value [1]
-        + obs_value: NonNegativeValue [1]
-        + obs_unit: UnitOfMeasureCodeList [1]
-        + obs_status: ObservationStatusCode [0..1]
+        + geo: wiseIdentifier 
+        + time: Year 
+        + dimension: VolumeRevenueCost 
+        + obs_value: nonNegativeValue
+        + obs_unit: UnitOfMeasure 
+        + obs_status: ObservationStatus [0..1]
         + obs_comment: Text4000 [0..1]
     }
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

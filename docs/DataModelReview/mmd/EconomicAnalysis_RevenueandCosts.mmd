@@ -1,41 +1,49 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+
 classDiagram
     direction TB
 
     class CostRecovery {
-        + euRBDCode: wiseIdentifier [1]
+        + euRBDCode: wiseIdentifier
 
         --Adequate Contribution--
 
-        + adequateContributionAccount: YesNo [1]
-        + adequateContributionSectoral: YesNo [1]
+        + adequateContributionAccount: YesNo
+        + adequateContributionSectoral: YesNo
 
         --Polluter Pays Principle--
 
-        + pppAccount: YesNo [1]
-        + pppERCBased: YesNo [1]
-        + pppTargetPolluters: YesNo [1]
+        + pppAccount: YesNo
+        + pppERCBased: YesNo
+        + pppTargetPolluters: YesNo 
 
         --Incentives--
-        + incentivesAccount: YesNo [1]
-        + incentivesEmpiricalInformation: YesNo [1]
+        + incentivesAccount: YesNo 
+        + incentivesEmpiricalInformation: YesNo 
         + incentivesDifferentiated: YesNo [0..1]
-        + incentivesWaterScarcityUse: YesNo [1]
+        + incentivesWaterScarcityUse: YesNo 
     }
 
     class CostRecoveryPerService {
-        + euRBDCode: wiseIdentifier [1]
-        + waterService: WFDWaterServiceCodelist value [1]
+        + euRBDCode: wiseIdentifier 
+        + waterService: WFDWaterService
 
         --Cost Recovery Principle Application--
 
-        + costRecoveryFull: YesNoNotApplicable [1]
+        + costRecoveryFull: YesNoNotApplicable
         + costRecoveryCorroborated: YesNo [0..1]
 
         --Justification--
 
         + nationalMethodologyApplied: YesNo [0..1]
         + justificationLessFullRecovery: YesNo [0..1]
-        + justificationFactor: Text4000 [0..1]
+        + justificationFactor: String4000 [0..1]
         + justificationSectoralInformation: YesNo [0..1]
 
         --Exemption--
@@ -45,11 +53,14 @@ classDiagram
     }
 
     class VolumeRevenueCostPerService {
-        + geo: wiseIdentifier [1]
-        + time: Year [1]
-        + dimension: VolumeRevenueCostCodelist value [1]
-        + obs_value: NonNegativeValue [1]
-        + obs_unit: UnitOfMeasureCodeList [1]
-        + obs_status: ObservationStatusCode [0..1]
-        + obs_comment: Text4000 [0..1]
+        + geo: wiseIdentifier 
+        + time: Year 
+        + dimension: VolumeRevenueCost
+        + obs_value: nonNegativeValue
+        + obs_unit: UnitOfMeasureCode
+        + obs_status: ObservationStatus [0..1]
+        + obs_comment: String4000 [0..1]
     }
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
