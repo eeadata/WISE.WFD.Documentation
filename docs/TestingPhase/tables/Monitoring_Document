@@ -22,3 +22,4 @@
 * -  documentFile 
   -  Attachment      
   -  Document file as an attachment. The size of the file can be up to 100 MB and the valid file extensions are: 'xlsx' (Excel), 'docx' (Word) y 'pdf'.Either URL or documentFile must be reported, but not both.Guidance: reporting is optional  
+```
