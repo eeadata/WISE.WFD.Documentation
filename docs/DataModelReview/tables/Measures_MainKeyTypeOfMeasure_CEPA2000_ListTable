@@ -3,93 +3,83 @@
 :width: 100%
 :header-rows: 1
 :align: left
-* - WFD Code
-  - Definition
-  - CEPA2000
+* - mainKeyTypeOfMeasure (4th cycle) 
+  - Primary CEPA 2000 class
   - Rationale / Notes
 
-* - B
-  - Measure to implement recovery of costs for water services
-  - 14.2
-  - Measures related to the recovery of costs for water services.
+* - B - Measure to implement recovery of costs for water services
+  - CEPA 9.1 (General Administration) 
+  - Administrative and economic regulation activities fall under "General environmental administration."
 
-* - C
-  - Measure to promote efficient and sustainable water use
-  - 14.2
-  - Measures related to the efficient and sustainable use of water.
+* - C - Measure to promote efficient and sustainable water use
+  - [CReMA 10] 
+  - Technically outside CEPA. This is Resource Management, not Protection. If forced, it fits CReMA 10 (Management of Water Resources).
 
-* - D
-  - Measure to protect drinking water quality and reduce the level of treatment required
-  - 14.1
-  - Measures related to the protection of drinking water quality.
+* - D - Measure to protect drinking water quality and reduce the level of treatment required
+  - CEPA 4.1 (Protection of soil, groundwater and surface water)
+  - Measures to prevent pollutants from entering water bodies (Source Water Protection) fall under CEPA 4.1.
 
-* - E
-  - Measure to control abstraction from surface and groundwater, and impoundment of surface water
-  - 14.1
-  - Measures related to abstraction control.
+* - E - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+  - [CReMA 10] 
+  - Technically outside CEPA. Controlling abstraction is managing the stock of
+water (Resource Management).
 
-* - F 
-  - Measure to control artificial recharge or augmentation of groundwater
-  - 14.1
-  - Measures related to groundwater recharge.
+* - F - Measure to control artificial recharge or augmentation of groundwater
+  - CEPA 4.2 or CEPA 4.4
+  - If the recharge is to remedy salinity or pollution, it is CEPA 4. If it is purely for managing water supply, it is CReMA 10.
 
-* - G 
-  - Measure to control point source discharges
-  - 14.1
-  - Measures related to point source pollution control.
+* - G - Measure to control point source discharges
+  - CEPA 2 (Wastewater Management)
+  - Control of discharges (sewerage, treatment plants) is the core definition of CEPA 2.
 
-* - H 
-  - Measure to prevent or control inputs of diffuse pollutants
-  - 14.1
-  - Measures related to diffuse pollution control.
+* - H - Measure to prevent or control inputs of diffuse pollutants
+  - CEPA 4.1 (Protection of soil/water)
+  - Diffuse pollution (e.g., agricultural runoff) is usually treated as soil/water protection (CEPA 4) rather than wastewater (CEPA 2).
 
-* - I2-2 
-  - Measure to address significant impacts - Altered habitats due to hydrological changes
-  - 12.1 / 12.2
-  - Measures related to hydromorphological pressures.
+* - J - Measure to prohibit direct discharges to groundwater
+  - CEPA 4.1 (Protection of soil/water)
+  - Prevention of pollutant infiltration into groundwater.
 
-* - I2-4 
-  - Measure to address significant impacts - Acidification
-  - 14.1
-  - Measures related to acidification.
+* - K - Measure to eliminate by Priority Substances and reduce pollution by other substances
+  - CEPA 2 or CEPA 4
+  - CEPA 2 if treating wastewater (end-of-pipe). CEPA 4 if remediating a water body or controlling sources in the soil.
 
-* - J
-  - Measure to prohibit direct discharges to groundwater
-  - 14.1
-  - Measures related to groundwater protection.
+* - L - Measure to prevent accidental pollution
+  - CEPA 4 (Protection of soil/water)
+  - Preventing spills and infiltration into soil and water bodies.
 
-* - K
-  - Measure to eliminate Priority Substances and reduce pollution by other substances
-  - 14.1
-  - Measures related to Priority Substances and other pollutants.
+* - I2 - Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes
+  - CEPA 6.1 (Biodiversity & Landscapes) 
+  - Restoring natural flows to support habitats is predominantly protection of biodiversity.
 
-* - L
-  - Measure to prevent accidental pollution
-  - 14.1
-  - Measures related to accidental pollution.
+* - I3 - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes
+  - CEPA 6.1 (Biodiversity & Landscapes) 
+  - Measures like removing dams, restoring river banks, and re-meandering are CEPA 6.
 
-* - X01
-  - Construction or upgrades of wastewater treatment plants
-  - 14.1
-  - Measures related to wastewater treatment infrastructure.
+* - I4 - Measure to address significant impacts on surface waters - Acidification
+  - CEPA 4.2 (Cleaning up of water bodies)
+  - Remediation of acidified water bodies.
 
-* - X12
-  - Advisory services
-  - 14.1
-  - Measures related to advisory services.
+* - P - Measure to address significant pressures on surface waters
+  - CEPA 4 (General) 
+  - A broad category: usually defaults to protection of surface water (CEPA 4) unless it is clearly wastewater (CEPA 2).
 
-* - X14
-  - Research, improvement of knowledge, base reducing uncertainty
-  - 14.1
-  - Measures related to research and knowledge improvement.
+* - X01 - Construction or upgrades of wastewater treatment plants
+  - CEPA 2.3 (Wastewater Management) 
+  - Specific infrastructure investment for wastewater treatment.
 
-* - X23
-  - Natural water retention measures
-  - 12.1 / 12.2
-  - Measures related to natural water retention.
+* - X12 - Advisory services 
+  - CEPA 9.1 or 9.2
+  - Administration (9.1) or Education/Information (9.2) related to environmental protection.
 
-* - X24
-  - Climate change adaptation measure
-  - 14.1
-  - Measures related to climate change adaptation.
+* - X14 - Research, improvement of knowledge base reducing uncertainty
+  - CEPA 8 (R&D)
+  - Specific class for all environmental Research & Development.
 
+* - X23 - Natural water retention measures
+  - CEPA 6 or CEPA 4
+  - "Natural" measures (e.g., wetlands restoration) are often CEPA 6 (Biodiversity). If purely for flood defence, they may be excluded from CEPA entirely (Safety).
+
+* - X24 - Climate change adaptation measure 
+  - CEPA 4 or CEPA 6 
+  - Adaptation is not CEPA 1 (which is Climate Mitigation). Adaptation measures usually map to the domain protected (e.g., Water/Biodiversity).

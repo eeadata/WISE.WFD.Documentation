@@ -1,7 +1,7 @@
 (heading_wfd_measures)=
 # WFD measures
 
-Last update: 2026-04-24
+Last update: 2026-06-02
 
 ```{warning}
 The online version of the text is being reviewed.  
@@ -492,7 +492,7 @@ The purpose of the simplified classification is:
 * To allow flexibility in the reporting of the measures to address significant pressures, when combined with the optional mainPressureType attribute. 
 * To maintain the previous KTM that do not fit the criteria above and were reported with high frequency in the 3ʳᵈ cycle – see codes X01, X12, X14, X23 and X24.
 
-Table 9 aligns the **mainKeyTypeOfMeasure** with the previous separate classification 
+{numref}`measures_MappingmainKeyTypeOfMeasure` aligns the **mainKeyTypeOfMeasure** with the previous separate classification 
 schemes. It supports MS in the migration to the single simplified codelist to be used in the 
 **mainKeyTypeOfMeasure** attribute in the 4ᵗʰ cycle of reporting.
 
@@ -500,36 +500,12 @@ The proposed classification is provisional and can be reviewed by MS to detect p
 
 Regarding the measures to address significant impacts in the status of water as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4 note that only some of the impacts applicable to surface water are detailed.
 
-
-*Table 9. Mapping between the proposed mainKeyTypeOfMeasure (4ᵗʰ cycle) and current basicMeasureType and 
-keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle).*
-
-(Table 9)=
-| mainKeyTypeOfMeasure (4ᵗʰ cycle) | basicMeasureType (2ⁿᵈ and 3ʳᵈ cycle) | keyTypeOfMeasure (2ⁿᵈ and 3ʳᵈ cycle) |
-|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------|
-| B - Measure to implement recovery of costs for water services | Measure to implement recovery of costs for water services | KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households; KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry; KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture |
-| C - Measure to promote efficient and sustainable water use | Measure to promote efficient and sustainable water use | KTM8 - Water efficiency, technical measures for irrigation, industry, energy and households |
-| D - Measure to protect drinking water quality and reduce the level of treatment required | Measure to protect drinking water quality and reduce the level of treatment required | KTM13 - Drinking water protection measures (e.g. establishment of safeguard zones, buffer zones etc) |
-| E - Measure to control abstraction from surface and groundwater, and impoundment of surface water | Measure to control abstraction from surface and groundwater | |
-| F - Measure to control artificial recharge or augmentation of groundwater | Measure to control recharging of groundwater | |
-| G - Measure to control point source discharges | Measure to control point source discharges | |
-| H - Measure to prevent or control inputs of diffuse pollutants | Measure to prevent or control inputs of diffuse pollutants | KTM17 - Measures to reduce sediment from soil erosion and surface run-off; KTM2 - Reduce nutrient pollution from agriculture; KTM21 - Measures to prevent or control the input of pollution from urban areas, transport, and built infrastructure; KTM22 - Measures to prevent or control the input of pollution from forestry; KTM7 - Improvements in flow regime and/or establishment of ecological flows |
-| I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes | Measure to address significant impacts on the hydromorphological conditions | KTM5 - Improving longitudinal continuity (e.g. establishing fish passes, demolishing old dams); KTM6 - Improving hydromorphological conditions of water bodies other than longitudinal continuity |
-| I2-4 - Measure to address significant impacts - Acidification | | KTM25 - Measures to counteract acidification |
-| J - Measure to prohibit direct discharges to groundwater | Measure to prohibit direct discharges to groundwater | |
-| K - Measure to eliminate by Priority Substances and reduce pollution by other substances | Measure to eliminate or reduce pollution by Priority Substances | KTM15 - Measures for the phasing-out of emissions, discharges and losses of Priority Hazardous Substances or for the reduction of emissions, discharges and losses of Priority Substances; KTM3 - Reduce pesticides pollution from agriculture |
-| L - Measure to prevent accidental pollution | Measure to prevent accidental pollution | KTM18 - Measures to prevent or control the adverse impacts of invasive alien species, and introduced diseases; KTM19 - Measures to prevent or control the adverse impacts of recreation including angling; KTM20 - Measures to prevent or control the adverse impacts of fishing and other exploitation/removal of animal and plants; KTM4 - Remediation of contaminated sites (historical pollution including sediments, groundwater, soil) |
-| X01 - Construction or upgrades of wastewater treatment plants | | KTM1 - Construction or upgrades of wastewater treatment plants; KTM16 - Upgrades or improvements of industrial wastewater treatment plants (including farms) |
-| X12 - Advisory services | | KTM12 - Advisory services for agriculture |
-| X14 - Research, improvement of knowledge, base reducing uncertainty | | KTM14 - Research, improvement of knowledge base reducing uncertainty |
-| X23 - Natural water retention measures | | KTM23 - Natural water retention measures |
-| X24 - Climate change adaptation measure | | KTM24 - Adaptation to climate change |
-
-
+```{include} tables/Measures_MappingMainKeyTypeOfMeasure_ListTable
+```
 
 ### Classification of environmental protection activities (CEPA 2000)
 
-Based on the information in (http://publications.europa.eu/resource/dataset/cepa2000). 
+Based on the information in (http://publications.europa.eu/resource/dataset/cepa2000).  
 **Note: this table is not relevant for the reporting process, it is only relevant for the analysis of reported data.**
 
 ```{include} tables/Measures_SubsetOfCEPAClasses_ListTable
