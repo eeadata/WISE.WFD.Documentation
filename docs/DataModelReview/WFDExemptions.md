@@ -384,7 +384,7 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring."
 
--- [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj)
+-- ELI: http://data.europa.eu/eli/dir/2026/805/oj
 ```
 
 **Actions taken:**
@@ -421,7 +421,7 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
  
 (h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13."
 
--- [ELI: http://data.europa.eu/eli/dir/2026/805/oj](http://data.europa.eu/eli/dir/2026/805/oj)
+-- ELI: http://data.europa.eu/eli/dir/2026/805/oj
 ```
 
 **Actions taken:**
@@ -511,6 +511,7 @@ Exemptions - {ref}`heading_wfd_exemptions_clarification_rbsp`
   in reply to the Member States' clarification request during the WG DIS meeting on 2026-04-22.
 ```
 
+(heading_wfd_exemption_annexes_3rd_cycle)=
 ## Annexes - Data analysis - 3ʳᵈ cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle

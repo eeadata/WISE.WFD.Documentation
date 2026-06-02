@@ -90,7 +90,7 @@ The following elements were removed:
 
 The struture of the **GWPressures** class was also revised.
 
-(heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_4th_cycle_pending_issues)=
+(heading_wfd_groundwater_methodologies_descriptive_4th_cycle)=
 ## Descriptive dataset - 4ᵗʰ cycle
 
 {numref}`GroundwaterMethodologies_4thCycle_ClassDiagram` shows proposed struture for the groundwater methodologies reporting.
@@ -129,9 +129,9 @@ Note that:
 (heading_wfd_groundater_methodologies_codelists_4th_cycle)=
 ## Codelists - 4ᵗʰ cycle
 
-* For the `PressureAssessmentMethod`codelist 
+* For the `PressureAssessmentMethod` codelist, 
   see {numref}`PressureAssessmentMethod_Codelist_4thCycle_Table`.
-* For the `TrendStatisticalMethod`codelist 
+* For the `TrendStatisticalMethod` codelist, 
   see {numref}`TrendStatisticalMethod_Codelist_4thCycle_Table`.
 
 ```{dropdown} TrendStatisticalMethod codelist
