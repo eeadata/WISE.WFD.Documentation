@@ -139,7 +139,7 @@ Note: this section includes only the codelists specific to the surface water met
 ```
 
 ```{dropdown} PressureAssessmentMethod codelist
-```{include} tables/PressureAssessmentMethod_Codelist_4thCycle_Table
+```{include} tables/Codelist_4thCycle_PressureAssessmentMethod_Table
 ```
 
 ```{dropdown} MixingZoneMeasure codelist

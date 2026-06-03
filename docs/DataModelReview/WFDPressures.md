@@ -19,12 +19,12 @@ is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the foll
 * The option 'P4-5 - Hydromorphological alteration - Other' was replaced by 'P4-5 - Hydromorphological alteration'
 
 The revised `PressureType` codelist is a hierarchical codelist 
-(see {numref}`PressureType_4thCycle_Codelist_ClassDiagram`).  
+(see {numref}`Codelist_4thCycle_PressureType_ClassDiagram`).  
 It provides a controlled list of values for different attributes related to pressures.  
 Depending on the attribute and the context, the use of some values may be restricted by the quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
 
-```{mermaid} /DataModelReview/mmd/PressureType_4thCycle_Codelist_ClassDiagram.mmd
-:name: PressureType_4thCycle_Codelist_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_PressureType_ClassDiagram.mmd
+:name: Codelist_4thCycle_PressureType_ClassDiagram
 :caption:  Codelist - PressureType - 4ᵗʰ cycle
 :align: center
 :zoom:
@@ -35,12 +35,12 @@ most options combined both a pressure and a driver (see {numref}`PressuresAndImp
 For example: abstraction + agriculture = 'P3-1 - Abstraction - Agriculture'.
 
 This structure was kept in the current codelist. Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting. If the specific driver is not in the codelist, the higher level code can be used.
-Note that not all the drivers defined in the 3ʳᵈ cycle reporting guidance (see {numref}`DriverType_Definition_3rdCycle_Table`) are listed.
+Note that not all the drivers defined in the 3ʳᵈ cycle reporting guidance (see {numref}`Codelist_3rdCycle_DriverType_Table`) are listed.
 
 ```{include} tables/PressuresAndImpacts_DPSIRFramework_Table
 ```
 
-```{include} tables/DriverType_Definition_3rdCycle_Table
+```{include} tables/Codelist_3rdCycle_DriverType_Table
 ```
 
 ```{todo}

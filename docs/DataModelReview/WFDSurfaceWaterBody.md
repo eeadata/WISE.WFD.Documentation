@@ -56,16 +56,14 @@ to help focus the discussion on the remaining issues.
 
 ## Surface water - descriptive data - 4ᵗʰ cycle
 
-{numref}`SurfaceWater_DescriptiveData_4thCycle_ClassDiagram` 
+{numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram` 
 shows a DRAFT diagram including the issues requiring clarification, in the classes marked in red.
 
-```{mermaid} /DataModelReview/mmd/SurfaceWater_DescriptiveData_4thCycle_ClassDiagram.mmd
-:name: SurfaceWater_DescriptiveData_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_DescriptiveData_ClassDiagram.mmd
+:name: SurfaceWater_4thCycle_DescriptiveData_ClassDiagram
 :align: center
 :caption: Surface water - 4ᵗʰ cycle
 ```
-
-
 
 (heading_wfd_surface_water_bodies_ecological_status)=
 ## Ecological status and potential

@@ -64,15 +64,15 @@ River Basin Management Plan, international Coordination and Progress since the p
 
 ## RiverBasinManagementPlan – 4ᵗʰ cycle
 
-The simplified **RiverBasinManagementPlan** table contains a subset of the data previously requested in the RBMP and Coordination classes in the 3ʳᵈ cycle ({numref}`RiverBasinManagementPlan_4thCycle_ClassDiagram`):
+The simplified **RiverBasinManagementPlan** table contains a subset of the data previously requested in the RBMP and Coordination classes in the 3ʳᵈ cycle ({numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`):
 
 * A new attribute, **coordinationNRRReference**, allows the reporting of information related to coordination with the Nature Restoration Regulation.
 
 * The reporting of the **pomCoordinationArt5SWMI**, **pomCoordinationIRBMPPoM**, **pomCoordinationRoofReport** and **pomCoordinationFinancial** attributes 
  is only required for international RBDs. 
 
-```{mermaid} /DataModelReview/mmd/Measures_RiverBasinManagementPlan_4thCycle_ClassDiagram.mmd
-:name: RiverBasinManagementPlan_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram.mmd
+:name: Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram
 :caption: River Basin Management Plan table – 4ᵗʰ cycle of reporting
 :align: center
 ```
@@ -80,13 +80,13 @@ The simplified **RiverBasinManagementPlan** table contains a subset of the data 
 ## Progress table – 4ᵗʰ cycle
 
 The **Progress** table is modified to provide an overview of the proportion of the measures of the 3ʳᵈ RBMPs that were executed, cancelled, or otherwise affected, 
-as well as the obstacles encountered during the implementation of the 3ʳᵈ RBMP Programme of Measures ({numref}`Progress_4thCycle_ClassDiagram`).
+as well as the obstacles encountered during the implementation of the 3ʳᵈ RBMP Programme of Measures ({numref}`Measures_4thCycle_Progress_ClassDiagram`).
 
 The only constraint is that, for each RBD, the sum of the values in **percentageInStatus** must be **100**. 
 The level of detail can be adapted depending on the needs and the data available at national level.
 
-```{mermaid} /DataModelReview/mmd/Measures_Progress_4thCycle_ClassDiagram.mmd
-:name: Progress_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Progress_ClassDiagram.mmd
+:name: Measures_4thCycle_Progress_ClassDiagram
 :caption: Progress table – 4ᵗʰ cycle of reporting
 :align: center
 ```
@@ -136,17 +136,17 @@ The **TargetedQuestions** table collects summary information about the measures 
 For each RBMP, only one record is required. The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers. 
 
 Reporting by MS should not present technical difficulties, and there is limited scope for any technical simplification. 
-The Commission has revised and simplified the **TargetedQuestions** table, keeping a subset of the questions requested in the previous cycle ({numref}`TargetedQuestions_4thCycle_ClassDiagram`).
+The Commission has revised and simplified the **TargetedQuestions** table, keeping a subset of the questions requested in the previous cycle ({numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`).
 
-```{mermaid} /DataModelReview/mmd/Measures_TargetedQuestions_4thCycle_ClassDiagram.mmd
-:name: TargetedQuestions_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_TargetedQuestions_ClassDiagram.mmd
+:name: Measures_4thCycle_TargetedQuestions_ClassDiagram
 :caption: TargetedQuestions table – 4ᵗʰ cycle of reporting
 :align: center
 ```
 
 ## Measure table – 4ᵗʰ cycle 
 
-The simplified Measure table proposed for the 4ᵗʰ cycle is illustrated in ({numref}`Measure_4thCycle_ClassDiagram`). 
+The simplified Measure table proposed for the 4ᵗʰ cycle is illustrated in ({numref}`Measures_4thCycle_Measure_ClassDiagram`). 
 
 For each measure:
 
@@ -164,8 +164,8 @@ For each measure:
  using the **msfdRelevance**, **floodsRelevance**, **natureRestorationRegulationRelevance**, **draughtManagementPlanRelevance** and **climateAdaptationPlanRelevance** attributes.
 * Specify the **geographicalCoverage** and **temporalCoverage** of the measure.
 
-```{mermaid} /DataModelReview/mmd/Measures_Measure_4thCycle_ClassDiagram.mmd
-:name: Measure_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Measure_ClassDiagram.mmd
+:name: Measures_4thCycle_Measure_ClassDiagram
 :caption: Measure table – 4ᵗʰ cycle of reporting
 :align: center
 ```
@@ -351,8 +351,8 @@ The attribute **millionUnitsOfNationalCurrency** was introduced to facilitate re
 hould use the relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC). Euro Area countries must use EUR. Generally, the number of decimal digits is “0”. If a country wants to send a figure lower than 1 million, decimals may be used. In this case, the separator must be a dot (.). (Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent). If necessary the proposal can be modified to use a different multiplier (e.g. thousands). 
 
 
-```{mermaid} /DataModelReview/mmd/Measures_ExpenditurePerMeasurePerSector_4thCycle_ClassDiagram.mmd
-:name: ExpenditurePerMeasurePerSector_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram.mmd
+:name: Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram
 :caption: Expenditure per Measure per Sector table – 4ᵗʰ cycle of reporting
 :align: center
 ```

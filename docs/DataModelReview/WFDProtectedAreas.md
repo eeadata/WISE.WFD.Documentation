@@ -29,20 +29,20 @@ and economically significant aquatic species (e.g. shellfish)."
 
 %Start document
 This section revises the reporting of WFD Protected Areas 
-in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ProtectedAreas_DescriptiveData_3rdCycle_ClassDiagram`), 
-as well as the associated spatial data ({numref}`ProtectedAreas_SpatialData_3rdCycle_ClassDiagram`).
+in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram`), 
+as well as the associated spatial data ({numref}`ProtectedAreas_3rdCycle_SpatialData_ClassDiagram`).
 
 A proposal is presented for the electronic reporting in the 4ᵗʰ cycle. 
 
 
-```{mermaid} /DataModelReview/mmd/ProtectedAreas_DescriptiveData_3rdCycle_ClassDiagram.mmd
-:name: ProtectedAreas_DescriptiveData_3rdCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram.mmd
+:name: ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram
 :align: center
 :caption: GWAssociatedProtectedArea and SWAssociatedProtectedArea - 3ʳᵈ cycle - Obsolete
 ```
 
-```{mermaid} /DataModelReview/mmd/ProtectedAreas_SpatialData_3rdCycle_ClassDiagram.mmd
-:name: ProtectedAreas_SpatialData_3rdCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/ProtectedAreas_3rdCycle_SpatialData_ClassDiagram.mmd
+:name: ProtectedAreas_3rdCycle_SpatialData_ClassDiagram
 :align: center
 :caption: ProtectedArea spatial datasets - 3ʳᵈ cycle - Obsolete
 ```

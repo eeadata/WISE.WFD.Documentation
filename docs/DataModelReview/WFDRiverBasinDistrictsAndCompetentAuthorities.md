@@ -83,9 +83,9 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 :zoom:
 ```
 
-```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Codelist_ClassDiagram.mmd
-:name: RBDCA_4thCycle_RoleCodelist
-:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Descriptive Data - Codelist
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Role_ClassDiagram.mmd
+:name: Codelist_4thCycle_Role_ClassDiagram
+:caption:  Codelist - 4ᵗʰ cycle - Role
 :align: center
 :zoom:
 ```

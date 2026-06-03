@@ -10,7 +10,7 @@ See **PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4
 
 ## Purpose and overview
 
-The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_Classdiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_RevenueandCosts`).
+The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_Classdiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram`).
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
@@ -26,8 +26,8 @@ The *Service* table is removed. Information about volumes, revenues and costs is
 ```
 
 
-```{mermaid} /DataModelReview/mmd/EconomicAnalysis_RevenueandCosts.mmd
-:name: EconomicAnalysis_RevenueandCosts
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram.mmd
+:name: EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram
 :align: center
 :caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting
 ```
