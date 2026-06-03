@@ -9,58 +9,58 @@ config:
 classDiagram
     direction TB
 
-    class CostRecovery {
-        + euRBDCode: wiseIdentifier
+class CostRecovery {
++ euRBDCode: wiseIdentifier
 
-        «adequate-contribution»
+«adequate-contribution»
 
-        + adequateContributionAccount: YesNo
-        + adequateContributionSectoral: YesNo
++ adequateContributionAccount: YesNo
++ adequateContributionSectoral: YesNo
 
-        «polluter-pays-principle»
+«polluter-pays-principle»
 
-        + pppAccount: YesNo
-        + pppERCBased: YesNo
-        + pppTargetPolluters: YesNo 
++ pppAccount: YesNo
++ pppERCBased: YesNo
++ pppTargetPolluters: YesNo 
 
-        «incentives»
-        + incentivesAccount: YesNo 
-        + incentivesEmpiricalInformation: YesNo 
-        + incentivesDifferentiated: YesNo [0..1]
-        + incentivesWaterScarcityUse: YesNo 
-    }
+«incentives»
++ incentivesAccount: YesNo 
++ incentivesEmpiricalInformation: YesNo 
++ incentivesDifferentiated: YesNo [0..1]
++ incentivesWaterScarcityUse: YesNo 
+}
 
-    class CostRecoveryPerService {
-        + euRBDCode: wiseIdentifier 
-        + waterService: WFDWaterService
+class CostRecoveryPerService {
++ euRBDCode: wiseIdentifier 
++ waterService: WFDWaterService
 
-        «cost-recovery-principle-application»
+«cost-recovery-principle-application»
 
-        + costRecoveryFull: YesNoNotApplicable
-        + costRecoveryCorroborated: YesNo [0..1]
++ costRecoveryFull: YesNoNotApplicable
++ costRecoveryCorroborated: YesNo [0..1]
 
-        «Justification»
+«Justification»
 
-        + nationalMethodologyApplied: YesNo [0..1]
-        + justificationLessFullRecovery: YesNo [0..1]
-        + justificationFactor: string [0..1]
-        + justificationSectoralInformation: YesNo [0..1]
++ nationalMethodologyApplied: YesNo [0..1]
++ justificationLessFullRecovery: YesNo [0..1]
++ justificationFactor: string [0..1]
++ justificationSectoralInformation: YesNo [0..1]
 
-        «Exemption»
+«Exemption»
 
-        + article94Exemption: YesNo [0..1]
-        + article94Justification: YesNo [0..1]
-    }
++ article94Exemption: YesNo [0..1]
++ article94Justification: YesNo [0..1]
+}
 
-    class VolumeRevenueCostPerService {
-        + geo: wiseIdentifier 
-        + time: gYear 
-        + dimension: VolumeRevenueCost
-        + obs_value: nonNegativeValue
-        + obs_unit: UnitOfMeasure
-        + obs_status: ObservationStatus [0..1]
-        + obs_comment: string [0..1]
-    }
+class VolumeRevenueCostPerService {
++ geo: wiseIdentifier 
++ time: gYear 
++ dimension: VolumeRevenueCost
++ obs_value: nonNegativeValue
++ obs_unit: UnitOfMeasure
++ obs_status: ObservationStatus [0..1]
++ obs_comment: string [0..1]
+}
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

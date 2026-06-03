@@ -10,17 +10,16 @@ See **PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4
 
 ## Purpose and overview
 
-The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_Classdiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram`).
+The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_3rdCycle_ClassDiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram`).
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
-The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
+The questionnaire in the `CostRecovery` and `CostRecoveryPerService` tables maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
 
-The *Service* table is removed. Information about volumes, revenues and costs is requested in the *VolumeRevenueCostPerService* table, using the standard structure for statistical data commonly used by Eurostat.
+The *Service* table is removed. Information about volumes, revenues and costs is requested in the `VolumeRevenueCostPerService` table, using the standard structure for statistical data commonly used by Eurostat.
 
-
-```{mermaid} /DataModelReview/mmd/EconomicAnalysisclassDiagram.mmd
-:name: EconomicAnalysis_Classdiagram
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_3rdCycle_ClassDiagram.mmd
+:name: EconomicAnalysis_3rdCycle_ClassDiagram
 :align: center
 :caption: Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.
 ```
@@ -29,32 +28,44 @@ The *Service* table is removed. Information about volumes, revenues and costs is
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram.mmd
 :name: EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram
 :align: center
-:caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting
+:caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle
 ```
 
 ## Cost Recovery – 4ᵗʰ cycle
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
-The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({numref}`Figure3EconomicAnalysis`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
+The questionnaire in the `CostRecovery` and `CostRecoveryPerService` tables 
+(see {numref}`EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram`
+and {numref}`EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
 
 ({numref}`EconomicAnalysis_CostRecoveryTable`) lists the content of the questionnaire.
 
 ```{include} tables/EconomicAnalysis_CostRecoveryTable
 ```
 
-(Figure 3)=
-```{mermaid} /DataModelReview/mmd/Figure3EconomicAnalysis.mmd
-:name: Figure3EconomicAnalysis
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram.mmd
+:name: EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram
 :align: center
-:caption: CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
+:caption: CostRecovery – 4ᵗʰ cycle
+```
+
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram.mmd
+:name: EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram
+:align: center
+:caption: CostRecoveryPerService – 4ᵗʰ cycle
 ```
 
 ## Water Services Data – 4ᵗʰ cycle
 
 The data structure was simplified to a core set of quantitative data for a limited number of water services and water user sectors. The purpose is to obtain a consistent overview across Europe, at river basin district level.
 
-Information is requested:<br>• about the physical volumes of water, the revenues and the costs ({ref}`Figure 5 <Figure 5>`),<br>• for three water user sectors – agriculture, industry and households ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`),<br>• and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
+Information is requested:  
+* about the physical volumes of water, the revenues and the costs 
+  ({ref}`Figure 5 <Figure 5>`)
+* for three water user sectors – agriculture, industry and households 
+  ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`)
+* and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
 
 
 
@@ -155,7 +166,7 @@ The dimension codes for the reporting of volumes and revenues are presented in (
 :align: center
 ```
 See also in ([^3])
-[^3]: ({numref}`EconomicAnalysis_Volume`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+[^3]: ({numref}`EconomicAnalysis_4thCycle_ VolumeRevenueCostPerService_ClassDiagram`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
 
 
 ```{table} Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting
@@ -178,7 +189,7 @@ See also in ([^3])
 | CST_WWT_CRR   | Sewerage services – Cost recovery rate                     |
 ```
 
-```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_ VolumeRevenueCostPerService_ClassDiagram.mmd
 :align: center
 ```
 
