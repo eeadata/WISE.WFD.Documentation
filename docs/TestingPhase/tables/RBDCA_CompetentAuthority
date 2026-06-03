@@ -1,63 +1,66 @@
 ```{list-table} CompetentAuthority
 :name: RBDCA_CompetentAuthority
-:width: 100%
 :header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
 
 * - Attribute
-  - Data type
+  - Type
+  - {abbr}`m (multiplicity)`
   - Definition
 
 * - euCACode
   - {term}`wiseIdentifier`
+  - [1]
   - Unique European code for the Competent Authority.  
-    Required.
 
 * - competentAuthorityName
-  - String(100)
+  - {term}`string`(100)
+  - [1]  
   - Official name of the Competent Authority in English.  
-    Required.  
     Only Latin characters are allowed.
 
 * - competentAuthorityNameNL 
-  - String(100) 
+  - {term}`string`(100) 
+  - [1]  
   - Official name of the Competent Authority in the Member State’s national language.  
-    Required.
 
 * - competentAuthorityNameNLLanguage 
-  - {term}`LanguageCode`
+  - {term}`Language`
+  - [1]  
   - Language used for reporting the name of the Competent Authority 
     in a national language.
 
 * - acronym 
-  - String(100) 
+  - {term}`string`(100) 
+  - [0..1]  
   - Acronym for the Competent Authority (if it exists).  
-    Optional. 
 
 * - street 
-  - String(100) 
+  - {term}`string`(100) 
+  - [1]
   - Street name where Competent Authority is located in latin characters.  
-    Required.
     Only Latin characters are allowed.
 
 * - city 
-  - String(100) 
+  - {term}`string`(100) 
+  - [1]
   - City where Competent Authority is located in latin characters. 
-    Required.
     Only Latin characters are allowed.
 
 * - country 
-  - String(100) 
+  - {term}`string`(100) 
+  - [1]
   - Country where the Competent Authority is located in English.  
-    Required.
     Only Latin characters are allowed.
 
 * - postCode 
-  - String(50) 
+  - {term}`string`(50) 
+  - [1]
   - Postcode address of the Competent Authority.  
-    Required.
     Only Latin characters are allowed.
 
 * - url 
   - {term}`URL`
+  - [1]
   - Website address of the Competent Authority.  
-    Required.
