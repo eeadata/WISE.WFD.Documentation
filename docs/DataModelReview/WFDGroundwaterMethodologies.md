@@ -1,10 +1,10 @@
 (heading_wfd_groundwater_methodologies)=
 # WFD groundwater methodologies
 
-Last update: 2026-05-29
+Last update: 2026-06-03
 
-```{danger}
-DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
+```{warning}
+Public Version - Pending Discussion
 ```
 
 (heading_wfd_groundwater_methodologies_purpose_and_overview)=
@@ -130,12 +130,12 @@ Note that:
 ## Codelists - 4ᵗʰ cycle
 
 * For the `PressureAssessmentMethod` codelist, 
-  see {numref}`PressureAssessmentMethod_Codelist_4thCycle_Table`.
+  see {numref}`Codelist_4thCycle_PressureAssessmentMethod_Table`.
 * For the `TrendStatisticalMethod` codelist, 
-  see {numref}`TrendStatisticalMethod_Codelist_4thCycle_Table`.
+  see {numref}`Codelist_4thCycle_TrendStatisticalMethod_Table`.
 
 ```{dropdown} TrendStatisticalMethod codelist
-```{include} tables/TrendStatisticalMethod_Codelist_4thCycle_Table
+```{include} tables/Codelist_4thCycle_TrendStatisticalMethod_Table
 ```
 
 (heading_wfd_groundater_methodologies_documents_dataset_4th_cycle)=

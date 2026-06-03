@@ -1,10 +1,10 @@
 (heading_wfd_groundwater_bodies)=
 # WFD groundwater bodies
 
-Last update: 2026-05-30
+Last update: 2026-06-03
 
-```{danger}
-INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
+```{warning}
+Public Version - Pending Discussion
 ```
 
 ## Purpose and overview
@@ -77,7 +77,7 @@ In the 4ᵗʰ cycle of reporting, the data will be delivered in the Reportnet3 p
 ## Groundwater - descriptive data - 4ᵗʰ cycle
 
 The proposed structure for the 4ᵗʰ cycle electronic reporting 
-is presented in the class diagram in {numref}`Groundwater_DescriptiveData_4thCycle_ClassDiagram` 
+is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram` 
 and a brief description of each table is included in {numref}`Groundwater_4th_cycle_brief_table_description`.
 
 * The core data about each groundwaterbody 
@@ -96,8 +96,8 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     (A list of the default EU threshold values will be provided 
     where defined by the EU legislation.)
 
-```{mermaid} /DataModelReview/mmd/Groundwater_DescriptiveData_4thCycle_ClassDiagram.mmd
-:name: Groundwater_DescriptiveData_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Groundwater_4thCycle_DescriptiveData_ClassDiagram.mmd
+:name: Groundwater_4thCycle_DescriptiveData_ClassDiagram
 :caption: Groundwater - descriptive data - 4ᵗʰ cycle
 :align: center
 ```
@@ -254,44 +254,44 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 ## Groundwater - codelists - 4ᵗʰ cycle
 
 * For the `AquiferMediaTypeValue` codelist, 
-  see {numref}`Groundwater_AquiferMediaTypeValue_AquiferProductivity_Codelist_4thCycle_ClassDiagram`.  
+  see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
   The codelist was realigned with the INSPIRE codelist to allow more flexibility 
-  (see {numref}`AquiferMediaTypeValue_Codelist_4thCycle_Table`).
+  (see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_Table`).
 
 * For the `AquiferProductivity` codelist, 
-  see {numref}`Groundwater_AquiferMediaTypeValue_AquiferProductivity_Codelist_4thCycle_ClassDiagram`.  
+  see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
   The codelist allows the reporting of aquifer productivity 
   independently of the aquifer media values 
-  (see {numref}`AquiferProductivity_Codelist_4thCycle_Table`).  
+  (see {numref}`Codelist_4thCycle_AquiferProductivity_Table`).  
   Further technical guidance on concepts, classification schemes and class boundaries 
   is needed. [^aquiferProductivityIreland]
 
 * For the `AssessmentMethod` codelist, 
-  see {numref}`AssessmentMethod_AssessmentConfidence_Codelist_4thCycle_ClassDiagram`.  
+  see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
   The codelist is used to report 
   the assessment method for the chemical status and for the quantitative status 
-  (see {numref}`AssessmentMethod_Codelist_4thCycle_Table`).  
+  (see {numref}`Codelist_4thCycle_AssessmentMethod_Table`).  
   The same codelist is used for surface water bodies, 
   for the assessment method of ecological status or potential,
   and for the assessment method of chemical status.
 
 * For the `AssessmentConfidence` codelist, 
-  see also {numref}`AssessmentMethod_AssessmentConfidence_Codelist_4thCycle_ClassDiagram`.  
+  see also {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
   The codelist allow the reporting of 
   the level of confidence in the results of the status assessment
-  (see {numref}`AssessmentConfidence_Codelist_4thCycle_Table`).  
+  (see {numref}`Codelist_4thCycle_AssessmentConfidence_Table`).  
   The same codelist is used for surface water bodies. 
   See also [^IPCC_Authors] [^IPCC_WorkingGroups] [^IPCC_Readers].
 
 * For the `GroundwaterSurfaceWaterLink` codelist,
-  see {numref}`Groundwater_GroundwaterSurfaceWaterLink_Codelist_4thCycle_ClassDiagram`.  
+  see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram`.  
   The codelist is used to report 
   the type of link between a given groundwater body and a given surface water body 
-  (see {numref}`GroundwaterSurfaceWaterLink_Codelist_4thCycle_Table`).
+  (see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`).
 
 * For the `ReasonForFailure` codelist, 
-  see {numref}`Groundwater_ReasonForFailure_Codelist_4thCycle_ClassDiagram` 
-  and {numref}`ReasonForFailure_Codelist_4thCycle_Table`.
+  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram` 
+  and {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
 
   * For groundwater bodies in poor quantitative status, 
     the codelist values are used 
@@ -313,52 +313,52 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 % -----------------------------------------------------------------------------
 
-```{mermaid} /DataModelReview/mmd/Groundwater_AquiferMediaTypeValue_AquiferProductivity_Codelist_4thCycle_ClassDiagram.mmd
-:name: Groundwater_AquiferMediaTypeValue_AquiferProductivity_Codelist_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram.mmd
+:name: Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram
 :align: center
 :caption: AquiferMediaTypeValue codelist and AquiferProductivity codelist - 4ᵗʰ cycle
 ```
 
-```{include} /DataModelReview/tables/AquiferMediaTypeValue_Codelist_4thCycle_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_AquiferMediaTypeValue_Table
 ```
 
-```{include} /DataModelReview/tables/AquiferProductivity_Codelist_4thCycle_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_AquiferProductivity_Table
 ```
 
 % -----------------------------------------------------------------------------
 
-```{mermaid} /DataModelReview/mmd/AssessmentMethod_AssessmentConfidence_Codelist_4thCycle_ClassDiagram.mmd
-:name: AssessmentMethod_AssessmentConfidence_Codelist_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram.mmd
+:name: Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram
 :align: center
 :caption: AssessmentMethod codelist and AssessmentConfidence codelist - 4ᵗʰ cycle
 ```
 
-```{include} /DataModelReview/tables/AssessmentMethod_Codelist_4thCycle_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_AssessmentMethod_Table
 ```
 
-```{include} /DataModelReview/tables/AssessmentConfidence_Codelist_4thCycle_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_AssessmentConfidence_Table
 ```
 
 % -----------------------------------------------------------------------------
 
-```{mermaid} /DataModelReview/mmd/Groundwater_GroundwaterSurfaceWaterLink_Codelist_4thCycle_ClassDiagram.mmd
-:name: Groundwater_GroundwaterSurfaceWaterLink_Codelist_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram.mmd
+:name: Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram
 :align: center
 :caption: GroundwaterSurfaceWaterLink codelist - 4ᵗʰ cycle
 ```
 
-```{include} /DataModelReview/tables/GroundwaterSurfaceWaterLink_Codelist_4thCycle_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table
 ```
 
 % -----------------------------------------------------------------------------
 
-```{mermaid} /DataModelReview/mmd/Groundwater_ReasonForFailure_Codelist_4thCycle_ClassDiagram.mmd
-:name: Groundwater_ReasonForFailure_Codelist_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ReasonForFailure_ClassDiagram.mmd
+:name: Codelist_4thCycle_ReasonForFailure_ClassDiagram
 :align: center
 :caption: ReasonForFailure codelist - 4ᵗʰ cycle
 ```
 
-```{include} /DataModelReview/tables/ReasonForFailure_Codelist_4thCycle_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_ReasonForFailure_Table
 ```
 
 ```{todo}
@@ -384,8 +384,30 @@ in the International Hydrogeological Map of Europe 1:1,500,000 (IHME1500),
 although there is no reference to that source 
 is made in the WFD Reporting Guidance documents.
 
-A provisional spatial analysis of the two datasets (to be included)
-shows limited agreement between the classifications.
+A provisional spatial analysis of the two datasets 
+(using only the topmost horizons)
+reveals limited agreement between the classifications.  
+In {numref}`AquiferTypesWFDversusIHME`, 
+the rows represent the reported WFD geological formation 
+and the columns represent the IHME aquifer type.
+The values show the percentage of the area of each WFD geological formation 
+classified under each IHME aquifer type. For example:
+* 48% of the area reported as 'Fissured aquifers including karst - highly productive' 
+  under WFD is similarly classified under IHME
+* 33% of the area reported as 'Fissured aquifers including karst - moderately productive'
+  under WFD is classified under IHME as 'Practically non-aquiferous rocks, porous or fissured'.
+
+In practice, this means that an existing pan-European hydrogeological map (IHME1500) 
+can not be easily used to replace the information reported under WFD,
+but it also highlights the need for better clarification 
+of the aquifer type and aquifer productivity values to be used in the 4ᵗʰ cycle.
+
+```{figure} /DataModelReview/img/AquiferTypesWFDversusIHME.png
+:name: AquiferTypesWFDversusIHME
+:width: 100%
+:align: center
+WFD geological formation and IHME1500 aquifer type.
+```
 
 ```{dropdown} See detailed description
 ```{include} /DataModelReview/tables/IHME1500_InternationalHydrogeologicalMapOfEurope_Table
