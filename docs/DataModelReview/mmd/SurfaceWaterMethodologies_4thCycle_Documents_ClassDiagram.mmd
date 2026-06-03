@@ -9,31 +9,35 @@ classDiagram
 direction LR
 
 class dcMetadata {
-+ euRBDCode : wiseIdentifier
-+ title : String4000
-+ creatorOrganisationName : String4000
+
+«metadata»
++ title : string
++ creatorOrganisationName : string
 + creatorElectronicMailAddress : Email
-+ description : String4000 [0..1]
-+ created : Date [0..1]
++ description : string [0..1]
++ created : date [0..1]
 + language : Language [1..n]
 + license : URL
-+ rights : String4000 [0..1]
-+ rightsHolder : String4000 [0..1]
-+ licenseDocument : documentCode [0..*]
-+ metadataDocument : documentCode [0..*]
-+ includesDescriptiveData : YesNo
++ rights : string [0..1]
++ rightsHolder : string [0..1]
++ licenseDocument : documentCode [0..n]
++ metadataDocument : documentCode [0..n]
+
+«manifest»
++ euRBDCode : wiseIdentifier
++ includesMonitoringData : YesNo
 }
 
 class Reference {
   + referenceCode : wiseIdentifier
   + documentCode : Document
-  + bookmark : String50
-  + subject : String250 
+  + bookmark : string50
+  + subject : string250 
 }
 
 class Document {
 + documentCode : wiseIdentifier
-+ documentName : String250
++ documentName : string250
 + hyperlink : URL [0..1]
 + documentFile : Attachment [0..1]
 }

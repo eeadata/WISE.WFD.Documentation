@@ -1,12 +1,13 @@
-```{list-table} SignificantPressureTools codelist – 4ᵗʰ cycle.
-:name: PressureAssessmentMethod_Codelist_4thCycle_Table
-:width: 100%
+```{list-table} Codelist – 4ᵗʰ cycle - PressureAssessmentMethod
+:name: Codelist_4thCycle_PressureAssessmentMethod_Table
 :header-rows: 1
+:width: 100%
+:widths: 30 35 35
 :align: left
 
-* - significantPressureTools 
-  - label
-  - definition
+* - Notation
+  - Label
+  - Definition
 
 * - numericalTools
   - Numerical Tools

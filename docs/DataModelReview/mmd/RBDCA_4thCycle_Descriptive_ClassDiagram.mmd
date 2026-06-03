@@ -7,17 +7,16 @@ config:
 ---
 classDiagram
 direction LR
-namespace DescriptiveData {
 class CompetentAuthority {
 + euCACode : wiseIdentifier
-+ competentAuthorityName : varchar100
-+ competentAuthorityNameNL : nvarchar100
++ competentAuthorityName : string100
++ competentAuthorityNameNL : string100
 + competentAuthorityNameNLLanguage : Language
-+ acronym : nvarchar100 [0..1]
-+ street : nvarchar100
-+ city : nvarchar100
-+ country : nvarchar100
-+ postCode : nvarchar50 [0..1]
++ acronym : string100 [0..1]
++ street : string100
++ city : string100
++ country : string100
++ postCode : string50 [0..1]
 + url : URL
 }
 class RiverBasinDistrictCompetentAuthority {
@@ -25,5 +24,8 @@ class RiverBasinDistrictCompetentAuthority {
 + euCACode: wiseIdentifier
 + roleCode: Role [1..*]
 }
-}
+
 CompetentAuthority --> "1..*" RiverBasinDistrictCompetentAuthority
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

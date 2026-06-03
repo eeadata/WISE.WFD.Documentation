@@ -1,0 +1,19 @@
+```{list-table} Codelist - 4ᵗʰ cycle - AquiferRockType
+:name: Codelist_4thCycle_AquiferRockType_Table
+:header-rows: 1
+:width: 100%
+:widths: 25 25 50 
+:align: left
+
+* - Notation 
+  - Label 
+  - Definition 
+
+* - «to-be-defined» 
+  - «to-be-defined» 
+  - «to-be-defined» 
+
+* - unknown
+  - Unknown
+  - No information is available about the aquifer's lithology.
+```
