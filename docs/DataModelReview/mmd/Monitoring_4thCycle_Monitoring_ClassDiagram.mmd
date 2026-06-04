@@ -9,12 +9,12 @@ classDiagram
 direction LR
 class Monitoring{
   + euMonitoringSiteCode : wiseIdentifier
-  + parameterCode : ParameterCode
+  + parameterCode : Parameter
   + chemicalMatrix : ChemicalMatrixType [0..1]
   + chemicalPurpose : ChemicalPurpose [0..1]
   + frequency : MonitoringFrequency
   + cycle : MonitoringCycle
-  + lastMonitored : Year
+  + lastMonitored : gYear
 }
 
 

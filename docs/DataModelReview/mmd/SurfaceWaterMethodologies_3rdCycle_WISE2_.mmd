@@ -1,0 +1,24 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram
+
+class BiologyEQRClassificationProcedure["WISE2::BiologyEQRClassificationProcedure"]{
++ countryCode : Country
++ parameterWaterBodyCategory : WaterBodyCategory
++ parameterNCSWaterBodyType : string
++ parameterNaturalAWBHMWB : NaturalAWBHMWB
++ observedPropertyDeterminandBiologyEQRCode : BiologicalQualityElement
++ procedureClassificationSystem : ClassificationSystem
++ parameterBoundaryValueClasses12 : float
++ parameterBoundaryValueClasses23 : float
++ parameterBoundaryValueClasses34 : float
++ parameterBoundaryValueClasses45 : float
++ resultObservationStatus : ObservationStatus
++ remarks : string [0..1]
+}
+

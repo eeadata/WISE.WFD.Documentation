@@ -50,11 +50,26 @@ AssessmentConfidence
 BiologicalQualityElement
     Value from the `BiologicalQualityElement` controlled list of values, which is a subset of the {term}`QualityElement` controlled list of values.
 
+ChemicalMatrixType
+    Value from the `ChemicalMatrixType` controlled list of values.
+
+ChemicalPurpose
+    Value from the `ChemicalPurpose` controlled list of values.
+
 ChemicalStatus
     Value from the `ChemicalStatus` controlled list of values.
 
+ClassificationSystem  
+    Value from the `ClassificationSystem` controlled list of values. See https://dd.eionet.europa.eu/vocabulary/wise/ClassificationSystem
+
+Country
+    Value from the `Country` controlled list of values.
+
 EcologicalStatus
     Value from the `EcologicalStatus` controlled list of values.
+
+EnvironmentalQualityStandard
+    Value from the `EnvironmentalQualityStandard` controlled list of values. 
 
 ExemptionPeriod
     Value from the `ExemptionPeriod` controlled list of values.
@@ -88,6 +103,12 @@ MitigationMeasure
 
 MixingZoneMeasure
     Value from the `MixingZoneMeasure` controlled list of values.  
+
+MonitoringFrequency
+    Value from the `MonitoringFrequency` controlled list of values.  
+
+MonitoringCycle
+    Value from the `MonitoringCycle` controlled list of values.  
 
 NaturalAWBHMWB
     Value from the `NaturalAWBHMWB` controlled list of values.  

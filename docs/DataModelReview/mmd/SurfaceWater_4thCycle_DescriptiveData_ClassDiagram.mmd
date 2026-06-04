@@ -18,19 +18,6 @@ class SurfaceWaterBody {
     + swMixingZonesProportion : PercentageInterval
 }
 
-class SWType {
-    + swTypeIdentifier : wiseIdentifier
-    + swTypeDescription : text
-    + swTypeCategory : WaterBodyCategory
-    + swIntercalibrationType : IntercalibrationType
-}
-
-class SWTypeReferenceCondition {
-    + swTypeIdentifier : wiseIdentifier
-    + qeCode: QualityElement
-    + swTypeReferenceCondition : text
-}
-
 class SurfaceWaterBodyStatus {
     + euSurfaceWaterBodyCode : wiseIdentifier
     \ swEcologicalStatusOrPotentialValue : EcologicalStatus
@@ -40,13 +27,15 @@ class SurfaceWaterBodyStatus {
 class SWPollutant {
     + euSurfaceWaterBodyCode : wiseIdentifier
     + swPollutantCode : Parameter
+    + swThresholdIdentifier [1..n]
     + swPollutantCausingFailure : YesNoUnknown
-    + swPollutantExceedanceType : EQStandardType [0..n]
+    + swPollutantExceedanceType : EnvironmentalQualityStandard [0..n]
+    + swPollutantExceedanceInMixingZone : YesNoUnknownNotApplicable
+    
     + swPollutantAssessmentPeriod : range
     + swPollutantAssessmentMethod : AssessmentMethodValue
     + swPollutantAssessmentConfidence : AssessmentConfidenceValue
     + swGroupIdentifier : wiseIdentifier [0..n]
-    + swPollutantExceedanceInMixingZone : YesNoUnknown [0..1]
 }
 
 class SWPressureImpact {
@@ -75,11 +64,14 @@ class SWGrouping{
     + euSurfaceWaterBodyCode : wiseIdentifier
 }
 
-SWTypeReferenceCondition "1..19" -- "1" SWType
-SWType .. SurfaceWaterBody
+class SWType ["SWMethodologyDataset::SWType"]:::otherDataset{
++ swTypeIdentifier
+}
+
+SWType .. "1..n" SurfaceWaterBody : swTypeIdentifier
 SWHighlyModifiedWaterBody "0..n" -- SurfaceWaterBody : {naturalAWBHMWB =! 'natural'}
 SurfaceWaterBody -- SurfaceWaterBodyStatus
-SurfaceWaterBodyStatus "1" -- "n" SWQualityElement
+SurfaceWaterBodyStatus -- "n" SWQualityElement
 SurfaceWaterBodyStatus -- "0..n" SWPressureImpact
 SurfaceWaterBodyStatus -- "0..n" SWPollutant
 
@@ -88,3 +80,4 @@ SWPollutant "0..n" .. "0..n" SWGrouping : swGroupIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lightyellow,stroke:#000;

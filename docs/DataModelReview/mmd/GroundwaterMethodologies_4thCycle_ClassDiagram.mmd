@@ -33,15 +33,23 @@ class GWPressureAssessment{
   + gwSignificanceLinkFailure : YesNoNotApplicable
 }
 
-class ThresholdValue{
-  + gwThresholdIdentifier : wiseIdentifier
-  + parameterCode : Parameter
-  + thresholdValueDefined : YesNo
-  + thresholdValueRange : range [0..1]
-  + thresholdValueUnit : UnitOfMeasure [0..1]
-  + startingPointTrendReversal : range [0..1]
-  + naturalBackgroundLevelSet : YesNoNotApplicable
-  + nblValueRange : range  [0..1] 
+class GWThresholdValue{
++ gwThresholdIdentifier : wiseIdentifier
++ parameterCode : Parameter
++ thresholdValueDefined : YesNo
++ thresholdValueRange : range [0..1]
++ thresholdValueUnit : UnitOfMeasure [0..1]
++ naturalBackgroundLevelSet : YesNoNotApplicable
++ nblValueRange : range  [0..1] 
+
+«trend-reversal-measures»
++ startingPointTrendReversal : range [0..1]
+}
+
+class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
++ euGroundWaterBodyCode
++ gwPollutantCode
++ gwThresholdIdentifier
 }
 
 class PressureAssessmentMethod{
@@ -62,7 +70,8 @@ none
 GWPressureAssessment .. PressureAssessmentMethod : gwPressureAssessmentMethod
 GWMethodologies .. TrendStatisticalMethod : trendAssessmentStatisticalMethod
 
-note for ThresholdValue "GroundwaterDataset::GWPollutant.gwThresholdIdentifier"
+GWThresholdValue .. "1..n" GWPollutant : gwThresholdIdentifier
 
 classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lightyellow,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

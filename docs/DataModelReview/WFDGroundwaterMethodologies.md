@@ -110,7 +110,7 @@ The `GWPressureAssessment` table has a modified structure:
 * the quality control procedure will verify that different levels 
   are not selected simultaneously for any given RBD
 
-The `ThresholdValue` table has a structure similar to the corresponding class 
+The `GWThresholdValue` table has a structure similar to the corresponding class 
 in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
 Note that:
 

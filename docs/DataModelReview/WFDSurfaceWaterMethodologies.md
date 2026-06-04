@@ -88,6 +88,25 @@ The review of the classes and elements
 depicted in {numref}`SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram`
 is pending.
 
+The preliminary technical analysis suggests the changes described below.
+
+In the **BQEMethod** class, the following elements were removed:
+* SWMET/BQEMethod/bqePercentageOfTypes
+* SWMET/BQEMethod/bqeSensitivityImpactOther
+A unique identifier is introduced, as well as the possibility to reference supporting documentation.
+
+In the **SWPhysicoChemicalQE** class, the following elements were removed:
+* SWMET/SWPhysicoChemicalQE/physChemParameterOther
+
+In the **SWRBSP** class, the following elements were removed:
+* SWMET/SWRBSP/rbspOther
+* SWMET/SWRBSP/rbspScale
+
+In the **SWPrioritySubstance** class, the following elements were removed (because they are not required or can be derived in the revised model):
+* SWMET/SWPrioritySubstance/psScale
+* SWMET/SWPrioritySubstance/psStatusAssessment
+* SWMET/SWPrioritySubstance/psStandardsUsed
+
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram
 :align: center
