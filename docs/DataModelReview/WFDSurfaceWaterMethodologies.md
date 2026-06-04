@@ -1,7 +1,7 @@
 (heading_wfd_surface_water_methodologies)=
 # WFD surface water methodologies
 
-Last update: 2026-05-29
+Last update: 2026-06-04
 
 ```{Warning}
 Public Version - Pending Discussion
@@ -146,6 +146,30 @@ The table `SWPressureAssessment` uses a different approach:
 :name: SurfaceWaterMethodologies_4thCycle_SWMET_Part1_ClassDiagram
 :align: center
 :caption: Surface water methodologies - generic data - 4ᵗʰ cycle.
+```
+
+```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWThresholdValue_ClassDiagram.mmd
+:name: SurfaceWaterMethodologies_4thCycle_SWThresholdValue_ClassDiagram
+:align: center
+:caption: Surface water methodologies - SWThresholdValue - 4ᵗʰ cycle.
+```
+
+```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_QE3Classification_ClassDiagram.mmd
+:name: SurfaceWaterMethodologies_4thCycle_QE3Classification_ClassDiagram
+:align: center
+:caption: Surface water methodologies - QE3Classification - 4ᵗʰ cycle.
+```
+
+```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram.mmd
+:name: SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram
+:align: center
+:caption: Surface water methodologies - BQEMethod and QE1Classification - 4ᵗʰ cycle.
+```
+
+```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWType_ClassDiagram.mmd
+:name: SurfaceWaterMethodologies_4thCycle_SWType_ClassDiagram
+:align: center
+:caption: Surface water methodologies - SWType - 4ᵗʰ cycle.
 ```
 
 (heading_wfd_surface_water_methodologies_codelists_4th_cycle)=

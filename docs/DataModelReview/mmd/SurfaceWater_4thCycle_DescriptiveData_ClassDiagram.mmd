@@ -12,13 +12,13 @@ class SurfaceWaterBody {
     + euSurfaceWaterBodyCode : wiseIdentifier
     + surfaceWaterBodyCategory : WaterBodyCategory
     + naturalAWBHMWB : NaturalAWBHMWB
-    + surfaceWaterBodyTypeCode : swTypeIdentifier [0..1]
+    + swTypeIdentifier : wiseIdentifier
     + surfaceWaterBodyTransboundary : YesNo
     + reservoir : ReservoirType
     + swMixingZonesProportion : PercentageInterval
 }
 
-class SurfaceWaterBodyStatus {
+class SWStatus {
     + euSurfaceWaterBodyCode : wiseIdentifier
     \ swEcologicalStatusOrPotentialValue : EcologicalStatus
     \ swChemicalStatusValue : ChemicalStatus
@@ -53,6 +53,7 @@ class SWHighlyModifiedWaterBody {
 class SWQualityElement{
     + euSurfaceWaterBodyCode : wiseIdentifier
     + qeCode : QualityElement
+    + qeClassificationIdentifier : wiseIdentifier [0..n]
     + qeStatusOrPotentialValue : EcologicalStatus
     + qeStatusAssessmentPeriod : range
     + qeStatusAssessmentMethod : AssessmentMethodValue
@@ -70,10 +71,10 @@ class SWType ["SWMethodologyDataset::SWType"]:::otherDataset{
 
 SWType .. "1..n" SurfaceWaterBody : swTypeIdentifier
 SWHighlyModifiedWaterBody "0..n" -- SurfaceWaterBody : {naturalAWBHMWB =! 'natural'}
-SurfaceWaterBody -- SurfaceWaterBodyStatus
-SurfaceWaterBodyStatus -- "n" SWQualityElement
-SurfaceWaterBodyStatus -- "0..n" SWPressureImpact
-SurfaceWaterBodyStatus -- "0..n" SWPollutant
+SurfaceWaterBody -- SWStatus
+SWStatus -- "n" SWQualityElement
+SWStatus -- "0..n" SWPressureImpact
+SWStatus -- "0..n" SWPollutant
 
 SWQualityElement "0..n" .. "0..n" SWGrouping : swGroupIdentifier
 SWPollutant "0..n" .. "0..n" SWGrouping : swGroupIdentifier

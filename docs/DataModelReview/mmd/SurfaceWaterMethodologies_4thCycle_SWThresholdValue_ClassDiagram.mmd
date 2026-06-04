@@ -1,0 +1,65 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class SWType:::partial {
+    + swTypeIdentifier : wiseIdentifier
+}
+
+class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::partial{
++ euSurfaceWaterBodyCode
++ swPollutantCode
++ swThresholdIdentifier [1..n]
+}
+
+class SWThresholdValue{
++ swThresholdIdentifier : wiseIdentifier
++ parameterCode : Parameter
++ eqsStandardType : EnvironmentalQualityStandard
++ chemicalMatrix : ChemicalMatrixType 
+
++ thresholdValueRange : range [0..1]
++ thresholdValueUnit : UnitOfMeasure [0..1]
++ naturalBackgroundLevelSet : YesNoNotApplicable
+
+«compliance-with-criteria»
++ analyticalMethod : YesNo
++ analyticalMethodBAT : YesNoNotApplicable
+
+«reference»
++ swThresholdReference : referenceCode [0..n]
+
+«for-data-quality-control-purposes»
++ applicableToRW : YesNo
++ applicableToLW : YesNo
++ applicableToTW : YesNo
++ applicableToCW : YesNo
++ applicableToTeW : YesNo
+}
+
+class SWThreshold_SWType{
++ swThresholdIdentifier : wiseIdentifier
++ swTypeIdentifier : wiseIdentifier
+}
+
+class SWNaturalBackgroundLevel{
+    + swTypeIdentifier : wiseIdentifier
+    + parameterCode : ParameterCode
+    + parameterValue : range  
+    + parameterUnit : UnitOfMeasure
+}
+
+SWPollutant "1..n" .. SWThresholdValue : swThresholdIdentifier
+SWThresholdValue -- "1..n" SWThreshold_SWType : swThresholdIdentifier
+SWThreshold_SWType "1..n" -- SWType : swTypeIdentifier
+SWType -- "1..n" SWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;

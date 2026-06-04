@@ -1,10 +1,10 @@
 (heading_wfd_surface_water_bodies)=
 # WFD surface water bodies
 
-Last update: 2026-05-13
+Last update: 2026-06-04
 
-```{danger}
-DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
+```{Warning}
+Public Version - Pending Discussion
 ```
 
 (heading_wfd_surface_water_bodies_purpose_and_overview)=
@@ -89,9 +89,9 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
   - *modified*  
     
 
-* - SurfaceWaterBodyStatus
+* - SWStatus
   - *new*  
-    The `SurfaceWaterBodyStatus` table synthesizes 
+    The `SWStatus` table synthesizes 
     information about the status of the water body.
     
     Formally, the `chemicalStatusValue` 

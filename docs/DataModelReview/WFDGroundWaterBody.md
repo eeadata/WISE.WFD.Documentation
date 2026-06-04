@@ -157,9 +157,9 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     This facilitates both the reporting and the quality control
     (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`). 
 
-* - GroundWaterBodyStatus
+* - GWStatus
   - *new*  
-    The `GroundWaterBodyStatus` table synthesizes 
+    The `GWStatus` table synthesizes 
     information about the status of the water body,
     and the causes of failure (if applicable).
     
