@@ -61,11 +61,12 @@ The remaining attributes (see {numref}`ExemptionAbstractClass`) identify:
 
 Reference to additional information in the RBMPs documentation can be provided via the `exemptionReference`.
 
-The `exemptionPeriod` (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`) replaces the following attributes requested in the  3ʳᵈ cycle:
-* `swEcologicalStatusOrPotentialExpectedAchievementDate`,
-* `swChemicalStatusExpectedAchievementDate`, 
-* `gwChemicalStatusExpectedAchievementDate` and 
-* `gwQuantitativeStatusExpectedAchievementDate`.
+The `exemptionPeriod` replaces the following attributes requested in the 3ʳᵈ cycle:
+* `swEcologicalStatusOrPotentialExpectedAchievementDate`
+* `swChemicalStatusExpectedAchievementDate`
+* `gwChemicalStatusExpectedAchievementDate` 
+* `gwQuantitativeStatusExpectedAchievementDate`
+See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
 ```{mermaid}
 :name: ExemptionAbstractClass
@@ -341,10 +342,10 @@ DG ENV to provide draft flowchart and quality control criteria
 (heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions)=
 ## Codelists associated with the Exemption tables
 
-Codelists associated with the reporting of exemptions are presented in {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`.
+Codelists associated with the reporting of exemptions are presented in {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
-```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_Codelists_ClassDiagram.mmd 
-:name: Exemptions_4thCycle_Codelists_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram.mmd 
+:name: Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram
 :caption: Codelists associated with the Exemption classes - 4ᵗʰ cycle
 :align: center
 ```
@@ -389,8 +390,10 @@ For the purposes of carrying out the ex -post verification under point (c) of th
 
 **Actions taken:**
 
-* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
-* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist.  
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
+* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist.
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
 **Quality checks to be implemented:**
 
@@ -426,7 +429,8 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 **Actions taken:**
 
-* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist.
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
 **Quality checks to be implemented:**
 
@@ -465,7 +469,8 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 
 **Actions taken:**
 
-* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist.
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 * The {ref}`Exemptions_EcologicalExemption_Flowchart` was updated.
 * The {ref}`Exemptions_ChemicalExemption_Flowchart` was updated.
 
