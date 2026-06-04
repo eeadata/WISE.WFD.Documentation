@@ -17,10 +17,12 @@ It also presents a proposal for simplifying the electronic reporting in the 4ᵗ
 (heading_wfd_surface_water_bodies_current_structure_3rd_cycle)=
 ## Current structure - 3ʳᵈ cycle
 
-The information about Surface water bodies was reported in two separate schemas:
+The information about Surface water bodies was reported in five separate schemas:
 
-* The SWB schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
-* The SWMET schema, containing information about the methodologies.
+* the SWB schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
+* the SWMET schema, containing information about the methodologies ({see ref}`heading_wfd_surface_water_methodologies`)
+* the GML_SurfaceWaterBody_2022 schema and GML_SurfaceWaterBodyLine_2022 schema, containing the SurfaceWaterBody spatial dataset.
+* the GML_SurfaceWaterBodyCentreline_2022 schema, containing the ancillary SurfaceWaterBodyCentreline spatial dataset.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_3rdCycle_SWB_ClassDiagram.mmd
 :name: SurfaceWater_3rdCycle_SWB_ClassDiagram
@@ -29,9 +31,9 @@ The information about Surface water bodies was reported in two separate schemas:
 ```
 
 (heading_wfd_surface_water_bodies_SWB_schema_3rd_cycle)=
-## SWB schema - 3ʳᵈ cycle
+## SWB_2022 schema - 3ʳᵈ cycle
 
-The SWB schema was already partially revised with regard to the reporting of exemptions.  
+The SWB_2022 schema was already partially revised with regard to the reporting of exemptions.  
 See:
 
 * {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
@@ -56,13 +58,122 @@ to help focus the discussion on the remaining issues.
 
 ## Surface water - descriptive data - 4ᵗʰ cycle
 
-{numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram` 
-shows a DRAFT diagram including the issues requiring clarification, in the classes marked in red.
+The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in the *draft* class diagram in ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`) and a brief description of each table is included in Table 36.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_DescriptiveData_ClassDiagram.mmd
 :name: SurfaceWater_4thCycle_DescriptiveData_ClassDiagram
 :align: center
 :caption: Surface water - 4ᵗʰ cycle
+```
+
+
+```{list-table} Surface water - 4ᵗʰ cycle - brief table description
+:name: SurfaceWater_4th_cycle_brief_table_description
+:header-rows: 1
+:width: 100%
+:widths: 20 80
+:align: left
+
+* - Table
+  - Description
+
+* - SurfaceWaterBody
+  - *modified*  
+    The `SurfaceWaterBody` table contains the attributes 
+    that describe the surface water body 
+    and that do not vary with the status of the waterbody.
+    Therefore the table can be prepared immediately, 
+    even if the 4ᵗʰ cycle RBMPs have not yet been finalised. 
+    All the attributes existed in the 3ʳᵈ cycle reporting. 
+
+* - SWHighlyModifiedWaterBody
+  - *modified*  
+    
+
+* - SurfaceWaterBodyStatus
+  - *new*  
+    The `SurfaceWaterBodyStatus` table synthesizes 
+    information about the status of the water body.
+    
+    Formally, the `chemicalStatusValue` 
+    could be derived from the information in the `SWPollutant` table. 
+    Likewise, the `swEcologicalStatusOrPotentialValue` 
+    could be derived from the `SWQualityElement` table. 
+    Nevertheless, a decision was taken to keep both attributes 
+    in the `SurfaceWaterBodyStatus` table, 
+    for *quality control purposes* 
+    (e.g. to guarantee that there was no mistake 
+    in the reporting of substances causing failure).
+
+* - SWPollutant
+  - *modified*  
+    The `SWPollutant` table contains data related to the chemical status at substance level.  
+    The information about the assessment method, assessment confidence, 
+    and assessment period can be reported at pollutant level, 
+    allowing more flexibility in reporting different situations 
+    for different pollutants or indicators of pollution. 
+    (If the same method, confidence and period apply 
+    to all substances assessed for a surface water body, 
+    then identical values can be reported for all substances).
+    
+* - SWQualityElement
+  - *new*  
+    The `SWQualityElement` table gathers 
+    the data related to ecological status or potential.  
+    The assessment method, confidence and period 
+    is reported using the same pattern 
+    applied for surface water pollutants.
+
+* - SWGrouping
+  - *new*   
+    If grouping was not used, this table is not necessary.  
+    If grouping was used for the 
+    assessment of ecological or chemical status,
+    the `SWGrouping` table is used 
+    to define sets of waterbodies 
+    that were monitored and assessed as a group.
+    The same grouping can be used for different purposes. 
+    The same water body can be a member of different groups.
+    
+    The `groupIdentifier` value uniquely identifies the group 
+    using the WISE identifier syntax.
+    The `euSurfaceWaterBodyCode` identifies a member of the group.  
+    If a group is used 
+    in the assessment of a given element, 
+    then at least one waterbody of the group 
+    must be monitored for that element
+    (e.g. must have `swPollutantAssessmentMethod = 'monitoring'`).  
+    (To avoid mistakes and ambiguities, 
+    the `groupIdentifier` value must be different 
+    from any known water body identifier. 
+    It is recomended to use a clear pattern 
+    to avoid conflicts with existing 
+    and future water body identifiers.
+    For example, using a '_GWGROUP' suffix).       
+
+* - SWPressureImpact
+  - *modified*.  
+    For the water bodies that do not achieve good ecological status or potential in 2027, 
+    the significant pressures causing poor ecological status or potential 
+    are reported in the `SWEcologicalExemption` table 
+    (see {numref}`Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram`) 
+    and do not need to be reported again in the `SWPressureImpact` table.
+
+    For water bodies that do not achieve good chemical status in 2027, 
+    the significant pressures are reported in the `SWChemicalExemption` table 
+    (see {numref}`Exemptions_4thCycle_SWChemicalExemption_ClassDiagram`) 
+    and do not need to be reported again in the `SWPressureImpact` table.
+    
+    For cases where a pressure is not causing failure, 
+    but still causes an impact that needs to be managed, 
+    the `SWPressureImpact` table should be used.
+
+    Note that the reporting of pressures and impacts 
+    is combined into a single `SWPressureImpact` table. 
+    In the 3ʳᵈ cycle, the XML structure did not allow 
+    a specific pressure to be link to a given impact.
+    In the proposed structure, this is possible (but not mandatory).  
+    Illustrative examples will be provided.  
 ```
 
 (heading_wfd_surface_water_bodies_ecological_status)=

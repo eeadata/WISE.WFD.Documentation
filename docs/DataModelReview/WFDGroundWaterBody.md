@@ -143,10 +143,10 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     and the definition of natural background levels 
     and substances threshold values. [^BRIDGE] 
 
-* - LinkSurfaceWaterBody
+* - GWLinkSurfaceWaterBody
   - *modified*.  
     If the groundwater body is linked to one or more surface water bodies,
-    that relation is reported in the `LinkSurfaceWaterBody` table.  
+    that relation is reported in the `GWLinkSurfaceWaterBody` table.  
     The `linkType` attribute specifies the type of water flow 
     between the groundwater and the surdace water body. 
 

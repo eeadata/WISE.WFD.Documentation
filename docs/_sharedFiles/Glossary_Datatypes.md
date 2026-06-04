@@ -25,6 +25,10 @@ nonNegativeValue
 date
     Date in the format yyyy-mm-dd.
 
+range
+    Range of values. The data type follows the Postgre range type implementation (see https://www.postgresql.org/docs/current/rangetypes.html) of the ISO 80000-2:2019(E) standard
+    (see https://cdn.standards.iteh.ai/samples/64973/329519100abd447ea0d49747258d1094/ISO-80000-2-2019.pdf).
+
 Email
     Character string. Validate using REGEX pattern.
 
@@ -46,6 +50,9 @@ AssessmentConfidence
 BiologicalQualityElement
     Value from the `BiologicalQualityElement` controlled list of values.
 
+ChemicalStatus
+    Value from the `ChemicalStatus` controlled list of values.
+
 ExemptionPeriod
     Value from the `ExemptionPeriod` controlled list of values.
 
@@ -55,8 +62,11 @@ ExemptionRationale
 ExemptionType
     Value from the `ExemptionType` controlled list of values.
 
-GroundwaterSurfacewaterLink
-    Value from the `GroundwaterSurfacewaterLink` controlled list of values.
+GroundwaterSurfaceWaterLink
+    Value from the `GroundwaterSurfaceWaterLink` controlled list of values.
+
+ImpactType
+    Value from the `ImpactType` controlled list of values.
 
 Language
     Value from the `Language` controlled list of values.  WISE dataflows use a subset of ISO 639-2, the alpha-3 code in Codes for the representation of names of languages-- Part 2. See https://www.loc.gov/standards/iso639-2/php/code_list.php
@@ -64,11 +74,17 @@ Language
 Licence
     Value from the `Licence` controlled list of values.  
 
+LithologyValue
+    Value from the `LithologyValue` controlled list of values. *To be defined*. 
+
 MitigationMeasure
     Value from the `MitigationMeasure` controlled list of values.  
 
 MixingZoneMeasure
     Value from the `MixingZoneMeasure` controlled list of values.  
+
+ParameterCode
+    Value from the `ParameterCode` controlled list of values.
 
 PressureAssessmentMethod
     Value from the `PressureAssessmentMethod` controlled list of values. 
@@ -78,6 +94,9 @@ PressureType
 
 ObservationStatus
     Value from the `ObservationStatus` controlled list of values. 
+
+QuantitativeStatus
+    Value from the `QuantitativeStatus` controlled list of values. 
 
 ReasonForFailure 
     Value from the `ReasonForFailure` controlled list of values. 
@@ -109,7 +128,12 @@ YesNoRBMP
 YesNoUnknownInapplicable
     Value from the `YesNoNotApplicable` controlled list of values.
 
+YesNoUnknownNotApplicableNotAssessed
+    Value from the `YesNoUnknownNotApplicableNotAssessed` controlled list of values.  
+
+YesNoUnknownNotAssessed
+    Value from the `YesNoUnknownNotAssessed` controlled list of values.  
+
 ```
 
-
-https://semiceu.github.io/style-guide/1.0.0/gc-conceptual-model-conventions.html
+See https://semiceu.github.io/style-guide/1.0.0/gc-conceptual-model-conventions.html
