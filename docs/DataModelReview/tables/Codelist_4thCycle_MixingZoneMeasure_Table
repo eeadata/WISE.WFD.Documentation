@@ -1,12 +1,13 @@
-```{list-table} Surface Water Methodologies - MixingZoneMeasure codelist – 4ᵗʰ cycle.
-:name: SurfaceWaterMethodologies_4thCycle_MixingZoneMeasure_Table
+```{list-table} Codelist – 4ᵗʰ cycle - MixingZoneMeasure
+:name: Codelist_4thCycle_MixingZoneMeasure_Table
 :width: 100%
 :header-rows: 1
 :align: left
 
-* - mixingZoneMeasure
-  - label
-  - definition
+* - Notation
+  - Label
+  - Definition
+
 * - measureArticle113k
   - Measures according to Article 11(3)(k) of the WFD
   - 

@@ -31,6 +31,9 @@ Email
 URL
     Character string with a maximum of 2100 characters. Validate using REGEX pattern.
 
+Attachment
+    File (typically a PDF) uploaded directly in Reportnet3.
+
 AquiferMediaTypeValue
     Value from the `AquiferMediaTypeValue` controlled list of values. 
 
@@ -39,6 +42,9 @@ AssessmentMethod
 
 AssessmentConfidence
     Value from the `AssessmentConfidence` controlled list of values.
+
+BiologicalQualityElement
+    Value from the `BiologicalQualityElement` controlled list of values.
 
 ExemptionPeriod
     Value from the `ExemptionPeriod` controlled list of values.
@@ -58,6 +64,15 @@ Language
 Licence
     Value from the `Licence` controlled list of values.  
 
+MitigationMeasure
+    Value from the `MitigationMeasure` controlled list of values.  
+
+MixingZoneMeasure
+    Value from the `MixingZoneMeasure` controlled list of values.  
+
+PressureAssessmentMethod
+    Value from the `PressureAssessmentMethod` controlled list of values. 
+
 PressureType
     Value from the `PressureType` controlled list of values.  This is a hierarchical list.
 
@@ -69,6 +84,9 @@ ReasonForFailure
 
 Role
     Value from the `Role` controlled list of values. 
+
+SubstanceCode
+    Value from the `SubstanceCode` controlled list of values.
 
 UnitOfMeasure
     Value from the `UnitOfMeasure` controlled list of values. 
@@ -84,6 +102,9 @@ YesNo
 
 YesNoNotApplicable
     Value from the `YesNoNotApplicable` controlled list of values.  
+
+YesNoRBMP
+    Value from the `YesNoRBMP` controlled list of values. 
 
 YesNoUnknownInapplicable
     Value from the `YesNoNotApplicable` controlled list of values.
