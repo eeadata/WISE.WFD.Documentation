@@ -48,10 +48,13 @@ AssessmentConfidence
     Value from the `AssessmentConfidence` controlled list of values.
 
 BiologicalQualityElement
-    Value from the `BiologicalQualityElement` controlled list of values.
+    Value from the `BiologicalQualityElement` controlled list of values, which is a subset of the {term}`QualityElement` controlled list of values.
 
 ChemicalStatus
     Value from the `ChemicalStatus` controlled list of values.
+
+EcologicalStatus
+    Value from the `EcologicalStatus` controlled list of values.
 
 ExemptionPeriod
     Value from the `ExemptionPeriod` controlled list of values.
@@ -68,6 +71,9 @@ GroundwaterSurfaceWaterLink
 ImpactType
     Value from the `ImpactType` controlled list of values.
 
+IntercalibrationType
+    Value from the `IntercalibrationType` controlled list of values.
+
 Language
     Value from the `Language` controlled list of values.  WISE dataflows use a subset of ISO 639-2, the alpha-3 code in Codes for the representation of names of languages-- Part 2. See https://www.loc.gov/standards/iso639-2/php/code_list.php
 
@@ -83,8 +89,17 @@ MitigationMeasure
 MixingZoneMeasure
     Value from the `MixingZoneMeasure` controlled list of values.  
 
-ParameterCode
-    Value from the `ParameterCode` controlled list of values.
+NaturalAWBHMWB
+    Value from the `NaturalAWBHMWB` controlled list of values.  
+
+ObservationStatus
+    Value from the `ObservationStatus` controlled list of values. 
+
+Parameter
+    Value from the `Parameter` controlled list of values. Depending of the scope in which it is being used, the subset of allowed values may be restricted by the quality control.
+
+PercentageInterval
+    Value from the `PercentageInterval` controlled list of values.  
 
 PressureAssessmentMethod
     Value from the `PressureAssessmentMethod` controlled list of values. 
@@ -92,8 +107,8 @@ PressureAssessmentMethod
 PressureType
     Value from the `PressureType` controlled list of values.  This is a hierarchical list.
 
-ObservationStatus
-    Value from the `ObservationStatus` controlled list of values. 
+QualityElement
+    Value from the `QualityElement` controlled list of values, which is a subset of the {term}`Parameter` controlled list of values.
 
 QuantitativeStatus
     Value from the `QuantitativeStatus` controlled list of values. 
@@ -101,17 +116,20 @@ QuantitativeStatus
 ReasonForFailure 
     Value from the `ReasonForFailure` controlled list of values. 
 
+ReservoirType
+    Value from the `ReservoirType` controlled list of values. 
+
 Role
     Value from the `Role` controlled list of values. 
-
-SubstanceCode
-    Value from the `SubstanceCode` controlled list of values.
 
 UnitOfMeasure
     Value from the `UnitOfMeasure` controlled list of values. 
 
 VolumeRevenueCost
     Value from the `VolumeRevenueCost` controlled list of values.
+
+WaterBodyCategory
+    Value from the `WaterBodyCategory` controlled list of values.
 
 WFDWaterService
     Value from the `WFDWaterService` controlled list of values.

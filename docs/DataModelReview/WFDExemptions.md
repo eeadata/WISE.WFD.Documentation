@@ -88,10 +88,10 @@ Exemption"]{
 ## Surface water ecological exemptions by quality element
 
 Ecological exemptions are only reported at quality element level, avoiding duplication.  
-Ecological exemptions are reported using the table in {numref}`SWEcologicalExemptionClass`.
+Ecological exemptions are reported using the table in {numref}`Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram.mmd
-:name: SWEcologicalExemptionClass
+:name: Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram
 :caption: Surface Water Body - Ecological Exemption - 4ᵗʰ cycle
 :align: center
 ```
@@ -137,13 +137,13 @@ The following conditions apply:
 (heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
 ## Surface water chemical exemptions by pollutant
 
-Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.  
+Chemical exemptions are reported using the table in {numref}`Exemptions_4thCycle_SWChemicalExemption_ClassDiagram`.  
 In the 4ᵗʰ cycle of reporting, exemptions associated with river basin specific pollutants 
 are reported as as chemical exemptions,
 and not as exemptions associated with the quality element "QE3-3 - River Basin Specific Pollutants".
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWChemicalExemption_ClassDiagram.mmd
-:name: SWChemicalExemptionClass
+:name: Exemptions_4thCycle_SWChemicalExemption_ClassDiagram
 :caption: Surface Water Body - Chemical Exemption - 4ᵗʰ cycle
 :align: center
 ```

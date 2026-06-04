@@ -19,8 +19,8 @@ It also presents a proposal for simplifying the electronic reporting in the 4ᵗ
 
 The information about Surface water bodies was reported in five separate schemas:
 
-* the SWB schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
-* the SWMET schema, containing information about the methodologies ({see ref}`heading_wfd_surface_water_methodologies`)
+* the SWB_2022 schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
+* the SWMET_2022 schema, containing information about the methodologies (see {ref}`heading_wfd_surface_water_methodologies`)
 * the GML_SurfaceWaterBody_2022 schema and GML_SurfaceWaterBodyLine_2022 schema, containing the SurfaceWaterBody spatial dataset.
 * the GML_SurfaceWaterBodyCentreline_2022 schema, containing the ancillary SurfaceWaterBodyCentreline spatial dataset.
 
@@ -33,7 +33,7 @@ The information about Surface water bodies was reported in five separate schemas
 (heading_wfd_surface_water_bodies_SWB_schema_3rd_cycle)=
 ## SWB_2022 schema - 3ʳᵈ cycle
 
-The SWB_2022 schema was already partially revised with regard to the reporting of exemptions.  
+The SWB_2022 schema was already partially revised with regard to the reporting of exemptions. 
 See:
 
 * {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
@@ -66,7 +66,6 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
 :caption: Surface water - 4ᵗʰ cycle
 ```
 
-
 ```{list-table} Surface water - 4ᵗʰ cycle - brief table description
 :name: SurfaceWater_4th_cycle_brief_table_description
 :header-rows: 1
@@ -96,7 +95,7 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
     information about the status of the water body.
     
     Formally, the `chemicalStatusValue` 
-    could be derived from the information in the `SWPollutant` table. 
+    could be derived from the information in the `SWPollutant` table.  
     Likewise, the `swEcologicalStatusOrPotentialValue` 
     could be derived from the `SWQualityElement` table. 
     Nevertheless, a decision was taken to keep both attributes 
