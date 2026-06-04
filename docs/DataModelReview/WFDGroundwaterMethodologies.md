@@ -131,6 +131,7 @@ Note that:
 
 * For the `PressureAssessmentMethod` codelist, 
   see {numref}`Codelist_4thCycle_PressureAssessmentMethod_Table`.
+  
 * For the `TrendStatisticalMethod` codelist, 
   see {numref}`Codelist_4thCycle_TrendStatisticalMethod_Table`.
 

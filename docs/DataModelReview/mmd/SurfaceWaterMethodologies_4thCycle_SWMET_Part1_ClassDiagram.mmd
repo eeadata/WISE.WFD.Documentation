@@ -10,8 +10,8 @@ direction TB
 
 class SWMethodologies {
   + euRBDCode : wiseIdentifier
-  + minimumCatchmentAreaRivers : Number
-  + minimumSurfaceAreaLakes : Number
+  + minimumCatchmentAreaRivers : nonNegativeValue
+  + minimumSurfaceAreaLakes : nonNegativeValue
   + hmwbMethodologyReference : referenceCode [1..n]
 }
 
@@ -66,38 +66,38 @@ notAssessed
 }
 
 class MitigationMeasure{
-  <<enumeration>>
-  fishLadders
-  bypassChannels
-  habitatRestoration
-  sedimentDebrisManagement
-  removalOfStructures
-  reconnectionOfMeanderBendsOrSideArms
-  loweringOfRiverBanks
-  restorationOfBankStructure
-  channelNarrowing
-  settingOfEcologicalFlows
-  inundationOfFloodPlains
-  operationalModificationsForHydroPeaking
-  dredgingMinimisationAndOrModification
-  restorationOfModifiedBedStructure
-  retentionBasins
+<<enumeration>>
+fishLadders
+bypassChannels
+habitatRestoration
+sedimentDebrisManagement
+removalOfStructures
+reconnectionOfMeanderBendsOrSideArms
+loweringOfRiverBanks
+restorationOfBankStructure
+channelNarrowing
+settingOfEcologicalFlows
+inundationOfFloodPlains
+operationalModificationsForHydroPeaking
+dredgingMinimisationAndOrModification
+restorationOfModifiedBedStructure
+retentionBasins
 }
 
 class MixingZoneMeasure{
-  <<enumeration>>
-   measureArticle113k
-   reviewOfPermits
-   priorRegulationsArticle113g
-   other
-   notApplicable
-  }
+<<enumeration>>
+measureArticle113k
+reviewOfPermits
+priorRegulationsArticle113g
+other
+notApplicable
+}
 
 class YesNoRBMP{
-  <<enumeration>>
-  yes
-  no
-  RBMP}
+<<enumeration>>
+yes
+no
+RBMP}
 
 SWTargetedQuestions .. MitigationMeasure : MitigationMeasure
 SWChemicalStatusClassification .. MixingZoneMeasure : mixingZoneMeasure

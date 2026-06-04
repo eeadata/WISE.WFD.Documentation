@@ -3,8 +3,8 @@
 
 Last update: 2026-05-29
 
-```{danger}
-DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
+```{Warning}
+Public Version - Pending Discussion
 ```
 
 (heading_wfd_surface_water_methodologies_purpose_and_overview)=
@@ -108,7 +108,7 @@ The revised strutured for the generic data in the surface water methodologies re
 is presented in {numref}`SurfaceWaterMethodologies_4thCycle_SWMET_Part1_ClassDiagram`,
 including the applicable codelists.
 
-The tables `SWMethodologies`, `SWManagementObjectives`, `SWTargetedQuestions` and  `SWChemicalStatusClassification` follow the struture of the corresponding classes 
+The `SWMethodologies`, `SWManagementObjectives`, `SWTargetedQuestions` and  `SWChemicalStatusClassification` tables have a struture similar to the corresponding classes 
 in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
 
 The table `SWPressureAssessment` uses a different approach:
@@ -132,18 +132,25 @@ The table `SWPressureAssessment` uses a different approach:
 (heading_wfd_surface_water_methodologies_codelists_4th_cycle)=
 ## Codelists - 4ᵗʰ cycle
 
-Note: this section includes only the codelists specific to the surface water methodologies.
+* For the `MitigationMeasure` codelist, 
+  see {numref}`Codelist_4thCycle_MitigationMeasure_Table`.
+
+* For the `MixingZoneMeasure` codelist, 
+  see {numref}`Codelist_4thCycle_MixingZoneMeasure_Table`.
+
+* For the `PressureAssessmentMethod` codelist, 
+  see {numref}`Codelist_4thCycle_PressureAssessmentMethod_Table`.
 
 ```{dropdown} MitigationMeasure codelist
-```{include} tables/SurfaceWaterMethodologies_4thCycle_MitigationMeasure_Table
+```{include} tables/Codelist_4thCycle_MitigationMeasure_Table
+```
+
+```{dropdown} MixingZoneMeasure codelist
+```{include} tables/Codelist_4thCycle_MixingZoneMeasure_Table
 ```
 
 ```{dropdown} PressureAssessmentMethod codelist
 ```{include} tables/Codelist_4thCycle_PressureAssessmentMethod_Table
-```
-
-```{dropdown} MixingZoneMeasure codelist
-```{include} tables/SurfaceWaterMethodologies_4thCycle_MixingZoneMeasure_Table
 ```
 
 (heading_wfd_surface_water_methodologies_documents_dataset_4th_cycle)=
