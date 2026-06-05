@@ -8,6 +8,7 @@ html_theme.sidebar_secondary.remove: true
 
 ```{toctree}
 :maxdepth: 2
+:numbered: 
 
 WFDRiverBasinDistrictsAndCompetentAuthorities
 WFDMeasures
@@ -22,18 +23,22 @@ WFDSurfaceWaterMethodologies
 
 ```
 
-## Common patterns
+## Other sections 
+
+Pending reorganisation.
 
 ```{toctree}
 :maxdepth: 1
 WFDGrouping
+WFDPressures
 ```
 
-## Codelists and datatypes
+## Conventions
 
 ```{toctree}
 :maxdepth: 1
-WFDPressures
+../_sharedFiles/ModellingConventions
 ../_sharedFiles/Glossary_Datatypes
+
 ```
 

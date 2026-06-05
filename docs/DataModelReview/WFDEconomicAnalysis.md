@@ -1,5 +1,5 @@
 (heading_wfd_economic_analysis)=
-# WFD economic analysis
+# Economic analysis
 
 Last update: 2026-05-08
 

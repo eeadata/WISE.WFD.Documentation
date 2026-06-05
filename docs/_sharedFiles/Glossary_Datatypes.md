@@ -1,4 +1,4 @@
-# Glossary of datatypes
+# Attribute types (datatypes)
 
 ```{glossary}
 :sorted: true
