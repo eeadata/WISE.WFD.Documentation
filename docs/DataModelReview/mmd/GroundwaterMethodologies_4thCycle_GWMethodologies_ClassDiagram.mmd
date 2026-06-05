@@ -1,0 +1,39 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+
+class GWMethodologies {
+  + euRBDCode : wiseIdentifier
+  + gwCharacterisationReference : referenceCode
+  + trendAssessmentPerformed : YesNo
+  + trendAssessmentTimeSeries : range [0..1]
+  + trendAssessmentStatisticalMethod : TrendStatisticalMethod [0..1]
+  + additionalTrendAssessment : YesNo
+  + trendReversalMethodology : YesNo
+  + thresholdValueElementProtectionEcosystem : YesNo
+  + transboundaryThresholdValues : YesNoNotApplicable
+  + thresholdValueElementProtectionGWDE : YesNo
+  + thresholdValueElementProtectionUses : YesNo
+  + thresholdValueElementSalineIntrusion : YesNo
+}
+
+class TrendStatisticalMethod{
+  <<enumeration>>
+  statisticalSignificanceTrendDetection
+  confidenceIntervalTrendMagnitude
+  none
+}
+
+GWMethodologies .. TrendStatisticalMethod : trendAssessmentStatisticalMethod
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lightyellow,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

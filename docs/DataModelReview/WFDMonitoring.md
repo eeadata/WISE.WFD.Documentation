@@ -1,5 +1,5 @@
 (heading_wfd_monitoring)=
-# WFD monitoring
+# Monitoring
 
 Last updated: 2026-05-22
 

@@ -1,5 +1,5 @@
 (heading_wfd_exemptions)=
-# WFD exemptions
+# Exemptions
 
 Last update: 2026-05-27
 

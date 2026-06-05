@@ -1,0 +1,42 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType :::partial{
+    + swTypeIdentifier : wiseIdentifier
+    + surfaceWaterBodyCategory : WaterBodyCategory
+    + naturalAWBHMWB : NaturalAWBHMWB
+    + swIntercalibrationType : IntercalibrationType
+    + swTypeDescription : string
+}
+
+class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{ 
+}
+
+class SWPollutant["SurfaceWaterDataset::SWPollutant"]:::partial{ 
+}
+
+SWQualityElement .. QE1Classification : qeClassificationIdentifier
+SWQualityElement .. QE3Classification : qeClassificationIdentifier
+
+
+QE1Classification -- "1..n" QEClassification_SWType : swTypeIdentifier
+
+QEClassification_SWType "1..n" -- SWType : swTypeIdentifier
+QE3Classification -- "1..n" QEClassification_SWType : swTypeIdentifier
+
+
+SWPollutant .. SWThresholdValue : swThresholdIdentifier
+SWThresholdValue -- "1..n" SWType_SWThreshold : swThresholdIdentifier
+SWType_SWThreshold "1..n" -- SWType : swTypeIdentifier
+SWType -- "1..n" SWNaturalBackgroundLevel : swTypeIdentifier
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;

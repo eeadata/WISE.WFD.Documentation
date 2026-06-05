@@ -1,5 +1,5 @@
 (heading_wfd_economic_analysis)=
-# WFD economic analysis
+# Economic analysis
 
 Last update: 2026-05-08
 
@@ -56,12 +56,10 @@ The data structure was simplified to a core set of quantitative data for a limit
 
 Information is requested:<br>• about the physical volumes of water, the revenues and the costs ({ref}`Figure 5 <Figure 5>`),<br>• for three water user sectors – agriculture, industry and households ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`),<br>• and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
 
-
-
 (Figure 5)=
 | a) | b) and c) |
-|---------|---------|
-| <img src="img/EconomicAnalysisPhysicalvolume.PNG" width="300"> | <img src="img/EconomicAnalysisRevenue.PNG" width="300"> |
+|:--:|:----------:|
+| ![](img/EconomicAnalysisPhysicalvolume.png){width="300px"} | ![](img/EconomicAnalysisRevenue.png){width="300px"} |
 
 *Figure 5.Overview diagram for the requested data on volumes, revenues and costs – 4ᵗʰ cycle of reporting.*
 
@@ -91,7 +89,7 @@ For the provision of the services quantified in a) and b), the total costs are t
 
 The requested data on water volumes is detailed in ({numref}`conceptualvolume`). The relevant concepts are aligned with the OECconceptualvolumeD/Eurostat Joint Questionnaire on Inland Waters and the Eurostat Regional Water Questionnaire and defined in ({numref}`EconomicAnalysis_Conceptsanddefinitions`).
 
-```{figure} img/EconomicAnalysisConceptualVolume.PNG
+```{figure} img/EconomicAnalysisConceptualVolume.png
 :name: conceptualvolume
 :align: center
 :width: 100%
@@ -128,7 +126,7 @@ The requested data on revenues is detailed in {numref}`Economic_Analysis_Concept
 The following generic guidelines apply to the reporting of revenues:<br>• **Water abstraction** revenues (R1, R2, R3, R4, R5 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental/resource taxes and administrative fees paid (directly or indirectly) to the general government.<br>• **Water supply** revenues (R41, R52, R53 in {numref}`Economic_Analysis_ConceptualRevenue`) represent the gross revenue of the irrigation water service providers and the drinking water service providers from fees charged to the end‑user sector (agriculture, manufacturing industry and households). The gross revenue must include the base service fee plus any environmental or resource costs incurred during abstraction that are passed through to the consumer to ensure an adequate contribution from that sector.<br>• **Wastewater discharges** revenues (R6 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental taxes and pollution levies paid directly or indirectly to the government for the emission of pollutants back into the environment.<br>• **Sewerage services** revenues (R62 and R63 in {numref}`Economic_Analysis_ConceptualRevenue`) represent gross revenue for wastewater collection and treatment services. The revenue must include the service fees charged to users plus any internalised environmental charges related to the final discharge that are passed on to the households or industrial users.
 
 
-```{figure} img/EconomicAnalysisConceptualRevenue.PNG
+```{figure} img/EconomicAnalysisConceptualRevenue.png
 :name: Economic_Analysis_ConceptualRevenue
 :align: center
 :width: 100%

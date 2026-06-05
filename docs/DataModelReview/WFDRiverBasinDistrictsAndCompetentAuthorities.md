@@ -1,5 +1,5 @@
 (heading_wfd_rbd_and_ca)=
-# WFD river basin districts and competent authorities
+# River basin districts and competent authorities
 
 Last update: 2026-05-14
 

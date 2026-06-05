@@ -1,5 +1,5 @@
 (heading_wfd_protected_areas)=
-# WFD protected areas
+# Protected areas
 
 Last update: 2026-05-12
 

@@ -22,18 +22,23 @@ WFDSurfaceWaterMethodologies
 
 ```
 
-## Common patterns
+## Other sections 
+
+Pending reorganisation.
 
 ```{toctree}
 :maxdepth: 1
+:hidden:
 WFDGrouping
+WFDPressures
 ```
 
-## Codelists and datatypes
+## Conventions
 
 ```{toctree}
 :maxdepth: 1
-WFDPressures
+../_sharedFiles/ModellingConventions
 ../_sharedFiles/Glossary_Datatypes
+
 ```
 

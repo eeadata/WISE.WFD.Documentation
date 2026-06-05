@@ -1,0 +1,28 @@
+# Custom Dictionary Words
+
+GWMET
+GWMET_2022
+Reportnet3
+RBMP
+GWGROUP
+SWGROUP
+codelist
+codelists
+IPCC
+IHME
+WFD
+GWDE
+
+# Sphinx
+
+numref
+linenos
+dagre
+lightyellow
+
+# Other words...
+
+exceedance
+aquiferous
+physico-chemical
+transboundary

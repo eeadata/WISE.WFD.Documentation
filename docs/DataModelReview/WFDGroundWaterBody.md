@@ -1,5 +1,5 @@
 (heading_wfd_groundwater_bodies)=
-# WFD groundwater bodies
+# Groundwater bodies
 
 Last update: 2026-06-03
 
@@ -80,7 +80,7 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting
 is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram` 
 and a brief description of each table is included in {numref}`Groundwater_4th_cycle_brief_table_description`.
 
-* The core data about each groundwaterbody 
+* The core data about each groundwater body 
   is reported in 3 tables: `GroundWaterBody`, `LinkSurfaceWaterBody` and `GWNaturalBackgroundLevel`.
 
   * The content of this group of tables does not depend 
@@ -116,7 +116,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
   - *modified*  
     The `GroundWaterBody` table contains the attributes 
     that describe the groundwater body 
-    and that do not vary with the status of the waterbody.
+    and that do not vary with the status of the water body.
     Therefore the table can be prepared immediately, 
     even if the 4ᵗʰ cycle RBMPs have not yet been finalised. 
     All the attributes existed in the 3ʳᵈ cycle reporting.  
@@ -126,7 +126,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
     In the 3ʳᵈ cycle, the reporting guidance requested description of 
     "*the main geological formation of the aquifer type*".
-    The usabilibility of the reported data was limited, 
+    The usability of the reported data was limited, 
     beyond visualisation purposes.  
     For the 4ᵗʰ cycle, a suggestion is made to split 
     the data in two attributes: `aquiferMediaType` and `aquiferProductivity`, 
@@ -148,7 +148,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     If the groundwater body is linked to one or more surface water bodies,
     that relation is reported in the `GWLinkSurfaceWaterBody` table.  
     The `linkType` attribute specifies the type of water flow 
-    between the groundwater and the surdace water body. 
+    between the groundwater and the surface water body. 
 
 * - GWNaturalBackgroundLevel
   - *modified*  
@@ -157,9 +157,9 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     This facilitates both the reporting and the quality control
     (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`). 
 
-* - GroundWaterBodyStatus
+* - GWStatus
   - *new*  
-    The `GroundWaterBodyStatus` table synthesizes 
+    The `GWStatus` table synthesizes 
     information about the status of the water body,
     and the causes of failure (if applicable).
     
@@ -204,7 +204,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     If grouping was used for the 
     assessment of quantitative or chemical status,
     the `GWGrouping` table is used 
-    to define sets of waterbodies 
+    to define sets of water bodies 
     that were monitored and assessed as a group.
     The same grouping can be used for different purposes. 
     The same water body can be a member of different groups.
@@ -214,13 +214,13 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     The `euGroundWaterBodyCode` identifies a member of the group.  
     If a group is used 
     in the assessment of a given element, 
-    then at least one waterbody of the group 
+    then at least one water body of the group 
     must be monitored for that element
     (i.e. must have `gwPollutantAssessmentMethod = 'monitoring'`).  
       (To avoid mistakes and ambiguities, 
     the `groupIdentifier` value must be different 
     from any known water body identifier. 
-    It is recomended to use a clear pattern 
+    It is recommended to use a clear pattern 
     to avoid conflicts with existing 
     and future water body identifiers.
     For example, using a '_GWGROUP' suffix).       
@@ -387,7 +387,7 @@ is made in the WFD Reporting Guidance documents.
 A provisional spatial analysis of the two datasets 
 (using only the topmost horizons)
 reveals limited agreement between the classifications.  
-In {numref}`AquiferTypesWFDversusIHME`, 
+In {numref}`AquiferTypesWFDVersusIHME`, 
 the rows represent the reported WFD geological formation 
 and the columns represent the IHME aquifer type.
 The values show the percentage of the area of each WFD geological formation 
@@ -499,7 +499,7 @@ from a typical borehole at an individual abstraction site."
 ```{dropdown} Show code
   ```{code-block} sql
   :caption: [gwQuantitativeStatusValue] vs [gwQuantitativeReasonsForFailure] - 3ʳᵈ cycle
-  :linenos:
+  ::
   -- https://discodata.eea.europa.eu/
 
   SELECT [gwQuantitativeStatusValue]
@@ -535,7 +535,7 @@ from a typical borehole at an individual abstraction site."
 ### Natural background levels
 
 In the 3ʳᵈ cycle, natural background levels (NBL) 
-were reported for 8608 waterbodies (38.6%) and over 90 substances. 
+were reported for 8608 water bodies (38.6%) and over 90 substances. 
 
 An exploratory analysis shows the expected high frequency of reporting of NBLs for metals and metalloids 
 (e.g. arsenic, cadmium or lead), major ions and nutrients

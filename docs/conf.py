@@ -65,7 +65,8 @@ myst_enable_extensions = [
     "amsmath",
     "dollarmath",
     "colon_fence",
-    "linkify"
+    "linkify",
+    "attrs_inline"
 ]
 
 # SQLTABLE - configure the default connection if there is one
@@ -83,6 +84,9 @@ html_static_path = ['_static']
 html_css_files = [
    'customTable.css'
 ]
+html_sidebars = {
+    "**": ["sidebar-collapse", "sidebar-nav-bs"]
+}
 
 html_theme_options = {
     "logo": {

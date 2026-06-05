@@ -1,0 +1,52 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class GWType:::partial {
+  + gwTypeIdentifier : wiseIdentifier
+}
+
+class GWPollutant ["GroundWaterDataset::GWPollutant"]:::partial{
+  + euGroundWaterBodyCode
+  + gwPollutantCode
+  + gwThresholdIdentifier [1..n]
+}
+
+class GWThresholdValue{
+  + gwThresholdIdentifier : wiseIdentifier
+  + parameterCode : Parameter
+  + thresholdValueDefined : YesNo
+  + thresholdValueRange : range [0..1]
+  + thresholdValueUnit : UnitOfMeasure [0..1]
+  + naturalBackgroundLevelSet : YesNoNotApplicable
+  + startingPointTrendReversal : range [0..1]
+  «reference»
+  + swThresholdReference : referenceCode [0..n]
+}
+
+class GWThreshold_GWType{
+  + gwThresholdIdentifier : wiseIdentifier
+  + gwTypeIdentifier : wiseIdentifier
+}
+
+class GWNaturalBackgroundLevel{
+  + gwTypeIdentifier : wiseIdentifier
+  + parameterCode : ParameterCode
+  + parameterValue : range  
+  + parameterUnit : UnitOfMeasure
+}
+
+GWPollutant "1..n" .. GWThresholdValue : gwThresholdIdentifier
+GWThresholdValue -- "1..n" GWThreshold_GWType : gwThresholdIdentifier
+GWThreshold_GWType "1..n" -- GWType : gwTypeIdentifier
+GWType -- "1..n" GWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;
