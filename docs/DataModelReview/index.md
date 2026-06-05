@@ -8,7 +8,6 @@ html_theme.sidebar_secondary.remove: true
 
 ```{toctree}
 :maxdepth: 2
-:numbered: 
 
 WFDRiverBasinDistrictsAndCompetentAuthorities
 WFDMeasures
@@ -29,6 +28,7 @@ Pending reorganisation.
 
 ```{toctree}
 :maxdepth: 1
+:hidden:
 WFDGrouping
 WFDPressures
 ```

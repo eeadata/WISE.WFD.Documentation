@@ -1,7 +1,7 @@
 (heading_wfd_groundwater_methodologies)=
-# WFD groundwater methodologies
+# Groundwater methodologies
 
-Last update: 2026-06-03
+Last update: 2026-06-04
 
 ```{warning}
 Public Version - Pending Discussion
@@ -27,7 +27,7 @@ The GWMET_2022 schema defined the required data about  about the groundwater met
 :align: center
 :width: 75%
 
-GWMET_2022 Schema - 3ʳᵈ cycle - Obsolete
+GWMET_2022 Schema - 3ʳᵈ cycle
 ```
 
 The GWMET_2022 schema was already partially revised (see {ref}`heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle`). 
@@ -88,17 +88,26 @@ The following elements were removed:
 * GWMET/GWPressures/gwSignificantPressureOtherSourceTools
 * GWMET/GWPressures/gwPressuresNotAssessed
 
-The struture of the **GWPressures** class was also revised.
+The structure of the **GWPressures** class was also revised.
 
 (heading_wfd_groundwater_methodologies_descriptive_4th_cycle)=
 ## Descriptive dataset - 4ᵗʰ cycle
 
-{numref}`GroundwaterMethodologies_4thCycle_ClassDiagram` shows proposed struture for the groundwater methodologies reporting.
+This section shows the proposed structure for the groundwater methodologies reporting.
 
 The `GWMethodologies` table has a structure similar to the corresponding class 
-in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
+in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review
+(see {numref}`GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram`).
 
-The `GWPressureAssessment` table has a modified structure:
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram
+:align: center
+:caption: Groundwater methodologies - GWMethodologies table - 4ᵗʰ cycle
+```
+
+
+The `GWPressureAssessment` table has a modified structure
+(see {numref}`GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram`):
 
 * the reporting of "pressures not assessed" is eliminated,
   because the data was difficult to analyse and contained inconsistencies
@@ -110,23 +119,63 @@ The `GWPressureAssessment` table has a modified structure:
 * the quality control procedure will verify that different levels 
   are not selected simultaneously for any given RBD
 
+For more information see {numref}`heading_wfd_pressure_type_codelist_4th_cycle`.
+
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram
+:align: center
+:caption: Groundwater methodologies - GWPressureAssessment table - 4ᵗʰ cycle
+```
+
+
 The `GWThresholdValue` table has a structure similar to the corresponding class 
-in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
+in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review
+(see {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`).
 Note that:
 
-* a unique `gwThresholdIdentifier` was introduced to avoid duplication 
+* a unique `gwThresholdIdentifier` was introduced to avoid ambiguity 
+* duplicate records will be detected 
+  (i.e. records with identical values for all attributes, except the identifier)
 * for naturally occurring substances, if natural background levels 
   were taken into account in the definition of the threshold value,
   then the applicable `nblValueRange` is provided 
   (in the same unit of measure as the `thresholdValueRange`) 
 
-```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_ClassDiagram.mmd
-:name: GroundwaterMethodologies_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram
 :align: center
-:caption: Groundwater methodologies - 4ᵗʰ cycle
+:caption: Groundwater methodologies - GWThresholdValue table - 4ᵗʰ cycle
 ```
 
-(heading_wfd_groundater_methodologies_codelists_4th_cycle)=
+### GWThresholdValue - an alternative structure for the 4ᵗʰ cycle
+
+The data structure used in the 3ʳᵈ cycle, and slightly adapted in 
+{numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`,
+has limitations.
+Specifically, it is possible to report the natural background level 
+set for the substance to which the threshold applies, 
+but it is not possible to indicate other physico-chemical parameters 
+that may be relevant for the scope of application of that specific threshold.
+
+To overcome this limitation without introducing much complexity,
+a "groundwater body national type" concept is introduced, 
+by analogy to the surface water national types. 
+This allows the reporting of the expected (natural) level for physico-chemical parameters 
+such as hardness, pH, etc., for groups of water bodies 
+and not only the background levels of, for example, the metal or metalloid to which the threshold applies.
+
+The alternative structure, which is aligned with the proposed 
+structure for the reporting of surface water threshold values, 
+is presented in 
+{numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram`.
+
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram
+:align: center
+:caption: Groundwater methodologies - GWThresholdValue and GWType table (alternative) - 4ᵗʰ cycle
+```
+
+(heading_wfd_groundwater_methodologies_codelists_4th_cycle)=
 ## Codelists - 4ᵗʰ cycle
 
 * For the `PressureAssessmentMethod` codelist, 
@@ -139,7 +188,7 @@ Note that:
 ```{include} tables/Codelist_4thCycle_TrendStatisticalMethod_Table
 ```
 
-(heading_wfd_groundater_methodologies_documents_dataset_4th_cycle)=
+(heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle)=
 ## Documents dataset - 4ᵗʰ cycle
 
 The Documents dataset follows the standard structure used in various WISE dataflows 
@@ -177,7 +226,7 @@ The following criteria apply:
 ```
 
 ```{todo}
-Groundwater methodologies - {ref}`heading_wfd_groundater_methodologies_documents_dataset_4th_cycle`
+Groundwater methodologies - {ref}`heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle`
 
 **Technical** review pending.
 ```
@@ -198,7 +247,7 @@ of the GWMethodologies class are transcribed in
 :header-rows: 1
 :align: left
 
-* - Element
+* - Attribute
   - Guidance
   - Option
 * - trendAssessmentPerformed
@@ -222,7 +271,7 @@ of the GWMethodologies class are transcribed in
     'None' 
 ```
 
-The reported data for combinations of the three elements is presentes in 
+The reported data for combinations of the three elements is presented in 
 {numref}`trendAssessmentMethodology_reported_data_3rdCycle`.
 
 The first four records may be interpreted as:

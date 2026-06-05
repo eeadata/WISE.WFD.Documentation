@@ -1,5 +1,5 @@
 (heading_wfd_measures)=
-# WFD measures
+# Measures
 
 Last update: 2026-06-02
 

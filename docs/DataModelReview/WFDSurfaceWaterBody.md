@@ -1,5 +1,5 @@
 (heading_wfd_surface_water_bodies)=
-# WFD surface water bodies
+# Surface water bodies
 
 Last update: 2026-06-04
 

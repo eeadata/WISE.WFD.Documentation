@@ -1,5 +1,5 @@
 (heading_wfd_surface_water_methodologies)=
-# WFD surface water methodologies
+# Surface water methodologies
 
 Last update: 2026-06-04
 
