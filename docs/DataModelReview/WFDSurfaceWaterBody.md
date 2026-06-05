@@ -58,7 +58,7 @@ to help focus the discussion on the remaining issues.
 
 ## Surface water - descriptive data - 4ᵗʰ cycle
 
-The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in the *draft* class diagram in ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`) and a brief description of each table is included in Table 36.
+The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in the class diagram in ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`) and a brief description of each table is included in {numref}`SurfaceWater_4th_cycle_brief_table_description`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_DescriptiveData_ClassDiagram.mmd
 :name: SurfaceWater_4thCycle_DescriptiveData_ClassDiagram

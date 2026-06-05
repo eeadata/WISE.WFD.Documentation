@@ -1,0 +1,45 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType:::partial {
++ swTypeIdentifier : wiseIdentifier
+}
+
+class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{
++ euSurfaceWaterBodyCode : wiseIdentifier
++ qeCode : QualityElement
++ qeClassificationIdentifier : wiseIdentifier [0..n]
+}
+
+class BQEMethod{
++ bqeMethodIdentifier : wiseIdentifier
++ bqeCode : BiologicalQualityElement
+}
+
+class QE1Classification{
++ qeClassificationIdentifier : wiseIdentifier
++ qeCode : BiologicalQualityElement
++ bqeMethodIdentifier : wiseIdentifier 
+}
+
+class SWType_QEClassification{
++ swTypeIdentifier : wiseIdentifier
++ qeClassificationIdentifier
+}
+
+SWQualityElement "1..n" .. QE1Classification : qeClassificationIdentifier
+
+BQEMethod "0..1" -- "1..n" QE1Classification : bqeMethodIdentifier
+QE1Classification "1" -- "1..n" SWType_QEClassification : qeClassificationIdentifier
+SWType_QEClassification -- SWType : swTypeIdentifier
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;

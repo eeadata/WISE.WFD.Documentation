@@ -8,16 +8,6 @@ config:
 classDiagram
 direction LR
 
-class SWType:::partial{
-+ swTypeIdentifier : wiseIdentifier
-}
-
-class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{
-+ euSurfaceWaterBodyCode : wiseIdentifier
-+ qeCode : QualityElement
-+ qeClassificationIdentifier : wiseIdentifier [0..n]
-}
-
 class QE3Classification{
 + qeClassificationIdentifier : wiseIdentifier
 + qeCode : PhysicoChemicalQualityElement
@@ -27,31 +17,13 @@ class QE3Classification{
 + classHighOrMax : range
 + classGood : range
 + classModerate : range
-+ classPoor : range [0..1]
-+ classBad : range [0..1]
+
 «scope-and-references»
 + swTypeIdentifier : wiseIdentifier
 + naturalBackgroundLevelSet : YesNoNotApplicable
-+ remarks : string [0..1]
 + qeClassificationReference : referenceCode [0..n]
 }
 
-class SWType_QEClassification{
-+ swTypeIdentifier : wiseIdentifier
-+ qeClassificationIdentifier
-}
-
-class SWNaturalBackgroundLevel{
-+ swTypeIdentifier : wiseIdentifier
-+ parameterCode : ParameterCode
-+ parameterValue : range  
-+ parameterUnit : UnitOfMeasure
-}
-
-SWQualityElement "1..n" .. QE3Classification : qeClassificationIdentifier
-QE3Classification -- "1..n" SWType_QEClassification : qeClassificationIdentifier
-SWType_QEClassification "1..n" -- SWType : swTypeIdentifier
-SWType -- "1..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

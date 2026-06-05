@@ -12,8 +12,10 @@ class SWType :::partial{
     + swTypeIdentifier : wiseIdentifier
     + surfaceWaterBodyCategory : WaterBodyCategory
     + naturalAWBHMWB : NaturalAWBHMWB
-    + swIntercalibrationType : IntercalibrationType
+    + swIntercalibrationType : IntercalibrationType [1..n]
+    + swTypeCode : string100
     + swTypeDescription : string
+    + swTypeDescriptionLanguage : Language
 }
 
 class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{ 

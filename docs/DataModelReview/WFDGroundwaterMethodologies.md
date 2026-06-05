@@ -95,6 +95,8 @@ The structure of the **GWPressures** class was also revised.
 
 This section shows the proposed structure for the groundwater methodologies reporting.
 
+### GWMethodologies table
+
 The `GWMethodologies` table has a structure similar to the corresponding class 
 in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review
 (see {numref}`GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram`).
@@ -105,6 +107,7 @@ in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's 
 :caption: Groundwater methodologies - GWMethodologies table - 4ᵗʰ cycle
 ```
 
+### GWPressureAssessment table
 
 The `GWPressureAssessment` table has a modified structure
 (see {numref}`GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram`):
@@ -127,6 +130,8 @@ For more information see {ref}`heading_wfd_pressure_type_codelist_4th_cycle`.
 :caption: Groundwater methodologies - GWPressureAssessment table - 4ᵗʰ cycle
 ```
 
+(heading_wfd_groundwater_methodologies_gwthresholdvalue_table)=
+### GWThresholdValue table 
 
 The `GWThresholdValue` table has a structure similar to the corresponding class 
 in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review
@@ -147,7 +152,7 @@ Note that:
 :caption: Groundwater methodologies - GWThresholdValue table - 4ᵗʰ cycle
 ```
 
-### GWThresholdValue - an alternative structure for the 4ᵗʰ cycle
+### GWThresholdValue table - alternative approach
 
 The data structure used in the 3ʳᵈ cycle, and slightly adapted in 
 {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`,

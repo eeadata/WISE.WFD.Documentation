@@ -6,17 +6,7 @@ config:
   theme: neutral
 ---
 classDiagram
-direction TB
-
-class SWType:::partial {
-    + swTypeIdentifier : wiseIdentifier
-}
-
-class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::partial{
-+ euSurfaceWaterBodyCode
-+ swPollutantCode
-+ swThresholdIdentifier [1..n]
-}
+direction LR
 
 class SWThresholdValue{
 + swThresholdIdentifier : wiseIdentifier
@@ -42,23 +32,6 @@ class SWThresholdValue{
 + applicableToCW : YesNo
 + applicableToTeW : YesNo
 }
-
-class SWThreshold_SWType{
-+ swThresholdIdentifier : wiseIdentifier
-+ swTypeIdentifier : wiseIdentifier
-}
-
-class SWNaturalBackgroundLevel{
-    + swTypeIdentifier : wiseIdentifier
-    + parameterCode : ParameterCode
-    + parameterValue : range  
-    + parameterUnit : UnitOfMeasure
-}
-
-SWPollutant "1..n" .. SWThresholdValue : swThresholdIdentifier
-SWThresholdValue -- "1..n" SWThreshold_SWType : swThresholdIdentifier
-SWThreshold_SWType "1..n" -- SWType : swTypeIdentifier
-SWType -- "1..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

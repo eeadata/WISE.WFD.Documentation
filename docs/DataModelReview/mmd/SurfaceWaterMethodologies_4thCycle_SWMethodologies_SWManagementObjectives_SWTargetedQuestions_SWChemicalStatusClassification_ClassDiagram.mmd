@@ -49,22 +49,6 @@ class SWChemicalStatusClassification {
   + mixingZoneMeasure : MixingZoneMeasure [0..n]
 }
 
-class SWPressureAssessment{
-  + euRBDCode : wiseIdentifier
-  + swPressure : PressureType
-  + swPressureAssessmentMethod : PressureAssessmentMethod
-  + swSignificanceDefinition : YesNoNotApplicable
-  + swSignificanceLinkFailure : YesNoNotApplicable
-}
-
-class PressureAssessmentMethod{
-<<enumeration>>
-numericalTools
-expertJudgment
-combinationOfBoth
-notAssessed 
-}
-
 class MitigationMeasure{
 <<enumeration>>
 fishLadders
@@ -101,7 +85,6 @@ RBMP}
 
 SWTargetedQuestions .. MitigationMeasure : MitigationMeasure
 SWChemicalStatusClassification .. MixingZoneMeasure : mixingZoneMeasure
-SWPressureAssessment .. PressureAssessmentMethod : swPressureAssessmentMethod
 SWManagementObjectives .. YesNoRBMP : waterResourcePlans
 
 classDef default fill:white,stroke:#000;

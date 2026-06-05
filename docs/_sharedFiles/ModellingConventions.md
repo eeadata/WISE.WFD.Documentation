@@ -25,22 +25,21 @@ Some classes, attributes, or associations may be omitted for clarity.
 * - {abbr}`m (multiplicity)`
   - Definition
 
-* - `1` 
-  - Each instance of the class at one end of the association *must* be associated 
-    with exactly one instance of the class at the other end. 
+* - 1 
+  - Each instance of the class at one end of the association *must* be associated with exactly one instance of the class at the other end. 
     It enforces a strict one-to-one relationship.  
     See the diagram below: in practice, each row in TableA must be associated with one and only one row in TableB.
 
-* - `0..1` 
+* - 0..1 
   - Each instance of the class at one end of the association *may* be associated 
     with exactly one instance of the class at the other end. 
     It represents an optional relationship.  
     See the diagram below: in practice, each row in TableC *may* be associated with one and only one row in TableD.
 
-* - `1..n`
+* - 1..n
   - See the diagram below: each row in TableF *must* be associated with one or more rows in TableG.
 
-* - `n..m`
+* - n..m
   - Many-to-many associations between classes are normally depicted in conceptual UML diagrams. 
     The class diagrams in this documentation, show the logical model 
     (for implementation in a relational database model). 
@@ -243,6 +242,10 @@ classDef forFixing fill:white,stroke:#f00;
 classDef likeANote fill:lightyellow,stroke:#000;
 ```
 
+
+## Terms
+
+
 ```{glossary}
 :sorted: true
 
@@ -250,7 +253,7 @@ reference table
     Any table containing data that is used for quality control.
 
 controlled list of values
-    Any list of values controled using a {term}`codelist` or {term}`vocabulary`
+    Any list of values controlled using a {term}`codelist` or {term}`vocabulary`
 
 vocabulary
     When used in the WISE documentation, 
@@ -260,4 +263,33 @@ vocabulary
 association entity
     A table created for the purpose of resolving and enforcing a many-to-many relationship between tables.  
     In the most frequent case, the many-to-many relationship exists between two different tables.
+
+codelist
+    A {term}`controlled list of values` 
+    represented by a enumeration class in UML diagrams,
+    and implemented using a {term}`reference table` 
+    for quality control purposes.
+
+required attribute
+    An attribute for which it is mandatory to provide a non-empty value.
     
+optional attribute
+    An attribute for which it is optional to provide a non-empty value.
+
+conditional attribute
+    An attribute that is mandatory under certain conditions.
+    Attributes for which a value *should* be reported, if applicable - 
+    but for which a quality control can not be devised 
+    (to check if the condition applies) -, are also marked as *conditional*.
+
+identifier
+    «todo»
+    
+identifier scheme
+    «todo»
+    
+comma-separated list of values
+    «todo»
+
+datatype
+    «todo»

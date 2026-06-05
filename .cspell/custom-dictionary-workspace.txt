@@ -1,28 +1,34 @@
 # Custom Dictionary Words
+aquiferous
+AWBHMWB
 codelist
 codelists
+dagre
+datatypes
+EIONET
+exceedance
+exceedances
 GWDE
 GWGROUP
 GWMET
 GWMET_2022
+gwthresholdvalue
+hmwb
 IHME
+Intercalibration
 IPCC
-RBMP
-Reportnet3
-SWGROUP
-WFD
-
-# Sphinx
-dagre
 lightyellow
 linenos
 numref
-
-# Other words...
-aquiferous
-Datatypes
-exceedance
-Exceedances
 physico-chemical
+Physico-chemical
+RBMP
+rbsp
+Reportnet3
+SWGROUP
+SWMET
+SWMET_2022
+SWRBSP
 toctree
 transboundary
+WFD
