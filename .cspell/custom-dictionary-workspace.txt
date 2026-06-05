@@ -1,28 +1,28 @@
 # Custom Dictionary Words
-
-GWMET
-GWMET_2022
-Reportnet3
-RBMP
-GWGROUP
-SWGROUP
 codelist
 codelists
-IPCC
-IHME
-WFD
 GWDE
+GWGROUP
+GWMET
+GWMET_2022
+IHME
+IPCC
+RBMP
+Reportnet3
+SWGROUP
+WFD
 
 # Sphinx
-
-numref
-linenos
 dagre
 lightyellow
+linenos
+numref
 
 # Other words...
-
-exceedance
 aquiferous
+Datatypes
+exceedance
+Exceedances
 physico-chemical
+toctree
 transboundary

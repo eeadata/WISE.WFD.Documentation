@@ -311,6 +311,10 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     For groundwater bodies in good or unknown chemical status, 
     the option `notApplicable` must be used. 
 
+* For the `PressureType` codelist, 
+  see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in 
+  the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle` 
+  
 % -----------------------------------------------------------------------------
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram.mmd

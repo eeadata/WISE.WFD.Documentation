@@ -28,7 +28,6 @@ Pending reorganisation.
 
 ```{toctree}
 :maxdepth: 1
-:hidden:
 WFDGrouping
 WFDPressures
 ```

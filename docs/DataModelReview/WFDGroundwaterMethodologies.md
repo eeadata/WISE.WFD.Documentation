@@ -119,7 +119,7 @@ The `GWPressureAssessment` table has a modified structure
 * the quality control procedure will verify that different levels 
   are not selected simultaneously for any given RBD
 
-For more information see {numref}`heading_wfd_pressure_type_codelist_4th_cycle`.
+For more information see {ref}`heading_wfd_pressure_type_codelist_4th_cycle`.
 
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram
@@ -169,7 +169,7 @@ structure for the reporting of surface water threshold values,
 is presented in 
 {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram`.
 
-```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram.mmd
+```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram
 :align: center
 :caption: Groundwater methodologies - GWThresholdValue and GWType table (alternative) - 4ᵗʰ cycle
