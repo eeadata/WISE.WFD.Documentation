@@ -65,7 +65,8 @@ myst_enable_extensions = [
     "amsmath",
     "dollarmath",
     "colon_fence",
-    "linkify"
+    "linkify",
+    "attrs_inline"
 ]
 
 # SQLTABLE - configure the default connection if there is one

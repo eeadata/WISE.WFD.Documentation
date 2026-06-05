@@ -56,12 +56,10 @@ The data structure was simplified to a core set of quantitative data for a limit
 
 Information is requested:<br>• about the physical volumes of water, the revenues and the costs ({ref}`Figure 5 <Figure 5>`),<br>• for three water user sectors – agriculture, industry and households ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`),<br>• and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
 
-
-
 (Figure 5)=
 | a) | b) and c) |
-|---------|---------|
-| <img src="img/EconomicAnalysisPhysicalvolume.png" width="300"> | <img src="img/EconomicAnalysisRevenue.png" width="300"> |
+|:--:|:----------:|
+| ![](img/EconomicAnalysisPhysicalvolume.png){width="300px"} | ![](img/EconomicAnalysisRevenue.png){width="300px"} |
 
 *Figure 5.Overview diagram for the requested data on volumes, revenues and costs – 4ᵗʰ cycle of reporting.*
 
