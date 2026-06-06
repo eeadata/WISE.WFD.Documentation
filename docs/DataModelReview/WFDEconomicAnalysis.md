@@ -262,19 +262,19 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 
 | Dimension 1 | Dimension 2      | Description                                                             |
 |-------------|------------------|-------------------------------------------------------------------------|
-| VOL_WWV     | GEN_PS           | GENERATION OF WASTEWATER – POINT SOURCES – Total (NACE 01–99)          |
-| VOL_WWV     | GEN_AGR          | Agriculture, forestry, fishing (NACE 01–03)                             |
-| VOL_WWV     | GEN_IND          | Industry – total (NACE 05–43)                                           |
-| VOL_WWV     | GEN_MAN          | – Manufacturing industry (NACE 10–33)                                   |
-| VOL_WWV     | GEN_DOM          | Domestic sources – total                                                |
-| VOL_WWV     | GEN_HH           | – Private households                                                    |
-| VOL_WWV     | GEN_URB          | Urban wastewater – total generated                                      |
-| VOL_WWV     | TRT_URB_IF       | – Treatment in WWTPs – total inflow                                     |
-| VOL_WWV     | GEN_IND_XURB     | Industrial wastewater (not part of Urban WWV) – total generated         |
-| VOL_WWV     | DIS_IND_IW       | – Discharges to inland waters – Total                                   |
-| VOL_WWV     | DIS_IND_IW_AT    | of which: Discharges to inland waters after treatment                   |
-| VOL_WWV     | DIS_IND_IW_NT    | of which: Discharges to inland waters without treatment                 |
-| VOL_WWV     | DIS              | Total discharges of WWTP’s (urban and other) – after treatment          |
+| VOL_WW     | GEN_PS           | GENERATION OF WASTEWATER – POINT SOURCES – Total (NACE 01–99)          |
+| VOL_WW     | GEN_AGR          | Agriculture, forestry, fishing (NACE 01–03)                             |
+| VOL_WW     | GEN_IND          | Industry – total (NACE 05–43)                                           |
+| VOL_WW     | GEN_MAN          | – Manufacturing industry (NACE 10–33)                                   |
+| VOL_WW     | GEN_DOM          | Domestic sources – total                                                |
+| VOL_WW     | GEN_HH           | – Private households                                                    |
+| VOL_WW     | GEN_URB          | Urban wastewater – total generated                                      |
+| VOL_WW     | TRT_URB_IF       | – Treatment in WWTPs – total inflow                                     |
+| VOL_WW     | GEN_IND_XURB     | Industrial wastewater (not part of Urban WWV) – total generated         |
+| VOL_WW     | DIS_IND_IW       | – Discharges to inland waters – Total                                   |
+| VOL_WW     | DIS_IND_IW_AT    | of which: Discharges to inland waters after treatment                   |
+| VOL_WW     | DIS_IND_IW_NT    | of which: Discharges to inland waters without treatment                 |
+| VOL_WW     | DIS              | Total discharges of WWTP’s (urban and other) – after treatment          |
 ```
 
 (heading_wfd_wfd_economic_analysis)=
