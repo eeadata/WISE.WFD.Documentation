@@ -60,7 +60,7 @@
 * - 
   - costRecoveryFull
   - Does the RBMP report whether cost recovery is (nearly) full?  
-    Note: ‘NotApplicable’ is only valid for irrigation water service if that service does not exist in the RBD.
+    Note: ‘NotApplicable’ is only valid for waterService = 'Irrigation water service' if that service does not exist in the River Basin District.
 
 * - 
   - costRecoveryCorroborated
