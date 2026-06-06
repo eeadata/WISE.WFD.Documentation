@@ -113,8 +113,8 @@ All the information is requested at river basin district level and must refer to
 
 The following generic guidelines apply to the reporting of volumes:  
 • Volumes related to **water abstraction** (V1, V2, V3, V4, V5 in {numref}`conceptualvolume`) are reported based on the location of the point of abstraction. Only abstractions from freshwater surface water bodies (rivers and lakes, including reservoirs) and groundwater bodies are considered.  
-• Volumes related to **water use** (V41, V52, V53 in ({numref}`conceptualvolume`)) are reported based on the location of the point of use/consumption. In other words, the volumes refer to water used in the river basin district.  
-• Volumes related to **water returns** (V6 in ({numref}`conceptualvolume`) are reported based on the location of the point of wastewater discharge. This includes discharges also to transitional and coastal water bodies located in the river basin district.  
+• Volumes related to **water use** (V41, V52, V53 in {numref}`conceptualvolume`) are reported based on the location of the point of use/consumption. In other words, the volumes refer to water used in the river basin district.  
+• Volumes related to **water returns** (V6 in {numref}`conceptualvolume`) are reported based on the location of the point of wastewater discharge. This includes discharges also to transitional and coastal water bodies located in the river basin district.  
 
 Given the guidelines above, and the fact that the data is requested at river basin district level (RBD), the following corollaries apply:  
 • The balance condition V4 ≈ V41 is not expected to hold, due to losses during transport and water returned without use (which result in V4 > V41) or due to transfers between river basin districts (which may result in V41 > V4).  
@@ -130,7 +130,7 @@ Given the guidelines above, and the fact that the data is requested at river bas
 
 *Adapted from: Eurostat & OECD. (2024). Data Collection Manual for the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire (Version 5). Eurostat.*
 
-The requested data on revenues is detailed in {numref}`Economic_Analysis_ConceptualRevenue`). The information must refer to the same year and to the same totals reported for the volumes of water.
+The requested data on revenues is detailed in {numref}`Economic_Analysis_ConceptualRevenue`. The information must refer to the same year and to the same totals reported for the volumes of water.
 
 The following generic guidelines apply to the reporting of revenues:  
 • **Water abstraction** revenues (R1, R2, R3, R4, R5 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental/resource taxes and administrative fees paid (directly or indirectly) to the general government.  
@@ -145,7 +145,7 @@ The following generic guidelines apply to the reporting of revenues:
 :width: 100%
 Conceptual diagram for the requested data on revenues – 4ᵗʰ cycle of reporting.
 ```
-Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in ({numref}`Economic_Analysis_ConceptualRevenue`), as well as the estimated global cost recovery rate.
+Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in {numref}`Economic_Analysis_ConceptualRevenue`, as well as the estimated global cost recovery rate.
 
 The following generic guidelines apply to the reporting of costs:  
 • Grant‑financed assets should be included in capital expenditure (CAPEX) estimates for the water service that acquires and owns the asset, and regardless of the source of funding ([^1]).  
@@ -155,10 +155,10 @@ The following generic guidelines apply to the reporting of costs:
 [^1]: According to Eurostat’s methodological frameworks, specifically the Environmental Protection Expenditure Accounts (EPEA) and the European System of Accounts (ESA 2010), grant-financed assets should be included in capital expenditure (CAPEX) estimates for the sector that acquires and owns the asset. In Eurostat statistics, CAPEX is primarily measured as Gross Fixed Capital Formation (GFCF). GFCF consists of resident producers' acquisitions, less disposals, of fixed assets during a given period. The recording of an asset's acquisition in GFCF is based on the change of ownership and the total value of the asset at the time of purchase. It does not depend on whether the purchase was funded through internal cash flow, loans, or external grants.
 [^2]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
 
-({numref}`EconomicAnalysis_Volume`) presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
+{numref}`EconomicAnalysis_Volume` presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
 
-The dimension codes for the reporting of costs per water service are presented in {numref}`EconomicAnalysis_Volume`.  
-The dimension codes for the reporting of volumes and revenues are presented in ({numref}`EconomicAnalysis_VolumesandRevenues_4thcycle`).
+The dimension codes for the reporting of costs per water service are presented in {numref}`measures_4th_cycle_reportingcosts_table`.  
+The dimension codes for the reporting of volumes and revenues are presented in {numref}`EconomicAnalysis_VolumesandRevenues_4thcycle`.
 
 
 (Figure)=
@@ -172,7 +172,7 @@ See also in ([^3])
 
 
 ```{table} Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting
-:name: measures_4th cycle reportingcosts_table
+:name: measures_4th_cycle_reportingcosts_table
 :width: 100%
 
 | Dimension     | Description                                                |
