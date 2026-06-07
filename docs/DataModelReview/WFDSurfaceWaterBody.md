@@ -218,6 +218,51 @@ resubmissions may have been requested or not.
 Therefore the database may contain inconsistencies (e.g. in early submissions) that were detected and blocked (in later submissions).
 ```
 
+### Quality element status (3rd, 2nd and 1st RBMP), by category
+
+The following dashboard shows the number of quality elements 
+used in the assessment of the ecological status or potential:
+
+```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_Status_Compare/SWB_QualityElement_Category.png
+:width: 1024
+:alt: Click to open an interactive dashboard
+:name: dashboard_WFD_SWB_QualityElement_Status_Compare_SWB_QualityElement_Category
+:target: https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_Status_Compare/SWB_QualityElement_Category
+
+Surface water bodies: Quality element status (3rd, 2nd and 1st RBMP), by category
+
+```
+
+### Number of quality elements used 
+
+The following dashboard shows the number of quality elements 
+used in the assessment of the ecological status or potential:
+
+```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_QEUsed/SWB_QualityElement_QEUsed_Category.png
+:width: 1024
+:alt: Click to open an interactive dashboard
+:name: dashboard_WFD_SWB_QualityElement_QEUsed/SWB_QualityElement_QEUsed_Category
+:target: https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_QEUsed/SWB_QualityElement_QEUsed_Category
+
+Surface water bodies: Number of quality elements used in the assessment of the ecological status or potential
+```
+
+### Status calculated from the quality elements
+
+The following dashboard shows the reported ecological status vs. calculated ecological status (based on the quality elements):
+
+```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_EcologicalStatus_Calculated/SWB_EcologicalStatus_Calculated_Category.png
+:width: 1024
+:alt: Click to open an interactive dashboard
+:name: dashboard_WFD_SWB_EcologicalStatus_Calculated_SWB_EcologicalStatus_Calculated_Category
+:target: https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_EcologicalStatus_Calculated/SWB_EcologicalStatus_Calculated_Category
+
+Surface water bodies: Ecological status or potential calculated from the quality elements, by category
+``` 
+
+
+
+
 ### Quality element status
 
 In the 3rd cycle reporting, 
@@ -429,7 +474,7 @@ Furthermore, the analysis of the 216 water bodies shows that:
 The low frequency of these cases suggests a reporting error,
 that must be captured in the quality control during the 4ᵗʰ cycle.
 
-#### Proposed change
+### Proposed change
 
 If at least one biological quality element 
 has 'moderate', 'poor' or 'bad' status or potential, 
@@ -502,7 +547,6 @@ In the 3ʳᵈ cycle reporting,
 the quality control checks enforced the interpretation above.
 **Pending: confirm whether if changes are required.**
 
-
 The hydromorphological quality elements
 
 According to the 3ʳᵈ cycle reporting guidance:
@@ -574,6 +618,7 @@ Deriving the ecological status
 from the reported quality elements statuses 
 might somewhat reduce the problem
 (in the visualisations).
+
 
 ```{dropdown} Show code
 
@@ -679,4 +724,3 @@ not achieving good chemical status from 38% to 40%.
   GROUP BY a.[swChemicalStatusValue]
 
   ```
-

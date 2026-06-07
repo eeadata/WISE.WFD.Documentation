@@ -263,11 +263,11 @@ The associations between the `QE3Classification` table and other tables are depi
 
 The reporting of class boundaries for biological quality elements 
 requires a new `QE1Classification` table 
-(see {numref}`SurfaceWaterMethodologies_4thCycle_QE1Classification_ClassDiagram`). 
+(see {numref}`SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram`). 
 The table "replaces" the WISE2 Biology - BiologyEQRClassificationProcedure table. All boundaries are reported using EQRs.
 
 The associations between the `QE1Classification` table and other tables are depicted in 
-{numref}`SurfaceWaterMethodologies_4thCycle_QE1Classification_Associations_ClassDiagram`.
+{numref}`SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_Associations_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram
