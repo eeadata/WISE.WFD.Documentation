@@ -1,6 +1,7 @@
 # Custom Dictionary Words
 aquiferous
 AWBHMWB
+bqes
 codelist
 codelists
 dagre
@@ -14,6 +15,7 @@ GWMET
 GWMET_2022
 gwthresholdvalue
 hmwb
+hydromorphological
 IHME
 Intercalibration
 IPCC

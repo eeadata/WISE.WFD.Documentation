@@ -268,7 +268,7 @@ the following values were also used:
   |QEStatusCode|8|NotApplicable|NilReasonType|inapplicable|
   ```
 
-#### *"Monitored but not used"*
+### *"Monitored but not used"*
 
 The option *"Monitored but not used"* was inherently ambiguous, 
 because it could be applied to signify that 
@@ -276,20 +276,25 @@ the quality element was being monitored
 although it was in fact not applicable 
 to a specific water category or water body national type.
 
-```{todo} 
-  The option *"Monitored but not used"* should be removed, 
-  because it does not convey concrete information about the *status*.  
-  Member States can report monitoring results 
-  under the WISE-6 Water Quality dataflow: 
-  that provides concrete information 
-  about what is being monitored 
-  beyond the requirements of the ecological status assessment.
+```{todo}
+The option *"Monitored but not used"* should be removed, 
+because it does not convey concrete information about the *status*.  
+Member States can report monitoring results 
+under the WISE-6 Water Quality dataflow: 
+that provides concrete information 
+about what is being monitored 
+beyond the requirements of the ecological status assessment.
 ```
 
-#### *"Not applicable"*
+### *"Not applicable"*
 
 The 3ʳᵈ cycle reporting guidance provided 
 a clear definition of the option *"Not applicable"*.  
+
+```{epigraph}
+If the QE is not applicable in the surface water category or type to which the
+water body in question belongs, then select ‘Not applicable’ from the enumeration list. 
+```
 
 Theoretically, it should be possible to derive 
 the applicability of the quality elements 
@@ -336,16 +341,16 @@ and not applicable to the assessment of ecological status.
 It is possible that the inconsistencies 
 are due to an interchangeable use or interpretation
 of the options 'unknown' and 'inapplicable',
-or are due to a mistake in the reporting of some waterbodies only.
+or are due to a mistake in the reporting of some water bodies only.
 
 Nevertheless, the inconsistencies reveal a flaw in the reporting model,
-and an opportunity for both improvement and simplication. 
+and an opportunity for both improvement and simplification. 
 the applicability of the quality elements 
 should be reported in the *surface water methodologies* 
 and *only* the applicable quality elements should be
 reported in the *quality elements* table.
 
-#### Proposed changes
+### Proposed changes
 
 The removal of the options *"Not applicable"* and *"Monitored but not used"* 
 reduces the reported data by 25% 
@@ -403,11 +408,11 @@ if not all the relevant biological quality elements were assessed,
 and therefore it could be 'moderate', 'poor' or 'bad'.
 But the ecological status is known to fail to achieve good status.
 
-Furthermore, the analysis of the 216 waterbodies shows that:
+Furthermore, the analysis of the 216 water bodies shows that:
 * in 71 cases, the ecological status should have been reported as 'bad'
 * in 69 cases, the ecological status could never be 'moderate'.
 
-```{table} Unknown ecological status of waterbodies with failing BQEs.
+```{table} Unknown ecological status of water bodies with failing BQEs.
 :name: unknown_ecological_status_and_failing_bqes_3rd_cycle_table
 :width: 100%
 :align: center
@@ -493,8 +498,9 @@ act as *modifiers* of the BQE assessment:
 * if any applicable QE3 status is 'less than good',
   then the ecological status cannot be 'good'.
 
-
-
+In the 3ʳᵈ cycle reporting, 
+the quality control checks enforced the interpretation above.
+**Pending: confirm whether if changes are required.**
 
 
 The hydromorphological quality elements
@@ -566,7 +572,8 @@ with the ecological status that will be reported in the 4ᵗʰ cycle.
 
 Deriving the ecological status 
 from the reported quality elements statuses 
-might somewhat reduce problem.
+might somewhat reduce the problem
+(in the visualisations).
 
 ```{dropdown} Show code
 
@@ -631,13 +638,13 @@ This rule was enforced by the quality control.
 
 
 
-The following table should that 2588 of those waterbodies 
+The following table should that 2588 of those water bodies 
 were reported as being in good or unknown chemical status.
 Incorporating the RBSPs into the chemical status assessment 
 changes the percentage of water bodies 
 not achieving good chemical status from 38% to 40%.
 
-```{table} Chemical status of waterbodies with failing QE3-3.
+```{table} Chemical status of water bodies with failing QE3-3.
 :name: chemical_status_with_failing_rbsp_3rd_cycle_table
 :width: 100%
 :align: center

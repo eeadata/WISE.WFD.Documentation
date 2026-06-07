@@ -14,7 +14,7 @@ direction TB
 class GWLinkSurfaceWaterBody{
     + euGroundWaterBodyCode : wiseIdentifier
     + euSurfacedWaterBodyCode : wiseIdentifier
-    + linkType : GroundwaterSurfacewaterLink
+    + linkType : GroundwaterSurfaceWaterLink
 }
 
 class GWNaturalBackgroundLevel{
@@ -62,18 +62,18 @@ class GWStatus{
 class GWPollutant{
     + euGroundWaterBodyCode : wiseIdentifier
     + gwPollutantCode : Parameter
-    + gwThresholdIdentifier : wiseIdentifier
 
     + gwPollutantCausingFailure : YesNoUnknown
     + gwPollutantAssessmentPeriod : range
     + gwPollutantAssessmentConfidence : AssessmentConfidence 
     + gwPollutantAssessmentMethod : AssessmentMethod [1..n]
-    
-    + gwGroupIdentifier : wiseIdentifier [0..n]
 
     + gwPollutantUpwardTrend : YesNoUnknownNotAssessed
     + gwPollutantTrendReversal : YesNoUnknownNotApplicableNotAssessed
     + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableNotAssessed
+
+    + gwThresholdIdentifier : wiseIdentifier
+    + gwGroupIdentifier : wiseIdentifier [0..n]
 }
 
 class GWGrouping{
