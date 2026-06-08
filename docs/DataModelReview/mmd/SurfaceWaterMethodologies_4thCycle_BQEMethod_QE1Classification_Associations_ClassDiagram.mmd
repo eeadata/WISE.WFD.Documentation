@@ -37,7 +37,7 @@ class SWType_QEClassification{
 SWQualityElement "1..n" .. QE1Classification : qeClassificationIdentifier
 
 BQEMethod "0..1" -- "1..n" QE1Classification : bqeMethodIdentifier
-QE1Classification "1" -- "1..n" SWType_QEClassification : qeClassificationIdentifier
+QE1Classification "1" -- "0..n" SWType_QEClassification : qeClassificationIdentifier
 SWType_QEClassification -- SWType : swTypeIdentifier
 
 classDef default fill:white,stroke:#000;
