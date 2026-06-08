@@ -6,8 +6,8 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace ReportingData{
+direction TB
+
 class RiverBasinManagementPlan{
 + euRBDCode :  wiseIdentifier
 + rbmpName : String1000
@@ -44,10 +44,21 @@ class RiverBasinManagementPlan{
 
 + coordinationNRRReference : referenceIdentifier [1..n]
 }
-}
-namespace Codelist{
+
 class SubPlansCoverage{
     <<enumeration>>
+    agriculture
+    chemicalIndustry
+    chemicalPollution
+    climateChange
+    coastalErosion
+    hydropower
+    nutrientEnrichment
+    ruralPlanning
+    transport
+    urbanPlanning
+    waterScarcityAndDroughts
+    other
     }
 class OngoingStakeholderInvolvement{
     <<enumeration>>
@@ -55,18 +66,8 @@ class OngoingStakeholderInvolvement{
 class Coordination{
     <<enumeration>>
     }
-class YesNo{
-    <<enumeration>>
-    yes
-    no
-    }
-class YesNoNotApplicable{
-    <<enumeration>>
-    yes
-    no
-    notApplicable
-    }
-}
+
+RiverBasinManagementPlan .. SubPlansCoverage
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
