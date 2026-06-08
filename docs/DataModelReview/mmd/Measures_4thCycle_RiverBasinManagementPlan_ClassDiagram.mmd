@@ -10,21 +10,21 @@ direction TB
 
 class RiverBasinManagementPlan{
 + euRBDCode :  wiseIdentifier
-+ rbmpName : String1000
++ rbmpName : string1000
 
-+ rbmpTimetablePublicationDate : Date 
-+ rbmpProgrammePublicationDate : Date 
-+ rbmpConsultationPublicationDate : Date 
-+ rbmpInterimOverviewDate : Date 
-+ rbmpDraftVersionDate : Date 
-+ finalRBMPPublicationDate : Date 
++ rbmpTimetablePublicationDate : date 
++ rbmpProgrammePublicationDate : date 
++ rbmpConsultationPublicationDate : date 
++ rbmpInterimOverviewDate : date 
++ rbmpDraftVersionDate : date 
++ finalRBMPPublicationDate : date 
 
 + subPlans : YesNo
 + subPlansCoverage : SubPlansCoverage [0..1]
-+ subPlansReference : referenceIdentifier [0..n]
++ subPlansReference : referenceCode [0..n]
 
 + sea : YesNo
-+ seaReference : referenceIdentifier [0..n]
++ seaReference : referenceCode [0..n]
 
 + documentAvailability  : YesNo
 
@@ -42,7 +42,7 @@ class RiverBasinManagementPlan{
 + coordinationFloodsDirective : YesNoNotApplicable
 + coordinationMSFD : YesNoNotApplicable
 
-+ coordinationNRRReference : referenceIdentifier [1..n]
++ coordinationNRRReference : referenceCode [1..n]
 }
 
 class SubPlansCoverage{
@@ -66,8 +66,14 @@ class OngoingStakeholderInvolvement{
 class Coordination{
     <<enumeration>>
     }
+class StakeholderGroups{
+    <<enumeration>>
+    }
 
 RiverBasinManagementPlan .. SubPlansCoverage
+RiverBasinManagementPlan .. OngoingStakeholderInvolvement
+RiverBasinManagementPlan .. Coordination
+RiverBasinManagementPlan .. StakeholderGroups
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
