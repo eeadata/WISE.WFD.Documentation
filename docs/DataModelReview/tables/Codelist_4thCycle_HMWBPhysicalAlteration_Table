@@ -1,0 +1,52 @@
+```{list-table} HMWBPhysicalAlteration definition 
+:name: Codelist_4thCycle_HMWBPhysicalAlteration_Table
+:header-rows: 1
+:width: 100%
+:widths: 25 25 75 
+:align: left
+
+* - Notation
+  - Label 
+  - Definition
+
+* - locks
+  - locks
+  - **Locks**: 
+    devices for raising and lowering boats between stretches of water of different levels on river and canal waterways.
+
+* - transversalBarrier
+  - Transversal barrier
+  - Includes:
+    **Weirs / dam / reservoir**: 
+    transversal barriers constructed across a river or a lake discharge for the purpose of creating a water impoundment.
+
+* - longitudinalBarrier
+  - Longitudinal barrier
+  - Includes:
+    **Channelisation / straightening / bed stabilisation**: 
+    any permanent modification which longitudinally affects river banks and/or river bed, 
+    including changing direction, reducing meandering, stabilisation of river banks, etc.
+
+* - dredging 
+  - Dredging 
+  - Includes:
+    **Dredging / channel maintenance**: 
+    modifications due to regular maintenance of rivers through dredging for any given purpose, usually navigation or flood protection. 
+
+* - landReclamation
+  - Land reclamation
+  - Includes:
+    **Land reclamation / coastal modifications / ports**: 
+    modifications of a water body as a result of the creation of new land from ocean, riverbeds, or lakes (e.g. for the purpose of expanding or creating a port).
+
+* - landDrainage
+  - Land drainage
+  - Modification of a water body as a result of an artificial change to the water level 
+    intended to make available existing land for a particular purpose 
+    (often for agricultural production or for urbanisation). 
+
+* - other
+  - Other
+  - Other alteration not included in any of the categories above.
+
+```

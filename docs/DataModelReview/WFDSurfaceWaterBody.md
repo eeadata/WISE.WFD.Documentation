@@ -96,13 +96,19 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
     
     Formally, the `chemicalStatusValue` 
     could be derived from the information in the `SWPollutant` table.  
+    If, and only if, `chemicalStatusValue = 'unknown'` 
+    and no assessment of the chemical status was done,
+    may all corresponding rows in the `SWPollutant` table be missing.
+    (An ERROR will raised by the quality control, since this is a non-compliance 
+    and should not be reported by mistake.)
+
     Likewise, the `swEcologicalStatusOrPotentialValue` 
-    could be derived from the `SWQualityElement` table. 
-    Nevertheless, a decision was taken to keep both attributes 
-    in the `SurfaceWaterBodyStatus` table, 
-    for *quality control purposes* 
-    (e.g. to guarantee that there was no mistake 
-    in the reporting of substances causing failure).
+    could be derived from the `SWQualityElement` table.  
+    If, and only if, `swEcologicalStatusOrPotentialValue = 'unknown'` 
+    and no assessment of the ecological status was done,
+    may the corresponding rows in the `SWQualityElement` table be missing.
+    (An ERROR will raised by the quality control, since this is a non-compliance 
+    and should not be reported by mistake.) 
 
 * - SWPollutant
   - *modified*  
@@ -174,6 +180,73 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.  
 ```
+
+(heading_wfd_surface_water_codelist_4th_cycle)=
+## Surface water - codelists - 4ᵗʰ cycle
+
+* For the `Reservoir` codelist, 
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  All reservoirs must be reported as artificial or heavily modified lakes 
+  (see {numref}`Codelist_4thCycle_Reservoir_Table`).
+
+* For the `HMWBPhysicalAlteration` codelist, 
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  For heavily modified water bodies only, use this codelist to report the physical
+  alteration that has resulted in the designation of the surface water body as a HMWB.  
+  In the context of designation as a HMWB, physical alterations means 
+  any significant alterations that have resulted in substantial changes 
+  to the hydromorphology of a surface water body such that the surface water body is substantially changed in character. 
+  In general, these hydromorphological characteristics are long term and alter both the morphological and hydrological characteristics. 
+  (See {numref}`Codelist_4thCycle_HMWBPhysicalAlteration_Table`.)
+
+* For the `HMWBWaterUse` codelist, 
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  For heavily modified water bodies only, use this codelist to report the water use for
+  which the water body has been designated. According to Art. 4(3) of the WFD, the water use for which a HMWB
+  was designated is the water use that would be affected significantly by the changes that would be
+  necessary to achieve good ecological status. 
+  (See {numref}`Codelist_4thCycle_HMWBWaterUse_Table`.)  
+
+* For the `AssessmentMethod` codelist, 
+  see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
+  The codelist is used to report 
+  the assessment method for the chemical status and for the quantitative status 
+  (see {numref}`Codelist_4thCycle_AssessmentMethod_Table`).  
+  The same codelist is used for groundwater bodies, 
+  for the assessment method of quantitative status,
+  and for the assessment method of chemical status.
+
+* For the `AssessmentConfidence` codelist, 
+  see also {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
+  The codelist allow the reporting of 
+  the level of confidence in the results of the status assessment
+  (see {numref}`Codelist_4thCycle_AssessmentConfidence_Table`).  
+  The same codelist is used for groundwater bodies.
+
+* For the `PressureType` codelist, 
+  see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in 
+  the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle` 
+
+% -----------------------------------------------------------------------------
+
+
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram.mmd
+:name: Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram
+:align: center
+:caption: Reservoir codelist, HMWBWaterUse codelist, and HMWBPhysicalAlteration codelist - 4ᵗʰ cycle
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_Reservoir_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBWaterUse_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBPhysicalAlteration_Table
+```
+
+% -----------------------------------------------------------------------------
+
 
 (heading_wfd_surface_water_bodies_ecological_status)=
 ## Ecological status and potential
@@ -724,3 +797,54 @@ not achieving good chemical status from 38% to 40%.
   GROUP BY a.[swChemicalStatusValue]
 
   ```
+
+(heading_wfd_heavily_modified_water_bodies)=
+### Heavily modified water bodies
+
+For 60% of the heavily modified water bodies, only one physical alteration and only one water use is reported.  
+It doesn't make sense to keep the two separate tables used in the 3rd cycle:
+it complicates the reporting and does not allow a link to be made between the alteration and the use.
+
+
+```{figure} /DataModelReview/img/HMWB_NumberOfAlteration_NumberOfUses.png
+:name: HMWB_NumberOfAlteration_NumberOfUses
+:width: 100%
+:align: center
+Heavily modified water bodies - Number of different physical alterations per water use.
+```
+
+```{dropdown} Show code
+
+  ```{code-block} sql
+  :caption: Heavily modified water bodies - Number of different physical alterations per water use.
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+
+  SELECT 
+  numberOfHMWBPhysicalAlteration,
+  numberOfHMWBWaterUse,
+  COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS numberOfSurfaceWaterBodies
+  FROM 
+  (SELECT [euSurfaceWaterBodyCode],
+  COUNT(DISTINCT [hmwbPhysicalAlteration]) AS numberOfHMWBPhysicalAlteration,
+  COUNT(DISTINCT [hmwbWaterUse]) AS numberOfHMWBWaterUse
+  FROM 
+
+  (  SELECT a.[euSurfaceWaterBodyCode]
+          ,a.[surfaceWaterBodyCategory]
+          ,a.[naturalAWBHMWB]
+          ,a.[hmwbPhysicalAlteration]
+          ,b.[hmwbWaterUse]
+      FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_hmwbPhysicalAlteration] a
+      JOIN  [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_hmwbWaterUse] b
+      ON a.[euSurfaceWaterBodyCode] = b.[euSurfaceWaterBodyCode]
+      AND a.[cYear] = b.[cYear]
+      WHERE a.[hasDescriptiveData] = 1
+      AND a.[cYear] = 2022) AS a
+
+  GROUP BY [euSurfaceWaterBodyCode]) AS b
+  
+  GROUP BY numberOfHMWBPhysicalAlteration, numberOfHMWBWaterUse
+  ORDER BY numberOfHMWBPhysicalAlteration, numberOfHMWBWaterUse
+
+ ```

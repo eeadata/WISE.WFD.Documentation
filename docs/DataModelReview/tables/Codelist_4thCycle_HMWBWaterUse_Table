@@ -1,5 +1,5 @@
-```{list-table} Driver definition [^drivers-table-source]. 
-:name: Codelist_3rdCycle_DriverType_Table
+```{list-table} HMWBWaterUse definition [^hmwbwateruse-table-source]. 
+:name: Codelist_4thCycle_HMWBWaterUse_Table
 :header-rows: 1
 :width: 100%
 :widths: 25 25 75 
@@ -13,9 +13,13 @@
   - Agriculture
   - Includes all farming activities, agriculture and livestock 
 
-* - climateChange
-  - Climate change
+* - agriculture_landDrainage
+  - Agriculture - land drainage
   - «to-be-provided»
+
+* - agriculture_irrigation
+  - Agriculture - irrigation
+  - Water storage for irrigation.
 
 * - energy_hydropower
   - Energy – hydropower
@@ -31,6 +35,10 @@
     (excluding recreational or sports angling, 
     which is included in the category 'tourism' below).
 
+* - culturalHeritageProtection
+  - Cultural heritage protection 
+  - Archaeological sites and patrimony
+
 * - floodProtection
   - Flood protection
   - «to-be-provided»
@@ -41,7 +49,11 @@
 
 * - industry
   - Industry
-  - All kinds of industry not included under other categories.
+  - Water storage for all kinds of industry not included under other categories.
+
+* - natureProtection
+  - Nature protection
+  - Nature protected areas
 
 * - tourism
   - Tourism and recreation
@@ -55,6 +67,19 @@
 * - urban
   - Urban development
   - Includes urban development linked to household, non-manufacturing commercial activities, tourism. 
+
+* - urban_publicWaterSupply
+  - Urban development
+  - Water storage for domestic public water supply (mostly drinking water supply).
+
+* - unknown
+  - Unknown
+  - Unknown use. The selection of this option will trigger an ERROR.
+
+* - other
+  - Other
+  - Other use not included in any of the categories above.
+
 ```
 
-[^drivers-table-source]: From the WFD Reporting Guidance 2022.
+[^hmwbwateruse-table-source]: From the WFD Reporting Guidance 2022. Note the similitude with {ref}`Codelist_3rdCycle_DriverType_Table`.

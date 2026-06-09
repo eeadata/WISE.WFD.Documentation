@@ -1,0 +1,54 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class HMWBWaterUse{
+<<enumeration>>
+  agriculture
+  agriculture_landDrainage
+  agriculture_irrigation
+  energy_hydropower
+  energy_nonHydropower
+  aquaculture
+  culturalHeritageProtection
+  floodProtection
+  forestry
+  industry
+  natureProtection
+  tourism
+  transport
+  urban
+  urban_publicWaterSupply
+  unknown
+  other
+}
+
+class HMWBPhysicalAlteration{
+<<enumeration>>
+  locks
+  transversalBarrier
+  longitudinalBarrier
+  dredging 
+  landReclamation
+  landDrainage
+  other
+}
+
+class Reservoir{
+<<enumeration>>
+  river
+  riverAndLake	
+  lake	
+  artificial	
+  notAReservoir
+  inapplicable
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
