@@ -8,14 +8,14 @@ config:
 classDiagram
 direction TB
 
-class SWType:::partial {
+class SWType {
 + swTypeIdentifier : wiseIdentifier
 }
 
-class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{
+class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::otherDataset{
 + euSurfaceWaterBodyCode : wiseIdentifier
 + qeCode : QualityElement
-+ qeClassificationIdentifier : wiseIdentifier [0..n]
++ qeClassificationIdentifier : wiseIdentifier
 }
 
 class BQEMethod{
@@ -34,12 +34,12 @@ class SWType_QEClassification{
 + qeClassificationIdentifier
 }
 
-SWQualityElement "1..n" .. QE1Classification : qeClassificationIdentifier
+SWQualityElement ..> QE1Classification : qeClassificationIdentifier
 
-BQEMethod "0..1" -- "1..n" QE1Classification : bqeMethodIdentifier
-QE1Classification "1" -- "0..n" SWType_QEClassification : qeClassificationIdentifier
-SWType_QEClassification -- SWType : swTypeIdentifier
+BQEMethod "1" -- "1..n" QE1Classification 
+QE1Classification "1" -- "0..n" SWType_QEClassification
+SWType_QEClassification "0..n" -- "1" SWType 
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
-classDef partial fill:lightyellow,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;

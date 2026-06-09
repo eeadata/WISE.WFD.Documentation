@@ -42,14 +42,17 @@ Other simplifications already discussed also apply to the GWB schema:
 * removal of the textual reporting of "other" pressures
 * removal of the textual reporting of "other" impacts
 
-Based on the Commission's review of the 3ʳᵈ cycle reporting, 
-the following elements were removed:
+The Commission has revised the **GroundWaterBody** class, 
+and removed the following elements:
 
 * GWB/GroundWaterBody/gwEORiskQuantitative 
 * GWB/GroundWaterBody/gwEORiskChemical 
 * GWB/GroundWaterBody/gwAtRiskQuantitative
 * GWB/GroundWaterBody/gwAtRiskChemical
 * GWB/GroundWaterBody/gwReasonsForRiskQuantitative
+
+The Commission has revised the **GWPollutant** class, 
+and removed the following elements:
 * GWB/GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted
 
 ```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_ClassDiagram.mmd
@@ -83,10 +86,10 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * The core data about each groundwater body 
   is reported in 3 tables: `GroundWaterBody`, `LinkSurfaceWaterBody` and `GWNaturalBackgroundLevel`.
 
-  * The content of this group of tables does not depend 
+  * The content of this set of tables does not depend 
     of the status assessment, and can be prepared in advance.
 
-* A second group of tables contains information about 
+* A second set of tables contains information about 
   the chemical and quantitative status assessment 
   and about pressures and impacts: `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
 
@@ -119,7 +122,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     and that do not vary with the status of the water body.
     Therefore the table can be prepared immediately, 
     even if the 4ᵗʰ cycle RBMPs have not yet been finalised. 
-    All the attributes existed in the 3ʳᵈ cycle reporting.  
+    All the attributes existed in the 3ʳᵈ cycle reporting. 
 
     The `linkSurfaceWaterBody` value 
     controls the content of the `LinkSurfaceWaterBody` table.
@@ -164,14 +167,20 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     and the causes of failure (if applicable).
     
     Formally, the `chemicalStatusValue` 
-    could be derived from the information in the `GWPollutant` table. 
+    could be derived from the information in the `GWPollutant` table.  
+    If, and only if, `chemicalStatusValue = 'unknown'` 
+    and no assessment of the chemical status was done,
+    may all corresponding rows in the `GWPollutant` table be missing.
+    (An ERROR will raised by the quality control, since this is a non-compliance 
+    and should not be reported by mistake.)
+
     Likewise, the `quantitativeStatusValue` 
-    could be derived from the `GWQuantitativeStatus` table. 
-    Nevertheless, a decision was taken to keep both attributes 
-    in the `GroundWaterBodyStatus` table, 
-    for *quality control purposes* 
-    (e.g. to guarantee that there was no mistake 
-    in the reporting of substances causing failure).
+    could be derived from the `GWQuantitativeStatus` table.  
+    If, and only if, `quantitativeStatusValue = 'unknown'` 
+    and no assessment of the quantitative status was done,
+    may the corresponding row in the `GWQuantitativeStatus` table be missing.
+    (An ERROR will raised by the quality control, since this is a non-compliance 
+    and should not be reported by mistake.) 
 
 * - GWPollutant
   - *modified*  
@@ -205,25 +214,25 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     assessment of quantitative or chemical status,
     the `GWGrouping` table is used 
     to define sets of water bodies 
-    that were monitored and assessed as a group.
-    The same grouping can be used for different purposes. 
-    The same water body can be a member of different groups.
+    that were monitored and assessed together as an ensemble.
+    The same ensemble can be used for different purposes. 
+    The same water body can be a member of different ensembles.
     
-    The `groupIdentifier` value uniquely identifies the group 
+    The `groupingIdentifier` value uniquely identifies an ensemble 
     using the WISE identifier syntax.
-    The `euGroundWaterBodyCode` identifies a member of the group.  
-    If a group is used 
+    The `euGroundWaterBodyCode` identifies a member of the ensemble.  
+    If an ensemble is used 
     in the assessment of a given element, 
-    then at least one water body of the group 
+    then at least one of its water bodies
     must be monitored for that element
     (i.e. must have `gwPollutantAssessmentMethod = 'monitoring'`).  
-      (To avoid mistakes and ambiguities, 
-    the `groupIdentifier` value must be different 
+    (To avoid mistakes and ambiguities, 
+    the `groupingIdentifier` value must be different 
     from any known water body identifier. 
     It is recommended to use a clear pattern 
     to avoid conflicts with existing 
     and future water body identifiers.
-    For example, using a '_GWGROUP' suffix).       
+    For example, using a '_GWGROUPING' suffix).       
 
 * - GWPressureImpact
   - *modified*.  

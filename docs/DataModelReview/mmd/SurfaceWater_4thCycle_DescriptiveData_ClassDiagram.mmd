@@ -21,8 +21,8 @@ class SurfaceWaterBody {
 
 class SWStatus {
     + euSurfaceWaterBodyCode : wiseIdentifier
-    \ swEcologicalStatusOrPotentialValue : EcologicalStatus
-    \ swChemicalStatusValue : ChemicalStatus
+    + swEcologicalStatusOrPotentialValue : EcologicalStatus
+    + swChemicalStatusValue : ChemicalStatus
 }
 
 class SWPollutant {
@@ -48,8 +48,8 @@ class SWPressureImpact {
 
 class SWHeavilyModifiedWaterBody {
     + euSurfaceWaterBodyCode : wiseIdentifier
-    + hmwbPhysicalAlterationType : HMWBPhysicalAlterationType [0..1]
-    + hmwbWaterUseType : HMWBWaterUseType [0..1]
+    + hmwbPhysicalAlteration : HMWBPhysicalAlteration [0..1]
+    + hmwbWaterUse : HMWBWaterUse [0..1]
 }
 
 class SWQualityElement{
@@ -69,12 +69,12 @@ class SWGrouping{
 
 SWHeavilyModifiedWaterBody "0..n" -- "1" SurfaceWaterBody 
 SurfaceWaterBody "1" -- "1" SWStatus
-SWStatus "1" -- "n" SWQualityElement
+SWStatus "1" -- "0..n" SWQualityElement
 SWStatus "1" -- "0..n" SWPressureImpact
-SWStatus "1" -- "n" SWPollutant
+SWStatus "1" -- "0..n" SWPollutant
 
-SWQualityElement .. SWGrouping : swGroupingIdentifier
-SWPollutant .. SWGrouping : swGroupingIdentifier
+SWQualityElement ..> SWGrouping : swGroupingIdentifier
+SWPollutant ..> SWGrouping : swGroupingIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

@@ -12,10 +12,10 @@ class SWType:::partial{
 + swTypeIdentifier : wiseIdentifier
 }
 
-class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{
+class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::otherDataset{
 + euSurfaceWaterBodyCode : wiseIdentifier
 + qeCode : QualityElement
-+ qeClassificationIdentifier : wiseIdentifier [0..n]
++ qeClassificationIdentifier : wiseIdentifier
 }
 
 class QE3Classification{
@@ -37,11 +37,11 @@ class SWNaturalBackgroundLevel{
 + parameterUnit : UnitOfMeasure
 }
 
-SWQualityElement "1..n" .. QE3Classification : qeClassificationIdentifier
-QE3Classification -- "1..n" SWType_QEClassification : qeClassificationIdentifier
-SWType_QEClassification "1..n" -- SWType : swTypeIdentifier
-SWType -- "1..n" SWNaturalBackgroundLevel
+SWQualityElement ..> QE3Classification
+QE3Classification "1" -- "0..n" SWType_QEClassification
+SWType_QEClassification "0..n" -- "1" SWType
+SWType "1" -- "0..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
-classDef partial fill:lightyellow,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;

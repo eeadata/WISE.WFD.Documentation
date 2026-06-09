@@ -87,6 +87,7 @@ The following elements were removed:
 
 * GWMET/GWPressures/gwSignificantPressureOtherSourceTools
 * GWMET/GWPressures/gwPressuresNotAssessed
+* GWMET/GWPressures/gwPressuresReference 
 
 The structure of the **GWPressures** class was also revised.
 
@@ -152,7 +153,25 @@ Note that:
 :caption: Groundwater methodologies - GWThresholdValue table - 4ᵗʰ cycle
 ```
 
+```{todo}
+Groundwater methodologies - GWThresholdValue
+
+For groundwater thresholds can the attribute standardType be omitted?
+`+ standardType : StandardType`
+
+```
+
 ### GWThresholdValue table - alternative approach
+
+According to the Groundwater Directive Article 3(2):
+
+```{epigraph}
+2. Threshold values can be established at the national level, at
+the level of the river basin district or the part of the international
+river basin district falling within the territory of a Member State,
+or at the level of a body or a group of bodies of groundwater
+
+```
 
 The data structure used in the 3ʳᵈ cycle, and slightly adapted in 
 {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`,

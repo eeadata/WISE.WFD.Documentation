@@ -92,9 +92,11 @@ yes
 no
 RBMP}
 
-SWTargetedQuestions .. MitigationMeasure : MitigationMeasure
-SWChemicalStatusClassification .. MixingZoneMeasure : mixingZoneMeasure
-SWManagementObjectives .. YesNoRBMP : waterResourcePlans
+SWTargetedQuestions ..> MitigationMeasure : mitigationMeasure
+SWTargetedQuestions ..> GEPApproach : gepApproach
+SWChemicalStatusClassification ..> MixingZoneMeasure : mixingZoneMeasure
+SWManagementObjectives ..> YesNoRBMP : waterResourcePlans
+
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

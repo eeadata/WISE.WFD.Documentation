@@ -52,8 +52,8 @@ class GWPressureImpact{
 class GWStatus{
     
     + euGroundWaterBodyCode : wiseIdentifier
-    / gwQuantitativeStatusValue : QuantitativeStatus
-    / gwChemicalStatusValue : ChemicalStatus
+    + gwQuantitativeStatusValue : QuantitativeStatus
+    + gwChemicalStatusValue : ChemicalStatus
 
     + gwQuantitativeReasonsForFailure : ReasonForFailure [1..n]
     + gwChemicalReasonsForFailure : ReasonForFailure [1..n]
@@ -81,13 +81,13 @@ class GWGrouping{
     + euGroundWaterBodyCode : wiseIdentifier
 }
 
-GroundWaterBody -- GWStatus    
-GWStatus --  GWQuantitativeStatus
-GWStatus -- "0..n" GWPollutant
-GWStatus -- "0..n" GWPressureImpact
+GroundWaterBody "1" -- "1" GWStatus    
+GWStatus "1" -- "0..1" GWQuantitativeStatus
+GWStatus "1" -- "0..n" GWPollutant
+GWStatus "1" -- "0..n" GWPressureImpact
 
-GWQuantitativeStatus .. GWGrouping : gwGroupingIdentifier
-GWPollutant .. GWGrouping : gwGroupingIdentifier
+GWQuantitativeStatus ..> GWGrouping : gwGroupingIdentifier
+GWPollutant ..> GWGrouping : gwGroupingIdentifier
 
 GWLinkSurfaceWaterBody "0..n" -- GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
 GWNaturalBackgroundLevel "0..n" -- GroundWaterBody
