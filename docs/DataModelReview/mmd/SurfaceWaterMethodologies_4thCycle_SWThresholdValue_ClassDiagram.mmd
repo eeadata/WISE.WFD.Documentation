@@ -6,16 +6,16 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
+direction TB
 
 class SWThresholdValue{
 + swThresholdIdentifier : wiseIdentifier
 + parameterCode : Parameter
-+ eqsStandardType : EnvironmentalQualityStandard
++ eqsStandardType : StandardType
 + chemicalMatrix : ChemicalMatrixType 
 
-+ thresholdValueRange : range [0..1]
-+ thresholdValueUnit : UnitOfMeasure [0..1]
++ thresholdValueRange : range
++ thresholdValueUnit : UnitOfMeasure
 + naturalBackgroundLevelSet : YesNoNotApplicable
 
 «compliance-with-criteria»
@@ -33,6 +33,16 @@ class SWThresholdValue{
 + applicableToTeW : YesNo
 }
 
+class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
+  + euSurfaceWaterBodyCode
+  + swPollutantCode
+  + swThresholdIdentifier [1..n]
+  + swThresholdExceedance [0..n]
+}
+
+SWThresholdValue <.. SWPollutant : swThresholdIdentifier
+SWThresholdValue <.. SWPollutant : swThresholdExceedance
+
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
-classDef partial fill:lightyellow,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;

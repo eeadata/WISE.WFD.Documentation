@@ -8,38 +8,40 @@ config:
 classDiagram
 direction TB
 
-class SWType:::partial {
-    + swTypeIdentifier : wiseIdentifier
+class SWType {
+  + swTypeIdentifier : wiseIdentifier
 }
 
-class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::partial{
-+ euSurfaceWaterBodyCode
-+ swPollutantCode
-+ swThresholdIdentifier [1..n]
+class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
+  + euSurfaceWaterBodyCode
+  + swPollutantCode
+  + swThresholdIdentifier [1..n]
+  + swThresholdExceedance [0..n]
 }
 
 class SWThresholdValue{
-+ swThresholdIdentifier : wiseIdentifier
-+ parameterCode : Parameter
+  + swThresholdIdentifier : wiseIdentifier
+  + parameterCode : Parameter
 }
 
 class SWThreshold_SWType{
-+ swThresholdIdentifier : wiseIdentifier
-+ swTypeIdentifier : wiseIdentifier
+  + swThresholdIdentifier : wiseIdentifier
+  + swTypeIdentifier : wiseIdentifier
 }
 
 class SWNaturalBackgroundLevel{
-    + swTypeIdentifier : wiseIdentifier
-    + parameterCode : ParameterCode
-    + parameterValue : range  
-    + parameterUnit : UnitOfMeasure
+  + swTypeIdentifier : wiseIdentifier
+  + parameterCode : ParameterCode
+  + parameterValue : range  
+  + parameterUnit : UnitOfMeasure
 }
 
-SWPollutant "1..n" .. SWThresholdValue : swThresholdIdentifier
-SWThresholdValue -- "1..n" SWThreshold_SWType : swThresholdIdentifier
-SWThreshold_SWType "1..n" -- SWType : swTypeIdentifier
-SWType -- "1..n" SWNaturalBackgroundLevel
+SWPollutant ..> SWThresholdValue : swThresholdIdentifier
+SWPollutant ..> SWThresholdValue : swThresholdExceedance
+SWThresholdValue "1" -- "0..n" SWThreshold_SWType 
+SWThreshold_SWType "0..n" -- "1" SWType 
+SWType "1" -- "1..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
-classDef partial fill:lightyellow,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;

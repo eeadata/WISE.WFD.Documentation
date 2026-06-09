@@ -29,14 +29,14 @@ class SWPollutant {
     + euSurfaceWaterBodyCode : wiseIdentifier
     + swPollutantCode : Parameter
     + swPollutantCausingFailure : YesNoUnknown
-    + swPollutantExceedanceType : EnvironmentalQualityStandard [0..n]
+    + swThresholdExceedance : wiseIdentifier [0..n]
     + swPollutantExceedanceInMixingZone : YesNoUnknownNotApplicable
     
     + swPollutantAssessmentPeriod : range
     + swPollutantAssessmentMethod : AssessmentMethod [1..n]
     + swPollutantAssessmentConfidence : AssessmentConfidence
 
-    + swThresholdIdentifier [1..n]
+    + swThresholdIdentifier : wiseIdentifier [1..n]
     + swGroupingIdentifier : wiseIdentifier [0..n]
 }
 
