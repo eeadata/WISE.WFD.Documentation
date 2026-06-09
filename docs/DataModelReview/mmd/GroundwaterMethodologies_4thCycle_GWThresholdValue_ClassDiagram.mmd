@@ -12,9 +12,8 @@ classDiagram
 class GWThresholdValue{
   + gwThresholdIdentifier : wiseIdentifier
   + parameterCode : Parameter
-  + thresholdValueDefined : YesNo
-  + thresholdValueRange : range [0..1]
-  + thresholdValueUnit : UnitOfMeasure [0..1]
+  + thresholdValueRange : range
+  + thresholdValueUnit : UnitOfMeasure
   + naturalBackgroundLevelSet : YesNoNotApplicable
   + nblValueRange : range  [0..1] 
 
@@ -29,8 +28,8 @@ class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
   + gwThresholdIdentifier
 }
 
-GWThresholdValue .. "1..n" GWPollutant : gwThresholdIdentifier
+GWThresholdValue <.. GWPollutant : gwThresholdIdentifier
 
 classDef default fill:white,stroke:#000;
-classDef otherDataset fill:lightyellow,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

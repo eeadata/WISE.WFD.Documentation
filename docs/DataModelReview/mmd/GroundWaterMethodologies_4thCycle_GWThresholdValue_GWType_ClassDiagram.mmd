@@ -8,22 +8,21 @@ config:
 classDiagram
 direction TB
 
-class GWType:::partial {
+class GWType {
   + gwTypeIdentifier : wiseIdentifier
 }
 
-class GWPollutant ["GroundWaterDataset::GWPollutant"]:::partial{
+class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
   + euGroundWaterBodyCode
   + gwPollutantCode
-  + gwThresholdIdentifier [1..n]
+  + gwThresholdIdentifier
 }
 
 class GWThresholdValue{
   + gwThresholdIdentifier : wiseIdentifier
   + parameterCode : Parameter
-  + thresholdValueDefined : YesNo
-  + thresholdValueRange : range [0..1]
-  + thresholdValueUnit : UnitOfMeasure [0..1]
+  + thresholdValueRange : range 
+  + thresholdValueUnit : UnitOfMeasure 
   + naturalBackgroundLevelSet : YesNoNotApplicable
   + startingPointTrendReversal : range [0..1]
   «reference»
@@ -42,11 +41,11 @@ class GWNaturalBackgroundLevel{
   + parameterUnit : UnitOfMeasure
 }
 
-GWPollutant "1..n" .. GWThresholdValue : gwThresholdIdentifier
-GWThresholdValue -- "1..n" GWThreshold_GWType : gwThresholdIdentifier
-GWThreshold_GWType "1..n" -- GWType : gwTypeIdentifier
-GWType -- "1..n" GWNaturalBackgroundLevel
+GWPollutant ..> GWThresholdValue 
+GWThresholdValue "1" -- "0..n" GWThreshold_GWType 
+GWThreshold_GWType "0..n" -- "1" GWType 
+GWType "1" -- "0..n" GWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
-classDef partial fill:lightyellow,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;
