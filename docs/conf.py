@@ -88,6 +88,11 @@ html_sidebars = {
     "**": ["sidebar-collapse", "sidebar-nav-bs"]
 }
 
+html_js_files = [
+    "js/mermaid-zoom.js",
+]
+
+
 html_theme_options = {
     "logo": {
         "alt_text": "WISE WFD Documentation",
