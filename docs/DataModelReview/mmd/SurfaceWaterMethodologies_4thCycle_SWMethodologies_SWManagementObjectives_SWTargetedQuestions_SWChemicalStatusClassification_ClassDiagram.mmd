@@ -28,6 +28,7 @@ class SWManagementObjectives {
 
 class SWTargetedQuestions{
   + euRBDCode : wiseIdentifier
+  + gepApproach : GEPApproach
   + gepBiology : YesNo
   + mitigationMeasures : MitigationMeasure [0..n]
   + bqeForMEPGEP : BiologicalQualityElement [0..n]
@@ -47,6 +48,14 @@ class SWChemicalStatusClassification {
   + mixingZoneMethodology : YesNo
   + alternativeMixingZoneMethodologyReference : referenceCode [0..n]
   + mixingZoneMeasure : MixingZoneMeasure [0..n]
+}
+
+class GEPApproach {
+<<enumeration>>
+cisGuidanceApproach
+mitigationMeasuresPragueApproach
+hybridCISPragueApproach
+gepHasNotBeenDefined
 }
 
 class MitigationMeasure{
@@ -71,7 +80,7 @@ retentionBasins
 class MixingZoneMeasure{
 <<enumeration>>
 measureArticle113k
-reviewOfPermits
+reviewOfPermitsIED
 priorRegulationsArticle113g
 other
 notApplicable

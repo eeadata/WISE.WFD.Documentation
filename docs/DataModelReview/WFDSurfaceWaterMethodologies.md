@@ -66,7 +66,6 @@ The following elements were removed:
 * SWMET/SWTargetedQ/gepDefined
 * SWMET/SWTargetedQ/gepLevel
 * SWMET/SWTargetedQ/gepApproach
-* SWMET/SWTargetedQ/gesGepComparison
 * SWMET/SWTargetedQ/driversFailureEcologicalStatusPotentialReference
 
 The Commission has revised and simplified the **SWChemicalStatusClassificationRBD** class, 
@@ -85,8 +84,9 @@ The following elements were removed:
 
 The Commission has revised **SWPressures** class. The following elements were removed:
 
+* SWMET/SWPressures/swPressuresReference  
 * SWMET/SWPressures/swSignificantPressureOtherSourceTools
-* SWMET/SWPressures/swPressuresNotAssessed  
+* SWMET/SWPressures/swPressuresNotAssessed 
 
 The structure of the **SWPressures** class was also revised.
 
