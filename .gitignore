@@ -4,3 +4,4 @@ docs/_build/
 Thumbs.db
 tmp
 *.laccdb
+~*.xlsx
