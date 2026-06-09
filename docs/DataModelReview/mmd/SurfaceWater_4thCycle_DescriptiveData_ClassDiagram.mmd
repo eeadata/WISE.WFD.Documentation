@@ -37,7 +37,7 @@ class SWPollutant {
     + swPollutantAssessmentConfidence : AssessmentConfidence
 
     + swThresholdIdentifier [1..n]
-    + swGroupIdentifier : wiseIdentifier [0..n]
+    + swGroupingIdentifier : wiseIdentifier [0..n]
 }
 
 class SWPressureImpact {
@@ -60,21 +60,21 @@ class SWQualityElement{
     + qeStatusAssessmentMethod : AssessmentMethod [1..n]
     + qeStatusAssessmentConfidence : AssessmentConfidence
     + qeClassificationIdentifier : wiseIdentifier [1..n]
-    + swGroupIdentifier : wiseIdentifier [0..n]
+    + swGroupingIdentifier : wiseIdentifier [0..n]
 }
 class SWGrouping{
-    + swGroupIdentifier : wiseIdentifier
+    + swGroupingIdentifier : wiseIdentifier
     + euSurfaceWaterBodyCode : wiseIdentifier
 }
 
-SWHeavilyModifiedWaterBody "0..n" -- SurfaceWaterBody 
-SurfaceWaterBody -- SWStatus
-SWStatus -- "n" SWQualityElement
-SWStatus -- "0..n" SWPressureImpact
-SWStatus -- "n" SWPollutant
+SWHeavilyModifiedWaterBody "0..n" -- "1" SurfaceWaterBody 
+SurfaceWaterBody "1" -- "1" SWStatus
+SWStatus "1" -- "n" SWQualityElement
+SWStatus "1" -- "0..n" SWPressureImpact
+SWStatus "1" -- "n" SWPollutant
 
-SWQualityElement "0..n" .. "0..n" SWGrouping : swGroupIdentifier
-SWPollutant "0..n" .. "0..n" SWGrouping : swGroupIdentifier
+SWQualityElement .. SWGrouping : swGroupingIdentifier
+SWPollutant .. SWGrouping : swGroupingIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

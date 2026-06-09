@@ -40,7 +40,7 @@ class GWQuantitativeStatus{
     + gwQuantitativeAssessmentPeriod : range
     + gwQuantitativeAssessmentConfidence : AssessmentConfidence
     + gwQuantitativeAssessmentMethod : AssessmentMethod [1..n]
-    + gwGroupIdentifier : wiseIdentifier [0..n]
+    + gwGroupingIdentifier : wiseIdentifier [0..n]
 }
 
 class GWPressureImpact{
@@ -73,11 +73,11 @@ class GWPollutant{
     + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableNotAssessed
 
     + gwThresholdIdentifier : wiseIdentifier
-    + gwGroupIdentifier : wiseIdentifier [0..n]
+    + gwGroupingIdentifier : wiseIdentifier [0..n]
 }
 
 class GWGrouping{
-    + gwGroupIdentifier : wiseIdentifier
+    + gwGroupingIdentifier : wiseIdentifier
     + euGroundWaterBodyCode : wiseIdentifier
 }
 
@@ -86,8 +86,8 @@ GWStatus --  GWQuantitativeStatus
 GWStatus -- "0..n" GWPollutant
 GWStatus -- "0..n" GWPressureImpact
 
-GWQuantitativeStatus "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
-GWPollutant "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
+GWQuantitativeStatus .. GWGrouping : gwGroupingIdentifier
+GWPollutant .. GWGrouping : gwGroupingIdentifier
 
 GWLinkSurfaceWaterBody "0..n" -- GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
 GWNaturalBackgroundLevel "0..n" -- GroundWaterBody

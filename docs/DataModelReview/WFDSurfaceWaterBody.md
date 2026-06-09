@@ -129,26 +129,26 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
     If grouping was used for the 
     assessment of ecological or chemical status,
     the `SWGrouping` table is used 
-    to define sets of waterbodies 
-    that were monitored and assessed as a group.
-    The same grouping can be used for different purposes. 
-    The same water body can be a member of different groups.
+    to define sets of water bodies 
+    that were monitored and assessed as an ensemble.
+    The same ensemble can be used for different purposes. 
+    The same water body can be a member of different ensembles.
     
-    The `groupIdentifier` value uniquely identifies the group 
+    The `groupingIdentifier` value uniquely identifies an ensemble 
     using the WISE identifier syntax.
-    The `euSurfaceWaterBodyCode` identifies a member of the group.  
-    If a group is used 
-    in the assessment of a given element, 
-    then at least one waterbody of the group 
+    The `euSurfaceWaterBodyCode` identifies a member of the ensemble.  
+    If an ensemble is used 
+    in the assessment of a given element,
+    then at least one of its water bodies
     must be monitored for that element
     (e.g. must have `swPollutantAssessmentMethod = 'monitoring'`).  
     (To avoid mistakes and ambiguities, 
-    the `groupIdentifier` value must be different 
+    the `groupingIdentifier` value must be different 
     from any known water body identifier. 
-    It is recomended to use a clear pattern 
+    It is recommended to use a clear pattern 
     to avoid conflicts with existing 
     and future water body identifiers.
-    For example, using a '_GWGROUP' suffix).       
+    For example, using a '_SWGROUPING' suffix).       
 
 * - SWPressureImpact
   - *modified*.  
