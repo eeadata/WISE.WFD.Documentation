@@ -258,20 +258,13 @@ The **implementationStatus** attribute allows the distinction between planned an
 
 ## Economic data in the programme of measures
 
-The revision of the electronic reporting focuses on the main issues described in the Note to the CIS Working Group Economics ([^1]) quoted below:
-
-[^1]: P. Arnoldus, “Workstream 1: proposing a simplification and standardisation of the economic data reporting,” note to the CIS Working 
-Group Economics, 15 December 2025,[Available](https://circabc.europa.eu/ui/group/9ab5926d-bed4-4322-9aa7-9964bbe8312d/library/2eef1f5c-5df6-41e2-93e8-c0f427d80eb1/details) in Circabc 
+The revision of the electronic reporting focuses on the main issues described in the Note to the CIS Working Group Economics ([^pArnoldus]) quoted below:
 
 “[…] Both the Commission’s 6ᵗʰ and 7ᵗʰ WFD Implementation Reports indicate persistent problems in the (electronic) reporting on the investments and the costs of other measures in the Programme of Measures (PoM).
 
-The 6ᵗʰ WFD Implementation Report notes that the Member States’ reporting on costs and financing of the PoMs appears overall patchy and that a consultant’s study estimate is an underestimation for the total costs, as there are significant data gaps and it excludes operational and infrastructure maintenance costs. The corresponding investment overview table shows indeed large gaps ([^2]) .
+The 6ᵗʰ WFD Implementation Report notes that the Member States’ reporting on costs and financing of the PoMs appears overall patchy and that a consultant’s study estimate is an underestimation for the total costs, as there are significant data gaps and it excludes operational and infrastructure maintenance costs. The corresponding investment overview table shows indeed large gaps ([^6thWFDImplReport]) .
 
-[^2]: 6th WFD Implementation Report,[ COM(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15. The table concerns {numref}`measures_temporalcoverage`, p24, of [SWD(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970) – note that the differentiation is based.
-
-The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^3]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs to develop long‑term investment plans and clearly identifying the source of financing for each measure.” A good planning is also necessary for the acquisition of support from EU Funds, the EIB and other promotional banks.
-
-[^3]: Quotes are from 7th WFD Implementation Report,[ COM(2025) 2](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0002)(p15, p36) 
+The Commission’s evaluation of the 3ʳᵈ River Basin Management Plans ([^7thWFDImplReport]), as part of the 7ᵗʰ WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show that Member States continue to have different approaches to their design and reporting” and that “the costs and the financing of the planned measures are often missing.” Hence, the Commission recommends that “in order to effectively implement the PoMs to develop long‑term investment plans and clearly identifying the source of financing for each measure.” A good planning is also necessary for the acquisition of support from EU Funds, the EIB and other promotional banks.
 
 *The challenge is thus to improve the reporting of the costs of the PoM measures, including the investment amounts*, and to specify the funding of these investments and other measures. This requires a clear distinction between capital costs (CAPEX) and operational costs (OPEX). […]
 
@@ -286,12 +279,7 @@ consequences:
 - The reporting is on investment spending (purchases / commitments) and not on capital costs (depreciation). 
 - To make the link with financial support from EU Funds, EIB and other promotional banks, one needs to distinguish OPEX and CAPEX when reporting investment cost.
 
-There is a readily available conceptual basis for the reporting on the PoM investment and other costs, with which the Member States are already familiar, namely the **environmental protection expenditures**. They are namely required to collect and report this data annually to Eurostat ([^4]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one of the environmental‑economic satellite accounts to the economic National Accounts.The EPEA are based on a clear, publicly available protocol (following UN statistical standards), defining the environmental domains, spending economic sectors, and expenditure types. The latter includes the distinction between **capital** and **current** expenditures. Hence, it meets the features described in the three bullets points above.
-
-
-[^4]: An obligation under Regulation (EU) No 691/2011, amended by Commission Delegated Regulation (EU) 2022/125; the consolidated 
-version can be found [here](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011R0691-20250624)
-
+There is a readily available conceptual basis for the reporting on the PoM investment and other costs, with which the Member States are already familiar, namely the **environmental protection expenditures**. They are namely required to collect and report this data annually to Eurostat ([^Obligation]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one of the environmental‑economic satellite accounts to the economic National Accounts.The EPEA are based on a clear, publicly available protocol (following UN statistical standards), defining the environmental domains, spending economic sectors, and expenditure types. The latter includes the distinction between **capital** and **current** expenditures. Hence, it meets the features described in the three bullets points above.
 
 A brief review of the reported data confirms the issues mentioned above.
 
@@ -354,15 +342,9 @@ Figure 12 illustrates the ExpenditurePerMeasurePerSector table proposed for the 
 
 The data is reported for each measure, *if it is available*: the **measureCode** identifier and the **expenditureDataAvailable** attribute are the only mandatory attributes.
 
-The geographical scope of the measure is inherited from the parent record in the **Measure** table and does not need to be reported again. Likewise, the temporal scope is inherited from the parent records and can be used to verify the reported data ([^5]).
+The geographical scope of the measure is inherited from the parent record in the **Measure** table and does not need to be reported again. Likewise, the temporal scope is inherited from the parent records and can be used to verify the reported data ([^ErrorExplained]).
 
-[^5]: An error should be raised when there is missing data. In pseudo-code (the && operators tests whether a range of values overlaps):<br>a) IF expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod && '[2022,2027]' AND Measure.implementationStatus IN ('executed', 'ongoing', 'implemented') AND totalCapitalExpenditure3rdCycle IS NULL AND annualCurrentExpenditure3rdCycle IS NULL. <br>b) IF expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod && '[2028,2033]' AND Measure.implementationStatus IN ('ongoing', 'implemented', 'planned') AND totalCapitalExpenditure4thCycle IS NULL AND annualCurrentExpenditure4thCycle IS NULL. 
-
-The attribute **millionUnitsOfNationalCurrency** was introduced to facilitate reporting by MS outside the Euro area, in alignment with common statistical practices ([^6]). It also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
-
-[^6]: Data must be reported in Millions of Euro for Euro Area Member States, and in Millions of National currency for non-Euro Area countries. (The unit multiplier is set to 6 and it is applied to all the data, so it doesn't need to be specified.) Non-Euro Area countries 
-hould use the relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC). Euro Area countries must use EUR. Generally, the number of decimal digits is “0”. If a country wants to send a figure lower than 1 million, decimals may be used. In this case, the separator must be a dot (.). (Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent). If necessary the proposal can be modified to use a different multiplier (e.g. thousands). 
-
+The attribute **millionUnitsOfNationalCurrency** was introduced to facilitate reporting by MS outside the Euro area, in alignment with common statistical practices ([^DataReportedCurrency]). It also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram.mmd
 :name: Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram
@@ -379,13 +361,13 @@ The European System of Accounts (ESA 2010) has a standard classification of inst
 The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly, the 3ʳᵈ cycle of WFD reporting used it. 
 The dichotomous key in Figure 13 clarifies the allocation of units to sectors.
 
-The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors ([^7]):
+The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors ([^Sectors]):
 
-[^7]: See e.g. the Environmental protection expenditure accounts Handbook , 2017 edition [https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000](https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000)
 - S13 and S15 – General government and **NPISH** 
 - S11 and S12 – Corporations
 - S14 – Households
 - S2 – Rest of the World
+
 
 ```{table} European System of Accounts (ESA 2010) sectors.
 :name: measures_ESA2010
@@ -482,9 +464,7 @@ water') which may be outside the scope of the EPEA.
 The EPEA categorises activities using the Classification of environmental protection activities (CEPA 2000, {numref}`measures_SubsetOfCEPAClasses`). 
 The proposed classification of Measures using the mainKeyTypeOfMeasure value ({numref}`measures_mainKeyTypeOfMeasure_definitions`) is not based on the CEPA 2000 classification.
 
-Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation) and excludes Resource Management (saving water or energy), which falls under CReMA([^8]) (Classification of Resource Management Activities).
-
-[^8]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
+Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation) and excludes Resource Management (saving water or energy), which falls under CReMA([^CReMA]) (Classification of Resource Management Activities).
 
 Nevertheless, it seems to be possible to map most of the mainKeyTypeOfMeasure classes to a primary CEPA 2000 class ({numref}`measures_mainKeyTypeOfMeasure_to_CEPA2000_mapping`). 
 
@@ -529,8 +509,28 @@ Based on the information in (http://publications.europa.eu/resource/dataset/cepa
 ```{include} tables/Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable
 ```
 
+% Footnotes
+
+
+[^pArnoldus]: P. Arnoldus, “Workstream 1: proposing a simplification and standardisation of the economic data reporting,” note to the CIS Working Group Economics, 15 December 2025,[Available](https://circabc.europa.eu/ui/group/9ab5926d-bed4-4322-9aa7-9964bbe8312d/library/2eef1f5c-5df6-41e2-93e8-c0f427d80eb1/details) in Circabc
+
+[^6thWFDImplReport]: 6th WFD Implementation Report,[ COM(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15. The table concerns {numref}`measures_temporalcoverage`, p24, of [SWD(2021) 970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970) – note that the differentiation is based.
+
+[^7thWFDImplReport]: Quotes are from 7th WFD Implementation Report,[ COM(2025) 2](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0002)(p15, p36)
+
+[^Obligation]: An obligation under Regulation (EU) No 691/2011, amended by Commission Delegated Regulation (EU) 2022/125; the consolidated version can be found [here](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011R0691-20250624)
+
+[^ErrorExplained]: An error should be raised when there is missing data. In pseudo-code (the && operators tests whether a range of values overlaps):<br>a) IF expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod && '[2022,2027]' AND Measure.implementationStatus IN ('executed', 'ongoing', 'implemented') AND totalCapitalExpenditure3rdCycle IS NULL AND annualCurrentExpenditure3rdCycle IS NULL. <br>b) IF expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod && '[2028,2033]' AND Measure.implementationStatus IN ('ongoing', 'implemented', 'planned') AND totalCapitalExpenditure4thCycle IS NULL AND annualCurrentExpenditure4thCycle IS NULL.
+
+[^DataReportedCurrency]: Data must be reported in Millions of Euro for Euro Area Member States, and in Millions of National currency for non-Euro Area countries. (The unit multiplier is set to 6 and it is applied to all the data, so it doesn't need to be specified.) Non-Euro Area countries hould use the relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC). Euro Area countries must use EUR. Generally, the number of decimal digits is “0”. If a country wants to send a figure lower than 1 million, decimals may be used. In this case, the separator must be a dot (.). (Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent). If necessary the proposal can be modified to use a different multiplier (e.g. thousands).
+
+[^Sectors]: See e.g. the Environmental protection expenditure accounts Handbook , 2017 edition [https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000](https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000)
+
+[^CReMA]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
+
 (heading_wfd_measures_references)=
 ## References
 
 ```{include} FragmentReportingGuidanceFiles
 ```
+
