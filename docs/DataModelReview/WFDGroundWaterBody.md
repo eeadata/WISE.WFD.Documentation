@@ -512,7 +512,7 @@ from a typical borehole at an individual abstraction site."
 ```{dropdown} Show code
   ```{code-block} sql
   :caption: [gwQuantitativeStatusValue] vs [gwQuantitativeReasonsForFailure] - 3ʳᵈ cycle
-  ::
+  :linenos:
   -- https://discodata.eea.europa.eu/
 
   SELECT [gwQuantitativeStatusValue]

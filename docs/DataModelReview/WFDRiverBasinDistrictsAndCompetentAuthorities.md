@@ -53,10 +53,10 @@ The Documents dataset follows the standard structure used in various WISE datafl
 
 * The dcMetadata table also functions as a "manifest file" explaining: 
 
-  * if the delivery contains an update of the spatial data (`updateSpatialData = 'yes'`) 
-  * and/or if the delivery contains an update of the competent authorities or their roles (`updateCompetentAuthorities= 'yes'`). 
+  * if the delivery contains an update of the spatial data: `updateSpatialData = 'yes'`
+  * and/or if the delivery contains an update of the competent authorities or their roles: `updateCompetentAuthorities= 'yes'` 
   
-* The structure of the `Document` table is standard in the WISE dataflows: 
+* The `Document` table is standard in the WISE dataflows: 
 it allows the upload of documents (for example, PDFs) 
 or the provision of a hyperlink to a document stored in a publicly accessible national web site.
 
@@ -74,7 +74,8 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 
 - The `CompetentAuthority` table contains basic information about each Competent Authority.
 
-- The `RiverBasinDistrictCompetentAuthority` table associates each Competent Authority with a River Basin District and specifies the role(s) of the competent authority in that specific RBD.
+- The `RiverBasinDistrictCompetentAuthority` table associates each Competent Authority with a River Basin District 
+  and specifies the role(s) of the competent authority in that RBD.
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Descriptive_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Descriptive
@@ -101,23 +102,22 @@ As stated before, Subunits are no longer requested in the 4ᵗʰ cycle of report
 
 The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3ʳᵈ cycle of reporting):
 
-* Two attributes were removed, because they can be derived from the reported geometry: `sizeValue` and `sizeUom`.
+* The attributes `sizeValue` and `sizeUom` were removed, because they can be derived from the reported geometry.
 
-* Two attributes were removed, because they are not required at EU level: `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`.
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme` were removed, because they are not required at EU level.
 
-* The date values are now requested as simply as YYYY-MM-DD, 
-  because that was the format used by the data providers during the previous cycles, 
-  and therefore it is not necessary to mantain more variants. 
+* All the date values are requested as YYYY-MM-DD, because that was the format used by the data providers in the previous cycles 
+  (and therefore it is not necessary to maintain more variants). 
   This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
 
 * One attribute was moved from the descriptive dataset into the spatial dataset.  
   The `specialisedZoneType` now accepts the options `'internationalRiverBasinDistrict'` and `'nationalRiverBasinDistrict'`.
 
-* The attributes `thematicIdIdentifierScheme*` and `zoneType` have been kept for clarity's sake. 
-  However, all records in the `RiverBasinDistrict` dataset have a fixed value for these attributes.
+* The attributes `thematicIdIdentifierScheme` and `zoneType` have been kept for clarity's sake. 
+  However, all records in the `RiverBasinDistrict` dataset have a constant value for these attributes.
 
-* Likewise, the attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake. 
-  *In the reported datasets*, the values of these attributes will always be NULL. 
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake. 
+  **In the reported datasets, the value of these attributes will always be NULL.** 
   The appropriate value will be derived and included in the published WISE datasets 
   for the 1st, 2nd and 3rd cycle RiverBasinDistrict datasets.
 
@@ -133,7 +133,7 @@ The following changes have been made to the `RiverBasinDistrict` spatial table (
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
 
-### National and international RBDs - 3ʳᵈ cycle
+### National and international RBDs
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the delineation of the River Basin Districts did not change,
@@ -156,7 +156,7 @@ then it is not necessary to report the RiverBasinDistrict dataset again.
 
   ```
 	
-### Competent authorities and their roles - 3ʳᵈ cycle
+### Competent authorities and their roles
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the competent authorities and their roles have not changed,

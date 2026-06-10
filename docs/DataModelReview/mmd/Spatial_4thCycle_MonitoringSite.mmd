@@ -9,29 +9,32 @@ classDiagram
 direction LR
 class MonitoringSite{
   + geometry_point : geometry_multipoint
-  + inspireIdLocalId : String254
-  + inspireIdNamespace : String254 
-  + inspireIdVersionId : String25 [0..1]
+  + inspireIdLocalId : string254
+  + inspireIdNamespace : string254 
+  + inspireIdVersionId : string25 [0..1]
   + thematicIdIdentifier : wiseIdentifier
   + thematicIdIdentifierScheme : IdentifierScheme
-  + beginLifespanVersion : Date [0..1]
-  + endLifespanVersion : Date [0..1]
-  + supersedesIdentifier : String500 [0..1]
+  + beginLifespanVersion : date [0..1]
+  + endLifespanVersion : date [0..1]
+  + supersedesIdentifier : wiseIdentifier [0..n]
   + supersedesIdentifierScheme : IdentifierScheme [0..1]
-  + supersededByIdentifier : String500 [0..1]
+  + supersededByIdentifier : wiseIdentifier [0..n]
   + supersededByIdentifierScheme : IdentifierScheme [0..1]
   + wiseEvolutionType : WiseEvolutionType
-  + nameTextInternational : String254
-  + nameText : String254
+  + nameTextInternational : string254
+  + nameText : string254
   + nameLanguage : Language
-  + operationalActivityPeriodBegin : Date 
-  + operationalActivityPeriodEnd : Date [0..1]
+  + operationalActivityPeriodBegin : date 
+  + operationalActivityPeriodEnd : date [0..1]
   + featureOfInterestIdentifier : wiseIdentifier
   + featureOfInterestIdentifierScheme : IdentifierScheme
   + mediaMonitoredBiota : YesNo
   + mediaMonitoredWater : YesNo
   + mediaMonitoredSediment : YesNo
-  + purpose : String254 [0..*]
+  + purpose : string254 [0..*]
   + confidentialityStatus : ConfidentialityStatus
   + link : URL [0..1]
 }
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

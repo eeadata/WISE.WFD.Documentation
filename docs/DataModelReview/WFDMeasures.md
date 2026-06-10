@@ -19,32 +19,45 @@ Using this principle, the data model can focus on aspects that are suitable for 
 
 ## Current structure - 3ʳᵈ cycle
 
-The schema used in the 3ʳᵈ cycle of reporting contained 3 main groups ({numref}`ProgrammeOfMeasures_3rdCycle`):
+The schema used in the 3ʳᵈ cycle of reporting contained 4 main groups ({numref}`ProgrammeOfMeasures_3rdCycle`):
 
-1. Summary information about the *River Basin Management Plan*, the Progress since the previous River Basin Management Plan, 
- and the mechanisms of international Coordination (if applicable).
-2. Information about the *Programme of Measures*, comprising a summary questionnaire of Targeted Questions and aggregated data about the overall Cost of measures. 
- Disaggregated information was requested about each Measure and its classification into key type of measures (*KTM*) and basic type of measures (if applicable).
-3. Summary information about pressures and substances causing failure was also requested, along with their link to *KTM Indicators* and *Indicator Gaps*.
+* summary information about the **River Basin Management Plan**, 
+  the **Progress** since the previous River Basin Management Plan, 
+  and the mechanisms of international **Coordination** (if applicable)
+
+* information about the **Programme of Measures**, 
+  comprising a summary questionnaire of **Targeted Questions** 
+  and aggregated data about the overall **Cost** of measures  
+
+* disaggregated information was requested about each **Measure** 
+  and its classification into **Key Types of Measures** (KTM) 
+  and basic type of measures (if applicable)
+
+* further information about **Significant pressures and substances** causing failure, 
+  along with their link to **KTM Indicators** and **Indicator Gaps**
 
 ```{figure} img/Measures_RBMPPoM_2022_ClassDiagram.png
 :name: ProgrammeOfMeasures_3rdCycle
 :align: center
 :width: 100%
 
-River Basin Management Plan & Programme of Measures - 3ʳᵈ cycle - OBSOLETE
+River Basin Management Plan & Programme of Measures - 3ʳᵈ cycle
 ```
 
 ## Proposed structure - 4ᵗʰ cycle
 
-1. The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan** table, containing a selected subset of attributes. 
- The **Progress** table is modified to request only aggregated information about the overall status of the measures of the previous cycle (3ʳᵈ cycle).
-2. The reporting of the Programme of Measures is also simplified. 
- The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified. 
- Information about measures is requested in a single **Measure** table. 
- Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if data is available.
-3. The KTM indicators and indicator gaps group is completely removed.
+* The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan** table, 
+  containing a selected subset of attributes.  
+  The **Progress** table is modified to request only aggregated information 
+  about the overall status of the measures of the previous cycle (3ʳᵈ cycle).
 
+* The reporting of the Programme of Measures is also simplified. 
+  The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified.  
+
+* Information about measures is requested in a single **Measure** table.
+  Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if data is available.
+  
+* The KTM classification, KTM indicators and indicator gaps data is completely removed.
 
 ## River basin management plan, coordination and progress - 3ʳᵈ cycle
 
@@ -59,39 +72,39 @@ Reporting by MS should not present technical difficulties, and there is limited 
 :align: center
 :width: 100%
 
-River Basin Management Plan, international Coordination and Progress since the previous cycle - 3ʳᵈ cycle - OBSOLETE
+River Basin Management Plan, international Coordination and Progress since the previous cycle - 3ʳᵈ cycle
 ```
 
-## RiverBasinManagementPlan – 4ᵗʰ cycle
+## RiverBasinManagementPlan table – 4ᵗʰ cycle
 
-The simplified **RiverBasinManagementPlan** table contains a subset of the data previously requested in the RBMP and Coordination classes in the 3ʳᵈ cycle ({numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`):
+The simplified `RiverBasinManagementPlan` table contains a subset of the data previously requested 
+in the RBMP and Coordination classes in the 3ʳᵈ cycle ({numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`):
 
-* A new attribute, **coordinationNRRReference**, allows the reporting of information related to coordination with the Nature Restoration Regulation.
-
-* The reporting of the **pomCoordinationArt5SWMI**, **pomCoordinationIRBMPPoM**, **pomCoordinationRoofReport** and **pomCoordinationFinancial** attributes 
- is only required for international RBDs. 
+* The new `coordinationNRRReference` attribute allows the reporting of information related to coordination with the Nature Restoration Regulation.
+* The `pomCoordinationArt5SWMI`, `pomCoordinationIRBMPPoM`, `pomCoordinationRoofReport` and `pomCoordinationFinancial` attributes are only required for international RBDs. 
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram.mmd
 :name: Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram
-:caption: River Basin Management Plan table – 4ᵗʰ cycle of reporting
+:caption: River Basin Management Plan table – 4ᵗʰ cycle
 :align: center
 ```
 
 ## Progress table – 4ᵗʰ cycle
 
-The **Progress** table is modified to provide an overview of the proportion of the measures of the 3ʳᵈ RBMPs that were executed, cancelled, or otherwise affected, 
+The `Progress` table is modified to provide an overview of the proportion of the measures of the 3ʳᵈ RBMPs 
+that were executed, cancelled, or otherwise affected, 
 as well as the obstacles encountered during the implementation of the 3ʳᵈ RBMP Programme of Measures ({numref}`Measures_4thCycle_Progress_ClassDiagram`).
 
-The only constraint is that, for each RBD, the sum of the values in **percentageInStatus** must be **100**. 
+The only constraint is that, for each RBD, the sum of the values in `percentageInStatus` must be **100**. 
 The level of detail can be adapted depending on the needs and the data available at national level.
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Progress_ClassDiagram.mmd
 :name: Measures_4thCycle_Progress_ClassDiagram
-:caption: Progress table – 4ᵗʰ cycle of reporting
+:caption: Progress table – 4ᵗʰ cycle
 :align: center
 ```
 
-A numerical example illustrates per proposed approach. 
+A numerical example illustrates the proposed approach. 
 Consider a hypothetical 3ʳᵈ RBMP Programme of Measures with 10 different measures, 
 which are in different statuses and may have faced different obstacles ({numref}`measures_example_ten_measures`). 
 
@@ -132,59 +145,59 @@ The example in {numref}`measures_example_progress` illustrates how to synthesize
 
 ## TargetedQuestions table – 4ᵗʰ cycle
 
-The **TargetedQuestions** table collects summary information about the measures in the RBMP, and the progress since the previous cycle. 
+The `TargetedQuestions` table collects summary information about the measures in the RBMP, and the progress since the previous cycle. 
 For each RBMP, only one record is required. The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers. 
 
 Reporting by MS should not present technical difficulties, and there is limited scope for any technical simplification. 
-The Commission has revised and simplified the **TargetedQuestions** table, keeping a subset of the questions requested in the previous cycle ({numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`).
+The Commission has revised and simplified the `TargetedQuestions` table, 
+keeping a subset of the questions requested in the previous cycle 
+({numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`).
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_TargetedQuestions_ClassDiagram.mmd
 :name: Measures_4thCycle_TargetedQuestions_ClassDiagram
-:caption: TargetedQuestions table – 4ᵗʰ cycle of reporting
+:caption: TargetedQuestions table – 4ᵗʰ cycle
 :align: center
 ```
 
 ## Measure table – 4ᵗʰ cycle 
 
-The simplified Measure table proposed for the 4ᵗʰ cycle is illustrated in ({numref}`Measures_4thCycle_Measure_ClassDiagram`). 
+The simplified `Measure` table proposed for the 4ᵗʰ cycle is illustrated in ({numref}`Measures_4thCycle_Measure_ClassDiagram`). 
 
 For each measure:
 
-* Use a unique persistent European identifier for each **measureCode**.
-* Use the original **measureName** (or an English translation thereof).
-* If needed, provide a link to documentation (**measureReference**).
-* Identify the primary **measureLegalInstrument**, using a single codelist value.
-* Identify the **measureType**, using a single codelist value.
-* Classify the measure using a single **mainKeyTypeOfMeasure** codelist value from a simplified classification. The closest match should be selected.
-* Optionally or if applicable, identify the main pressure or pressure group addressed by the measure using the **measurePressureType** attribute, 
- at the level of detail deemed more adequate. The closest match should be selected.
-* Optionally or if applicable, identify the main substance or group of substances addressed by the measure using the **measureSubstanceType** attribute, 
- at the level of detail deemed more adequate.
-* Flag the sectoral plans for which the measure might be relevant 
- using the **msfdRelevance**, **floodsRelevance**, **natureRestorationRegulationRelevance**, **draughtManagementPlanRelevance** and **climateAdaptationPlanRelevance** attributes.
-* Specify the **geographicalCoverage** and **temporalCoverage** of the measure.
+* create a unique persistent European identifier `measureCode`
+* use the original descriptive `measureName` (or an English translation thereof)
+* if needed, provide links to documentation (`measureReference`)
+* identify the primary `measureLegalInstrument`, using a single codelist value
+* identify the `measureType`, using a single codelist value
+* classify the measure using a single `mainKeyTypeOfMeasure` codelist value from a simplified classification. The closest match should be selected
+* optionally or if applicable, identify the main pressure addressed by the measure using the `measurePressureType` attribute, 
+  at the level of detail deemed more adequate. The closest match should be selected
+* optionally or if applicable, identify the main substance or group of substances 
+  addressed by the measure using the `measureSubstanceType` attribute, 
+  at the level of detail deemed more adequate
+* flag the sectoral plans for which the measure might be relevant 
+  using the `msfdRelevance`, `floodsRelevance`, `natureRestorationRegulationRelevance`, `draughtManagementPlanRelevance` and `climateAdaptationPlanRelevance` attributes
+* specify the `geographicalCoverage` and `temporalCoverage` of the measure
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Measure_ClassDiagram.mmd
 :name: Measures_4thCycle_Measure_ClassDiagram
-:caption: Measure table – 4ᵗʰ cycle of reporting
+:caption: Measure table – 4ᵗʰ cycle
 :align: center
 ```
-### Measure table – 4ᵗʰ cycle - measureCode, measureName and measureReference
-
-Each different measure must have a persistent unique identifier at national level and European level (**measureCode**), a descriptive name (**measureName**), and zero or more links to documentation (**measureReference**).  
 
 ### Measure table – 4ᵗʰ cycle - measureType
 
-The **measureType** typology is described in {numref}`measures_measureType_definitions`. 
+The **measureType** typology is described in {numref}`Codelist_4thCycle_MeasureType_Table`. 
 
-```{include} tables/Measures_MeasureType_ListTable
+```{include} tables/Codelist_4thCycle_MeasureType_Table
 ```
 
 ### Measure table – 4ᵗʰ cycle - measureLegalInstrument
 
-The primary **measureLegalInstrument** under which the measure was defined must be clearly identified.  
+The primary `measureLegalInstrument` under which the measure was defined must be clearly identified.  
 This avoids double reporting in other Directives: the measures can be reported only once under the RBMP electronic reporting. 
-An updated list of EU water and other environmental legislation is provided ({numref}`measureLegalInstrument_definitions`).
+An updated list of EU water and other environmental legislation is provided ({numref}`Codelist_4thCycle_LegalInstrument_Table`).
 
 The scope of some basic measures is clearly linked to the two Daughter directives:
 
@@ -195,10 +208,10 @@ These two legal instruments are part of the codelist.
 The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD), that existed in the 3ʳᵈ cycle, 
 is now eliminated because it did not convey relevant information.
 
-```{include} tables/Measures_MeasureLegalInstrument_ListTable
+```{include} tables/Codelist_4thCycle_LegalInstrument_Table
 ```
 
-### Measure table – 4ᵗʰ cycle - mainKeyTypeOfMeasure
+### mainKeyTypeOfMeasure
 
 The **mainKeyTypeOfMeasure** attribute contains the classification to be used for both basic and supplementary measures (see {numref}`measures_mainKeyTypeOfMeasure_definitions`).  
 It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure classifications used in the 2ⁿᵈ and 3ʳᵈ cycles. 

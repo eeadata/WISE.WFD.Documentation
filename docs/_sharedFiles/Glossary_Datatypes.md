@@ -119,6 +119,9 @@ ObservationStatus
 Parameter
     Value from the `Parameter` controlled list of values. Depending of the scope in which it is being used, the subset of allowed values may be restricted by the quality control.
 
+Percentage
+    Integer value in the interval [0,100].
+
 PercentageInterval
     Value from the `PercentageInterval` controlled list of values.  
 

@@ -1,15 +1,14 @@
-
-```{list-table} Types of measures - proposed measureType options – 4ᵗʰ cycle.
-:name: measures_measureType_definitions
+```{list-table} Codelist - 4ᵗʰ cycle - MeasureType
+:name: Codelist_4thCycle_MeasureType_Table
 :width: 100%
 :widths: 20 80
 :header-rows: 1
 :align: left
 
-* - Measure Type
-  - Definition and Examples
+* - Notation
+  - Definition and examples
 
-* - legislativeOrRegulatoryMeasure
+* - legislativeOrRegulatory
   - **Definition**: 
     Measures that involve the adoption or modification of laws, by-laws, 
     and binding standards to restrict activities or enforce compliance with environmental objectives. 
@@ -28,7 +27,7 @@
     *Ecological Flow Standards*: Establishing legally binding standards for ecological flows (e -flows) to ensure sufficient water remains in rivers. 
     Austria has a decree in force since 2010 setting values for biological and hydrological quality elements.
 
-* - administrativeOrGovernanceMeasure
+* - administrativeOrGovernance
   - **Definition**: 
     Procedural actions taken by competent authorities to manage water use, including the issuance and review of permits, 
     the maintenance of registers, inspections, and the coordination of governance structures.  
@@ -53,7 +52,7 @@
     such as the establishment of buffer strips and sustainable nutrient management. 
     Finland report measures such as farm advisory services and training as part of the efforts to address pollution from agriculture and forestry.
 
-* - physicalOrTechnicalMeasure
+* - physicalOrTechnical
   - **Definition**:  
     Concrete interventions involving construction, removal, or modification of infrastructure, 
     as well as technical upgrades to facilities to reduce emissions or restore morphology. 
@@ -77,7 +76,7 @@
     *Remediation*:  
     Cleanup of contaminated sites. Czechia maps measures for the remediation of contaminated sites covering 15,772 km².
 
-* - economicOrFinancialMeasure
+* - economicOrFinancial
   - **Definition**:  
     Instruments involving financial incentives, pricing mechanisms, taxes, or subsidies designed to influence water use behaviour or fund environmental improvements.  
 
@@ -94,7 +93,7 @@
     *Cost Recovery*: Mechanisms to recover costs of water services. The Netherlands reports nearly full cost
     recovery for collective water supply and sanitation services.
 
-* - knowledgeOrPreparatoryMeasure
+* - knowledgeOrPreparatory
   - **Definition**:  Actions focused on research, data collection, and gap analysis to reduce uncertainty and inform future decision-making.  
 
     **Examples**: Knowledge and preparatory measures include *inter alia*:

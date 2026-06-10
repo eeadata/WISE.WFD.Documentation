@@ -6,22 +6,21 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
+direction TB
 
 class Progress{
-+ euRBDCode :  wiseIdentifier
+  + euRBDCode :  wiseIdentifier
 
-+ previousRBMPMeasureStatus : PlannedOngoingExecutedCancelled
-+ percentageInStatus : Percentage
+  + previousRBMPMeasureStatus : PlannedOngoingExecutedCancelled
+  + percentageInStatus : Percentage
 
-+ obstaclesGovernance : YesNo
-+ obstaclesDelays : YesNo
-+ obstaclesLackOfFinance : YesNo
-+ obstaclesLackOfMechanism : YesNo
-+ obstaclesMeasureNotEffective : YesNo
-+ obstaclesMeasureNotCostEffective : YesNo
-+ obstaclesExtremeEvents : YesNo
-
+  + obstaclesGovernance : YesNo
+  + obstaclesDelays : YesNo
+  + obstaclesLackOfFinance : YesNo
+  + obstaclesLackOfMechanism : YesNo
+  + obstaclesMeasureNotEffective : YesNo
+  + obstaclesMeasureNotCostEffective : YesNo
+  + obstaclesExtremeEvents : YesNo
 }
 
 class PlannedOngoingExecutedCancelled{
@@ -31,6 +30,8 @@ class PlannedOngoingExecutedCancelled{
     executed
     cancelled
     }
+
+Progress ..>  PlannedOngoingExecutedCancelled
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

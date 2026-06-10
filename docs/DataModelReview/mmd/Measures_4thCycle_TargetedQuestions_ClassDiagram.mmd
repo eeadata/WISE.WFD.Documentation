@@ -6,8 +6,8 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace ReportingData{
+direction TB
+
 class TargetedQuestions{
 + euRBDCode : wiseIdentifier
 
@@ -37,8 +37,7 @@ class TargetedQuestions{
 + msfdCoOrdination : YesNoNotRelevant
 + msfdAssessment : YesNoNotRelevant
 }
-}
-namespace Codelist{
+
 class BasicMeasuresChanges{
     <<enumeration>>
     }
@@ -66,18 +65,16 @@ class EcologicalFlow{
 class EcologicalFlowImplementation{
     <<enumeration>>
     }
-class YesNo{
-    <<enumeration>>
-    yes
-    no
-    }
-class YesNoNotRelevant{
-    <<enumeration>>
-    yes
-    no
-    notApplicable
-    }
-}
+
+TargetedQuestions ..> BasicMeasuresChanges
+TargetedQuestions ..> BasicMeasures
+TargetedQuestions ..> BasicMeasuresArt113eThreshold
+TargetedQuestions ..> BasicMeasuresArt113eImpoundment
+TargetedQuestions ..> BasicMeasuresArt113gThreshold
+TargetedQuestions ..> BasicMeasuresArt113hRules
+TargetedQuestions ..> BasicMeasuresArt113j
+TargetedQuestions ..> EcologicalFlow
+TargetedQuestions ..> EcologicalFlowImplementation
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

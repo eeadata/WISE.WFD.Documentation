@@ -8,28 +8,31 @@ config:
 classDiagram
 direction LR
 class RiverBasinDistrict {
-+ geometry_polygon: geometry_multipolygon
-+ inspireIdLocalId: String254
-+ inspireIdNamespace: String254
-+ inspireIdVersionId: String25 [0..1]
-+ thematicIdIdentifier: wiseIdentifier
-+ thematicIdIdentifierScheme: IdentifierScheme
-+ beginLifespanVersion: Date [0..1]
-+ endLifespanVersion: Date [0..1]
-+ predecessorsIdentifier: String500 [0..1]
-+ predecessorsIdentifierScheme: IdentifierScheme [0..1]
-+ successorsIdentifier: String500 [0..1]
-+ successorsIdentifierScheme: IdentifierScheme [0..1]
-+ wiseEvolutionType: WiseEvolutionType
-+ nameTextInternational: String254
-+ nameText: String254
-+ nameLanguage: Language
-+ designationPeriodBegin: Date
-+ designationPeriodEnd: Date [0..1]
-+ zoneType: ZoneType
-+ specialisedZoneType: SpecialisedZoneType
-+ legalBasisName: String254 [0..1]
-+ legalBasisLink: URL [0..1]
-+ legalBasisLevel: LegislationLevelValue [0..1]
-+ link: URL [0..1]
+  + geometry_polygon: geometry_multipolygon
+  + inspireIdLocalId: string254
+  + inspireIdNamespace: string254
+  + inspireIdVersionId: string25 [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + beginLifespanVersion: date [0..1]
+  + endLifespanVersion: date [0..1]
+  + predecessorsIdentifier: wiseIdentifier [0..n]
+  + predecessorsIdentifierScheme: IdentifierScheme [0..1]
+  + successorsIdentifier: wiseIdentifier [0..n]
+  + successorsIdentifierScheme: IdentifierScheme [0..1]
+  + wiseEvolutionType: WiseEvolutionType
+  + nameTextInternational: string254
+  + nameText: string254
+  + nameLanguage: Language
+  + designationPeriodBegin: date
+  + designationPeriodEnd: date [0..1]
+  + zoneType: ZoneType
+  + specialisedZoneType: SpecialisedZoneType
+  + legalBasisName: string254 [0..1]
+  + legalBasisLink: URL [0..1]
+  + legalBasisLevel: LegislationLevelValue [0..1]
+  + link: URL [0..1]
 }
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

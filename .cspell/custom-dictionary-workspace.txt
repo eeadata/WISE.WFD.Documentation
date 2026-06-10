@@ -7,6 +7,7 @@ codelists
 dagre
 datatypes
 EIONET
+EQSD
 exceedance
 exceedances
 GWDE
@@ -24,13 +25,16 @@ IPCC
 lightyellow
 linenos
 MEPGEP
+msfd
 numref
 Physico
 physico-chemical
 Physico-chemical
+RBDCA
 RBMP
 rbsp
 Reportnet3
+seveso
 SWGROUP
 SWMET
 SWMET_2022
