@@ -186,6 +186,12 @@ See also in ([^SDMXDesignations])
 | CST_WWT_CRR   | Sewerage services – Cost recovery rate                     |
 ```
 
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
+VolumeRevenueCostPerService
+:align: center
+```
+
+
 ```{include} tables/EconomicAnalysis_VolumesandRevenues_4thcycle
 ```
 
@@ -270,17 +276,12 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 
 [^OPEX]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
 
-[^SDMXDesignations] {numref}`EconomicAnalysis_VolumeSDMX` presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
-
-```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
-:name: EconomicAnalysis_VolumeSDMX
-:caption: 
-:align: center
-```
+[^SDMXDesignations] ({numref}`EconomicAnalysis_Volume`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
 
 [^NWAT]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm)
 
 [^RWAT]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm)
+
 
 (heading_wfd_wfd_economic_analysis)=
 ## References
