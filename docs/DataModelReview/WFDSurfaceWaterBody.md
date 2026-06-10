@@ -80,12 +80,12 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
   - *modified*  
     The `SurfaceWaterBody` table contains the attributes 
     that describe the surface water body 
-    and that do not vary with the status of the waterbody.
+    and that do not vary with the status of the water body.
     Therefore the table can be prepared immediately, 
     even if the 4ᵗʰ cycle RBMPs have not yet been finalised. 
     All the attributes existed in the 3ʳᵈ cycle reporting. 
 
-* - SWHighlyModifiedWaterBody
+* - SWHeavilyModifiedWaterBody
   - *modified*  
     
 
@@ -801,10 +801,9 @@ not achieving good chemical status from 38% to 40%.
 (heading_wfd_heavily_modified_water_bodies)=
 ### Heavily modified water bodies
 
-For 60% of the heavily modified water bodies, only one physical alteration and only one water use is reported.  
+For 60% of the heavily modified water bodies, only one physical alteration and only one water use is reported. 
 It doesn't make sense to keep the two separate tables used in the 3rd cycle:
 it complicates the reporting and does not allow a link to be made between the alteration and the use.
-
 
 ```{figure} /DataModelReview/img/HMWB_NumberOfAlteration_NumberOfUses.png
 :name: HMWB_NumberOfAlteration_NumberOfUses

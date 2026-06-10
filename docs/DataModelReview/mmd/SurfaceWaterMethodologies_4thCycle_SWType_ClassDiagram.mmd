@@ -8,7 +8,7 @@ config:
 classDiagram
 direction TB
 
-class SWType :::partial{
+class SWType{
     + swTypeIdentifier : wiseIdentifier
     + surfaceWaterBodyCategory : WaterBodyCategory
     + naturalAWBHMWB : NaturalAWBHMWB
@@ -26,21 +26,20 @@ class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{
 class SWPollutant["SurfaceWaterDataset::SWPollutant"]:::partial{ 
 }
 
-SWQualityElement .. QE1Classification : qeClassificationIdentifier
-SWQualityElement .. QE3Classification : qeClassificationIdentifier
+SWQualityElement ..> QE1Classification : qeClassificationIdentifier
+SWQualityElement ..> QE3Classification : qeClassificationIdentifier
 
 
-QE1Classification -- "1..n" QEClassification_SWType : swTypeIdentifier
+QE1Classification -- "0..n" QEClassification_SWType
+QE3Classification -- "0..n" QEClassification_SWType   
+QEClassification_SWType "0..n" -- SWType 
 
-QEClassification_SWType "1..n" -- SWType : swTypeIdentifier
-QE3Classification -- "1..n" QEClassification_SWType : swTypeIdentifier
 
-
-SWPollutant .. SWThresholdValue : swThresholdIdentifier
-SWThresholdValue -- "1..n" SWThreshold_SWType : swThresholdIdentifier
-SWThreshold_SWType "1..n" -- SWType : swTypeIdentifier
-SWType -- "1..n" SWNaturalBackgroundLevel : swTypeIdentifier
+SWPollutant ..> SWThresholdValue : swThresholdIdentifier
+SWThresholdValue -- "0..n" SWThreshold_SWType 
+SWThreshold_SWType "0..n" -- SWType
+SWType "1" -- "1..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
-classDef partial fill:lightyellow,stroke:#000;
+classDef partial fill:lavender,stroke:#000;
