@@ -13,7 +13,7 @@ classDiagram
         + article9WaterStorage: YesNoCode_Enum
         + article9FloodProtection: YesNoCode_Enum
         + article9Navigation: YesNoCode_Enum
-        + article9Other: String1000
+        + article9Other: string1000
         + article94: YesNoCode_Enum
         + article94Reference: ReferenceType [0..*]
         + costRecoveryReference: ReferenceType [1..*]
@@ -21,7 +21,7 @@ classDiagram
 
     class Service {
         + service: ServiceType_Enum
-        + serviceOther: String1000 [0..1]
+        + serviceOther: string1000 [0..1]
         + serviceCostInstrument: YesNoPartially_Union_Enum
         + serviceCostInstrumentReference: ReferenceType [0..*]
         + serviceVolumetricCharges: YesNoPartially_Union_Enum
@@ -36,11 +36,11 @@ classDiagram
         + serviceExternalEnvironmentalResourceCost: YesNoCode_Enum [0..1]
         + serviceExternalEnvironmentalResourceCostSignificance: YesNoCode_Enum [0..1]
         + serviceExternalEnvironmentalResourceCostInternalisation: YesNoPartially_Union_Enum [0..1]
-        + serviceExternalEnvironmentalResourceCostJustification: String2500 [0..1]
+        + serviceExternalEnvironmentalResourceCostJustification: string2500 [0..1]
         + serviceWaterUseHouseholds: YesNoCode_Enum
         + serviceWaterUseAgriculture: YesNoCode_Enum
         + serviceWaterUseIndustry: YesNoCode_Enum
-        + serviceWaterUseOther: String1000 [0..1]
+        + serviceWaterUseOther: string1000 [0..1]
         + serviceWaterUseContribution: YesNoCode_Enum
     }
 

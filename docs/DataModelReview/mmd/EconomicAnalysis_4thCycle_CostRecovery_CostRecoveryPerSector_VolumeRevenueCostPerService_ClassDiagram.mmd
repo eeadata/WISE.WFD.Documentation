@@ -11,18 +11,13 @@ classDiagram
 
     class CostRecovery {
         + euRBDCode: wiseIdentifier
-
         «adequate-contribution»
-
         + adequateContributionAccount: YesNo
         + adequateContributionSectoral: YesNo
-
         «polluter-pays-principle»
-
         + pppAccount: YesNo
         + pppERCBased: YesNo
         + pppTargetPolluters: YesNo 
-
         «incentives»
         + incentivesAccount: YesNo 
         + incentivesEmpiricalInformation: YesNo 
@@ -33,21 +28,15 @@ classDiagram
     class CostRecoveryPerService {
         + euRBDCode: wiseIdentifier 
         + waterService: WFDWaterService
-
         «cost-recovery-principle-application»
-
         + costRecoveryFull: YesNoNotApplicable
         + costRecoveryCorroborated: YesNo [0..1]
-
         «Justification»
-
         + nationalMethodologyApplied: YesNo [0..1]
         + justificationLessFullRecovery: YesNo [0..1]
         + justificationFactor: string [0..1]
         + justificationSectoralInformation: YesNo [0..1]
-
         «Exemption»
-
         + article94Exemption: YesNo [0..1]
         + article94Justification: YesNo [0..1]
     }

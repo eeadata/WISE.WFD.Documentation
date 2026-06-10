@@ -36,7 +36,7 @@ The *Service* table is removed. Information about volumes, revenues and costs is
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
-The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({numref}`Figure3EconomicAnalysis`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
+The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({numref}`EconomicAnalysisCostRecovery`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
 
 {numref}`EconomicAnalysis_CostRecoveryTable` lists the content of the questionnaire.
 
@@ -44,8 +44,8 @@ The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({nu
 ```
 
 (Figure 3)=
-```{mermaid} /DataModelReview/mmd/Figure3EconomicAnalysis.mmd
-:name: Figure3EconomicAnalysis
+```{mermaid} /DataModelReview/mmd/EconomicAnalysisCostRecoveryCostRecoveryPerService.mmd
+:name: EconomicAnalysisCostRecovery
 :align: center
 :caption: CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
 ```
