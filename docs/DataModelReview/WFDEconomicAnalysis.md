@@ -156,8 +156,6 @@ The following generic guidelines apply to the reporting of costs:
 The dimension codes for the reporting of costs per water service are presented in {numref}`measures_4th_cycle_reportingcosts_table`.  
 The dimension codes for the reporting of volumes and revenues are presented in {numref}`EconomicAnalysis_VolumesandRevenues_4thcycle`.
 
-
-(Figure)=
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_Volume.mmd
 :name: EconomicAnalysis_Volume
 :caption: Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting  
@@ -184,11 +182,6 @@ See also in ([^SDMXDesignations])
 | CST_WWT_CAP   | Sewerage services – Capital expenditure                    |
 | CST_WWT_OPE   | Sewerage services – Operational expenditure                |
 | CST_WWT_CRR   | Sewerage services – Cost recovery rate                     |
-```
-
-```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
-VolumeRevenueCostPerService
-:align: center
 ```
 
 
@@ -276,7 +269,13 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 
 [^OPEX]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
 
-[^SDMXDesignations] ({numref}`EconomicAnalysis_Volume`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+[^SDMXDesignations]: {numref}`VolumeRevenueCostPerService` presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
+:name: VolumeRevenueCostPerService
+:caption:  Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting - SDMX
+:align: center
+```
 
 [^NWAT]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm)
 
