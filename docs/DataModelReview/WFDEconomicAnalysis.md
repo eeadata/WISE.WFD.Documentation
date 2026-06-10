@@ -148,12 +148,8 @@ Conceptual diagram for the requested data on revenues – 4ᵗʰ cycle of report
 Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in {numref}`Economic_Analysis_ConceptualRevenue`, as well as the estimated global cost recovery rate.
 
 The following generic guidelines apply to the reporting of costs:  
-• Grant‑financed assets should be included in capital expenditure (CAPEX) estimates for the water service that acquires and owns the asset, and regardless of the source of funding ([^1]).  
-• Environmental taxes should be included in the current expenditure (OPEX) estimates for the water services ([^2]).  
-
-
-[^1]: According to Eurostat’s methodological frameworks, specifically the Environmental Protection Expenditure Accounts (EPEA) and the European System of Accounts (ESA 2010), grant-financed assets should be included in capital expenditure (CAPEX) estimates for the sector that acquires and owns the asset. In Eurostat statistics, CAPEX is primarily measured as Gross Fixed Capital Formation (GFCF). GFCF consists of resident producers' acquisitions, less disposals, of fixed assets during a given period. The recording of an asset's acquisition in GFCF is based on the change of ownership and the total value of the asset at the time of purchase. It does not depend on whether the purchase was funded through internal cash flow, loans, or external grants.
-[^2]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
+• Grant‑financed assets should be included in capital expenditure (CAPEX) estimates for the water service that acquires and owns the asset, and regardless of the source of funding ([^CAPEX]).  
+• Environmental taxes should be included in the current expenditure (OPEX) estimates for the water services ([^OPEX]).  
 
 {numref}`EconomicAnalysis_Volume` presents the standardised structure for the reporting of volumes, revenues and costs per water service. Volumes must be reported in million cubic metre, revenues and costs must be reported in million units of national currency (except for the cost recovery rate, which is reported as a percentage).
 
@@ -167,8 +163,7 @@ The dimension codes for the reporting of volumes and revenues are presented in {
 :caption: Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting  
 :align: center
 ```
-See also in ([^3])
-[^3]: ({numref}`EconomicAnalysis_Volume`) presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+See also in ([^SDMXDesignations])
 
 
 ```{table} Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting
@@ -191,11 +186,6 @@ See also in ([^3])
 | CST_WWT_CRR   | Sewerage services – Cost recovery rate                     |
 ```
 
-```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
-:align: center
-```
-
-
 ```{include} tables/EconomicAnalysis_VolumesandRevenues_4thcycle
 ```
 
@@ -206,11 +196,7 @@ See also in ([^3])
 
 ## Ancillary Data Sources
 
-Information about annual volumes is reported voluntarily by MS under the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire ([^4],[^5]). Although the questionnaires have a much higher level of detail than required for the 4ᵗʰ cycle of electronic reporting, it is important that MS provide consistent data, which may allow more detailed analysis to be performed if necessary.
-
-[^4]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm)
-
-[^5]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm)
+Information about annual volumes is reported voluntarily by MS under the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire ([^NWAT],[^RWAT]). Although the questionnaires have a much higher level of detail than required for the 4ᵗʰ cycle of electronic reporting, it is important that MS provide consistent data, which may allow more detailed analysis to be performed if necessary.
 
 Tables {numref}`measures_freshwater_abstraction`,{numref}`measures_supplycategory`,{numref}`measures_Wastewater` provides an overview of some of the OECD/Eurostat Joint Questionnaire tables and dimensions that are directly related to the data requested for the WFD 4ᵗʰ cycle of reporting.
 
@@ -276,6 +262,25 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 | VOL_WW     | DIS_IND_IW_NT    | of which: Discharges to inland waters without treatment                 |
 | VOL_WW     | DIS              | Total discharges of WWTP’s (urban and other) – after treatment          |
 ```
+
+% Footnotes
+
+
+[^CAPEX]: According to Eurostat’s methodological frameworks, specifically the Environmental Protection Expenditure Accounts (EPEA) and the European System of Accounts (ESA 2010), grant-financed assets should be included in capital expenditure (CAPEX) estimates for the sector that acquires and owns the asset. In Eurostat statistics, CAPEX is primarily measured as Gross Fixed Capital Formation (GFCF). GFCF consists of resident producers' acquisitions, less disposals, of fixed assets during a given period. The recording of an asset's acquisition in GFCF is based on the change of ownership and the total value of the asset at the time of purchase. It does not depend on whether the purchase was funded through internal cash flow, loans, or external grants.
+
+[^OPEX]: Current expenditure includes intermediate consumption (goods and services used in production), compensation of employees, and other taxes on production. Taxes such as those on water abstraction or pollution discharges are considered "taxes on production" because they are unrequited payments to the government linked to the ongoing activity of the utility.
+
+[^SDMXDesignations] {numref}`EconomicAnalysis_VolumeSDMX` presents a structure for the ServiceVolumeRevenueCost table where the column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat. The diagram below is merely illustrative: for data reporters involved in the EIONET WISE SoE dataflows, it shows that there is a one-to-one equivalence with the column names used in many of the EIONET dataflows (which reflect the OGC Observations and Measurements conceptual model).
+
+```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
+:name: EconomicAnalysis_VolumeSDMX
+:caption: 
+:align: center
+```
+
+[^NWAT]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm)
+
+[^RWAT]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm)
 
 (heading_wfd_wfd_economic_analysis)=
 ## References
