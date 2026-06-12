@@ -13,12 +13,12 @@ Public Version - Pending Discussion
 This section:
 
 * revises the information related to **Groundwater methodologies** 
-  in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the 
+  in the 2nd and 3rd cycle of reporting of the 
   Water Framework Directive River Basin Management Plans
-* presents a simplified proposal for the electronic reporting in the 4ᵗʰ cycle
+* presents a simplified proposal for the electronic reporting in the 4th cycle
 
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_GWMET_schema_3rd_cycle)=
-## GWMET_2022 schema - 3ʳᵈ cycle
+## GWMET_2022 schema - 3rd cycle
 
 The GWMET_2022 schema defined the required data about  about the groundwater methodologies ({numref}`ClassDiagram_GWMET_2022`).
 
@@ -27,11 +27,11 @@ The GWMET_2022 schema defined the required data about  about the groundwater met
 :align: center
 :width: 75%
 
-GWMET_2022 Schema - 3ʳᵈ cycle
+GWMET_2022 Schema - 3rd cycle
 ```
 
 The GWMET_2022 schema was already partially revised (see {ref}`heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle`). 
-Specifically, the GWExemptions data ({numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`) is no longer requested in the 4ᵗʰ cycle.
+Specifically, the GWExemptions data ({numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`) is no longer requested in the 4th cycle.
 
 {numref}`GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram` shows a simplified diagram 
 to help focus the discussion on the remaining issues.
@@ -39,10 +39,10 @@ to help focus the discussion on the remaining issues.
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram.mmd
 :name: GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram
 :align: center
-:caption: Class diagram for the GWMET_2022 schema in the 3ʳᵈ cycle.
+:caption: Class diagram for the GWMET_2022 schema in the 3rd cycle.
 ```
 
-The Commission has revised and simplified the **GWMethodologies** class, keeping only a subset of the elements requested in the 3ʳᵈ cycle. 
+The Commission has revised and simplified the **GWMethodologies** class, keeping only a subset of the elements requested in the 3rd cycle. 
 The following elements were removed:
 
 * GWMET/GWMethodologies/diminutionDamage
@@ -67,7 +67,7 @@ The following elements were moved or revised:
 * GWMET/GWMethodologies/trendAssessmentStatisticalElements
 * GWMET/GWMethodologies/thresholdValueBackgroundLevels 
 
-The Commission has revised and simplified the **ThresholdValue** class, keeping only a subset of the elements requested in the 3ʳᵈ cycle. 
+The Commission has revised and simplified the **ThresholdValue** class, keeping only a subset of the elements requested in the 3rd cycle. 
 The following elements were removed:
 
 * GWMET/ThresholdValue/pollutantIndicatorCodeOther
@@ -92,20 +92,20 @@ The following elements were removed:
 The structure of the **GWPressures** class was also revised.
 
 (heading_wfd_groundwater_methodologies_descriptive_4th_cycle)=
-## Descriptive dataset - 4ᵗʰ cycle
+## Descriptive dataset - 4th cycle
 
 This section shows the proposed structure for the groundwater methodologies reporting.
 
 ### GWMethodologies table
 
 The `GWMethodologies` table has a structure similar to the corresponding class 
-in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review
+in the 3rd cycle reporting, minus the attributes removed by the Commission's review
 (see {numref}`GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram`).
 
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram
 :align: center
-:caption: Groundwater methodologies - GWMethodologies table - 4ᵗʰ cycle
+:caption: Groundwater methodologies - GWMethodologies table - 4th cycle
 ```
 
 ### GWPressureAssessment table
@@ -128,14 +128,14 @@ For more information see {ref}`heading_wfd_pressure_type_codelist_4th_cycle`.
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram
 :align: center
-:caption: Groundwater methodologies - GWPressureAssessment table - 4ᵗʰ cycle
+:caption: Groundwater methodologies - GWPressureAssessment table - 4th cycle
 ```
 
 (heading_wfd_groundwater_methodologies_gwthresholdvalue_table)=
 ### GWThresholdValue table 
 
 The `GWThresholdValue` table has a structure similar to the corresponding class 
-in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review
+in the 3rd cycle reporting, minus the attributes removed by the Commission's review
 (see {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`).
 Note that:
 
@@ -150,7 +150,7 @@ Note that:
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram
 :align: center
-:caption: Groundwater methodologies - GWThresholdValue table - 4ᵗʰ cycle
+:caption: Groundwater methodologies - GWThresholdValue table - 4th cycle
 ```
 
 ```{todo}
@@ -173,7 +173,7 @@ or at the level of a body or a group of bodies of groundwater
 
 ```
 
-The data structure used in the 3ʳᵈ cycle, and slightly adapted in 
+The data structure used in the 3rd cycle, and slightly adapted in 
 {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`,
 has limitations.
 Specifically, it is possible to report the natural background level 
@@ -196,11 +196,11 @@ is presented in
 ```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram
 :align: center
-:caption: Groundwater methodologies - GWThresholdValue and GWType table (alternative) - 4ᵗʰ cycle
+:caption: Groundwater methodologies - GWThresholdValue and GWType table (alternative) - 4th cycle
 ```
 
 (heading_wfd_groundwater_methodologies_codelists_4th_cycle)=
-## Codelists - 4ᵗʰ cycle
+## Codelists - 4th cycle
 
 * For the `PressureAssessmentMethod` codelist, 
   see {numref}`Codelist_4thCycle_PressureAssessmentMethod_Table`.
@@ -213,7 +213,7 @@ is presented in
 ```
 
 (heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle)=
-## Documents dataset - 4ᵗʰ cycle
+## Documents dataset - 4th cycle
 
 The Documents dataset follows the standard structure used in various WISE dataflows 
 ({numref}`SurfaceWaterMethodologies_4thCycle_Documents`):
@@ -244,7 +244,7 @@ The following criteria apply:
 
 ```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_Documents_ClassDiagram.mmd
 :name: GroundWaterMethodologies_4thCycle_Documents
-:caption: GroundWaterMethodologies - 4ᵗʰ cycle - Documents
+:caption: GroundWaterMethodologies - 4th cycle - Documents
 :align: center
 :zoom:
 ```
@@ -255,7 +255,7 @@ Groundwater methodologies - {ref}`heading_wfd_groundwater_methodologies_document
 **Technical** review pending.
 ```
 
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ### trendAssessmentMethodology
 
@@ -264,7 +264,7 @@ trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements ele
 of the GWMethodologies class are transcribed in 
 {numref}`trendAssessmentMethodology_definition_3rdCycle`.
 
-```{list-table} Definitions for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3ʳᵈ cycle.
+```{list-table} Definitions for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3rd cycle.
 :name: trendAssessmentMethodology_definition_3rdCycle
 :width: 100%
 :widths: 35 40 25
@@ -325,7 +325,7 @@ In conclusion:
 * the meaning of the statisticalElements element should be made clearer 
   to both data provider and end-users, to facilitate the interpretation
 
-```{csv-table} Reported data for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3ʳᵈ cycle.
+```{csv-table} Reported data for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3rd cycle.
 :name: trendAssessmentMethodology_reported_data_3rdCycle
 :header-rows: 1
 :delim: "|"

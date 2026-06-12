@@ -13,12 +13,12 @@ Public Version - Pending Discussion
 This section:
 
 * revises the information related to **Surface water methodologies** 
-  in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the 
+  in the 2nd and 3rd cycle of reporting of the 
   Water Framework Directive River Basin Management Plans
-* presents a simplified proposal for the electronic reporting in the 4ᵗʰ cycle
+* presents a simplified proposal for the electronic reporting in the 4th cycle
 
 (heading_wfd_surface_water_methodologies_reporting_of_surface_water_methodologies_3rd_cycle)=
-## SWMET_2022 schema - 3ʳᵈ cycle
+## SWMET_2022 schema - 3rd cycle
 
 The SWMET_2022 schema defined the required data about surface water methodologies. 
 For review purposes, the schema was divided in two groups:
@@ -41,15 +41,15 @@ This section describes the revision of the following classes:
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_3rdCycle_SWMET_Part1_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_3rdCycle_SWMET_Part1_ClassDiagram
 :align: center
-:caption: SWMET_2022 schema - generic data - 3ʳᵈ cycle.
+:caption: SWMET_2022 schema - generic data - 3rd cycle.
 ```
 
 The SWMET_2022 schema was already partially revised (see {ref}`heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle`). 
 Specifically, the **SWExemptions** data ({numref}`Exemptions_3rdCycle_SWMET_ClassDiagram`) 
-will not be requested in the 4ᵗʰ cycle reporting.
+will not be requested in the 4th cycle reporting.
 
 The Commission has revised and simplified the **SWMethodologies** class, 
-keeping only a subset of the elements requested in the 3ʳᵈ cycle.
+keeping only a subset of the elements requested in the 3rd cycle.
 The following elements were removed:
 
 * SWMET/SWMethodologies/typologyMethodologyReference
@@ -58,7 +58,7 @@ The following elements were removed:
 * SWMET/SWMethodologies/iRBDTypologyCoOrdinationReference
 
 The Commission has revised and simplified the **SWTargetedQ** class, 
-keeping only a subset of the elements requested in the 3ʳᵈ cycle.
+keeping only a subset of the elements requested in the 3rd cycle.
 The following elements were removed:
 
 * SWMET/SWTargetedQ/oneOutAllOut
@@ -69,7 +69,7 @@ The following elements were removed:
 * SWMET/SWTargetedQ/driversFailureEcologicalStatusPotentialReference
 
 The Commission has revised and simplified the **SWChemicalStatusClassificationRBD** class, 
-keeping only a subset of the elements requested in the 3ʳᵈ cycle. 
+keeping only a subset of the elements requested in the 3rd cycle. 
 The following elements were removed:
 
 * SWMET/SWChemicalStatusClassificationRBD/approachSWBNotMonitoredChemicalReference
@@ -77,7 +77,7 @@ The following elements were removed:
 * SWMET/SWChemicalStatusClassificationRBD/chemicalStatusReference
 
 The Commission has revised and simplified the **SWManagementObjectives** class, 
-keeping only a subset of the elements requested in the 3ʳᵈ cycle. 
+keeping only a subset of the elements requested in the 3rd cycle. 
 The following elements were removed:
 
 * SWMET/SWManagementObjectives/managementObjectivesContinuityQuantitative
@@ -116,7 +116,7 @@ In the **SWPhysicoChemicalQE** class, the following elements were removed:
 A single threshold value, for the boundary between 'good' and 'moderate' status, 
 was requested for physico-chemical elements.
 This approach was inadequate for several reasons:
-* the datatype used in the 3ʳᵈ cycle did not allow the reporting of intervals,
+* the datatype used in the 3rd cycle did not allow the reporting of intervals,
   specially disjoint intervals (e.g. for parameters like pH)
 * the boundary between 'good' and 'high' (or 'maximum') potential 
   was not recorded
@@ -140,7 +140,7 @@ and a technically meaningful translation to English should also be made.
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram
 :align: center
-:caption: SWMET_2022 schema - technical data - 3ʳᵈ cycle.
+:caption: SWMET_2022 schema - technical data - 3rd cycle.
 ```
 
 Starting in 2028, monitoring results for biological elements 
@@ -164,7 +164,7 @@ and inconsistencies in the reporting of the biological quality elements classifi
 ```
 
 ```{todo} 
-SurfaceWaterMethodologies - 3ʳᵈ cycle - Review
+SurfaceWaterMethodologies - 3rd cycle - Review
 
 Review of the remaining classes in
 {ref}`SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram`
@@ -172,19 +172,19 @@ namely the SWType attributes.
 ```
 
 (heading_wfd_surface_water_methodologies_reporting_of_surface_water_methodologies_4th_cycle)=
-## Descriptive dataset - 4ᵗʰ cycle
+## Descriptive dataset - 4th cycle
 
 The revised structure for the surface water methodologies reporting 
 is presented in this section.
 
 The `SWMethodologies`, `SWManagementObjectives`, `SWTargetedQuestions` and  `SWChemicalStatusClassification` tables have a structure similar to the corresponding classes 
-in the 3ʳᵈ cycle reporting, minus the attributes removed by the Commission's review.
+in the 3rd cycle reporting, minus the attributes removed by the Commission's review.
 See {numref}`SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWTargetedQuestions_SWChemicalStatusClassification_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWTargetedQuestions_SWChemicalStatusClassification_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWTargetedQuestions_SWChemicalStatusClassification_ClassDiagram
 :align: center
-:caption: Surface water methodologies - SWMethodologies, SWManagementObjectives, SWTargetedQuestions, SWChemicalStatusClassification - 4ᵗʰ cycle.
+:caption: Surface water methodologies - SWMethodologies, SWManagementObjectives, SWTargetedQuestions, SWChemicalStatusClassification - 4th cycle.
 ```
 
 ### SWPressureAssessment table
@@ -206,7 +206,7 @@ For more information see {ref}`heading_wfd_pressure_type_codelist_4th_cycle`.
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWPressureAssessment_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_SWPressureAssessment_ClassDiagram
 :align: center
-:caption: Surface water methodologies - SWPressureAssessment - 4ᵗʰ cycle.
+:caption: Surface water methodologies - SWPressureAssessment - 4th cycle.
 ```
 
 ### SWThresholdValue table
@@ -226,13 +226,13 @@ The associations between the `SWThresholdValue` table and other tables are depic
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWThresholdValue_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_SWThresholdValue_ClassDiagram
 :align: center
-:caption: Surface water methodologies - SWThresholdValue - 4ᵗʰ cycle.
+:caption: Surface water methodologies - SWThresholdValue - 4th cycle.
 ```
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWThresholdValue_Associations_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_SWThresholdValue_Associations_ClassDiagram
 :align: center
-:caption: Surface water methodologies - SWThresholdValue associations with other tables - 4ᵗʰ cycle.
+:caption: Surface water methodologies - SWThresholdValue associations with other tables - 4th cycle.
 ```
 
 ### QE3Classification table
@@ -250,13 +250,13 @@ The associations between the `QE3Classification` table and other tables are depi
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_QE3Classification_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_QE3Classification_ClassDiagram
 :align: center
-:caption: Surface water methodologies - QE3Classification - 4ᵗʰ cycle.
+:caption: Surface water methodologies - QE3Classification - 4th cycle.
 ```
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_QE3Classification_Associations_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_QE3Classification_Associations_ClassDiagram
 :align: center
-:caption: Surface water methodologies - QE3Classification associations with other tables - 4ᵗʰ cycle.
+:caption: Surface water methodologies - QE3Classification associations with other tables - 4th cycle.
 ```
 
 ### QE1Classification and BQEMethod table
@@ -272,13 +272,13 @@ The associations between the `QE1Classification` table and other tables are depi
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_ClassDiagram
 :align: center
-:caption: Surface water methodologies - BQEMethod and QE1Classification - 4ᵗʰ cycle.
+:caption: Surface water methodologies - BQEMethod and QE1Classification - 4th cycle.
 ```
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_Associations_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_BQEMethod_QE1Classification_Associations_ClassDiagram
 :align: center
-:caption: Surface water methodologies - BQEMethod and QE1Classification associations with other tables - 4ᵗʰ cycle.
+:caption: Surface water methodologies - BQEMethod and QE1Classification associations with other tables - 4th cycle.
 ```
 
 ### SWType table
@@ -292,11 +292,11 @@ This table is central to the surface water methodologies
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWType_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_SWType_ClassDiagram
 :align: center
-:caption: Surface water methodologies - SWType - 4ᵗʰ cycle.
+:caption: Surface water methodologies - SWType - 4th cycle.
 ```
 
 (heading_wfd_surface_water_methodologies_codelists_4th_cycle)=
-## Codelists - 4ᵗʰ cycle
+## Codelists - 4th cycle
 
 * For the `MitigationMeasure` codelist, 
   see {numref}`Codelist_4thCycle_MitigationMeasure_Table`.
@@ -320,7 +320,7 @@ This table is central to the surface water methodologies
 ```
 
 (heading_wfd_surface_water_methodologies_documents_dataset_4th_cycle)=
-## Documents dataset - 4ᵗʰ cycle
+## Documents dataset - 4th cycle
 
 The Documents dataset follows the standard structure used in various WISE dataflows 
 ({numref}`SurfaceWaterMethodologies_4thCycle_Documents`):
@@ -351,7 +351,7 @@ The following criteria apply:
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_Documents_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_Documents
-:caption: SurfaceWaterMethodologies - 4ᵗʰ cycle - Documents
+:caption: SurfaceWaterMethodologies - 4th cycle - Documents
 :align: center
 :zoom:
 ```

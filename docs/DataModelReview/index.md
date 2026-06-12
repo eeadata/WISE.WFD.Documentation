@@ -32,12 +32,14 @@ WFDGrouping
 WFDPressures
 ```
 
-## Conventions
+## References
 
 ```{toctree}
 :maxdepth: 1
 ../_sharedFiles/ModellingConventions
 ../_sharedFiles/Glossary_Datatypes
+../_sharedFiles/References
 
 ```
+
 

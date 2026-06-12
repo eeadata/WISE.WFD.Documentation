@@ -29,28 +29,28 @@ and economically significant aquatic species (e.g. shellfish)."
 
 %Start document
 This section revises the reporting of WFD Protected Areas 
-in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram`), 
+in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram`), 
 as well as the associated spatial data ({numref}`ProtectedAreas_3rdCycle_SpatialData_ClassDiagram`).
 
-A proposal is presented for the electronic reporting in the 4ᵗʰ cycle. 
+A proposal is presented for the electronic reporting in the 4th cycle. 
 
 
 ```{mermaid} /DataModelReview/mmd/ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram.mmd
 :name: ProtectedAreas_3rdCycle_DescriptiveData_ClassDiagram
 :align: center
-:caption: GWAssociatedProtectedArea and SWAssociatedProtectedArea - 3ʳᵈ cycle - Obsolete
+:caption: GWAssociatedProtectedArea and SWAssociatedProtectedArea - 3rd cycle - Obsolete
 ```
 
 ```{mermaid} /DataModelReview/mmd/ProtectedAreas_3rdCycle_SpatialData_ClassDiagram.mmd
 :name: ProtectedAreas_3rdCycle_SpatialData_ClassDiagram
 :align: center
-:caption: ProtectedArea spatial datasets - 3ʳᵈ cycle - Obsolete
+:caption: ProtectedArea spatial datasets - 3rd cycle - Obsolete
 ```
 
 (heading_wfd_protected_areas_spatial_data_reporting_3rd_cycle)=
-## Spatial data - 2ⁿᵈ and 3ʳᵈ cycle
+## Spatial data - 2nd and 3rd cycle
 
-The WFD Protected Area spatial data reporting requirements were stable during the 2ⁿᵈ and 3ʳᵈ cycle of electronic reporting 
+The WFD Protected Area spatial data reporting requirements were stable during the 2nd and 3rd cycle of electronic reporting 
 ({numref}`ProtectedAreas_3rdCycle_Table`).
 
 The following generic principles were applied [^footnote-clarification-note-2016][^footnote-clarification-note-2022]:
@@ -87,7 +87,7 @@ Several issues affected the reporting, causing redundancies and inconsistencies:
 ```{include} tables/ProtectedAreas_3rdCycle_Table
 ```
 
-These issues are addressed in the simplification of the reporting for the 4ᵗʰ cycle:
+These issues are addressed in the simplification of the reporting for the 4th cycle:
 
 - The *same spatial data model* is used for all the WFD ProtectedArea dataflows and datasets, 
   guaranteeing the existence of WISE *unique identifiers*
@@ -98,16 +98,16 @@ These principles (same model, unique identifiers, report only once)
 were applied for all WFD protected area types, *except Natura2000 protected sites*.
 
 (heading_wfd_protected_areas_spatial_data_reporting_4th_cycle)=
-## Spatial data - 4ᵗʰ cycle
+## Spatial data - 4th cycle
 
-In keeping with the approach taken in the 3ʳᵈ cycle, 
+In keeping with the approach taken in the 3rd cycle, 
 the reporting of spatial data related to WFD protected areas in done under the dataflows 
 pertaining to the legal instruments under which the protected areas were defined ({numref}`ProtectedAreas_LegalInstruments_Table`)
 
 ```{include} tables/ProtectedAreas_LegalInstruments_Table
 ```
 
-The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle of electronic reporting are detailed in ({numref}`ProtectedAreas_4thCycle_Table`)
+The WFD Protected Area spatial data reporting requirement for the 4th cycle of electronic reporting are detailed in ({numref}`ProtectedAreas_4thCycle_Table`)
 
 - The reporting of drinking water protection areas is moved to under Article 8 of the recast DWD, on the risk assessment and management of catchment areas for abstraction points of water intended for human consumption.
 - The data model for the Nitrate Vulnerable Zones reporting is aligned with the model used for the other protected areas (except Natura 2000 protected sites).
@@ -129,7 +129,7 @@ The WFD Protected Area spatial data reporting requirement for the 4ᵗʰ cycle o
 
 ```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_Spatial_ClassDiagram.mmd
 :name: ProtectedArea_4thCycle_Spatial_ClassDiagram
-:caption: Class diagram for an abstract ProtectedArea dataset – 4ᵗʰ cycle
+:caption: Class diagram for an abstract ProtectedArea dataset – 4th cycle
 :align: center
 ```
 
@@ -156,7 +156,7 @@ The provisional prefilled list will be provided to Member States, for validation
 - For the Natura 2000 sites to be included in the WFD register of protected areas (because where the maintenance or improvement of water status is a critical factor for their protection), the association to water bodies should be reported.
 
 (heading_wfd_protected_areas_descriptive_data_reporting)=
-## Descriptive data - 4ᵗʰ cycle
+## Descriptive data - 4th cycle
 
 Specific objectives may be set for the water body due to an associated protected areas.  
 This only applies for the follwoing types of protected areas:
@@ -168,7 +168,7 @@ This only applies for the follwoing types of protected areas:
 
 For Freshwater fish designated waters, the WFD good ecological status fully integrates the integrate Fish Directive (2006/44/EC) objectives. Similarly, the WFD good status integrates the Nitrates Directive and UWWTD objectives related to eutrophication. Therefore, no information on specific objectives is requested or expected for these types of protected area or for bathing waters.
 
-The analysis of the 3ʳᵈ cycle reveals that no specific objectives were set for Nationally Designated Areas (NatDA, formerly known as CDDA). Information about this type of protected sites will no longer be requested.
+The analysis of the 3rd cycle reveals that no specific objectives were set for Nationally Designated Areas (NatDA, formerly known as CDDA). Information about this type of protected sites will no longer be requested.
 
 {numref}`SWAssociatedProtectedAreaClassSimplified` illustrates the reporting 
 for protected areas associated with surface water bodies:
@@ -178,7 +178,7 @@ for protected areas associated with surface water bodies:
 
 ```{mermaid}
 :name: SWAssociatedProtectedAreaClassSimplified
-:caption: Surface water body associated protected area - 4ᵗʰ cycle - partial diagram
+:caption: Surface water body associated protected area - 4th cycle - partial diagram
 :align: center
 %%{init: {'theme': 'neutral'}}%%
 classDiagram
@@ -204,7 +204,7 @@ for protected areas associated with surface water bodies:
 
 ```{mermaid}
 :name: GWAssociatedProtectedAreaClassSimplified
-:caption: Groundwater body associated protected area - 4ᵗʰ cycle - partial diagram
+:caption: Groundwater body associated protected area - 4th cycle - partial diagram
 :align: center
 %%{init: {'theme': 'neutral'}}%%
 classDiagram
@@ -228,12 +228,12 @@ With regard to exemptions related to associated protected areas, see:
 * {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
 * {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
 
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
 
-The data reported for the 3ʳᵈ cycle can be used to estimate the impact of the simplification of the descriptive data reporting:
+The data reported for the 3rd cycle can be used to estimate the impact of the simplification of the descriptive data reporting:
 
 - 46% of the 84560 records reported for groundwater associated protected areas would not have been reported.
 - 72% of the 71726 records reported for surface water associated protected areas would not have been reported.

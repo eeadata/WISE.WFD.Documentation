@@ -10,13 +10,13 @@ Public Version - Pending Discussion
 ## Purpose and overview
 
 This section revises the reporting of information related to **Groundwater Bodies** 
-in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
-It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
+in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans. 
+It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
 (heading_wfd_groundwater_3rd_cycle)=
-## Current structure - 3ʳᵈ cycle
+## Current structure - 3rd cycle
 
-In the 3ʳᵈ cycle, the information about Groundwater bodies was reported in 4 separate schemas:
+In the 3rd cycle, the information about Groundwater bodies was reported in 4 separate schemas:
 
 * the GWB_2022 schema, containing information about each groundwater body 
   ({numref}`Groundwater_3rdCycle_GWB_ClassDiagram`)
@@ -28,7 +28,7 @@ In the 3ʳᵈ cycle, the information about Groundwater bodies was reported in 4 
   containing the ancillary GroundWaterBodyHorizon spatial dataset.
 
 (heading_wfd_groundwater_gwb_3rd_cycle)=
-## GWB_2022 schema - 3ʳᵈ cycle
+## GWB_2022 schema - 3rd cycle
 
 The GWB_2022 schema was already partially revised with regard to the reporting of exemptions. See:
 
@@ -57,11 +57,11 @@ and removed the following elements:
 
 ```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_ClassDiagram.mmd
 :name: Groundwater_3rdCycle_GWB_ClassDiagram
-:caption: Class diagram for the GWB_2022 schema in the 3ʳᵈ cycle.
+:caption: Class diagram for the GWB_2022 schema in the 3rd cycle.
 :align: center
 ``` 
 
-In the 4ᵗʰ cycle of reporting, the data will be delivered in the Reportnet3 platform:
+In the 4th cycle of reporting, the data will be delivered in the Reportnet3 platform:
 * the remaining GWMET_2022 classes and elements were reorganised 
   into a relational model, as required by the migration to Reportnet3
 * selective denormalisation was used to keep a low number of tables 
@@ -77,9 +77,9 @@ In the 4ᵗʰ cycle of reporting, the data will be delivered in the Reportnet3 p
 ```
 
 (heading_wfd_groundwater_descriptive_4th_cycle)=
-## Groundwater - descriptive data - 4ᵗʰ cycle
+## Groundwater - descriptive data - 4th cycle
 
-The proposed structure for the 4ᵗʰ cycle electronic reporting 
+The proposed structure for the 4th cycle electronic reporting 
 is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram` 
 and a brief description of each table is included in {numref}`Groundwater_4th_cycle_brief_table_description`.
 
@@ -101,11 +101,11 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 ```{mermaid} /DataModelReview/mmd/Groundwater_4thCycle_DescriptiveData_ClassDiagram.mmd
 :name: Groundwater_4thCycle_DescriptiveData_ClassDiagram
-:caption: Groundwater - descriptive data - 4ᵗʰ cycle
+:caption: Groundwater - descriptive data - 4th cycle
 :align: center
 ```
 
-```{list-table} Groundwater - 4ᵗʰ cycle - brief table description
+```{list-table} Groundwater - 4th cycle - brief table description
 :name: Groundwater_4th_cycle_brief_table_description
 :header-rows: 1
 :width: 100%
@@ -121,17 +121,17 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     that describe the groundwater body 
     and that do not vary with the status of the water body.
     Therefore the table can be prepared immediately, 
-    even if the 4ᵗʰ cycle RBMPs have not yet been finalised. 
-    All the attributes existed in the 3ʳᵈ cycle reporting. 
+    even if the 4th cycle RBMPs have not yet been finalised. 
+    All the attributes existed in the 3rd cycle reporting. 
 
     The `linkSurfaceWaterBody` value 
     controls the content of the `LinkSurfaceWaterBody` table.
 
-    In the 3ʳᵈ cycle, the reporting guidance requested description of 
+    In the 3rd cycle, the reporting guidance requested description of 
     "*the main geological formation of the aquifer type*".
     The usability of the reported data was limited, 
     beyond visualisation purposes.  
-    For the 4ᵗʰ cycle, a suggestion is made to split 
+    For the 4th cycle, a suggestion is made to split 
     the data in two attributes: `aquiferMediaType` and `aquiferProductivity`, 
     using the separation already present 
     in the published WISE_WFD database and in the WISE visualisations.      
@@ -253,14 +253,14 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
     Note that the reporting of pressures and impacts 
     is combined into a single `GWPressureImpact` table. 
-    In the 3ʳᵈ cycle, the XML structure did not allow 
+    In the 3rd cycle, the XML structure did not allow 
     a specific pressure to be link to a given impact.
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.  
 ```
 
 (heading_wfd_groundwater_codelist_4th_cycle)=
-## Groundwater - codelists - 4ᵗʰ cycle
+## Groundwater - codelists - 4th cycle
 
 * For the `AquiferMediaTypeValue` codelist, 
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
@@ -329,7 +329,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram.mmd
 :name: Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram
 :align: center
-:caption: AquiferMediaTypeValue codelist and AquiferProductivity codelist - 4ᵗʰ cycle
+:caption: AquiferMediaTypeValue codelist and AquiferProductivity codelist - 4th cycle
 ```
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_AquiferMediaTypeValue_Table
@@ -343,7 +343,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram.mmd
 :name: Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram
 :align: center
-:caption: AssessmentMethod codelist and AssessmentConfidence codelist - 4ᵗʰ cycle
+:caption: AssessmentMethod codelist and AssessmentConfidence codelist - 4th cycle
 ```
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_AssessmentMethod_Table
@@ -357,7 +357,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram.mmd
 :name: Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram
 :align: center
-:caption: GroundwaterSurfaceWaterLink codelist - 4ᵗʰ cycle
+:caption: GroundwaterSurfaceWaterLink codelist - 4th cycle
 ```
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table
@@ -368,7 +368,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ReasonForFailure_ClassDiagram.mmd
 :name: Codelist_4thCycle_ReasonForFailure_ClassDiagram
 :align: center
-:caption: ReasonForFailure codelist - 4ᵗʰ cycle
+:caption: ReasonForFailure codelist - 4th cycle
 ```
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_ReasonForFailure_Table
@@ -383,7 +383,7 @@ Groundwater - Topics that require discussion and clarification.
 ```
 
 (heading_wfd_groundwater_annexes_3rd_cycle)=
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} /DataModelReview/FragmentAnnexesDataAnalysis3rdCycle
 ```
@@ -413,7 +413,7 @@ classified under each IHME aquifer type. For example:
 In practice, this means that an existing pan-European hydrogeological map (IHME1500) 
 can not be easily used to replace the information reported under WFD,
 but it also highlights the need for better clarification 
-of the aquifer type and aquifer productivity values to be used in the 4ᵗʰ cycle.
+of the aquifer type and aquifer productivity values to be used in the 4th cycle.
 
 ```{figure} /DataModelReview/img/AquiferTypesWFDversusIHME.png
 :name: AquiferTypesWFDversusIHME
@@ -477,7 +477,7 @@ from a typical borehole at an individual abstraction site."
 
 ```{dropdown} Show code
   ```{code-block} sql
-  :caption: [gwChemicalStatusValue] vs [gwChemicalReasonsForFailure] - 3ʳᵈ cycle
+  :caption: [gwChemicalStatusValue] vs [gwChemicalReasonsForFailure] - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
 
@@ -492,7 +492,7 @@ from a typical borehole at an individual abstraction site."
 
 ```{dropdown} Show code
   ```{code-block} sql
-  :caption: Number of reasons for chemical failure - 3ʳᵈ cycle
+  :caption: Number of reasons for chemical failure - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
   SELECT [numberOfReasonsForFailure],
@@ -511,7 +511,7 @@ from a typical borehole at an individual abstraction site."
 
 ```{dropdown} Show code
   ```{code-block} sql
-  :caption: [gwQuantitativeStatusValue] vs [gwQuantitativeReasonsForFailure] - 3ʳᵈ cycle
+  :caption: [gwQuantitativeStatusValue] vs [gwQuantitativeReasonsForFailure] - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
 
@@ -526,7 +526,7 @@ from a typical borehole at an individual abstraction site."
 
 ```{dropdown} Show code
   ```{code-block} sql
-  :caption: Number of reasons for quantitative failure - 3ʳᵈ cycle
+  :caption: Number of reasons for quantitative failure - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
 
@@ -547,7 +547,7 @@ from a typical borehole at an individual abstraction site."
 (heading_wfd_groundwater_annexes_nbl_3rd_cycle)=
 ### Natural background levels
 
-In the 3ʳᵈ cycle, natural background levels (NBL) 
+In the 3rd cycle, natural background levels (NBL) 
 were reported for 8608 water bodies (38.6%) and over 90 substances. 
 
 An exploratory analysis shows the expected high frequency of reporting of NBLs for metals and metalloids 

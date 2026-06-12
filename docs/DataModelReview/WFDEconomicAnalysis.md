@@ -32,7 +32,7 @@ The *Service* table is removed. Information about volumes, revenues and costs is
 :caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle of reporting
 ```
 
-## Cost Recovery – 4ᵗʰ cycle
+## Cost Recovery – 4th cycle
 
 The former questionnaire in the *EconomicAnalysis* class is removed.
 
@@ -47,10 +47,10 @@ The questionnaire in the *CostRecovery* and *CostRecoveryPerService* tables ({nu
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysisCostRecoveryCostRecoveryPerService.mmd
 :name: EconomicAnalysisCostRecovery
 :align: center
-:caption: CostRecovery – 4ᵗʰ cycle of reporting   Figure 4 . CostRecoveryPerService – 4ᵗʰ cycle of reporting*
+:caption: CostRecovery – 4th cycle of reporting   Figure 4 . CostRecoveryPerService – 4th cycle of reporting*
 ```
 
-## Water Services Data – 4ᵗʰ cycle
+## Water Services Data – 4th cycle
 
 The data structure was simplified to a core set of quantitative data for a limited number of water services and water user sectors. The purpose is to obtain a consistent overview across Europe, at river basin district level.
 
@@ -64,7 +64,7 @@ Information is requested:
 |:--:|:----------:|
 | ![](img/EconomicAnalysisPhysicalvolume.png){width="300px"} | ![](img/EconomicAnalysisRevenue.png){width="300px"} |
 
-*Figure 5.Overview diagram for the requested data on volumes, revenues and costs – 4ᵗʰ cycle of reporting.*
+*Figure 5.Overview diagram for the requested data on volumes, revenues and costs – 4th cycle of reporting.*
 
 <div style="display: flex; gap: 20px;">
 
@@ -96,7 +96,7 @@ The requested data on water volumes is detailed in ({numref}`conceptualvolume`).
 :name: conceptualvolume
 :align: center
 :width: 100%
-Conceptual diagram for the requested data on volumes – 4ᵗʰ cycle of reporting.
+Conceptual diagram for the requested data on volumes – 4th cycle of reporting.
 ```
 
 
@@ -143,7 +143,7 @@ The following generic guidelines apply to the reporting of revenues:
 :name: Economic_Analysis_ConceptualRevenue
 :align: center
 :width: 100%
-Conceptual diagram for the requested data on revenues – 4ᵗʰ cycle of reporting.
+Conceptual diagram for the requested data on revenues – 4th cycle of reporting.
 ```
 Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in {numref}`Economic_Analysis_ConceptualRevenue`, as well as the estimated global cost recovery rate.
 
@@ -158,13 +158,13 @@ The dimension codes for the reporting of volumes and revenues are presented in {
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_Volume.mmd
 :name: EconomicAnalysis_Volume
-:caption: Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting  
+:caption: Reporting of volume, revenue and costs per water service – 4th cycle of reporting  
 :align: center
 ```
 See also in ([^SDMXDesignations])
 
 
-```{table} Dimension codes for the reporting of costs per water service – 4ᵗʰ cycle of reporting
+```{table} Dimension codes for the reporting of costs per water service – 4th cycle of reporting
 :name: measures_4th_cycle_reportingcosts_table
 :width: 100%
 
@@ -195,9 +195,9 @@ See also in ([^SDMXDesignations])
 
 ## Ancillary Data Sources
 
-Information about annual volumes is reported voluntarily by MS under the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire ([^NWAT],[^RWAT]). Although the questionnaires have a much higher level of detail than required for the 4ᵗʰ cycle of electronic reporting, it is important that MS provide consistent data, which may allow more detailed analysis to be performed if necessary.
+Information about annual volumes is reported voluntarily by MS under the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire ([^NWAT],[^RWAT]). Although the questionnaires have a much higher level of detail than required for the 4th cycle of electronic reporting, it is important that MS provide consistent data, which may allow more detailed analysis to be performed if necessary.
 
-Tables {numref}`measures_freshwater_abstraction`,{numref}`measures_supplycategory`,{numref}`measures_Wastewater` provides an overview of some of the OECD/Eurostat Joint Questionnaire tables and dimensions that are directly related to the data requested for the WFD 4ᵗʰ cycle of reporting.
+Tables {numref}`measures_freshwater_abstraction`,{numref}`measures_supplycategory`,{numref}`measures_Wastewater` provides an overview of some of the OECD/Eurostat Joint Questionnaire tables and dimensions that are directly related to the data requested for the WFD 4th cycle of reporting.
 
 Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionnaire.  
 
@@ -273,7 +273,7 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_VolumeRevenueCost.mmd
 :name: VolumeRevenueCostPerService
-:caption:  Reporting of volume, revenue and costs per water service – 4ᵗʰ cycle of reporting - SDMX
+:caption:  Reporting of volume, revenue and costs per water service – 4th cycle of reporting - SDMX
 :align: center
 ```
 

@@ -7,7 +7,7 @@ Last update: 2026-05-14
 ## Purpose and overview
 
 This section revises the River Basin Districts, Subunits and Competent Authorities classes 
-used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ClassDiagram_RBDSUCA_2022`). 
+used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ClassDiagram_RBDSUCA_2022`). 
 It also revises the associated spatial data in the RiverBasinDistrict dataset and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).  
 
 ```{figure} img/ClassDiagram_RBDSUCA_2022.png
@@ -15,22 +15,22 @@ It also revises the associated spatial data in the RiverBasinDistrict dataset an
 :align: center
 :width: 75%
 
-River Basin Districts, Subunits and Competent Authorities schema - 3ʳᵈ cycle - Obsolete
+River Basin Districts, Subunits and Competent Authorities schema - 3rd cycle - Obsolete
 ```
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_3rdCycle_GML_ClassDiagram.mmd
 :name: RBDSU_3rdCycle_Spatial
-:caption: RiverBasinDistrict and Subunit spatial datasets - 3ʳᵈ cycle - Obsolete
+:caption: RiverBasinDistrict and Subunit spatial datasets - 3rd cycle - Obsolete
 :align: center
 ```
 
-A proposal is presented for the electronic reporting in the 4ᵗʰ cycle:
+A proposal is presented for the electronic reporting in the 4th cycle:
 
 * The reporting of the units of management (i.e. the River Basin Districts) and of the competent authorities is combined into a single dataflow. 
 * The overall structure of the new **River Basin Districts and Competent Authorities** dataflow is aligned with similar dataflows, e.g. under the Floods Directive [^floods-directive-footnote].
 * Reporting is only requested under the following conditions:
 
-    * If there are changes to the spatial delineation and/or the identifiers of one or more River Basin Districts (since the 3ʳᵈ cycle), the spatial dataset must be reported.
+    * If there are changes to the spatial delineation and/or the identifiers of one or more River Basin Districts (since the 3rd cycle), the spatial dataset must be reported.
 
     * If there are changes to the competent authorities or their roles, the descriptive data must be reported in accordance with Article 3(8) and 3(9) of the WFD.
 
@@ -41,7 +41,7 @@ A proposal is presented for the electronic reporting in the 4ᵗʰ cycle:
 [^floods-directive-footnote]: See [Floods Directive - Units of Management and Competent Authorities[2025]](https://reportnet.europa.eu/public/dataflow/1473).
 
 (heading_wfd_rbd_and_ca_documents_dataset_4th_cycle)=
-## Documents dataset - 4ᵗʰ cycle
+## Documents dataset - 4th cycle
 
 The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`RBDCA_4thCycle_Documents`):
 
@@ -62,13 +62,13 @@ or the provision of a hyperlink to a document stored in a publicly accessible na
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Documents_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Documents
-:caption: River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Documents
+:caption: River Basin Districts and Competent Authorities - 4th cycle - Documents
 :align: center
 :zoom:
 ```
 
 (heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle)=
-## Descriptive dataset - 4ᵗʰ cycle
+## Descriptive dataset - 4th cycle
 
 The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive`):
 
@@ -79,28 +79,28 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Descriptive_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Descriptive
-:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Descriptive Data
+:caption:  River Basin Districts and Competent Authorities - 4th cycle - Descriptive Data
 :align: center
 :zoom:
 ```
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Role_ClassDiagram.mmd
 :name: Codelist_4thCycle_Role_ClassDiagram
-:caption:  Codelist - 4ᵗʰ cycle - Role
+:caption:  Codelist - 4th cycle - Role
 :align: center
 :zoom:
 ```
 
 (heading_wfd_rbd_and_ca_spatial_dataset_4th_cycle)=
-## Spatial dataset - 4ᵗʰ cycle
+## Spatial dataset - 4th cycle
 
 (heading_wfd_monitoring_river_basin_district_dataset_4th_cycle)=
-### RiverBasinDistrict spatial data - 4ᵗʰ cycle
+### RiverBasinDistrict spatial data - 4th cycle
 
 The Spatial dataset contains only the RiverBasinDistrict spatial data ({numref}`Spatial_4thCycle_RiverBasinDistrict`).  
-As stated before, Subunits are no longer requested in the 4ᵗʰ cycle of reporting.
+As stated before, Subunits are no longer requested in the 4th cycle of reporting.
 
-The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3ʳᵈ cycle of reporting):
+The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3rd cycle of reporting):
 
 * The attributes `sizeValue` and `sizeUom` were removed, because they can be derived from the reported geometry.
 
@@ -123,12 +123,12 @@ The following changes have been made to the `RiverBasinDistrict` spatial table (
 
 ```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict.mmd
 :name: Spatial_4thCycle_RiverBasinDistrict
-:caption: Spatial dataset - RiverBasinDistrict - 4ᵗʰ cycle
+:caption: Spatial dataset - RiverBasinDistrict - 4th cycle
 :align: center
 :zoom:
 ```
 
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
@@ -142,7 +142,7 @@ then it is not necessary to report the RiverBasinDistrict dataset again.
 ```{dropdown} Show code
 
   ```{code-block} sql
-  :caption: National and international RBDs - 3ʳᵈ cycle
+  :caption: National and international RBDs - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
 
@@ -165,7 +165,7 @@ then it is not necessary to report the information again.
 ```{dropdown} Show code
 
   ```{code-block} sql
-  :caption: Competent authorities and their roles - 3ʳᵈ cycle
+  :caption: Competent authorities and their roles - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
   SELECT [countryCode],

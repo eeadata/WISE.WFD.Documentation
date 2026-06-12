@@ -1,7 +1,7 @@
 (heading_wfd_pressure_type_codelist_4th_cycle)=
-# PressureType codelist - 4ᵗʰ cycle
+# PressureType codelist - 4th cycle
 
-The review of the pressure types codelist used in the 3ʳᵈ cycle of reporting 
+The review of the pressure types codelist used in the 3rd cycle of reporting 
 is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
 
 * A generic option 'unknown' was added.
@@ -25,17 +25,17 @@ Depending on the attribute and the context, the use of some values may be restri
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_PressureType_ClassDiagram.mmd
 :name: Codelist_4thCycle_PressureType_ClassDiagram
-:caption:  Codelist - PressureType - 4ᵗʰ cycle
+:caption:  Codelist - PressureType - 4th cycle
 :align: center
 :zoom:
 ```
 
-In the pressures codelist used in the 2ⁿᵈ and 3ʳᵈ cycle of reporting,
+In the pressures codelist used in the 2nd and 3rd cycle of reporting,
 most options combined both a pressure and a driver (see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
 For example: abstraction + agriculture = 'P3-1 - Abstraction - Agriculture'.
 
 This structure was kept in the current codelist. Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting. If the specific driver is not in the codelist, the higher level code can be used.
-Note that not all the drivers defined in the 3ʳᵈ cycle reporting guidance (see {numref}`Codelist_3rdCycle_DriverType_Table`) are listed.
+Note that not all the drivers defined in the 3rd cycle reporting guidance (see {numref}`Codelist_3rdCycle_DriverType_Table`) are listed.
 
 ```{include} tables/PressuresAndImpacts_DPSIRFramework_Table
 ```
@@ -49,19 +49,19 @@ ENV or EEA Water to complete, and define if any should be added.
 ```
 
 The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence 
-between the codelist values in the 3ʳᵈ cycle and in the 4ᵗʰ cycle.
+between the codelist values in the 3rd cycle and in the 4th cycle.
 
 ```{dropdown} Show mapping table
 ```{include} tables/PressuresType_3rdCycle_4thCycle_MappingTable
 ```
 
 (heading_wfd_pressures_annexes)=
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
 
-The codelist of significant pressures used in the 3ʳᵈ cycle 
+The codelist of significant pressures used in the 3rd cycle 
 includes three options generic values:
 
 *  'P7 - Anthropogenic pressure - Other', which then requires a textual explanation to be provided;
@@ -97,7 +97,7 @@ See {ref}`PressuresType_NumberOfGWBByPressureType_3rdCycle`.
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Number of groundwater bodies by pressure type - 3ʳᵈ cycle
+:caption: Number of groundwater bodies by pressure type - 3rd cycle
 :linenos:
 SELECT [gwSignificantPressureTypeGroup]
       ,[gwSignificantPressureType]
@@ -126,7 +126,7 @@ Can the option 'P7 - Anthropogenic pressure - Other' be removed from the list of
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater bodies where 'P7 - Anthropogenic pressure - Other' is the single [gwSignificantPressureType] pressure - 3ʳᵈ cycle
+:caption: Groundwater bodies where 'P7 - Anthropogenic pressure - Other' is the single [gwSignificantPressureType] pressure - 3rd cycle
 :linenos:
 SELECT [gwSignificantPressureOther], count(DISTINCT [euGroundWaterBodyCode]) numberOfWaterBodies
 FROM (
@@ -205,7 +205,7 @@ can the option 'P8 - Anthropogenic pressure - Unknown' also be removed?
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater bodies where 'P8 - Anthropogenic pressure - Unknown' is the single remaining [gwSignificantPressureType] pressure - 3ʳᵈ cycle
+:caption: Groundwater bodies where 'P8 - Anthropogenic pressure - Unknown' is the single remaining [gwSignificantPressureType] pressure - 3rd cycle
 :linenos:
 SELECT *
 FROM (
@@ -287,7 +287,7 @@ can the option 'P9 - Anthropogenic pressure - Historical pollution' also be remo
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater bodies where 'P9 - Anthropogenic pressure - Historical pollution' is the single remaining [gwSignificantPressureType] pressure - 3ʳᵈ cycle
+:caption: Groundwater bodies where 'P9 - Anthropogenic pressure - Historical pollution' is the single remaining [gwSignificantPressureType] pressure - 3rd cycle
 :linenos:
 SELECT countryCode, count(*) n
 FROM (
@@ -368,7 +368,7 @@ See {ref}`PressuresType_NumberOfSWBByPressureType_3rdCycle`.
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Number of surface bodies by pressure type - 3ʳᵈ cycle
+:caption: Number of surface bodies by pressure type - 3rd cycle
 :linenos:
 SELECT [swSignificantPressureTypeGroup]
       ,[swSignificantPressureType]
@@ -404,7 +404,7 @@ Can the option 'P7 - Anthropogenic pressure - Other' be removed from the list of
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water bodies where 'P7 - Anthropogenic pressure - Other' is the single [gwSignificantPressureType] pressure - 3ʳᵈ cycle
+:caption: Surface water bodies where 'P7 - Anthropogenic pressure - Other' is the single [gwSignificantPressureType] pressure - 3rd cycle
 :linenos:
 SELECT swSignificantPressureOther, count(DISTINCT [euSurfaceWaterBodyCode]) numberOfWaterBodies
 FROM (
@@ -483,7 +483,7 @@ If the option 'P7 - Anthropogenic pressure - Other' is removed from the list of 
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water bodies where 'P8 - Anthropogenic pressure - Unknown' is the single remaining [gwSignificantPressureType] pressure - 3ʳᵈ cycle
+:caption: Surface water bodies where 'P8 - Anthropogenic pressure - Unknown' is the single remaining [gwSignificantPressureType] pressure - 3rd cycle
 :linenos:
 SELECT *
 FROM (
@@ -559,7 +559,7 @@ can the option 'P9 - Anthropogenic pressure - Historical pollution' also be remo
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water bodies where 'P9 - Anthropogenic pressure - Historical pollution' is the single remaining [gwSignificantPressureType] pressure - 3ʳᵈ cycle
+:caption: Surface water bodies where 'P9 - Anthropogenic pressure - Historical pollution' is the single remaining [gwSignificantPressureType] pressure - 3rd cycle
 :linenos:
 SELECT *
 FROM (
@@ -631,7 +631,7 @@ WHERE NOT (swEcologicalStatusOrPotentialValue IN ('1','2') AND swChemicalStatusV
 
 ### Surface water bodies with 'P8 - Anthropogenic pressure - Unknown' and unknown chemical status
 
-This specific situation was detected during the Assessment of the 3ʳᵈ RBMPs:
+This specific situation was detected during the Assessment of the 3rd RBMPs:
 
 ```{epigraph}
 A Member State flagged that where a water body is reported to be in unknown chemical status, a pressure must also be reported on that water body. This resulted in the Member State reporting 60% of surface water bodies to be affected by unknown anthropogenic pressures. The Member State representative said that in reality, the percentage of waterbodies with an unknown pressure was approximately 10%. I.e. this resulted in a large difference between the data reported electronically, and the actual situation in the Member State.
@@ -645,7 +645,7 @@ ASSESSMENT OF THE THIRD RIVER BASIN MANAGEMENT PLANS (RBMPS) - APPENDIX - LESSON
 ```
 
 This was indeed an issue.
-The situation described is likely cause by the fact that there is no option 'Unknown' in the 3ʳᵈ cycle codelist.
+The situation described is likely cause by the fact that there is no option 'Unknown' in the 3rd cycle codelist.
 In fact, the reporting guidance says that 'P8 - Anthropogenic pressure - Unknown' is only relevant where status is lower than good and pressure is unknown.
 
 For the future, the codelist should include the option 'unknown', to be used in this scope.
@@ -653,7 +653,7 @@ For the future, the codelist should include the option 'unknown', to be used in 
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water bodies with unknown chemical status, non-failing ecological status and 'P8 - Anthropogenic pressure - Unknown' - 3ʳᵈ cycle
+:caption: Surface water bodies with unknown chemical status, non-failing ecological status and 'P8 - Anthropogenic pressure - Unknown' - 3rd cycle
 :linenos:
 -- Query 1: unknown chemical status, non-failing ecological status
 SELECT a.countryCode,
@@ -709,7 +709,7 @@ But nevertheless it will be solved for both.
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater bodies with unknown chemical status, non-failing quantitative status and 'P8 - Anthropogenic pressure - Unknown' - 3ʳᵈ cycle
+:caption: Groundwater bodies with unknown chemical status, non-failing quantitative status and 'P8 - Anthropogenic pressure - Unknown' - 3rd cycle
 :linenos:
 -- Query 1: unknown chemical status, non-failing quantitative status, and only P8 significant pressure type
 SELECT a.countryCode,
@@ -765,7 +765,7 @@ But only 12 groundwater bodies have 'P6-1 - Groundwater - Recharges' as the *sin
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater bodies where the single pressure causing failure is 'P6-1 - Groundwater - Recharges' - 3ʳᵈ cycle
+:caption: Groundwater bodies where the single pressure causing failure is 'P6-1 - Groundwater - Recharges' - 3rd cycle
 :linenos:
 SELECT euGroundWaterBodyCode, gwChemicalStatusValue, gwQuantitativeStatusValue
 FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_gwSignificantPressureType]
@@ -797,7 +797,7 @@ But **zero** surface water bodies have 'P6-1 - Groundwater - Recharges' as the *
 
 ```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface bodies where the single pressure causing failure is 'P6-1 - Groundwater - Recharges' - 3ʳᵈ cycle
+:caption: Surface bodies where the single pressure causing failure is 'P6-1 - Groundwater - Recharges' - 3rd cycle
 :linenos:
 
 SELECT euSurfaceWaterBodyCode, swChemicalStatusValue, swEcologicalStatusOrPotentialValue

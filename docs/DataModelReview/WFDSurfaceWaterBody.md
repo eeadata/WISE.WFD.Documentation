@@ -11,11 +11,11 @@ Public Version - Pending Discussion
 ## Purpose and overview
 
 This section revises the reporting of information related to **Surface Water Bodies** 
-in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
-It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
+in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans. 
+It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
 (heading_wfd_surface_water_bodies_current_structure_3rd_cycle)=
-## Current structure - 3ʳᵈ cycle
+## Current structure - 3rd cycle
 
 The information about Surface water bodies was reported in five separate schemas:
 
@@ -27,11 +27,11 @@ The information about Surface water bodies was reported in five separate schemas
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_3rdCycle_SWB_ClassDiagram.mmd
 :name: SurfaceWater_3rdCycle_SWB_ClassDiagram
 :align: center
-:caption: Class diagram for the SWB_2022 schema in the 3ʳᵈ cycle of reporting.
+:caption: Class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
 ```
 
 (heading_wfd_surface_water_bodies_SWB_schema_3rd_cycle)=
-## SWB_2022 schema - 3ʳᵈ cycle
+## SWB_2022 schema - 3rd cycle
 
 The SWB_2022 schema was already partially revised with regard to the reporting of exemptions. 
 See:
@@ -53,20 +53,20 @@ to help focus the discussion on the remaining issues.
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram.mmd
 :name: SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram
 :align: center
-:caption: PARTIAL class diagram for the SWB_2022 schema in the 3ʳᵈ cycle of reporting.
+:caption: PARTIAL class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
 ```
 
-## Surface water - descriptive data - 4ᵗʰ cycle
+## Surface water - descriptive data - 4th cycle
 
-The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in the class diagram in ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`) and a brief description of each table is included in {numref}`SurfaceWater_4th_cycle_brief_table_description`.
+The proposed structure for the 4th cycle electronic reporting is presented in the class diagram in ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`) and a brief description of each table is included in {numref}`SurfaceWater_4th_cycle_brief_table_description`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_DescriptiveData_ClassDiagram.mmd
 :name: SurfaceWater_4thCycle_DescriptiveData_ClassDiagram
 :align: center
-:caption: Surface water - 4ᵗʰ cycle
+:caption: Surface water - 4th cycle
 ```
 
-```{list-table} Surface water - 4ᵗʰ cycle - brief table description
+```{list-table} Surface water - 4th cycle - brief table description
 :name: SurfaceWater_4th_cycle_brief_table_description
 :header-rows: 1
 :width: 100%
@@ -82,8 +82,8 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
     that describe the surface water body 
     and that do not vary with the status of the water body.
     Therefore the table can be prepared immediately, 
-    even if the 4ᵗʰ cycle RBMPs have not yet been finalised. 
-    All the attributes existed in the 3ʳᵈ cycle reporting. 
+    even if the 4th cycle RBMPs have not yet been finalised. 
+    All the attributes existed in the 3rd cycle reporting. 
 
 * - SWHeavilyModifiedWaterBody
   - *modified*  
@@ -175,14 +175,14 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
 
     Note that the reporting of pressures and impacts 
     is combined into a single `SWPressureImpact` table. 
-    In the 3ʳᵈ cycle, the XML structure did not allow 
+    In the 3rd cycle, the XML structure did not allow 
     a specific pressure to be link to a given impact.
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.  
 ```
 
 (heading_wfd_surface_water_codelist_4th_cycle)=
-## Surface water - codelists - 4ᵗʰ cycle
+## Surface water - codelists - 4th cycle
 
 * For the `Reservoir` codelist, 
   see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
@@ -233,7 +233,7 @@ The proposed structure for the 4ᵗʰ cycle electronic reporting is presented in
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram.mmd
 :name: Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram
 :align: center
-:caption: Reservoir codelist, HMWBWaterUse codelist, and HMWBPhysicalAlteration codelist - 4ᵗʰ cycle
+:caption: Reservoir codelist, HMWBWaterUse codelist, and HMWBPhysicalAlteration codelist - 4th cycle
 ```
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_Reservoir_Table
@@ -270,13 +270,13 @@ illustrates the assessment criteria for ecological potential ({numref}`SurfaceWa
 ```
 
 (heading_wfd_surface_water_bodies_annexes)=
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
-```{admonition} Changes to the quality check during the 3ʳᵈ cycle reporting phase
+```{admonition} Changes to the quality check during the 3rd cycle reporting phase
 :class: dropdown
 
 Several data quality issues where detected 
-while the 3ʳᵈ cycle was ongoing (i.e. after the testing phase).
+while the 3rd cycle was ongoing (i.e. after the testing phase).
 
 That required the implementation of additional quality checks, 
 or the correction of existing quality checks.
@@ -406,7 +406,7 @@ beyond the requirements of the ecological status assessment.
 
 ### *"Not applicable"*
 
-The 3ʳᵈ cycle reporting guidance provided 
+The 3rd cycle reporting guidance provided 
 a clear definition of the option *"Not applicable"*.  
 
 ```{epigraph}
@@ -545,7 +545,7 @@ Furthermore, the analysis of the 216 water bodies shows that:
 ```
 
 The low frequency of these cases suggests a reporting error,
-that must be captured in the quality control during the 4ᵗʰ cycle.
+that must be captured in the quality control during the 4th cycle.
 
 ### Proposed change
 
@@ -616,13 +616,13 @@ act as *modifiers* of the BQE assessment:
 * if any applicable QE3 status is 'less than good',
   then the ecological status cannot be 'good'.
 
-In the 3ʳᵈ cycle reporting, 
+In the 3rd cycle reporting, 
 the quality control checks enforced the interpretation above.
 **Pending: confirm whether if changes are required.**
 
 The hydromorphological quality elements
 
-According to the 3ʳᵈ cycle reporting guidance:
+According to the 3rd cycle reporting guidance:
 * *Rule 1:* "If SWB/SurfaceWaterBody/swEcologicalStatusOrPotentialValue = 1
   Then it cannot be lower than the highest of the values reported
   under SWB/SurfaceWaterBody/QualityElement/qeStatusOrPotentialValue"
@@ -684,8 +684,8 @@ the values are similar.
     when none of the QE1, QE3-1 or QE3-2 status is failing
 
 This raises the question of how to compare 
-the ecological status reported in the 3ʳᵈ cycle, 
-with the ecological status that will be reported in the 4ᵗʰ cycle.
+the ecological status reported in the 3rd cycle, 
+with the ecological status that will be reported in the 4th cycle.
 
 Deriving the ecological status 
 from the reported quality elements statuses 
@@ -720,7 +720,7 @@ might somewhat reduce the problem
 
 ### River basin specific pollutants 
 
-According to the rules in the 3ʳᵈ cycle of reporting,  
+According to the rules in the 3rd cycle of reporting,  
 if the status or potential of 'QE3-3 - River Basin Specific Pollutants' 
 is less than good, than the failing RBSP must be reported.
 
