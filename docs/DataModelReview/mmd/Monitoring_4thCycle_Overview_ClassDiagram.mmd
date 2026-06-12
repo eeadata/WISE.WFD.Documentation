@@ -16,9 +16,12 @@ class MonitoringPurpose{}
 class MonitoringProgrammes{}
 class MonitoringSite{<<spatial>>}
 
-dcMetadata -- Document
-Reference -- Document
-MonitoringProgrammes -- Reference 
+dcMetadata ..> Document
+Reference ..> Document
+MonitoringProgrammes ..> Reference 
 
-MonitoringSite "1" -- "0..3" MonitoringPurpose 
+MonitoringSite "1" -- "1..3" MonitoringPurpose 
 Monitoring "0..n"-- "1" MonitoringSite 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

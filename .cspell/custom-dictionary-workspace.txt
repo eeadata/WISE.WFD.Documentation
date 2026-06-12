@@ -28,6 +28,7 @@ Macroalgae
 MEPGEP
 msfd
 numref
+Oxidisability
 Physico
 physico-chemical
 Physico-chemical
@@ -36,6 +37,7 @@ RBDCA
 RBMP
 rbsp
 Reportnet3
+SDMX
 Secchi
 seveso
 SWGROUP
@@ -44,4 +46,5 @@ SWMET_2022
 SWRBSP
 toctree
 transboundary
+Waterbase
 WFD

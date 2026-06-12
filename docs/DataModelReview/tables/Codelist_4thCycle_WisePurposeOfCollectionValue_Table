@@ -1,0 +1,63 @@
+```{list-table} Codelist - 4th cycle - WisePurposeOfCollectionValue
+:name: Codelist_4thCycle_WisePurposeOfCollectionValue_Table
+:header-rows: 1
+:width: 100%
+:widths: 20 45 35
+:align: left
+
+* - Notation 
+  - Label
+  - Notes 
+
+* - WFD
+  - WFD Monitoring Site
+  -
+* - SOE
+  - EIONET State of Environment monitoring
+  - 
+* - AGR
+  - Groundwater abstraction site for irrigation
+  - 
+* - IND
+  - Groundwater abstraction site for industrial supply
+  - *if necessary, set the confidentialityStatus = 'N'*
+* - DRI
+  - Groundwater abstraction site for human consumption
+  - *if necessary, set the confidentialityStatus = 'N'*
+
+* - DWD
+  - Drinking water 
+  - «Protected area» WFD Annex IV.1.i
+* - SHE
+  - Shellfish designated waters 
+  - «Protected area» WFD Annex IV.1.ii
+* - BWD
+  - Recreational or bathing water 
+  - «Protected area» WFD Annex IV.1.iii
+* - UWW
+  - Nutrient sensitive area under the Urban Waste Water Treatment Directive 
+  - «Protected area» WFD Annex IV.1.iv
+* - NID
+  - Nutrient sensitive area under the Nitrates Directive 
+  - «Protected area» WFD Annex IV.1.iv
+* - HAB
+  - Protection of habitats or species depending on water 
+  - «Protected area» WFD Annex IV.1.v
+
+* - RIV
+  - International network of a river convention, including bilateral agreements
+  - «Transboundary monitoring»
+* - SEA
+  - International network of a sea convention
+  - «Transboundary monitoring»
+* - INT
+  - International network of other international convention
+  - «Transboundary monitoring»
+
+* - MSF
+  - Marine Strategy Framework Directive monitoring network
+  - 
+* - REF
+  - Reference network monitoring site
+  - 
+```

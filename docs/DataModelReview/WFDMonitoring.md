@@ -6,43 +6,18 @@ Last updated: 2026-05-22
 ```{warning}
 The online version of the text is being reviewed.  
 ```
-## Overview 
+## Purpose and overview 
 
 This section revises the reporting of information related to **Monitoring Programmes** 
 in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans. 
-It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
+It presents a proposal for the electronic reporting in the 4th cycle.
 It also revises the associated spatial data in the MonitoringSite dataset.  
 
-({numref}`ClassDiagram_Monitoring_2022`)
-
-In preparation on the 4th cycle reporting, 
-an analysis of the current content of the WISE SoE reporting was done. 
-(See for example {ref}`heading_wfd_monitoring_annexes_atrazine`) 
-
-The European coverage of the WISE SoE reporting remains fragmentary,
-but some Member States provide detailed and abundant data 
-that likely reflects the existing WFD monitoring programmes.  
-For such Member States, reporting derived statistics about sampling frequency and period 
-in the 4th cycle electronic reporting would be duplicate reporting and an unnecessary reporting burden.
-
-Therefore, for the 4th cycle of reporting, the requested information is further simplified.
-
-* {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
-* {ref}`heading_wfd_monitoring_4th_cycle`
-* {ref}`heading_wfd_monitoring_spatial_dataset_4th_cycle`
-
-```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Overview_ClassDiagram.mmd
-:name: monitoring_4thcycle_overview_class_diagram
-:caption:  Monitoring dataflow - Overview - 4th cycle
-:align: center
-:zoom:
-```
-
 (heading_wfd_monitoring_2nd_cycle)=
-## Monitoring_2016 schema - 2nd cycle
+## Monitoring_2016 - 2nd cycle
 
-The 2016 WFD reporting guidance documents {footcite}`WFD2016_ReportingGuidance` 
-clarify that the information requested in the **Monitoring_2016** schema, in accordance to Article 8 of the WFD,
+The 2016 WFD reporting guidance {footcite}`WFD2016_ReportingGuidance` 
+clarifies that the information requested in the **Monitoring_2016** schema, in accordance to Article 8 of the WFD,
 refers to past monitoring, and not to planned monitoring.
 
 The 2016 WFD reporting guidance document highlights the connection to the EEA voluntary dataflows,
@@ -73,7 +48,7 @@ Member States are expected to report to EEA WISE SoE:
 ```
 
 In 2016, the WISE SoE dataflows were under revision. 
-Therefore, information about the 2nd cycle monitoring programmes was requested in the WFD 2016 electronic reporting 
+Therefore, information about the monitoring programmes was requested in the WFD electronic reporting 
 (see {numref}`ClassDiagram_Monitoring_2016`).
 
 ```{figure} img/ClassDiagram_Monitoring_2016.png
@@ -85,15 +60,14 @@ Monitoring_2016 schema - 2nd cycle - Obsolete
 ```
 
 (heading_wfd_monitoring_3rd_cycle)=
-## Monitoring_2022 schema - 3rd  cycle
+## Monitoring_2022 - 3rd  cycle
 
-The 2022 WFD reporting guidance document again reiterates that 
-the content of **Monitoring** schema refers to past monitoring, and not to planned monitoring, 
-with exceptional cases allowed for in the 3rd cycle reporting guidance (see excerpt below).
+The 2022 WFD reporting guidance {footcite}`WFD2022_ReportingGuidance` reiterates that 
+the content of the **Monitoring_2022** schema refers to past monitoring, and not to planned monitoring, 
+with exceptional cases allowed for (see excerpt below).
 
-The 2022 WFD reporting guidance document again highlights the connection to the EEA voluntary dataflows,
+The 2022 WFD reporting guidance document also highlights the connection to the EEA voluntary dataflows,
 and the expectation that Member States report the monitoring results under the WISE SoE dataflows.
-
 
 ```{epigraph}
 
@@ -112,15 +86,15 @@ Member States are expected to report to EEA WISE SoE:
   to Waterbases on groundwater, rivers, lakes, transitional waters and coastal waters
 * Results from monitoring Biological Quality Elements to Waterbases on rivers, lakes, transitional waters and coastal waters  
 
--- *Excerpts from the 2022 WFD Reporting Guidance for the 3rd cycle (pg. 90-97)*
+-- *Excerpts from the 2022 WFD Reporting Guidance for the 3rd cycle (pg. 90-97)*  {footcite}`WFD2022_ReportingGuidance` 
 ```
 
 For the 3rd cycle reporting, in 2022, 
-the analysis of the content of the WISE SoE reporting showed issues 
+the analysis of the content of the WISE SoE reporting showed gaps 
 in the completeness of the voluntary reporting of monitoring results for water quality: 
 it would not have been possible to derive the requested monitoring information from the EEA Waterbases.
-Therefore, the reporting schema was simplified (see {numref}`ClassDiagram_Monitoring_2022`),
-but kept in the WFD 2022 electronic reporting.
+Therefore, the Monitoring_2022 schema was simplified (see {numref}`ClassDiagram_Monitoring_2022`),
+but kept in the electronic reporting.
 
 ```{figure} img/ClassDiagram_Monitoring_2022.png
 :name: ClassDiagram_Monitoring_2022
@@ -130,69 +104,37 @@ but kept in the WFD 2022 electronic reporting.
 Monitoring_2022 schema - 3rd cycle - Obsolete
 ```
 
+(heading_wfd_monitoring_proposed_structure_4th_cycle)=
+## Proposed structure - 4th cycle
 
-(heading_wfd_monitoring_documents_dataset_4th_cycle)=
-## Documents dataset - 4th cycle
+In preparation on the 4th cycle reporting, 
+an analysis of the current content of the WISE SoE reporting was done again. 
+(See for example {ref}`heading_wfd_monitoring_annexes_atrazine`) 
 
-The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`Monitoring_4thCycle_Documents`):
+The European coverage of the WISE SoE reporting remains fragmentary,
+but some Member States provide detailed and abundant data 
+that likely reflects the existing WFD monitoring programmes.  
+For such Member States, the reporting of derived statistics about sampling frequency and period 
+would constitute duplicate reporting and an unnecessary reporting burden.
 
-* The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
-  
-  * If required by the data providers, and especially if spatial data is being reported, 
-    the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
-  * The `dcMetadata` table also functions as a "manifest file" 
-    explaining if the delivery contains data for a given river basin district or not.
-   
-* The `Document` table allows the upload of documents (for example, PDFs) 
-  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
+Therefore, for the 4th cycle of reporting, the requested information is simplified (see {numref}`ClassDiagram_Monitoring_2022`).
 
-* The `Reference` table is also standard in the WISE dataflows:
-  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s) 
-  where the relevant information about a `subject`
-  can be found within a document.
+* {ref}`heading_wfd_monitoring_4th_cycle`
+* {ref}`heading_wfd_monitoring_spatial_dataset_4th_cycle`
+* {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
 
-```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Documents_ClassDiagram.mmd
-:name: Monitoring_4thCycle_Documents
-:caption: Monitoring - 4th cycle - Documents
+```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Overview_ClassDiagram.mmd
+:name: monitoring_4thcycle_overview_class_diagram
+:caption:  Monitoring dataflow - Overview - 4th cycle
 :align: center
 :zoom:
-```
-
-The following criteria apply:
-
-01. The `dcMetadata` table must contain *one and only one* record 
-    for each of the country's river basin districts, identified by the `euRBDCode`.
-
-02. The spatial dataset is **national**.
-    The `includesSpatialData` value must be the same for all river basin districts.
-
-03. If `includesSpatialData = 'no'` then no spatial data is expected,
-    and the quality control of the monitoring dataset will run 
-    against the last technically accepted delivery of monitoring sites.
-
-04. For countries reporting under the WFD, 
-    the last technically accepted delivery of monitoring sites 
-    is **always the data reported in the 3rd cycle**.
-    
-05. The monitoring dataset is also **national**,
-    but the quality control will allow deliveries 
-    where some, or all, the river basin districts have `includesMonitoringData = no`.
-    
-06. For countries reporting under the WFD, 
-    the quality control will raise an **ERROR**,
-    if some, or all, the river basin districts have `includesMonitoringData = no`.
-
-```{todo}
-Monitoring - {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
-
-**Technical** review pending.
 ```
 
 (heading_wfd_monitoring_4th_cycle)=
 ## Descriptive dataset - 4th cycle
 
 (heading_wfd_monitoring_monitoring_programmes_table_4th_cycle)=
-### MonitoringProgrammes table - 4th cycle
+### MonitoringProgrammes table
 
 The information about the monitoring programmes is provided in the RBMP documents: 
 only the reference to the supporting documents is requested 
@@ -211,24 +153,24 @@ The following conditions apply:
     for each of the river basin districts being reported
     (i.e. where `dcMetadata.includesMonitoringData = 'yes'`, 
     see {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`).
-    The river basin district is identified by its `euRBDCode` identifier.
+    The river basin district is identified by its `euRBDCode`.
 
-03. The `gwChemicalMonitoringReference`  
+02. The `gwChemicalMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated groundwater bodies. 
 
-04. The `gwQuantitativeMonitoringReference`  
+03. The `gwQuantitativeMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated groundwater bodies. 
 
-05. The `swChemicalMonitoringReference`  
+04. The `swChemicalMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated surface water bodies. 
 
-06. The `swEcologicalMonitoringReference`  
+05. The `swEcologicalMonitoringReference`  
     *must* be reported for 
     every river basin district with 
     designated surface water bodies 
@@ -236,8 +178,8 @@ The following conditions apply:
 
 The `useWaterbaseForMonitoringData` value defines what needs to be reported in the `Monitoring` table.
   * It applies to all surface water monitoring 
-    *except Biological Quality Elements (QE1)* 
-    and *Hydromorphological Quality Elements (QE2)*
+    *except Biological Quality Elements* (QE1) 
+    and *Hydromorphological Quality Elements* (QE2)
   * It applies to all groundwater monitoring
     *except Quantitative Monitoring* (EEA_00-01-1).
 
@@ -247,7 +189,7 @@ the monitoring data statistics
 should be *derived* from the data reported to Waterbase.  
 
 (heading_wfd_monitoring_monitoring_table_4th_cycle)=
-### Monitoring table - 4th cycle
+### Monitoring table
 
 A simplified `Monitoring` table is proposed (see {numref}`DescriptiveMonitoring4thcycle`). 
 
@@ -279,22 +221,22 @@ For the 4th cycle, the following conditions apply:
 
 01. The `Monitoring` table must always 
     list the surface water monitoring sites 
-    for Biological Quality Elements (QE1%) 
-    for every river basin distric with 
+    for Biological Quality Elements (`'QE1%'`) 
+    for every river basin district with 
     designated surface water bodies 
     (except territorial waters). 
 
 02. The `Monitoring` table must always 
     list the surface water monitoring sites 
-    for Hydromorphological Quality Elements (QE2%)
-    for every river basin distric with 
+    for Hydromorphological Quality Elements (`'QE2%'`)
+    for every river basin district with 
     designated surface water bodies 
     (except territorial waters). 
 
 03. The `Monitoring` table must always 
     list the groundwater monitoring sites 
-    for 'EEA_00-01-1 - Quantitative Monitoring'
-    for every river basin distric with 
+    for quantitative monitoring (`'EEA_00-01-1'`)
+    for every river basin district with 
     designated groundwater bodies.
       
 04. If, for a given river basin district, 
@@ -306,12 +248,12 @@ For the 4th cycle, the following conditions apply:
 05. If, for a given river basin district, 
     the option `useWaterbaseForMonitoringData = 'no'` 
     is reported in the `MonitoringProgrammes` table, 
-    then the monitoring of physico-chemical and chemical parameters *must NOT* 
+    then the monitoring of physico-chemical and chemical parameters *must* 
     be reported in the `Monitoring` table.
 
 The quality control requirements defined in the 3rd cycle still apply:
 
-06. The option `parameterCode LIKE 'EEA_00-01-1%'`
+06. The option `parameterCode = 'EEA_00-01-1'`
     (Quantitative monitoring) is only valid 
     for monitoring sites in groundwater bodies.
 
@@ -374,7 +316,7 @@ Monitoring - {ref}`heading_wfd_monitoring_monitoring_table_4th_cycle`
 ```
 
 (heading_wfd_monitoring_monitoring_purpose_table_4th_cycle)=
-### MonitoringPurpose table - 4th cycle
+### MonitoringPurpose table
 
 The `MonitoringPurpose` table indicates if a given monitoring site is part of surveillance, operational, and/or investigative monitoring (see {numref}`DescriptiveMonitoringPurpose4thcycle`). 
 
@@ -385,15 +327,9 @@ The `MonitoringPurpose` table indicates if a given monitoring site is part of su
 :zoom:
 ```
 
-```{todo}
-Monitoring - {ref}`heading_wfd_monitoring_monitoring_purpose_table_4th_cycle`
-
-* ¿Are there quality controls applicable to `parameterCode`, `frequency` and `cycle` based on the `monitoringPurpose`?
-
-```
-
 (heading_wfd_monitoring_codelists_4th_cycle)=
-### Codelists for the Monitoring and MonitoringPurpose table - 4th cycle
+## Codelists - 4th cycle
+
 
 The diagram below presents the codelists applicable to `Monitoring` table, 
 which simplify and clarify codelists adopted in the 3rd cycle.  
@@ -402,17 +338,12 @@ the CAS code or EEA code must be used.
 Note also that the option `'EEA_00-00-0 - Other parameter'` 
 will *not* be available in the 4th cycle of reporting.  
 
-```{mermaid}  /DataModelReview/mmd/Monitoring_4thCycle_Codelists_ClassDiagram.mmd
-:name: CodelistsDescriptiveMonitoring4thcycle
-:caption:  Codelists - Monitoring - 4th cycle
-:align: center
-```
 
 (heading_wfd_monitoring_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4th cycle
 
 (heading_wfd_monitoring_monitoring_site_dataset_4th_cycle)=
-### MonitoringSite spatial data - 4th cycle
+### MonitoringSite spatial data
 
 The Spatial dataset contains only the MonitoringSite spatial data ({numref}`Spatial_4thCycle_MonitoringSite`).  
 
@@ -420,7 +351,7 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
 
 * The date values are now requested as simply as YYYY-MM-DD, 
   because that was the format used by the data providers during the previous cycles, 
-  and therefore it is not necessary to mantain more variants. 
+  and therefore it is not necessary to maintain more variants. 
   This applies to `beginLifespanVersion`, `endLifespanVersion`, `operationalActivityPeriodBegin`, `operationalActivityPeriodEnd`.
 
 * Likewise, the attributes `supersededByIdentifier` and `supersededByIdentifierScheme` have been kept for clarity's sake. 
@@ -445,17 +376,80 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
 ```
 
 (heading_wfd_monitoring_codelists_monitoring_site_4th_cycle)=
-### Codelist for the MonitoringSite spatial data - 4th cycle
+### Codelists - 4th cycle
+
+* For the `WisePurposeOfCollectionValue` codelist, 
+  see {numref}`Spatial_4thCycle_MonitoringSite`.  
+  Reporting the purpose of collection **is optional**.  
+  See {numref}`Codelist_4thCycle_WisePurposeOfCollectionValue_Table` for the valid codes. If reporting more than one code, use a comma-separated list.
+
+* For the `ConfidentialityStatus` codelist, 
+  see {numref}`Spatial_4thCycle_MonitoringSite` 
+  and {numref}`Codelist_4thCycle_ConfidentialityStatus_Table`.
+  Refer to the SDMX guidelines and codelists for more information 
+  on confidentiality aspects {footcite}`sdmxconfidentialityguideline2018,sdmxclconfstatus2014`.
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_WisePurposeOfCollectionValue_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_ConfidentialityStatus_Table
+```
+
+(heading_wfd_monitoring_documents_dataset_4th_cycle)=
+## Documents dataset - 4th cycle
+
+The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`Monitoring_4thCycle_Documents`):
+
+* The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
+  
+  * If required by the data providers, and especially if spatial data is being reported, 
+    the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
+  * The `dcMetadata` table also functions as a "manifest file" 
+    explaining if the delivery contains data for a given river basin district or not.
+   
+* The `Document` table allows the upload of documents (for example, PDFs) 
+  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
+
+* The `Reference` table is also standard in the WISE dataflows:
+  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s) 
+  where the relevant information about a `subject`
+  can be found within a document.
+
+```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Documents_ClassDiagram.mmd
+:name: Monitoring_4thCycle_Documents
+:caption: Monitoring - 4th cycle - Documents
+:align: center
+:zoom:
+```
+
+The following criteria apply:
+
+01. The `dcMetadata` table must contain *one and only one* record 
+    for each of the country's river basin districts, identified by the `euRBDCode`.
+
+02. The spatial dataset is **national**.
+    The `includesSpatialData` value must be the same for all river basin districts.
+
+03. If `includesSpatialData = 'no'` then no spatial data is expected,
+    and the quality control of the monitoring dataset will run 
+    against the last technically accepted delivery of monitoring sites.
+
+04. For countries reporting under the WFD, 
+    the last technically accepted delivery of monitoring sites 
+    is **always the data reported in the 3rd cycle**.
+    
+05. The monitoring dataset is also **national**,
+    but the quality control will allow deliveries 
+    where some, or all, the river basin districts have `includesMonitoringData = no`.
+    
+06. For countries reporting under the WFD, 
+    the quality control will raise an **ERROR**,
+    if some, or all, the river basin districts have `includesMonitoringData = no`.
 
 ```{todo}
-Monitoring - {ref}`heading_wfd_monitoring_codelists_monitoring_site_4th_cycle`
+Monitoring - {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
 
-**Technical issue** 
-Include codelists for:
-
-* ConfidentialityStatus
-* Purpose - the values of Purpose codelist may reported as comma-separated values in the `purpose`attribute.
-
+**Technical** review pending.
 ```
 
 ## Annexes - Data analysis - 3rd cycle
@@ -1212,7 +1206,31 @@ SELECT [qeCode]
   GROUP BY [qeCode], [qeMonitoringResults]
   ORDER BY [qeCode], [qeMonitoringResults]
 ```
- 
+
+### Number of monitoring sites with different purposes - 3rd cycle
+
+```{dropdown} Show code
+
+```{code-block} sql
+:caption: Number of monitoring sites with different purposes - 3rd cycle
+:linenos:
+
+SELECT  c.notation,
+        c.label,
+        count(distinct thematicIdIdentifier) as numberOfSites
+  FROM [WISE_Spatial].[wfd].[SPATIAL_MonitoringSite]
+  CROSS APPLY string_split(purpose, ',') 
+  JOIN [WISE].[mapping].[lov] c
+  ON c.notation = value
+  AND c.tableName = 'WisePurposeOfCollectionValue'
+  WHERE cYear = 2022
+  AND c.notation in ('WFD','SOE','AGR','IND','DRI','DWD','SHE','BWD','UWW','NID','HAB','RIV','SEA','INT','MSF','REF') 
+  GROUP BY c.notation,
+        c.label
+  ORDER BY numberOfSites desc
+```
+
+
 ## Data extraction - pending issues - 3rd cycle
 
 During the data analysis, some incorrect data extraction issues where detected.
@@ -1241,7 +1259,7 @@ AND [parameterOther] IS NULL
 AND [waterBodyCategory] is NULL
 ```
 
----
+## References
 
 ```{footbibliography}
 

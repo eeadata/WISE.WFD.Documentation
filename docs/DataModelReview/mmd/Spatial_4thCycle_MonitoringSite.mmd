@@ -6,7 +6,7 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
+direction TB
 class MonitoringSite{
   + geometry_point : geometry_multipoint
   + inspireIdLocalId : string254
@@ -31,10 +31,42 @@ class MonitoringSite{
   + mediaMonitoredBiota : YesNo
   + mediaMonitoredWater : YesNo
   + mediaMonitoredSediment : YesNo
-  + purpose : string254 [0..*]
+  + purpose : WisePurposeOfCollectionValue [0..*]
   + confidentialityStatus : ConfidentialityStatus
   + link : URL [0..1]
 }
+
+class ConfidentialityStatus{
+<<enumeration>>
+F
+N
+}
+
+class WisePurposeOfCollectionValue{
+<<enumeration>>
+WFD
+SOE
+AGR
+IND
+DRI
+«Protected area»
+DWD
+SHE
+BWD
+UWW
+NID
+HAB
+«Transboundary monitoring»
+RIV
+SEA
+INT
+«Other network»
+MSF
+REF
+}
+
+MonitoringSite ..> WisePurposeOfCollectionValue
+MonitoringSite ..> ConfidentialityStatus
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

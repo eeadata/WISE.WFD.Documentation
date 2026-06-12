@@ -24,7 +24,10 @@ extensions = ['sphinx.ext.autodoc',
                 'sphinx_copybutton',
                 'sphinx_togglebutton']
 
-bibtex_bibfiles = ['./_sharedFiles/cis_guidance_documents.bib']
+bibtex_bibfiles = ['./_sharedFiles/cis_guidance_documents.bib',
+                   './_sharedFiles/wise_gis_guidance.bib',
+                   './_sharedFiles/wfd_reporting_guidance.bib',
+                   './_sharedFiles/sdmx_documents.bib',]
 bibtex_reference_style = 'author_year'
 
 templates_path = ['_templates']
