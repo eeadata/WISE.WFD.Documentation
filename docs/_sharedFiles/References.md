@@ -20,7 +20,7 @@
 
 ```{bibliography} ../_sharedFiles/cis_guidance_documents.bib
 :notcited:
-:style: unsrt
+:style: plaintitle
 :list: enumerated
 ```
 
@@ -36,6 +36,13 @@
 
 ```{bibliography} ../_sharedFiles/inspire_technical_guidance.bib
 :notcited:
-:style: unsrt
+:style: plaintitle
+:list: enumerated
+```
+
+## EU legislation
+
+```{bibliography} ../_sharedFiles/eu_legislation.bib
+:filter: remarks == 'inForce'
 :list: enumerated
 ```
