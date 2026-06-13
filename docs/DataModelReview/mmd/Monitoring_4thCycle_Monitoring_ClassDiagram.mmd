@@ -4,6 +4,10 @@ config:
     hideEmptyMembersBox: true
   layout: dagre
   theme: neutral
+  themeVariables:
+    noteBkgColor: lightYellow
+    noteTextColor: grey
+    noteBorderColor: grey 
 ---
 classDiagram
 direction TB
@@ -12,8 +16,8 @@ direction TB
 class Monitoring{
   + euMonitoringSiteCode : wiseIdentifier
   + parameterCode : Parameter
-  + chemicalMatrix : ChemicalMatrixType [0..1]
-  + chemicalPurpose : ChemicalPurpose [0..1]
+  + chemicalMatrix : ChemicalMatrixType [0..3]
+  + chemicalPurpose : ChemicalPurpose [0..2]
   + frequency : MonitoringFrequency
   + cycle : MonitoringCycle
   + lastMonitored : gYear
@@ -56,7 +60,6 @@ class ChemicalPurpose{
     <<enumeration>>
     status
     trend
-    both
     }   
 
 class MonitoringFrequency{
@@ -72,6 +75,7 @@ class MonitoringFrequency{
 
 class MonitoringCycle{
     <<enumeration>>
+    once
     onceEvery1Year
     onceEvery2Years
     onceEvery3Years
@@ -89,6 +93,8 @@ Monitoring ..> ChemicalPurpose
 
 Monitoring ..> MonitoringCycle
 Monitoring ..> MonitoringFrequency
+
+note for ParameterCode "the label is not part of the code"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

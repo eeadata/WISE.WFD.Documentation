@@ -1,7 +1,7 @@
 (heading_wfd_monitoring)=
 # Monitoring
 
-Last updated: 2026-05-22
+Last updated: 2026-06-13
 
 ```{warning}
 The online version of the text is being reviewed.  
@@ -124,7 +124,7 @@ Therefore, for the 4th cycle of reporting, the requested information is simplifi
 * {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
 
 ```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Overview_ClassDiagram.mmd
-:name: monitoring_4thcycle_overview_class_diagram
+:name: Monitoring_4thCycle_Overview_ClassDiagram
 :caption:  Monitoring dataflow - Overview - 4th cycle
 :align: center
 :zoom:
@@ -138,10 +138,10 @@ Therefore, for the 4th cycle of reporting, the requested information is simplifi
 
 The information about the monitoring programmes is provided in the RBMP documents: 
 only the reference to the supporting documents is requested 
-in the `MonitoringProgrammes` table (see {numref}`DescriptiveMonitoringProgrammes4thcycle`). 
+in the `MonitoringProgrammes` table (see {numref}`Monitoring_4thCycle_MonitoringProgrammes_ClassDiagram`). 
 
 ```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_MonitoringProgrammes_ClassDiagram.mmd
-:name: DescriptiveMonitoringProgrammes4thcycle
+:name: Monitoring_4thCycle_MonitoringProgrammes_ClassDiagram
 :caption:  Descriptive data - Monitoring Programmes - 4th cycle
 :align: center
 :zoom:
@@ -152,8 +152,8 @@ The following conditions apply:
 01. The `MonitoringProgrammes` table *must* have one record 
     for each of the river basin districts being reported
     (i.e. where `dcMetadata.includesMonitoringData = 'yes'`, 
-    see {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`).
-    The river basin district is identified by its `euRBDCode`.
+    see {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`),
+    identified by its `euRBDCode`.
 
 02. The `gwChemicalMonitoringReference`  
     *must* be reported for 
@@ -177,11 +177,11 @@ The following conditions apply:
     that are not territorial waters. 
 
 The `useWaterbaseForMonitoringData` value defines what needs to be reported in the `Monitoring` table.
-  * It applies to all surface water monitoring 
-    *except Biological Quality Elements* (QE1) 
-    and *Hydromorphological Quality Elements* (QE2)
+  * It applies to all surface water monitoring, 
+    *except Biological Quality Elements* (`'QE1%'`) 
+    and *Hydromorphological Quality Elements* (`'QE2%'`). 
   * It applies to all groundwater monitoring
-    *except Quantitative Monitoring* (EEA_00-01-1).
+    *except Quantitative Monitoring* (`'EEA_00-01-1'`).
 
 The option `useWaterbaseForMonitoringData = 'yes'` 
 indicates that, for all other parameters,
@@ -191,7 +191,7 @@ should be *derived* from the data reported to Waterbase.
 (heading_wfd_monitoring_monitoring_table_4th_cycle)=
 ### Monitoring table
 
-A simplified `Monitoring` table is proposed (see {numref}`DescriptiveMonitoring4thcycle`). 
+A simplified `Monitoring` table is proposed (see {numref}`Monitoring_4thCycle_Monitoring_ClassDiagram`). 
 
 * The `frequency` and `cycle` values are codified, 
   to avoid ambiguities in the reporting and interpretation of results, 
@@ -211,7 +211,7 @@ A simplified `Monitoring` table is proposed (see {numref}`DescriptiveMonitoring4
   the Monitoring table in the RBMP electronic reporting.
 
 ```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Monitoring_ClassDiagram.mmd
-:name: DescriptiveMonitoring4thcycle
+:name: Monitoring_4thCycle_Monitoring_ClassDiagram
 :caption:  Descriptive data - Monitoring - 4th cycle
 :align: center
 :zoom:
@@ -305,7 +305,6 @@ With regard to chemical monitoring:
 
     See the analysis in {ref}`heading_wfd_monitoring_groundwater_physico_chemical_monitoring_in_waterbase`.
 
-
 ```{todo}
 Monitoring - {ref}`heading_wfd_monitoring_monitoring_table_4th_cycle`
 
@@ -318,26 +317,61 @@ Monitoring - {ref}`heading_wfd_monitoring_monitoring_table_4th_cycle`
 (heading_wfd_monitoring_monitoring_purpose_table_4th_cycle)=
 ### MonitoringPurpose table
 
-The `MonitoringPurpose` table indicates if a given monitoring site is part of surveillance, operational, and/or investigative monitoring (see {numref}`DescriptiveMonitoringPurpose4thcycle`). 
+The `MonitoringPurpose` table indicates if a given monitoring site is part of surveillance, operational, and/or investigative monitoring (see {numref}`Monitoring_4thCycle_MonitoringPurpose_ClassDiagram`). 
 
 ```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_MonitoringPurpose_ClassDiagram.mmd
-:name: DescriptiveMonitoringPurpose4thcycle
+:name: Monitoring_4thCycle_MonitoringPurpose_ClassDiagram
 :caption:  Descriptive data - MonitoringPurpose - 4th cycle
 :align: center
 :zoom:
 ```
 
 (heading_wfd_monitoring_codelists_4th_cycle)=
-## Codelists - 4th cycle
+### Codelists - 4th cycle
 
+* For the `ChemicalMatrixType` codelist,
+  see {numref}`Monitoring_4thCycle_Monitoring_ClassDiagram`
+  and {numref}`Codelist_4thCycle_ChemicalMatrixType_Table`.
 
-The diagram below presents the codelists applicable to `Monitoring` table, 
-which simplify and clarify codelists adopted in the 3rd cycle.  
-Note that for quality elements under QE3 (Chemical and physico-chemical quality elements), 
-the CAS code or EEA code must be used.  
-Note also that the option `'EEA_00-00-0 - Other parameter'` 
-will *not* be available in the 4th cycle of reporting.  
+* For the `ChemicalPurpose` codelist,
+  see {numref}`Monitoring_4thCycle_Monitoring_ClassDiagram`
+  and {numref}`Codelist_4thCycle_ChemicalPurpose_Table`.
 
+* For the `MonitoringCycle` codelist,
+  see {numref}`Monitoring_4thCycle_Monitoring_ClassDiagram`
+  and {numref}`Codelist_4thCycle_MonitoringCycle_Table`.
+
+* For the `MonitoringFrequency` codelist,
+  see {numref}`Monitoring_4thCycle_Monitoring_ClassDiagram`
+  and {numref}`Codelist_4thCycle_MonitoringFrequency_Table`.
+
+* For the `WFDMonitoringPurpose` codelist, 
+  see {numref}`Monitoring_4thCycle_MonitoringPurpose_ClassDiagram`
+  and {numref}`Codelist_4thCycle_WFDMonitoringPurpose_Table`.
+
+* For the `ParameterCode` codelist, 
+  see {numref}`Monitoring_4thCycle_MonitoringPurpose_ClassDiagram`.
+  Only the code (without the label) is used in the reporting.
+  For the chemical and physico-chemical quality elements, 
+  the `'CAS%'` code or `'EEA%'` code must be used, 
+  (and not the `'QE3%'` code).  
+  Note also that the option `'EEA_00-00-0'` (Other parameter) 
+  will *not* be available in the 4th cycle of reporting.  
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_ChemicalMatrixType_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_ChemicalPurpose_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_MonitoringCycle_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_MonitoringFrequency_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_WFDMonitoringPurpose_Table
+```
 
 (heading_wfd_monitoring_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4th cycle
@@ -379,13 +413,14 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
 ### Codelists - 4th cycle
 
 * For the `WisePurposeOfCollectionValue` codelist, 
-  see {numref}`Spatial_4thCycle_MonitoringSite`.  
-  Reporting the purpose of collection **is optional**.  
-  See {numref}`Codelist_4thCycle_WisePurposeOfCollectionValue_Table` for the valid codes. If reporting more than one code, use a comma-separated list.
+  see {numref}`Spatial_4thCycle_MonitoringSite`
+  and {numref}`Codelist_4thCycle_WisePurposeOfCollectionValue_Table`.  
+  Reporting the purpose of collection **is optional**. 
+  If reporting more than one purpose, use a comma-separated list.
 
 * For the `ConfidentialityStatus` codelist, 
   see {numref}`Spatial_4thCycle_MonitoringSite` 
-  and {numref}`Codelist_4thCycle_ConfidentialityStatus_Table`.
+  and {numref}`Codelist_4thCycle_ConfidentialityStatus_Table`.  
   Refer to the SDMX guidelines and codelists for more information 
   on confidentiality aspects {footcite}`sdmxconfidentialityguideline2018,sdmxclconfstatus2014`.
 
@@ -445,12 +480,6 @@ The following criteria apply:
 06. For countries reporting under the WFD, 
     the quality control will raise an **ERROR**,
     if some, or all, the river basin districts have `includesMonitoringData = no`.
-
-```{todo}
-Monitoring - {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
-
-**Technical** review pending.
-```
 
 ## Annexes - Data analysis - 3rd cycle
 

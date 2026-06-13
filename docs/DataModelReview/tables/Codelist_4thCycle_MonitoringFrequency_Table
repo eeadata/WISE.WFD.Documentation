@@ -1,0 +1,35 @@
+```{list-table} Codelist - 4th cycle - MonitoringFrequency
+:name: Codelist_4thCycle_MonitoringFrequency_Table
+:header-rows: 1
+:width: 100%
+:widths:  20 30 50
+:align: left
+
+* - Notation 
+  - Label
+  - Definition and notes 
+
+* - continuousSampling
+  - 
+  - 
+* - oneSamplePerMonitoringYear
+  - 
+  - 
+* - from2To3SamplesPerMonitoringYear
+  - 
+  - 
+* - from4To11SamplesPerMonitoringYear
+  - 
+  - 
+* - from12To24SamplesPerMonitoringYear
+  - 
+  - 
+* - moreThan24SamplesPerMonitoringYear
+  - 
+  - 
+* - unknown
+  - 
+  - This option is valid if and only if:  
+    `lastMonitored = 9999` or `monitoringCycle = 'once'` 
+
+```

@@ -47,4 +47,5 @@ SWRBSP
 toctree
 transboundary
 Waterbase
+Waterbases
 WFD

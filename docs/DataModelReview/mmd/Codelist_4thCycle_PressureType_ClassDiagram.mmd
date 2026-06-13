@@ -4,9 +4,13 @@ config:
     hideEmptyMembersBox: true
   layout: dagre
   theme: neutral
+  themeVariables:
+    noteBkgColor: lightYellow
+    noteTextColor: grey
+    noteBorderColor: grey 
 ---
 classDiagram
-direction LR
+direction TB
 
 class PressureType{
   <<enumeration>>
@@ -77,6 +81,8 @@ P6-2 - Groundwater - Alteration of water level or volume
 unknown
 none
 }
+
+note for PressureType "the label is not part of the code"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

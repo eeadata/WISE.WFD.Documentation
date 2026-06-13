@@ -2,12 +2,12 @@
 :name: Codelist_4thCycle_WisePurposeOfCollectionValue_Table
 :header-rows: 1
 :width: 100%
-:widths: 20 45 35
+:widths: 20 40 40
 :align: left
 
 * - Notation 
   - Label
-  - Notes 
+  - Definition and notes 
 
 * - WFD
   - WFD Monitoring Site

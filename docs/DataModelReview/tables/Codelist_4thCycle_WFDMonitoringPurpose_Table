@@ -1,0 +1,24 @@
+```{list-table} Codelist - 4th cycle - WFDMonitoringPurpose
+:name: Codelist_4thCycle_WFDMonitoringPurpose_Table
+:header-rows: 1
+:width: 100%
+:widths:  20 30 50
+:align: left
+
+* - Notation 
+  - Label
+  - Definition and notes 
+
+* - investigativeMonitoring
+  - Investigative monitoring
+  - 
+
+* - operationalMonitoring
+  - Operational monitoring
+  - 
+
+* - surveillanceMonitoring
+  - Surveillance monitoring
+  - 
+
+```

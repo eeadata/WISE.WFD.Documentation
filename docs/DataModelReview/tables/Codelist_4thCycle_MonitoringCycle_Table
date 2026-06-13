@@ -1,0 +1,55 @@
+```{list-table} Codelist - 4th cycle - MonitoringCycle
+:name: Codelist_4thCycle_MonitoringCycle_Table
+:header-rows: 1
+:width: 100%
+:widths:  20 30 50
+:align: left
+
+* - Notation 
+  - Label
+  - Definition and notes 
+
+* - once
+  - Once
+  - The monitoring programme will be implemented once per cycle and,
+    depending on the results, future monitoring will be decided.
+
+* - onceEvery1Year
+  - Once every year
+  - Use this option for parameters measured continuously, 
+    where `monitoringFrequency = 'continuousSampling'`,
+    for example river flow or groundwater level.
+
+* - onceEvery2Years
+  - Once every 2 years 
+  - 
+
+* - onceEvery3Years
+  - Once every 3 years
+  - 
+
+* - onceEvery4Years
+  - Once every 4 years
+  - 
+
+* - onceEvery5Years
+  - Once every 5 years
+  - 
+
+* - onceEvery6Years
+  - Once every RBMP (6 years)
+  - 
+
+* - onceEvery2RBMPs
+  - Once every 2 RBMPs (12 years)
+  - 
+
+* - onceEvery3RBMPs
+  - Once every 3 RBMPs (18 years)
+  - 
+
+* - unknown
+  - Unknown 
+  - This option is valid if and only if: `lastMonitored = 9999`
+
+```
