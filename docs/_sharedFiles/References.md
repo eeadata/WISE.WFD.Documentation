@@ -24,9 +24,17 @@
 :list: enumerated
 ```
 
-## SDMX related documents
+## SDMX-related documents
 
 ```{bibliography} ../_sharedFiles/sdmx_documents.bib
+:notcited:
+:style: unsrt
+:list: enumerated
+```
+
+## INSPIRE technical guidance documents
+
+```{bibliography} ../_sharedFiles/inspire_technical_guidance.bib
 :notcited:
 :style: unsrt
 :list: enumerated
