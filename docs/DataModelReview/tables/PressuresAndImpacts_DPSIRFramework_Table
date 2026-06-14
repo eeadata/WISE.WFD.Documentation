@@ -1,4 +1,4 @@
-```{csv-table} The DPSIR framework as used in the pressures and impacts analysis [^dpsir-table-source]. 
+```{csv-table} The DPSIR framework as used in the pressures and impacts analysis. 
 :name: PressuresAndImpacts_DPSIRFramework_Table
 :widths: 20 80
 :header-rows: 1
@@ -12,4 +12,4 @@ Impact | The environmental effect of the pressure (e.g. fish killed, ecosystem m
 Response | The measures taken to improve the state of the water body (e.g. restricting abstraction, limiting point source discharges, developing best practice guidance for agriculture). 
 ```
 
-[^dpsir-table-source]: From the [Guidance Document No. 3 - Analysis of Pressures and Impacts](https://circabc.europa.eu/sd/a/7e01a7e0-9ccb-4f3d-8cec-aeef1335c2f7/Guidance%20No%203%20-%20pressures%20and%20impacts%20-%20IMPRESS%20(WG%202.1).pdf).
+Source: {footcite}`CIS_Guidance_3`

@@ -31,7 +31,8 @@ Depending on the attribute and the context, the use of some values may be restri
 ```
 
 In the pressures codelist used in the 2nd and 3rd cycle of reporting,
-most options combined both a pressure and a driver (see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
+most options combined both a pressure and a driver 
+(see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
 For example: abstraction + agriculture = 'P3-1 - Abstraction - Agriculture'.
 
 This structure was kept in the current codelist. Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting. If the specific driver is not in the codelist, the higher level code can be used.
@@ -821,3 +822,9 @@ AND euSurfaceWaterBodyCode in
   HAVING COUNT(DISTINCT swSignificantPressureType) = 1
   ) 
 ```
+
+---
+
+## References
+
+```{footbibliography}

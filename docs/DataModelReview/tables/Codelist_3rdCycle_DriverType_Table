@@ -1,4 +1,4 @@
-```{list-table} Driver definition [^drivers-table-source]. 
+```{list-table} Driver definition. 
 :name: Codelist_3rdCycle_DriverType_Table
 :header-rows: 1
 :width: 100%
@@ -57,4 +57,4 @@
   - Includes urban development linked to household, non-manufacturing commercial activities, tourism. 
 ```
 
-[^drivers-table-source]: From the WFD Reporting Guidance 2022.
+Source: {footcite}`WFD2022_ReportingGuidance`.
