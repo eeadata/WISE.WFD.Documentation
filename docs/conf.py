@@ -120,7 +120,8 @@ html_show_copyright = False
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
 html_css_files = [
-   'customTable.css'
+   'customTable.css',
+   'customTheme.css'
 ]
 html_sidebars = {
     "**": ["sidebar-collapse", "sidebar-nav-bs"]
