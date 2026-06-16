@@ -2,7 +2,6 @@
 html_theme.sidebar_secondary.remove: true
 ---
 (testing-phase)=
-
 # Testing phase
 
 *Dataflows under testing*
