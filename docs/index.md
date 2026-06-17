@@ -1,7 +1,6 @@
 ---
 html_theme.sidebar_secondary.remove: true
 ---
-
 # WISE - Water Framework Directive
 
 ```{toctree}
@@ -11,21 +10,23 @@ html_theme.sidebar_secondary.remove: true
 DataModelReview/index
 TestingPhase/index
 DataModelReview/KnownIssues
+GettingStarted/index
 ```
 
 The **Water Framework Directive Documentation** is organized into the following sections:
 
-*  {ref}`data-model-review` 
-   
-   This section contains documentation about proposed changes for the 4th cycle of electronic reporting under the Water Framework Directive.
-   The documentation about monitoring, methodologies, water body status assessment and exemptions will be made available in April.
-   The WISE GIS Guidance is also under review.
- 
-*  {ref}`testing-phase` 
+* {ref}`data-model-review`
 
-   This section contains information of each of the dataflows opened for testing.
+  This section contains documentation about proposed changes for the 4ᵗʰ cycle of electronic reporting under the Water Framework Directive.
+  The documentation about monitoring, methodologies, water body status assessement and exemptions will be made available in April.
+  The WISE GIS Guidance is also under review.
+* {ref}`testing-phase`
 
-*  **Reporting phase**
+  This section contains information of each of the dataflows opened for testing.
+* **Reporting phase**
 
-   As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.
+  As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.
+* {ref}`Getting-Started`
+
+  This section contains information on how to start the reporting on a dataflow. First steps and common questions.
 
