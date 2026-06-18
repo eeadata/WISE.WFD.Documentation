@@ -118,8 +118,8 @@ Always start the reporting process by reviewing the **dcMetadata** table. This h
 
 Pay special attention to the following fields:
 
-* **includesSpatialData**
-* **includesMonitoringData**
+- **includesSpatialData**
+- **includesMonitoringData**
 
 These fields have a major impact on the outcome of several validation rules and blockers. Incorrect values may trigger multiple validation errors throughout the reporting process.
 
