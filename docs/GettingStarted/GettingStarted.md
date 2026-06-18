@@ -131,9 +131,6 @@ These fields have a major impact on the outcome of several validation rules and 
 You may encounter issues when reviewing the Validation Results window. A common problem is that the window closes automatically when clicked, making it difficult to inspect the reported errors.
 
 As an alternative, you can export the validation results to a  **CSV file** . Reviewing the results in the exported file is often easier and provides a more reliable way to analyze and address validation issues.
-
----
-
 ## Getting Access
 
 To create a Reportnet 3 account, you first need to create a valid EU Login associated with the email address you want to use in the Reportnet 3 platform.
