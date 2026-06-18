@@ -135,7 +135,7 @@ To create a Reportnet 3 account, you first need to create a valid EU Login assoc
 Once your EU Login has been created, you will be able to create your Reportnet 3 account.
 
 Please find all relevant documentation here:
-https://help.reportnet.europa.eu/general/get-access/
+<https://help.reportnet.europa.eu/general/get-access/>
 
 ### How to add lead reporters
 
