@@ -169,9 +169,9 @@ If you are experiencing issues, please ensure you are trying to access the Repor
 
 If the email is correct and the issue persists, please consult the following pages:
 
-- https://help.reportnet.europa.eu/general/get-access/login/
-- https://ecas.ec.europa.eu/cas/userdata/myAccount.cgi
-- https://trusted-digital-identity.europa.eu/eu-login-help_en
+- <https://help.reportnet.europa.eu/general/get-access/login/>
+- <https://ecas.ec.europa.eu/cas/userdata/myAccount.cgi>
+- <https://trusted-digital-identity.europa.eu/eu-login-help_en>
 
 If the problem continues after checking these resources, you can contact:
-EU-LOGIN-EXTERNAL-SUPPORT@ec.europa.eu
+<EU-LOGIN-EXTERNAL-SUPPORT@ec.europa.eu>
