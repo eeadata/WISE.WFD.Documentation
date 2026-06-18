@@ -93,9 +93,9 @@ Please note that the GeoPackage file you import **must have exactly the same str
 
 To avoid import issues, we strongly recommend either:
 
-* Using the GeoPackage template provided on the Help page; or
-* Exporting a prefilled GeoPackage from Reportnet 3 and modifying its content without altering the file structure, layer names, field names, field types, or relationships; or
-* Using your own data source for data preparation, but ensuring that the final data is copied into the GeoPackage template provided on the Help page before importing.
+- Using the GeoPackage template provided on the Help page; or
+- Exporting a prefilled GeoPackage from Reportnet 3 and modifying its content without altering the file structure, layer names, field names, field types, or relationships; or
+- Using your own data source for data preparation, but ensuring that the final data is copied into the GeoPackage template provided on the Help page before importing.
 
 Any modification to the template structure may cause the import process to fail.
 
