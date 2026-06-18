@@ -112,9 +112,6 @@ To export data from the Reportnet 3 platform, click the **Export Dataset** butto
 The export process may take some time, depending on the size of the dataset. Once the export is complete, you will receive a notification within the Reportnet 3 system.
 
 Open the notification and click **Download File** to save the exported GeoPackage to your local device.
-
----
-
 ## Good practices
 
 Always start the reporting process by reviewing the **dcMetadata** table. This helps ensure a smoother reporting workflow, as many validation blockers are designed to check values stored in this table. Verifying these values first can significantly speed up the troubleshooting process.
