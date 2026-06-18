@@ -73,13 +73,11 @@ Export Option
 4. Save the updated GeoPackage.
 5. Import the modified Geopackage in RN3 again.
 
-* Benefits of This Approach
-  •	Ensures that data is exported in the correct format.
-  •	Reduces manual data entry.
-  •	Minimizes formatting and schema-related errors.
-  •	Allows users to work locally with familiar GIS tools.
-
----
+- Benefits of this approach
+  - Ensures that data is exported in the correct format.
+  - Reduces manual data entry.
+  - Minimizes formatting and schema-related errors.
+  - Allows users to work locally with familiar GIS tools.
 
 ## Working with GeoPackage
 
