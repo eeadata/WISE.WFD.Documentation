@@ -30,7 +30,7 @@ range
     (see https://cdn.standards.iteh.ai/samples/64973/329519100abd447ea0d49747258d1094/ISO-80000-2-2019.pdf).
 
 Email
-    Character string. Validate using REGEX pattern.
+    Character string with a maximum length of 250 characters. Validate using REGEX pattern.
 
 URL
     Character string with a maximum of 2100 characters. Validate using REGEX pattern.
@@ -94,6 +94,14 @@ Language
 
 Licence
     Value from the `Licence` controlled list of values.  
+    Because the dataset falls under the HVD regulation {footcite}`hvdRegulation`, the `Licence` options are:
+
+    |notation|label|
+    |---|---|
+    |`'CC0'`|http://publications.europa.eu/resource/authority/licence/CC0|
+    |`'CC_BY_4_0'`|http://publications.europa.eu/resource/authority/licence/CC_BY_4_0|
+    |`'exactMatch_CC_BY_4_0'`|skos:exactMatch http://publications.europa.eu/resource/authority/licence/CC_BY_4_0|
+    |`'narrowMatch_CC_BY_4_0'`|skos:narrowMatch http://publications.europa.eu/resource/authority/licence/CC_BY_4_0|
 
 LithologyValue
     Value from the `LithologyValue` controlled list of values. *To be defined*. 
@@ -178,4 +186,7 @@ YesNoUnknownNotAssessed
 
 ```
 
-See https://semiceu.github.io/style-guide/1.0.0/gc-conceptual-model-conventions.html
+```{footbibliography}
+```
+
+See also https://semiceu.github.io/style-guide/1.0.0/gc-conceptual-model-conventions.html
