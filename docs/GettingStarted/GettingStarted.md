@@ -1,27 +1,29 @@
-(getting-started)=
+(heading-getting-started-with-a-wfd-dataflow)=
+# Getting started with a WFD dataflow
 
-# Getting Started
+This section describes the most common issues and best practices for working with a dataflow. 
+It also outlines the recommended approach to start working on a new reporting dataflow.
 
-## First Steps in the Dataflow
+## Start with the dcMetadata table
 
-This section describes the most common issues and best practices for working with a dataflow. It also outlines the recommended approach to start working on a new reporting dataflow.
-
-### Initial recommended step: dcMetadata
-
-The first thing you should do when starting to work on a new dataflow is to check the **Help page** in the dataflow. There you will find all relevant material for reporting, including templates, guidance and technical documentation.
+The first thing you should do when starting to work on a new dataflow is to check the **Help page** in the dataflow. 
+There you will find all relevant material for reporting, including templates, guidance and technical documentation.
 
 It is preferable to start working with the **dcMetadata** table [Go to Good practices](#good-practices)
 
-This table contains key configuration fields that can impact validation rules and the overall reporting process. Reviewing and completing it early helps avoid validation errors later in the workflow.
+This table contains key configuration values that can impact validation rules and the overall reporting process. 
+Reviewing and completing it early helps avoid validation errors later in the workflow.
 
-### Options to prepare reporting data
+## Prepare the reporting data
 
 When preparing reporting data, you have three main options:
 
 1. Use the official template (recommended)
    You can prepare your data locally using the official template and then import it into the system.
-2. Upload data using CSV (not recommended, specially for spatial datasets)
-   You can upload data using CSV files. However, this approach is not recommended, especially for spatial datasets, as it may lead to formatting issues, schema inconsistencies and validation errors.
+
+2. Upload data using CSV (not recommended)
+   You can upload data using CSV files. 
+   However, this approach is not recommended, especially for spatial datasets, as it may lead to formatting issues, schema inconsistencies and validation errors.
 3. Use the Prefilling Tool (recommended)
    The Prefilling Tool allows you to automatically populate your dataset with data reported in the previous reporting cycle.
 
@@ -36,7 +38,7 @@ After prefilling, you can review and update the data as required for the current
 
 --
 
-## Prefilling Tool in Reportnet 3
+## Prefilling data
 
 The Prefilling Tool available in the Reportnet 3 platform allows users to automatically load data submitted during the previous reporting cycle. This can significantly reduce the effort required to prepare a new reporting package, as existing information can be reused and updated instead of being recreated from scratch.
 
@@ -51,18 +53,18 @@ How to Use the Prefilling Tool
 :align: center
 :width: 50%
 
-Prefilling Option
+Prefilling option
 ```
 
 4. The system will automatically retrieve and upload the data reported in the previous reporting cycle.
 5. Once the prefilling process has completed, export the dataset as a GeoPackage (.gpkg) file.
 
 ```{figure} img/Prefilling_Image2.png
-:name: Prefilling_Image1
+:name: Prefilling_Image2
 :align: center
 :width: 50%
 
-Export Option
+Export option
 ```
 
 **After exporting the GeoPackage:**
@@ -81,7 +83,7 @@ Export Option
 
 ## Working with GeoPackage
 
-### GeoPackage Import
+### GeoPackage import
 
 To import a GeoPackage, click the **Import Dataset Data** button.
 
@@ -99,13 +101,13 @@ To avoid import issues, we strongly recommend either:
 
 Any modification to the template structure may cause the import process to fail.
 
-#### Check the GeoPackage Layer Name
+#### Check the GeoPackage layer name
 
 One of the most common issues reported when importing a GeoPackage is an incorrect layer name. Some GIS software automatically modifies the layer name when creating or editing a GeoPackage, causing the import to fail.
 
 Before importing your file, please ensure that the layer name matches exactly the name provided in the template, including uppercase and lowercase letters. Any difference in spelling, capitalization, or formatting may prevent the file from being imported successfully.
 
-### GeoPackage Export
+### GeoPackage export
 
 To export data from the Reportnet 3 platform, click the **Export Dataset** button and select the **Export GeoPackage** option.
 
@@ -123,12 +125,12 @@ Pay special attention to the following fields:
 
 These fields have a major impact on the outcome of several validation rules and blockers. Incorrect values may trigger multiple validation errors throughout the reporting process.
 
-### Working with Validation Results
+### Working with validation results
 
-You may encounter issues when reviewing the Validation Results window. A common problem is that the window closes automatically when clicked, making it difficult to inspect the reported errors.
+You may encounter issues when reviewing the "Validation Results" window. A common problem is that the window closes automatically when clicked, making it difficult to inspect the reported errors.
 
 As an alternative, you can export the validation results to a  **CSV file** . Reviewing the results in the exported file is often easier and provides a more reliable way to analyze and address validation issues.
-## Getting Access
+## Getting access
 
 To create a Reportnet 3 account, you first need to create a valid EU Login associated with the email address you want to use in the Reportnet 3 platform.
 

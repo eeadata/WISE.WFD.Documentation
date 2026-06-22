@@ -242,6 +242,10 @@ The proposed structure for the 4th cycle electronic reporting is presented in th
 ```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBWaterUse_Table
 ```
 
+```{dropdown} Click to see the mapping table between 3rd cycle and 4th cycle codes
+```{include} /DataModelReview/tables/MappingTable_4thCycle_HMWBWaterUse_Table
+```
+
 ```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBPhysicalAlteration_Table
 ```
 

@@ -1,9 +1,8 @@
 ---
 html_theme.sidebar_secondary.remove: true
 ---
-(Getting-Started)=
-
-# Getting Started with a dataflow
+(getting-started)=
+# Getting started
 
 :::{toctree}
 :maxdepth: 2
