@@ -22,12 +22,6 @@ The **Water Framework Directive Documentation** is organized into the following 
    The documentation about monitoring, methodologies, water body status assessment and exemptions will be made available in April.
    The WISE GIS Guidance is also under review.
 
-*  {ref}`testing-phase`
-
-  This section contains documentation about proposed changes for the 4ᵗʰ cycle of electronic reporting under the Water Framework Directive.
-  The documentation about monitoring, methodologies, water body status assessment and exemptions will be made available in April.
-  The WISE GIS Guidance is also under review.
-
 * {ref}`testing-phase`
 
   This section contains information of each of the dataflows opened for testing.
