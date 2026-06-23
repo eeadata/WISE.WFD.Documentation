@@ -124,13 +124,13 @@ html_css_files = [
    'customTheme.css'
 ]
 html_sidebars = {
-    "**": ["sidebar-collapse", "sidebar-nav-bs"]
+    "**": ["sidebar-collapse", "sidebar-nav-bs"],
+    "**/index.md": [],
 }
 
 html_js_files = [
     "js/mermaid-zoom.js",
 ]
-
 
 html_theme_options = {
     "logo": {
@@ -141,6 +141,10 @@ html_theme_options = {
     "show_toc_level": 3, 
     "use_edit_page_button": True,
     "navbar_align": "right"
+}
+
+html_sidebars = {
+  "**/index.md": []
 }
 
 html_context = {

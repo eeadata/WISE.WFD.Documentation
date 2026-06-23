@@ -1,20 +1,37 @@
+(glossary-datatypes)=
 # Attribute types (datatypes)
 
 ```{glossary}
 :sorted: true
 
 wiseIdentifier
-    String with a maximum of 42 characters.
-    WISE identifiers must start with the two-letter country code, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters.  The code can optionally end with one character that can be a digit or an uppercase letter.  Examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FRa123. 
+    String with a maximum of 42 characters. A WISE identifier: 
+
+    * must start with the ISO 3166-1 alpha-2 country code, 
+    except for Greece ('EL') and the United Kingdom ('UK')
+    * must use only upper case letters [A to Z] and digits [0 to 9]
+    * may use the underscore character ('_') or the hyphen character ('-') 
+    as separator characters within the identifier 
+    (but not immediately after the country code, and not at the end of the code)
+    * must not have consecutive separator characters 
+    * be unique at national level, within the context to which they apply
+    Valid examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341.
+    *Invalid* examples: FR1__XYZ1234__1, FRa123, FR123_. 
 
 documentCode
-    Character string following the {term}`wiseIdentifier` syntax that uniquely identifies a document provided in a data delivery.
+    Character string following the {term}`wiseIdentifier` syntax 
+    that uniquely identifies a document provided in a data delivery.
 
 referenceCode
-    Character string following the {term}`wiseIdentifier` syntax that uniquely identifies a document reference (e.g. a chapter, bookmark, page, etc.) within a document provided in a data delivery.
+    Character string following the {term}`wiseIdentifier` syntax 
+    that uniquely identifies a document reference 
+    (e.g. a chapter, bookmark, page, etc.) 
+    within a document provided in a data delivery.
 
 string
-    Character string. A maximum of 4000 characters is allowed, unless otherwise specified by indicating the number of characters. UTF8 encoding is mandatory.
+    Character string. A maximum of 4000 characters is allowed, 
+    unless otherwise specified by indicating the number of characters. 
+    UTF8 encoding is mandatory.
 
 gYear
     Gregorian year.
@@ -26,14 +43,18 @@ date
     Date in the format yyyy-mm-dd.
 
 range
-    Range of values. The data type follows the Postgre range type implementation (see https://www.postgresql.org/docs/current/rangetypes.html) of the ISO 80000-2:2019(E) standard
+    Range of values. The data type follows the Postgre range type implementation
+    (see https://www.postgresql.org/docs/current/rangetypes.html) 
+    of the ISO 80000-2:2019(E) standard
     (see https://cdn.standards.iteh.ai/samples/64973/329519100abd447ea0d49747258d1094/ISO-80000-2-2019.pdf).
 
 Email
-    Character string with a maximum length of 250 characters. Validate using REGEX pattern.
+    Character string with a maximum length of 250 characters. 
+    Validate using REGEX pattern.
 
 URL
-    Character string with a maximum of 2100 characters. Validate using REGEX pattern.
+    Character string with a maximum of 2100 characters. 
+    Validate using REGEX pattern.
 
 Attachment
     File (typically a PDF) uploaded directly in Reportnet3.
@@ -48,7 +69,8 @@ AssessmentConfidence
     Value from the `AssessmentConfidence` controlled list of values.
 
 BiologicalQualityElement
-    Value from the `BiologicalQualityElement` controlled list of values, which is a subset of the {term}`QualityElement` controlled list of values.
+    Value from the `BiologicalQualityElement` controlled list of values, 
+    which is a subset of the {term}`QualityElement` controlled list of values.
 
 ChemicalMatrixType
     Value from the `ChemicalMatrixType` controlled list of values.
@@ -60,7 +82,8 @@ ChemicalStatus
     Value from the `ChemicalStatus` controlled list of values.
 
 ClassificationSystem  
-    Value from the `ClassificationSystem` controlled list of values. See https://dd.eionet.europa.eu/vocabulary/wise/ClassificationSystem
+    Value from the `ClassificationSystem` controlled list of values. 
+    See https://dd.eionet.europa.eu/vocabulary/wise/ClassificationSystem
 
 Country
     Value from the `Country` controlled list of values.
@@ -90,11 +113,14 @@ IntercalibrationType
     Value from the `IntercalibrationType` controlled list of values.
 
 Language
-    Value from the `Language` controlled list of values.  WISE dataflows use a subset of ISO 639-2, the alpha-3 code in Codes for the representation of names of languages-- Part 2. See https://www.loc.gov/standards/iso639-2/php/code_list.php
+    Value from the `Language` controlled list of values.  
+    WISE dataflows use a subset of the ISO 639-2 alpha-3 code 
+    for the representation of names of languages {footcite}`iso639-2`
 
 Licence
     Value from the `Licence` controlled list of values.  
-    Because the dataset falls under the HVD regulation {footcite}`hvdRegulation`, the `Licence` options are:
+    Because all WFD datasets fall under the HVD regulation 
+    {footcite}`hvdRegulation`, the `Licence` options are:
 
     |notation|label|
     |---|---|
@@ -125,7 +151,9 @@ ObservationStatus
     Value from the `ObservationStatus` controlled list of values. 
 
 Parameter
-    Value from the `Parameter` controlled list of values. Depending of the scope in which it is being used, the subset of allowed values may be restricted by the quality control.
+    Value from the `Parameter` controlled list of values. 
+    Depending of the scope in which it is being used, 
+    the subset of allowed values may be restricted by the quality control.
 
 Percentage
     Integer value in the interval [0,100].
@@ -137,10 +165,12 @@ PressureAssessmentMethod
     Value from the `PressureAssessmentMethod` controlled list of values. 
 
 PressureType
-    Value from the `PressureType` controlled list of values.  This is a hierarchical list.
+    Value from the `PressureType` controlled list of values.  
+    This is a hierarchical list.
 
 QualityElement
-    Value from the `QualityElement` controlled list of values, which is a subset of the {term}`Parameter` controlled list of values.
+    Value from the `QualityElement` controlled list of values, 
+    which is a subset of the {term}`Parameter` controlled list of values.
 
 QuantitativeStatus
     Value from the `QuantitativeStatus` controlled list of values. 
@@ -179,7 +209,7 @@ YesNoUnknownInapplicable
     Value from the `YesNoNotApplicable` controlled list of values.
 
 YesNoUnknownNotApplicableNotAssessed
-    Value from the `YesNoUnknownNotApplicableNotAssessed` controlled list of values.  
+    Value from the `YesNoUnknownNotApplicableNotAssessed` controlled list of values.
 
 YesNoUnknownNotAssessed
     Value from the `YesNoUnknownNotAssessed` controlled list of values.  
@@ -188,5 +218,3 @@ YesNoUnknownNotAssessed
 
 ```{footbibliography}
 ```
-
-See also https://semiceu.github.io/style-guide/1.0.0/gc-conceptual-model-conventions.html
