@@ -38,7 +38,13 @@ WFDPressures
 ../_sharedFiles/ModellingConventions
 ../_sharedFiles/Glossary_Datatypes
 ../_sharedFiles/References
+```
 
+## Dashboards
+
+```{toctree}
+:maxdepth: 1
+../_sharedFiles/WFDDashboards
 ```
 
 

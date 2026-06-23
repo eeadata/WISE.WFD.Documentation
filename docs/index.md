@@ -11,7 +11,6 @@ DataModelReview/index
 TestingPhase/index
 GettingStarted/index
 DataModelReview/KnownIssues
-Tableaus/index
 ```
 
 The **Water Framework Directive Documentation** is organized into the following sections:
@@ -29,10 +28,6 @@ The **Water Framework Directive Documentation** is organized into the following 
 * {ref}`getting-started`
 
   This section contains information on how to start the reporting on a dataflow. First steps and common questions.
-
-*  {ref}`tableaus`
-
-   This section contains the Tableaus with the status of the Groundwater and Surfacewater bodies.
 
 *  **Reporting phase**
 
