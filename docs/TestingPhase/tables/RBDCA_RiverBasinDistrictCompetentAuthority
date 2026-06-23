@@ -1,21 +1,25 @@
 ```{list-table} RiverBasinDistrictCompetentAuthority
 :name: RBDCA_RiverBasinDistrictCompetentAuthority
-:width: 100%
 :header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
 
-* - Column name
-  - Data type
+* - Attribute
+  - Type
+  - {abbr}`m (multiplicity)`
   - Definition
 
-
 * - euRBDCode 
-  - WISEIdentifier - varchar(42) 
-  - Max length: 42 characters.<br>Required.<br>Unique EU code for the Unit of Management or WFD River Basin District.<br>WISE identifiers must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters. The code can optionally end with one character that can be a digit or an uppercase letter.<br>Examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FRa123. 
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique identifier for the River Basin District.  
 
 * - euCACode 
-  - WISEIdentifier - varchar(42) 
-  - Max length: 42 characters.<br>Required.<br>Unique EU code for the Competent Authority.<br>WISE identifiers must start with the two-letter country code of the Member State, followed by one character that can be a digit or an uppercase letter, followed by a sequence of characters (0 to 38 characters long) that can be digits or uppercase letters, with no consecutive double hyphens or double underscores, but allowing for single hyphens or underscores between characters. The code can optionally end with one character that can be a digit or an uppercase letter.<br>Examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341 but not FR1__XYZ1234__1 or FRa123. 
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique identifier for the Competent Authority.  
 
 * - roleCode 
-  - Role 
-  - Required.<br>Choose from the 'RoleCode' codelist values.<br>Core Roles undertaken by the Competent Authority in the implementation of the Floods Directive. A competent authority is defined as being the authority with the responsibility for either the implementation of the different stages of the Floods Directive or for reporting to the European Commission.<br>A Competent Authority can have a minimum of one and maximum of three roles under the Floods Directive, so more than one can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., "value1; value2; value3". 
+  - {term}`Role`
+  - [1..n]
+  - Roles undertaken by the Competent Authority in the implementation of the Water Framework Directive. A competent authority is defined as being the authority with the responsibility for either the implementation of the different stages of the Water Framework Directive or for reporting to the European Commission. If more than one role is reported, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'. 

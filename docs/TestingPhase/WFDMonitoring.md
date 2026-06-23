@@ -38,9 +38,9 @@ Metadata. One record per country.
 (heading_wfd_monitoring_document_table_testing_phase)=
 ## Document table
 
-This table contains information about reported documents. Each document must have a unique identifier, a name and it can be either an external link represented by URL or a local file uploaded.`Uniqueness: documentCode
+This table contains information about reported documents. Each document must have a unique identifier, a name and it can be either an external link represented by URL or a local file uploaded. Uniqueness: documentCode
 
-```{include} tables/Monitoring_Document
+```{include} tables/WISE_Document
 ```
 
 (heading_wfd_monitoring_documentreference_table_testing_phase)=
