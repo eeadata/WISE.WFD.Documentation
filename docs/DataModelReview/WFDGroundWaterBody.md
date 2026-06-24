@@ -148,7 +148,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     as a suggestion to provide an aquifer typology 
     relevant for the geochemical characterisation of the groundwater body,
     and the definition of natural background levels 
-    and substances threshold values. [^BRIDGE] 
+    and substances threshold values {footcite}`wendland2008european` 
 
 * - GWLinkSurfaceWaterBody
   - *modified*.  
@@ -277,7 +277,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
   independently of the aquifer media values
   (see {numref}`Codelist_4thCycle_AquiferProductivity_Table`).  
   Further technical guidance on concepts, classification schemes and class boundaries
-  is needed. [^aquiferProductivityIreland]
+  is needed.{footcite}`gsi2026aquifer`
 
 * For the `AssessmentMethod` codelist,
   see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
@@ -294,7 +294,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
   the level of confidence in the results of the status assessment
   (see {numref}`Codelist_4thCycle_AssessmentConfidence_Table`).  
   The same codelist is used for surface water bodies.
-  See also [^IPCC_Authors] [^IPCC_WorkingGroups] [^IPCC_Readers].
+  See also {footcite}`mastrandrea2010guidance` {footcite}`mastrandrea2011ipcc`  {footcite}`kause2022confidence`.
 
 * For the `GroundwaterSurfaceWaterLink` codelist,
   see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram`.  
@@ -451,7 +451,7 @@ Criteria for definition of an aquifer (CIS Document 2).
 National documents vary, when addressing productivity in terms of potential long-term abstraction rate.
 
 ```{epigraph}
-*Example* - Ireland 2026 [^aquiferProductivityIreland]: 
+*Example* - Ireland 2026 {footcite}`gsi2026aquifer`: 
    
 "Yield is one of the main concerns in aquifer development projects, yields from existing wells are conceptually linked with the main aquifer categories:
 * Regionally important (R) aquifers should have (or be capable of having) a large number of ‘excellent’ yields: in excess of approximately 400 m3/d.
@@ -461,7 +461,7 @@ National documents vary, when addressing productivity in terms of potential long
 
 ```{epigraph}
 
-*Example* - Scotland 2004 [^aquiferProductivityScoland]: 
+*Example* - Scotland 2004 {footcite}`macdonald2004gis`: 
 
 "Productivity classes are a measure of the expected (i.e. potential) 
 long-term abstraction rate of groundwater 
@@ -567,39 +567,10 @@ More importantly, the values reported
 are sometimes physically impossible (e.g. above 1000mg/L)
 or clearly unlikely.
 
-% Footnotes
-
-[^BRIDGE]:
-    Wendland, Frank & Blum, Ariane & Coetsiers, Marleen & Gorova, R. & Griffioen, J. & Grima-Olmedo, Juan & Hinsby, Klaus & Kunkel, Ralf & Marandi, Andres & de Melo, M T & Panagopoulos, Andreas & Pauwels, Hélène & Ruisi, M. & Traversa, Paola & Vermooten, Sophie & Walraevens, Kristine. (2008).
-    European aquifer typology: A practical framework for an overview of major groundwater composition at European scale.
-    Environmental Geology. 55. 77-85. 10.1007/s00254-007-0966-5.
-
-[^aquiferProductivityIreland]:
-    Geological Survey Ireland is a Division of Department of Climate, Energy and the Environment © 2026
-    https://www.gsi.ie/en-ie/programmes-and-projects/groundwater/activities/understanding-ireland-groundwater/aquifer-classification/Pages/Aquifer-classification-how-to.aspx
-
-[^aquiferProductivityScoland]:
-    MACDONALD A M, BALL D F and Ó DOCHARTAIGH B É. 2004.
-    A GIS of aquifer productivity in Scotland: explanatory notes.
-    British Geological Survey Commissioned Report, CR/04/047N. 21pp.
-    https://nora.nerc.ac.uk/id/eprint/504764/1/CR-04-047N_SEPA%20Aq%20productivity.pdf
-
-[^IPCC_Authors]:
-    Mastrandrea, MD, Field CB, Stocker TF, Edenhofer O, Ebi KL, Frame DJ, Held H, Kriegler E, Mach KJ, Matschoss PR, Plattner GK (2010)
-    Guidance note for lead authors of the IPCC fifth assessment report on consistent treatment of uncertainties.
-    https://www.ipcc.ch/site/assets/uploads/2017/08/AR5_Uncertainty_Guidance_Note.pdf
-
-[^IPCC_WorkingGroups]:
-    Mastrandrea, M.D., Mach, K.J., Plattner, GK. et al. (2011)
-    The IPCC AR5 guidance note on consistent treatment of uncertainties: a common approach across the working groups.
-    Climatic Change 108, 675 . https://doi.org/10.1007/s10584-011-0178-6
-
-[^IPCC_Readers]:
-    Kause, A., Bruine de Bruin, W., Persson, J. et al. (2022)
-    Confidence levels and likelihood terms in IPCC reports: a survey of experts from different scientific disciplines. Climatic Change 173, 2 . https://doi.org/10.1007/s10584-022-03382-3
-
-(heading_wfd_wfd_groundwater_bodies_references)=
 ## References
 
 ```{include} FragmentReportingGuidanceFiles
+```
+
+```{footbibliography}
 ```
