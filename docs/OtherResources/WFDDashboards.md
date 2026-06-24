@@ -1,9 +1,5 @@
+(dashboards-3rd-cycle)=
 # Dashboards (3rd cycle)
-
-```{contents}
-:depth: 2
-:local:
-```
 
 ## Surface water bodies: Number and size
 

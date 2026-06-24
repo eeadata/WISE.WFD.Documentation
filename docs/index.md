@@ -57,15 +57,15 @@ Contains an overview of modelling conventions
 adopted during the data model review and/or applied to the UML diagrams.
 :::
 :::{grid-item-card} {ref}`glossary-datatypes`
-Contains a glossary of the datatypes and controlled lists of values
+Contains a glossary of the attribute types and controlled lists of values
 used in the WISE dataflows.
 :::
 :::{grid-item-card} {ref}`bibliographic-references`
 Contains the bibliography
 and links to the documents cited in text.
 :::
-:::{grid-item-card} Dashboards
-Contains the full list of dahsboards
+:::{grid-item-card} {ref}`dashboards-3rd-cycle`
+Contains the full list of dashboards
 with data reported in the 3rd, 2nd and 1st River Basin Management Plans.
 :::
 ::::

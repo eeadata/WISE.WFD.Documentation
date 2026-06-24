@@ -1,4 +1,4 @@
-(modelling-convetions)=
+(modelling-conventions)=
 # Modelling conventions
 
 ## Classes and tables
