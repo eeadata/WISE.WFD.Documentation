@@ -2,7 +2,6 @@
 html_theme.sidebar_secondary.remove: true
 ---
 (data-model-review)=
-
 # Data model review
 
 ```{toctree}
