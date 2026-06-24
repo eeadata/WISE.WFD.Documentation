@@ -1,36 +1,54 @@
 ```{list-table} Monitoring
 :name: Monitoring_Monitoring
-:width: 100%
 :header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
 
-* - Column name
-  - Data type
+* - Attribute
+  - Type
+  - {abbr}`m (multiplicity)`
   - Definition
 
 * - euMonitoringSiteCode  
-  - WiseIdentifier     
-  - Unique EU code of the monitoring site.Prefix the surface water monitoring site’s national, unique code with the Member State’s 2-letter ISO country code
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique European identifier of the monitoring site
 
 * - parameterCode 
-  - ParameterCode      
-  - Select from the enumeration list each one the quality elements (QEs), chemical substances or parameters monitored at this monitoring site. Required.
+  - {term}`Parameter`
+  - [1]
+  - The biological quality elements, hydromorphological quality element,
+    physico-chemical parameter, chemical substance or parameter 
+    observed at the monitoring site.
 
 * - chemicalMatrix    
-  - ChemicalMatrixType 
-  - Report the  matrix in which the chemical substance is monitored.
+  - {term}`ChemicalMatrixType`
+  - [0..3]
+  - For chemical substances, report the matrix or matrices 
+    in which the substance is monitored. 
+    Report if an only if the parameter monitored is a chemical substance.
 
 * - chemicalPurpose   
-  - ChemicalPurpose    
-  - If ‘chemicalMonitoring’ is yes, and parameterCode is a chemical parameter report if the monitoring is used for status assessment, trend assessment or both.    Conditional.
+  - {term}`ChemicalPurpose`  
+  - [0..2]  
+  - For chemical substances, report the purpose(s) 
+    for which the substance is monitored. 
+    Report if an only if the parameter monitored is a chemical substance.
 
 * - frequency      
-  - FrequencyCode
-  - Report the frequency at which the parameter is monitored at this monitoring site.  Required.
+  - {term}`MonitoringFrequency`
+  - [1]
+  - Report the frequency at which the parameter is monitored at this site.
 
 * - cycle   
-  - CycleCode          
-  - Report the monitoring cycle for this parameter at this monitoring site. Required.
+  - {term}`MonitoringCycle`
+  - [1]       
+  - Report the monitoring cycle for the parameter at this site.
 
 * - lastMonitored 
-  - Year 
-  - Report the most recent year when this parameter was monitored at this monitoring site, in the format YYYY. Enter 9999 if the parameter has yet to be measured. Required.
+  - {term}`gYear` 
+  - [1]
+  - Report the most recent year when the parameter was monitored at this site,
+    in the format YYYY. Enter 9999 if the parameter is yet to be measured.
+
+```

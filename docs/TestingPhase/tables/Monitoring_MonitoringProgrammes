@@ -1,48 +1,75 @@
 ```{list-table} MonitoringProgrammes
 :name: Monitoring_MonitoringProgrammes
-:width: 100%
 :header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
 
-* - Column name
-  - Data type
+* - Attribute
+  - Type
+  - {abbr}`m (multiplicity)`
   - Definition
 
-* -  euRBDCode                         
-  -  WiseIdentifier      
-  -  Unique EU code of each River Basin District. Prefix the RBD’s national, unique code with the Member State’s 2-letter ISO country code. Required.  
+* - euRBDCode                         
+  - {term}`wiseIdentifier`
+  - [1]      
+  - Unique European identifier of the river basin district.
 
-* -  useWaterbaseForMonitoringData     
-  -  YesNo               
-  -  indicate that the monitoring data statistics should be derived from the data reported to Waterbase.     
+* - useWaterbaseForMonitoringData
+  - {term}`YesNo`
+  - [1]                
+  - If `useWaterbaseForMonitoringData = 'yes'` then the monitoring data statistics
+    (number of sites, monitoring frequency) will be derived from 
+    the monitoring results reported to Waterbase via the WISE SoE dataflows.     
 
-* -  programmesReference               
-  -  ReferenceIdentifier 
-  -  Provide reference to the documents and sections where relevant information relating to the monitoring programmes can be found. Required. 
+* - programmesReference 
+  - {term}`referenceCode`             
+  - [1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about the monitoring programmes. 
 
-* -  investigativeMonitoringReference  
-  -  ReferenceIdentifier 
-  - 
+* - investigativeMonitoringReference  
+  - {term}`referenceCode`             
+  - [1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about the investigative monitoring programmes. 
 
-* -  operationalMonitoringReference    
-  -  ReferenceIdentifier 
-  - 
+* - operationalMonitoringReference    
+  - {term}`referenceCode`             
+  - [1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about the operational monitoring programmes. 
 
-* -  surveillanceMonitoringReference   
-  -  ReferenceIdentifier 
-  - 
+* - surveillanceMonitoringReference   
+  - {term}`referenceCode`             
+  - [1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about the surveillance monitoring programmes. 
 
-* -  gwChemicalMonitoringReference     
-  -  ReferenceIdentifier 
-  - 
+* - gwChemicalMonitoringReference     
+  - {term}`referenceCode`             
+  - [0..1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about
+    the groundwater chemical monitoring programmes. 
 
-* -  gwQuantitativeMonitoringReference 
-  -  ReferenceIdentifier 
-  - 
+* - gwQuantitativeMonitoringReference 
+  - {term}`referenceCode`             
+  - [0..1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about
+    the groundwater quantitative monitoring programmes. 
 
-* -  swChemicalMonitoringReference     
-  -  ReferenceIdentifier 
-  - 
+* - swChemicalMonitoringReference     
+  - {term}`referenceCode`             
+  - [0..1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about
+    the surface water chemical monitoring programmes. 
 
-* -  swEcologicalMonitoringReference   
-  -  ReferenceIdentifier 
-  - 
+* - swEcologicalMonitoringReference   
+  - {term}`referenceCode`             
+  - [0..1]
+  - Provide the reference to the document, chapter, section, etc. 
+    that provides information about
+    the surface water ecological monitoring programmes.
+```

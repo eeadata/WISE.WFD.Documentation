@@ -7,16 +7,22 @@ The definitions are being reviewed.
 
 Last update: 2026-05-25
 
+(heading_wfd_monitoring_monitoringprogrammes_table_testing_phase)=
+## MonitoringProgrammes table
+
+```{include} tables/Monitoring_MonitoringProgrammes
+```
+
 (heading_wfd_monitoring_monitoring_table_testing_phase)=
 ## Monitoring table
 
 ```{include} tables/Monitoring_Monitoring
 ```
 
-(heading_wfd_monitoring_monitoringprogrammes_table_testing_phase)=
-## MonitoringProgrammes table
+(heading_wfd_monitoring_MonitoringPurpose_table_testing_phase)=
+## MonitoringPurpose table
 
-```{include} tables/Monitoring_MonitoringProgrammes
+```{include} tables/Monitoring_MonitoringPurpose
 ```
 
 (heading_wfd_monitoring_monitoringsite_table_testing_phase)=
