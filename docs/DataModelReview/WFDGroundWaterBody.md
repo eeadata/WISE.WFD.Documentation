@@ -9,22 +9,24 @@ Public Version - Pending Discussion
 
 ## Purpose and overview
 
-This section revises the reporting of information related to **Groundwater Bodies** 
-in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans. 
-It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
+This section revises the reporting of information related to
+**Groundwater Bodies** in the 2nd and 3rd cycle of reporting
+of the Water Framework Directive River Basin Management Plans.
+It also presents a proposal for simplifying
+the electronic reporting in the 4th cycle.
 
 (heading_wfd_groundwater_3rd_cycle)=
 ## Current structure - 3rd cycle
 
 In the 3rd cycle, the information about Groundwater bodies was reported in 4 separate schemas:
 
-* the GWB_2022 schema, containing information about each groundwater body 
+* the GWB_2022 schema, containing information about each groundwater body
   ({numref}`Groundwater_3rdCycle_GWB_ClassDiagram`)
-* the GWMET_2022 schema, containing information about the methodologies 
+* the GWMET_2022 schema, containing information about the methodologies
   (see {ref}`heading_wfd_groundwater_methodologies`)
-* the GML_GroundWaterBody_2022 schema, 
+* the GML_GroundWaterBody_2022 schema,
   containing the GroundWaterBody spatial dataset.
-* the GML_GroundWaterBodyHorizon_2022 schema, 
+* the GML_GroundWaterBodyHorizon_2022 schema,
   containing the ancillary GroundWaterBodyHorizon spatial dataset.
 
 (heading_wfd_groundwater_gwb_3rd_cycle)=
@@ -42,29 +44,31 @@ Other simplifications already discussed also apply to the GWB schema:
 * removal of the textual reporting of "other" pressures
 * removal of the textual reporting of "other" impacts
 
-The Commission has revised the **GroundWaterBody** class, 
+The Commission has revised the **GroundWaterBody** class,
 and removed the following elements:
 
-* GWB/GroundWaterBody/gwEORiskQuantitative 
-* GWB/GroundWaterBody/gwEORiskChemical 
+* GWB/GroundWaterBody/gwEORiskQuantitative
+* GWB/GroundWaterBody/gwEORiskChemical
 * GWB/GroundWaterBody/gwAtRiskQuantitative
 * GWB/GroundWaterBody/gwAtRiskChemical
 * GWB/GroundWaterBody/gwReasonsForRiskQuantitative
 
-The Commission has revised the **GWPollutant** class, 
+The Commission has revised the **GWPollutant** class,
 and removed the following elements:
+
 * GWB/GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted
 
 ```{mermaid} /DataModelReview/mmd/Groundwater_3rdCycle_GWB_ClassDiagram.mmd
 :name: Groundwater_3rdCycle_GWB_ClassDiagram
 :caption: Class diagram for the GWB_2022 schema in the 3rd cycle.
 :align: center
-``` 
+```
 
 In the 4th cycle of reporting, the data will be delivered in the Reportnet3 platform:
-* the remaining GWMET_2022 classes and elements were reorganised 
+
+* the remaining GWMET_2022 classes and elements were reorganised
   into a relational model, as required by the migration to Reportnet3
-* selective denormalisation was used to keep a low number of tables 
+* selective denormalisation was used to keep a low number of tables
   and facilitate the quality control
 * the requirements of Directive 2006/118/EC also need to be taken into account
 
@@ -79,24 +83,24 @@ In the 4th cycle of reporting, the data will be delivered in the Reportnet3 plat
 (heading_wfd_groundwater_descriptive_4th_cycle)=
 ## Groundwater - descriptive data - 4th cycle
 
-The proposed structure for the 4th cycle electronic reporting 
-is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram` 
+The proposed structure for the 4th cycle electronic reporting
+is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram`
 and a brief description of each table is included in {numref}`Groundwater_4th_cycle_brief_table_description`.
 
-* The core data about each groundwater body 
+* The core data about each groundwater body
   is reported in 3 tables: `GroundWaterBody`, `LinkSurfaceWaterBody` and `GWNaturalBackgroundLevel`.
 
-  * The content of this set of tables does not depend 
+  * The content of this set of tables does not depend
     of the status assessment, and can be prepared in advance.
 
-* A second set of tables contains information about 
-  the chemical and quantitative status assessment 
+* A second set of tables contains information about
+  the chemical and quantitative status assessment
   and about pressures and impacts: `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
 
-  * The ancillary table `GWGrouping` 
+  * The ancillary table `GWGrouping`
     supports the reporting of grouping (if used the assessment).
   * A link to the `GWMethodologies::ThresholdValue` table clarifies which threshold value is applied to each pollutant.  
-    (A list of the default EU threshold values will be provided 
+    (A list of the default EU threshold values will be provided
     where defined by the EU legislation.)
 
 ```{mermaid} /DataModelReview/mmd/Groundwater_4thCycle_DescriptiveData_ClassDiagram.mmd
@@ -262,67 +266,67 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 (heading_wfd_groundwater_codelist_4th_cycle)=
 ## Groundwater - codelists - 4th cycle
 
-* For the `AquiferMediaTypeValue` codelist, 
+* For the `AquiferMediaTypeValue` codelist,
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
-  The codelist was realigned with the INSPIRE codelist to allow more flexibility 
+  The codelist was realigned with the INSPIRE codelist to allow more flexibility
   (see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_Table`).
 
-* For the `AquiferProductivity` codelist, 
+* For the `AquiferProductivity` codelist,
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
-  The codelist allows the reporting of aquifer productivity 
-  independently of the aquifer media values 
+  The codelist allows the reporting of aquifer productivity
+  independently of the aquifer media values
   (see {numref}`Codelist_4thCycle_AquiferProductivity_Table`).  
-  Further technical guidance on concepts, classification schemes and class boundaries 
+  Further technical guidance on concepts, classification schemes and class boundaries
   is needed. [^aquiferProductivityIreland]
 
-* For the `AssessmentMethod` codelist, 
+* For the `AssessmentMethod` codelist,
   see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
-  The codelist is used to report 
-  the assessment method for the chemical status and for the quantitative status 
+  The codelist is used to report
+  the assessment method for the chemical status and for the quantitative status
   (see {numref}`Codelist_4thCycle_AssessmentMethod_Table`).  
-  The same codelist is used for surface water bodies, 
+  The same codelist is used for surface water bodies,
   for the assessment method of ecological status or potential,
   and for the assessment method of chemical status.
 
-* For the `AssessmentConfidence` codelist, 
+* For the `AssessmentConfidence` codelist,
   see also {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
-  The codelist allow the reporting of 
+  The codelist allow the reporting of
   the level of confidence in the results of the status assessment
   (see {numref}`Codelist_4thCycle_AssessmentConfidence_Table`).  
-  The same codelist is used for surface water bodies. 
+  The same codelist is used for surface water bodies.
   See also [^IPCC_Authors] [^IPCC_WorkingGroups] [^IPCC_Readers].
 
 * For the `GroundwaterSurfaceWaterLink` codelist,
   see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram`.  
-  The codelist is used to report 
-  the type of link between a given groundwater body and a given surface water body 
+  The codelist is used to report
+  the type of link between a given groundwater body and a given surface water body
   (see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`).
 
-* For the `ReasonForFailure` codelist, 
-  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram` 
+* For the `ReasonForFailure` codelist,
+  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram`
   and {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
 
-  * For groundwater bodies in poor quantitative status, 
-    the codelist values are used 
-    in the `gwQuantitativeReasonsForFailure` attribute 
-    to provide further information about one or more causes of failure 
+  * For groundwater bodies in poor quantitative status,
+    the codelist values are used
+    in the `gwQuantitativeReasonsForFailure` attribute
+    to provide further information about one or more causes of failure
     (the most frequent cause will be likely be `'waterBalance'`).  
-    For groundwater bodies in good or unknown quantitative status, 
+    For groundwater bodies in good or unknown quantitative status,
     the option `notApplicable` must be used.
 
-  * For groundwater bodies failing to achieve good chemical status, 
-    the codelist values are used 
-    in the `gwChemicalReasonsForFailure` attribute 
-    to provide further information about one or more causes of failure 
+  * For groundwater bodies failing to achieve good chemical status,
+    the codelist values are used
+    in the `gwChemicalReasonsForFailure` attribute
+    to provide further information about one or more causes of failure
     (the most frequent cause will be likely be `'waterQuality'`).  
-    For groundwater bodies in good or unknown quantitative status, 
+    For groundwater bodies in good or unknown quantitative status,
     the option `notApplicable` must be used.
-    For groundwater bodies in good or unknown chemical status, 
-    the option `notApplicable` must be used. 
+    For groundwater bodies in good or unknown chemical status,
+    the option `notApplicable` must be used.
 
-* For the `PressureType` codelist, 
-  see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in 
-  the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle` 
+* For the `PressureType` codelist,
+  see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in
+  the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle`
   
 % -----------------------------------------------------------------------------
 
@@ -390,29 +394,30 @@ Groundwater - Topics that require discussion and clarification.
 
 ### Geological formation
 
-The WFD2016 and WFD2022 *geologicalFormation* attribute values 
-are clearly similar to the *Aquifer Type Code* attribute 
-({numref}`IHME1500_InternationalHydrogeologicalMapOfEurope_Table`) 
+The WFD2016 and WFD2022 *geologicalFormation* attribute values
+are clearly similar to the *Aquifer Type Code* attribute
+({numref}`IHME1500_InternationalHydrogeologicalMapOfEurope_Table`)
 in the International Hydrogeological Map of Europe 1:1,500,000 (IHME1500),
-although there is no reference to that source 
+although there is no reference to that source
 is made in the WFD Reporting Guidance documents.
 
-A provisional spatial analysis of the two datasets 
+A provisional spatial analysis of the two datasets
 (using only the topmost horizons)
 reveals limited agreement between the classifications.  
-In {numref}`AquiferTypesWFDVersusIHME`, 
-the rows represent the reported WFD geological formation 
+In {numref}`AquiferTypesWFDVersusIHME`,
+the rows represent the reported WFD geological formation
 and the columns represent the IHME aquifer type.
-The values show the percentage of the area of each WFD geological formation 
+The values show the percentage of the area of each WFD geological formation
 classified under each IHME aquifer type. For example:
-* 48% of the area reported as 'Fissured aquifers including karst - highly productive' 
+
+* 48% of the area reported as 'Fissured aquifers including karst - highly productive'
   under WFD is similarly classified under IHME
 * 33% of the area reported as 'Fissured aquifers including karst - moderately productive'
   under WFD is classified under IHME as 'Practically non-aquiferous rocks, porous or fissured'.
 
-In practice, this means that an existing pan-European hydrogeological map (IHME1500) 
+In practice, this means that an existing pan-European hydrogeological map (IHME1500)
 can not be easily used to replace the information reported under WFD,
-but it also highlights the need for better clarification 
+but it also highlights the need for better clarification
 of the aquifer type and aquifer productivity values to be used in the 4th cycle.
 
 ```{figure} /DataModelReview/img/AquiferTypesWFDversusIHME.png
@@ -428,13 +433,13 @@ WFD geological formation and IHME1500 aquifer type.
 
 ### Aquifer productivity
 
-See {numref}`CIS_Guidance_2_Figure_9`: the CIS Guidance Document 2 does not provide quantitative guidelines, 
-beyond the mention to the 10 m3/d threshold for drinking water abstraction. 
-Does then the classification  `geologicalFormation = 'Insignificant aquifers'` 
+See {numref}`CIS_Guidance_2_Figure_9`: the CIS Guidance Document 2 does not provide quantitative guidelines,
+beyond the mention to the 10 m3/d threshold for drinking water abstraction.
+Does then the classification  `geologicalFormation = 'Insignificant aquifers'`
 mean that the aquifer is not relevant in terms of potential yield,
-but is significant due to dependent surface water bodies, 
+but is significant due to dependent surface water bodies,
 or groundwater dependent ecosystem?
-This should be clarified in the codelist definitions. 
+This should be clarified in the codelist definitions.
 
 ```{figure} /DataModelReview/img/CIS_Guidance_2_Figure_9.png
 :name: CIS_Guidance_2_Figure_9
@@ -473,7 +478,7 @@ from a typical borehole at an individual abstraction site."
 ```
 
 (heading_wfd_groundwater_annexes_reason_for_failure_3rd_cycle)=
-### Reasons for failure 
+### Reasons for failure
 
 ```{dropdown} Show code
   ```{code-block} sql
@@ -496,8 +501,8 @@ from a typical borehole at an individual abstraction site."
   :linenos:
   -- https://discodata.eea.europa.eu/
   SELECT [numberOfReasonsForFailure],
-	COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfGroundWaterBodies],
-	COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
+ COUNT(DISTINCT [euGroundWaterBodyCode]) AS [numberOfGroundWaterBodies],
+ COUNT(DISTINCT [countryCode]) AS [numberOfCountries]
   FROM 
   (
   SELECT [countryCode],[euGroundWaterBodyCode]
@@ -547,50 +552,50 @@ from a typical borehole at an individual abstraction site."
 (heading_wfd_groundwater_annexes_nbl_3rd_cycle)=
 ### Natural background levels
 
-In the 3rd cycle, natural background levels (NBL) 
-were reported for 8608 water bodies (38.6%) and over 90 substances. 
+In the 3rd cycle, natural background levels (NBL)
+were reported for 8608 water bodies (38.6%) and over 90 substances.
 
-An exploratory analysis shows the expected high frequency of reporting of NBLs for metals and metalloids 
+An exploratory analysis shows the expected high frequency of reporting of NBLs for metals and metalloids
 (e.g. arsenic, cadmium or lead), major ions and nutrients
-(e.g. chloride, sulphate, ammonium or nitrate) 
+(e.g. chloride, sulphate, ammonium or nitrate)
 and physico-chemical parameters like electrical conductivity
-(likely as an indicator of saline intrusion).   
+(likely as an indicator of saline intrusion).
 
-Other parameters are more unexpected and are likely due to reporting errors (e.g. chlorite instead of chloride). 
+Other parameters are more unexpected and are likely due to reporting errors (e.g. chlorite instead of chloride).
 
-More importantly, the values reported 
-are sometimes physically impossible (e.g. above 1000mg/L) 
+More importantly, the values reported
+are sometimes physically impossible (e.g. above 1000mg/L)
 or clearly unlikely.
 
 % Footnotes
 
-[^BRIDGE]: 
-    Wendland, Frank & Blum, Ariane & Coetsiers, Marleen & Gorova, R. & Griffioen, J. & Grima-Olmedo, Juan & Hinsby, Klaus & Kunkel, Ralf & Marandi, Andres & de Melo, M T & Panagopoulos, Andreas & Pauwels, Hélène & Ruisi, M. & Traversa, Paola & Vermooten, Sophie & Walraevens, Kristine. (2008). 
-    European aquifer typology: A practical framework for an overview of major groundwater composition at European scale. 
-    Environmental Geology. 55. 77-85. 10.1007/s00254-007-0966-5. 
+[^BRIDGE]:
+    Wendland, Frank & Blum, Ariane & Coetsiers, Marleen & Gorova, R. & Griffioen, J. & Grima-Olmedo, Juan & Hinsby, Klaus & Kunkel, Ralf & Marandi, Andres & de Melo, M T & Panagopoulos, Andreas & Pauwels, Hélène & Ruisi, M. & Traversa, Paola & Vermooten, Sophie & Walraevens, Kristine. (2008).
+    European aquifer typology: A practical framework for an overview of major groundwater composition at European scale.
+    Environmental Geology. 55. 77-85. 10.1007/s00254-007-0966-5.
 
-[^aquiferProductivityIreland]: 
+[^aquiferProductivityIreland]:
     Geological Survey Ireland is a Division of Department of Climate, Energy and the Environment © 2026
     https://www.gsi.ie/en-ie/programmes-and-projects/groundwater/activities/understanding-ireland-groundwater/aquifer-classification/Pages/Aquifer-classification-how-to.aspx
 
-[^aquiferProductivityScoland]: 
-    MACDONALD A M, BALL D F and Ó DOCHARTAIGH B É. 2004. 
-    A GIS of aquifer productivity in Scotland: explanatory notes. 
+[^aquiferProductivityScoland]:
+    MACDONALD A M, BALL D F and Ó DOCHARTAIGH B É. 2004.
+    A GIS of aquifer productivity in Scotland: explanatory notes.
     British Geological Survey Commissioned Report, CR/04/047N. 21pp.
-    https://nora.nerc.ac.uk/id/eprint/504764/1/CR-04-047N_SEPA%20Aq%20productivity.pdf 
+    https://nora.nerc.ac.uk/id/eprint/504764/1/CR-04-047N_SEPA%20Aq%20productivity.pdf
 
-[^IPCC_Authors]: 
-    Mastrandrea, MD, Field CB, Stocker TF, Edenhofer O, Ebi KL, Frame DJ, Held H, Kriegler E, Mach KJ, Matschoss PR, Plattner GK (2010) 
-    Guidance note for lead authors of the IPCC fifth assessment report on consistent treatment of uncertainties. 
+[^IPCC_Authors]:
+    Mastrandrea, MD, Field CB, Stocker TF, Edenhofer O, Ebi KL, Frame DJ, Held H, Kriegler E, Mach KJ, Matschoss PR, Plattner GK (2010)
+    Guidance note for lead authors of the IPCC fifth assessment report on consistent treatment of uncertainties.
     https://www.ipcc.ch/site/assets/uploads/2017/08/AR5_Uncertainty_Guidance_Note.pdf
 
-[^IPCC_WorkingGroups]: 
-    Mastrandrea, M.D., Mach, K.J., Plattner, GK. et al. (2011) 
-    The IPCC AR5 guidance note on consistent treatment of uncertainties: a common approach across the working groups. 
+[^IPCC_WorkingGroups]:
+    Mastrandrea, M.D., Mach, K.J., Plattner, GK. et al. (2011)
+    The IPCC AR5 guidance note on consistent treatment of uncertainties: a common approach across the working groups.
     Climatic Change 108, 675 . https://doi.org/10.1007/s10584-011-0178-6
 
-[^IPCC_Readers]: 
-    Kause, A., Bruine de Bruin, W., Persson, J. et al. (2022) 
+[^IPCC_Readers]:
+    Kause, A., Bruine de Bruin, W., Persson, J. et al. (2022)
     Confidence levels and likelihood terms in IPCC reports: a survey of experts from different scientific disciplines. Climatic Change 173, 2 . https://doi.org/10.1007/s10584-022-03382-3
 
 (heading_wfd_wfd_groundwater_bodies_references)=
@@ -598,4 +603,3 @@ or clearly unlikely.
 
 ```{include} FragmentReportingGuidanceFiles
 ```
-

@@ -1,3 +1,4 @@
+(bibliographic-references)=
 # References
 
 ## WFD reporting guidance documents

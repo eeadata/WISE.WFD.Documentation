@@ -27,7 +27,7 @@ Last update: 2026-05-25
 
 (heading_wfd_rbd_and_ca_dcmetadata_table_testing_phase)=
 ## dcMetadata table
-
+ 
 ```{include} tables/RBDCA_dcMetadata
 ```
 

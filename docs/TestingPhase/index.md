@@ -4,17 +4,15 @@ html_theme.sidebar_secondary.remove: true
 (testing-phase)=
 # Testing phase
 
-*Dataflows under testing*
-
-:::{toctree}
+```{toctree}
 :maxdepth: 2
 WFDRiverBasinDistrictsAndCompetentAuthorities
 WFDMonitoring
-:::
+```
 
-*Issues detected during the test phase*
+## Issues
 
 ```{toctree}
 :maxdepth: 2
-ReportedProblems
+KnownIssues
 ```

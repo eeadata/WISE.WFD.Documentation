@@ -1,7 +1,6 @@
 ---
 html_theme.sidebar_secondary.remove: true
 ---
-
 (data-model-review)=
 # Data model review
 
@@ -21,7 +20,14 @@ WFDSurfaceWaterMethodologies
 
 ```
 
-## Other sections 
+## Issues
+
+```{toctree}
+:maxdepth: 1
+KnownIssues
+```
+
+## Other topics
 
 Pending reorganisation.
 
@@ -30,21 +36,3 @@ Pending reorganisation.
 WFDGrouping
 WFDPressures
 ```
-
-## References
-
-```{toctree}
-:maxdepth: 1
-../_sharedFiles/ModellingConventions
-../_sharedFiles/Glossary_Datatypes
-../_sharedFiles/References
-```
-
-## Dashboards
-
-```{toctree}
-:maxdepth: 1
-../_sharedFiles/WFDDashboards
-```
-
-

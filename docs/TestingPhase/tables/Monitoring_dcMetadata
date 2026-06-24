@@ -44,8 +44,6 @@
   - {term}`Licence`
   - [1]
   - A legal document giving official permission to do something with the resource.  
-    Provide the URL to the licence text of a CC BY compatible licence. 
-    Use a persistent identifier to an English or multilingual version of the licence agreement. 
 
 * - rights
   - {term}`string`
@@ -63,13 +61,30 @@
 
 * - licenseDocument 
   - {term}`documentCode` 
-  - [0..1]
-  - Documents about licensing information.  
-    It must be reported if license is equal to 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'.  
-    More than one option can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., "value1; value2; value3". 
+  - [0..n]
+  - Document(s) about licensing information.  
+    It must be reported if license is equal to 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. 
+    More than one document can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'.  
 
 * - metadataDocument
   - {term}`documentCode` 
-  - [0..1] 
-  - Documents about metadata information.  
-    More than one option can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., "value1; value2; value3". 
+  - [0..n] 
+  - Document(s) about metadata information.  
+    More than one document can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'. 
+
+* - euRBDCode
+  - {term}`wiseIdentifier`
+  - [1]
+  - Identifier of the river basing district.
+
+* - includesSpatialData 
+  - {term}`YesNo`
+  - [1]
+  - Choose 'yes' if the data delivery includes spatial data for the specified river basin district.
+    Choose 'no' if the data delivery does NOT include spatial data for the specified river basin district.
+
+* - includesMonitoringData 
+  - {term}`YesNo`
+  - [1]
+  - Choose 'yes' if the data delivery includes data about the monitoring programmes for the specified river basin district.
+    Choose 'no' if the data delivery does NOT ata about the monitoring programmes for the specified river basin district.

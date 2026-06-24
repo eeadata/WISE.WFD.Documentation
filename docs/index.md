@@ -10,25 +10,63 @@ html_theme.sidebar_secondary.remove: true
 DataModelReview/index
 TestingPhase/index
 GettingStarted/index
-DataModelReview/KnownIssues
 ```
 
-The **Water Framework Directive Documentation** is organized into the following sections:
+## Main sections
 
-*  {ref}`data-model-review`
+The **Water Framework Directive Documentation** is organized in 4 main sections.
 
-   This section contains documentation about proposed changes for the 4th cycle of electronic reporting under the Water Framework Directive.
-   The documentation about monitoring, methodologies, water body status assessment and exemptions will be made available in April.
-   The WISE GIS Guidance is also under review.
+::::{grid} 2
+:gutter: 1 2 3 3
+:::{grid-item-card} {ref}`data-model-review`
+Contains documentation about proposed changes for the 4ᵗʰ cycle
+of electronic reporting under the Water Framework Directive.
+The WISE GIS Guidance is also under review.
+:::
+:::{grid-item-card} {ref}`testing-phase`
+Contains information about each of the dataflows open for testing.
+:::
+:::{grid-item-card} {ref}`getting-started`
+Contains information about how to start using Reportnet3 for reporting,
+first steps, common problems and solutions.
+:::
+:::{grid-item-card} Reporting phase
+As soon as each dataflow is open for reporting,
+this section contain the final technical guidance.
+:::
+::::
 
-* {ref}`testing-phase`
+## Known issues
 
-  This section contains information of each of the dataflows opened for testing.
+::::{grid} 2
+:gutter: 1 2 3 3
+:::{grid-item-card} {ref}`data-review-known-issues`
+Contains a log of pending issues related to the data model review.
+:::
+:::{grid-item-card} {ref}`testing-phase-known-issues`
+Contains a log of issues detected/reported during the testing phase.
+:::
+::::
 
-* {ref}`getting-started`
+## Other resources
 
-  This section contains information on how to start the reporting on a dataflow. First steps and common questions.
+::::{grid} 2
+:gutter: 1 2 3 3
+:::{grid-item-card} {ref}`modelling-conventions`
+Contains an overview of modelling conventions
+adopted during the data model review and/or applied to the UML diagrams.
+:::
+:::{grid-item-card} {ref}`glossary-datatypes`
+Contains a glossary of the datatypes and controlled lists of values
+used in the WISE dataflows.
+:::
+:::{grid-item-card} {ref}`bibliographic-references`
+Contains the bibliography
+and links to the documents cited in text.
+:::
+:::{grid-item-card} Dashboards
+Contains the full list of dahsboards
+with data reported in the 3rd, 2nd and 1st River Basin Management Plans.
+:::
+::::
 
-*  **Reporting phase**
-
-   As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.

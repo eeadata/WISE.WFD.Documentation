@@ -17,7 +17,7 @@ class dcMetadata {
 + description : string [0..1]
 + created : date [0..1]
 + language : Language [1..n]
-+ license : URL
++ license : Licence
 + rights : string [0..1]
 + rightsHolder : string [0..1]
 + licenseDocument : documentCode [0..n]
@@ -31,8 +31,8 @@ class dcMetadata {
 
 class Reference {
   + referenceCode : wiseIdentifier
-  + documentCode : Document
-  + bookmark : string50
+  + documentCode : documentCode
+  + bookmark : string250
   + subject : string250 
 }
 
@@ -43,8 +43,17 @@ class Document {
 + documentFile : Attachment [0..1]
 }
 
-dcMetadata --> "0..n" Document : documentCode
-Reference "0..n" --> Document : documentCode
+class Licence{
+  <<enumeration>>
+  CC0
+  CC_BY_4_0
+  exactMatch_CC_BY_4_0
+  narrowMatch_CC_BY_4_0
+}
 
+Reference  ..> Document : documentCode
+dcMetadata ..> Document : licenseDocument
+dcMetadata ..> Document : metadataDocument
+dcMetadata ..> Licence : license
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
