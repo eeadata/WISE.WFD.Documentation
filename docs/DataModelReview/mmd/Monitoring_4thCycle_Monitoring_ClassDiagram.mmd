@@ -23,7 +23,7 @@ class Monitoring{
   + lastMonitored : gYear
 }
 
-class ParameterCode{
+class Parameter{
   <<enumeration>>
 
   «quantitative monitoring»
@@ -87,14 +87,14 @@ class MonitoringCycle{
     unknown
     }   
 
-Monitoring ..> ParameterCode
+Monitoring ..> Parameter
 Monitoring ..> ChemicalMatrixType
 Monitoring ..> ChemicalPurpose
 
 Monitoring ..> MonitoringCycle
 Monitoring ..> MonitoringFrequency
 
-note for ParameterCode "the label is not part of the code"
+note for Parameter "the label is not part of the code"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
