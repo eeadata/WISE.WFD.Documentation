@@ -125,7 +125,6 @@ html_css_files = [
 ]
 html_sidebars = {
     "**": ["sidebar-collapse", "sidebar-nav-bs"],
-    "**/index.md": [],
 }
 
 html_js_files = [

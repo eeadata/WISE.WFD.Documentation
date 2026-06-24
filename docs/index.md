@@ -70,12 +70,3 @@ with data reported in the 3rd, 2nd and 1st River Basin Management Plans.
 :::
 ::::
 
-```{toctree}
-:glob:
-:hidden:
-:titlesonly:
-DataModelReview/*
-TestingPhase/*
-GettingStarted/*
-OtherResources/*
-```
