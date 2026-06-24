@@ -59,7 +59,8 @@ bibtex_bibfiles = ['./_sharedFiles/cis_guidance_documents.bib',
                    './_sharedFiles/wfd_reporting_guidance.bib',
                    './_sharedFiles/sdmx_documents.bib',
                    './_sharedFiles/inspire_technical_guidance.bib',
-                   './_sharedFiles/eu_legislation.bib']
+                   './_sharedFiles/eu_legislation.bib',
+                   './_sharedFiles/bibliography.bib',]
 bibtex_reference_style = 'author_year'
 
 

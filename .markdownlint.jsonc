@@ -1,6 +1,7 @@
 // Example markdownlint configuration with all properties set to their default value
 // https://github.com/DavidAnson/markdownlint/blob/v0.40.0/schema/.markdownlint.jsonc
 // My changes:
+//  MD013 line length <= 100
 //  MD022 blanks lines above heading = 0
 //  MD034 disabled
 //  MD041 disabled
@@ -66,7 +67,7 @@
   // MD013/line-length : Line length : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md013.md
   "MD013": {
     // Number of characters
-    "line_length": 80,
+    "line_length": 100,
     // Number of characters for headings
     "heading_line_length": 80,
     // Number of characters for code blocks
