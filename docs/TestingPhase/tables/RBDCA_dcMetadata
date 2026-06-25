@@ -37,7 +37,7 @@
 
 * - language 
   - {term}`Language` 
-  - [0..1]
+  - [1..n]
   - Code of the dataset's language/s from the 'Language' codelist.
 
 * - license 
