@@ -1,6 +1,8 @@
 (glossary-datatypes)=
 # Attribute types (datatypes)
 
+## Glossary
+
 ```{glossary}
 :sorted: true
 
@@ -15,7 +17,8 @@ wiseIdentifier
     (but not immediately after the country code, and not at the end of the code)
     * must not have consecutive separator characters 
     * be unique at national level, within the context to which they apply
-    Valid examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341.
+
+    Valid examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341.  
     *Invalid* examples: FR1__XYZ1234__1, FRa123, FR123_. 
 
 documentCode
@@ -43,10 +46,10 @@ date
     Date in the format yyyy-mm-dd.
 
 range
-    Range of values. The data type follows the Postgre range type implementation
-    (see https://www.postgresql.org/docs/current/rangetypes.html) 
-    of the ISO 80000-2:2019(E) standard
-    (see https://cdn.standards.iteh.ai/samples/64973/329519100abd447ea0d49747258d1094/ISO-80000-2-2019.pdf).
+    Range of values. The data type follows the Postgre range type implementation 
+    of the ISO 80000-2:2019(E) standard.
+    {footcite}`postgresql-rangetypes`
+    {footcite}`iso80000-2-2019`
 
 Email
     Character string with a maximum length of 250 characters. 
@@ -58,6 +61,14 @@ URL
 
 Attachment
     File (typically a PDF) uploaded directly in Reportnet3.
+
+geometry
+    A geometry object represents points, curves, and surfaces in coordinate space. 
+    {footcite}`GeoJSON`
+
+point
+    A {term}`geometry` object representin a bidimensional location in space. 
+    {footcite}`GeoJSON`
 
 AquiferMediaTypeValue
     Value from the `AquiferMediaTypeValue` controlled list of values. 
@@ -85,6 +96,11 @@ ClassificationSystem
     Value from the `ClassificationSystem` controlled list of values. 
     See https://dd.eionet.europa.eu/vocabulary/wise/ClassificationSystem
 
+ConfidentialityStatus
+    Value from the `ConfidentialityStatus` controlled list of values. 
+    {footcite}`sdmxclconfstatus2014`
+    {footcite}`sdmxconfidentialityguideline2018`
+
 Country
     Value from the `Country` controlled list of values.
 
@@ -105,6 +121,9 @@ ExemptionType
 
 GroundwaterSurfaceWaterLink
     Value from the `GroundwaterSurfaceWaterLink` controlled list of values.
+
+IdentifierScheme
+    Value from the `IdentifierScheme` controlled list of values.
 
 ImpactType
     Value from the `ImpactType` controlled list of values.
@@ -196,6 +215,15 @@ WaterBodyCategory
 WFDWaterService
     Value from the `WFDWaterService` controlled list of values.
 
+WFDMonitoringPurpose
+    Value from the `WFDMonitoringPurpose` controlled list of values.
+
+WiseEvolutionType
+    Value from the `WiseEvolutionType` controlled list of values.
+
+WisePurposeOfCollectionValue
+    Value from the `WisePurposeOfCollectionValue` controlled list of values.
+
 YesNo
     Value from the `YesNo` controlled list of values.  
 
@@ -215,6 +243,8 @@ YesNoUnknownNotAssessed
     Value from the `YesNoUnknownNotAssessed` controlled list of values.  
 
 ```
+
+## References
 
 ```{footbibliography}
 ```

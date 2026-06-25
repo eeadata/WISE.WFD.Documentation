@@ -8,11 +8,11 @@ html_theme.sidebar_secondary.remove: true
 :maxdepth: 2
 
 WFDRiverBasinDistrictsAndCompetentAuthorities
+WFDMonitoring
 WFDMeasures
 WFDEconomicAnalysis
 WFDProtectedAreas
 WFDExemptions
-WFDMonitoring
 WFDGroundWaterBody
 WFDGroundwaterMethodologies
 WFDSurfaceWaterBody

@@ -1,4 +1,4 @@
-```{list-table} Monitoring
+```{list-table} Monitoring dataflow - Monitoring table
 :name: Monitoring_Monitoring
 :header-rows: 1
 :width: 100%
@@ -9,30 +9,30 @@
   - {abbr}`m (multiplicity)`
   - Definition
 
-* - euMonitoringSiteCode  
+* - euMonitoringSiteCode
   - {term}`wiseIdentifier`
   - [1]
   - Unique European identifier of the monitoring site
 
-* - parameterCode 
+* - parameterCode
   - {term}`Parameter`
   - [1]
-  - The biological quality elements, hydromorphological quality element,
+  - Code of the biological quality element, hydromorphological quality element,
     physico-chemical parameter, chemical substance or parameter 
     observed at the monitoring site.
 
-* - chemicalMatrix    
+* - chemicalMatrix
   - {term}`ChemicalMatrixType`
   - [0..3]
-  - For chemical substances, report the matrix or matrices 
+  - For chemical substances, specify the matrix or matrices 
     in which the substance is monitored. 
-    Report if an only if the parameter monitored is a chemical substance.
+    Report if, and only if, the parameter monitored is a chemical substance.
 
-* - chemicalPurpose   
-  - {term}`ChemicalPurpose`  
-  - [0..2]  
-  - For chemical substances, report the purpose(s) 
-    for which the substance is monitored. 
+* - chemicalPurpose
+  - {term}`ChemicalPurpose`
+  - [0..2]
+  - For chemical substances, specify the purpose(s)
+    for which the substance is monitored.
     Report if an only if the parameter monitored is a chemical substance.
 
 * - frequency      
@@ -48,7 +48,7 @@
 * - lastMonitored 
   - {term}`gYear` 
   - [1]
-  - Report the most recent year when the parameter was monitored at this site,
-    in the format YYYY. Enter 9999 if the parameter is yet to be measured.
+  - Report the most recent year when the parameter was monitored at this site.
+    Set `lastMonitored = 9999` if the parameter is yet to be measured.
 
 ```

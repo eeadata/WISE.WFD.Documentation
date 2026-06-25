@@ -10,25 +10,25 @@
   - Definition and notes 
 
 * - continuousSampling
-  - 
+  - Continuous sampling
   - 
 * - oneSamplePerMonitoringYear
-  - 
+  - 1 sample per monitoring year
   - 
 * - from2To3SamplesPerMonitoringYear
-  - 
+  - 2 to 3 samples per monitoring year
   - 
 * - from4To11SamplesPerMonitoringYear
-  - 
+  - 4 to 11 samples per monitoring year
   - 
 * - from12To24SamplesPerMonitoringYear
-  - 
+  - 12 to 24 samples per monitoring year
   - 
 * - moreThan24SamplesPerMonitoringYear
-  - 
+  - More than 24 samples per monitoring year
   - 
 * - unknown
-  - 
+  - Unknown
   - This option is valid if and only if:  
     `lastMonitored = 9999` or `monitoringCycle = 'once'` 
 

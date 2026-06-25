@@ -1,4 +1,4 @@
-```{list-table} Monitoring - dcMetadata
+```{list-table} Monitoring dataflow - dcMetadata table
 :name: Monitoring_dcMetadata
 :header-rows: 1
 :width: 100%
@@ -7,7 +7,7 @@
 * - Attribute
   - Type
   - {abbr}`m (multiplicity)`
-  - Definition
+  - Definition {footcite}`dublin-core` 
 
 * - title 
   - {term}`string`
@@ -63,14 +63,13 @@
   - {term}`documentCode` 
   - [0..n]
   - Document(s) about licensing information.  
-    It must be reported if license is equal to 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. 
-    More than one document can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'.  
+    It must be reported if `license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')`. 
 
 * - metadataDocument
   - {term}`documentCode` 
   - [0..n] 
   - Document(s) about metadata information.  
-    More than one document can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'. 
+    Reported if `includesSpatialData = 'yes'.
 
 * - euRBDCode
   - {term}`wiseIdentifier`
@@ -80,11 +79,14 @@
 * - includesSpatialData 
   - {term}`YesNo`
   - [1]
-  - Choose 'yes' if the data delivery includes spatial data for the specified river basin district.
-    Choose 'no' if the data delivery does NOT include spatial data for the specified river basin district.
+  - Choose 'yes' if the data includes spatial data for the specified river basin district.
+    Otherwise, choose 'no'.
+    **Very important note:** 
+    the spatial data delivery must include all the river basin districts (or none at all).
 
 * - includesMonitoringData 
   - {term}`YesNo`
   - [1]
-  - Choose 'yes' if the data delivery includes data about the monitoring programmes for the specified river basin district.
-    Choose 'no' if the data delivery does NOT ata about the monitoring programmes for the specified river basin district.
+  - Choose 'yes' if the data delivery 
+    includes data about the monitoring programmes for the specified river basin district.
+    Otherwise, choose 'no'.

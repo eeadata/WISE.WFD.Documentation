@@ -7,8 +7,7 @@
 * - Attribute
   - Type
   - {abbr}`m (multiplicity)`
-  - Definition
-
+  - Definition {footcite}`dublin-core` 
 * - title 
   - {term}`string`
   - [1]
@@ -63,14 +62,13 @@
   - {term}`documentCode` 
   - [0..n]
   - Document(s) about licensing information.  
-    It must be reported if license is equal to 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. 
-    More than one document can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'.  
+    It must be reported if `license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')`. 
 
 * - metadataDocument
   - {term}`documentCode` 
   - [0..n] 
   - Document(s) about metadata information.  
-    More than one document can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., 'value1; value2; value3'. 
+    Reported if `updateSpatialData = 'yes'.
 
 * - updateCompetentAuthorities 
   - {term}`YesNo`

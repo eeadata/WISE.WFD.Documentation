@@ -22,28 +22,23 @@ Some classes, attributes, or associations may be omitted for clarity.
 :header-rows: 1
 :width: 100%
 :widths: 25 75
-
 * - Multiplicity
   - Definition
-
 * - 1 
   - Each instance of the class at one end of the association *must* 
   be associated with exactly one instance of the class at the other end. 
   It enforces a strict one-to-one relationship.  
   See the diagram below: in practice, each row in TableA must 
   be associated with one and only one row in TableB.
-
 * - 0..1 
   - Each instance of the class at one end of the association *may* 
   be associated with exactly one instance of the class at the other end. 
   It represents an optional relationship. 
   See the diagram below: in practice, each row in TableC *may* 
   be associated with one and only one row in TableD.
-
 * - 1..n
   - See the diagram below: each row in TableF *must* 
   be associated with one or more rows in TableG.
-
 * - n..m
   - Many-to-many associations between classes are normally depicted 
   in conceptual UML diagrams. 
@@ -54,6 +49,7 @@ Some classes, attributes, or associations may be omitted for clarity.
   See the diagram below: 
   each row in TableK *must* be associated with one or more rows in TableK_TableL,
   each row in TableL *must* be associated with one or more rows in TableK_TableL.
+
 ```
 
 ```{mermaid}

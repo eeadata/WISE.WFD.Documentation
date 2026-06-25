@@ -20,10 +20,10 @@
   - 
 * - IND
   - Groundwater abstraction site for industrial supply
-  - *if necessary, set the confidentialityStatus = 'N'*
+  - If necessary, set `confidentialityStatus = 'N'`.
 * - DRI
   - Groundwater abstraction site for human consumption
-  - *if necessary, set the confidentialityStatus = 'N'*
+  - If necessary, set `confidentialityStatus = 'N'`.
 
 * - DWD
   - Drinking water 

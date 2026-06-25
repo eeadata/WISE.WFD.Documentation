@@ -1,4 +1,4 @@
-```{list-table} MonitoringProgrammes
+```{list-table} Monitoring dataflow - MonitoringProgrammes table
 :name: Monitoring_MonitoringProgrammes
 :header-rows: 1
 :width: 100%
@@ -24,52 +24,48 @@
 * - programmesReference 
   - {term}`referenceCode`             
   - [1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about the monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the monitoring programmes. 
 
 * - investigativeMonitoringReference  
   - {term}`referenceCode`             
   - [1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about the investigative monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the investigative monitoring programmes. 
 
 * - operationalMonitoringReference    
   - {term}`referenceCode`             
   - [1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about the operational monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the operational monitoring programmes. 
 
 * - surveillanceMonitoringReference   
   - {term}`referenceCode`             
   - [1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about the surveillance monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the surveillance monitoring programmes. 
 
 * - gwChemicalMonitoringReference     
   - {term}`referenceCode`             
   - [0..1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about
-    the groundwater chemical monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the groundwater chemical monitoring programmes. 
 
 * - gwQuantitativeMonitoringReference 
   - {term}`referenceCode`             
   - [0..1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about
-    the groundwater quantitative monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the groundwater quantitative monitoring programmes. 
 
 * - swChemicalMonitoringReference     
   - {term}`referenceCode`             
   - [0..1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about
-    the surface water chemical monitoring programmes. 
+  - Reference to the document, chapter, section, etc. 
+    with information about the surface water chemical monitoring programmes. 
 
 * - swEcologicalMonitoringReference   
   - {term}`referenceCode`             
   - [0..1]
-  - Provide the reference to the document, chapter, section, etc. 
-    that provides information about
-    the surface water ecological monitoring programmes.
+  - Reference to the document, chapter, section, etc. 
+    with information about the surface water ecological monitoring programmes.
 ```
