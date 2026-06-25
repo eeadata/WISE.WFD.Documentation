@@ -6,7 +6,7 @@
 
 * - Attribute
   - Type
-  - {abbr}`m (multiplicity)`
+  - {abbr}`M (Multiplicity)`
   - Definition
 
 * - documentCode 
@@ -22,9 +22,11 @@
 * - hyperlink 
   - {term}`URL`
   - [0..1]
-  - URL of the document if available on the internet. Either the URL or the documentFile must be provided.
+  - URL of the document if available on the internet. 
+    Either the `hyperlink` or the `documentFile` must be provided.
   
 * - documentFile 
   - {term}`Attachment`
   - [0..1]
-  - Document file as an attachment. The size of the file can be up to 100 MB and the valid file extensions are: 'xlsx' (Excel), 'docx' (Word) and 'pdf'. Either the URL or the documentFile must be reported. 
+  - Document file as an attachment uploaded in Reportnet.
+    Either the `hyperlink` or the `documentFile` must be provided.

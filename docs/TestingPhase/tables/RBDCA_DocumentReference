@@ -6,7 +6,7 @@
 
 * - Attribute
   - Type
-  - {abbr}`m (multiplicity)`
+  - {abbr}`M (Multiplicity)`
   - Definition
 
 * - referenceCode 
@@ -28,3 +28,4 @@
   - {term}`string`250
   - [1] 
   - Subject of the reference. 
+```

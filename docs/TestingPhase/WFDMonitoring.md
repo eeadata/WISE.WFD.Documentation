@@ -1,5 +1,5 @@
 (heading_wfd_monitoring_testing_phase)=
-# WFD Monitoring
+# Monitoring
 
 Last updated: 2026-06-25
 
@@ -15,7 +15,7 @@ See additional information in the *data model review documentation*:
 
 See additional information in the *data model review documentation*:
 
-* {ref}`heading_wfd_monitoring_4th_cycle`.
+* {ref}`heading_wfd_monitoring_4th_cycle`
 
 (heading_wfd_monitoring_monitoringprogrammes_table_testing_phase)=
 ### MonitoringProgrammes table
@@ -44,7 +44,7 @@ See additional information in the *data model review documentation*:
 (heading_wfd_monitoring_monitoringsite_table_testing_phase)=
 ### MonitoringSite spatial table
 
-```{include} tables/Monitoring_MonitoringSite
+```{include} tables/Spatial_MonitoringSite
 ```
 
 ## Documents dataset

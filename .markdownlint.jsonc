@@ -1,6 +1,7 @@
 // Example markdownlint configuration with all properties set to their default value
 // https://github.com/DavidAnson/markdownlint/blob/v0.40.0/schema/.markdownlint.jsonc
 // My changes:
+//  MD004 sublist
 //  MD013 line length <= 100
 //  MD022 blanks lines above heading = 0
 //  MD034 disabled
@@ -24,7 +25,7 @@
   // MD004/ul-style : Unordered list style : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md004.md
   "MD004": {
     // List style
-    "style": "consistent"
+    "style": "sublist"
   },
   // MD005/list-indent : Inconsistent indentation for list items at the same level : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md005.md
   "MD005": true,

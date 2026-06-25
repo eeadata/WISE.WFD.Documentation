@@ -6,7 +6,7 @@
 
 * - Attribute
   - Type
-  - {abbr}`m (multiplicity)`
+  - {abbr}`M (Multiplicity)`
   - Definition
 
 * - euCACode
@@ -28,8 +28,7 @@
 * - competentAuthorityNameNLLanguage 
   - {term}`Language`
   - [1]  
-  - Language used for reporting the name of the Competent Authority 
-    in a national language.
+  - Language used for reporting the `competentAuthorityNameNL` value.
 
 * - acronym 
   - {term}`string`100 
@@ -39,13 +38,13 @@
 * - street 
   - {term}`string`100 
   - [1]
-  - Street name where Competent Authority is located in latin characters.  
+  - Street name where the Competent Authority is located.  
     Only Latin characters are allowed.
 
 * - city 
   - {term}`string`100 
   - [1]
-  - City where Competent Authority is located in latin characters. 
+  - City where the Competent Authority is located. 
     Only Latin characters are allowed.
 
 * - country 
@@ -64,3 +63,4 @@
   - {term}`URL`
   - [1]
   - Website address of the Competent Authority.  
+```

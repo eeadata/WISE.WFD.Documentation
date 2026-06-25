@@ -60,14 +60,50 @@ URL
     Validate using REGEX pattern.
 
 Attachment
-    File (typically a PDF) uploaded directly in Reportnet3.
+    File uploaded directly into Reportnet3.
+    The file can have a maximum of 100 MB. 
+    The valid filename extensions are 
+    'pdf' (Portable Document Format),'xlsx' (Excel) or 'docx' (Word).
+    In a WISE dataflow, files are always uploaded 
+    to the `documentFile` attribute of the `Document` table.
 
-geometry
-    A geometry object represents points, curves, and surfaces in coordinate space. 
-    {footcite}`GeoJSON`
+Point
+    A Point is a 0-dimensional geometry that represents a single location in coordinate space.
+    A Point has an x-coordinate value, a y-coordinate value.
+    {footcite}`postgis-OGCGeometry`
+    {footcite}`GeoJSON`  
+    In the **WISE** spatial datasets, a valid point does not have a z-coordinate value.
 
-point
-    A {term}`geometry` object representin a bidimensional location in space. 
+MultiPoint
+    A MultiPoint is a collection of Points.
+    {footcite}`postgis-OGCGeometry`
+    {footcite}`GeoJSON`  
+
+LineString
+    A LineString is a 1-dimensional line formed by a contiguous sequence of line segments. 
+    Each line segment is defined by two {term}`Point`,
+    with the end point of one segment forming the start point of the next segment.
+    {footcite}`postgis-OGCGeometry`
+    {footcite}`GeoJSON`  
+    In the **WISE** spatial datasets, a valid LineString is **simple** 
+    (does not have self-intersections), 
+    does not have zero-legth line segments, and has 1 or more line segments.
+
+MultiLineString
+    A MultiLineString is a collection of {term}`LineString`.
+    {footcite}`postgis-OGCGeometry`
+    {footcite}`GeoJSON`  
+
+Polygon
+    A Polygon is a 2-dimensional planar region, delimited by an exterior boundary (the shell) 
+    and zero or more interior boundaries (holes). Each boundary is a LinearRing (a closed simple {term}`LineString`).
+    {footcite}`postgis-OGCGeometry`
+    {footcite}`GeoJSON`  
+
+MultiPolygon
+    A MultiPolygon is a collection of non-overlapping, non-adjacent {term}`Polygon`. 
+    Polygons in the collection may touch only at a finite number of points.
+    {footcite}`postgis-OGCGeometry`
     {footcite}`GeoJSON`
 
 AquiferMediaTypeValue
@@ -136,6 +172,9 @@ Language
     WISE dataflows use a subset of the ISO 639-2 alpha-3 code 
     for the representation of names of languages {footcite}`iso639-2`
 
+LegislationLevelValue
+    Value from the `LegislationLevelValue` controlled list of values.
+
 Licence
     Value from the `Licence` controlled list of values.  
     Because all WFD datasets fall under the HVD regulation 
@@ -203,6 +242,9 @@ ReservoirType
 Role
     Value from the `Role` controlled list of values. 
 
+SpecialisedZoneType
+    Value from the `SpecialisedZoneType` controlled list of values. 
+
 UnitOfMeasure
     Value from the `UnitOfMeasure` controlled list of values. 
 
@@ -241,6 +283,9 @@ YesNoUnknownNotApplicableNotAssessed
 
 YesNoUnknownNotAssessed
     Value from the `YesNoUnknownNotAssessed` controlled list of values.  
+
+ZoneType
+    Value from the `ZoneType` controlled list of values.  
 
 ```
 
