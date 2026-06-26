@@ -10,7 +10,7 @@
   - Definition {footcite}`inspire_feature_catalogue`
 
 * - geometry_polygon
-  - {term}`multipolygon`
+  - {term}`MultiPolygon`
   - [1]
   - The geometry representing the spatial extent of the spatial object.
 

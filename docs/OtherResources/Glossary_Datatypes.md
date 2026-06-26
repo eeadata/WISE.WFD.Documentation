@@ -87,7 +87,7 @@ LineString
     {footcite}`GeoJSON`  
     In the **WISE** spatial datasets, a valid LineString is **simple** 
     (does not have self-intersections), 
-    does not have zero-legth line segments, and has 1 or more line segments.
+    does not have zero-length line segments, and has 1 or more line segments.
 
 MultiLineString
     A MultiLineString is a collection of {term}`LineString`.

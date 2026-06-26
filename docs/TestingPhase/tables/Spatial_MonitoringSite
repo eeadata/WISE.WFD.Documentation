@@ -10,7 +10,7 @@
   - Definition {footcite}`inspire_feature_catalogue` 
 
 * - geometry_point
-  - {term}`point`
+  - {term}`MultiPoint`
   - [1]
   - **WISE**: The location of the site must be reported using a representative point
     (this also applies to trawl sampling).

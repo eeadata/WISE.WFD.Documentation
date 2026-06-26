@@ -14,6 +14,9 @@ ISNULL
 lightyellow
 linenos
 numref
+postgis
+Postgre
 Reportnet3
 SDMX
+skos
 toctree
