@@ -26,20 +26,6 @@ class SWManagementObjectives {
   + waterResourcePlansReference: referenceCode [1..n]
 }
 
-class SWTargetedQuestions{
-  + euRBDCode: wiseIdentifier
-  + gepApproachRW: GEPApproach
-  + bqeForMEPGEPRW: BiologicalQualityElement [0..n]
-  + gepApproachLW: GEPApproach
-  + bqeForMEPGEPLW: BiologicalQualityElement [0..n]
-  + gepApproachTW: GEPApproach
-  + bqeForMEPGEPTW: BiologicalQualityElement [0..n]
-  + gepApproachCW: GEPApproach
-  + bqeForMEPGEPCW: BiologicalQualityElement [0..n]
-  + ecologicalStatusMethodReference: referenceCode [1..n]
-  + gepMethodReference: referenceCode [1..n]
-}
-
 class SWChemicalStatusClassification {
   + euRBDCode: wiseIdentifier
   + limitOfQuantification: YesNo
@@ -52,16 +38,6 @@ class SWChemicalStatusClassification {
   + mixingZoneMethodology: YesNo
   + alternativeMixingZoneMethodologyReference: referenceCode [0..n]
   + mixingZoneMeasure: MixingZoneMeasure [0..n]
-}
-
-class GEPApproach {
-<<enumeration>>
-cisGuidanceApproach
-mitigationMeasuresPragueApproachWithBQE
-mitigationMeasuresPragueApproachWithoutBQE
-hybridCISPragueApproach
-sameAssessmentAsNaturalWB
-gepHasNotBeenDefined
 }
 
 class MixingZoneMeasure{
@@ -79,11 +55,8 @@ yes
 no
 RBMP}
 
-SWTargetedQuestions ..> MitigationMeasure: mitigationMeasure
-SWTargetedQuestions ..> GEPApproach: gepApproach
 SWChemicalStatusClassification ..> MixingZoneMeasure: mixingZoneMeasure
 SWManagementObjectives ..> YesNoRBMP: waterResourcePlans
-
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
