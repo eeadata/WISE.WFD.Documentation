@@ -31,14 +31,14 @@ The schema used in the 3rd cycle of reporting contained 4 main groups
 ({numref}`Measures_RBMPPoM_2022_ClassDiagram`):
 
 * summary information about the **River Basin Management Plan**,
-  the **Progress** since the previous River Basin Management Plan,
+  the `Progress` since the previous River Basin Management Plan,
   and the mechanisms of international **Coordination** (if applicable)
 
 * information about the **Programme of Measures**,
   comprising a summary questionnaire of **Targeted Questions**
   and aggregated data about the overall **Cost** of measures  
 
-* disaggregated information was requested about each **Measure**
+* disaggregated information was requested about each `Measure`
   and its classification into **Key Types of Measures** (KTM)
   and basic type of measures (if applicable)
 
@@ -55,16 +55,16 @@ River Basin Management Plan & Programme of Measures - 3rd cycle
 
 ## Proposed structure - 4th cycle
 
-* The RBMP and Coordination tables are simplified to a single **RiverBasinManagementPlan** table,
+* The RBMP and Coordination tables are simplified to a single `RiverBasinManagementPlan` table,
   containing a selected subset of attributes.  
-  The **Progress** table is modified to request only aggregated information
+  The `Progress` table is modified to request only aggregated information
   about the overall status of the measures of the previous cycle (3rd cycle).
 
 * The reporting of the Programme of Measures is also simplified.
-  The **TargetedQuestions** table, containing the questionnaire at RBD level, is simplified.  
+  The `TargetedQuestions` table, containing the questionnaire at RBD level, is simplified.  
 
-* Information about measures is requested in a single **Measure** table.
-  Information about the planned **ExpenditurePerMeasure** is reported in a separate table, if
+* Information about measures is requested in a single `Measure` table.
+  Information about the planned `ExpenditurePerMeasure` is reported in a separate table, if
   data is available.
   
 * The KTM classification, KTM indicators and indicator gaps data is completely removed.
@@ -72,8 +72,8 @@ River Basin Management Plan & Programme of Measures - 3rd cycle
 ## River basin management plan, coordination and progress - 3rd cycle
 
 In the 3rd cycle of reporting, this group comprised three tables, collecting summary information
-about the RBMP, the progress since the previous RBMP, and the mechanisms of international
-coordination, if applicable ({numref}`RBDCA_RBDSUCA_2022_Partial_ClassDiagram`).
+about the **RBMP**, the **Progress** since the previous **RBMP**, and the mechanisms of international
+**Coordination**, if applicable ({numref}`RBDCA_RBDSUCA_2022_Partial_ClassDiagram`).
 
 The data is structured as a simple questionnaire, mostly with Yes/No or multiple‑choice answers,
 accompanied by links to additional documentation (which can be uploaded or kept on national
@@ -94,7 +94,7 @@ River Basin Management Plan, international Coordination and Progress since the p
 ## RiverBasinManagementPlan table – 4th cycle
 
 The simplified `RiverBasinManagementPlan` table contains a subset of the data previously requested
-in the RBMP and Coordination classes in the 3rd cycle
+in the **RBMP** and **Coordination** classes in the 3rd cycle
 ({numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`):
 
 * The new `coordinationNRRReference` attribute allows the reporting of information related to
@@ -127,7 +127,7 @@ The level of detail can be adapted depending on the needs and the data available
 ```
 
 A numerical example illustrates the proposed approach.
-Consider a hypothetical 3rd RBMP Programme of Measures with 10 different measures,
+Consider a hypothetical 3rd **RBMP** **Programme of Measures** with 10 different measures,
 which are in different statuses and may have faced different obstacles
 ({numref}`measures_example_ten_measures`).
 
@@ -153,7 +153,7 @@ which are in different statuses and may have faced different obstacles
 The example in {numref}`measures_example_progress` illustrates how to synthesize the information in
 the Progress table.
 
-```{table} Illustrative example - **Progress** table records for the example in the previous table.
+```{table} Illustrative example - `Progress` table records for the example in the previous table.
 :name: measures_example_progress
 :width: 100%
 
@@ -219,7 +219,7 @@ For each measure:
 
 ### Measure table – 4th cycle - measureType
 
-The **measureType** typology is described in {numref}`Codelist_4thCycle_MeasureType_Table`.
+The `measureType` typology is described in {numref}`Codelist_4thCycle_MeasureType_Table`.
 
 ```{include} tables/Codelist_4thCycle_MeasureType_Table
 ```
@@ -249,7 +249,7 @@ is now eliminated because it did not convey relevant information.
 
 ### mainKeyTypeOfMeasure
 
-The **mainKeyTypeOfMeasure** attribute contains the classification to be used for both basic and
+The `mainKeyTypeOfMeasure` attribute contains the classification to be used for both basic and
 supplementary measures (see {numref}`Measures_MainKeyTypeOfMeasure_ListTable`).
 It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure
 classifications used in the 2nd and 3rd cycles.
@@ -271,46 +271,46 @@ at the adequate level of detail (e.g. a generic measure may address **P2 – Dif
 a more targeted measure may address only **P2‑5 – Diffuse – Contaminated sites or abandoned
 industrial sites**).
 
-The **mainPressureType** attribute allows more clarity and flexibility and can be applied to
+The `mainPressureType` attribute allows more clarity and flexibility and can be applied to
 supplementary measures too.
 The **mainPressureType** attribute is optional, except for measures of type **G** and **H**.
 For measures of type G and H, the Commission requires additional information to differentiate
 measures addressing issues related to Urban Waste Water (**P1‑1**) and diffuse pollution from
 Agriculture (**P2‑2**).
 
-*If needed and applicable*, a similar approach can be used for **mainSubstanceType**, allowing MS
+*If needed and applicable*, a similar approach can be used for `mainSubstanceType`, allowing MS
 to identify measures targeting specific substances or groups of substances.
 
 ### Measure table – 4th cycle - geographicalCoverage
 
-The geographical scope of a measure is specified in the **geographicalCoverage** attribute, by
+The geographical scope of a measure is specified in the `geographicalCoverage` attribute, by
 selecting the most appropriate option: {'national' | 'riverBasinDistrict' | 'waterBody' |
 'protectedArea'}
 
-The option **geographicalCoverage = 'national'** should be used for measures that target any
+The option `geographicalCoverage` = 'national' should be used for measures that target any
 waterbody affected by a given significant pressure or substance failing.
-Similarly, the option **geographicalCoverage = 'riverBasinDistrict'** should be used for measures
+Similarly, the option `geographicalCoverage` = 'riverBasinDistrict' should be used for measures
 that target any waterbody affected by a given significant pressure or substance failing within the
 RBDs indicated in the **euRBDCode** attribute.
   
 If appropriate and necessary, it is possible to specify that a measure only applies to a specific
-category of waterbodies, using the optional **waterCategory** attribute.
+category of waterbodies, using the optional `waterCategory` attribute.
 
 If appropriate and necessary, it is possible to specify that a measure only applies to a specific
-type of WFD protected area, using the optional **protectedAreaType** attribute.
+type of WFD protected area, using the optional `protectedAreaType` attribute.
 
-The option **geographicalCoverage = 'waterBody'** should be reserved for measures that target
+The option `geographicalCoverage` = 'waterBody' should be reserved for measures that target
 specific water bodies (for example, a given river, or a set of lakes).
-The option **geographicalCoverage = 'protectedArea'** should be reserved for measures that target
+The option `geographicalCoverage` = 'protectedArea' should be reserved for measures that target
 specific protected areas (for example, a set of bathing waters or a specific UWWTD sensitive area).
 In these cases, it is not requested to individually identify the waterbodies or protected areas.
 
 ### Measure table – 4th cycle - implementationPeriod and implementationStatus
 
-The temporal scope of a measure is provided in the **implementationPeriod** – the range of years
+The temporal scope of a measure is provided in the `implementationPeriod` – the range of years
 indicated is used to check the reporting of information related to expenditures (e.g. if a measure
 is yet to start, then no past expenditures exist).
-The **implementationStatus** attribute allows the distinction between planned and ongoing measures
+The `implementationStatus` attribute allows the distinction between planned and ongoing measures
 – and may also be used for measures planned for the 3rd cycle but already executed or cancelled by
 the end of 2027.
 
@@ -321,29 +321,29 @@ CIS Working Group Economics ([^pArnoldus]) quoted below:
 
 “[…] Both the Commission’s 6th and 7th WFD Implementation Reports indicate persistent problems in
 the (electronic) reporting on the investments and the costs of other measures in the Programme of
-Measures (PoM).
+Measures (**PoM**).
 
 The 6th WFD Implementation Report notes that the Member States’ reporting on costs and financing of
-the PoMs appears overall patchy and that a consultant’s study estimate is an underestimation for the
+the **PoMs** appears overall patchy and that a consultant’s study estimate is an underestimation for the
 total costs, as there are significant data gaps and it excludes operational and infrastructure
 maintenance costs. The corresponding investment overview table shows indeed large gaps
 ([^6thWFDImplReport]) .
 
 The Commission’s evaluation of the 3rd River Basin Management Plans ([^7thWFDImplReport]), as part
-of the 7th WFD Implementation Report, notes that the “third PoMs presented in the (…) RBMPs show
+of the 7th WFD Implementation Report, notes that the “third **PoMs** presented in the (…) RBMPs show
 that Member States continue to have different approaches to their design and reporting” and that
 “the costs and the financing of the planned measures are often missing.” Hence, the Commission
-recommends that “in order to effectively implement the PoMs to develop long‑term investment plans
+recommends that “in order to effectively implement the **PoMs** to develop long‑term investment plans
 and clearly identifying the source of financing for each measure.” A good planning is also necessary
 for the acquisition of support from EU Funds, the EIB and other promotional banks.
 
-*The challenge is thus to improve the reporting of the costs of the PoM measures, including the
+*The challenge is thus to improve the reporting of the costs of the **PoM** measures, including the
 investment amounts*, and to specify the funding of these investments and other measures. This
 requires a clear distinction between capital costs (CAPEX) and operational costs (OPEX). […]
 
-The proposal here is to agree on a clear conceptual basis for the PoM costs.
+The proposal here is to agree on a clear conceptual basis for the **PoM** costs.
 
-It is natural to consider the PoM as a **budget of government outlays** – however, there can be
+It is natural to consider the **PoM** as a **budget of government outlays** – however, there can be
 costs on other economic agents without government payment involved (cf. banning an activity).
 
 The budget orientation would imply to look at foreseen **spending amounts**. This has three
@@ -356,7 +356,7 @@ consequences:
 * To make the link with financial support from EU Funds, EIB and other promotional banks, one
   needs to distinguish OPEX and CAPEX when reporting investment cost.
 
-There is a readily available conceptual basis for the reporting on the PoM investment and other
+There is a readily available conceptual basis for the reporting on the **PoM** investment and other
 costs, with which the Member States are already familiar, namely the **environmental protection
 expenditures**. They are namely required to collect and report this data annually to Eurostat
 ([^Obligation]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one
@@ -368,7 +368,7 @@ in the three bullets points above.
 
 A brief review of the reported data confirms the issues mentioned above.
 
-In the **3rd cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class
+In the **3rd cycle** of reporting, the overall cost of the **PoM** was reported in the **Costs** class
 ({numref}`MeasuresCosts`). Reporting of costs was, de facto, optional –
 since all numerical attributes admitted the option **–9999** to denote “data not available”.
 
@@ -421,16 +421,16 @@ geographical coverage.
 
 ### ExpenditurePerMeasurePerSector table – 4th cycle
 
-Figure 12 illustrates the ExpenditurePerMeasurePerSector table proposed for the 4th cycle.
+Figure 12 illustrates the `ExpenditurePerMeasurePerSector` table proposed for the 4th cycle.
 
-The data is reported for each measure, *if it is available*: the **measureCode** identifier and the
-**expenditureDataAvailable** attribute are the only mandatory attributes.
+The data is reported for each measure, *if it is available*: the `measureCode` identifier and the
+`expenditureDataAvailable` attribute are the only mandatory attributes.
 
-The geographical scope of the measure is inherited from the parent record in the **Measure** table
+The geographical scope of the measure is inherited from the parent record in the `Measure` table
 and does not need to be reported again. Likewise, the temporal scope is inherited from the parent
 records and can be used to verify the reported data ([^ErrorExplained]).
 
-The attribute **millionUnitsOfNationalCurrency** was introduced to facilitate reporting by MS
+The attribute `millionUnitsOfNationalCurrency` was introduced to facilitate reporting by MS
 outside the Euro area, in alignment with common statistical practices ([^DataReportedCurrency]). It
 also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
 
@@ -443,7 +443,7 @@ also facilitates human analysis, namely the cross‑checking against the RBMP do
 A clear separation is made between **capital** expenditure vs. **current** expenditure and between
 the 3rd cycle and the 4th cycle data. Only total values are requested.
 
-The **institutionalSector** attribute identifies the institutional sector doing the outlay. This
+The `institutionalSector` attribute identifies the institutional sector doing the outlay. This
 aspect is explained below.
 
 The European System of Accounts (ESA 2010) has a standard classification of institutional sectors
@@ -516,7 +516,7 @@ of code values (StartCode-EndCode)*
 
 It is also important to address the reporting of transfers of EU Funds.
 
-If institutionalSector = 'S.212' then the value represents a transfer of EU funds into the national
+If `institutionalSector` = 'S.212' then the value represents a transfer of EU funds into the national
 economy. Depending on the purpose, it can be a capital transfer (e.g. to build a new UWWT plant), or
 a current transfer (e.g. a CAP subsidy to pay farmers to reduce or eliminate pesticides). It is not
 necessary to identify which sector receives the transfer.
@@ -559,7 +559,7 @@ Likewise, scenario 3 and scenario 4 are identical.
 ```
 
 The Commission must provide guidance on the reporting of expenditure for measures where
-mainKeyTypeOfMeasure IN ('C - Measure to promote efficient and sustainable water use', 'E - Measure
+`mainKeyTypeOfMeasure` IN ('C - Measure to promote efficient and sustainable water use', 'E - Measure
 to control abstraction from surface and groundwater, and impoundment of surface
 water') which may be outside the scope of the EPEA.
 
@@ -584,7 +584,7 @@ Measure, to analyse and aggregate the data according CEPA classes, if that is re
 
 ### Simplified classification of measures – 4th cycle
 
-This annex presents the **mainKeyTypeOfMeasure**, a simplified classification of measures that
+This annex presents the `mainKeyTypeOfMeasure`, a simplified classification of measures that
 consolidates and replaces the **basicMeasureType** and the **keyTypeOfMeasure** classifications used
 in the 3rd cycle.
 
@@ -603,10 +603,10 @@ The purpose of the simplified classification is:
 * To maintain the previous KTM that do not fit the criteria above and were reported with high
   frequency in the 3rd cycle – see codes X01, X12, X14, X23 and X24.
 
-{numref}`Measures_MappingMainKeyTypeOfMeasure_ListTable` aligns the **mainKeyTypeOfMeasure** with the
+{numref}`Measures_MappingMainKeyTypeOfMeasure_ListTable` aligns the `mainKeyTypeOfMeasure` with the
 previous separate classification
 schemes. It supports MS in the migration to the single simplified codelist to be used in the
-**mainKeyTypeOfMeasure** attribute in the 4th cycle of reporting.
+`mainKeyTypeOfMeasure` attribute in the 4th cycle of reporting.
 
 The proposed classification is provisional and can be reviewed by MS to detect potential issues and
 clarify the scope of the definitions.
