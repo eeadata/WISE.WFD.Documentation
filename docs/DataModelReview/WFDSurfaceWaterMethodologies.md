@@ -6,8 +6,12 @@ Last update: 2026-06-26
 ```{Warning}
 Public Version - Pending Discussion
 
-The {ref}`heading_wfd_surface_water_methodologies_SWTargetedQuestions_4th_cycle` 
-was modified 2026-06-26.
+* The {ref}`heading_wfd_surface_water_methodologies_SWTargetedQuestions_4th_cycle` 
+  was modified 2026-06-26.
+
+* The {ref}`heading_wfd_surface_water_methodologies_QE3Classification_4th_cycle`
+  was modified 2026-06-26.
+
 ```
 
 (heading_wfd_surface_water_methodologies_purpose_and_overview)=
@@ -202,7 +206,7 @@ is presented in this section.
 The `SWMethodologies`, `SWManagementObjectives` and `SWChemicalStatusClassification`
 tables have a structure similar to the corresponding classes
 in the 3rd cycle reporting, minus the attributes removed by the Commission's review.
-See {numref}`SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWTargetedQuestions_SWChemicalStatusClassification_ClassDiagram`.
+See {numref}`SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWChemicalStatusClassification_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWChemicalStatusClassification_ClassDiagram.mmd
 :name: SurfaceWaterMethodologies_4thCycle_SWMethodologies_SWManagementObjectives_SWChemicalStatusClassification_ClassDiagram
@@ -280,14 +284,16 @@ The associations between the `SWThresholdValue` table and other tables are depic
 :caption: Surface water methodologies - SWThresholdValue associations with other tables - 4th cycle.
 ```
 
+(heading_wfd_surface_water_methodologies_QE3Classification_4th_cycle)=
 ### QE3Classification table
 
 The reporting of thresholds and class boundaries for physico-chemical quality elements
 requires a new `QE3Classification` table
 (see {numref}`SurfaceWaterMethodologies_4thCycle_QE3Classification_ClassDiagram`).
 
-The classes 'poor' and 'bad' status are not defined for physico-chemical quality elements.
-But, if required, it is possible to add optional attributes for these classes.
+Formally, the classes 'poor' and 'bad' status are not defined for physico-chemical quality elements.
+The optional attributes `classPoor` and `classBad` allow the reporting of the classification ranges
+for those classes.
 
 The associations between the `QE3Classification` table and other tables are depicted in
 {numref}`SurfaceWaterMethodologies_4thCycle_QE3Classification_Associations_ClassDiagram`.
@@ -412,5 +418,4 @@ Surface water methodologies - {ref}`heading_wfd_surface_water_methodologies_docu
 (heading_wfd_wfd_surface_water_methodologies_references)=
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
+
