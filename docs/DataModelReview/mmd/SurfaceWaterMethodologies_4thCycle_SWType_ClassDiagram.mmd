@@ -9,15 +9,15 @@ classDiagram
 direction TB
 
 class SWType{
-    + swTypeIdentifier : wiseIdentifier
-    + surfaceWaterBodyCategory : WaterBodyCategory
-    + naturalAWBHMWB : NaturalAWBHMWB
-    + swIntercalibrationType : IntercalibrationType [1..n]
-    + swTypeCode : string100
-    + swTypeDescription : string
-    + swTypeDescriptionLanguage : Language
+    + swTypeIdentifier: wiseIdentifier
+    + surfaceWaterBodyCategory: WaterBodyCategory
+    + naturalAWBHMWB: NaturalAWBHMWB
+    + swIntercalibrationType: IntercalibrationType [1..n]
+    + swTypeCode: string100
+    + swTypeDescription: string
+    + swTypeDescriptionLanguage: Language
 
-    + swTypeReference : referenceCode [0..n]
+    + swTypeReference: referenceCode [0..n]
 }
 
 class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{ 
@@ -26,8 +26,8 @@ class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{
 class SWPollutant["SurfaceWaterDataset::SWPollutant"]:::partial{ 
 }
 
-SWQualityElement ..> QE1Classification : qeClassificationIdentifier
-SWQualityElement ..> QE3Classification : qeClassificationIdentifier
+SWQualityElement ..> QE1Classification: qeClassificationIdentifier
+SWQualityElement ..> QE3Classification: qeClassificationIdentifier
 
 
 QE1Classification -- "0..n" QEClassification_SWType
@@ -35,7 +35,7 @@ QE3Classification -- "0..n" QEClassification_SWType
 QEClassification_SWType "0..n" -- SWType 
 
 
-SWPollutant ..> SWThresholdValue : swThresholdIdentifier
+SWPollutant ..> SWThresholdValue: swThresholdIdentifier
 SWThresholdValue -- "0..n" SWThreshold_SWType 
 SWThreshold_SWType "0..n" -- SWType
 SWType "1" -- "1..n" SWNaturalBackgroundLevel

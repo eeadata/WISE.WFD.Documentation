@@ -9,7 +9,7 @@ classDiagram
 direction TB
 
 class SWType {
-  + swTypeIdentifier : wiseIdentifier
+  + swTypeIdentifier: wiseIdentifier
 }
 
 class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
@@ -20,24 +20,24 @@ class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
 }
 
 class SWThresholdValue{
-  + swThresholdIdentifier : wiseIdentifier
-  + parameterCode : Parameter
+  + swThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
 }
 
 class SWThreshold_SWType{
-  + swThresholdIdentifier : wiseIdentifier
-  + swTypeIdentifier : wiseIdentifier
+  + swThresholdIdentifier: wiseIdentifier
+  + swTypeIdentifier: wiseIdentifier
 }
 
 class SWNaturalBackgroundLevel{
-  + swTypeIdentifier : wiseIdentifier
-  + parameterCode : Parameter
-  + parameterValue : range  
-  + parameterUnit : UnitOfMeasure
+  + swTypeIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + parameterValue: range  
+  + parameterUnit: UnitOfMeasure
 }
 
-SWPollutant ..> SWThresholdValue : swThresholdIdentifier
-SWPollutant ..> SWThresholdValue : swThresholdExceedance
+SWPollutant ..> SWThresholdValue: swThresholdIdentifier
+SWPollutant ..> SWThresholdValue: swThresholdExceedance
 SWThresholdValue "1" -- "0..n" SWThreshold_SWType 
 SWThreshold_SWType "0..n" -- "1" SWType 
 SWType "1" -- "1..n" SWNaturalBackgroundLevel

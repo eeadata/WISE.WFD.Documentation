@@ -9,7 +9,7 @@ classDiagram
 direction TB
 
 class GWType {
-  + gwTypeIdentifier : wiseIdentifier
+  + gwTypeIdentifier: wiseIdentifier
 }
 
 class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
@@ -19,26 +19,26 @@ class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
 }
 
 class GWThresholdValue{
-  + gwThresholdIdentifier : wiseIdentifier
-  + parameterCode : Parameter
-  + thresholdValueRange : range 
-  + thresholdValueUnit : UnitOfMeasure 
-  + naturalBackgroundLevelSet : YesNoNotApplicable
-  + startingPointTrendReversal : range [0..1]
+  + gwThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + thresholdValueRange: range 
+  + thresholdValueUnit: UnitOfMeasure 
+  + naturalBackgroundLevelSet: YesNoNotApplicable
+  + startingPointTrendReversal: range [0..1]
   «reference»
-  + gwThresholdReference : referenceCode [0..n]
+  + gwThresholdReference: referenceCode [0..n]
 }
 
 class GWThreshold_GWType{
-  + gwThresholdIdentifier : wiseIdentifier
-  + gwTypeIdentifier : wiseIdentifier
+  + gwThresholdIdentifier: wiseIdentifier
+  + gwTypeIdentifier: wiseIdentifier
 }
 
 class GWNaturalBackgroundLevel{
-  + gwTypeIdentifier : wiseIdentifier
-  + parameterCode : Parameter
-  + parameterValue : range  
-  + parameterUnit : UnitOfMeasure
+  + gwTypeIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + parameterValue: range  
+  + parameterUnit: UnitOfMeasure
 }
 
 GWPollutant ..> GWThresholdValue 

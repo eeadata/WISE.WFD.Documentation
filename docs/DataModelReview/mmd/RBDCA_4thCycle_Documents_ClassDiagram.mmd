@@ -11,27 +11,27 @@ direction LR
 class dcMetadata {
 
 «metadata»
-  + title : string
-  + creatorOrganisationName : string
-  + creatorElectronicMailAddress : Email
-  + description : string [0..1]
-  + created : date [0..1]
-  + language : Language [1..n]
-  + license : Licence
-  + rights : string [0..1]
-  + rightsHolder : string [0..1]
-  + licenseDocument : documentCode [0..n]
-  + metadataDocument : documentCode [0..n]
+  + title: string
+  + creatorOrganisationName: string
+  + creatorElectronicMailAddress: Email
+  + description: string [0..1]
+  + created: date [0..1]
+  + language: Language [1..n]
+  + license: Licence
+  + rights: string [0..1]
+  + rightsHolder: string [0..1]
+  + licenseDocument: documentCode [0..n]
+  + metadataDocument: documentCode [0..n]
 
   «data-delivery-manifest»
-  + updateCompetentAuthorities : YesNo
-  + updateSpatialData : YesNo
+  + updateCompetentAuthorities: YesNo
+  + updateSpatialData: YesNo
 }
 class Document {
-  + documentCode : wiseIdentifier
-  + documentName : string250
-  + hyperlink : URL [0..1]
-  + documentFile : Attachment [0..1]
+  + documentCode: wiseIdentifier
+  + documentName: string250
+  + hyperlink: URL [0..1]
+  + documentFile: Attachment [0..1]
 }
 
 class Licence{
@@ -42,9 +42,9 @@ class Licence{
   narrowMatch_CC_BY_4_0
 }
 
-dcMetadata ..> Document : licenseDocument
-dcMetadata ..> Document : metadataDocument
-dcMetadata ..> Licence : license
+dcMetadata ..> Document: licenseDocument
+dcMetadata ..> Document: metadataDocument
+dcMetadata ..> Licence: license
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

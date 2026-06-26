@@ -9,62 +9,62 @@ classDiagram
 direction TB
 
 class SurfaceWaterBody {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + surfaceWaterBodyCategory : WaterBodyCategory
-    + naturalAWBHMWB : NaturalAWBHMWB
-    + swIntercalibrationType : IntercalibrationType [1..n]
-    + swTypeIdentifier : wiseIdentifier
-    + surfaceWaterBodyTransboundary : YesNo
-    + reservoir : ReservoirType
-    + swMixingZonesProportion : PercentageInterval
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + surfaceWaterBodyCategory: WaterBodyCategory
+    + naturalAWBHMWB: NaturalAWBHMWB
+    + swIntercalibrationType: IntercalibrationType [1..n]
+    + swTypeIdentifier: wiseIdentifier
+    + surfaceWaterBodyTransboundary: YesNo
+    + reservoir: ReservoirType
+    + swMixingZonesProportion: PercentageInterval
 }
 
 class SWStatus {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + swEcologicalStatusOrPotentialValue : EcologicalStatus
-    + swChemicalStatusValue : ChemicalStatus
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swEcologicalStatusOrPotentialValue: EcologicalStatus
+    + swChemicalStatusValue: ChemicalStatus
 }
 
 class SWPollutant {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + swPollutantCode : Parameter
-    + swPollutantCausingFailure : YesNoUnknown
-    + swThresholdExceedance : wiseIdentifier [0..n]
-    + swPollutantExceedanceInMixingZone : YesNoUnknownNotApplicable
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swPollutantCode: Parameter
+    + swPollutantCausingFailure: YesNoUnknown
+    + swThresholdExceedance: wiseIdentifier [0..n]
+    + swPollutantExceedanceInMixingZone: YesNoUnknownNotApplicable
     
-    + swPollutantAssessmentPeriod : range
-    + swPollutantAssessmentMethod : AssessmentMethod [1..n]
-    + swPollutantAssessmentConfidence : AssessmentConfidence
+    + swPollutantAssessmentPeriod: range
+    + swPollutantAssessmentMethod: AssessmentMethod [1..n]
+    + swPollutantAssessmentConfidence: AssessmentConfidence
 
-    + swThresholdIdentifier : wiseIdentifier [1..n]
-    + swGroupingIdentifier : wiseIdentifier [0..n]
+    + swThresholdIdentifier: wiseIdentifier [1..n]
+    + swGroupingIdentifier: wiseIdentifier [0..n]
 }
 
 class SWPressureImpact {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + swPressureType : PressureType [0..1]
-    + swImpactType : ImpactType  [0..1]
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swPressureType: PressureType [0..1]
+    + swImpactType: ImpactType  [0..1]
 }
 
 class SWHeavilyModifiedWaterBody {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + hmwbPhysicalAlteration : HMWBPhysicalAlteration [0..n]
-    + hmwbWaterUse : HMWBWaterUse [0..n]
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + hmwbPhysicalAlteration: HMWBPhysicalAlteration [0..n]
+    + hmwbWaterUse: HMWBWaterUse [0..n]
 }
 
 class SWQualityElement{
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + qeCode : QualityElement
-    + qeStatusOrPotentialValue : EcologicalStatus
-    + qeStatusAssessmentPeriod : range
-    + qeStatusAssessmentMethod : AssessmentMethod [1..n]
-    + qeStatusAssessmentConfidence : AssessmentConfidence
-    + qeClassificationIdentifier : wiseIdentifier [1..n]
-    + swGroupingIdentifier : wiseIdentifier [0..n]
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + qeCode: QualityElement
+    + qeStatusOrPotentialValue: EcologicalStatus
+    + qeStatusAssessmentPeriod: range
+    + qeStatusAssessmentMethod: AssessmentMethod [1..n]
+    + qeStatusAssessmentConfidence: AssessmentConfidence
+    + qeClassificationIdentifier: wiseIdentifier [1..n]
+    + swGroupingIdentifier: wiseIdentifier [0..n]
 }
 class SWGrouping{
-    + swGroupingIdentifier : wiseIdentifier
-    + euSurfaceWaterBodyCode : wiseIdentifier
+    + swGroupingIdentifier: wiseIdentifier
+    + euSurfaceWaterBodyCode: wiseIdentifier
 }
 
 SWHeavilyModifiedWaterBody "0..n" -- "1" SurfaceWaterBody 
@@ -73,8 +73,8 @@ SWStatus "1" -- "0..n" SWQualityElement
 SWStatus "1" -- "0..n" SWPressureImpact
 SWStatus "1" -- "0..n" SWPollutant
 
-SWQualityElement ..> SWGrouping : swGroupingIdentifier
-SWPollutant ..> SWGrouping : swGroupingIdentifier
+SWQualityElement ..> SWGrouping: swGroupingIdentifier
+SWPollutant ..> SWGrouping: swGroupingIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

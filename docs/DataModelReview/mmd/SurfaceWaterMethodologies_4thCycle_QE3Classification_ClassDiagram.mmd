@@ -9,18 +9,18 @@ classDiagram
 direction LR
 
 class QE3Classification{
-+ qeClassificationIdentifier : wiseIdentifier
-+ qeCode : PhysicoChemicalQualityElement
-+ parameterCode : Parameter
-+ parameterUnit : UnitOfMeasure
-+ standardType : StandardType
-+ classHighOrMax : range
-+ classGood : range
-+ classModerate : range
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: PhysicoChemicalQualityElement
++ parameterCode: Parameter
++ parameterUnit: UnitOfMeasure
++ standardType: StandardType
++ classHighOrMax: range
++ classGood: range
++ classModerate: range
 
 «scope-and-references»
-+ naturalBackgroundLevelSet : YesNoNotApplicable
-+ qeClassificationReference : referenceCode [0..n]
++ naturalBackgroundLevelSet: YesNoNotApplicable
++ qeClassificationReference: referenceCode [0..n]
 }
 
 

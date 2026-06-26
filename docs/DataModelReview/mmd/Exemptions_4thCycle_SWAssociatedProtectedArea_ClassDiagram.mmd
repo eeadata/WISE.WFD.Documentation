@@ -7,15 +7,15 @@ config:
 ---
 classDiagram
 class SWAssociatedProtectedArea{
-	+ euSurfaceWaterBodyCode : wiseIdentifier
-	+ euProtectedAreaType : ProtectedAreaType 
-	+ euProtectedAreaCode : wiseIdentifier [0..1]
-	+ protectedAreaObjectivesSet : YesNo
-	+ protectedAreaObjectivesMet : YesNoUnknownInapplicable
-	/ exemptionType : ExemptionType [0..1]
-	+ exemptionRationale : ExemptionRationale [0..n]
-	+ exemptionPeriod : ExemptionPeriod [0..1]
-	+ exemptionReference : referenceCode [0..1]
+	+ euSurfaceWaterBodyCode: wiseIdentifier
+	+ euProtectedAreaType: ProtectedAreaType 
+	+ euProtectedAreaCode: wiseIdentifier [0..1]
+	+ protectedAreaObjectivesSet: YesNo
+	+ protectedAreaObjectivesMet: YesNoUnknownInapplicable
+	/ exemptionType: ExemptionType [0..1]
+	+ exemptionRationale: ExemptionRationale [0..n]
+	+ exemptionPeriod: ExemptionPeriod [0..1]
+	+ exemptionReference: referenceCode [0..1]
 	   } 
 
 classDef default fill:white,stroke:#000;

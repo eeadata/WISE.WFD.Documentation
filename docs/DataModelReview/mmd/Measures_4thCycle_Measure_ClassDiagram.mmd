@@ -9,31 +9,31 @@ classDiagram
 direction TB
 
 class Measure {
-    + measureCode : wiseIdentifier
-    + measureName : string
-    + measureNameLanguage : Language
-    + measureReference : referenceCode [0..1]
+    + measureCode: wiseIdentifier
+    + measureName: string
+    + measureNameLanguage: Language
+    + measureReference: referenceCode [0..1]
 
-    + measureType : MeasureType 
-    + mainLegalInstrument : LegalInstrument
-    + mainKeyTypeOfMeasure : MainKeyTypeOfMeasure
+    + measureType: MeasureType 
+    + mainLegalInstrument: LegalInstrument
+    + mainKeyTypeOfMeasure: MainKeyTypeOfMeasure
 
-    + mainPressureType : PressureType [0..1]
-    + mainSubstanceType : SubstanceType [0..1]
+    + mainPressureType: PressureType [0..1]
+    + mainSubstanceType: SubstanceType [0..1]
     
-    + msfdRelevance : YesNo
-    + floodsRelevance : YesNo
-    + natureRestorationRegulationRelevance : YesNo
-    + draughtManagementPlanRelevance : YesNo
-    + climateAdaptationPlanRelevance : YesNo
+    + msfdRelevance: YesNo
+    + floodsRelevance: YesNo
+    + natureRestorationRegulationRelevance: YesNo
+    + draughtManagementPlanRelevance: YesNo
+    + climateAdaptationPlanRelevance: YesNo
 
-    + geographicalCoverage : WFDGeographicCoverage
-    + euRBDCode : wiseIdentifier [0..n]
-    + waterCategory : WaterCategory [0..1]
-    + protectedAreaType : ProtectedAreaType [0..1]
+    + geographicalCoverage: WFDGeographicCoverage
+    + euRBDCode: wiseIdentifier [0..n]
+    + waterCategory: WaterCategory [0..1]
+    + protectedAreaType: ProtectedAreaType [0..1]
 
-    + implementationPeriod : range
-    + implementationStatus : PlannedOngoingExecutedCancelled
+    + implementationPeriod: range
+    + implementationStatus: PlannedOngoingExecutedCancelled
 }
 
 class MeasureType{

@@ -8,32 +8,32 @@ config:
 classDiagram
 direction TB
 class MonitoringSite{
-  + geometry_point : geometry_multipoint
-  + inspireIdLocalId : string254
-  + inspireIdNamespace : string254 
-  + inspireIdVersionId : string25 [0..1]
-  + thematicIdIdentifier : wiseIdentifier
-  + thematicIdIdentifierScheme : IdentifierScheme
-  + beginLifespanVersion : date [0..1]
-  + endLifespanVersion : date [0..1]
-  + supersedesIdentifier : wiseIdentifier [0..n]
-  + supersedesIdentifierScheme : IdentifierScheme [0..1]
-  + supersededByIdentifier : wiseIdentifier [0..n]
-  + supersededByIdentifierScheme : IdentifierScheme [0..1]
-  + wiseEvolutionType : WiseEvolutionType
-  + nameTextInternational : string254
-  + nameText : string254
-  + nameLanguage : Language
-  + operationalActivityPeriodBegin : date 
-  + operationalActivityPeriodEnd : date [0..1]
-  + featureOfInterestIdentifier : wiseIdentifier
-  + featureOfInterestIdentifierScheme : IdentifierScheme
-  + mediaMonitoredBiota : YesNo
-  + mediaMonitoredWater : YesNo
-  + mediaMonitoredSediment : YesNo
-  + purpose : WisePurposeOfCollectionValue [0..n]
-  + confidentialityStatus : ConfidentialityStatus
-  + link : URL [0..1]
+  + geometry_point: geometry_multipoint
+  + inspireIdLocalId: string254
+  + inspireIdNamespace: string254 
+  + inspireIdVersionId: string25 [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + beginLifespanVersion: date [0..1]
+  + endLifespanVersion: date [0..1]
+  + supersedesIdentifier: wiseIdentifier [0..n]
+  + supersedesIdentifierScheme: IdentifierScheme [0..1]
+  + supersededByIdentifier: wiseIdentifier [0..n]
+  + supersededByIdentifierScheme: IdentifierScheme [0..1]
+  + wiseEvolutionType: WiseEvolutionType
+  + nameTextInternational: string254
+  + nameText: string254
+  + nameLanguage: Language
+  + operationalActivityPeriodBegin: date 
+  + operationalActivityPeriodEnd: date [0..1]
+  + featureOfInterestIdentifier: wiseIdentifier
+  + featureOfInterestIdentifierScheme: IdentifierScheme
+  + mediaMonitoredBiota: YesNo
+  + mediaMonitoredWater: YesNo
+  + mediaMonitoredSediment: YesNo
+  + purpose: WisePurposeOfCollectionValue [0..n]
+  + confidentialityStatus: ConfidentialityStatus
+  + link: URL [0..1]
 }
 
 class ConfidentialityStatus{

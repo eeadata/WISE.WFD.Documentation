@@ -9,40 +9,40 @@ classDiagram
 direction TB
 
 class RiverBasinManagementPlan{
-+ euRBDCode :  wiseIdentifier
-+ rbmpName : string1000
++ euRBDCode:  wiseIdentifier
++ rbmpName: string1000
 
-+ rbmpTimetablePublicationDate : date 
-+ rbmpProgrammePublicationDate : date 
-+ rbmpConsultationPublicationDate : date 
-+ rbmpInterimOverviewDate : date 
-+ rbmpDraftVersionDate : date 
-+ finalRBMPPublicationDate : date 
++ rbmpTimetablePublicationDate: date 
++ rbmpProgrammePublicationDate: date 
++ rbmpConsultationPublicationDate: date 
++ rbmpInterimOverviewDate: date 
++ rbmpDraftVersionDate: date 
++ finalRBMPPublicationDate: date 
 
-+ subPlans : YesNo
-+ subPlansCoverage : SubPlansCoverage [0..1]
-+ subPlansReference : referenceCode [0..n]
++ subPlans: YesNo
++ subPlansCoverage: SubPlansCoverage [0..1]
++ subPlansReference: referenceCode [0..n]
 
-+ sea : YesNo
-+ seaReference : referenceCode [0..n]
++ sea: YesNo
++ seaReference: referenceCode [0..n]
 
-+ documentAvailability  : YesNo
++ documentAvailability : YesNo
 
-+ ongoingStakeholderInvolvement : OngoingStakeholderInvolvement [0..n]
-+ stakeholderGroups : StakeholderGroups [0..n]
++ ongoingStakeholderInvolvement: OngoingStakeholderInvolvement [0..n]
++ stakeholderGroups: StakeholderGroups [0..n]
 
-+ internationalCoordination : InternationalCoordination [0..n]
-+ internationalCoordinationPublicParticipation : YesNo [0..1]
-+ pomCoordinationArt5SWMI : Coordination
-+ pomCoordinationIRBMPPoM : Coordination
-+ pomCoordinationRoofReport : Coordination
-+ pomCoordinationFinancial : Coordination
++ internationalCoordination: InternationalCoordination [0..n]
++ internationalCoordinationPublicParticipation: YesNo [0..1]
++ pomCoordinationArt5SWMI: Coordination
++ pomCoordinationIRBMPPoM: Coordination
++ pomCoordinationRoofReport: Coordination
++ pomCoordinationFinancial: Coordination
 
-+ integrationFloodsDirective : YesNo
-+ coordinationFloodsDirective : YesNoNotApplicable
-+ coordinationMSFD : YesNoNotApplicable
++ integrationFloodsDirective: YesNo
++ coordinationFloodsDirective: YesNoNotApplicable
++ coordinationMSFD: YesNoNotApplicable
 
-+ coordinationNRRReference : referenceCode [1..n]
++ coordinationNRRReference: referenceCode [1..n]
 }
 
 class Coordination{

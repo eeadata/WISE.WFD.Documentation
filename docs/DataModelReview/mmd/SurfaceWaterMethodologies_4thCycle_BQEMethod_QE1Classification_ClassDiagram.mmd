@@ -9,44 +9,44 @@ classDiagram
 direction LR
 
 class BQEMethod{
-+ bqeMethodIdentifier : wiseIdentifier
-+ bqeCode : BiologicalQualityElement
-+ bqeMethodName : string
-+ bqeMethodNameLanguage : Language
-+ bqeMethodReference : referenceCode [0..n]
++ bqeMethodIdentifier: wiseIdentifier
++ bqeCode: BiologicalQualityElement
++ bqeMethodName: string
++ bqeMethodNameLanguage: Language
++ bqeMethodReference: referenceCode [0..n]
 
 «sensitivity»
-+ bqeSensitivityImpactNutrients : YesNo
-+ bqeSensitivityImpactOrganic : YesNo
-+ bqeSensitivityImpactChemical : YesNo
-+ bqeSensitivityImpactSaline : YesNo
-+ bqeSensitivityImpactAcidification : YesNo
-+ bqeSensitivityImpactTemperature : YesNo
-+ bqeSensitivityImpactHydrological : YesNo
-+ bqeSensitivityImpactMorphological : YesNo
++ bqeSensitivityImpactNutrients: YesNo
++ bqeSensitivityImpactOrganic: YesNo
++ bqeSensitivityImpactChemical: YesNo
++ bqeSensitivityImpactSaline: YesNo
++ bqeSensitivityImpactAcidification: YesNo
++ bqeSensitivityImpactTemperature: YesNo
++ bqeSensitivityImpactHydrological: YesNo
++ bqeSensitivityImpactMorphological: YesNo
 
 «for-data-quality-control-purposes»
-+ applicableToRW : YesNo
-+ applicableToLW : YesNo
-+ applicableToTW : YesNo
-+ applicableToCW : YesNo
++ applicableToRW: YesNo
++ applicableToLW: YesNo
++ applicableToTW: YesNo
++ applicableToCW: YesNo
 }
 
 class QE1Classification{
-+ qeClassificationIdentifier : wiseIdentifier
-+ qeCode : BiologicalQualityElement
-+ parameterUnit : UnitOfMeasure
-+ classHighOrMax : range
-+ classGood : range
-+ classModerate : range
-+ classPoor : range
-+ classBad : range
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: BiologicalQualityElement
++ parameterUnit: UnitOfMeasure
++ classHighOrMax: range
++ classGood: range
++ classModerate: range
++ classPoor: range
++ classBad: range
 «scope-and-references»
-+ bqeMethodIdentifier : wiseIdentifier 
-+ qeClassificationReference : referenceCode [0..n]
++ bqeMethodIdentifier: wiseIdentifier 
++ qeClassificationReference: referenceCode [0..n]
 }
 
-BQEMethod "0..1" -- "1..n" QE1Classification : bqeMethodIdentifier
+BQEMethod "0..1" -- "1..n" QE1Classification: bqeMethodIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

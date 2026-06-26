@@ -11,35 +11,35 @@ direction LR
 class dcMetadata {
 
 «metadata»
-+ title : string
-+ creatorOrganisationName : string
-+ creatorElectronicMailAddress : Email
-+ description : string [0..1]
-+ created : date [0..1]
-+ language : Language [1..n]
-+ license : Licence
-+ rights : string [0..1]
-+ rightsHolder : string [0..1]
-+ licenseDocument : documentCode [0..n]
-+ metadataDocument : documentCode [0..n]
++ title: string
++ creatorOrganisationName: string
++ creatorElectronicMailAddress: Email
++ description: string [0..1]
++ created: date [0..1]
++ language: Language [1..n]
++ license: Licence
++ rights: string [0..1]
++ rightsHolder: string [0..1]
++ licenseDocument: documentCode [0..n]
++ metadataDocument: documentCode [0..n]
 
 «data-delivery-manifest»
-+ euRBDCode : wiseIdentifier
-+ includesMonitoringData : YesNo
++ euRBDCode: wiseIdentifier
++ includesMonitoringData: YesNo
 }
 
 class Reference {
-  + referenceCode : wiseIdentifier
-  + documentCode : documentCode
-  + bookmark : string250
-  + subject : string250 
+  + referenceCode: wiseIdentifier
+  + documentCode: documentCode
+  + bookmark: string250
+  + subject: string250 
 }
 
 class Document {
-+ documentCode : wiseIdentifier
-+ documentName : string250
-+ hyperlink : URL [0..1]
-+ documentFile : Attachment [0..1]
++ documentCode: wiseIdentifier
++ documentName: string250
++ hyperlink: URL [0..1]
++ documentFile: Attachment [0..1]
 }
 
 class Licence{
@@ -50,10 +50,10 @@ class Licence{
   narrowMatch_CC_BY_4_0
 }
 
-Reference  ..> Document : documentCode
-dcMetadata ..> Document : licenseDocument
-dcMetadata ..> Document : metadataDocument
-dcMetadata ..> Licence : license
+Reference  ..> Document: documentCode
+dcMetadata ..> Document: licenseDocument
+dcMetadata ..> Document: metadataDocument
+dcMetadata ..> Licence: license
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

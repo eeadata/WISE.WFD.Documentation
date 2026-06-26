@@ -9,28 +9,28 @@ classDiagram
 direction TB
 
 class SWThresholdValue{
-+ swThresholdIdentifier : wiseIdentifier
-+ parameterCode : Parameter
-+ eqsStandardType : StandardType
-+ chemicalMatrix : ChemicalMatrixType 
++ swThresholdIdentifier: wiseIdentifier
++ parameterCode: Parameter
++ eqsStandardType: StandardType
++ chemicalMatrix: ChemicalMatrixType 
 
-+ thresholdValueRange : range
-+ thresholdValueUnit : UnitOfMeasure
-+ naturalBackgroundLevelSet : YesNoNotApplicable
++ thresholdValueRange: range
++ thresholdValueUnit: UnitOfMeasure
++ naturalBackgroundLevelSet: YesNoNotApplicable
 
 «compliance-with-criteria»
-+ analyticalMethod : YesNo
-+ analyticalMethodBAT : YesNoNotApplicable
++ analyticalMethod: YesNo
++ analyticalMethodBAT: YesNoNotApplicable
 
 «reference»
-+ swThresholdReference : referenceCode [0..n]
++ swThresholdReference: referenceCode [0..n]
 
 «for-data-quality-control-purposes»
-+ applicableToRW : YesNo
-+ applicableToLW : YesNo
-+ applicableToTW : YesNo
-+ applicableToCW : YesNo
-+ applicableToTeW : YesNo
++ applicableToRW: YesNo
++ applicableToLW: YesNo
++ applicableToTW: YesNo
++ applicableToCW: YesNo
++ applicableToTeW: YesNo
 }
 
 class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
@@ -40,8 +40,8 @@ class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
   + swThresholdExceedance [0..n]
 }
 
-SWThresholdValue <.. SWPollutant : swThresholdIdentifier
-SWThresholdValue <.. SWPollutant : swThresholdExceedance
+SWThresholdValue <.. SWPollutant: swThresholdIdentifier
+SWThresholdValue <.. SWPollutant: swThresholdExceedance
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

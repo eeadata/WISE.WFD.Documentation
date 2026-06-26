@@ -10,39 +10,39 @@ classDiagram
     class ProtectedArea["«FeatureType»
     ProtectedArea"]  {
       
-        + geometry : GM_MultiSurface
-        + inspireIdLocalId : String254LeadingLetterOrNum
-        + inspireIdNamespace : String254LeadingLetterOrNum
-        + inspireIdVersionId : String25Type [0..1]
-        + thematicIdentifier : FeatureUniqueEUCodeType
-        + thematicIdentifierScheme : IdentifierScheme
-        + beginLifespanVersion : WiseDateTimeType [0..1]
-        + endLifespanVersion : WiseDateTimeType [0..1]
-        + predecessorsIdentifier : String254LeadingLetterOrNum [0..1]
-        + predecessorsIdentifierScheme : IdentifierScheme [0..1]
-        + successorsIdentifier : String254LeadingLetterOrNum [0..1]
-        + successorsIdentifierScheme : IdentifierScheme [0..1]
-        + wiseEvolutionType : WiseEvolutionTypeValue
-        + nameTextInternational : String254Latin
-        + nameText : String254Type
-        + nameLanguage : WiseLanguageCode_Enum
-        + designationPeriodBegin : WiseDateTimeType
-        + designationPeriodEnd : WiseDateTimeType [0..1]
-        + zoneType : ZoneTypeCode
-        + specialisedZoneType : SpecialisedZoneTypeCode [0..1]
-        + specialisedZoneIdentifier : String254LeadingLetterOrNum
-        + legalBasisName : String254LeadingLetterOrNum [0..1]
-        + legalBasisLink : URLType
-        + legalBasisLevel : LegislationLevelValue
-        + relatedZoneIdentifier : FeatureUniqueEUCodeType [0..1]
-        + relatedZoneIdentifierScheme : IdentifierScheme [0..1]
-        + sizeValue : PositiveDecimalType [0..1]
-        + sizeUom : UomSize [0..1]
-        + link : URLType [0..1]
+        + geometry: GM_MultiSurface
+        + inspireIdLocalId: String254LeadingLetterOrNum
+        + inspireIdNamespace: String254LeadingLetterOrNum
+        + inspireIdVersionId: String25Type [0..1]
+        + thematicIdentifier: FeatureUniqueEUCodeType
+        + thematicIdentifierScheme: IdentifierScheme
+        + beginLifespanVersion: WiseDateTimeType [0..1]
+        + endLifespanVersion: WiseDateTimeType [0..1]
+        + predecessorsIdentifier: String254LeadingLetterOrNum [0..1]
+        + predecessorsIdentifierScheme: IdentifierScheme [0..1]
+        + successorsIdentifier: String254LeadingLetterOrNum [0..1]
+        + successorsIdentifierScheme: IdentifierScheme [0..1]
+        + wiseEvolutionType: WiseEvolutionTypeValue
+        + nameTextInternational: String254Latin
+        + nameText: String254Type
+        + nameLanguage: WiseLanguageCode_Enum
+        + designationPeriodBegin: WiseDateTimeType
+        + designationPeriodEnd: WiseDateTimeType [0..1]
+        + zoneType: ZoneTypeCode
+        + specialisedZoneType: SpecialisedZoneTypeCode [0..1]
+        + specialisedZoneIdentifier: String254LeadingLetterOrNum
+        + legalBasisName: String254LeadingLetterOrNum [0..1]
+        + legalBasisLink: URLType
+        + legalBasisLevel: LegislationLevelValue
+        + relatedZoneIdentifier: FeatureUniqueEUCodeType [0..1]
+        + relatedZoneIdentifierScheme: IdentifierScheme [0..1]
+        + sizeValue: PositiveDecimalType [0..1]
+        + sizeUom: UomSize [0..1]
+        + link: URLType [0..1]
     }
     class FeatureCollection ["«FeatureType»
     FeatureCollection"] {
     }
    
   
-    ProtectedArea "1..*" <-- FeatureCollection  : + featureMember
+    ProtectedArea "1..*" <-- FeatureCollection : + featureMember

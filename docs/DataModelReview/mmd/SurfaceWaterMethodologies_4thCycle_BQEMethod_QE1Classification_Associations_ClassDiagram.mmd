@@ -9,32 +9,32 @@ classDiagram
 direction TB
 
 class SWType {
-+ swTypeIdentifier : wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
 }
 
 class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::otherDataset{
-+ euSurfaceWaterBodyCode : wiseIdentifier
-+ qeCode : QualityElement
-+ qeClassificationIdentifier : wiseIdentifier
++ euSurfaceWaterBodyCode: wiseIdentifier
++ qeCode: QualityElement
++ qeClassificationIdentifier: wiseIdentifier
 }
 
 class BQEMethod{
-+ bqeMethodIdentifier : wiseIdentifier
-+ bqeCode : BiologicalQualityElement
++ bqeMethodIdentifier: wiseIdentifier
++ bqeCode: BiologicalQualityElement
 }
 
 class QE1Classification{
-+ qeClassificationIdentifier : wiseIdentifier
-+ qeCode : BiologicalQualityElement
-+ bqeMethodIdentifier : wiseIdentifier 
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: BiologicalQualityElement
++ bqeMethodIdentifier: wiseIdentifier 
 }
 
 class SWType_QEClassification{
-+ swTypeIdentifier : wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
 + qeClassificationIdentifier
 }
 
-SWQualityElement ..> QE1Classification : qeClassificationIdentifier
+SWQualityElement ..> QE1Classification: qeClassificationIdentifier
 
 BQEMethod "1" -- "1..n" QE1Classification 
 QE1Classification "1" -- "0..n" SWType_QEClassification

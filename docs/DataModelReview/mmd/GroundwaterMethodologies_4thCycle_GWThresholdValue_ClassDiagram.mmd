@@ -10,16 +10,16 @@ config:
 ---
 classDiagram
 class GWThresholdValue{
-  + gwThresholdIdentifier : wiseIdentifier
-  + parameterCode : Parameter
-  + thresholdValueRange : range
-  + thresholdValueUnit : UnitOfMeasure
-  + naturalBackgroundLevelSet : YesNoNotApplicable
-  + nblValueRange : range  [0..1] 
+  + gwThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + thresholdValueRange: range
+  + thresholdValueUnit: UnitOfMeasure
+  + naturalBackgroundLevelSet: YesNoNotApplicable
+  + nblValueRange: range  [0..1] 
 
-  + startingPointTrendReversal : range [0..1]
+  + startingPointTrendReversal: range [0..1]
   «reference»
-  + gwThresholdReference : referenceCode [0..n]
+  + gwThresholdReference: referenceCode [0..n]
 }
 
 class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
@@ -28,7 +28,7 @@ class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
   + gwThresholdIdentifier
 }
 
-GWThresholdValue <.. GWPollutant : gwThresholdIdentifier
+GWThresholdValue <.. GWPollutant: gwThresholdIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef otherDataset fill:lavender,stroke:#000;

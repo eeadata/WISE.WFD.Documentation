@@ -9,72 +9,59 @@ classDiagram
 direction TB
 
 class SWMethodologies {
-  + euRBDCode : wiseIdentifier
-  + minimumCatchmentAreaRivers : nonNegativeValue
-  + minimumSurfaceAreaLakes : nonNegativeValue
-  + hmwbMethodologyReference : referenceCode [1..n]
+  + euRBDCode: wiseIdentifier
+  + minimumCatchmentAreaRivers: nonNegativeValue
+  + minimumSurfaceAreaLakes: nonNegativeValue
+  + hmwbMethodologyReference: referenceCode [1..n]
 }
 
 class SWManagementObjectives {
-  + euRBDCode : wiseIdentifier
-  + managementObjectivesNutrients : YesNo
-  + managementObjectivesNutrientsQuantitativeN : YesNo
-  + managementObjectivesNutrientsQuantitativeP : YesNo
-  + managementObjectivesContinuity : YesNo
-  + managementObjectivesReference : referenceCode [1..n]
-  + waterResourcePlans : YesNoRBMP
-  + waterResourcePlansReference : referenceCode [1..n]
+  + euRBDCode: wiseIdentifier
+  + managementObjectivesNutrients: YesNo
+  + managementObjectivesNutrientsQuantitativeN: YesNo
+  + managementObjectivesNutrientsQuantitativeP: YesNo
+  + managementObjectivesContinuity: YesNo
+  + managementObjectivesReference: referenceCode [1..n]
+  + waterResourcePlans: YesNoRBMP
+  + waterResourcePlansReference: referenceCode [1..n]
 }
 
 class SWTargetedQuestions{
-  + euRBDCode : wiseIdentifier
-  + gepApproach : GEPApproach
-  + gepBiology : YesNo
-  + mitigationMeasures : MitigationMeasure [0..n]
-  + bqeForMEPGEP : BiologicalQualityElement [0..n]
-  + ecologicalStatusMethodReference : referenceCode [1..n]
-  + gepMethodReference : referenceCode [1..n]
+  + euRBDCode: wiseIdentifier
+  + gepApproachRW: GEPApproach
+  + bqeForMEPGEPRW: BiologicalQualityElement [0..n]
+  + gepApproachLW: GEPApproach
+  + bqeForMEPGEPLW: BiologicalQualityElement [0..n]
+  + gepApproachTW: GEPApproach
+  + bqeForMEPGEPTW: BiologicalQualityElement [0..n]
+  + gepApproachCW: GEPApproach
+  + bqeForMEPGEPCW: BiologicalQualityElement [0..n]
+  + ecologicalStatusMethodReference: referenceCode [1..n]
+  + gepMethodReference: referenceCode [1..n]
 }
 
 class SWChemicalStatusClassification {
-  + euRBDCode : wiseIdentifier
-  + limitOfQuantification : YesNo
-  + backgroundConcentrations : YesNo
-  + backgroundConcentrationsReference : referenceCode [0..n]
-  + bioavailability : YesNo
-  + bioavailabilityReference : referenceCode [0..n]
-  + longTermTrendAnalysis : YesNo
-  + longTermTrendAnalysisReference : referenceCode [0..n]
-  + mixingZoneMethodology : YesNo
-  + alternativeMixingZoneMethodologyReference : referenceCode [0..n]
-  + mixingZoneMeasure : MixingZoneMeasure [0..n]
+  + euRBDCode: wiseIdentifier
+  + limitOfQuantification: YesNo
+  + backgroundConcentrations: YesNo
+  + backgroundConcentrationsReference: referenceCode [0..n]
+  + bioavailability: YesNo
+  + bioavailabilityReference: referenceCode [0..n]
+  + longTermTrendAnalysis: YesNo
+  + longTermTrendAnalysisReference: referenceCode [0..n]
+  + mixingZoneMethodology: YesNo
+  + alternativeMixingZoneMethodologyReference: referenceCode [0..n]
+  + mixingZoneMeasure: MixingZoneMeasure [0..n]
 }
 
 class GEPApproach {
 <<enumeration>>
 cisGuidanceApproach
-mitigationMeasuresPragueApproach
+mitigationMeasuresPragueApproachWithBQE
+mitigationMeasuresPragueApproachWithoutBQE
 hybridCISPragueApproach
+sameAssessmentAsNaturalWB
 gepHasNotBeenDefined
-}
-
-class MitigationMeasure{
-<<enumeration>>
-fishLadders
-bypassChannels
-habitatRestoration
-sedimentDebrisManagement
-removalOfStructures
-reconnectionOfMeanderBendsOrSideArms
-loweringOfRiverBanks
-restorationOfBankStructure
-channelNarrowing
-settingOfEcologicalFlows
-inundationOfFloodPlains
-operationalModificationsForHydroPeaking
-dredgingMinimisationAndOrModification
-restorationOfModifiedBedStructure
-retentionBasins
 }
 
 class MixingZoneMeasure{
@@ -92,10 +79,10 @@ yes
 no
 RBMP}
 
-SWTargetedQuestions ..> MitigationMeasure : mitigationMeasure
-SWTargetedQuestions ..> GEPApproach : gepApproach
-SWChemicalStatusClassification ..> MixingZoneMeasure : mixingZoneMeasure
-SWManagementObjectives ..> YesNoRBMP : waterResourcePlans
+SWTargetedQuestions ..> MitigationMeasure: mitigationMeasure
+SWTargetedQuestions ..> GEPApproach: gepApproach
+SWChemicalStatusClassification ..> MixingZoneMeasure: mixingZoneMeasure
+SWManagementObjectives ..> YesNoRBMP: waterResourcePlans
 
 
 classDef default fill:white,stroke:#000;
