@@ -241,8 +241,7 @@ The data reported for the 3rd cycle can be used to estimate the impact of the si
 (heading_wfd_protected_areas_references)=
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
+
 
 ```{warning}
 The original document containing this revised model can still be downloaded but should no longer be used.  

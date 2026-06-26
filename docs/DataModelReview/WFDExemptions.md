@@ -843,6 +843,5 @@ GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
 (heading_wfd_wfd_exemptions_references)=
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
+
 

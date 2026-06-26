@@ -195,16 +195,16 @@ The proposed structure for the 4th cycle electronic reporting is presented in th
   alteration that has resulted in the designation of the surface water body as a HMWB.  
   In the context of designation as a HMWB, physical alterations means
   any significant alterations that have resulted in substantial changes
-  to the hydromorphology of a surface water body such that the surface water body 
+  to the hydromorphology of a surface water body such that the surface water body
   is substantially changed in character.
-  In general, these hydromorphological characteristics are long term 
+  In general, these hydromorphological characteristics are long term
   and alter both the morphological and hydrological characteristics.
   (See {numref}`Codelist_4thCycle_HMWBPhysicalAlteration_Table`.)
 
 * For the `HMWBWaterUse` codelist,
   see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
   For heavily modified water bodies only, use this codelist to report the water use for
-  which the water body has been designated. According to Art. 4(3) of the WFD, 
+  which the water body has been designated. According to Art. 4(3) of the WFD,
   the water use for which a HMWB
   was designated is the water use that would be affected significantly by the changes that would be
   necessary to achieve good ecological status.

@@ -285,5 +285,4 @@ Overview of relevant tables and dimensions in the OECD/Eurostat Joint Questionna
 (heading_wfd_wfd_economic_analysis)=
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
+

@@ -341,5 +341,3 @@ Yes|No|Statistical significance|1|1
 (heading_wfd_groundwater_methodologies_references)=
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```

@@ -219,8 +219,7 @@ then it is not necessary to report the information again.
 
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
+
 
 ```{warning}
 The original document containing this revised model can still be downloaded but should no longer be used.  

@@ -569,8 +569,7 @@ or clearly unlikely.
 
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
+
 
 ```{footbibliography}
 ```
