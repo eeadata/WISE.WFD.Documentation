@@ -28,7 +28,7 @@ generation (RAG) techniques.
 ## Current structure - 3rd cycle
 
 The schema used in the 3rd cycle of reporting contained 4 main groups
-({numref}`ProgrammeOfMeasures_3rdCycle`):
+({numref}`Measures_RBMPPoM_2022_ClassDiagram`):
 
 * summary information about the **River Basin Management Plan**,
   the **Progress** since the previous River Basin Management Plan,
@@ -46,7 +46,7 @@ The schema used in the 3rd cycle of reporting contained 4 main groups
   along with their link to **KTM Indicators** and **Indicator Gaps**
 
 ```{figure} img/Measures_RBMPPoM_2022_ClassDiagram.png
-:name: ProgrammeOfMeasures_3rdCycle
+:name: Measures_RBMPPoM_2022_ClassDiagram
 :align: center
 :width: 100%
 
@@ -73,7 +73,7 @@ River Basin Management Plan & Programme of Measures - 3rd cycle
 
 In the 3rd cycle of reporting, this group comprised three tables, collecting summary information
 about the RBMP, the progress since the previous RBMP, and the mechanisms of international
-coordination, if applicable ({numref}`ProgrammeOfMeasuresPartial_3rdCycle`).
+coordination, if applicable ({numref}`RBDCA_RBDSUCA_2022_Partial_ClassDiagram`).
 
 The data is structured as a simple questionnaire, mostly with Yes/No or multiple‑choice answers,
 accompanied by links to additional documentation (which can be uploaded or kept on national
@@ -84,7 +84,7 @@ simplification. Nevertheless, the Commission has reviewed whether the requested 
 required and proposes the simplification detailed in the next sections.
 
 ```{figure} img/RBDCA_RBDSUCA_2022_Partial_ClassDiagram.png
-:name: ProgrammeOfMeasuresPartial_3rdCycle
+:name: RBDCA_RBDSUCA_2022_Partial_ClassDiagram
 :align: center
 :width: 100%
 
@@ -250,7 +250,7 @@ is now eliminated because it did not convey relevant information.
 ### mainKeyTypeOfMeasure
 
 The **mainKeyTypeOfMeasure** attribute contains the classification to be used for both basic and
-supplementary measures (see {numref}`measures_mainKeyTypeOfMeasure_definitions`).
+supplementary measures (see {numref}`Measures_MainKeyTypeOfMeasure_ListTable`).
 It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure
 classifications used in the 2nd and 3rd cycles.
 
@@ -369,14 +369,14 @@ in the three bullets points above.
 A brief review of the reported data confirms the issues mentioned above.
 
 In the **3rd cycle** of reporting, the overall cost of the PoM was reported in the **Costs** class
-({numref}`Measure_RBMPPoM_2022 schema_Costs_3rdCycle`). Reporting of costs was, de facto, optional –
+({numref}`MeasuresCosts`). Reporting of costs was, de facto, optional –
 since all numerical attributes admitted the option **–9999** to denote “data not available”.
 
  Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not
  have data on operational costs and 64 do not have data on EU funds.
 
 ```{mermaid} /DataModelReview/mmd/MeasuresCosts.mmd
-:name: Measure_RBMPPoM_2022 schema_Costs_3rdCycle
+:name: MeasuresCosts
 :align: center
 :caption: Class diagram for the RBMPPoM_2022 schema: Costs – 3rd cycle of reporting.
 ```
@@ -483,6 +483,7 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 sectors.*
 
 ```{mermaid} /DataModelReview/mmd/MeasuresUnitResidentflowchart.mmd
+:name: MeasuresUnitResidentflowchart
 :align: center
 ```
 
@@ -565,16 +566,16 @@ water') which may be outside the scope of the EPEA.
 **Alignment with the Classification of environmental protection activities**
 
 The EPEA categorises activities using the Classification of environmental protection activities
-(CEPA 2000, {numref}`measures_SubsetOfCEPAClasses`).
+(CEPA 2000, {numref}`Measures_SubsetOfCEPAClasses_ListTable`).
 The proposed classification of Measures using the mainKeyTypeOfMeasure value
-({numref}`measures_mainKeyTypeOfMeasure_definitions`) is not based on the CEPA 2000 classification.
+({numref}`Measures_MainKeyTypeOfMeasure_ListTable`) is not based on the CEPA 2000 classification.
 
 Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation)
 and excludes Resource Management (saving water or energy), which falls under CReMA([^CReMA])
 (Classification of Resource Management Activities).
 
 Nevertheless, it seems to be possible to map most of the mainKeyTypeOfMeasure classes to a primary
-CEPA 2000 class ({numref}`measures_mainKeyTypeOfMeasure_to_CEPA2000_mapping`).
+CEPA 2000 class ({numref}`Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable`).
 
 The mapping and post-classification can be done by the Commission, using the reported data per
 Measure, to analyse and aggregate the data according CEPA classes, if that is required.
@@ -602,7 +603,7 @@ The purpose of the simplified classification is:
 * To maintain the previous KTM that do not fit the criteria above and were reported with high
   frequency in the 3rd cycle – see codes X01, X12, X14, X23 and X24.
 
-{numref}`measures_MappingmainKeyTypeOfMeasure` aligns the **mainKeyTypeOfMeasure** with the
+{numref}`Measures_MappingMainKeyTypeOfMeasure_ListTable` aligns the **mainKeyTypeOfMeasure** with the
 previous separate classification
 schemes. It supports MS in the migration to the single simplified codelist to be used in the
 **mainKeyTypeOfMeasure** attribute in the 4th cycle of reporting.
