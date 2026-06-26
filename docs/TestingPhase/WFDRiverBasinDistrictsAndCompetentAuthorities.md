@@ -13,7 +13,7 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle`
 
-(heading_wfd_rbd_and_ca_competentauthority_table_testing_phase)=
+(heading_wfd_rbd_and_ca_competent_authority_table_testing_phase)=
 ### CompetentAuthority table
 
 ```{include} tables/RBDCA_CompetentAuthority
@@ -53,10 +53,4 @@ See additional information in the *data model review documentation*:
 ### Document table
 
 ```{include} tables/RBDCA_Document
-```
-
-(heading_wfd_rbd_and_ca_documentreference_table_testing_phase)=
-### DocumentReference table
-
-```{include} tables/RBDCA_DocumentReference
 ```

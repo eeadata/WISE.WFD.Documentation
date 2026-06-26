@@ -1,13 +1,18 @@
 # Custom Dictionary Words related to Technical Jargon
+Classdiagram
 codelist
 codelists
 dagre
 datatypes
+dcmetadata
+discodata
 EIONET
+footbibliography
+footcite
+ISNULL
 lightyellow
 linenos
 numref
 Reportnet3
 SDMX
 toctree
-discodata
