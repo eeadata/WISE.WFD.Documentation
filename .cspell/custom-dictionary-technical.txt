@@ -1,4 +1,5 @@
 # Custom Dictionary Words related to Technical Jargon
+bedforms
 Classdiagram
 codelist
 codelists

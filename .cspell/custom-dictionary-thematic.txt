@@ -1,16 +1,20 @@
 # Custom Dictionary Words
 ABST
+approachworks
 aquiferous
 AWBHMWB
 bioaccumulative
 BQE
 BQEs
 CAPEX
+CDDA
 DPSIR
+earthfill
 EPEA
 EQSD
 exceedance
 exceedances
+gabions
 GFCF
 GWDE
 GWGROUP
@@ -32,6 +36,7 @@ NACE
 Natura
 OPEX
 Oxidisability
+passways
 Physico
 physico-chemical
 Physico-chemical
@@ -41,9 +46,11 @@ RBDSU
 RBDSUCA
 RBMP
 rbsp
+rockfill
 Secchi
 seveso
 SWGROUP
+SWGROUPING
 SWMET
 SWMET_2022
 SWRBSP
@@ -53,4 +60,5 @@ UWWTP
 Waterbase
 Waterbases
 WFD
+wildfish
 WWTPs
