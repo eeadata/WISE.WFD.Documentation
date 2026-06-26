@@ -31,14 +31,14 @@ The schema used in the 3rd cycle of reporting contained 4 main groups
 ({numref}`Measures_RBMPPoM_2022_ClassDiagram`):
 
 * summary information about the **River Basin Management Plan**,
-  the `Progress` since the previous River Basin Management Plan,
+  the **Progress** since the previous River Basin Management Plan,
   and the mechanisms of international **Coordination** (if applicable)
 
 * information about the **Programme of Measures**,
   comprising a summary questionnaire of **Targeted Questions**
   and aggregated data about the overall **Cost** of measures  
 
-* disaggregated information was requested about each `Measure`
+* disaggregated information was requested about each **Measure**
   and its classification into **Key Types of Measures** (KTM)
   and basic type of measures (if applicable)
 
@@ -64,8 +64,8 @@ River Basin Management Plan & Programme of Measures - 3rd cycle
   The `TargetedQuestions` table, containing the questionnaire at RBD level, is simplified.  
 
 * Information about measures is requested in a single `Measure` table.
-  Information about the planned `ExpenditurePerMeasure` is reported in a separate table, if
-  data is available.
+  Information about the planned `ExpenditurePerMeasure` is reported in a separate table,
+  if data is available.
   
 * The KTM classification, KTM indicators and indicator gaps data is completely removed.
 
@@ -110,14 +110,14 @@ in the **RBMP** and **Coordination** classes in the 3rd cycle
 
 ## Progress table – 4th cycle
 
-The `Progress` table is modified to provide an overview of the proportion of the measures of the
-3rd RBMPs
+The `Progress` table is modified to provide an
+overview of the proportion of the measures of the 3rd RBMPs
 that were executed, cancelled, or otherwise affected,
-as well as the obstacles encountered during the implementation of the 3rd RBMP Programme of
-Measures ({numref}`Measures_4thCycle_Progress_ClassDiagram`).
+as well as the obstacles encountered during the implementation
+of the 3rd RBMP Programme of Measures ({numref}`Measures_4thCycle_Progress_ClassDiagram`).
 
-The only constraint is that, for each RBD, the sum of the values in `percentageInStatus` must be
-**100**.
+The only constraint is that, for each RBD,
+the sum of the values in `percentageInStatus` must be **100**.
 The level of detail can be adapted depending on the needs and the data available at national level.
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Progress_ClassDiagram.mmd
@@ -127,7 +127,7 @@ The level of detail can be adapted depending on the needs and the data available
 ```
 
 A numerical example illustrates the proposed approach.
-Consider a hypothetical 3rd **RBMP** **Programme of Measures** with 10 different measures,
+Consider a hypothetical 3rd RBMP Programme of Measures with 10 different measures,
 which are in different statuses and may have faced different obstacles
 ({numref}`measures_example_ten_measures`).
 
@@ -150,10 +150,10 @@ which are in different statuses and may have faced different obstacles
 
 ```
 
-The example in {numref}`measures_example_progress` illustrates how to synthesize the information in
-the Progress table.
+The example in {numref}`measures_example_progress`
+illustrates how to synthesize the information in the Progress table.
 
-```{table} Illustrative example - `Progress` table records for the example in the previous table.
+```{table} Illustrative example - Progress table records for the example in the previous table.
 :name: measures_example_progress
 :width: 100%
 
@@ -169,13 +169,12 @@ the Progress table.
 
 ## TargetedQuestions table – 4th cycle
 
-The `TargetedQuestions` table collects summary information about the measures in the RBMP, and the
-progress since the previous cycle.
-For each RBMP, only one record is required. The data is structured as a simple questionnaire, with
-Yes/No or multiple-choice answers.
+The `TargetedQuestions` table collects summary information about the measures in the RBMP,
+and the progress since the previous cycle. For each RBMP, only one record is required.
+The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers.
 
-Reporting by MS should not present technical difficulties, and there is limited scope for any
-technical simplification.
+Reporting by MS should not present technical difficulties,
+and there is limited scope for any technical simplification.
 The Commission has revised and simplified the `TargetedQuestions` table,
 keeping a subset of the questions requested in the previous cycle
 ({numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`).
@@ -226,22 +225,22 @@ The `measureType` typology is described in {numref}`Codelist_4thCycle_MeasureTyp
 
 ### Measure table – 4th cycle - measureLegalInstrument
 
-The primary `measureLegalInstrument` under which the measure was defined must be clearly
-identified.
-This avoids double reporting in other Directives: the measures can be reported only once under the
-RBMP electronic reporting.
+The primary `measureLegalInstrument` under which the measure was defined
+must be clearly identified.
+This avoids double reporting in other Directives:
+the measures can be reported only once under the RBMP electronic reporting.
 An updated list of EU water and other environmental legislation is provided
 ({numref}`Codelist_4thCycle_LegalInstrument_Table`).
 
 The scope of some basic measures is clearly linked to the two Daughter directives:
 
 * Measures to prohibit direct discharges to groundwater: *Groundwater Directive*
-* Measures to eliminate or reduce pollution by Priority Substances: *Environmental Quality
-  Standards Directive*
+* Measures to eliminate or reduce pollution by Priority Substances:
+  *Environmental Quality Standards Directive*
 
 These two legal instruments are part of the codelist.
-The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD), that existed in
-the 3rd cycle,
+The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD),
+that existed in the 3rd cycle,
 is now eliminated because it did not convey relevant information.
 
 ```{include} tables/Codelist_4thCycle_LegalInstrument_Table
@@ -249,75 +248,83 @@ is now eliminated because it did not convey relevant information.
 
 ### mainKeyTypeOfMeasure
 
-The `mainKeyTypeOfMeasure` attribute contains the classification to be used for both basic and
-supplementary measures (see {numref}`Measures_MainKeyTypeOfMeasure_ListTable`).
-It simplifies, consolidates and replaces both the basicMeasureType and the keyTypeOfMeasure
-classifications used in the 2nd and 3rd cycles.
+The `mainKeyTypeOfMeasure` attribute contains the classification to be used
+for both basic and supplementary measures (see {numref}`Measures_MainKeyTypeOfMeasure_ListTable`).
+It simplifies, consolidates and replaces both
+the **basicMeasureType** and the **keyTypeOfMeasure** classifications used in the 2nd and 3rd cycles.
 
 ```{include} tables/Measures_MainKeyTypeOfMeasure_ListTable
 ```
 
 ### Measure table – 4th cycle - mainPressureType and mainSubstanceType
 
-In the **3rd cycle**, the reporting guidance stated that *“the name should reflect the pressure
-that is being tackled by the measure”*
-— meaning the pressure(s) should be described textually in the name of the measure.
+In the **3rd cycle**, the reporting guidance stated that
+"the name [of the measure] should reflect the pressure that is being tackled by the measure" {footcite}`WFD2022_ReportingGuidance` — meaning the pressure(s)
+should be described textually in the name of the measure.
 This recommendation was not consistently followed, and an analysis of the measure names across
 Europe does not yield useful results.
 
-It is easier to keep the *original name of the measure*, and to allow MS to optionally select the
-**mainPressureType** that the measure addresses,
-at the adequate level of detail (e.g. a generic measure may address **P2 – Diffuse sources**, while
-a more targeted measure may address only **P2‑5 – Diffuse – Contaminated sites or abandoned
-industrial sites**).
+It is easier to keep the *original name of the measure*,
+and to allow MS to optionally select the `mainPressureType` that the measure addresses,
+at the adequate level of detail (e.g. a generic measure may address `'P2'` (Diffuse sources), while
+a more targeted measure may address only `'P2‑5'` (Diffuse – Contaminated sites or abandoned
+industrial sites).
 
 The `mainPressureType` attribute allows more clarity and flexibility and can be applied to
 supplementary measures too.
-The **mainPressureType** attribute is optional, except for measures of type **G** and **H**.
+The `mainPressureType` attribute is optional, except for measures of type `'G'` and `'H'`.
 For measures of type G and H, the Commission requires additional information to differentiate
-measures addressing issues related to Urban Waste Water (**P1‑1**) and diffuse pollution from
-Agriculture (**P2‑2**).
+measures addressing issues related to Urban Waste Water - `'P1‑1'` -
+from issues related to diffuse pollution from Agriculture - `'P2-2'`.
 
-*If needed and applicable*, a similar approach can be used for `mainSubstanceType`, allowing MS
-to identify measures targeting specific substances or groups of substances.
+*If needed and applicable*, a similar approach can be used for `mainSubstanceType`,
+allowing MS to identify measures targeting specific substances or groups of substances.
 
 ### Measure table – 4th cycle - geographicalCoverage
 
-The geographical scope of a measure is specified in the `geographicalCoverage` attribute, by
-selecting the most appropriate option: {'national' | 'riverBasinDistrict' | 'waterBody' |
-'protectedArea'}
+* The geographical scope of a measure is specified in the `geographicalCoverage` attribute,
+  by selecting the most adequate option:
+  `'national'`, `'riverBasinDistrict'`, `'waterBody'` or `'protectedArea'`.
 
-The option `geographicalCoverage` = 'national' should be used for measures that target any
-waterbody affected by a given significant pressure or substance failing.
-Similarly, the option `geographicalCoverage` = 'riverBasinDistrict' should be used for measures
-that target any waterbody affected by a given significant pressure or substance failing within the
-RBDs indicated in the **euRBDCode** attribute.
-  
-If appropriate and necessary, it is possible to specify that a measure only applies to a specific
-category of waterbodies, using the optional `waterCategory` attribute.
+* The option `geographicalCoverage = 'national'` should be used for measures
+  that target any water body affected by a given significant pressure or substance failing.
 
-If appropriate and necessary, it is possible to specify that a measure only applies to a specific
-type of WFD protected area, using the optional `protectedAreaType` attribute.
+* The option `geographicalCoverage = 'riverBasinDistrict'` should be used for measures
+  that target any water body affected by a given significant pressure or substance failing
+  within the RBD indicated in the `euRBDCode` attribute value.
 
-The option `geographicalCoverage` = 'waterBody' should be reserved for measures that target
-specific water bodies (for example, a given river, or a set of lakes).
-The option `geographicalCoverage` = 'protectedArea' should be reserved for measures that target
-specific protected areas (for example, a set of bathing waters or a specific UWWTD sensitive area).
-In these cases, it is not requested to individually identify the waterbodies or protected areas.
+* If appropriate and necessary, it is possible to specify that a measure
+  only applies to a specific category of water bodies,
+  using the optional `waterCategory` attribute.
+
+* If appropriate and necessary, it is possible to specify that a measure
+  only applies to a specific type of WFD protected area,
+  using the optional `protectedAreaType` attribute.
+
+* The option `geographicalCoverage = 'waterBody'` should be reserved for measures
+  that target specific water bodies (for example, one river, or a set of lakes).
+
+* The option `geographicalCoverage = 'protectedArea'` should be reserved for measures
+  that target specific protected areas
+  (for example, a set of bathing waters or a specific UWWTD sensitive area).
+
+* In these cases, it is NOT requested to individually identify the water bodies or protected areas.
 
 ### Measure table – 4th cycle - implementationPeriod and implementationStatus
 
-The temporal scope of a measure is provided in the `implementationPeriod` – the range of years
-indicated is used to check the reporting of information related to expenditures (e.g. if a measure
-is yet to start, then no past expenditures exist).
-The `implementationStatus` attribute allows the distinction between planned and ongoing measures
-– and may also be used for measures planned for the 3rd cycle but already executed or cancelled by
-the end of 2027.
+* The temporal scope of a measure is provided in the `implementationPeriod` value.
+* The range of years indicated in the `implementationPeriod` is used
+  to check the reporting of information related to expenditures
+  (e.g. if a measure is yet to start, then no past expenditures exist).
+
+* The `implementationStatus` value allows the distinction between planned and ongoing measures.  
+  It may also be used for measures planned for the 3rd cycle
+  but already executed or cancelled by the end of 2027.
 
 ## Economic data in the programme of measures
 
-The revision of the electronic reporting focuses on the main issues described in the Note to the
-CIS Working Group Economics ([^pArnoldus]) quoted below:
+The revision of the electronic reporting focuses on the main issues described
+in the Note to the CIS Working Group Economics ([^pArnoldus]) quoted below:
 
 “[…] Both the Commission’s 6th and 7th WFD Implementation Reports indicate persistent problems in
 the (electronic) reporting on the investments and the costs of other measures in the Programme of
@@ -684,3 +691,6 @@ of reported data.**
 
 (heading_wfd_measures_references)=
 ## References
+
+```{footbibliography}
+```

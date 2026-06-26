@@ -8,6 +8,7 @@ BQE
 BQEs
 CAPEX
 CDDA
+CEPA
 DPSIR
 earthfill
 EPEA
@@ -34,6 +35,7 @@ MEPGEP
 msfd
 NACE
 Natura
+NPISH
 OPEX
 Oxidisability
 passways
@@ -55,6 +57,7 @@ SWMET
 SWMET_2022
 SWRBSP
 transboundary
+UWWT
 UWWTD
 UWWTP
 Waterbase
