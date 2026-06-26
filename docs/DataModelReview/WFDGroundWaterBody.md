@@ -73,9 +73,28 @@ In the 4th cycle of reporting, the data will be delivered in the Reportnet3 plat
 * the requirements of Directive 2006/118/EC also need to be taken into account
 
 ```{epigraph}
-(36) In order to ensure a level playing field in the Union and allow comparability of water body status between Member States, there is a need to harmonise national threshold values for some man-made synthetic groundwater pollutants. Threshold values should be established as necessary at Union level for pollutants which have an anthropogenic origin or for the products of their degradation or decomposition, provided that those pollutants and degradation products either do not occur naturally in groundwater, or, if identical natural counterparts exist, provided that their natural background levels are, at most, low. Those threshold values should be included in the repository of harmonised threshold values for man-made synthetic substances in groundwater of national, regional or local concern in a new Part D of Annex II to Directive 2006/118/EC. A harmonised threshold value for individual pharmaceuticals should be included for application by Member States to any pharmaceutical active substance identified as posing a risk at national level unless a stricter standard or threshold value has been set specifically for that substance at Union or national level.
+(36) In order to ensure a level playing field in the Union and allow comparability
+of water body status between Member States, there is a need to harmonise national
+threshold values for some man-made synthetic groundwater pollutants. Threshold
+values should be established as necessary at Union level for pollutants which
+have an anthropogenic origin or for the products of their degradation or
+decomposition, provided that those pollutants and degradation products either do
+not occur naturally in groundwater, or, if identical natural counterparts exist,
+provided that their natural background levels are, at most, low. Those threshold
+values should be included in the repository of harmonised threshold values for
+man-made synthetic substances in groundwater of national, regional or local
+concern in a new Part D of Annex II to Directive 2006/118/EC. A harmonised
+threshold value for individual pharmaceuticals should be included for application
+by Member States to any pharmaceutical active substance identified as posing a
+risk at national level unless a stricter standard or threshold value has been
+set specifically for that substance at Union or national level.
 
-(37) All provisions of Directive 2006/118/EC relating to the assessment of groundwater chemical status should be adapted to the introduction of the third category of harmonised threshold values in a new Part D of Annex II to that Directive, in addition to the quality standards set out in Annex I to that Directive and the national threshold values set out in accordance with the methodology set out in Part A of Annex II to that Directive.
+(37) All provisions of Directive 2006/118/EC relating to the assessment of
+groundwater chemical status should be adapted to the introduction of the third
+category of harmonised threshold values in a new Part D of Annex II to that
+Directive, in addition to the quality standards set out in Annex I to that
+Directive and the national threshold values set out in accordance with the
+methodology set out in Part A of Annex II to that Directive.
 
 -- ELI: http://data.europa.eu/eli/dir/2026/805/oj
 ```
@@ -90,16 +109,17 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * The core data about each groundwater body
   is reported in 3 tables: `GroundWaterBody`, `LinkSurfaceWaterBody` and `GWNaturalBackgroundLevel`.
 
-  * The content of this set of tables does not depend
+  - The content of this set of tables does not depend
     of the status assessment, and can be prepared in advance.
 
 * A second set of tables contains information about
   the chemical and quantitative status assessment
   and about pressures and impacts: `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
 
-  * The ancillary table `GWGrouping`
+  - The ancillary table `GWGrouping`
     supports the reporting of grouping (if used the assessment).
-  * A link to the `GWMethodologies::ThresholdValue` table clarifies which threshold value is applied to each pollutant.  
+  - A link to the `GWMethodologies::ThresholdValue` table clarifies 
+    which threshold value is applied to each pollutant.  
     (A list of the default EU threshold values will be provided
     where defined by the EU legislation.)
 
@@ -160,7 +180,8 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * - GWNaturalBackgroundLevel
   - *modified*  
     The data related to the natural background level (NBL) 
-    of substances in groundwater is moved from the GWPollutant class into a separate `GWNaturalBackgroundLevel` table.  
+    of substances in groundwater is moved from the GWPollutant class 
+    into a separate `GWNaturalBackgroundLevel` table.  
     This facilitates both the reporting and the quality control
     (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`). 
 
@@ -268,45 +289,51 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 * For the `AquiferMediaTypeValue` codelist,
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
-  The codelist was realigned with the INSPIRE codelist to allow more flexibility
-  (see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_Table`).
+  The codelist was realigned with the INSPIRE codelist to allow more flexibility.
+
+  - See the definitions in {numref}`Codelist_4thCycle_AquiferMediaTypeValue_Table`.
 
 * For the `AquiferProductivity` codelist,
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
   The codelist allows the reporting of aquifer productivity
-  independently of the aquifer media values
-  (see {numref}`Codelist_4thCycle_AquiferProductivity_Table`).  
+  independently of the aquifer media values.  
   Further technical guidance on concepts, classification schemes and class boundaries
   is needed.{footcite}`gsi2026aquifer`
+
+  - See the definitions in {numref}`Codelist_4thCycle_AquiferProductivity_Table`.
 
 * For the `AssessmentMethod` codelist,
   see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
   The codelist is used to report
-  the assessment method for the chemical status and for the quantitative status
-  (see {numref}`Codelist_4thCycle_AssessmentMethod_Table`).  
+  the assessment method for the chemical status and for the quantitative status.  
   The same codelist is used for surface water bodies,
   for the assessment method of ecological status or potential,
   and for the assessment method of chemical status.
 
+  - See the definitions in {numref}`Codelist_4thCycle_AssessmentMethod_Table`.
+
 * For the `AssessmentConfidence` codelist,
   see also {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
   The codelist allow the reporting of
-  the level of confidence in the results of the status assessment
-  (see {numref}`Codelist_4thCycle_AssessmentConfidence_Table`).  
+  the level of confidence in the results of the status assessment.  
   The same codelist is used for surface water bodies.
   See also {footcite}`mastrandrea2010guidance` {footcite}`mastrandrea2011ipcc`  {footcite}`kause2022confidence`.
+
+  - See the definitions in {numref}`Codelist_4thCycle_AssessmentConfidence_Table`.
 
 * For the `GroundwaterSurfaceWaterLink` codelist,
   see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram`.  
   The codelist is used to report
-  the type of link between a given groundwater body and a given surface water body
-  (see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`).
+  the type of link between a given groundwater body and a given surface water body. 
+
+  - See the definitions in {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`.
 
 * For the `ReasonForFailure` codelist,
-  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram`
-  and {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
+  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram`.
 
-  * For groundwater bodies in poor quantitative status,
+  - See the definitions in {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
+
+  - For groundwater bodies in poor quantitative status,
     the codelist values are used
     in the `gwQuantitativeReasonsForFailure` attribute
     to provide further information about one or more causes of failure
@@ -314,7 +341,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     For groundwater bodies in good or unknown quantitative status,
     the option `notApplicable` must be used.
 
-  * For groundwater bodies failing to achieve good chemical status,
+  - For groundwater bodies failing to achieve good chemical status,
     the codelist values are used
     in the `gwChemicalReasonsForFailure` attribute
     to provide further information about one or more causes of failure
@@ -453,8 +480,11 @@ National documents vary, when addressing productivity in terms of potential long
 ```{epigraph}
 *Example* - Ireland 2026 {footcite}`gsi2026aquifer`: 
    
-"Yield is one of the main concerns in aquifer development projects, yields from existing wells are conceptually linked with the main aquifer categories:
-* Regionally important (R) aquifers should have (or be capable of having) a large number of ‘excellent’ yields: in excess of approximately 400 m3/d.
+"Yield is one of the main concerns in aquifer development projects, 
+yields from existing wells are conceptually linked with the main aquifer categories:
+
+* Regionally important (R) aquifers should have (or be capable of having) 
+  a large number of ‘excellent’ yields: in excess of approximately 400 m3/d.
 * Locally important (L) aquifers are capable of ‘good’ well yields 100-400 m3/d.
 * Poor (P) aquifers would generally have ‘moderate’ or ‘low’ well yields - less than 100 m3/d."
 ```
@@ -568,8 +598,6 @@ are sometimes physically impossible (e.g. above 1000mg/L)
 or clearly unlikely.
 
 ## References
-
-
 
 ```{footbibliography}
 ```

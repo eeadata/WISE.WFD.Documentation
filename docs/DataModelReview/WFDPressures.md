@@ -1,27 +1,33 @@
 (heading_wfd_pressure_type_codelist_4th_cycle)=
 # PressureType codelist - 4th cycle
 
-The review of the pressure types codelist used in the 3rd cycle of reporting 
+The review of the pressure types codelist used in the 3rd cycle of reporting
 is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
 
 * A generic option 'unknown' was added.
 * A generic option 'none' was added.
-* The wording of some of the options was revised (while mantaining the code structure to facilitate the mapping).
+* The wording of some of the options was revised
+  (while maintaining the code structure to facilitate the mapping).
 * The option 'P7 - Anthropogenic pressure - Other' was removed.
 * The option 'P8 - Anthropogenic pressure - Unknown' was removed.
 * The option 'P9 - Anthropogenic pressure - Historical pollution' was removed.
 * The option 'P1-9 - Point - Other' was replaced by 'P1 - Point'
 * The option 'P2-10 - Diffuse - Other' was replaced by 'P2 - Diffuse'
 * The option 'P3-7 - Abstraction - Other' was replaced by 'P3 - Abstraction'
-* The option 'P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other' was replaced by 'P4-1 - Longitudinal barrier'
+* The option 'P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other'
+  was replaced by 'P4-1 - Longitudinal barrier'
 * The option 'P4-2-8 - Dams, barriers and locks - Other' was replaced by 'P4-2 - Transversal barrier'
 * The option 'P4-3-6 - Hydrological alteration - Other' was replaced by 'P4-3 - Hydrological alteration'
-* The option 'P4-5 - Hydromorphological alteration - Other' was replaced by 'P4-5 - Hydromorphological alteration'
+* The option 'P4-5 - Hydromorphological alteration - Other'
+  was replaced by 'P4-5 - Hydromorphological alteration'
 
-The revised `PressureType` codelist is a hierarchical codelist 
+The revised `PressureType` codelist is a hierarchical codelist
 (see {numref}`Codelist_4thCycle_PressureType_ClassDiagram`).  
 It provides a controlled list of values for different attributes related to pressures.  
-Depending on the attribute and the context, the use of some values may be restricted by the quality control. For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater, options like 'P6%' are unlike to apply to surface water bodies.
+Depending on the attribute and the context,
+the use of some values may be restricted by the quality control.
+For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater,
+options like 'P6%' are unlike to apply to surface water bodies.
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_PressureType_ClassDiagram.mmd
 :name: Codelist_4thCycle_PressureType_ClassDiagram
@@ -31,12 +37,15 @@ Depending on the attribute and the context, the use of some values may be restri
 ```
 
 In the pressures codelist used in the 2nd and 3rd cycle of reporting,
-most options combined both a pressure and a driver 
+most options combined both a pressure and a driver
 (see {numref}`PressuresAndImpacts_DPSIRFramework_Table`).
 For example: abstraction + agriculture = 'P3-1 - Abstraction - Agriculture'.
 
-This structure was kept in the current codelist. Regardless of the hierarchical structure, the most detailed applicable option should be selected when reporting. If the specific driver is not in the codelist, the higher level code can be used.
-Note that not all the drivers defined in the 3rd cycle reporting guidance (see {numref}`Codelist_3rdCycle_DriverType_Table`) are listed.
+This structure was kept in the current codelist. Regardless of the hierarchical structure,
+the most detailed applicable option should be selected when reporting.
+If the specific driver is not in the codelist, the higher level code can be used.
+Note that not all the drivers defined in the 3rd cycle reporting guidance
+(see {numref}`Codelist_3rdCycle_DriverType_Table`) are listed.
 
 ```{include} tables/PressuresAndImpacts_DPSIRFramework_Table
 ```
@@ -49,7 +58,7 @@ Pressures codelist - Definition of the drivers
 ENV or EEA Water to complete, and define if any should be added.
 ```
 
-The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence 
+The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence
 between the codelist values in the 3rd cycle and in the 4th cycle.
 
 ```{dropdown} Show mapping table
@@ -62,31 +71,32 @@ between the codelist values in the 3rd cycle and in the 4th cycle.
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
 
-The codelist of significant pressures used in the 3rd cycle 
+The codelist of significant pressures used in the 3rd cycle
 includes three options generic values:
 
-*  'P7 - Anthropogenic pressure - Other', which then requires a textual explanation to be provided;
-*  'P8 - Anthropogenic pressure - Unknown'
-*  'P9 - Anthropogenic pressure - Historical pollution'
+* 'P7 - Anthropogenic pressure - Other', which then requires a textual explanation to be provided;
+* 'P8 - Anthropogenic pressure - Unknown'
+* 'P9 - Anthropogenic pressure - Historical pollution'
 
 The options P7, P8 and P9 are problematic:
 
-* P7 can potentially be used as a "catch-all" option, 
+* P7 can potentially be used as a "catch-all" option,
   that requires human analysis to understand what is reported in the text.
-* P8 was flagged has problematic by Member States. 
-  It is reasonable to have an 'unknown' option, if the water body status is itself unknown, but perhaps not in other circunstances.
-* P9 is not informative because it does not clarify 
+* P8 was flagged has problematic by Member States.
+  It is reasonable to have an 'unknown' option, if the water body status is itself unknown,
+  but perhaps not in other circumstances.
+* P9 is not informative because it does not clarify
   what type of historical pollution is actually being reported.
 
 The codelist includes several options that reduce the need for the P7 option:
 
-*  'P1-9 - Point - Other'
-*  'P2-10 - Diffuse - Other'
-*  'P3-7 - Abstraction - Other'
-*  'P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other'
-*  'P4-2-8 - Dams, barriers and locks - Other'
-*  'P4-3-6 - Hydrological alteration - Other'
-*  'P4-5 - Hydromorphological alteration - Other'
+* 'P1-9 - Point - Other'
+* 'P2-10 - Diffuse - Other'
+* 'P3-7 - Abstraction - Other'
+* 'P4-1-4 - Physical alteration of channel/bed/riparian area/shore - Other'
+* 'P4-2-8 - Dams, barriers and locks - Other'
+* 'P4-3-6 - Hydrological alteration - Other'
+* 'P4-5 - Hydromorphological alteration - Other'
 
 ### Number of groundwater bodies by pressure type
 
@@ -116,12 +126,12 @@ SELECT [gwSignificantPressureTypeGroup]
 
 Can the option 'P7 - Anthropogenic pressure - Other' be removed from the list of pressures?
 
-* Only 5 groundwater bodies list 'P7 - Anthropogenic pressure - Other' 
+* Only 5 groundwater bodies list 'P7 - Anthropogenic pressure - Other'
   as the single [gwSignificantPressureType] pressure,
-  and those 5 waterbodies are in good chemical and quantitative status.
+  and those 5 water bodies are in good chemical and quantitative status.
 
 * *Proposal*:
-  The option P7 can be safely removed. 
+  The option P7 can be safely removed.
   The [gwSignificantPressureOther] attribute can also be removed.  
   Textual descriptions of other pressures can remain the the RBMP documents.
 
@@ -188,20 +198,21 @@ GROUP BY [gwSignificantPressureOther] WITH ROLLUP
 ORDER BY numberOfWaterBodies DESC
 ```
 
-###  Groundwater bodies with 'P8 - Anthropogenic pressure - Unknown'
+### Groundwater bodies with 'P8 - Anthropogenic pressure - Unknown'
 
-If the option 'P7 - Anthropogenic pressure - Other' 
-is removed from the list of pressures, 
+If the option 'P7 - Anthropogenic pressure - Other'
+is removed from the list of pressures,
 can the option 'P8 - Anthropogenic pressure - Unknown' also be removed?
 
-* There are 50 groundwater bodies listing 'P8 - Anthropogenic pressure - Unknown' 
+* There are 50 groundwater bodies listing 'P8 - Anthropogenic pressure - Unknown'
   as the single [gwSignificantPressureType] pressure causing failure.
 
 * *Proposal*:  
-  Remove the option 'P8 - Anthropogenic pressure - Unknown' 
+  Remove the option 'P8 - Anthropogenic pressure - Unknown'
   from the list of options.  
   A generic 'unknown' option will be available.
-  It is mandatory to assess the pressures for water bodies not achieving good status, but Member States may still choose the option 'unknown'
+  It is mandatory to assess the pressures for water bodies not achieving good status,
+  but Member States may still choose the option 'unknown'
   and effectively report that the pressures were not assessed.  
 
 ```{dropdown} Show code
@@ -268,12 +279,12 @@ WHERE NOT (gwChemicalStatusValue = '2' AND gwQuantitativeStatusValue = '2')
 
 ### Groundwater bodies with 'P9 - Anthropogenic pressure - Historical pollution'
 
-If the option 'P7 - Anthropogenic pressure - Other' 
-and the option 'P8 - Anthropogenic pressure - Unknown' 
-are removed from the list of pressures, 
+If the option 'P7 - Anthropogenic pressure - Other'
+and the option 'P8 - Anthropogenic pressure - Unknown'
+are removed from the list of pressures,
 can the option 'P9 - Anthropogenic pressure - Historical pollution' also be removed?
 
-* There are 102 GWB (out of 5605 not achieving good status) 
+* There are 102 GWB (out of 5605 not achieving good status)
   that list 'P9 - Anthropogenic pressure - Historical pollution'
   as the single [gwSignificantPressureType] pressure causing failure.
   It is important to note that 75 of those 102 GWB are in Denmark.
@@ -283,7 +294,7 @@ can the option 'P9 - Anthropogenic pressure - Historical pollution' also be remo
   from the list of [gwSignificantPressureType] options,
   because it is seldom used and not very informative.
 
-* Inform Member States, specially those that used the P9 option 
+* Inform Member States, specially those that used the P9 option
   in the 3rd cycle electronic reporting.
 
 ```{dropdown} Show code
@@ -387,20 +398,20 @@ SELECT [swSignificantPressureTypeGroup]
 
 Can the option 'P7 - Anthropogenic pressure - Other' be removed from the list of pressures?
 
-* Only 237 surface water bodies list 'P7 - Anthropogenic pressure - Other' 
+* Only 237 surface water bodies list 'P7 - Anthropogenic pressure - Other'
   as the single [swSignificantPressureType] pressure,
   of which 235 fail to achieve good status.
-  A total of 137 of these water bodies report 
-  "gold mining activity (legal and illegal)" 
-  as the 'other' pressure - 
+  A total of 137 of these water bodies report
+  "gold mining activity (legal and illegal)"
+  as the 'other' pressure -
   but there is pressure code for this situation
   (i.e. there is not need for a textual description).
 
 * *Proposal*:
-  Remove the option 'P7 - Anthropogenic pressure - Other' 
+  Remove the option 'P7 - Anthropogenic pressure - Other'
   from the list of [swSignificantPressureType] options.  
   Remove the [swSignificantPressureOther] column.  
-  Inform Member States, specially those that used the P7 option 
+  Inform Member States, specially those that used the P7 option
   in the 3rd cycle electronic reporting.
 
 ```{dropdown} Show code
@@ -471,11 +482,11 @@ ORDER BY numberOfWaterBodies DESC
 
 If the option 'P7 - Anthropogenic pressure - Other' is removed from the list of  pressures, can the option 'P8 - Anthropogenic pressure - Unknown' also be removed?
 
-* There are 7 surface water bodies listing 'P8 - Anthropogenic pressure - Unknown' 
+* There are 7 surface water bodies listing 'P8 - Anthropogenic pressure - Unknown'
   as the single [swSignificantPressureType] pressure causing failure.
 
 * *Proposal*:  
-  Remove the option 'P8 - Anthropogenic pressure - Unknown' 
+  Remove the option 'P8 - Anthropogenic pressure - Unknown'
   from the list of [swSignificantPressureType] options.  
   Inform Member States, specially those that used the P8 option in the 3rd cycle electronic reporting.  
   A generic 'unknown' option will be available.
@@ -546,9 +557,9 @@ WHERE NOT (swEcologicalStatusOrPotentialValue IN ('1','2') AND swChemicalStatusV
 
 ### Surface water bodies with 'P9 - Anthropogenic pressure - Historical pollution'
 
-If the option 'P7 - Anthropogenic pressure - Other' 
-and the option 'P8 - Anthropogenic pressure - Unknown' 
-are removed from the list of pressures, 
+If the option 'P7 - Anthropogenic pressure - Other'
+and the option 'P8 - Anthropogenic pressure - Unknown'
+are removed from the list of pressures,
 can the option 'P9 - Anthropogenic pressure - Historical pollution' also be removed?
 
 * There are zero water bodies listing this pressure as the single pressure.
@@ -629,19 +640,25 @@ FROM (
 WHERE NOT (swEcologicalStatusOrPotentialValue IN ('1','2') AND swChemicalStatusValue IN ('2'))
 ```
 
-
 ### Surface water bodies with 'P8 - Anthropogenic pressure - Unknown' and unknown chemical status
 
-This specific situation was detected during the Assessment of the 3rd RBMPs:
+This specific situation was detected during the Assessment of the 3rd RBMPs {footcite}`OiEau2025Appraisal`:
 
 ```{epigraph}
-A Member State flagged that where a water body is reported to be in unknown chemical status, a pressure must also be reported on that water body. This resulted in the Member State reporting 60% of surface water bodies to be affected by unknown anthropogenic pressures. The Member State representative said that in reality, the percentage of waterbodies with an unknown pressure was approximately 10%. I.e. this resulted in a large difference between the data reported electronically, and the actual situation in the Member State.
+A Member State flagged that where a water body is reported to be in unknown chemical status, 
+a pressure must also be reported on that water body. 
+This resulted in the Member State reporting 60% of surface water bodies 
+to be affected by unknown anthropogenic pressures. 
+The Member State representative said that in reality, 
+the percentage of water bodies with an unknown pressure was approximately 10%. 
+I.e. this resulted in a large difference between the data reported electronically,
+and the actual situation in the Member State.
 ```
 
-```{todo} 
+```{todo}
 Significant pressures - Provide link to report 
 
-ASSESSMENT OF THE THIRD RIVER BASIN MANAGEMENT PLANS (RBMPS) - APPENDIX - LESSONS LEARNT - ELECTRONIC REPORTING
+ASSESSMENT OF THE THIRD RIVER BASIN MANAGEMENT PLANS (RBMPs) - APPENDIX - LESSONS LEARNT - ELECTRONIC REPORTING
 
 ```
 
