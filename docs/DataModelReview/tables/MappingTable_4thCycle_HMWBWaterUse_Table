@@ -8,11 +8,29 @@
 * - 3rd cycle
   - 4th cycle
 
-* - "Agriculture - land drainage"
-  - agriculture_landDrainage
+* - "Wider environment - nature protection and other ecological uses"
+  - widerEnvironment_natureProtection
+
+* - "Wider environment - nature protection and other ecological uses" 
+  - widerEnvironment_culturalHeritageProtection
+
+* - "Transport - navigation / ports"
+  - transport
+
+* - "Tourism and recreation"
+  - tourism
+
+* - "Urban development - drinking water supply"
+  - urban_drinkingWaterSupply
 
 * - "Agriculture - irrigation"
   - agriculture_irrigation
+
+* - "Storage for fisheries/aquaculture/fish farms"
+  - aquaculture
+
+* - "Industry supply"
+  - industry_waterSupply
 
 * - "Energy - hydropower"
   - energy_hydropower
@@ -20,35 +38,17 @@
 * - "Energy - non-hydropower"
   - energy_nonHydropower
 
-* - "Storage for fisheries/aquaculture/fish farms"
-  - aquaculture
-
-* - "Industry supply"
-  - industry
-
-* - "Tourism and recreation"
-  - tourism
-
-* - "Transport - navigation / ports"
-  - transport
-
-* - "Urban development - other use"
-  - urban
-
-* - "Urban development - drinking water supply"
-  - urban_publicWaterSupply
-
 * - "Flood protection"  
   - floodProtection
 
-* - "Wider environment - nature protection and other ecological uses"
-  - natureProtection
+* - "Agriculture - land drainage"
+  - agriculture_landDrainage
 
-* - "Wider environment - nature protection and other ecological uses" 
-  - culturalHeritageProtection
+* - "Urban development - other use"
+  - urban_other
 
 * - "Other"
-  - other
+  - otherSustainableHumanDevelopmentActivities
 
 * - "Unknown"
   - unknown

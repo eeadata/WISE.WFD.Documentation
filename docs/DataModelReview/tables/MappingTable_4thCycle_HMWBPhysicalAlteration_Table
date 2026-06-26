@@ -1,0 +1,31 @@
+```{list-table} Mapping table - 4th cycle - HMWBPhysicalAlteration
+:name: MappingTable_4thCycle_HMWBPhysicalAlteration_Table
+:header-rows: 1
+:width: 100%
+:widths: 50 50
+:align: left
+
+* - 3rd cycle
+  - 4th cycle
+
+* - "Locks"
+  - locks
+
+* - "Weirs / dam / reservoir"
+  - transversalBarrier
+  
+* - "Channelisation / straightening / bed stabilisation / bank reinforcement"
+  - longitudinalBarrier
+  
+* - "Dredging / channel maintenance"
+  - dredging
+  
+* - "Land reclamation / coastal modifications / ports"
+  - landReclamation
+
+* - "Land drainage"
+  - landDrainage
+  
+* - "Other"
+  - other
+```

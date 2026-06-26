@@ -21,8 +21,10 @@ The information about Surface water bodies was reported in five separate schemas
 
 * the SWB_2022 schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
 * the SWMET_2022 schema, containing information about the methodologies (see {ref}`heading_wfd_surface_water_methodologies`)
-* the GML_SurfaceWaterBody_2022 schema and GML_SurfaceWaterBodyLine_2022 schema, containing the SurfaceWaterBody spatial dataset.
-* the GML_SurfaceWaterBodyCentreline_2022 schema, containing the ancillary SurfaceWaterBodyCentreline spatial dataset.
+* the GML_SurfaceWaterBody_2022 schema and GML_SurfaceWaterBodyLine_2022 schema,
+  containing the SurfaceWaterBody spatial dataset.
+* the GML_SurfaceWaterBodyCentreline_2022 schema,
+  containing the ancillary SurfaceWaterBodyCentreline spatial dataset.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_3rdCycle_SWB_ClassDiagram.mmd
 :name: SurfaceWater_3rdCycle_SWB_ClassDiagram
@@ -58,7 +60,10 @@ to help focus the discussion on the remaining issues.
 
 ## Surface water - descriptive data - 4th cycle
 
-The proposed structure for the 4th cycle electronic reporting is presented in the class diagram in ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`) and a brief description of each table is included in {numref}`SurfaceWater_4th_cycle_brief_table_description`.
+The proposed structure for the 4th cycle electronic reporting is presented in the class diagram in
+({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`)
+and a brief description of each table is included in
+{numref}`SurfaceWater_4th_cycle_brief_table_description`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_DescriptiveData_ClassDiagram.mmd
 :name: SurfaceWater_4thCycle_DescriptiveData_ClassDiagram
@@ -186,8 +191,20 @@ The proposed structure for the 4th cycle electronic reporting is presented in th
 
 * For the `Reservoir` codelist,
   see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
-  All reservoirs must be reported as artificial or heavily modified lakes
-  (see {numref}`Codelist_4thCycle_Reservoir_Table`).
+  All reservoirs must be reported as artificial or heavily modified lakes.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_Reservoir_Table`.
+
+* For the `HMWBWaterUse` codelist,
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  For heavily modified water bodies only, use this codelist to report the water use for
+  which the water body has been designated. According to Art. 4(3) of the WFD,
+  the water use for which a HMWB
+  was designated is the water use that would be affected significantly by the changes that would be
+  necessary to achieve good ecological status.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_HMWBWaterUse_Table`.  
+  - See the mapping table to the 3rd cycle values in {numref}`MappingTable_4thCycle_HMWBWaterUse_Table`.
 
 * For the `HMWBPhysicalAlteration` codelist,
   see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
@@ -199,33 +216,29 @@ The proposed structure for the 4th cycle electronic reporting is presented in th
   is substantially changed in character.
   In general, these hydromorphological characteristics are long term
   and alter both the morphological and hydrological characteristics.
-  (See {numref}`Codelist_4thCycle_HMWBPhysicalAlteration_Table`.)
 
-* For the `HMWBWaterUse` codelist,
-  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
-  For heavily modified water bodies only, use this codelist to report the water use for
-  which the water body has been designated. According to Art. 4(3) of the WFD,
-  the water use for which a HMWB
-  was designated is the water use that would be affected significantly by the changes that would be
-  necessary to achieve good ecological status.
-  (See {numref}`Codelist_4thCycle_HMWBWaterUse_Table`.)  
+  - See the definitions in {numref}`Codelist_4thCycle_HMWBPhysicalAlteration_Table`.
+  - See the mapping table to the 3rd cycle values in 
+    {numref}`MappingTable_4thCycle_HMWBPhysicalAlteration_Table`.
 
 * For the `AssessmentMethod` codelist,
   see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
   The codelist is used to report
   the assessment method for the chemical status and
-  the assessment method for the ecological status
-  (see {numref}`Codelist_4thCycle_AssessmentMethod_Table`).  
+  the assessment method for the ecological status.  
   The same codelist is used for groundwater bodies,
   to report the assessment method of quantitative status,
   and the assessment method of chemical status.
+
+  - See the definitions in {numref}`Codelist_4thCycle_AssessmentMethod_Table`.
 
 * For the `AssessmentConfidence` codelist,
   see also {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
   The codelist allow the reporting of
   the level of confidence in the results of the status assessment
-  (see {numref}`Codelist_4thCycle_AssessmentConfidence_Table`).  
   The same codelist is used for groundwater bodies.
+
+  - See the definitions in {numref}`Codelist_4thCycle_AssessmentConfidence_Table`.
 
 * For the `PressureType` codelist,
   see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in
@@ -250,6 +263,10 @@ The proposed structure for the 4th cycle electronic reporting is presented in th
 ```
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBPhysicalAlteration_Table
+```
+
+```{dropdown} Click to see the mapping table between 3rd cycle and 4th cycle codes
+```{include} /DataModelReview/tables/MappingTable_4thCycle_HMWBPhysicalAlteration_Table
 ```
 
 % -----------------------------------------------------------------------------
@@ -294,7 +311,8 @@ versus conditions in the form *if and only if A then B*.
 
 On a case-by-case decision, 
 resubmissions may have been requested or not. 
-Therefore the database may contain inconsistencies (e.g. in early submissions) that were detected and blocked (in later submissions).
+Therefore the database may contain inconsistencies (e.g. in early submissions) 
+that were only detected and blocked in later submissions.
 ```
 
 ### Quality element status (3rd, 2nd and 1st RBMP), by category
@@ -328,7 +346,8 @@ Surface water bodies: Number of quality elements used in the assessment of the e
 
 ### Status calculated from the quality elements
 
-The following dashboard shows the reported ecological status vs. calculated ecological status (based on the quality elements):
+The following dashboard shows the reported ecological status vs. calculated ecological status
+(based on the quality elements):
 
 ```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_EcologicalStatus_Calculated/SWB_EcologicalStatus_Calculated_Category.png
 :width: 1024
@@ -519,7 +538,9 @@ The question is, *can the reported ecological status or potential be 'unknown'*?
   -- https://discodata.eea.europa.eu/
   
   SELECT a.[swEcologicalStatusOrPotentialValue]
-      ,COUNT(DISTINCT IIF(a.[qeStatusOrPotentialValue] IN ('3','4','5'), [euSurfaceWaterBodyCode], null)) AS wbWithFailingBQE
+      ,COUNT(DISTINCT 
+             IIF(a.[qeStatusOrPotentialValue] IN ('3','4','5'), [euSurfaceWaterBodyCode], NULL)) 
+             AS wbWithFailingBQE
   FROM  [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_QualityElement] a
   WHERE a.[qeCode] LIKE 'QE1%'
     AND a.[cYear] = 2022
@@ -527,7 +548,7 @@ The question is, *can the reported ecological status or potential be 'unknown'*?
   GROUP BY a.[swEcologicalStatusOrPotentialValue]
   ```
 
-From a logical (mathematical) perspective, the ecological status can be 'undeterminate',
+From a logical (mathematical) perspective, the ecological status can be 'indeterminate',
 if not all the relevant biological quality elements were assessed,
 and therefore it could be 'moderate', 'poor' or 'bad'.
 But the ecological status is known to fail to achieve good status.
@@ -674,7 +695,7 @@ Checking the *rule 2* (the ecological status cannot be worse than the worst QE1 
 * *NOT as expected:* 5665 surface water bodies with ecological status
   worse than the status of the worst known QE1 or QE3.
 
-  * *of which* 1717 surface water bodies
+  - *of which* 1717 surface water bodies
     failing to achieve good ecological status,
     when none of the QE1 or or QE3 status is failing.
 
@@ -690,7 +711,7 @@ the values are similar.
 * *NOT as expected:* 7015 surface water bodies with ecological status
   worse than the status of the worst known QE1, QE3-1 or QE3-2
 
-  * *of which* 2535 surface water bodies
+  - *of which* 2535 surface water bodies
     failing to achieve good ecological status,
     when none of the QE1, QE3-1 or QE3-2 status is failing
 
@@ -855,3 +876,8 @@ Heavily modified water bodies - Number of different physical alterations per wat
   ORDER BY numberOfHMWBPhysicalAlteration, numberOfHMWBWaterUse
 
  ```
+
+## References
+
+```{footbibliography}
+```

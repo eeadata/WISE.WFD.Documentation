@@ -1,4 +1,4 @@
-```{list-table} Codelist - 4th cycle - HMWBPhysicalAlteration 
+```{list-table} Codelist - 4th cycle - HMWBPhysicalAlteration
 :name: Codelist_4thCycle_HMWBPhysicalAlteration_Table
 :header-rows: 1
 :width: 100%
@@ -7,18 +7,20 @@
 
 * - Notation
   - Label 
-  - Definition
+  - Definition {footcite}`WFD2022_ReportingGuidance`
 
 * - locks
   - locks
   - **Locks**: 
-    devices for raising and lowering boats between stretches of water of different levels on river and canal waterways.
+    devices for raising and lowering boats between stretches of water 
+    of different levels on river and canal waterways.
 
 * - transversalBarrier
   - Transversal barrier
   - Includes:
     **Weirs / dam / reservoir**: 
-    transversal barriers constructed across a river or a lake discharge for the purpose of creating a water impoundment.
+    transversal barriers constructed across a 
+    river or a lake discharge for the purpose of creating a water impoundment.
 
 * - longitudinalBarrier
   - Longitudinal barrier
@@ -31,13 +33,15 @@
   - Dredging 
   - Includes:
     **Dredging / channel maintenance**: 
-    modifications due to regular maintenance of rivers through dredging for any given purpose, usually navigation or flood protection. 
+    modifications due to regular maintenance of rivers through dredging for any given purpose,
+    usually navigation or flood protection. 
 
 * - landReclamation
   - Land reclamation
   - Includes:
     **Land reclamation / coastal modifications / ports**: 
-    modifications of a water body as a result of the creation of new land from ocean, riverbeds, or lakes (e.g. for the purpose of expanding or creating a port).
+    modifications of a water body as a result of the creation of new land from ocean,
+    riverbeds, or lakes (e.g. for the purpose of expanding or creating a port).
 
 * - landDrainage
   - Land drainage
