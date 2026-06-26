@@ -1,0 +1,13 @@
+# Custom Dictionary Words related to Technical Jargon
+codelist
+codelists
+dagre
+datatypes
+EIONET
+lightyellow
+linenos
+numref
+Reportnet3
+SDMX
+toctree
+discodata

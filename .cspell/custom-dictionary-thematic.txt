@@ -1,12 +1,8 @@
 # Custom Dictionary Words
 aquiferous
 AWBHMWB
-bqes
-codelist
-codelists
-dagre
-datatypes
-EIONET
+BQE
+BQEs
 EQSD
 exceedance
 exceedances
@@ -22,12 +18,9 @@ Hydromorphology
 IHME
 Intercalibration
 IPCC
-lightyellow
-linenos
 Macroalgae
 MEPGEP
 msfd
-numref
 Oxidisability
 Physico
 physico-chemical
@@ -36,15 +29,12 @@ Phytobenthos
 RBDCA
 RBMP
 rbsp
-Reportnet3
-SDMX
 Secchi
 seveso
 SWGROUP
 SWMET
 SWMET_2022
 SWRBSP
-toctree
 transboundary
 Waterbase
 Waterbases
