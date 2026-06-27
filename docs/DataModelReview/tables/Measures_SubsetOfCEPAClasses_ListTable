@@ -1,12 +1,13 @@
 ```{list-table} Subset of CEPA classes potentially applicable to the classification of WFD Measures.
 :name: Measures_SubsetOfCEPAClasses_ListTable
-:width: 100%
 :header-rows: 1
 :align: left
+:width: 100%
+:widths: 10 20 70
 
-* - CODE 
-  - NAME 
-  - SCOPE 
+* - Notation 
+  - Label
+  - Definition 
 
 * - CEPA 2
   - Wastewater management

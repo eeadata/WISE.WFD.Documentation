@@ -10,20 +10,20 @@ See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures
 
 ## Purpose and overview
 
-This section revises the **River Basin Management Plan & Programme of Measures** schema used in the
-3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
+This section revises the **River Basin Management Plan & Programme of Measures** schema
+used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
 It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
-Not all information in the RBMPs can be accurately provided using a common European model. However,
-it is possible to improve and simplify the reporting of structured data, accepting that part of the
-relevant information will remain in documentation to be analysed during the Commission's
-implementation assessment.
+Not all information in the RBMPs can be accurately provided using a common European model.
+However, it is possible to improve and simplify the reporting of structured data,
+accepting that part of the relevant information will remain in documentation
+to be analysed during the Commission's implementation assessment.
 
-Using this principle, the data model can focus on aspects that are suitable for structured
-reporting, allowing adequate comparisons between different river basin districts (RBDs). Specific or
-more detailed information can be kept in the RBMP documents, the analysis of which can in the future
-be facilitated using, for example, large language models (LLMs) supported by retrieval‑augmented
-generation (RAG) techniques.
+Using this principle, the data model can focus on aspects that are suitable for structured reporting,
+allowing adequate comparisons between different river basin districts (RBDs).
+Specific or more detailed information can be kept in the RBMP documents,
+the analysis of which can in the future be facilitated using, for example,
+large language models (LLMs) supported by retrieval‑augmented generation (RAG) techniques.
 
 ## Current structure - 3rd cycle
 
@@ -50,26 +50,10 @@ The schema used in the 3rd cycle of reporting contained 4 main groups
 :align: center
 :width: 100%
 
-River Basin Management Plan & Programme of Measures - 3rd cycle
+River Basin Management Plan & Programme of Measures table - 3rd cycle
 ```
 
-## Proposed structure - 4th cycle
-
-* The RBMP and Coordination tables are simplified to a single `RiverBasinManagementPlan` table,
-  containing a selected subset of attributes.  
-  The `Progress` table is modified to request only aggregated information
-  about the overall status of the measures of the previous cycle (3rd cycle).
-
-* The reporting of the Programme of Measures is also simplified.
-  The `TargetedQuestions` table, containing the questionnaire at RBD level, is simplified.  
-
-* Information about measures is requested in a single `Measure` table.
-  Information about the planned `ExpenditurePerMeasure` is reported in a separate table,
-  if data is available.
-  
-* The KTM classification, KTM indicators and indicator gaps data is completely removed.
-
-## River basin management plan, coordination and progress - 3rd cycle
+## RBMP, Coordination and Progress table - 3rd cycle
 
 In the 3rd cycle of reporting, this group comprised three tables, collecting summary information
 about the **RBMP**, the **Progress** since the previous **RBMP**, and the mechanisms of international
@@ -88,8 +72,141 @@ required and proposes the simplification detailed in the next sections.
 :align: center
 :width: 100%
 
-River Basin Management Plan, international Coordination and Progress since the previous cycle - 3rd cycle
+River Basin Management Plan, international Coordination and Progress - 3rd cycle
 ```
+
+## Costs table - 3rd cycle
+
+Regarding the economic data in the programme of measure,
+the revision of the electronic reporting focuses on the main issues
+described in the Note to the CIS Working Group Economics quoted below
+{footcite}`Arnoldus2025Workstream1`:
+
+```{epigraph}
+“[…] Both the Commission’s 6th and 7th WFD Implementation Reports indicate persistent problems in
+the (electronic) reporting on the investments and the costs of other measures in the Programme of
+Measures (**PoM**).
+
+The 6th WFD Implementation Report notes that the Member States’ reporting on costs and financing of
+the **PoMs** appears overall patchy and that a consultant’s study estimate is an underestimation for 
+the total costs, as there are significant data gaps and it excludes operational and infrastructure
+maintenance costs. The corresponding investment overview table shows indeed large gaps.
+{footcite}`6thWFDImplementationReport`
+
+The Commission’s evaluation of the 3rd River Basin Management Plans 
+{footcite}`7thWFDImplementationReport`, as part of the 7th WFD Implementation Report, 
+notes that the “third **PoMs** presented in the (…) RBMPs show
+that Member States continue to have different approaches to their design and reporting” and that
+“the costs and the financing of the planned measures are often missing.” Hence, the Commission
+recommends that “in order to effectively implement the **PoMs** to develop long‑term investment plans
+and clearly identifying the source of financing for each measure.” A good planning is also necessary
+for the acquisition of support from EU Funds, the EIB and other promotional banks.
+
+*The challenge is thus to improve the reporting of the costs of the **PoM** measures, including the
+investment amounts*, and to specify the funding of these investments and other measures. This
+requires a clear distinction between capital costs (CAPEX) and operational costs (OPEX). […]
+
+The proposal here is to agree on a clear conceptual basis for the **PoM** costs.
+
+It is natural to consider the **PoM** as a **budget of government outlays** – however, there can be
+costs on other economic agents without government payment involved (cf. banning an activity).
+
+The budget orientation would imply to look at foreseen **spending amounts**. This has three
+consequences:
+
+* ‘Welfare costs’ should not be included in the reporting. However, they can be taken up as
+  “negative benefits” in the **CEA (cost‑effectiveness analysis)**.
+* The reporting is on investment spending (purchases / commitments) and not on capital costs
+  (depreciation).
+* To make the link with financial support from EU Funds, EIB and other promotional banks, one
+  needs to distinguish OPEX and CAPEX when reporting investment cost.
+
+There is a readily available conceptual basis for the reporting on the **PoM** investment and other
+costs, with which the Member States are already familiar, namely the **environmental protection
+expenditures**. They are namely required to collect and report this data annually to Eurostat
+{footcite}`EEEAccounts`, who publishes the **Environmental Protection Expenditures Accounts (EPEA)** 
+as one of the environmental‑economic satellite accounts to the economic National Accounts.
+The EPEA are based on a clear, publicly available protocol (following UN statistical standards),
+defining the environmental domains, spending economic sectors, and expenditure types. 
+The latter includes the distinction between **capital** and **current** expenditures. 
+Hence, it meets the features described in the three bullets points above.
+
+-- {cite}`Arnoldus2025Workstream1`
+
+```
+
+A brief review of the reported data confirms the issues mentioned above.
+
+In the **3rd cycle** of reporting, the overall cost of the **PoM** was reported in the **Costs** class
+({numref}`Measures_3rdCycle_Costs`). Reporting of costs was, de facto, optional –
+since all numerical attributes admitted the option **–9999** to denote “data not available”.
+
+ Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not
+ have data on operational costs and 64 do not have data on EU funds.
+
+```{mermaid} /DataModelReview/mmd/Measures_3rdCycle_Costs.mmd
+:name: Measures_3rdCycle_Costs
+:align: center
+:caption: Class diagram for the RBMPPoM_2022 schema: Costs – 3rd cycle
+```
+
+The variability of the geographical and temporal coverage of the reported data adds to the
+difficulty in achieving a meaningful analysis.
+{numref}`Measures_3rdCycle_TemporalCoverage` illustrates the issues regarding temporal coverage.
+{numref}`Measures_3rdCycle_GeographicalCoverage` illustrates the issue with geographical coverage.
+
+```{table} Temporal coverage: period to which the reported costs refer – 3rd cycle (including Norway).
+:name: Measures_3rdCycle_TemporalCoverage
+:width: 100%
+| costOfMeasurePeriod20152021 | costOfMeasurePeriod20212027 | Number of RBDs |
+|---|---|---|
+| 2014--2020 | 2022--2027 | 5 |
+| 2015--2020 | 2021--2027 | 1 |
+| 2015--2020 | 2022--2027 | 2 |
+| 2015--2021 | 2007--2027 | 1 |
+| 2015--2021 | 2021--2027 | 62 |
+| 2015--2021 | 2022--2027 | 23 |
+| 2016--2021 | 2009--2015 | 1 |
+| 2016--2021 | 2010--2015 | 7 |
+| 2016--2021 | 2021--2027 | 4 |
+| 2016--2021 | 2022--2027 | 40 |
+| 2016--2021 | 2023--2027 | 3 |
+| 2016--2022 | 2023--2027 | 4 |
+| 2016--2027 | 2019 | 4 |
+| 2017--2021 | 2021--2027 | 4 |
+| 2017--2021 | 2022--2027 | 1 |
+```
+
+```{table} Geographic coverage: scale to which the reported costs refer – 3rd cycle (including Norway).
+:name: Measures_3rdCycle_GeographicalCoverage
+:width: 100%
+| costOfMeasuresScale20152021 | costOfMeasuresScale20212027 | Number of RBDs |
+|---|---|---|
+| National | National | 48 |
+| River Basin District | River Basin District | 103 |
+| National | River Basin District | 4 |
+| River Basin District | National | 7 |
+```
+
+## Proposed structure - 4th cycle
+
+* The former RBMP and Coordination tables are simplified 
+  to a single `RiverBasinManagementPlan` table,
+  containing a selected subset of attributes.  
+
+* The `Progress` table is modified to request only aggregated information
+  about the overall status of the measures of the previous cycle (3rd cycle).
+
+* The reporting of the Programme of Measures is also simplified.
+  The `TargetedQuestions` table, containing the questionnaire at RBD level, is simplified.  
+
+* Information about measures is requested in a single `Measure` table.
+
+* The former Costs table is removed.
+  Information about the planned `ExpenditurePerMeasure` 
+  is reported in a separate table, if data is available.
+  
+* The KTM classification, KTM indicators and indicator gaps data is completely removed.
 
 ## RiverBasinManagementPlan table – 4th cycle
 
@@ -216,14 +333,14 @@ For each measure:
 :align: center
 ```
 
-### Measure table – 4th cycle - measureType
+### measureType
 
 The `measureType` typology is described in {numref}`Codelist_4thCycle_MeasureType_Table`.
 
 ```{include} tables/Codelist_4thCycle_MeasureType_Table
 ```
 
-### Measure table – 4th cycle - measureLegalInstrument
+### measureLegalInstrument
 
 The primary `measureLegalInstrument` under which the measure was defined
 must be clearly identified.
@@ -256,7 +373,7 @@ the **basicMeasureType** and the **keyTypeOfMeasure** classifications used in th
 ```{include} tables/Measures_MainKeyTypeOfMeasure_ListTable
 ```
 
-### Measure table – 4th cycle - mainPressureType and mainSubstanceType
+### mainPressureType and mainSubstanceType
 
 In the **3rd cycle**, the reporting guidance stated that
 "the name [of the measure] should reflect the pressure that is being tackled by the measure" {footcite}`WFD2022_ReportingGuidance` — meaning the pressure(s)
@@ -280,7 +397,7 @@ from issues related to diffuse pollution from Agriculture - `'P2-2'`.
 *If needed and applicable*, a similar approach can be used for `mainSubstanceType`,
 allowing MS to identify measures targeting specific substances or groups of substances.
 
-### Measure table – 4th cycle - geographicalCoverage
+### geographicalCoverage
 
 * The geographical scope of a measure is specified in the `geographicalCoverage` attribute,
   by selecting the most adequate option:
@@ -310,7 +427,7 @@ allowing MS to identify measures targeting specific substances or groups of subs
 
 * In these cases, it is NOT requested to individually identify the water bodies or protected areas.
 
-### Measure table – 4th cycle - implementationPeriod and implementationStatus
+### implementationPeriod and implementationStatus
 
 * The temporal scope of a measure is provided in the `implementationPeriod` value.
 * The range of years indicated in the `implementationPeriod` is used
@@ -321,131 +438,51 @@ allowing MS to identify measures targeting specific substances or groups of subs
   It may also be used for measures planned for the 3rd cycle
   but already executed or cancelled by the end of 2027.
 
-## Economic data in the programme of measures
+## ExpenditurePerMeasurePerSector table – 4th cycle
 
-The revision of the electronic reporting focuses on the main issues described
-in the Note to the CIS Working Group Economics ([^pArnoldus]) quoted below:
-
-“[…] Both the Commission’s 6th and 7th WFD Implementation Reports indicate persistent problems in
-the (electronic) reporting on the investments and the costs of other measures in the Programme of
-Measures (**PoM**).
-
-The 6th WFD Implementation Report notes that the Member States’ reporting on costs and financing of
-the **PoMs** appears overall patchy and that a consultant’s study estimate is an underestimation for the
-total costs, as there are significant data gaps and it excludes operational and infrastructure
-maintenance costs. The corresponding investment overview table shows indeed large gaps
-([^6thWFDImplReport]) .
-
-The Commission’s evaluation of the 3rd River Basin Management Plans ([^7thWFDImplReport]), as part
-of the 7th WFD Implementation Report, notes that the “third **PoMs** presented in the (…) RBMPs show
-that Member States continue to have different approaches to their design and reporting” and that
-“the costs and the financing of the planned measures are often missing.” Hence, the Commission
-recommends that “in order to effectively implement the **PoMs** to develop long‑term investment plans
-and clearly identifying the source of financing for each measure.” A good planning is also necessary
-for the acquisition of support from EU Funds, the EIB and other promotional banks.
-
-*The challenge is thus to improve the reporting of the costs of the **PoM** measures, including the
-investment amounts*, and to specify the funding of these investments and other measures. This
-requires a clear distinction between capital costs (CAPEX) and operational costs (OPEX). […]
-
-The proposal here is to agree on a clear conceptual basis for the **PoM** costs.
-
-It is natural to consider the **PoM** as a **budget of government outlays** – however, there can be
-costs on other economic agents without government payment involved (cf. banning an activity).
-
-The budget orientation would imply to look at foreseen **spending amounts**. This has three
-consequences:
-
-* ‘Welfare costs’ should not be included in the reporting. However, they can be taken up as
-  “negative benefits” in the **CEA (cost‑effectiveness analysis)**.
-* The reporting is on investment spending (purchases / commitments) and not on capital costs
-  (depreciation).
-* To make the link with financial support from EU Funds, EIB and other promotional banks, one
-  needs to distinguish OPEX and CAPEX when reporting investment cost.
-
-There is a readily available conceptual basis for the reporting on the **PoM** investment and other
-costs, with which the Member States are already familiar, namely the **environmental protection
-expenditures**. They are namely required to collect and report this data annually to Eurostat
-([^Obligation]), who publishes the **Environmental Protection Expenditures Accounts (EPEA)** as one
-of the environmental‑economic satellite accounts to the economic National Accounts.The EPEA are
-based on a clear, publicly available protocol (following UN statistical standards), defining the
-environmental domains, spending economic sectors, and expenditure types. The latter includes the
-distinction between **capital** and **current** expenditures. Hence, it meets the features described
-in the three bullets points above.
-
-A brief review of the reported data confirms the issues mentioned above.
-
-In the **3rd cycle** of reporting, the overall cost of the **PoM** was reported in the **Costs** class
-({numref}`MeasuresCosts`). Reporting of costs was, de facto, optional –
-since all numerical attributes admitted the option **–9999** to denote “data not available”.
-
- Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not
- have data on operational costs and 64 do not have data on EU funds.
-
-```{mermaid} /DataModelReview/mmd/MeasuresCosts.mmd
-:name: MeasuresCosts
-:align: center
-:caption: Class diagram for the RBMPPoM_2022 schema: Costs – 3rd cycle of reporting.
-```
-
-The variability of the geographical and temporal coverage of the reported data adds to the
-difficulty in achieving a meaningful analysis.{numref}`measures_temporalcoverage` illustrates the
-issues regarding temporal coverage. {numref}`measures_geographiccoverage` illustrates the issue with
-geographical coverage.
-
-```{table} Temporal coverage: period to which the reported costs refer – 3rd RBMP electronic reporting (including Norway).
-:name: measures_temporalcoverage
-:width: 100%
-| costOfMeasurePeriod20152021 | costOfMeasurePeriod20212027 | Number of RBDs |
-|------------------------------|------------------------------|----------------|
-| 2014--2020 | 2022--2027 | 5 |
-| 2015--2020 | 2021--2027 | 1 |
-| 2015--2020 | 2022--2027 | 2 |
-| 2015--2021 | 2007--2027 | 1 |
-| 2015--2021 | 2021--2027 | 62 |
-| 2015--2021 | 2022--2027 | 23 |
-| 2016--2021 | 2009--2015 | 1 |
-| 2016--2021 | 2010--2015 | 7 |
-| 2016--2021 | 2021--2027 | 4 |
-| 2016--2021 | 2022--2027 | 40 |
-| 2016--2021 | 2023--2027 | 3 |
-| 2016--2022 | 2023--2027 | 4 |
-| 2016--2027 | 2019 | 4 |
-| 2017--2021 | 2021--2027 | 4 |
-| 2017--2021 | 2022--2027 | 1 |
-```
-
-```{table} Geographic coverage: scale to which the reported costs refer – 3rd RBMP electronic reporting (including Norway).
-:name: measures_geographiccoverage
-:width: 100%
-| costOfMeasuresScale20152021 | costOfMeasuresScale20212027 | Number of RBDs |
-|------------------------------|------------------------------|----------------|
-| National | National | 48 |
-| River Basin District | River Basin District | 103 |
-| National | River Basin District | 4 |
-| River Basin District | National | 7 |
-```
-
-### ExpenditurePerMeasurePerSector table – 4th cycle
-
-Figure 12 illustrates the `ExpenditurePerMeasurePerSector` table proposed for the 4th cycle.
+{numref}`Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram` 
+illustrates the `ExpenditurePerMeasurePerSector` table proposed for the 4th cycle.
 
 The data is reported for each measure, *if it is available*: the `measureCode` identifier and the
 `expenditureDataAvailable` attribute are the only mandatory attributes.
-
-The geographical scope of the measure is inherited from the parent record in the `Measure` table
-and does not need to be reported again. Likewise, the temporal scope is inherited from the parent
-records and can be used to verify the reported data ([^ErrorExplained]).
-
-The attribute `millionUnitsOfNationalCurrency` was introduced to facilitate reporting by MS
-outside the Euro area, in alignment with common statistical practices ([^DataReportedCurrency]). It
-also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
 
 ```{mermaid} /DataModelReview/mmd/Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram.mmd
 :name: Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram
 :caption: Expenditure per Measure per Sector table – 4th cycle of reporting
 :align: center
 ```
+
+The geographical scope of the measure is inherited from the parent record in the `Measure` table
+and does not need to be reported again. Likewise, the temporal scope is inherited from the parent
+records and can be used to verify the reported data [^ErrorExplained].
+
+[^ErrorExplained]: An error should be raised when there is missing data. In pseudo-code (the &&
+    operators tests whether a range of values overlaps):<br>a) IF
+    expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod &&
+    '[2022,2027]' AND Measure.implementationStatus IN ('executed', 'ongoing',
+    'implemented') AND totalCapitalExpenditure3rdCycle IS NULL AND
+    annualCurrentExpenditure3rdCycle IS NULL. <br>b) IF expenditureDataAvailable
+    = 'Yes' AND Measure.implementationPeriod && '[2028,2033]' AND
+    Measure.implementationStatus IN ('ongoing', 'implemented', 'planned') AND
+    totalCapitalExpenditure4thCycle IS NULL AND annualCurrentExpenditure4thCycle
+    IS NULL.
+
+The attribute `millionUnitsOfNationalCurrency` was introduced to facilitate reporting by MS
+outside the Euro area, in alignment with common statistical practices ([^DataReportedCurrency]). 
+It also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
+
+[^DataReportedCurrency]: Data must be reported in Millions of Euro for Euro Area Member States,
+    and in Millions of National currency for non-Euro Area countries. (The
+    unit multiplier is set to 6 and it is applied to all the data, so it
+    doesn't need to be specified.) Non-Euro Area countries should use the
+    relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF,
+    PLN, RON, SEK) rather than common code for domestic currency (XDC).
+    Euro Area countries must use EUR. Generally, the number of decimal
+    digits is “0”. If a country wants to send a figure lower than 1
+    million, decimals may be used. In this case, the separator must be a
+    dot (.). (Example: if a country wants to report a value of 10 000 the
+    figure 0.01 must be sent). If necessary the proposal can be modified to
+    use a different multiplier (e.g. thousands).
 
 A clear separation is made between **capital** expenditure vs. **current** expenditure and between
 the 3rd cycle and the 4th cycle data. Only total values are requested.
@@ -454,7 +491,7 @@ The `institutionalSector` attribute identifies the institutional sector doing th
 aspect is explained below.
 
 The European System of Accounts (ESA 2010) has a standard classification of institutional sectors
-(see {numref}`measures_ESA2010`).
+(see {numref}`Measures_ESA2010_Table`).
 The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly,
 the 3rd cycle of WFD reporting used it.
 The dichotomous key in Figure 13 clarifies the allocation of units to sectors.
@@ -466,24 +503,7 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 * S14 – Households
 * S2 – Rest of the World
 
-```{table} European System of Accounts (ESA 2010) sectors.
-:name: measures_ESA2010
-:width: 100%
-| ESA Sector | Definition |
-|------------|------------|
-| S.1 | Total economy |
-| S.11 | Non-financial corporations (e.g., waste companies, manufacturers). |
-| S.11001 | Public non-financial corporations. All non-financial corporations, quasi-corporations and non-profit institutions, recognised as independent legal entities, that are market producers and are subject to control by government units. |
-| S.11002 | National private non-financial corporations. |
-| S.11003 | Foreign controlled non-financial corporations. |
-| S.12 | Financial corporations (rarely main EPEA actors, but valid). |
-| S.13 | General government. Central, state, and local government units (e.g., municipalities, ministries). |
-| S.14 | Households. Private individuals acting as consumers. |
-| S.15 | NPISH. Non-profit institutions serving households (e.g., environmental charities). |
-| S.2 | Rest of the world. Used for reporting transfers (subsidies/grants) paid to or received from abroad. |
-| S.21 | Member states and institutions and bodies of the European Union. |
-| S.212 | Institutions and bodies of the European Union (e.g., European Central Bank, European Commission). |
-| S.22 | Non-member countries and international organisations non-resident in the European Union. |
+```{include} /DataModelReview/tables/Measures_ESA2010_Table
 ```
 
 **Figure 13.** *European System of Accounts (ESA 2010) allocation of institutional units to
@@ -494,55 +514,42 @@ sectors.*
 :align: center
 ```
 
-{numref}`measures_institutionalsectors` presents a proposed list of institutional sectors that can
-be used in the **4th cycle** of reporting. The list should be revised and discussed with the CIS WG
-Economics.
+{numref}`Codelist_4thCycle_SEA2010SectorCode_Table` presents
+a proposed list of institutional sectors that can be used in the 4th cycle of reporting.
+The list should be revised and discussed with the CIS WG Economics.
 
-It is also important to provide technical guidance and examples on the proper reporting of
-expenditures. For example, in the context of the EPEA, research and development (R&D) expenditure is
-primarily classified as current expenditure, while the National Accounts framework (ESA 2010)
-typically capitalizes R&D as an investment.
+It is also important to provide technical guidance and examples
+on the proper reporting of expenditures.
+For example, in the context of the EPEA,
+research and development (R&D) expenditure is primarily classified as current expenditure,
+while the National Accounts framework (ESA 2010) typically capitalizes R&D as an investment.
 
-```{table} Proposed list of institutional sectors – 4th cycle.
-:name: measures_institutionalsectors
-:width: 100%
-| ESA Sector* | Definition and comments |
-|------------------|--------------------------|
-| S.1 | Total economy. Allows the provision of aggregated data. |
-| S.13 | General government. The "default" option, if the RBMPs only include government outlays. |
-| S.13_S.15 | General government + NPISH. Aligned with EPEA, can be used if preferred. |
-| S.11_S.12 | Corporations. Aligned with EPEA, can be used if preferred. |
-| S.11 | Non-financial corporations. Can be used if the distinction of outlays by public and private companies is not relevant. |
-| S.11001 | Public non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
-| S.11002_S.11003 | Private non-financial corporations. Can be used if the distinction of outlays by public and private companies is relevant. |
-| S.212 | Institutions and bodies of the European Union (e.g. European Central Bank, European Commission). |
+```{include} /DataModelReview/tables/Codelist_4thCycle_SEA2010SectorCode_Table
 ```
-
-\* *The underscore '_' denotes a list of code values (Code1_Code2). The hyphen '-' denotes a range
-of code values (StartCode-EndCode)*
-
 It is also important to address the reporting of transfers of EU Funds.
 
-If `institutionalSector` = 'S.212' then the value represents a transfer of EU funds into the national
-economy. Depending on the purpose, it can be a capital transfer (e.g. to build a new UWWT plant), or
-a current transfer (e.g. a CAP subsidy to pay farmers to reduce or eliminate pesticides). It is not
-necessary to identify which sector receives the transfer.
+If `institutionalSector = 'S.212'` then the value
+represents a transfer of EU funds into the national economy.
+Depending on the purpose, it can be a capital transfer (e.g. to build a new UWWT plant),
+or a current transfer (e.g. a CAP subsidy to pay farmers to reduce or eliminate pesticides).
+It is not necessary to identify which sector receives the transfer.
 
 A numerical example can be used to illustrate the proposed approach.
 
 A new Urban Waste Water Treatment Plant required a total capital expenditure of 10M€.
 
 * Scenario 1 : the General Government (S.13) built the plant using national funds.
-* Scenario 2 : a public utility company (S.11001) built the plant, using 10M€ of national funds
-  transferred by the government.
-* Scenario 3 : the government built the plant using 8M€ of national funds and 2M€ from the EU
-  Cohesion Fund.
-* Scenario 4 : a public utility company (S.11001) built the plant, using 8M€ of national funds
-  transferred by the General Government (S.13) to the company and 2M€ of EU funds transferred to
-  the company via the national government.
-* Scenario 5 : a public utility company (S.11001) built the plant, using 5M€ of their own funds,
-  4M€ of national funds transferred by the General Government (S.13) to the company and 1M€ of EU
-  funds transferred to the company via the national government.
+* Scenario 2 : a public utility company (S.11001) built the plant,
+  using 10M€ of national funds transferred by the government.
+* Scenario 3 : the government built the plant
+  using 8M€ of national funds and 2M€ from the EU Cohesion Fund.
+* Scenario 4 : a public utility company (S.11001) built the plant,
+  using 8M€ of national funds transferred by the General Government (S.13) to the company
+  and 2M€ of EU funds transferred to the company via the national government.
+* Scenario 5 : a public utility company (S.11001) built the plant,
+  using 5M€ of their own funds,
+  4M€ of national funds transferred by the General Government (S.13) to the company
+  and 1M€ of EU funds transferred to the company via the national government.
 
 {numref}`measures_reportingSectorExample` illustrates the reporting of the different scenarios.
 
@@ -565,35 +572,44 @@ Likewise, scenario 3 and scenario 4 are identical.
 | 5 | S.212 – Institutions and bodies of the European Union | 1 M€ |
 ```
 
-The Commission must provide guidance on the reporting of expenditure for measures where
-`mainKeyTypeOfMeasure` IN ('C - Measure to promote efficient and sustainable water use', 'E - Measure
-to control abstraction from surface and groundwater, and impoundment of surface
-water') which may be outside the scope of the EPEA.
+The Commission must provide guidance on the reporting of
+expenditure for which may be outside the scope of the EPEA.
+
+* Measures to promote efficient and sustainable water use:
+  `mainKeyTypeOfMeasure = 'C'`
+* Measure to control abstraction from surface and groundwater,
+  and impoundment of surface water: `mainKeyTypeOfMeasure = 'E'`
 
 **Alignment with the Classification of environmental protection activities**
 
-The EPEA categorises activities using the Classification of environmental protection activities
-(CEPA 2000, {numref}`Measures_SubsetOfCEPAClasses_ListTable`).
-The proposed classification of Measures using the mainKeyTypeOfMeasure value
-({numref}`Measures_MainKeyTypeOfMeasure_ListTable`) is not based on the CEPA 2000 classification.
+The EPEA categorises activities using the CEPA 2000, the Classification of Environmental Protection Activities ({numref}`Measures_SubsetOfCEPAClasses_ListTable`).
 
-Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation)
-and excludes Resource Management (saving water or energy), which falls under CReMA([^CReMA])
-(Classification of Resource Management Activities).
+The proposed classification of Measures using the `mainKeyTypeOfMeasure` value
+({numref}`Measures_MainKeyTypeOfMeasure_ListTable`)
+is not based on the CEPA 2000 classification.
 
-Nevertheless, it seems to be possible to map most of the mainKeyTypeOfMeasure classes to a primary
-CEPA 2000 class ({numref}`Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable`).
+Note also that CEPA strictly covers
+Environmental Protection (preventing pollution and degradation)
+and excludes Resource Management (saving water or energy),
+which falls under CReMA([^CReMA]), the Classification of Resource Management Activities.
 
-The mapping and post-classification can be done by the Commission, using the reported data per
-Measure, to analyse and aggregate the data according CEPA classes, if that is required.
+Nevertheless, it seems to be possible to map
+most of the `mainKeyTypeOfMeasure` classes
+to a primary CEPA 2000 class
+ ({numref}`Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable`).
+
+The mapping and post-classification can be done by the Commission,
+using the reported data per Measure,
+to analyse and aggregate the data according CEPA classes, if that is required.
 
 ## Annexes
 
 ### Simplified classification of measures – 4th cycle
 
-This annex presents the `mainKeyTypeOfMeasure`, a simplified classification of measures that
-consolidates and replaces the **basicMeasureType** and the **keyTypeOfMeasure** classifications used
-in the 3rd cycle.
+This annex presents the `mainKeyTypeOfMeasure`,
+a simplified classification of measures that consolidates and replaces
+the **basicMeasureType** and the **keyTypeOfMeasure** classifications
+used in the 3rd cycle.
 
 The purpose of the simplified classification is:
 
@@ -610,82 +626,40 @@ The purpose of the simplified classification is:
 * To maintain the previous KTM that do not fit the criteria above and were reported with high
   frequency in the 3rd cycle – see codes X01, X12, X14, X23 and X24.
 
-{numref}`Measures_MappingMainKeyTypeOfMeasure_ListTable` aligns the `mainKeyTypeOfMeasure` with the
-previous separate classification
-schemes. It supports MS in the migration to the single simplified codelist to be used in the
-`mainKeyTypeOfMeasure` attribute in the 4th cycle of reporting.
+{numref}`Measures_MappingMainKeyTypeOfMeasure_ListTable`
+aligns the `mainKeyTypeOfMeasure` with the previous separate classification schemes.
 
-The proposed classification is provisional and can be reviewed by MS to detect potential issues and
-clarify the scope of the definitions.
+It supports Member States in the migration to the single simplified codelist
+to be used in the `mainKeyTypeOfMeasure` attribute in the 4th cycle of reporting.
 
-Regarding the measures to address significant impacts in the status of water as per Article
-11(3)(i) – see codes I2-2, I2-3 and I2-4 note that only some of the impacts applicable to surface
-water are detailed.
+The proposed classification is provisional
+and can be reviewed by MS to detect potential issues
+and clarify the scope of the definitions.
+
+Regarding the measures to address significant impacts in the status of water
+as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
+Note that only some of the impacts applicable to surface water are detailed.
 
 ```{include} tables/Measures_MappingMainKeyTypeOfMeasure_ListTable
 ```
 
-### Classification of environmental protection activities (CEPA 2000)
+### Classification of environmental protection activities
 
-Based on the information in (http://publications.europa.eu/resource/dataset/cepa2000).  
-**Note: this table is not relevant for the reporting process, it is only relevant for the analysis
-of reported data.**
+*Note*:  
+The classification of environmental protection activities (CEPA 2000)
+{footcite}`eurostat2017epea`
+is not relevant for the reporting process,
+it is only relevant for the analysis of reported data.
 
+```{dropdown} Click to show the CEPA 2000 table
 ```{include} tables/Measures_SubsetOfCEPAClasses_ListTable
 ```
 
 ### Mapping between mainKeyTypeOfMeasure and CEPA 2000
 
+```{dropdown} Click to show the mapping table
 ```{include} tables/Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable
 ```
-
-% Footnotes
-
-[^pArnoldus]: P. Arnoldus, “Workstream 1: proposing a simplification and standardisation of the
-    economic data reporting,” note to the CIS Working Group Economics, 15 December
-    2025,[Available](https://circabc.europa.eu/ui/group/9ab5926d-bed4-4322-9aa7-9964bbe8312d/library/2eef1f5c-5df6-41e2-93e8-c0f427d80eb1/details)
-    in Circabc
-
-[^6thWFDImplReport]: 6th WFD Implementation Report,[COM(2021)
-    970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970),p15.
-    The table concerns {numref}`measures_temporalcoverage`, p24, of [SWD(2021)
-    970](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021SC0970)
-    – note that the differentiation is based.
-
-[^7thWFDImplReport]: Quotes are from 7th WFD Implementation Report,[COM(2025)
-    2](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0002)(p15,
-    p36)
-
-[^Obligation]: An obligation under Regulation (EU) No 691/2011, amended by Commission Delegated
-    Regulation (EU) 2022/125; the consolidated version can be found
-    [here](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011R0691-20250624)
-
-[^ErrorExplained]: An error should be raised when there is missing data. In pseudo-code (the &&
-    operators tests whether a range of values overlaps):<br>a) IF
-    expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod &&
-    '[2022,2027]' AND Measure.implementationStatus IN ('executed', 'ongoing',
-    'implemented') AND totalCapitalExpenditure3rdCycle IS NULL AND
-    annualCurrentExpenditure3rdCycle IS NULL. <br>b) IF expenditureDataAvailable
-    = 'Yes' AND Measure.implementationPeriod && '[2028,2033]' AND
-    Measure.implementationStatus IN ('ongoing', 'implemented', 'planned') AND
-    totalCapitalExpenditure4thCycle IS NULL AND annualCurrentExpenditure4thCycle
-    IS NULL.
-
-[^DataReportedCurrency]: Data must be reported in Millions of Euro for Euro Area Member States,
-    and in Millions of National currency for non-Euro Area countries. (The
-    unit multiplier is set to 6 and it is applied to all the data, so it
-    doesn't need to be specified.) Non-Euro Area countries should use the
-    relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF,
-    PLN, RON, SEK) rather than common code for domestic currency (XDC).
-    Euro Area countries must use EUR. Generally, the number of decimal
-    digits is “0”. If a country wants to send a figure lower than 1
-    million, decimals may be used. In this case, the separator must be a
-    dot (.). (Example: if a country wants to report a value of 10 000 the
-    figure 0.01 must be sent). If necessary the proposal can be modified to
-    use a different multiplier (e.g. thousands).
-
-[^Sectors]: See e.g. the Environmental protection expenditure accounts Handbook , 2017 edition
-    [https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000](https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000)
 
 [^CReMA]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
 
