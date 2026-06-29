@@ -494,9 +494,13 @@ The European System of Accounts (ESA 2010) has a standard classification of inst
 (see {numref}`Measures_ESA2010_Table`).
 The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly,
 the 3rd cycle of WFD reporting used it.
-The dichotomous key in Figure 13 clarifies the allocation of units to sectors.
+The dichotomous key in {numref}`MeasuresUnitResidentflowchart` clarifies the allocation of units to
+sectors.
 
 The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors ([^Sectors]):
+
+[^Sectors]: See e.g. the Environmental protection expenditure accounts Handbook , 2017 edition
+    [https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000](https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000).
 
 * S13 and S15 – General government and **NPISH**
 * S11 and S12 – Corporations
@@ -506,12 +510,10 @@ The Environmental Protection Expenditures Accounts (EPEA) uses four groups of se
 ```{include} /DataModelReview/tables/Measures_ESA2010_Table
 ```
 
-**Figure 13.** *European System of Accounts (ESA 2010) allocation of institutional units to
-sectors.*
-
 ```{mermaid} /DataModelReview/mmd/MeasuresUnitResidentflowchart.mmd
 :name: MeasuresUnitResidentflowchart
 :align: center
+:caption: European System of Accounts (ESA 2010) allocation of institutional units to sectors
 ```
 
 {numref}`Codelist_4thCycle_SEA2010SectorCode_Table` presents
@@ -593,6 +595,8 @@ Environmental Protection (preventing pollution and degradation)
 and excludes Resource Management (saving water or energy),
 which falls under CReMA([^CReMA]), the Classification of Resource Management Activities.
 
+[^CReMA]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
+
 Nevertheless, it seems to be possible to map
 most of the `mainKeyTypeOfMeasure` classes
 to a primary CEPA 2000 class
@@ -660,8 +664,6 @@ it is only relevant for the analysis of reported data.
 ```{dropdown} Click to show the mapping table
 ```{include} tables/Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable
 ```
-
-[^CReMA]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
 
 (heading_wfd_measures_references)=
 ## References
