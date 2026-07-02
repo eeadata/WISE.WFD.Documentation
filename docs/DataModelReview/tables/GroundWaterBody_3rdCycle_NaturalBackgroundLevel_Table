@@ -1,0 +1,378 @@
+```{list-table} GroundWaterBody - 3rd cycle - Parameters with reported Natural Background Level 
+:name: GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table
+:header-rows: 1
+:widths: 30 40 15 15
+:align: left
+
+* - parameterGroup
+  - parameter
+  - Countries
+  - WaterBodies
+* - Major Ions and Nutrients
+  - CAS_18785-72-3 - Sulphate
+  - 19
+  - 4444
+* - Major Ions and Nutrients
+  - CAS_16887-00-6 - Chloride
+  - 20
+  - 4433
+* - Major Ions and Nutrients
+  - CAS_14798-03-9 - Ammonium
+  - 17
+  - 4328
+* - Major Ions and Nutrients
+  - CAS_14797-55-8 - Nitrate
+  - 11
+  - 4217
+* - Major Ions and Nutrients
+  - CAS_14265-44-2 - Phosphate
+  - 10
+  - 407
+* - Major Ions and Nutrients
+  - CAS_14797-65-0 - Nitrite
+  - 6
+  - 186
+* - Major Ions and Nutrients
+  - CAS_16984-48-8 - Fluoride
+  - 6
+  - 88
+* - Major Ions and Nutrients
+  - CAS_7440-09-7 - Potassium
+  - 4
+  - 80
+* - Major Ions and Nutrients
+  - CAS_7440-23-5 - Sodium
+  - 8
+  - 59
+* - Major Ions and Nutrients
+  - CAS_7723-14-0 - Total phosphorus
+  - 4
+  - 51
+* - Major Ions and Nutrients
+  - CAS_7439-95-4 - Magnesium
+  - 3
+  - 28
+* - Major Ions and Nutrients
+  - CAS_7440-70-2 - Calcium
+  - 3
+  - 28
+* - Major Ions and Nutrients
+  - CAS_71-52-3 - Hydrogen Carbonate (Bicarbonate) HCO3
+  - 2
+  - 26
+* - Metals and Metalloids
+  - CAS_7440-38-2 - Arsenic and its compounds
+  - 18
+  - 4514
+* - Metals and Metalloids
+  - CAS_7440-43-9 - Cadmium and its compounds
+  - 13
+  - 4301
+* - Metals and Metalloids
+  - CAS_7439-92-1 - Lead and its compounds
+  - 11
+  - 4257
+* - Metals and Metalloids
+  - CAS_7440-02-0 - Nickel and its compounds
+  - 15
+  - 4170
+* - Metals and Metalloids
+  - CAS_7439-97-6 - Mercury and its compounds
+  - 10
+  - 4155
+* - Metals and Metalloids
+  - CAS_7440-66-6 - Zinc and its compounds
+  - 8
+  - 3954
+* - Metals and Metalloids
+  - CAS_7440-47-3 - Chromium and its compounds
+  - 8
+  - 3947
+* - Metals and Metalloids
+  - CAS_7440-50-8 - Copper and its compounds
+  - 5
+  - 3906
+* - Metals and Metalloids
+  - CAS_7440-48-4 - Cobalt and its compounds
+  - 2
+  - 3772
+* - Metals and Metalloids
+  - CAS_7440-62-2 - Vanadium and its compounds
+  - 2
+  - 3772
+* - Metals and Metalloids
+  - CAS_7440-42-8 - Boron
+  - 7
+  - 139
+* - Metals and Metalloids
+  - CAS_7429-90-5 - Aluminium and its compounds
+  - 7
+  - 135
+* - Metals and Metalloids
+  - CAS_7439-89-6 - Iron and its compounds
+  - 6
+  - 128
+* - Metals and Metalloids
+  - CAS_7439-96-5 - Manganese and its compounds
+  - 6
+  - 118
+* - Metals and Metalloids
+  - CAS_7782-49-2 - Selenium and its compounds
+  - 4
+  - 79
+* - Metals and Metalloids
+  - CAS_7440-61-1 - Uranium
+  - 3
+  - 74
+* - Metals and Metalloids
+  - CAS_7440-39-3 - Barium
+  - 2
+  - 71
+* - Metals and Metalloids
+  - CAS_7439-98-7 - Molybdenum and its compounds
+  - 1
+  - 70
+* - Metals and Metalloids
+  - CAS_7440-28-0 - Thallium
+  - 1
+  - 70
+* - Metals and Metalloids
+  - CAS_7440-36-0 - Antimony
+  - 3
+  - 8
+* - Metals and Metalloids
+  - CAS_18540-29-9 - Chromium (VI)
+  - 1
+  - 2
+* - Physicochemical Parameters
+  - EEA_3142-01-6 - Electrical conductivity
+  - 14
+  - 4179
+* - Physicochemical Parameters
+  - EEA_3152-01-0 - pH
+  - 2
+  - 27
+* - Physicochemical Parameters
+  - EEA_3121-01-5 - Water temperature
+  - 1
+  - 1
+* - undefined
+  - CAS_14998-27-7 - Chlorite
+  - 1
+  - 138
+* - undefined
+  - CAS_1231244-60-2 - Metazachlor OA
+  - 1
+  - 70
+* - undefined
+  - CAS_172960-62-2 - Metazachlor ESA
+  - 1
+  - 70
+* - undefined
+  - CAS_67129-08-2 - Metazachlor
+  - 1
+  - 70
+* - undefined
+  - CAS_108-95-2 - Phenol
+  - 1
+  - 49
+* - undefined
+  - CAS_122-34-9 - Simazine
+  - 1
+  - 27
+* - undefined
+  - CAS_5915-41-3 - Terbuthylazine
+  - 1
+  - 27
+* - undefined
+  - CAS_1031-07-8 - Endosulfan sulfate
+  - 1
+  - 26
+* - undefined
+  - CAS_1066-51-9 - Aminomethylphosphonic acid (AMPA)
+  - 1
+  - 26
+* - undefined
+  - CAS_1071-83-6 - Glyphosate
+  - 1
+  - 26
+* - undefined
+  - CAS_118-74-1 - Hexachlorobenzene
+  - 1
+  - 26
+* - undefined
+  - CAS_152019-73-3 - Metolachlor OA
+  - 1
+  - 26
+* - undefined
+  - CAS_1582-09-8 - Trifluralin
+  - 1
+  - 26
+* - undefined
+  - CAS_15972-60-8 - Alachlor
+  - 1
+  - 26
+* - undefined
+  - CAS_1912-24-9 - Atrazine
+  - 1
+  - 26
+* - undefined
+  - CAS_2212-67-1 - Molinate
+  - 1
+  - 26
+* - undefined
+  - CAS_2921-88-2 - Chlorpyrifos
+  - 1
+  - 26
+* - undefined
+  - CAS_298-00-0 - Parathion-methyl
+  - 1
+  - 26
+* - undefined
+  - CAS_309-00-2 - Aldrin
+  - 1
+  - 26
+* - undefined
+  - CAS_330-54-1 - Diuron
+  - 1
+  - 26
+* - undefined
+  - CAS_33213-65-9 - Beta-Endosulfan
+  - 1
+  - 26
+* - undefined
+  - CAS_34123-59-6 - Isoproturon
+  - 1
+  - 26
+* - undefined
+  - CAS_3424-82-6 - o,p'-DDE
+  - 1
+  - 26
+* - undefined
+  - CAS_465-73-6 - Isodrin
+  - 1
+  - 26
+* - undefined
+  - CAS_470-90-6 - Chlorfenvinphos
+  - 1
+  - 26
+* - undefined
+  - CAS_50-29-3 - DDT, p,p'
+  - 1
+  - 26
+* - undefined
+  - CAS_53-19-0 - o,p'-DDD
+  - 1
+  - 26
+* - undefined
+  - CAS_56-38-2 - Parathion
+  - 1
+  - 26
+* - undefined
+  - CAS_60-57-1 - Dieldrin
+  - 1
+  - 26
+* - undefined
+  - CAS_608-73-1 - Hexachlorocyclohexane
+  - 1
+  - 26
+* - undefined
+  - CAS_608-93-5 - Pentachlorobenzene
+  - 1
+  - 26
+* - undefined
+  - CAS_72-20-8 - Endrin
+  - 1
+  - 26
+* - undefined
+  - CAS_72-55-9 - p,p'-DDE
+  - 1
+  - 26
+* - undefined
+  - CAS_76-44-8 - Heptachlor
+  - 1
+  - 26
+* - undefined
+  - CAS_87-86-5 - Pentachlorophenol
+  - 1
+  - 26
+* - undefined
+  - CAS_959-98-8 - Alpha-Endosulfan
+  - 1
+  - 26
+* - undefined
+  - EEA_32-03-1 - Total DDT (DDT, p,p' + DDT, o,p' + DDE, p,p' + DDD, p,p')
+  - 1
+  - 26
+* - undefined
+  - EEA_34-01-5 - Pesticides (Active substances in pesticides, including their relevant metabolites, degradation and reaction products)
+  - 2
+  - 17
+* - undefined
+  - CAS_64743-03-9 - Phenols
+  - 1
+  - 10
+* - undefined
+  - CAS_67-66-3 - Trichloromethane
+  - 1
+  - 9
+* - undefined
+  - EEA_3133-06-0 - Total organic carbon (TOC)
+  - 1
+  - 7
+* - undefined
+  - CAS_14866-68-3 - Chlorates
+  - 1
+  - 4
+* - undefined
+  - CAS_6190-65-4 - Desethylatrazine
+  - 1
+  - 4
+* - undefined
+  - EEA_33-42-1 - Total trichloroethylene + tetrachloroethylene
+  - 2
+  - 4
+* - undefined
+  - CAS_50-32-8 - Benzo(a)pyrene
+  - 1
+  - 3
+* - undefined
+  - EEA_33-19-2 - Mono basic phenols
+  - 1
+  - 2
+* - undefined
+  - CAS_124-48-1 - Dibromochlorometane
+  - 1
+  - 1
+* - undefined
+  - CAS_127-18-4 - Tetrachloroethylene
+  - 1
+  - 1
+* - undefined
+  - CAS_1333-82-0 - Chromium trioxide (CrO3)
+  - 1
+  - 1
+* - undefined
+  - CAS_79-01-6 - Trichloroethylene
+  - 1
+  - 1
+* - undefined
+  - CAS_86-73-7 - Fluorene
+  - 1
+  - 1
+* - undefined
+  - CAS_886-50-0 - Terbutryn
+  - 1
+  - 1
+* - undefined
+  - EEA_3133-04-8 - CODMn
+  - 1
+  - 1
+* - undefined
+  - EEA_33-05-6 - BTEX
+  - 1
+  - 1
+* - undefined
+  - EEA_33-29-4 - Surfactants (anionic)
+  - 1
+  - 1
