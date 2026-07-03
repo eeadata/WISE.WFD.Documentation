@@ -1,10 +1,13 @@
 (heading_wfd_groundwater_methodologies)=
 # Groundwater methodologies
 
-Last update: 2026-06-04
-
 ```{warning}
-Public Version - Pending Discussion
+Last updated - 2026-07-02
+
+Changes based on feedback from WG DIS and WG Groundwater members.
+
+* Removal of the GWType related classes.
+
 ```
 
 (heading_wfd_groundwater_methodologies_purpose_and_overview)=
@@ -159,48 +162,10 @@ Note that:
 
 ```{todo}
 Groundwater methodologies - GWThresholdValue
-
 For groundwater thresholds can the attribute standardType be omitted?
+
 `+ standardType : StandardType`
 
-```
-
-### GWThresholdValue table - alternative approach
-
-According to the Groundwater Directive Article 3(2):
-
-```{epigraph}
-2. Threshold values can be established at the national level, at
-the level of the river basin district or the part of the international
-river basin district falling within the territory of a Member State,
-or at the level of a body or a group of bodies of groundwater
-
-```
-
-The data structure used in the 3rd cycle, and slightly adapted in
-{numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`,
-has limitations.
-Specifically, it is possible to report the natural background level
-set for the substance to which the threshold applies,
-but it is not possible to indicate other physico-chemical parameters
-that may be relevant for the scope of application of that specific threshold.
-
-To overcome this limitation without introducing much complexity,
-a "groundwater body national type" concept is introduced,
-by analogy to the surface water national types.
-This allows the reporting of the expected (natural) level for physico-chemical parameters
-such as hardness, pH, etc., for groups of water bodies
-and not only the background levels of, for example, the metal or metalloid to which the threshold applies.
-
-The alternative structure, which is aligned with the proposed
-structure for the reporting of surface water threshold values,
-is presented in
-{numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram`.
-
-```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram.mmd
-:name: GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram
-:align: center
-:caption: Groundwater methodologies - GWThresholdValue and GWType table (alternative) - 4th cycle
 ```
 
 (heading_wfd_groundwater_methodologies_codelists_4th_cycle)=

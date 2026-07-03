@@ -1,10 +1,17 @@
 (heading_wfd_groundwater_bodies)=
 # Groundwater bodies
 
-Last update: 2026-06-03
-
 ```{warning}
-Public Version - Pending Discussion
+Last updated - 2026-07-02
+
+Changes based on feedback from WG DIS and WG Groundwater members.
+
+* The "lithology placeholder" was removed. 
+* The gwAtRiskQuantitative and gwReasonsForRiskQuantitative attributes were reintroduced.
+* The gwPollutantCausingRisk and gwPollutantBackgroundLevelSet attributes were reintroduced.
+* Further information about the 3rd cycle reporting of natural background levels was included
+  {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
+
 ```
 
 ## Purpose and overview
@@ -163,13 +170,6 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     specially with regard to the aquifer productivity classes,
     their definition and comparability across Member States.
 
-    Under the name `aquiferLithology`, 
-    a placeholder attribute is included in the diagram,
-    as a suggestion to provide an aquifer typology 
-    relevant for the geochemical characterisation of the groundwater body,
-    and the definition of natural background levels 
-    and substances threshold values {footcite}`wendland2008european` 
-
 * - GWLinkSurfaceWaterBody
   - *modified*.  
     If the groundwater body is linked to one or more surface water bodies,
@@ -182,8 +182,9 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     The data related to the natural background level (NBL) 
     of substances in groundwater is moved from the GWPollutant class 
     into a separate `GWNaturalBackgroundLevel` table.  
-    This facilitates both the reporting and the quality control
-    (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`). 
+    This facilitates both the reporting 
+    and the quality control procedures that will be introduced to avoid mistakes in the reporting
+    (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`).     
 
 * - GWStatus
   - *new*  
@@ -351,6 +352,13 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     For groundwater bodies in good or unknown chemical status,
     the option `notApplicable` must be used.
 
+  - For groundwater bodies where good quantitative status is at risk,
+    the codelist values are used
+    in the `gwQuantitativeReasonsForRisk` attribute
+    to provide further information about one or more causes of risk.
+    For groundwater bodies where `gwAtRiskQuantitative = 'no'`
+    the option `notApplicable` must be used.
+
 * For the `PressureType` codelist,
   see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in
   the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle`
@@ -407,8 +415,6 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 ```{todo}
 Groundwater - Topics that require discussion and clarification.
-* Aquifer productivity
-* Aquifer lithology / typology
 * Revision of the **ImpactType** codelist.
 * Mapping tables to 3rd cycle codelists
 ```
@@ -596,6 +602,73 @@ Other parameters are more unexpected and are likely due to reporting errors (e.g
 More importantly, the values reported
 are sometimes physically impossible (e.g. above 1000mg/L)
 or clearly unlikely.
+
+```{dropdown} See table
+```{include} /DataModelReview/tables/GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table
+```
+
+```{dropdown} Show code
+  ```{code-block} sql
+  :caption: Substances for which natural background levels were reported - 3rd cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+  SELECT ISNULL(b.[parameterGroup],'undefined') AS [parameterGroup]
+        ,[gwPollutantCode] AS [parameter]
+        ,COUNT(DISTINCT [countryCode]) AS nCountries
+        ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS nWaterBodies
+    FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWPollutant] a
+    LEFT JOIN (
+    SELECT *
+      FROM (VALUES
+      ('Metals and Metalloids', 'CAS_7429-90-5', 'Aluminium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-36-0', 'Antimony'),
+      ('Metals and Metalloids', 'CAS_7440-38-2', 'Arsenic and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-39-3', 'Barium'),
+      ('Metals and Metalloids', 'CAS_7440-42-8', 'Boron'),
+      ('Metals and Metalloids', 'CAS_7440-43-9', 'Cadmium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-47-3', 'Chromium and its compounds'),
+      ('Metals and Metalloids', 'CAS_18540-29-9', 'Chromium VI'),
+      ('Metals and Metalloids', 'CAS_7440-48-4', 'Cobalt and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-50-8', 'Copper and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-89-6', 'Iron and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-92-1', 'Lead and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-96-5', 'Manganese and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-97-6', 'Mercury and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-98-7', 'Molybdenum and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-28-0', 'Thallium'),
+      ('Metals and Metalloids', 'CAS_7440-02-0', 'Nickel and its compounds'),
+      ('Metals and Metalloids', 'CAS_7782-49-2', 'Selenium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-61-1', 'Uranium'),
+      ('Metals and Metalloids', 'CAS_7440-62-2', 'Vanadium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-66-6', 'Zinc and its compounds'),
+      ('Major Ions and Nutrients', 'CAS_14798-03-9', 'Ammonium'),
+      ('Major Ions and Nutrients', 'CAS_7440-70-2', 'Calcium'),
+      ('Major Ions and Nutrients', 'CAS_16887-00-6', 'Chloride'),
+      ('Major Ions and Nutrients', 'CAS_16984-48-8', 'Fluoride'),
+      ('Major Ions and Nutrients', 'CAS_71-52-3', 'Hydrogen Carbonate Bicarbonate HCO3'),
+      ('Major Ions and Nutrients', 'CAS_7439-95-4', 'Magnesium'),
+      ('Major Ions and Nutrients', 'CAS_14797-55-8', 'Nitrate'),
+      ('Major Ions and Nutrients', 'CAS_14797-65-0', 'Nitrite'),
+      ('Major Ions and Nutrients', 'CAS_14265-44-2', 'Phosphate'),
+      ('Major Ions and Nutrients', 'CAS_7440-09-7', 'Potassium'),
+      ('Major Ions and Nutrients', 'CAS_7440-23-5', 'Sodium'),
+      ('Major Ions and Nutrients', 'CAS_18785-72-3', 'Sulphate'),
+      ('Major Ions and Nutrients', 'CAS_7723-14-0', 'Total phosphorus'),
+      ('Physico-chemical Parameters', 'EEA_3142-01-6', 'Electrical conductivity'),
+      ('Physico-chemical Parameters', 'EEA_3152-01-0', 'pH'),
+      ('Physico-chemical Parameters', 'EEA_3121-01-5', 'Water temperature')
+  ) AS v(parameterGroup, parameterCode, name) ) b
+
+      ON a.[gwPollutantCode] like b.parameterCode+' - %'
+
+    WHERE a.[gwPollutantBackgroundLevelSet] = 'yes' 
+        AND a.[cYear] = 2022 
+        AND a.[hasDescriptiveData] = 1
+        AND a.[gwPollutantCode] != 'EEA_00-00-0 - Other parameter'
+    GROUP BY a.[gwPollutantCode]
+        ,b.[parameterGroup]
+    ORDER BY 1, 4 desc, a.[gwPollutantCode]
+  ```
 
 ## References
 
