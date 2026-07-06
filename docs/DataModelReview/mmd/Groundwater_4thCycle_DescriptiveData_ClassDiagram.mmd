@@ -20,7 +20,6 @@ class GWLinkSurfaceWaterBody{
 class GWNaturalBackgroundLevel{
     + euGroundWaterBodyCode: wiseIdentifier
     + parameterCode: Parameter
-    + naturalBackgroundLevelSet: YesNo
     + parameterValue: range [0..1]
     + parameterUnit: UnitOfMeasure [0..1]
 }
@@ -36,6 +35,7 @@ class GroundWaterBody{
 
 class GWQuantitativeStatus{
     + euGroundWaterBodyCode: wiseIdentifier
+    + gwAtRiskQuantitative: YesNoUnknown
     + gwQuantitativeStatusValue: QuantitativeStatus
     + gwQuantitativeAssessmentPeriod: range
     + gwQuantitativeAssessmentConfidence: AssessmentConfidence
@@ -63,16 +63,16 @@ class GWStatus{
 class GWPollutant{
     + euGroundWaterBodyCode: wiseIdentifier
     + gwPollutantCode: Parameter
-
+    + gwPollutantCausingRisk: YesNoUnknown
+    
     + gwThresholdIdentifier: wiseIdentifier
-    + gwGroupingIdentifier: wiseIdentifier [0..n]
     + gwPollutantCausingFailure: YesNoUnknown
     + gwPollutantAssessmentPeriod: range
     + gwPollutantAssessmentConfidence: AssessmentConfidence 
     + gwPollutantAssessmentMethod: AssessmentMethod [1..n]
+    + gwGroupingIdentifier: wiseIdentifier [0..n]
 
-    + gwPollutantCausingRisk: YesNoUnknown
-
+    + naturalBackgroundLevelSet: YesNoNotApplicable
     + gwPollutantUpwardTrend: YesNoUnknownNotAssessed
     + gwPollutantTrendReversal: YesNoUnknownNotApplicableNotAssessed
     + gwPollutantTrendReversalProcess: YesNoUnknownNotApplicableNotAssessed

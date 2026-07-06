@@ -8,8 +8,9 @@ Changes based on feedback from WG DIS and WG Groundwater members.
 
 * The "lithology" placeholder attribute was removed was removed. 
 * The `GWStatus` table attributes related to risk and failure were aligned with {footcite}`CIS_Guidance_18`.
-* The gwPollutantCausingRisk and gwPollutantBackgroundLevelSet attributes were reintroduced.
-* Further information about the 3rd cycle reporting of natural background levels was included
+* The `gwPollutantCausingRisk`and `gwAtRiskQuantitative` were reintroduced.
+* Quality control is introduced in the reporting of natural background levels. 
+  Further information about the 3rd cycle reporting of natural background levels was included
   {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
 
 ```
@@ -175,13 +176,12 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     between the groundwater and the surface water body. 
 
 * - GWNaturalBackgroundLevel
-  - *modified*  
-    The data related to the natural background level (NBL) 
+  - modified
+  - The data related to the natural background level (NBL) 
     of substances in groundwater is moved from the GWPollutant class 
-    into a separate `GWNaturalBackgroundLevel` table.  
-    This facilitates both the reporting 
-    and the quality control procedures that will be introduced to avoid mistakes in the reporting
-    (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`).     
+    into a separate GWNaturalBackgroundLevel table.
+    Quality control procedures will be introduced to avoid mistakes in the reporting
+    (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`).       
 
 * - GWStatus
   - *new*  
@@ -603,7 +603,7 @@ An exploratory analysis shows the expected high frequency of reporting of NBLs f
 and physico-chemical parameters like electrical conductivity
 (likely as an indicator of saline intrusion).
 
-Other parameters are more unexpected and are likely due to reporting errors (e.g. chlorite instead of chloride).
+Other parameters are unexpected (chlorite and phenols) and may be due to reporting errors.
 
 More importantly, the values reported
 are sometimes physically impossible (e.g. above 1000mg/L)

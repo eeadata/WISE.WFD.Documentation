@@ -156,10 +156,14 @@
   - EEA_3121-01-5 - Water temperature
   - 1
   - 1
-* - undefined
+* - Other parameter
   - CAS_14998-27-7 - Chlorite
   - 1
   - 138
+* - Other parameter
+  - CAS_64743-03-9 - Phenols
+  - 1
+  - 10
 * - undefined
   - CAS_1231244-60-2 - Metazachlor OA
   - 1
@@ -308,10 +312,6 @@
   - EEA_34-01-5 - Pesticides (Active substances in pesticides, including their relevant metabolites, degradation and reaction products)
   - 2
   - 17
-* - undefined
-  - CAS_64743-03-9 - Phenols
-  - 1
-  - 10
 * - undefined
   - CAS_67-66-3 - Trichloromethane
   - 1
