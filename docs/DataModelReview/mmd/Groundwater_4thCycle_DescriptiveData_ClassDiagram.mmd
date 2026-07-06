@@ -41,8 +41,6 @@ class GWQuantitativeStatus{
     + gwQuantitativeAssessmentConfidence: AssessmentConfidence
     + gwQuantitativeAssessmentMethod: AssessmentMethod [1..n]
     + gwGroupingIdentifier: wiseIdentifier [0..n]
-
-    + gwAtRiskQuantitative: YesNo
 }
 
 class GWPressureImpact{
@@ -57,9 +55,9 @@ class GWStatus{
     + gwQuantitativeStatusValue: QuantitativeStatus
     + gwChemicalStatusValue: ChemicalStatus
 
-    + gwQuantitativeReasonsForFailure: ReasonForFailure [1..n]
-    + gwQuantitativeReasonsForRisk: ReasonForFailure [1..n]
-    + gwChemicalReasonsForFailure: ReasonForFailure [1..n]
+    + gwQuantitativeStatusReasonsForRisk: ReasonForRiskOrFailure [1..n]
+    + gwQuantitativeStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
+    + gwChemicalStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
 } 
 
 class GWPollutant{

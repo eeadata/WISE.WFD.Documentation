@@ -2,12 +2,12 @@
 # Groundwater bodies
 
 ```{warning}
-Last updated - 2026-07-02
+Last updated - 2026-07-06
 
 Changes based on feedback from WG DIS and WG Groundwater members.
 
-* The "lithology placeholder" was removed. 
-* The gwAtRiskQuantitative and gwReasonsForRiskQuantitative attributes were reintroduced.
+* The "lithology" placeholder attribute was removed was removed. 
+* The `GWStatus` table attributes related to risk and failure were aligned with {footcite}`CIS_Guidance_18`.
 * The gwPollutantCausingRisk and gwPollutantBackgroundLevelSet attributes were reintroduced.
 * Further information about the 3rd cycle reporting of natural background levels was included
   {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
@@ -56,9 +56,6 @@ and removed the following elements:
 
 * GWB/GroundWaterBody/gwEORiskQuantitative
 * GWB/GroundWaterBody/gwEORiskChemical
-* GWB/GroundWaterBody/gwAtRiskQuantitative
-* GWB/GroundWaterBody/gwAtRiskChemical
-* GWB/GroundWaterBody/gwReasonsForRiskQuantitative
 
 The Commission has revised the **GWPollutant** class,
 and removed the following elements:
@@ -189,19 +186,21 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * - GWStatus
   - *new*  
     The `GWStatus` table synthesizes 
-    information about the status of the water body,
-    and the causes of failure (if applicable).
-    
-    Formally, the `chemicalStatusValue` 
-    could be derived from the information in the `GWPollutant` table.  
+    information about the status of the water body.
+
+    In accordance to the overall procedure of classification tests for assessing groundwater status
+    {footcite}`CIS_Guidance_18` 
+    (see {numref}`CIS_Guidance_18_Figure_1_GWBClassificationProcedure`)
+    the different elements causing risk must be reported.
+    The option `unknown` indicates that the assessment was not done.
+    The option `none` indicates that no element is causing risk.
+
     If, and only if, `chemicalStatusValue = 'unknown'` 
     and no assessment of the chemical status was done,
     may all corresponding rows in the `GWPollutant` table be missing.
     (An ERROR will raised by the quality control, since this is a non-compliance 
     and should not be reported by mistake.)
 
-    Likewise, the `quantitativeStatusValue` 
-    could be derived from the `GWQuantitativeStatus` table.  
     If, and only if, `quantitativeStatusValue = 'unknown'` 
     and no assessment of the quantitative status was done,
     may the corresponding row in the `GWQuantitativeStatus` table be missing.
@@ -283,6 +282,13 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     a specific pressure to be link to a given impact.
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.  
+```
+
+```{figure} /DataModelReview/img/CIS_Guidance_18_Figure_1_GWBClassificationProcedure.png
+:name: CIS_Guidance_18_Figure_1_GWBClassificationProcedure
+:width: 100%
+:align: center
+Overall procedure of classification tests for assessing groundwater status {footcite}`CIS_Guidance_18`.
 ```
 
 (heading_wfd_groundwater_codelist_4th_cycle)=
