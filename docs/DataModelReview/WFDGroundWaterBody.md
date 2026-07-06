@@ -7,8 +7,8 @@ Last updated - 2026-07-06
 Changes based on feedback from WG DIS and WG Groundwater members.
 
 * The "lithology" placeholder attribute was removed was removed. 
-* The `GWStatus` table attributes related to risk and failure were aligned with {footcite}`CIS_Guidance_18`.
-* The `gwPollutantCausingRisk`and `gwAtRiskQuantitative` were reintroduced.
+* The GWStatus table attributes related to risk and failure were aligned with {footcite}`CIS_Guidance_18`.
+* The gwPollutantCausingRisk and gwAtRiskQuantitative attributes were reintroduced.
 * Quality control is introduced in the reporting of natural background levels. 
   Further information about the 3rd cycle reporting of natural background levels was included
   {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
