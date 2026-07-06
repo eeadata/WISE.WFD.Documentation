@@ -1,16 +1,19 @@
 (heading_wfd_surface_water_methodologies)=
 # Surface water methodologies
 
-Last update: 2026-06-26
-
 ```{Warning}
-Public Version - Pending Discussion
+Last updated - 2026-07-06
 
-* The {ref}`heading_wfd_surface_water_methodologies_SWTargetedQuestions_4th_cycle` 
-  was modified 2026-06-26.
+Changes based on further input from DG ENV and WG DIS.
 
-* The {ref}`heading_wfd_surface_water_methodologies_QE3Classification_4th_cycle`
-  was modified 2026-06-26.
+* The SWTargetedQuestions table was modified 
+* The SWThresholdValue table was simplified and aligned with GWThresholdValue
+* The QE1Classification table was modified.
+* The QE3Classification table was simplified.
+* The association table QEClassification_SWType was modified 
+  to allow the specification of the intercalibration type.
+* The BiologicalQualityElement enumeration was added 
+  to highlight the exclusion of QE1-2 and QE1-5.
 
 ```
 
@@ -263,11 +266,6 @@ is combined into a single `SWThresholdValue` table
 (see {numref}`SurfaceWaterMethodologies_4thCycle_SWThresholdValue_ClassDiagram`).
 The `GWThresholdValue` table, in the groundwater methodologies dataset, has a similar structure
 (see {ref}`heading_wfd_groundwater_methodologies_gwthresholdvalue_table`).
-
-The Boolean attributes `applicableToRW`, `applicableToLW`, etc,
-are in practice not necessary, because the scope of applicability for each threshold can be derived
-via the association with the `SWType` table.
-These attributes can be kept to facilitate the quality control process.
 
 The associations between the `SWThresholdValue` table and other tables are depicted in
 {numref}`SurfaceWaterMethodologies_4thCycle_SWThresholdValue_Associations_ClassDiagram`.

@@ -25,9 +25,10 @@ class QE3Classification{
 + parameterUnit: UnitOfMeasure
 }
 
-class SWType_QEClassification{
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
 + swTypeIdentifier: wiseIdentifier
-+ qeClassificationIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
 }
 
 class SWNaturalBackgroundLevel{
@@ -38,8 +39,8 @@ class SWNaturalBackgroundLevel{
 }
 
 SWQualityElement ..> QE3Classification
-QE3Classification "1" -- "0..n" SWType_QEClassification
-SWType_QEClassification "0..n" -- "1" SWType
+QE3Classification "1" -- "0..n" QEClassification_SWType
+QEClassification_SWType "0..n" -- "1" SWType
 SWType "1" -- "0..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;

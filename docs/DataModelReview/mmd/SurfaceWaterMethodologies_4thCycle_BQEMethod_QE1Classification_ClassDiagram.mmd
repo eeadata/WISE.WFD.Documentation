@@ -24,12 +24,6 @@ class BQEMethod{
 + bqeSensitivityImpactTemperature: YesNo
 + bqeSensitivityImpactHydrological: YesNo
 + bqeSensitivityImpactMorphological: YesNo
-
-«for-data-quality-control-purposes»
-+ applicableToRW: YesNo
-+ applicableToLW: YesNo
-+ applicableToTW: YesNo
-+ applicableToCW: YesNo
 }
 
 class QE1Classification{
@@ -46,7 +40,22 @@ class QE1Classification{
 + qeClassificationReference: referenceCode [0..n]
 }
 
-BQEMethod "0..1" -- "1..n" QE1Classification: bqeMethodIdentifier
+class BiologicalQualityElement{
+<<enumeration>>
+  QE1-1 - Phytoplankton
+  QE1-2-1 - Macroalgae
+  QE1-2-2 - Angiosperms
+  QE1-2-3 - Macrophytes
+  QE1-2-4 - Phytobenthos
+  QE1-3 - Benthic invertebrates
+  QE1-4 - Fish
+}
+
+BQEMethod <.. QE1Classification
+BQEMethod ..> BiologicalQualityElement
+QE1Classification ..> BiologicalQualityElement
+
+note for BiologicalQualityElement "the label is not part of the code"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

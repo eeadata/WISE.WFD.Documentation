@@ -176,8 +176,8 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     between the groundwater and the surface water body. 
 
 * - GWNaturalBackgroundLevel
-  - modified
-  - The data related to the natural background level (NBL) 
+  - *modified*
+    The data related to the natural background level (NBL) 
     of substances in groundwater is moved from the GWPollutant class 
     into a separate GWNaturalBackgroundLevel table.
     Quality control procedures will be introduced to avoid mistakes in the reporting
@@ -336,7 +336,7 @@ Overall procedure of classification tests for assessing groundwater status {foot
   - See the definitions in {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`.
 
 * For the `ReasonForFailure` codelist,
-  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram`.
+  see {numref}`Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram`.
 
   - See the definitions in {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
 
@@ -410,8 +410,8 @@ Overall procedure of classification tests for assessing groundwater status {foot
 
 % -----------------------------------------------------------------------------
 
-```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ReasonForFailure_ClassDiagram.mmd
-:name: Codelist_4thCycle_ReasonForFailure_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram.mmd
+:name: Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram
 :align: center
 :caption: ReasonForFailure codelist - 4th cycle
 ```
