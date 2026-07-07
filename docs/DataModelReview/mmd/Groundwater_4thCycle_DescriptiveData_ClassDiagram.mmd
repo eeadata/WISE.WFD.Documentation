@@ -20,7 +20,6 @@ class GWLinkSurfaceWaterBody{
 class GWNaturalBackgroundLevel{
     + euGroundWaterBodyCode: wiseIdentifier
     + parameterCode: Parameter
-    + naturalBackgroundLevelSet: YesNo
     + parameterValue: range [0..1]
     + parameterUnit: UnitOfMeasure [0..1]
 }
@@ -36,13 +35,12 @@ class GroundWaterBody{
 
 class GWQuantitativeStatus{
     + euGroundWaterBodyCode: wiseIdentifier
+    + gwAtRiskQuantitative: YesNoUnknown
     + gwQuantitativeStatusValue: QuantitativeStatus
     + gwQuantitativeAssessmentPeriod: range
     + gwQuantitativeAssessmentConfidence: AssessmentConfidence
     + gwQuantitativeAssessmentMethod: AssessmentMethod [1..n]
     + gwGroupingIdentifier: wiseIdentifier [0..n]
-
-    + gwAtRiskQuantitative: YesNo
 }
 
 class GWPressureImpact{
@@ -57,24 +55,24 @@ class GWStatus{
     + gwQuantitativeStatusValue: QuantitativeStatus
     + gwChemicalStatusValue: ChemicalStatus
 
-    + gwQuantitativeReasonsForFailure: ReasonForFailure [1..n]
-    + gwQuantitativeReasonsForRisk: ReasonForFailure [1..n]
-    + gwChemicalReasonsForFailure: ReasonForFailure [1..n]
+    + gwQuantitativeStatusReasonsForRisk: ReasonForRiskOrFailure [1..n]
+    + gwQuantitativeStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
+    + gwChemicalStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
 } 
 
 class GWPollutant{
     + euGroundWaterBodyCode: wiseIdentifier
     + gwPollutantCode: Parameter
-
+    + gwPollutantCausingRisk: YesNoUnknown
+    
     + gwThresholdIdentifier: wiseIdentifier
-    + gwGroupingIdentifier: wiseIdentifier [0..n]
     + gwPollutantCausingFailure: YesNoUnknown
     + gwPollutantAssessmentPeriod: range
     + gwPollutantAssessmentConfidence: AssessmentConfidence 
     + gwPollutantAssessmentMethod: AssessmentMethod [1..n]
+    + gwGroupingIdentifier: wiseIdentifier [0..n]
 
-    + gwPollutantCausingRisk: YesNoUnknown
-
+    + naturalBackgroundLevelSet: YesNoNotApplicable
     + gwPollutantUpwardTrend: YesNoUnknownNotAssessed
     + gwPollutantTrendReversal: YesNoUnknownNotApplicableNotAssessed
     + gwPollutantTrendReversalProcess: YesNoUnknownNotApplicableNotAssessed

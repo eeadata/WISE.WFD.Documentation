@@ -8,15 +8,16 @@ config:
 classDiagram
 direction LR
 
-class ReasonForFailure{
+class ReasonForRiskOrFailure{
 <<enumeration>>
+salineOrOtherIntrusion
 surfaceWater
 groundWaterDependentTerrestrialEcosystem
-salineOrOtherIntrusion
-waterBalance
 drinkingWaterProtectionArea
-waterQualityAssessment
-notApplicable
+generalQualityAssessment
+waterBalance
+none
+unknown
 }
 
 classDef default fill:white,stroke:#000;

@@ -29,16 +29,17 @@ class QE1Classification{
 + bqeMethodIdentifier: wiseIdentifier 
 }
 
-class SWType_QEClassification{
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
 + swTypeIdentifier: wiseIdentifier
-+ qeClassificationIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
 }
 
 SWQualityElement ..> QE1Classification: qeClassificationIdentifier
 
 BQEMethod "1" -- "1..n" QE1Classification 
-QE1Classification "1" -- "0..n" SWType_QEClassification
-SWType_QEClassification "0..n" -- "1" SWType 
+QE1Classification "1" -- "0..n" QEClassification_SWType
+QEClassification_SWType "0..n" -- "1" SWType 
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

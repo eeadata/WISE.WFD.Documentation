@@ -1,10 +1,13 @@
 (heading_wfd_surface_water_bodies)=
 # Surface water bodies
 
-Last update: 2026-06-04
-
 ```{Warning}
-Public Version - Pending Discussion
+
+Last update: 2026-07-06
+
+* Removal of QE1-2 and QE1-5 from the biological quality elements.
+* Removal of swIntercalibrationType from SurfaceWaterBody
+
 ```
 
 (heading_wfd_surface_water_bodies_purpose_and_overview)=

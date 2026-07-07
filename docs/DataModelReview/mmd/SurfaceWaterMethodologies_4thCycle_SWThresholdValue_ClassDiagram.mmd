@@ -16,7 +16,6 @@ class SWThresholdValue{
 
 + thresholdValueRange: range
 + thresholdValueUnit: UnitOfMeasure
-+ naturalBackgroundLevelSet: YesNoNotApplicable
 
 «compliance-with-criteria»
 + analyticalMethod: YesNo
@@ -24,13 +23,6 @@ class SWThresholdValue{
 
 «reference»
 + swThresholdReference: referenceCode [0..n]
-
-«for-data-quality-control-purposes»
-+ applicableToRW: YesNo
-+ applicableToLW: YesNo
-+ applicableToTW: YesNo
-+ applicableToCW: YesNo
-+ applicableToTeW: YesNo
 }
 
 class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{

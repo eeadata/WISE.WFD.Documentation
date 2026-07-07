@@ -2,11 +2,12 @@
 # Groundwater methodologies
 
 ```{warning}
-Last updated - 2026-07-02
+Last updated - 2026-07-06
 
 Changes based on feedback from WG DIS and WG Groundwater members.
 
 * Removal of the GWType related classes.
+* Correction of the GWThresholdValue description.
 
 ```
 
@@ -149,23 +150,11 @@ Note that:
 * a unique `gwThresholdIdentifier` was introduced to avoid ambiguity
 * duplicate records will be detected
   (i.e. records with identical values for all attributes, except the identifier)
-* for naturally occurring substances, if natural background levels
-  were taken into account in the definition of the threshold value,
-  then the applicable `nblValueRange` is provided
-  (in the same unit of measure as the `thresholdValueRange`)
 
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram
 :align: center
 :caption: Groundwater methodologies - GWThresholdValue table - 4th cycle
-```
-
-```{todo}
-Groundwater methodologies - GWThresholdValue
-For groundwater thresholds can the attribute standardType be omitted?
-
-`+ standardType : StandardType`
-
 ```
 
 (heading_wfd_groundwater_methodologies_codelists_4th_cycle)=
