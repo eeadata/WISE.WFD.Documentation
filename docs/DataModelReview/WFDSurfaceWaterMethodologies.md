@@ -2,7 +2,7 @@
 # Surface water methodologies
 
 ```{Warning}
-Last updated - 2026-07-06
+Last updated - 2026-07-08
 
 Changes based on further input from DG ENV and WG DIS.
 
@@ -16,7 +16,11 @@ Changes based on further input from DG ENV and WG DIS.
 
 * {ref}`heading_wfd_surface_water_methodologies_QE3Classification_4th_cycle` 
   
-  - The QE3Classification table was modified.
+  - The QE3Classification table was modified  to support the use of 5 classes.
+
+* {ref}`heading_wfd_surface_water_methodologies_QE2Classification_4th_cycle` 
+  
+  - The QE2Classification table was created to support the use of 5 classes.
 
 * {ref}`heading_wfd_surface_water_methodologies_QE1Classification_BQEMethod_4th_cycle`
 
@@ -324,6 +328,47 @@ The associations between the `QE3Classification` table and other tables are depi
 :caption: Surface water methodologies - QE3Classification associations with other tables - 4th cycle.
 ```
 
+
+(heading_wfd_surface_water_methodologies_QE2Classification_4th_cycle)=
+### QE2Classification table
+
+The reporting of thresholds and class boundaries for physico-chemical quality elements
+requires a new `QE2Classification` table
+(see {numref}`SurfaceWaterMethodologies_4thCycle_QE2Classification_ClassDiagram`).
+
+Formally, the classes 'poor' and 'bad' status are not defined for hydromorphological quality elements.
+The attributes `classPoor` and `classBad` be used to allow the use of those classes.
+
+* if `classPoor = 'yes'`, 
+  then the value `qeStatusOrPotentialValue = '4'` can be reported,
+  for that qeClassificationIdentifier and qeCode,
+  in the `SWQualityElement` table
+* if `classBad = 'yes'`, 
+  then the value `qeStatusOrPotentialValue = '5'` can be reported,
+  for that qeClassificationIdentifier and qeCode,
+  in the `SWQualityElement` table.
+* if the only the standard 3 classes are being used,
+  specify `classPoor = 'no'` and `classBad = 'no'`.
+* the combination `classPoor = 'no' AND classBad = 'yes'` is not valid
+
+The associations between the `QE2Classification` table and other tables are depicted in
+{numref}`SurfaceWaterMethodologies_4thCycle_QE2Classification_Associations_ClassDiagram`.
+
+```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_QE2Classification_ClassDiagram.mmd
+:name: SurfaceWaterMethodologies_4thCycle_QE2Classification_ClassDiagram
+:align: center
+:caption: Surface water methodologies - QE2Classification - 4th cycle.
+```
+
+```{mermaid} /DataModelReview/mmd/SurfaceWaterMethodologies_4thCycle_QE2Classification_Associations_ClassDiagram.mmd
+:name: SurfaceWaterMethodologies_4thCycle_QE2Classification_Associations_ClassDiagram
+:align: center
+:caption: Surface water methodologies - QE2Classification associations with other tables - 4th cycle.
+```
+
+
+
+
 (heading_wfd_surface_water_methodologies_QE1Classification_BQEMethod_4th_cycle)=
 ### QE1Classification and BQEMethod table
 
@@ -407,22 +452,40 @@ In exceptional cases,
 some biological quality elements may be reported as 'inapplicable'
 (see e.g. Part 3 of Annex 1 {footcite}`intercalibration_2024`).
 
+{numref}`SWType_QE_ValidOptions` illustrates the valid options 
+for each quality element, depending on the water category.
+
+```{figure} img/SWType_QE_ValidOptions.png
+:name: SWType_QE_ValidOptions
+:align: center
+:width: 100%
+SWType quality elements - valid options – 4th cycle.
+```
+
 The data reported in the `SWType` table
 controls the data that must be reported
 in the `SWQualityElement` table:
 
-* select 'all', if the quality element status *must* be assessed
-  for all water bodies belonging to a given national surface water body type
-* select 'some', if the hydromorphological quality element status,
-  or the physico-chemical quality element status, *may* be assessed
+* select `'applicable'` if the quality element is applicable 
+  and should therefore be used in the assessment 
+  provided that it is relevant to monitor 
+  (all quality elements are relevant to monitor in the surveillance monitoring network 
+  and only the most sensitive to the pressures are to monitor in the operational monitoring network)
+
+* select `'inapplicable'`, if the quality element status is never assessed
   for the water bodies belonging to a given national surface water body type
-* select 'inapplicable', if the quality element status is never assessed
-  for the water bodies belonging to a given national surface water body type
-  (see e.g. Part 3 of Annex 1 {footcite}`intercalibration_2024`)
-* select 'notUsed', for the cases
+  (see e.g. Part 3 of Annex 1 {footcite}`intercalibration_2024`).
+  This should normally be justified in the framework of the intercalibration decision. 
+  Otherwise, this will trigger a warning.
+
+* select `'notUsed'`, for the cases
   where the WFD does not foresee the use of a given quality element
-  for a given water category (e.g. phytoplankton in rivers)
+  for a given water category (e.g. phytoplankton in small rivers)
   and therefore the quality element was not used in the assessment
+
+  - note that it is possible to set `[QE3_1_6_1] = 'notUsed'` for Nitrogen conditions,
+    or  `[QE3_1_6_2] = 'notUsed'` for Phosphorus conditions,
+    but is is not valid to set  `[QE3_1_6_1] = 'notUsed' AND [QE3_1_6_2] = 'notUsed'`
 
 For example:
 
@@ -439,13 +502,9 @@ Another example:
   In that case, in the `SWQualityElement` table,
   the value `[qeCode] = 'QE1-1'` will never occur for rivers belonging to that national type.
 
-* If `[surfaceWaterBodyCategory] = 'RW'`, it is possible to set `[QE1_1] = 'some'`.
+* If `[surfaceWaterBodyCategory] = 'RW'`, it is possible to set `[QE1_1] = 'applicable'`.
   In that case, in the `SWQualityElement` table,
-  the value `[qeCode] = 'QE1-1'` **may** be reported for rivers belonging to that national type.
-
-* If `[surfaceWaterBodyCategory] = 'RW'`, it is possible to set `[QE1_1] = 'all'`.
-  In that case, in the `SWQualityElement` table,
-  the value `[qeCode] = 'QE1-1'` **must** be reported for rivers belonging to that national type.
+  the value `[qeCode] = 'QE1-1'` must be reported for rivers belonging to that national type.
 
 ```{note}
 The attribute names use the underscore character (`_`) 

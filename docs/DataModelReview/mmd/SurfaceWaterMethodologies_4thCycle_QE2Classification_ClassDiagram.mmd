@@ -1,0 +1,24 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class QE2Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: HydromorphologicalQualityElement
++ classPoor: YesNo
++ classBad: YesNo
+
+«reference»
++ qeClassificationReference: referenceCode [0..n]
+}
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;

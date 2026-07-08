@@ -3,7 +3,7 @@
 
 ```{Warning}
 
-Last update: 2026-07-06
+Last update: 2026-07-08
 
 * {ref}`heading_wfd_surface_water_bodies_descriptive_4th_cycle`
   Removal of swIntercalibrationType from SurfaceWaterBody
@@ -67,6 +67,7 @@ to help focus the discussion on the remaining issues.
 :align: center
 :caption: PARTIAL class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
 ```
+
 (heading_wfd_surface_water_bodies_descriptive_4th_Cycle)=
 ## Surface water - descriptive data - 4th cycle
 
@@ -195,6 +196,7 @@ and a brief description of each table is included in
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.  
 ```
+
 (heading_wfd_surface_water_bodies_ecological_status_4th_cycle)=
 ## Ecological status and potential
 
@@ -202,47 +204,47 @@ The quality control criteria have been defined, and will be refined as needed.
 
 * The ecological status must be reported for all surface water bodies, except territorial waters.
   The following clause will raise a *blocker*:  
-   `SurfaceWaterBody.surfaceWaterBodyCategory != 'TeW' AND swEcologicalStatusOrPotentialValue = 'notApplicable'` 
+   `SurfaceWaterBody.surfaceWaterBodyCategory != 'TeW' AND swEcologicalStatusOrPotentialValue = 'notApplicable'`
 
 * High ecological status is only defined for natural water bodies.
   The following clause will raise a *blocker*:  
-  `SurfaceWaterBody.naturalAWBHMWB != 'natural' AND swEcologicalStatusOrPotentialValue = '1'` 
+  `SurfaceWaterBody.naturalAWBHMWB != 'natural' AND swEcologicalStatusOrPotentialValue = '1'`
 
-* If ecological status is high, 
+* If ecological status is high,
   the status of all applicable quality elements must all be high.
   The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')` 
+  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')`
 
-* If ecological status is high, 
+* If ecological status is high,
   the status of all applicable quality elements must all be high.
   The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')` 
+  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')`
 
-* If ecological status is high, 
+* If ecological status is high,
   at least one hydromorphological quality element (QE2%) must be assessed.
 
-* If ecological status is high, 
+* If ecological status is high,
   at least one physico-chemical quality element (QE3%) must be assessed.
 
-* If ecological status is good or maximum, 
+* If ecological status is good or maximum,
   the status of all applicable biological quality elements must be at least good or maximum.
   The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')` 
+  `swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')`
 
-* If ecological status is good or maximum, 
+* If ecological status is good or maximum,
   the status of all applicable physico-chemical quality elements must be at least good or maximum.
   The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue in ('3','4','5')` 
-   
-* If ecological status is moderate, 
+  `swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue in ('3','4','5')`
+
+* If ecological status is moderate,
   the status of all applicable biological quality elements must be at least moderate.
   The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '3' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('4','5')` 
+  `swEcologicalStatusOrPotentialValue = '3' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('4','5')`
 
-* If ecological status is poor, 
+* If ecological status is poor,
   the status of all applicable biological quality elements must be at least poor.
   The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '5' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('5')` 
+  `swEcologicalStatusOrPotentialValue = '5' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('5')`
 
 * If all applicable quality elements have 'unknown' status,
   then the ecological status must also be 'unknown'.
@@ -285,11 +287,37 @@ Only the status of the applicable quality elements is reported.
 * The `SWQualityElement` data is not reported for territorial waters,
   i.e. for water bodies where `surfaceWaterBodyCategory = 'TeW'`
 
+{numref}`QualityElementStatus` illustrates the reporting of quality element status:
+
+* the upper table show the range of allowable values in the 3rd cycle
+* the middle table illustrates the possibility
+  to use a '4 - Less than moderate status or potential' class
+  also for hydromorphological and physico-chemical elements
+* the middle table illustrates the possibility
+  to use the classes '4 - Poor status or potential' and '5 - Bad status or potential'
+  for any quality element.
+
+For the hydromorphological quality elements,
+the values `'4'` and `'5'` can be used
+whenever their use have been defined
+in the `QE2Classification` table.
+
+For the  physico-chemical quality elements,
+the values `'4'` and `'5'` can be used
+whenever their respective ranges have been defined
+in the `QE3Classification` table.
+
+```{figure} img/QualityElementStatus.png
+:name: QualityElementStatus
+:align: center
+:width: 100%
+Reporting quality element status – 4th cycle of reporting.
+```
 
 (heading_wfd_surface_water_codelist_4th_cycle)=
 ## Surface water - codelists - 4th cycle
 
-* For the `WaterBodyCategory` codelist and `NaturalAWBHMWB` codelist 
+* For the `WaterBodyCategory` codelist and `NaturalAWBHMWB` codelist
   see {numref}`Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram`.  
 
 * For the `Reservoir` codelist,
@@ -321,7 +349,7 @@ Only the status of the applicable quality elements is reported.
   and alter both the morphological and hydrological characteristics.
 
   - See the definitions in {numref}`Codelist_4thCycle_HMWBPhysicalAlteration_Table`.
-  - See the mapping table to the 3rd cycle values in 
+  - See the mapping table to the 3rd cycle values in
     {numref}`MappingTable_4thCycle_HMWBPhysicalAlteration_Table`.
 
 * For the `AssessmentMethod` codelist,
