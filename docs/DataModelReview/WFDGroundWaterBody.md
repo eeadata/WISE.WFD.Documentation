@@ -119,11 +119,12 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 * A second set of tables contains information about
   the chemical and quantitative status assessment
-  and about pressures and impacts: `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
+  and about pressures and impacts:
+  `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
 
   - The ancillary table `GWGrouping`
     supports the reporting of grouping (if used the assessment).
-  - A link to the `GWMethodologies::ThresholdValue` table clarifies 
+  - A link to the `GWMethodologies::ThresholdValue` table clarifies
     which threshold value is applied to each pollutant.  
     (A list of the default EU threshold values will be provided
     where defined by the EU legislation.)
@@ -331,11 +332,11 @@ Overall procedure of classification tests for assessing groundwater status {foot
 * For the `GroundwaterSurfaceWaterLink` codelist,
   see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram`.  
   The codelist is used to report
-  the type of link between a given groundwater body and a given surface water body. 
+  the type of link between a given groundwater body and a given surface water body.
 
   - See the definitions in {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`.
 
-* For the `ReasonForFailure` codelist,
+* For the `ReasonForRiskOrFailure` codelist,
   see {numref}`Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram`.
 
   - See the definitions in {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
@@ -352,7 +353,7 @@ Overall procedure of classification tests for assessing groundwater status {foot
     the codelist values are used
     in the `gwChemicalReasonsForFailure` attribute
     to provide further information about one or more causes of failure
-    (the most frequent cause will be likely be `'waterQuality'`).  
+    (the most frequent cause will be likely be `'generalQualityAssessment'`).  
     For groundwater bodies in good or unknown quantitative status,
     the option `notApplicable` must be used.
     For groundwater bodies in good or unknown chemical status,
