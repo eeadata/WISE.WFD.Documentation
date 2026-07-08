@@ -1,0 +1,30 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class WaterBodyCategory{
+<<enumeration>>
+RW - River water body
+LW - Lake water body
+TW - Transitional water body
+CW - Coastal water body
+TeW - Territorial waters
+}
+
+class NaturalAWBHMWB{
+<<enumeration>>
+natural
+artificial
+heavilyModified
+}
+
+note for WaterBodyCategory "the label is not part of the code"
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

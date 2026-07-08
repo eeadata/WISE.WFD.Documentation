@@ -5,8 +5,15 @@
 
 Last update: 2026-07-06
 
-* Removal of QE1-2 and QE1-5 from the biological quality elements.
-* Removal of swIntercalibrationType from SurfaceWaterBody
+* {ref}`heading_wfd_surface_water_bodies_descriptive_4th_cycle`
+  Removal of swIntercalibrationType from SurfaceWaterBody
+
+* {ref}`heading_wfd_surface_water_bodies_ecological_status_4th_cycle`:  
+  Added QC checks.
+
+* {ref}`heading_wfd_surface_water_SWQualityElement_4th_cycle`:  
+  Clarifying the link with the SWType table.
+  Removal of QE1-2 and QE1-5 from the biological quality elements.
 
 ```
 
@@ -60,7 +67,7 @@ to help focus the discussion on the remaining issues.
 :align: center
 :caption: PARTIAL class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
 ```
-
+(heading_wfd_surface_water_bodies_descriptive_4th_Cycle)=
 ## Surface water - descriptive data - 4th cycle
 
 The proposed structure for the 4th cycle electronic reporting is presented in the class diagram in
@@ -188,9 +195,102 @@ and a brief description of each table is included in
     In the proposed structure, this is possible (but not mandatory).  
     Illustrative examples will be provided.  
 ```
+(heading_wfd_surface_water_bodies_ecological_status_4th_cycle)=
+## Ecological status and potential
+
+The quality control criteria have been defined, and will be refined as needed.
+
+* The ecological status must be reported for all surface water bodies, except territorial waters.
+  The following clause will raise a *blocker*:  
+   `SurfaceWaterBody.surfaceWaterBodyCategory != 'TeW' AND swEcologicalStatusOrPotentialValue = 'notApplicable'` 
+
+* High ecological status is only defined for natural water bodies.
+  The following clause will raise a *blocker*:  
+  `SurfaceWaterBody.naturalAWBHMWB != 'natural' AND swEcologicalStatusOrPotentialValue = '1'` 
+
+* If ecological status is high, 
+  the status of all applicable quality elements must all be high.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')` 
+
+* If ecological status is high, 
+  the status of all applicable quality elements must all be high.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')` 
+
+* If ecological status is high, 
+  at least one hydromorphological quality element (QE2%) must be assessed.
+
+* If ecological status is high, 
+  at least one physico-chemical quality element (QE3%) must be assessed.
+
+* If ecological status is good or maximum, 
+  the status of all applicable biological quality elements must be at least good or maximum.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')` 
+
+* If ecological status is good or maximum, 
+  the status of all applicable physico-chemical quality elements must be at least good or maximum.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue in ('3','4','5')` 
+   
+* If ecological status is moderate, 
+  the status of all applicable biological quality elements must be at least moderate.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '3' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('4','5')` 
+
+* If ecological status is poor, 
+  the status of all applicable biological quality elements must be at least poor.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '5' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('5')` 
+
+* If all applicable quality elements have 'unknown' status,
+  then the ecological status must also be 'unknown'.
+
+The diagram below, adapted from Figure 1 in the CIS Guidance Document 13,
+illustrates the assessment criteria for ecological status ({numref}`SurfaceWater_EcologicalStatus_CISGuidance_Flowchart`).
+
+```{mermaid} /DataModelReview/mmd/SurfaceWater_EcologicalStatus_CISGuidance_Flowchart.mmd
+:name: SurfaceWater_EcologicalStatus_CISGuidance_Flowchart
+:caption: Surface Water Body - Ecological status assessment
+:align: center
+```
+
+The diagram below, adapted from Figure 2 in the CIS Guidance document 13,
+illustrates the assessment criteria for ecological potential ({numref}`SurfaceWater_EcologicalPotential_CISGuidance_Flowchart`).
+
+```{mermaid} /DataModelReview/mmd/SurfaceWater_EcologicalPotential_CISGuidance_Flowchart.mmd
+:name: SurfaceWater_EcologicalPotential_CISGuidance_Flowchart
+:caption: Surface Water Body - Ecological potential assessment
+:align: center
+```
+
+(heading_wfd_surface_water_SWQualityElement_4th_cycle)=
+### SWQualityElement table
+
+The data reported in the `SWType` table
+controls the data that must be reported
+in the `SWQualityElement` table
+(see {ref}`heading_wfd_surface_water_methodologies_SWType_4th_cycle`).
+
+It is no longer required to report the status of all quality elements.
+Only the status of the applicable quality elements is reported.
+
+* The allowable `qeCode` values are presented in
+  {numref}`Codelist_4thCycle_QualityElement_ClassDiagram`.
+  
+* The option `'QE1-2'` (Other aquatic flora), which existed in the 3rd cycle,
+  is no longer included.
+
+* The `SWQualityElement` data is not reported for territorial waters,
+  i.e. for water bodies where `surfaceWaterBodyCategory = 'TeW'`
+
 
 (heading_wfd_surface_water_codelist_4th_cycle)=
 ## Surface water - codelists - 4th cycle
+
+* For the `WaterBodyCategory` codelist and `NaturalAWBHMWB` codelist 
+  see {numref}`Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram`.  
 
 * For the `Reservoir` codelist,
   see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
@@ -249,6 +349,12 @@ and a brief description of each table is included in
 
 % -----------------------------------------------------------------------------
 
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram.mmd
+:name: Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram
+:align: center
+:caption: WaterBodyCategory codelist and NaturalAWBHMWB codelist - 4th cycle
+```
+
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram.mmd
 :name: Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram
 :align: center
@@ -272,28 +378,13 @@ and a brief description of each table is included in
 ```{include} /DataModelReview/tables/MappingTable_4thCycle_HMWBPhysicalAlteration_Table
 ```
 
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_QualityElement_ClassDiagram.mmd
+:name: Codelist_4thCycle_QualityElement_ClassDiagram
+:align: center
+:caption: QualityElement codelist - 4th cycle
+```
+
 % -----------------------------------------------------------------------------
-
-(heading_wfd_surface_water_bodies_ecological_status)=
-## Ecological status and potential
-
-The diagram below, adapted from Figure 1 in the CIS Guidance Document 13,
-illustrates the assessment criteria for ecological status ({numref}`SurfaceWater_EcologicalStatus_CISGuidance_Flowchart`).
-
-```{mermaid} /DataModelReview/mmd/SurfaceWater_EcologicalStatus_CISGuidance_Flowchart.mmd
-:name: SurfaceWater_EcologicalStatus_CISGuidance_Flowchart
-:caption: Surface Water Body - Ecological status assessment
-:align: center
-```
-
-The diagram below, adapted from Figure 2 in the CIS Guidance document 13,
-illustrates the assessment criteria for ecological potential ({numref}`SurfaceWater_EcologicalPotential_CISGuidance_Flowchart`).
-
-```{mermaid} /DataModelReview/mmd/SurfaceWater_EcologicalPotential_CISGuidance_Flowchart.mmd
-:name: SurfaceWater_EcologicalPotential_CISGuidance_Flowchart
-:caption: Surface Water Body - Ecological potential assessment
-:align: center
-```
 
 (heading_wfd_surface_water_bodies_annexes)=
 ## Annexes - Data analysis - 3rd cycle
@@ -516,12 +607,10 @@ of the assessment criteria.
 |*"Monitored but not used"*|  136,743  |5%|
 ```
 
-```{todo}
-The applicability of the quality elements 
-should be reported in the *surface water methodologies* 
+The applicability of the quality elements
+should be reported in the *surface water methodologies*
 and *only* the applicable quality elements should be
 reported in the *quality elements* table.
-```
 
 ### Ecological status and BQE status
 
