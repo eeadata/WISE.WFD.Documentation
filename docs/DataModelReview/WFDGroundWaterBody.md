@@ -339,7 +339,7 @@ Overall procedure of classification tests for assessing groundwater status {foot
 * For the `ReasonForRiskOrFailure` codelist,
   see {numref}`Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram`.
 
-  - See the definitions in {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
+  - See the definitions in {numref}`Codelist_4thCycle_ReasonForRiskOrFailure_Table`.
 
   - For groundwater bodies in poor quantitative status,
     the codelist values are used
@@ -417,7 +417,7 @@ Overall procedure of classification tests for assessing groundwater status {foot
 :caption: ReasonForFailure codelist - 4th cycle
 ```
 
-```{include} /DataModelReview/tables/Codelist_4thCycle_ReasonForFailure_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_ReasonForRiskOrFailure_Table
 ```
 
 ```{todo}
