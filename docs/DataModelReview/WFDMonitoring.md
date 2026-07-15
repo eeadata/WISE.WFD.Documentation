@@ -390,7 +390,7 @@ The `MonitoringPurpose` table indicates if a given monitoring site is part of su
 (heading_wfd_monitoring_monitoring_site_dataset_4th_cycle)=
 ### MonitoringSite spatial data
 
-The Spatial dataset contains only the MonitoringSite spatial data ({numref}`Spatial_4thCycle_MonitoringSite`).  
+The Spatial dataset contains only the MonitoringSite spatial data ({numref}`Spatial_4thCycle_MonitoringSite_ClassDiagram`).  
 
 The following changes have been made to the `MonitoringSite` spatial table (in comparison to the 3rd cycle of reporting):
 
@@ -414,8 +414,8 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
   (In the future, it will be possible to derive this value
    using spatial analysis over the upcoming EU-Hydro drainage direction model.)
 
-```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_MonitoringSite.mmd
-:name: Spatial_4thCycle_MonitoringSite
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_MonitoringSite_ClassDiagram.mmd
+:name: Spatial_4thCycle_MonitoringSite_ClassDiagram
 :caption: Spatial dataset - MonitoringSite - 4th cycle
 :align: center
 :zoom:
@@ -425,13 +425,13 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
 ### Codelists - 4th cycle
 
 * For the `WisePurposeOfCollectionValue` codelist,
-  see {numref}`Spatial_4thCycle_MonitoringSite`
+  see {numref}`Spatial_4thCycle_MonitoringSite_ClassDiagram`
   and {numref}`Codelist_4thCycle_WisePurposeOfCollectionValue_Table`.  
   Reporting the purpose of collection **is optional**.
   If reporting more than one purpose, use a comma-separated list.
 
 * For the `ConfidentialityStatus` codelist,
-  see {numref}`Spatial_4thCycle_MonitoringSite`
+  see {numref}`Spatial_4thCycle_MonitoringSite_ClassDiagram`
   and {numref}`Codelist_4thCycle_ConfidentialityStatus_Table`.  
   Refer to the SDMX guidelines and codelists for more information
   on confidentiality aspects {footcite}`sdmxconfidentialityguideline2018,sdmxclconfstatus2014`.

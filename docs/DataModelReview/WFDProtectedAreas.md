@@ -112,7 +112,7 @@ are detailed in ({numref}`ProtectedAreas_4thCycle_Table`)
 ```{include} tables/ProtectedAreas_4thCycle_Table
 ```
 
-{numref}`ProtectedArea_4thCycle_Spatial_ClassDiagram` presents the class diagram for the proposed generic ProtectedArea dataset:
+{numref}`Spatial_4thCycle_ProtectedArea_ClassDiagram` presents the class diagram for the proposed generic ProtectedArea dataset:
 
 * Depending on the specific dataflow, different geometry types may be requested/allowed (either point, line or polygon).
 * The **relatedZoneIdentifier** and **relatedZoneIdentifierScheme** are mandatory, and specific constraints will apply depending on the dataflow (i.e. on the type of protected area).
@@ -121,8 +121,8 @@ are detailed in ({numref}`ProtectedAreas_4thCycle_Table`)
 * The attributes **successorsIdentifier** and **successorsIdentifierScheme** have been kept for clarity's sake although their value will always be `NULL` (the appropriate value will be derived and included in the
   published WISE datasets that refer to the previous reporting cycles).
 
-```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_Spatial_ClassDiagram.mmd
-:name: ProtectedArea_4thCycle_Spatial_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_ProtectedArea_ClassDiagram.mmd
+:name: Spatial_4thCycle_ProtectedArea_ClassDiagram
 :caption: Class diagram for an abstract ProtectedArea dataset – 4th cycle
 :align: center
 ```

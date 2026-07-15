@@ -101,7 +101,7 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 (heading_wfd_monitoring_river_basin_district_dataset_4th_cycle)=
 ### RiverBasinDistrict spatial data - 4th cycle
 
-The Spatial dataset contains only the RiverBasinDistrict spatial data ({numref}`Spatial_4thCycle_RiverBasinDistrict`).  
+The Spatial dataset contains only the RiverBasinDistrict spatial data ({numref}`Spatial_4thCycle_RiverBasinDistrict_ClassDiagram`).  
 As stated before, Subunits are no longer requested in the 4th cycle of reporting.
 
 The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3rd cycle of reporting):
@@ -125,8 +125,8 @@ The following changes have been made to the `RiverBasinDistrict` spatial table (
   The appropriate value will be derived and included in the published WISE datasets
   for the 1st, 2nd and 3rd cycle RiverBasinDistrict datasets.
 
-```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict.mmd
-:name: Spatial_4thCycle_RiverBasinDistrict
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict_ClassDiagram.mmd
+:name: Spatial_4thCycle_RiverBasinDistrict_ClassDiagram
 :caption: Spatial dataset - RiverBasinDistrict - 4th cycle
 :align: center
 :zoom:
