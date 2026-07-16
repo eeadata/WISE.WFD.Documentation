@@ -1,0 +1,23 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class GWAssociatedProtectedArea{
+ + euGroundwaterBodyCode : wiseIdentifier
+ + euProtectedAreaType : ProtectedAreaType 
+
+ - protectedAreaObjectivesSet : Yes
+ + protectedAreaObjectivesMet : YesNoUnknown
+    }
+ class ProtectedAreaType{
+    <<enumeration>>
+    shellfishDesignatedWater
+    drinkingWaterProtectionArea
+
+    }
