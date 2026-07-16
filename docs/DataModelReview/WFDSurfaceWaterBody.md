@@ -2,6 +2,11 @@
 # Surface water bodies
 
 ```{Warning}
+:class: dropdown
+Last update: 2026-07-16
+
+* Added the quality control conditions for quality elements, including cross-checks
+* Added the quality control conditions for national types, including cross-checks
 
 Last update: 2026-07-08
 
@@ -197,6 +202,35 @@ and a brief description of each table is included in
     Illustrative examples will be provided.  
 ```
 
+The following conditions apply:
+
+* If a surface water body belongs to a given national type,
+  then the surface water body category must match 
+  in the SurfaceWaterBody table and in the SWType table.
+  The following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT t.euSurfaceWaterBodyCode, t.swTypeIdentifier
+  FROM SurfaceWaterBody AS t
+  JOIN SWType AS ref
+  ON t.swTypeIdentifier = ref.swTypeIdentifier
+  WHERE t.surfaceWaterBodyCategory <> ref.surfaceWaterBodyCategory
+  ```
+
+
+* If a surface water body belongs to a given national type,
+  then the water body type must match 
+  in the SurfaceWaterBody table and in the SWType table.
+  The following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT t.euSurfaceWaterBodyCode, t.swTypeIdentifier
+  FROM SurfaceWaterBody AS t
+  JOIN SWType AS ref
+  ON t.swTypeIdentifier = ref.swTypeIdentifier
+  WHERE NOT (t.naturalAWBHMWB = ANY(string_to_array(t.naturalAWBHMWB, ';')))
+  ```
+
 (heading_wfd_surface_water_bodies_ecological_status_4th_cycle)=
 ## Ecological status and potential
 
@@ -287,7 +321,7 @@ Only the status of the applicable quality elements is reported.
 * The `SWQualityElement` data is not reported for territorial waters,
   i.e. for water bodies where `surfaceWaterBodyCategory = 'TeW'`
 
-{numref}`QualityElementStatus` illustrates the reporting of quality element status:
+{numref}`SWQualityElement_qeStatus` illustrates the reporting of quality element status:
 
 * the upper table show the range of allowable values in the 3rd cycle
 * the middle table illustrates the possibility
@@ -297,22 +331,114 @@ Only the status of the applicable quality elements is reported.
   to use the classes '4 - Poor status or potential' and '5 - Bad status or potential'
   for any quality element.
 
-For the hydromorphological quality elements,
-the values `'4'` and `'5'` can be used
-whenever their use have been defined
-in the `QE2Classification` table.
+The following conditions apply:
 
-For the  physico-chemical quality elements,
-the values `'4'` and `'5'` can be used
-whenever their respective ranges have been defined
-in the `QE3Classification` table.
+* For the hydromorphological quality elements,
+  the values `'4'` and `'5'` can be used
+  if and only if they have been defined
+  in the `QE2Classification` table, for the corresponding `qeClassificationIdentifier`.
 
-```{figure} img/QualityElementStatus.png
-:name: QualityElementStatus
+* For the  physico-chemical quality elements,
+  the values `'4'` and `'5'` can be used
+  if and only if their respective ranges have been defined
+  in the `QE3Classification` table, for the corresponding `qeClassificationIdentifier`.
+
+```{figure} img/SWQualityElement_qeStatus.png
+:name: SWQualityElement_qeStatus
 :align: center
 :width: 100%
-Reporting quality element status – 4th cycle of reporting.
+Reporting quality element status – 4th cycle.
 ```
+
+{numref}`SWB_QC_swEcologicalStatus_qeStatus_natural` illustrates
+the quality control between the status at quality element level
+and the overall ecological status at water body level,
+for natural water bodies.
+
+The quality control will verify if the ecological status is consistent
+with the "one-out-all-out" principle. Some examples:
+
+* if all applicable biological quality elements have `qeStatusOrPotentialValue = '1'`
+  and all applicable hydromorphological quality elements have `qeStatusOrPotentialValue = '2'`
+  and a natural water body has `swEcologicalStatusOrPotentialValue = '1'`,
+  then a quality control *blocker* will be raised.
+
+* if worst applicable applicable biological quality element has `qeStatusOrPotentialValue = '5'`,
+  and a natural water body has `swEcologicalStatusOrPotentialValue = 'unknown'`,
+  then a quality control *blocker* will be raised.
+
+Note that the quality control does not verify
+if the reported ecological status at water body level is worse
+than would be expected by the application of the "one-out-all-out" principle.
+
+```{figure} img/SWB_QC_swEcologicalStatus_qeStatus_natural.png
+:name: SWB_QC_swEcologicalStatus_qeStatus_natural
+:align: center
+:width: 100%
+One-out-all-out principle - ecological status vs. quality element status – 4th cycle.
+```
+
+{numref}`SWB_QC_swEcologicalStatus_qeStatus_not_natural` illustrates
+the quality control between the potential at quality element level
+and the overall ecological potential at water body level,
+for artificial and heavily modified water bodies.
+
+The quality control will verify if the ecological potential is consistent
+with the "one-out-all-out" principle. Some examples:
+
+* if all applicable quality elements have `qeStatusOrPotentialValue = '3'`
+  and an artificial water body has `swEcologicalStatusOrPotentialValue = '2'`,
+  then a quality control *blocker* will be raised.
+
+* if all applicable quality elements have `qeStatusOrPotentialValue = 'unknown'`,
+  and an artificial water body has `swEcologicalStatusOrPotentialValue = 'unknown'`,
+  then a quality control *warning* will be raised.
+
+Note that the quality control does not verify
+if the reported ecological potential at water body level is worse
+than would be expected by the application of the "one-out-all-out" principle.
+
+```{figure} img/SWB_QC_swEcologicalStatus_qeStatus_not_natural.png
+:name: SWB_QC_swEcologicalStatus_qeStatus_not_natural
+:align: center
+:width: 100%
+One-out-all-out principle - ecological potential vs. quality element potential – 4th cycle.
+```
+
+The quality control will also enforce that
+a quality element is reported if and only if it is applicable a given national type,
+and consistent with what was reported for that national type in the `SWType` table
+(see {ref}`heading_wfd_surface_water_methodologies_SWType_4th_cycle`).
+
+For example:
+
+* If quality element QE1-2-3 is NOT applicable to a given national type,
+  then it must NOT be reported, and the following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT t.euSurfaceWaterBodyCode,t.qeCode, ref.swTypeIdentifier, ref.QE1_2_3
+  FROM SWQualityElement AS t
+  JOIN SurfaceWaterBody AS p
+  ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
+  JOIN SWType AS ref
+  ON p.swTypeIdentifier = ref.swTypeIdentifier
+  WHERE ref.QE1_2_3 IN ('inapplicable','notUsed') AND t.qeCode = 'QE1-2-3'
+  ```
+
+* If quality element QE1-2-3 is applicable to a given national type,
+  then it must be reported for all water bodies of that type,
+  and the following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT DISTINCT p.euSurfaceWaterBodyCode, p.swTypeIdentifier
+  FROM SurfaceWaterBody AS p
+  JOIN SWType AS ref
+  ON p.swTypeIdentifier = ref.swTypeIdentifier
+  LEFT JOIN SWQualityElement AS t
+  ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
+  AND t.qeCode = 'QE1-2-3'
+  WHERE ref.QE1_2_3 = 'applicable’ AND t.euSurfaceWaterBodyCode IS NULL 
+  ```
 
 (heading_wfd_surface_water_codelist_4th_cycle)=
 ## Surface water - codelists - 4th cycle

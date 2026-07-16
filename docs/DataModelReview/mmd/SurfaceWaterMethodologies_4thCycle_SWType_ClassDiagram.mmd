@@ -11,7 +11,7 @@ direction TB
 class SWType{
     + swTypeIdentifier: wiseIdentifier
     + surfaceWaterBodyCategory: WaterBodyCategory
-    + naturalAWBHMWB: NaturalAWBHMWB
+    + naturalAWBHMWB: NaturalAWBHMWB [1..n]
     + swIntercalibrationType: IntercalibrationType [1..n]
     + swTypeCode: string100
     + swTypeDescription: string

@@ -2,6 +2,11 @@
 # Surface water methodologies
 
 ```{Warning}
+:class: dropdown
+Last updated - 2026-07-16
+
+* Corrected the multiplicity of naturalAWBHMWB in the SWType table.
+
 Last updated - 2026-07-08
 
 Changes based on further input from DG ENV and WG DIS.
