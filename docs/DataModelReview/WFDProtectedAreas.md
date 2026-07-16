@@ -222,6 +222,25 @@ of groundwater bodies with specific objectives associated with protected areas:
 :align: center
 ```
 
+The following conditions will raise a quality control *blocker*:
+
+* `euProtectedAreaType = 'shellfishDesignatedWater' AND protectedAreaObjectivesSet = 'no'`
+* `euProtectedAreaType = 'drinkingWaterProtectionArea' AND protectedAreaObjectivesSet = 'no'`
+* `euProtectedAreaType = 'shellfishDesignatedWater' AND euProtectedAreaCode IS NOT NULL`
+* `euProtectedAreaType = 'drinkingWaterProtectionArea' AND euProtectedAreaCode IS NOT NULL`
+* `euProtectedAreaType = 'natura2000' AND euProtectedAreaCode IS NULL`
+* `protectedAreaObjectivesSet = 'yes' AND protectedAreaObjectivesMet = 'inapplicable'`
+
+The following checks against other datasets will also raise a quality control *blocker*:
+
+* if `euProtectedAreaType = 'shellfishDesignatedWater'`
+  but there is no drinking water protected area associated with that water body
+* if `euProtectedAreaType = 'drinkingWaterProtectionArea'`
+  but there is no drinking water protected area associated with that water body
+* if `euProtectedAreaType = 'natura2000'`
+  but there is corresponding Natura2000 identifier in
+  https://dd.eionet.europa.eu/vocabulary/biodiversity/n2000sites
+
 With regard to exemptions related to associated protected areas, see:
 
 * {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
