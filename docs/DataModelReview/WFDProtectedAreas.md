@@ -164,15 +164,21 @@ and that meet the ecological criteria below:
   on surface water for essential activities
   such as breeding, incubation, juvenile development, feeding, or roosting.
 
-The provisional prefilled list will be provided to Member States, for validation purposes:
+The provisional prefilled list is available {download}`here <files/WFD_RelatedNatura2000Sites.sqlite>`, for validation purposes:
 
 * If missing, additional Natura 2000 protected site identifiers
   may be added (from the reference list already reported under the Natura 2000 dataflows).
 * If incorrect, Natura 2000 protected site identifiers present in the provisional list
   may be flagged for removal from the WFD register of protected areas.
+* For those Natura 2000 sites that were related to WFD surface water bodies in the 3rd reporting cycle, please review in the provided SQLite file the distance value expressed in kilometers from the Natura 2000 site to the associated water body to detect possible issues.
 * For the Natura 2000 sites to be included in the WFD register of protected areas
   (because where the maintenance or improvement of water status
   is a critical factor for their protection), the association to water bodies should be reported.
+
+The list of related Natura2000 sites has been generated with the following published datasets:
+
+```{include} tables/ProtectedAreas_Natura2000Datasets_Table
+```
 
 (heading_wfd_protected_areas_descriptive_data_reporting)=
 ## Descriptive data - 4th cycle
