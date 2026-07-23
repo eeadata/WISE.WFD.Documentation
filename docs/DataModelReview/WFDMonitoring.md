@@ -130,7 +130,7 @@ would constitute duplicate reporting and an unnecessary reporting burden.
 Therefore, for the 4th cycle of reporting, the requested information is simplified (see {numref}`ClassDiagram_Monitoring_2022`).
 
 * {ref}`heading_wfd_monitoring_4th_cycle`
-* {ref}`heading_wfd_monitoring_spatial_dataset_4th_cycle`
+* {ref}`heading_monitoringsite_spatial_dataset_4th_cycle`
 * {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
 
 ```{mermaid} /DataModelReview/mmd/Monitoring_4thCycle_Overview_ClassDiagram.mmd
@@ -316,15 +316,6 @@ With regard to chemical monitoring:
 
     See the analysis in {ref}`heading_wfd_monitoring_groundwater_physico_chemical_monitoring_in_waterbase`.
 
-```{todo}
-Monitoring - {ref}`heading_wfd_monitoring_monitoring_table_4th_cycle`
-
-* ¿Are there quality controls applicable to `frequency` and `cycle` based on the `parameterCode`?
-* ¿The expected range for the `lastMonitored` year is `{[2022,2017],[9999,9999]}`?
-* ¿What if monitoring data is expected, but no records are reported in the `Monitoring` table?
-* ¿What if monitoring data is expected, but no records are reported in the `Monitoring` table for specific parameters?
-```
-
 (heading_wfd_monitoring_monitoring_purpose_table_4th_cycle)=
 ### MonitoringPurpose table
 
@@ -384,11 +375,8 @@ The `MonitoringPurpose` table indicates if a given monitoring site is part of su
 ```{include} /DataModelReview/tables/Codelist_4thCycle_WFDMonitoringPurpose_Table
 ```
 
-(heading_wfd_monitoring_spatial_dataset_4th_cycle)=
+(heading_monitoringsite_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4th cycle
-
-(heading_wfd_monitoring_monitoring_site_dataset_4th_cycle)=
-### MonitoringSite spatial data
 
 The Spatial dataset contains only the MonitoringSite spatial data ({numref}`Spatial_4thCycle_MonitoringSite_ClassDiagram`).  
 
@@ -399,7 +387,7 @@ The following changes have been made to the `MonitoringSite` spatial table (in c
   and therefore it is not necessary to maintain more variants.
   This applies to `beginLifespanVersion`, `endLifespanVersion`, `operationalActivityPeriodBegin`, `operationalActivityPeriodEnd`.
 
-* Likewise, the attributes `supersededByIdentifier` and `supersededByIdentifierScheme` 
+* Likewise, the attributes `supersededByIdentifier` and `supersededByIdentifierScheme`
   have been kept for clarity's sake.
   *In the reported datasets*, the values of these attributes will always be NULL.
   The appropriate value will be derived and included in the published WISE datasets
@@ -449,9 +437,9 @@ The Documents dataset follows the standard structure used in various WISE datafl
 
 * The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
   
-  * If required by the data providers, and especially if spatial data is being reported,
+  - If required by the data providers, and especially if spatial data is being reported,
     the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
-  * The `dcMetadata` table also functions as a "manifest file"
+  - The `dcMetadata` table also functions as a "manifest file"
     explaining if the delivery contains data for a given river basin district or not.
 
 * The `Document` table allows the upload of documents (for example, PDFs)
@@ -508,7 +496,9 @@ and do not necessarily match the queries used to obtain the tables
 (heading_wfd_monitoring_annexes_atrazine)=
 ### Monitoring of CAS_1912-24-9 - Atrazine
 
-See {numref}`atrazine_wfd2022` for the information about the monitoring of Atrazine in the period 2016-2021, by water body category, in all matrices, according to the data reported under the WFD2022 Monitoring schema.
+See {numref}`atrazine_wfd2022` for the information about the monitoring of Atrazine
+in the period 2016-2021, by water body category, in all matrices,
+according to the data reported under the WFD2022 Monitoring schema.
 
 See {numref}`atrazine_2016_2021_waterbase` for the monitoring results for Atrazine in the period 2016-2021, by water body category, in water, according to the data available in the Waterbase_T_WISE6_DisaggregatedData table (reported under WISE SoE Water Quality - WISE-6).
 
