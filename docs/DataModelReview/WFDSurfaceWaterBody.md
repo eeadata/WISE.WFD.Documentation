@@ -74,7 +74,7 @@ to help focus the discussion on the remaining issues.
 ```
 
 (heading_wfd_surface_water_bodies_descriptive_4th_Cycle)=
-## Surface water - descriptive data - 4th cycle
+## Descriptive dataset - 4th cycle
 
 The proposed structure for the 4th cycle electronic reporting is presented in the class diagram in
 ({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`)
@@ -205,7 +205,7 @@ and a brief description of each table is included in
 The following conditions apply:
 
 * If a surface water body belongs to a given national type,
-  then the surface water body category must match 
+  then the surface water body category must match
   in the SurfaceWaterBody table and in the SWType table.
   The following cases will trigger a *blocker*:
 
@@ -217,9 +217,8 @@ The following conditions apply:
   WHERE t.surfaceWaterBodyCategory <> ref.surfaceWaterBodyCategory
   ```
 
-
 * If a surface water body belongs to a given national type,
-  then the water body type must match 
+  then the water body type must match
   in the SurfaceWaterBody table and in the SWType table.
   The following cases will trigger a *blocker*:
 
@@ -232,7 +231,7 @@ The following conditions apply:
   ```
 
 (heading_wfd_surface_water_bodies_ecological_status_4th_cycle)=
-## Ecological status and potential
+### Ecological status and potential
 
 The quality control criteria have been defined, and will be refined as needed.
 
@@ -440,8 +439,63 @@ For example:
   WHERE ref.QE1_2_3 = 'applicable' AND t.euSurfaceWaterBodyCode IS NULL 
   ```
 
+(heading_surfacewaterbody_spatial_dataset_4th_cycle)=
+## Spatial dataset - 4th cycle
+
+The Spatial dataset contains only the SurfaceWaterBody spatial data
+({numref}`Spatial_4thCycle_SurfaceWaterBody_ClassDiagram`).  
+The SurfaceWaterBodyCentreline dataset is no longer requested in the 4th cycle of reporting.
+
+The following changes have been made to the `SurfaceWaterBody` spatial table
+(in comparison to the 3rd cycle of reporting):
+
+* The attributes `sizeValue` and `sizeUom` were removed,
+  because they can be derived from the reported geometry.
+
+* The attribute `meanDepth` was removed,
+  due to low frequency of reporting.
+
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`
+  were removed, because they are not required at EU level.
+
+* All the date values are requested as YYYY-MM-DD,
+  because that was the format used by all the data providers in the previous cycles
+  (and therefore it is not necessary to maintain more variants).
+  This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
+
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake.
+  **In the reported datasets, the value of these attributes will always be NULL.**
+  The appropriate value will be derived and included in the published WISE datasets
+  for the 1st, 2nd and 3rd cycle SurfaceWaterBody datasets.
+
+* The quality control tests enforced in the 3rd cycle of reporting
+  will continue to be applied in the 4th cycle.
+
+* Additionally:
+
+  - The reporting of territorial waters is **mandatory** (except for landlocked countries).
+  - All rivers must be reported as line geometries.
+  - Each surface water body must be related to one and only one river basin district
+    (subunits are no longer used in the related zone attributes).
+
+  - The reporting of objects with `wiseEvolutionType = 'creation'` will raise a *warning*.
+    It is expected that new water bodies result from re-delineation of existing water bodies,
+    and therefore their respective predecessors should be reported.
+  - The reporting of objects with `wiseEvolutionType = 'deletion'` will raise a *error*.
+    If a water body is no longer designated as a WFD water body,
+    its catchment area will likely be part of the catchment area of other WFD water bodies
+    and therefore the "deleted" water body should be reported only as a predecessor.
+
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_SurfaceWaterBody_ClassDiagram.mmd
+:name: Spatial_4thCycle_SurfaceWaterBody_ClassDiagram
+:caption: Spatial dataset - SurfaceWaterBody - 4th cycle
+:align: center
+:zoom:
+```
+
 (heading_wfd_surface_water_codelist_4th_cycle)=
-## Surface water - codelists - 4th cycle
+## Codelists - 4th cycle
 
 * For the `WaterBodyCategory` codelist and `NaturalAWBHMWB` codelist
   see {numref}`Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram`.  
@@ -540,8 +594,14 @@ For example:
 
 % -----------------------------------------------------------------------------
 
+```{todo}
+Surface water - Topics that require discussion and clarification.
+* Revision of the **ImpactType** codelist.
+* Mapping tables to 3rd cycle codelists
+```
+
 (heading_wfd_surface_water_bodies_annexes)=
-## Annexes - Data analysis - 3rd cycle
+## Data analysis - 3rd cycle
 
 ```{admonition} Changes to the quality check during the 3rd cycle reporting phase
 :class: dropdown
@@ -667,15 +727,13 @@ the quality element was being monitored
 although it was in fact not applicable
 to a specific water category or water body national type.
 
-```{todo}
-The option *"Monitored but not used"* should be removed, 
+The option *"Monitored but not used"* should be removed,
 because it does not convey concrete information about the *status*.  
-Member States can report monitoring results 
-under the WISE-6 Water Quality dataflow: 
-that provides concrete information 
-about what is being monitored 
+Member States can report monitoring results
+under the WISE-6 Water Quality dataflow:
+that provides concrete information
+about what is being monitored
 beyond the requirements of the ecological status assessment.
-```
 
 ### *"Not applicable"*
 
@@ -827,14 +885,12 @@ If at least one biological quality element
 has 'moderate', 'poor' or 'bad' status or potential,
 then the ecological status cannot be 'unknown'.
 
-```{todo}
-If at least one biological quality element 
-has 'moderate', 'poor' or 'bad' status or potential, 
-then the ecological status cannot be 'unknown'. 
+If at least one biological quality element
+has 'moderate', 'poor' or 'bad' status or potential,
+then the ecological status cannot be 'unknown'.
 
 Clearer guidance must be provided to MS with regard to these cases.  
 The quality control must enforce the adopted guidance.
-```
 
 ```{dropdown} Show code
 
@@ -865,11 +921,6 @@ The quality control must enforce the adopted guidance.
   ```
 
 ### One-out-all-out: ecological status
-
-```{todo}
-Include the CIS Guidance flowcharts
-for the ecological status assessment.
-```
 
 According to the WFD Annex V
 and as clarified in the CIS Guidance document 13,
@@ -1076,7 +1127,8 @@ not achieving good chemical status from 38% to 40%.
 (heading_wfd_heavily_modified_water_bodies)=
 ### Heavily modified water bodies
 
-For 60% of the heavily modified water bodies, only one physical alteration and only one water use is reported.
+For 60% of the heavily modified water bodies, only one physical alteration
+and only one water use is reported.
 It doesn't make sense to keep the two separate tables used in the 3rd cycle:
 it complicates the reporting and does not allow a link to be made between the alteration and the use.
 
