@@ -209,16 +209,8 @@ and inconsistencies in the reporting of the biological quality elements classifi
 :caption: WISE2 Biology - BiologyEQRClassificationProcedure table.
 ```
 
-```{todo}
-SurfaceWaterMethodologies - 3rd cycle - Review
-
-Review of the remaining classes in
-{ref}`SurfaceWaterMethodologies_3rdCycle_SWMET_Part2_ClassDiagram`
-namely the SWType attributes.
-```
-
 (heading_wfd_surface_water_methodologies_reporting_of_surface_water_methodologies_4th_cycle)=
-## Descriptive dataset - 4th cycle
+## Methodologies dataset - 4th cycle
 
 The revised structure for the surface water methodologies reporting
 is presented in this section.
