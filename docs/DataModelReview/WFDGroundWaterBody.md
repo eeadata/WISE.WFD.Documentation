@@ -2,16 +2,23 @@
 # Groundwater bodies
 
 ```{warning}
-Last updated - 2026-07-06
+:class: dropdown
 
-Changes based on feedback from WG DIS and WG Groundwater members.
+Updated: 2026-07-23 
 
-* The "lithology" placeholder attribute was removed was removed. 
-* The GWStatus table attributes related to risk and failure were aligned with {footcite}`CIS_Guidance_18`.
-* The gwPollutantCausingRisk and gwAtRiskQuantitative attributes were reintroduced.
-* Quality control is introduced in the reporting of natural background levels. 
-  Further information about the 3rd cycle reporting of natural background levels was included
-  {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
+* Included the Spatial dataset.
+
+Updated: 2026-07-06
+
+* Changes based on feedback from WG DIS and WG Groundwater members.
+
+  - The "lithology" placeholder attribute was removed was removed. 
+  - The GWStatus table attributes related to risk and failure were aligned with 
+    {footcite}`CIS_Guidance_18`.
+  - The gwPollutantCausingRisk and gwAtRiskQuantitative attributes were reintroduced.
+  - Quality control is introduced in the reporting of natural background levels. 
+   Further information about the 3rd cycle reporting of natural background levels was included
+   {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
 
 ```
 
@@ -105,7 +112,7 @@ methodology set out in Part A of Annex II to that Directive.
 ```
 
 (heading_wfd_groundwater_descriptive_4th_cycle)=
-## Groundwater - descriptive data - 4th cycle
+## Descriptive dataset - 4th cycle
 
 The proposed structure for the 4th cycle electronic reporting
 is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram`
@@ -292,8 +299,57 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 Overall procedure of classification tests for assessing groundwater status {footcite}`CIS_Guidance_18`.
 ```
 
+(heading_groundwaterbody_spatial_dataset_4th_cycle)=
+## Spatial dataset - 4th cycle
+
+The Spatial dataset contains the GroundWaterBody spatial data
+and, optionally, the GroundWaterBodyHorizon spatial data
+({numref}`Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram`).  
+
+The following changes have been made to the `GroundWaterBody` spatial table
+(in comparison to the 3rd cycle of reporting):
+
+* The attributes `sizeValue` and `sizeUom` were removed,
+  because they can be derived from the reported geometry.
+
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`
+  were removed, because they are not required at EU level.
+
+* All the date values are requested as YYYY-MM-DD,
+  because that was the format used by all the data providers in the previous cycles
+  (and therefore it is not necessary to maintain more variants).
+  This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
+
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake.
+  **In the reported datasets, the value of these attributes will always be NULL.**
+  The appropriate value will be derived and included in the published WISE datasets
+  for the 1st, 2nd and 3rd cycle GroundWaterBody datasets.
+
+* The quality control tests enforced in the 3rd cycle of reporting
+  will continue to be applied in the 4th cycle.
+
+* Additionally:
+
+  - The geometry is reported in the GroundWaterBody dataset,
+    if none of the national groundwater bodies has multiple horizons.
+    In this case, the GroundWaterBodyHorizon is not reported.
+  
+  - The geometry is reported in the GroundWaterBodyHorizon dataset,
+    if at least one of the national groundwater bodies has multiple horizons.
+    In this case, geometry is not reported in the GroundWaterBody dataset.
+
+The structure of the `GroundWaterBodyHorizon` spatial table was not modified.
+
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram.mmd
+:name: Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram
+:caption: Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle
+:align: center
+:zoom:
+```
+
 (heading_wfd_groundwater_codelist_4th_cycle)=
-## Groundwater - codelists - 4th cycle
+## Codelists - 4th cycle
 
 * For the `AquiferMediaTypeValue` codelist,
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
@@ -427,7 +483,7 @@ Groundwater - Topics that require discussion and clarification.
 ```
 
 (heading_wfd_groundwater_annexes_3rd_cycle)=
-## Annexes - Data analysis - 3rd cycle
+## Data analysis - 3rd cycle
 
 ```{include} /DataModelReview/FragmentAnnexesDataAnalysis3rdCycle
 ```
