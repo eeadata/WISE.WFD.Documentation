@@ -19,8 +19,6 @@ class ProtectedArea {
   + thematicIdIdentifierScheme: IdentifierScheme
   + beginLifespanVersion: date [0..1]
   + endLifespanVersion: date [0..1]
-    + predecessorsIdentifier: comma-separated list of wiseIdentifier [0..1]
-    + predecessorsIdentifierScheme: IdentifierScheme [0..1]
   + predecessorsIdentifier: wiseIdentifier [0..n]
   + predecessorsIdentifierScheme: IdentifierScheme [0..1]
   + successorsIdentifier: wiseIdentifier [0..n]
@@ -33,10 +31,10 @@ class ProtectedArea {
   + designationPeriodEnd: date [0..1]
   + zoneType: ZoneType
   + specialisedZoneType: SpecialisedZoneType
-  + legalBasisName: string254
-  + legalBasisLink: URL
-  + legalBasisLevel: LegislationLevelValue
-  + relatedZoneIdentifier: wiseIdentifier [0..n]
+  + legalBasisName: string254 
+  + legalBasisLink: URL 
+  + legalBasisLevel: LegislationLevelValue 
+  + relatedZoneIdentifier: wiseIdentifier [1..n]
   + relatedZoneIdentifierScheme: IdentifierScheme
   + confidentialityStatus: ConfidentialityStatusValue [0..1]
   + link: URL [0..1]
