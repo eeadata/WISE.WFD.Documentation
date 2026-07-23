@@ -7,12 +7,13 @@
 
 * - Notation
   - Label
-  - Definition
+  - Definition {footcite}`CIS_Guidance_18` {footcite}`gw_dependent_terrestrial_ecosystems`
   - Notes
 
 * - surfaceWater
   - Surface water
-  - Failure to achieve Environmental Objectives (Article 4 WFD) for associated surface water bodies, 
+  - Failure to achieve Environmental Objectives (Article 4 WFD) 
+    for associated surface water bodies,
     resulting from anthropogenic water level alteration or change in flow conditions; 
     significant diminution of the status of surface waters 
     resulting from anthropogenic water level alteration or change in flow conditions.
@@ -26,7 +27,8 @@
 
 * - salineOrOtherIntrusion
   - Saline or other intrusion
-  - Regional saline or other intrusions resulting from anthropogenically induced sustained changes in flow direction.
+  - Regional saline or other intrusions 
+    resulting from anthropogenically induced sustained changes in flow direction.
   - 
 
 * - waterBalance
@@ -38,11 +40,12 @@
 * - drinkingWaterProtectionArea
   - Drinking water protected area
   - Deterioration in quality of waters for human consumption. 
-  - This option is only valid if there are Drinking Water Protection Areas associated with the water body. 
+  - This option is only valid if there are Drinking Water Protection Areas
+    associated with the water body. 
     This option is NOT a valid `gwQuantitativeReasonsForFailure` value.
 
-* - waterQualityAssessment
-  - Water quality sssessment
+* - generalWaterQualityAssessment
+  - General water quality assessment
   - Significant impairment of human uses and/or significant environmental risk 
     from pollutants across the groundwater body. 
   - This option is NOT a valid `gwQuantitativeReasonsForFailure` value.
@@ -53,11 +56,3 @@
   - This option can NOT be combined with any other option.
 
 ```
-
-See also:
-
-* CIS Guidance Document 18 - Groundwater Status and Trends Assessment
-  https://circabc.europa.eu/sd/a/8564a357-0e17-4619-bd76-a54a23fa7885/Guidance%20No%2026%20-%20GW%20risk%20assessment%20and%20conceptual%20models.pdf
-
-* Technical report No. 6 - Technical report on groundwater dependent terrestrial ecosystems. 
-  http://bookshop.europa.eu/en/technical-report-on-groundwater-dependent-terrestrial-ecosystems-pbKHAV12006/
