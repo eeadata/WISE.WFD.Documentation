@@ -306,6 +306,13 @@ The Spatial dataset contains the GroundWaterBody spatial data
 and, optionally, the GroundWaterBodyHorizon spatial data
 ({numref}`Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram`).  
 
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram.mmd
+:name: Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram
+:caption: Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle
+:align: center
+:zoom:
+```
+
 The following changes have been made to the `GroundWaterBody` spatial table
 (in comparison to the 3rd cycle of reporting):
 
@@ -331,22 +338,15 @@ The following changes have been made to the `GroundWaterBody` spatial table
 
 * Additionally:
 
-  - The geometry is reported in the GroundWaterBody dataset,
+  - The geometry is reported in the `GroundWaterBody` table,
     if none of the national groundwater bodies has multiple horizons.
-    In this case, the GroundWaterBodyHorizon is not reported.
+    In this case, the `GroundWaterBodyHorizon` is not reported.
   
-  - The geometry is reported in the GroundWaterBodyHorizon dataset,
+  - The geometry is reported in the `GroundWaterBodyHorizon` table,
     if at least one of the national groundwater bodies has multiple horizons.
-    In this case, geometry is not reported in the GroundWaterBody dataset.
+    In this case, geometry is not reported in the `GroundWaterBody` table.
 
 The structure of the `GroundWaterBodyHorizon` spatial table was not modified.
-
-```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram.mmd
-:name: Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram
-:caption: Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle
-:align: center
-:zoom:
-```
 
 (heading_wfd_groundwater_codelist_4th_cycle)=
 ## Codelists - 4th cycle

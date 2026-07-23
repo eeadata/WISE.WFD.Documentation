@@ -446,6 +446,13 @@ The Spatial dataset contains only the SurfaceWaterBody spatial data
 ({numref}`Spatial_4thCycle_SurfaceWaterBody_ClassDiagram`).  
 The SurfaceWaterBodyCentreline dataset is no longer requested in the 4th cycle of reporting.
 
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_SurfaceWaterBody_ClassDiagram.mmd
+:name: Spatial_4thCycle_SurfaceWaterBody_ClassDiagram
+:caption: Spatial dataset - SurfaceWaterBody - 4th cycle
+:align: center
+:zoom:
+```
+
 The following changes have been made to the `SurfaceWaterBody` spatial table
 (in comparison to the 3rd cycle of reporting):
 
@@ -486,13 +493,6 @@ The following changes have been made to the `SurfaceWaterBody` spatial table
     If a water body is no longer designated as a WFD water body,
     its catchment area will likely be part of the catchment area of other WFD water bodies
     and therefore the "deleted" water body should be reported only as a predecessor.
-
-```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_SurfaceWaterBody_ClassDiagram.mmd
-:name: Spatial_4thCycle_SurfaceWaterBody_ClassDiagram
-:caption: Spatial dataset - SurfaceWaterBody - 4th cycle
-:align: center
-:zoom:
-```
 
 (heading_wfd_surface_water_codelist_4th_cycle)=
 ## Codelists - 4th cycle
