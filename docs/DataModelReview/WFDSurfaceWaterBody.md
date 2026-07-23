@@ -419,9 +419,9 @@ For example:
   SELECT t.euSurfaceWaterBodyCode,t.qeCode, ref.swTypeIdentifier, ref.QE1_2_3
   FROM SWQualityElement AS t
   JOIN SurfaceWaterBody AS p
-  ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
+    ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
   JOIN SWType AS ref
-  ON p.swTypeIdentifier = ref.swTypeIdentifier
+    ON p.swTypeIdentifier = ref.swTypeIdentifier
   WHERE ref.QE1_2_3 IN ('inapplicable','notUsed') AND t.qeCode = 'QE1-2-3'
   ```
 
@@ -429,15 +429,15 @@ For example:
   then it must be reported for all water bodies of that type,
   and the following cases will trigger a *blocker*:
 
-  ```sql
+  ```{code-block} sql
   SELECT DISTINCT p.euSurfaceWaterBodyCode, p.swTypeIdentifier
-  FROM SurfaceWaterBody AS p
+    FROM SurfaceWaterBody AS p
   JOIN SWType AS ref
-  ON p.swTypeIdentifier = ref.swTypeIdentifier
+    ON p.swTypeIdentifier = ref.swTypeIdentifier
   LEFT JOIN SWQualityElement AS t
-  ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
-  AND t.qeCode = 'QE1-2-3'
-  WHERE ref.QE1_2_3 = 'applicable’ AND t.euSurfaceWaterBodyCode IS NULL 
+    ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
+    AND t.qeCode = 'QE1-2-3'
+  WHERE ref.QE1_2_3 = 'applicable' AND t.euSurfaceWaterBodyCode IS NULL 
   ```
 
 (heading_wfd_surface_water_codelist_4th_cycle)=

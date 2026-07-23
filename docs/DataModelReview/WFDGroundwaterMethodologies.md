@@ -2,12 +2,18 @@
 # Groundwater methodologies
 
 ```{warning}
-Last updated - 2026-07-06
+Updated: 2026-07-23
 
-Changes based on feedback from WG DIS and WG Groundwater members.
+* Removed the Documents section: 
+  the groundwater methodologies are integrated 
+  into the groundwater dataflow.
 
-* Removal of the GWType related classes.
-* Correction of the GWThresholdValue description.
+Updated: 2026-07-06
+
+* Changes based on feedback from WG DIS and WG Groundwater members.
+
+  - Removal of the GWType related classes.
+  - Correction of the GWThresholdValue description.
 
 ```
 
@@ -20,6 +26,9 @@ This section:
   in the 2nd and 3rd cycle of reporting of the
   Water Framework Directive River Basin Management Plans
 * presents a simplified proposal for the electronic reporting in the 4th cycle
+  as a separate dataset within the **Groundwater** dataflow,
+  to allow the cross-check between the methodologies data
+  and the data reported at water body level
 
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_GWMET_schema_3rd_cycle)=
 ## GWMET_2022 schema - 3rd cycle
@@ -168,50 +177,6 @@ Note that:
 
 ```{dropdown} TrendStatisticalMethod codelist
 ```{include} tables/Codelist_4thCycle_TrendStatisticalMethod_Table
-```
-
-(heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle)=
-## Documents dataset - 4th cycle
-
-The Documents dataset follows the standard structure used in various WISE dataflows
-({numref}`SurfaceWaterMethodologies_4thCycle_Documents`):
-
-* the `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery
-  
-  - if required by the data providers, and especially if spatial data is being reported,
-    the `licenseDocument` and the `metadataDocument` attributes
-    allow the provision of additional information about the dataset
-  - the `dcMetadata` table also functions as a "manifest file"
-    explaining if the delivery contains data for a given river basin district or not
-
-* the `Document` table allows the upload of documents (for example, PDFs)
-  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site
-
-* the `Reference` table is also standard in the WISE dataflows:
-  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
-  where the relevant information about a `subject`
-  can be found within a document
-
-The following criteria apply:
-
-01. the `dcMetadata` table must contain *one and only one* record
-    for each of the country's river basin districts, identified by the `euRBDCode`
-
-02. for countries reporting under the WFD,
-    the quality control will raise an **ERROR**,
-    if some, or all, the river basin districts have `includesDescriptiveData = no`
-
-```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_Documents_ClassDiagram.mmd
-:name: GroundWaterMethodologies_4thCycle_Documents
-:caption: GroundWaterMethodologies - 4th cycle - Documents
-:align: center
-:zoom:
-```
-
-```{todo}
-Groundwater methodologies - {ref}`heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle`
-
-**Technical** review pending.
 ```
 
 ## Annexes - Data analysis - 3rd cycle
