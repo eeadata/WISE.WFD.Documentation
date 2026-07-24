@@ -10,23 +10,28 @@
   - Definition
 
 * - river
-  - Reservoir in former river	
-  - Select this option only if the whole surface water body represents a reservoir (or part of a reservoir) created by damming a river. 
+  - Reservoir in former river
+  - Select this option only if the whole surface water body represents a reservoir 
+    (or part of a reservoir) created by damming a river. 
 
-* - riverAndLake	
-  - Reservoir in former chain of rivers and lakes	
-  - In cases where the reservoir has been created by damming a water body which contained chained rivers and lakes.
+* - riverAndLake 
+  - Reservoir in former chain of rivers and lakes 
+  - In cases where the reservoir has been created by damming a water body 
+    which contained chained rivers and lakes.
 
-* - lake	
-  - Reservoir in former lake	
+* - lake 
+  - Reservoir in former lake 
   - If the whole surface water body represents a reservoir (or part of a reservoir) 
     created by modifying a pre-existing lake, 
-    or if the surface water body includes some small reservoirs which are not significant enough to be identified as separate surface water bodies.
+    or if the surface water body includes some small reservoirs
+    which are not significant enough to be identified as separate surface water bodies.
 
-* - artificial	
-  - Artificial reservoir	
-  - In cases where the reservoir has been created by human activity in a location where no water body existed before, 
-    and which has not been created by the direct physical alteration, movement or realignment of an existing water body. 
+* - artificial 
+  - Artificial reservoir 
+  - In cases where the reservoir has been created by human activity
+    in a location where no water body existed before, 
+    and which has not been created by the 
+    direct physical alteration, movement or realignment of an existing water body. 
 
 * - notAReservoir
   - Not a reservoir

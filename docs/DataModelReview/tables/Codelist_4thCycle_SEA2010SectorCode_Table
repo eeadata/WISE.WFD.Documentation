@@ -1,0 +1,47 @@
+```{list-table} Codelist - 4th cycle - SEA2010SectorCode
+:name: Codelist_4thCycle_SEA2010SectorCode_Table
+:header-rows: 1
+:width: 100%
+:widths: 25 25 75 
+:align: left
+
+* - Notation *
+  - Label 
+  - Definition
+
+* - S.1
+  - Total economy
+  - Allows the provision of aggregated data.
+
+* - S.13
+  - General government
+  - The “default” option, if the RBMPs only include government outlays.
+
+* - S.13_S.15
+  - General government + NPISH
+  - Aligned with EPEA, can be used if preferred.
+
+* - S.11_S.12
+  - Corporations
+  - Aligned with EPEA, can be used if preferred.
+
+* - S.11
+  - Non-financial corporations
+  - Can be used if the distinction of outlays by public and private companies is not relevant.
+
+* - S.11001
+  - Public non-financial corporations
+  - Can be used if the distinction of outlays by public and private companies is relevant.
+
+* - S.11002_S.11003
+  - Private non-financial corporations
+  - Can be used if the distinction of outlays by public and private companies is relevant.
+
+* - S.212
+  - Institutions and bodies of the European Union 
+  - E.g. European Central Bank, European Commission
+
+```
+
+\* The underscore '_' denotes a list of code values (Code1_Code2). 
+   The hyphen '-' denotes a range of code values (StartCode-EndCode)
