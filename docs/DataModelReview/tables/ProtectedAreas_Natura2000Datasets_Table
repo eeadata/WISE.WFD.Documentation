@@ -1,0 +1,20 @@
+```{list-table} Natura 2000 Datasets
+:name: ProtectedAreas_Natura2000Datasets_Table
+:width: 100%
+:widths: 10 15 25 50
+:header-rows: 1
+
+* - Year
+  - Type
+  - Publication date
+  - EEA SDI
+
+* - 2024
+  - Tabular
+  - 2026-03-05
+  - [eea_t_natura2000_p_2024_v01_r01](https://sdi.eea.europa.eu/catalogue/srv/eng/catalog.search#/metadata/d713bff7-0cdf-4f0d-acd1-dc3c63af237e)
+
+* - 2024
+  - Vector
+  - 2025-12-01
+  - [eea_v_3035_100_k_natura2000_p_2024_v01_r00](https://sdi.eea.europa.eu/catalogue/srv/eng/catalog.search#/metadata/91357f39-7866-41ce-b447-43905c364ec8)

@@ -1,10 +1,22 @@
 (heading_wfd_groundwater_methodologies)=
 # Groundwater methodologies
 
-Last update: 2026-06-04
-
 ```{warning}
-Public Version - Pending Discussion
+:class: dropdown
+
+Updated: 2026-07-23
+
+* Removed the Documents section: 
+  the groundwater methodologies are integrated 
+  into the groundwater dataflow.
+
+Updated: 2026-07-06
+
+* Changes based on feedback from WG DIS and WG Groundwater members.
+
+  - Removal of the GWType related classes.
+  - Correction of the GWThresholdValue description.
+
 ```
 
 (heading_wfd_groundwater_methodologies_purpose_and_overview)=
@@ -16,6 +28,9 @@ This section:
   in the 2nd and 3rd cycle of reporting of the
   Water Framework Directive River Basin Management Plans
 * presents a simplified proposal for the electronic reporting in the 4th cycle
+  as a separate dataset within the **Groundwater** dataflow,
+  to allow the cross-check between the methodologies data
+  and the data reported at water body level
 
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_GWMET_schema_3rd_cycle)=
 ## GWMET_2022 schema - 3rd cycle
@@ -96,7 +111,7 @@ The following elements were removed:
 The structure of the **GWPressures** class was also revised.
 
 (heading_wfd_groundwater_methodologies_descriptive_4th_cycle)=
-## Descriptive dataset - 4th cycle
+## Methodologies dataset - 4th cycle
 
 This section shows the proposed structure for the groundwater methodologies reporting.
 
@@ -146,61 +161,11 @@ Note that:
 * a unique `gwThresholdIdentifier` was introduced to avoid ambiguity
 * duplicate records will be detected
   (i.e. records with identical values for all attributes, except the identifier)
-* for naturally occurring substances, if natural background levels
-  were taken into account in the definition of the threshold value,
-  then the applicable `nblValueRange` is provided
-  (in the same unit of measure as the `thresholdValueRange`)
 
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram.mmd
 :name: GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram
 :align: center
 :caption: Groundwater methodologies - GWThresholdValue table - 4th cycle
-```
-
-```{todo}
-Groundwater methodologies - GWThresholdValue
-
-For groundwater thresholds can the attribute standardType be omitted?
-`+ standardType : StandardType`
-
-```
-
-### GWThresholdValue table - alternative approach
-
-According to the Groundwater Directive Article 3(2):
-
-```{epigraph}
-2. Threshold values can be established at the national level, at
-the level of the river basin district or the part of the international
-river basin district falling within the territory of a Member State,
-or at the level of a body or a group of bodies of groundwater
-
-```
-
-The data structure used in the 3rd cycle, and slightly adapted in
-{numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`,
-has limitations.
-Specifically, it is possible to report the natural background level
-set for the substance to which the threshold applies,
-but it is not possible to indicate other physico-chemical parameters
-that may be relevant for the scope of application of that specific threshold.
-
-To overcome this limitation without introducing much complexity,
-a "groundwater body national type" concept is introduced,
-by analogy to the surface water national types.
-This allows the reporting of the expected (natural) level for physico-chemical parameters
-such as hardness, pH, etc., for groups of water bodies
-and not only the background levels of, for example, the metal or metalloid to which the threshold applies.
-
-The alternative structure, which is aligned with the proposed
-structure for the reporting of surface water threshold values,
-is presented in
-{numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram`.
-
-```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram.mmd
-:name: GroundwaterMethodologies_4thCycle_GWThresholdValue_GWType_ClassDiagram
-:align: center
-:caption: Groundwater methodologies - GWThresholdValue and GWType table (alternative) - 4th cycle
 ```
 
 (heading_wfd_groundwater_methodologies_codelists_4th_cycle)=
@@ -214,50 +179,6 @@ is presented in
 
 ```{dropdown} TrendStatisticalMethod codelist
 ```{include} tables/Codelist_4thCycle_TrendStatisticalMethod_Table
-```
-
-(heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle)=
-## Documents dataset - 4th cycle
-
-The Documents dataset follows the standard structure used in various WISE dataflows
-({numref}`SurfaceWaterMethodologies_4thCycle_Documents`):
-
-* the `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery
-  
-  - if required by the data providers, and especially if spatial data is being reported,
-    the `licenseDocument` and the `metadataDocument` attributes
-    allow the provision of additional information about the dataset
-  - the `dcMetadata` table also functions as a "manifest file"
-    explaining if the delivery contains data for a given river basin district or not
-
-* the `Document` table allows the upload of documents (for example, PDFs)
-  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site
-
-* the `Reference` table is also standard in the WISE dataflows:
-  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
-  where the relevant information about a `subject`
-  can be found within a document
-
-The following criteria apply:
-
-01. the `dcMetadata` table must contain *one and only one* record
-    for each of the country's river basin districts, identified by the `euRBDCode`
-
-02. for countries reporting under the WFD,
-    the quality control will raise an **ERROR**,
-    if some, or all, the river basin districts have `includesDescriptiveData = no`
-
-```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_Documents_ClassDiagram.mmd
-:name: GroundWaterMethodologies_4thCycle_Documents
-:caption: GroundWaterMethodologies - 4th cycle - Documents
-:align: center
-:zoom:
-```
-
-```{todo}
-Groundwater methodologies - {ref}`heading_wfd_groundwater_methodologies_documents_dataset_4th_cycle`
-
-**Technical** review pending.
 ```
 
 ## Annexes - Data analysis - 3rd cycle

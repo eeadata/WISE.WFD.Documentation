@@ -8,17 +8,11 @@ config:
 classDiagram
 direction LR
 
-class QE3Classification{
+class QE2Classification{
 + qeClassificationIdentifier: wiseIdentifier
-+ qeCode: PhysicoChemicalQualityElement
-+ parameterCode: Parameter
-+ parameterUnit: UnitOfMeasure
-+ standardType: StandardType
-+ classHighOrMax: range
-+ classGood: range
-+ classModerate: range
-+ classPoor: range [0..1]
-+ classBad: range [0..1]
++ qeCode: HydromorphologicalQualityElement
++ classPoor: YesNo
++ classBad: YesNo
 
 «reference»
 + qeClassificationReference: referenceCode [0..n]

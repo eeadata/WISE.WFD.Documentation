@@ -1,5 +1,19 @@
+# Pressures and impacts
+
+(heading_wfd_impact_type_codelist_4th_cycle)=
+## ImpactType codelist - 4th cycle
+
+The `ImpactType` codelist is under review. 
+
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ImpactType_ClassDiagram.mmd
+:name: Codelist_4thCycle_ImpactType_ClassDiagram
+:caption:  Codelist - ImpactType - 4th cycle
+:align: center
+:zoom:
+```
+
 (heading_wfd_pressure_type_codelist_4th_cycle)=
-# PressureType codelist - 4th cycle
+## PressureType codelist - 4th cycle
 
 The review of the pressure types codelist used in the 3rd cycle of reporting
 is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
@@ -23,7 +37,7 @@ is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the foll
 
 The revised `PressureType` codelist is a hierarchical codelist
 (see {numref}`Codelist_4thCycle_PressureType_ClassDiagram`).  
-It provides a controlled list of values for different attributes related to pressures.  
+It provides a controlled list of values for different table attributes related to pressures.  
 Depending on the attribute and the context,
 the use of some values may be restricted by the quality control.
 For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater,
@@ -53,11 +67,6 @@ Note that not all the drivers defined in the 3rd cycle reporting guidance
 ```{include} tables/Codelist_3rdCycle_DriverType_Table
 ```
 
-```{todo}
-Pressures codelist - Definition of the drivers
-ENV or EEA Water to complete, and define if any should be added.
-```
-
 The {ref}`PressuresType_3rdCycle_4thCycle_MappingTable` clarifies the correspondence
 between the codelist values in the 3rd cycle and in the 4th cycle.
 
@@ -66,7 +75,7 @@ between the codelist values in the 3rd cycle and in the 4th cycle.
 ```
 
 (heading_wfd_pressures_annexes)=
-## Annexes - Data analysis - 3rd cycle
+## Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
@@ -480,7 +489,8 @@ ORDER BY numberOfWaterBodies DESC
 
 ### Surface water bodies with 'P8 - Anthropogenic pressure - Unknown'
 
-If the option 'P7 - Anthropogenic pressure - Other' is removed from the list of  pressures, can the option 'P8 - Anthropogenic pressure - Unknown' also be removed?
+If the option 'P7 - Anthropogenic pressure - Other' is removed from the list of  pressures,
+can the option 'P8 - Anthropogenic pressure - Unknown' also be removed?
 
 * There are 7 surface water bodies listing 'P8 - Anthropogenic pressure - Unknown'
   as the single [swSignificantPressureType] pressure causing failure.
@@ -490,7 +500,8 @@ If the option 'P7 - Anthropogenic pressure - Other' is removed from the list of 
   from the list of [swSignificantPressureType] options.  
   Inform Member States, specially those that used the P8 option in the 3rd cycle electronic reporting.  
   A generic 'unknown' option will be available.
-  It is mandatory to assess the pressures for water bodies not achieving good status, but Member States may still choose the option 'unknown'
+  It is mandatory to assess the pressures for water bodies not achieving good status,
+  but Member States may still choose the option 'unknown'
   and effectively report that the pressures were not assessed.  
 
 ```{dropdown} Show code
@@ -655,16 +666,11 @@ I.e. this resulted in a large difference between the data reported electronicall
 and the actual situation in the Member State.
 ```
 
-```{todo}
-Significant pressures - Provide link to report 
-
-ASSESSMENT OF THE THIRD RIVER BASIN MANAGEMENT PLANS (RBMPs) - APPENDIX - LESSONS LEARNT - ELECTRONIC REPORTING
-
-```
-
 This was indeed an issue.
-The situation described is likely cause by the fact that there is no option 'Unknown' in the 3rd cycle codelist.
-In fact, the reporting guidance says that 'P8 - Anthropogenic pressure - Unknown' is only relevant where status is lower than good and pressure is unknown.
+The situation described is likely cause by the fact that
+there is no option 'Unknown' in the 3rd cycle codelist.
+In fact, the reporting guidance says that 'P8 - Anthropogenic pressure - Unknown'
+is only relevant where status is lower than good and pressure is unknown.
 
 For the future, the codelist should include the option 'unknown', to be used in this scope.
 (Also the option can be used if status is unknown.)
@@ -811,7 +817,8 @@ AND [euGroundWaterBodyCode] in
 ### Surface bodies where the single pressure causing failure is 'P6-1 - Groundwater - Recharges'
 
 A total of 37 surface water bodies have 'P6-1 - Groundwater - Recharges' as a significant pressure.
-But **zero** surface water bodies have 'P6-1 - Groundwater - Recharges' as the *single* significant pressure.
+But **zero** surface water bodies have 'P6-1 - Groundwater - Recharges'
+as the *single* significant pressure.
 
 ```{dropdown} Show code
 ```{code-block} sql

@@ -1,10 +1,25 @@
 (heading_wfd_groundwater_bodies)=
 # Groundwater bodies
 
-Last update: 2026-06-03
-
 ```{warning}
-Public Version - Pending Discussion
+:class: dropdown
+
+Updated: 2026-07-23 
+
+* Included the Spatial dataset.
+
+Updated: 2026-07-06
+
+* Changes based on feedback from WG DIS and WG Groundwater members.
+
+  - The "lithology" placeholder attribute was removed was removed. 
+  - The GWStatus table attributes related to risk and failure were aligned with 
+    {footcite}`CIS_Guidance_18`.
+  - The gwPollutantCausingRisk and gwAtRiskQuantitative attributes were reintroduced.
+  - Quality control is introduced in the reporting of natural background levels. 
+   Further information about the 3rd cycle reporting of natural background levels was included
+   {ref}`GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table`.
+
 ```
 
 ## Purpose and overview
@@ -49,9 +64,6 @@ and removed the following elements:
 
 * GWB/GroundWaterBody/gwEORiskQuantitative
 * GWB/GroundWaterBody/gwEORiskChemical
-* GWB/GroundWaterBody/gwAtRiskQuantitative
-* GWB/GroundWaterBody/gwAtRiskChemical
-* GWB/GroundWaterBody/gwReasonsForRiskQuantitative
 
 The Commission has revised the **GWPollutant** class,
 and removed the following elements:
@@ -100,7 +112,7 @@ methodology set out in Part A of Annex II to that Directive.
 ```
 
 (heading_wfd_groundwater_descriptive_4th_cycle)=
-## Groundwater - descriptive data - 4th cycle
+## Descriptive dataset - 4th cycle
 
 The proposed structure for the 4th cycle electronic reporting
 is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveData_ClassDiagram`
@@ -114,11 +126,12 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 * A second set of tables contains information about
   the chemical and quantitative status assessment
-  and about pressures and impacts: `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
+  and about pressures and impacts:
+  `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
 
   - The ancillary table `GWGrouping`
     supports the reporting of grouping (if used the assessment).
-  - A link to the `GWMethodologies::ThresholdValue` table clarifies 
+  - A link to the `GWMethodologies::ThresholdValue` table clarifies
     which threshold value is applied to each pollutant.  
     (A list of the default EU threshold values will be provided
     where defined by the EU legislation.)
@@ -163,13 +176,6 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     specially with regard to the aquifer productivity classes,
     their definition and comparability across Member States.
 
-    Under the name `aquiferLithology`, 
-    a placeholder attribute is included in the diagram,
-    as a suggestion to provide an aquifer typology 
-    relevant for the geochemical characterisation of the groundwater body,
-    and the definition of natural background levels 
-    and substances threshold values {footcite}`wendland2008european` 
-
 * - GWLinkSurfaceWaterBody
   - *modified*.  
     If the groundwater body is linked to one or more surface water bodies,
@@ -178,29 +184,31 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     between the groundwater and the surface water body. 
 
 * - GWNaturalBackgroundLevel
-  - *modified*  
+  - *modified*
     The data related to the natural background level (NBL) 
     of substances in groundwater is moved from the GWPollutant class 
-    into a separate `GWNaturalBackgroundLevel` table.  
-    This facilitates both the reporting and the quality control
-    (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`). 
+    into a separate GWNaturalBackgroundLevel table.
+    Quality control procedures will be introduced to avoid mistakes in the reporting
+    (see {ref}`heading_wfd_groundwater_annexes_nbl_3rd_cycle`).       
 
 * - GWStatus
   - *new*  
     The `GWStatus` table synthesizes 
-    information about the status of the water body,
-    and the causes of failure (if applicable).
-    
-    Formally, the `chemicalStatusValue` 
-    could be derived from the information in the `GWPollutant` table.  
+    information about the status of the water body.
+
+    In accordance to the overall procedure of classification tests for assessing groundwater status
+    {footcite}`CIS_Guidance_18` 
+    (see {numref}`CIS_Guidance_18_Figure_1_GWBClassificationProcedure`)
+    the different elements causing risk must be reported.
+    The option `unknown` indicates that the assessment was not done.
+    The option `none` indicates that no element is causing risk.
+
     If, and only if, `chemicalStatusValue = 'unknown'` 
     and no assessment of the chemical status was done,
     may all corresponding rows in the `GWPollutant` table be missing.
     (An ERROR will raised by the quality control, since this is a non-compliance 
     and should not be reported by mistake.)
 
-    Likewise, the `quantitativeStatusValue` 
-    could be derived from the `GWQuantitativeStatus` table.  
     If, and only if, `quantitativeStatusValue = 'unknown'` 
     and no assessment of the quantitative status was done,
     may the corresponding row in the `GWQuantitativeStatus` table be missing.
@@ -284,8 +292,64 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     Illustrative examples will be provided.  
 ```
 
+```{figure} /DataModelReview/img/CIS_Guidance_18_Figure_1_GWBClassificationProcedure.png
+:name: CIS_Guidance_18_Figure_1_GWBClassificationProcedure
+:width: 100%
+:align: center
+Overall procedure of classification tests for assessing groundwater status {footcite}`CIS_Guidance_18`.
+```
+
+(heading_groundwaterbody_spatial_dataset_4th_cycle)=
+## Spatial dataset - 4th cycle
+
+The Spatial dataset contains the GroundWaterBody spatial data
+and, optionally, the GroundWaterBodyHorizon spatial data
+({numref}`Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram`).  
+
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram.mmd
+:name: Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram
+:caption: Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle
+:align: center
+:zoom:
+```
+
+The following changes have been made to the `GroundWaterBody` spatial table
+(in comparison to the 3rd cycle of reporting):
+
+* The attributes `sizeValue` and `sizeUom` were removed,
+  because they can be derived from the reported geometry.
+
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`
+  were removed, because they are not required at EU level.
+
+* All the date values are requested as YYYY-MM-DD,
+  because that was the format used by all the data providers in the previous cycles
+  (and therefore it is not necessary to maintain more variants).
+  This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
+
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake.
+  **In the reported datasets, the value of these attributes will always be NULL.**
+  The appropriate value will be derived and included in the published WISE datasets
+  for the 1st, 2nd and 3rd cycle GroundWaterBody datasets.
+
+* The quality control tests enforced in the 3rd cycle of reporting
+  will continue to be applied in the 4th cycle.
+
+* Additionally:
+
+  - The geometry is reported in the `GroundWaterBody` table,
+    if none of the national groundwater bodies has multiple horizons.
+    In this case, the `GroundWaterBodyHorizon` is not reported.
+  
+  - The geometry is reported in the `GroundWaterBodyHorizon` table,
+    if at least one of the national groundwater bodies has multiple horizons.
+    In this case, geometry is not reported in the `GroundWaterBody` table.
+
+The structure of the `GroundWaterBodyHorizon` spatial table was not modified.
+
 (heading_wfd_groundwater_codelist_4th_cycle)=
-## Groundwater - codelists - 4th cycle
+## Codelists - 4th cycle
 
 * For the `AquiferMediaTypeValue` codelist,
   see {numref}`Codelist_4thCycle_AquiferMediaTypeValue_AquiferProductivity_ClassDiagram`.  
@@ -324,14 +388,14 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * For the `GroundwaterSurfaceWaterLink` codelist,
   see {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_ClassDiagram`.  
   The codelist is used to report
-  the type of link between a given groundwater body and a given surface water body. 
+  the type of link between a given groundwater body and a given surface water body.
 
   - See the definitions in {numref}`Codelist_4thCycle_GroundwaterSurfaceWaterLink_Table`.
 
-* For the `ReasonForFailure` codelist,
-  see {numref}`Codelist_4thCycle_ReasonForFailure_ClassDiagram`.
+* For the `ReasonForRiskOrFailure` codelist,
+  see {numref}`Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram`.
 
-  - See the definitions in {numref}`Codelist_4thCycle_ReasonForFailure_Table`.
+  - See the definitions in {numref}`Codelist_4thCycle_ReasonForRiskOrFailure_Table`.
 
   - For groundwater bodies in poor quantitative status,
     the codelist values are used
@@ -345,10 +409,17 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
     the codelist values are used
     in the `gwChemicalReasonsForFailure` attribute
     to provide further information about one or more causes of failure
-    (the most frequent cause will be likely be `'waterQuality'`).  
+    (the most frequent cause will be likely be `'generalQualityAssessment'`).  
     For groundwater bodies in good or unknown quantitative status,
     the option `notApplicable` must be used.
     For groundwater bodies in good or unknown chemical status,
+    the option `notApplicable` must be used.
+
+  - For groundwater bodies where good quantitative status is at risk,
+    the codelist values are used
+    in the `gwQuantitativeReasonsForRisk` attribute
+    to provide further information about one or more causes of risk.
+    For groundwater bodies where `gwAtRiskQuantitative = 'no'`
     the option `notApplicable` must be used.
 
 * For the `PressureType` codelist,
@@ -396,25 +467,23 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 
 % -----------------------------------------------------------------------------
 
-```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ReasonForFailure_ClassDiagram.mmd
-:name: Codelist_4thCycle_ReasonForFailure_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram.mmd
+:name: Codelist_4thCycle_ReasonForRiskOrFailure_ClassDiagram
 :align: center
 :caption: ReasonForFailure codelist - 4th cycle
 ```
 
-```{include} /DataModelReview/tables/Codelist_4thCycle_ReasonForFailure_Table
+```{include} /DataModelReview/tables/Codelist_4thCycle_ReasonForRiskOrFailure_Table
 ```
 
 ```{todo}
 Groundwater - Topics that require discussion and clarification.
-* Aquifer productivity
-* Aquifer lithology / typology
 * Revision of the **ImpactType** codelist.
 * Mapping tables to 3rd cycle codelists
 ```
 
 (heading_wfd_groundwater_annexes_3rd_cycle)=
-## Annexes - Data analysis - 3rd cycle
+## Data analysis - 3rd cycle
 
 ```{include} /DataModelReview/FragmentAnnexesDataAnalysis3rdCycle
 ```
@@ -591,11 +660,78 @@ An exploratory analysis shows the expected high frequency of reporting of NBLs f
 and physico-chemical parameters like electrical conductivity
 (likely as an indicator of saline intrusion).
 
-Other parameters are more unexpected and are likely due to reporting errors (e.g. chlorite instead of chloride).
+Other parameters are unexpected (chlorite and phenols) and may be due to reporting errors.
 
 More importantly, the values reported
 are sometimes physically impossible (e.g. above 1000mg/L)
 or clearly unlikely.
+
+```{dropdown} See table
+```{include} /DataModelReview/tables/GroundWaterBody_3rdCycle_NaturalBackgroundLevel_Table
+```
+
+```{dropdown} Show code
+  ```{code-block} sql
+  :caption: Substances for which natural background levels were reported - 3rd cycle
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+  SELECT ISNULL(b.[parameterGroup],'undefined') AS [parameterGroup]
+        ,[gwPollutantCode] AS [parameter]
+        ,COUNT(DISTINCT [countryCode]) AS nCountries
+        ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS nWaterBodies
+    FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWPollutant] a
+    LEFT JOIN (
+    SELECT *
+      FROM (VALUES
+      ('Metals and Metalloids', 'CAS_7429-90-5', 'Aluminium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-36-0', 'Antimony'),
+      ('Metals and Metalloids', 'CAS_7440-38-2', 'Arsenic and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-39-3', 'Barium'),
+      ('Metals and Metalloids', 'CAS_7440-42-8', 'Boron'),
+      ('Metals and Metalloids', 'CAS_7440-43-9', 'Cadmium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-47-3', 'Chromium and its compounds'),
+      ('Metals and Metalloids', 'CAS_18540-29-9', 'Chromium VI'),
+      ('Metals and Metalloids', 'CAS_7440-48-4', 'Cobalt and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-50-8', 'Copper and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-89-6', 'Iron and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-92-1', 'Lead and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-96-5', 'Manganese and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-97-6', 'Mercury and its compounds'),
+      ('Metals and Metalloids', 'CAS_7439-98-7', 'Molybdenum and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-28-0', 'Thallium'),
+      ('Metals and Metalloids', 'CAS_7440-02-0', 'Nickel and its compounds'),
+      ('Metals and Metalloids', 'CAS_7782-49-2', 'Selenium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-61-1', 'Uranium'),
+      ('Metals and Metalloids', 'CAS_7440-62-2', 'Vanadium and its compounds'),
+      ('Metals and Metalloids', 'CAS_7440-66-6', 'Zinc and its compounds'),
+      ('Major Ions and Nutrients', 'CAS_14798-03-9', 'Ammonium'),
+      ('Major Ions and Nutrients', 'CAS_7440-70-2', 'Calcium'),
+      ('Major Ions and Nutrients', 'CAS_16887-00-6', 'Chloride'),
+      ('Major Ions and Nutrients', 'CAS_16984-48-8', 'Fluoride'),
+      ('Major Ions and Nutrients', 'CAS_71-52-3', 'Hydrogen Carbonate Bicarbonate HCO3'),
+      ('Major Ions and Nutrients', 'CAS_7439-95-4', 'Magnesium'),
+      ('Major Ions and Nutrients', 'CAS_14797-55-8', 'Nitrate'),
+      ('Major Ions and Nutrients', 'CAS_14797-65-0', 'Nitrite'),
+      ('Major Ions and Nutrients', 'CAS_14265-44-2', 'Phosphate'),
+      ('Major Ions and Nutrients', 'CAS_7440-09-7', 'Potassium'),
+      ('Major Ions and Nutrients', 'CAS_7440-23-5', 'Sodium'),
+      ('Major Ions and Nutrients', 'CAS_18785-72-3', 'Sulphate'),
+      ('Major Ions and Nutrients', 'CAS_7723-14-0', 'Total phosphorus'),
+      ('Physico-chemical Parameters', 'EEA_3142-01-6', 'Electrical conductivity'),
+      ('Physico-chemical Parameters', 'EEA_3152-01-0', 'pH'),
+      ('Physico-chemical Parameters', 'EEA_3121-01-5', 'Water temperature')
+  ) AS v(parameterGroup, parameterCode, name) ) b
+
+      ON a.[gwPollutantCode] like b.parameterCode+' - %'
+
+    WHERE a.[gwPollutantBackgroundLevelSet] = 'yes' 
+        AND a.[cYear] = 2022 
+        AND a.[hasDescriptiveData] = 1
+        AND a.[gwPollutantCode] != 'EEA_00-00-0 - Other parameter'
+    GROUP BY a.[gwPollutantCode]
+        ,b.[parameterGroup]
+    ORDER BY 1, 4 desc, a.[gwPollutantCode]
+  ```
 
 ## References
 

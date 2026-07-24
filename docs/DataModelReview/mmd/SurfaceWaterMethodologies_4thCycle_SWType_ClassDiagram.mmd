@@ -11,13 +11,32 @@ direction TB
 class SWType{
     + swTypeIdentifier: wiseIdentifier
     + surfaceWaterBodyCategory: WaterBodyCategory
-    + naturalAWBHMWB: NaturalAWBHMWB
+    + naturalAWBHMWB: NaturalAWBHMWB [1..n]
     + swIntercalibrationType: IntercalibrationType [1..n]
     + swTypeCode: string100
     + swTypeDescription: string
     + swTypeDescriptionLanguage: Language
 
     + swTypeReference: referenceCode [0..n]
+
+    «quality-elements»
+    + QE1_1:     ApplicableInapplicableNotUsed
+    + QE1_2_1:   ApplicableInapplicableNotUsed
+    + QE1_2_2:   ApplicableInapplicableNotUsed
+    + QE1_2_3:   ApplicableInapplicableNotUsed
+    + QE1_2_4:   ApplicableInapplicableNotUsed
+    + QE1_3:     ApplicableInapplicableNotUsed
+    + QE1_4:     ApplicableInapplicableNotUsed
+    + QE2_1:     ApplicableInapplicableNotUsed
+    + QE2_2:     ApplicableInapplicableNotUsed
+    + QE2_3:     ApplicableInapplicableNotUsed
+    + QE3_1_1:   ApplicableInapplicableNotUsed
+    + QE3_1_2:   ApplicableInapplicableNotUsed
+    + QE3_1_3:   ApplicableInapplicableNotUsed
+    + QE3_1_4:   ApplicableInapplicableNotUsed
+    + QE3_1_5:   ApplicableInapplicableNotUsed
+    + QE3_1_6_1: ApplicableInapplicableNotUsed
+    + QE3_1_6_2: ApplicableInapplicableNotUsed
 }
 
 class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::partial{ 

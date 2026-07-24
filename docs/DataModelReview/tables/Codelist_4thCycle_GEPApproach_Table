@@ -9,7 +9,7 @@
   - Label 
   - Definition 
 
-* - cisGuidanceApproach
+* - cisGuidanceReferenceApproach
   - CIS Guidance 37 reference approach
   - Reference approach as explained in CIS Guidance 37 {footcite}`CIS_Guidance_37`
 
@@ -23,8 +23,8 @@
   - Mitigation measures (Prague) approach, but not yet including 
     any biological quality elements in the assessment. 
 
-* - hybridCISPragueApproach
-  - Hybrid CIS Guidance / Prague approach
+* - hybridApproachReferencePrague
+  - Hybrid CIS Guidance Reference approach / Prague approach
   - Hybrid between the CIS Guidance 37 reference approach and the mitigation measures (Prague) approach.
 
 * - sameAssessmentAsNaturalWB 

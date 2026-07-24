@@ -18,11 +18,10 @@ class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::otherDataset{
 + qeClassificationIdentifier: wiseIdentifier
 }
 
-class QE3Classification{
+class QE2Classification{
 + qeClassificationIdentifier: wiseIdentifier
-+ qeCode: PhysicoChemicalQualityElement
-+ parameterCode: Parameter
-+ parameterUnit: UnitOfMeasure
++ qeCode: HydroMorphologicalQualityElement
+
 }
 
 class QEClassification_SWType{
@@ -31,17 +30,10 @@ class QEClassification_SWType{
 + swIntercalibrationType: IntercalibrationType [1..n]
 }
 
-class SWNaturalBackgroundLevel{
-+ swTypeIdentifier: wiseIdentifier
-+ parameterCode: Parameter
-+ parameterValue: range  
-+ parameterUnit: UnitOfMeasure
-}
 
-SWQualityElement ..> QE3Classification
-QE3Classification "1" -- "0..n" QEClassification_SWType
+SWQualityElement ..> QE2Classification
+QE2Classification "1" -- "0..n" QEClassification_SWType
 QEClassification_SWType "0..n" -- "1" SWType
-SWType "1" -- "0..n" SWNaturalBackgroundLevel
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

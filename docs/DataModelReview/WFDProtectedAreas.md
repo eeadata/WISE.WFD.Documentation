@@ -42,7 +42,8 @@ A proposal is presented for the electronic reporting in the 4th cycle.
 (heading_wfd_protected_areas_spatial_data_reporting_3rd_cycle)=
 ## Spatial data - 2nd and 3rd cycle
 
-The WFD Protected Area spatial data reporting requirements were stable during the 2nd and 3rd cycle of electronic reporting
+The WFD Protected Area spatial data reporting requirements were stable
+during the 2nd and 3rd cycle of electronic reporting
 ({numref}`ProtectedAreas_3rdCycle_Table`).
 
 The following generic principles were applied
@@ -53,17 +54,20 @@ The following generic principles were applied
    (e.g. for bathing waters, sensitive areas, nitrate vulnerable zones, or Natura 2000 protected sites),
    then the *spatial data* was neither required nor accepted under the WFD.
 2) If no specific dataflow existed
-   (e.g. for drinking water protection areas, freshwater fish designated areas and shellfish designated areas),
+   (e.g. for drinking water protection areas, freshwater fish designated areas
+   and shellfish designated areas),
    then the spatial data was reported under the WFD.
 
 Several issues affected the reporting, causing redundancies and inconsistencies:
 
 * For the protected area types under case 1),
   not all the data models followed the basic requirements of the WFD ProtectedArea data model.  
-  For example, the nitrate vulnerable zones do not have a unique identifier consistent with the syntax of the WISE identifiers.  
+  For example, the nitrate vulnerable zones do not have a unique identifier consistent
+  with the syntax of the WISE identifiers.
 * For protected area types under case 2),
   the majority of the issues affected the reporting of the drinking water protection areas.
-  If the drinking water protection area matched the entire water body and the identifier was the same,  
+  If the drinking water protection area matched the entire water body
+  and the identifier was the same,  
   then it was not required to report the geometry of the protected area.  
   However, this approach was not followed consistently by Member States.
 * For the Natura2000 protected sites,
@@ -107,22 +111,32 @@ are detailed in ({numref}`ProtectedAreas_4thCycle_Table`)
   for abstraction points of water intended for human consumption.
 * The data model for the Nitrate Vulnerable Zones reporting
   is aligned with the model used for the other protected areas (except Natura 2000 protected sites).
-* The reporting of the association between the protected areas and the water bodies is done only once – in the spatial data reporting (except Natura 2000 protected sites).
+* The reporting of the association between the protected areas
+  and the water bodies is done only once – in the spatial data reporting
+  (except Natura 2000 protected sites).
 
 ```{include} tables/ProtectedAreas_4thCycle_Table
 ```
 
-{numref}`ProtectedArea_4thCycle_Spatial_ClassDiagram` presents the class diagram for the proposed generic ProtectedArea dataset:
+{numref}`Spatial_4thCycle_ProtectedArea_ClassDiagram` presents the class diagram
+for the proposed generic ProtectedArea dataset:
 
-* Depending on the specific dataflow, different geometry types may be requested/allowed (either point, line or polygon).
-* The **relatedZoneIdentifier** and **relatedZoneIdentifierScheme** are mandatory, and specific constraints will apply depending on the dataflow (i.e. on the type of protected area).
-* The attribute **confidentialityStatus** was included (and applies to the drinking water protected areas) to address concerns about the publication of the location of some protected areas.
-* The attributes **sizeValue** and **sizeUom** attributes are no longer requested.
-* The attributes **successorsIdentifier** and **successorsIdentifierScheme** have been kept for clarity's sake although their value will always be `NULL` (the appropriate value will be derived and included in the
+* Depending on the specific dataflow, different geometry types may be requested/allowed
+  (either point, line or polygon).
+* The `relatedZoneIdentifier` and `relatedZoneIdentifierScheme` are mandatory,
+  and specific constraints will apply depending on the dataflow
+  (i.e. on the type of protected area).
+* The attribute `confidentialityStatus` was included
+  (and applies to the drinking water protected areas)
+  to address concerns about the publication of the location of some protected areas.
+* The attributes `sizeValue` and `sizeUom` attributes are no longer requested.
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake although their value will always be `NULL`
+  (the appropriate value will be derived and included in the
   published WISE datasets that refer to the previous reporting cycles).
 
-```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_Spatial_ClassDiagram.mmd
-:name: ProtectedArea_4thCycle_Spatial_ClassDiagram
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_ProtectedArea_ClassDiagram.mmd
+:name: Spatial_4thCycle_ProtectedArea_ClassDiagram
 :caption: Class diagram for an abstract ProtectedArea dataset – 4th cycle
 :align: center
 ```
@@ -130,24 +144,41 @@ are detailed in ({numref}`ProtectedAreas_4thCycle_Table`)
 (heading_wfd_protected_areas_special_case_the_natura2000_protected_sites)=
 ## Special case - Natura2000 sites
 
-The Natura2000 dataflows do not include information about the association between protected sites and WFD water bodies. Therefore, a different approach is necessary to simplify the WFD reporting.
-A provisional prefilled list of "water-dependent" Natura 2000 protected sites will be created, based on the Natura2000 reporting based on the habitat type and species type [^footnote-links-between-natura2000-wfd]
+The Natura2000 dataflows do not include information about the association
+between protected sites and WFD water bodies.
+Therefore, a different approach is necessary to simplify the WFD reporting.
+A provisional prefilled list of "water-dependent" Natura 2000 protected sites will be created,
+based on the Natura2000 reporting based on the habitat type and species type {footcite}`links_between_wfd_nature_directives`.
 
-[^footnote-links-between-natura2000-wfd]: See, for example, Table 1 in the document ["Links between the Water Framework Directive (WFD 2000/60/EC) and Nature Directives (BirdsDirective 2009/147/EC and Habitats Directive 92/43/EEC)."](https://circabc.europa.eu/ui/group/3f466d71-92a7-49eb-9c63-6cb0fadf29dc/library/f214c3f5-bf5c-404a-a18b-02c0553b82ad/details?open=true)
+A Natura 2000 site should be designated as "water-dependent"
+if it contains Annex I habitat types
+or Annex II species (Habitats Directive), or bird species (Birds Directive),
+whose presence was the primary reason for the area's designation
+and that meet the ecological criteria below:
 
-A Natura 2000 site should be designated as "water-dependent" if it contains Annex I habitat types or Annex II species (Habitats Directive),or bird species (Birds Directive),  whose presence was the primary reason for the area's designation and that meet the ecological criteria below:
-
-* habitats consisting of surface water or occurring entirely within surface water as defined by the WFD
+* habitats consisting of surface water or occurring entirely
+  within surface water as defined by the WFD
 * habitats that depend on frequent inundation by surface water or specific groundwater levels
 * aquatic species living directly in surface waters
-* species with at least one aquatic life stage dependent on surface water for essential activities such as breeding, incubation, juvenile
-  development, feeding, or roosting.
+* species with at least one aquatic life stage dependent
+  on surface water for essential activities
+  such as breeding, incubation, juvenile development, feeding, or roosting.
 
-The provisional prefilled list will be provided to Member States, for validation purposes:
+The provisional prefilled list is available {download}`here <files/WFD_RelatedNatura2000Sites.sqlite>`, for validation purposes:
 
-* If missing, additional Natura 2000 protected site identifiers may be added (from the reference list already reported under the Natura 2000 dataflows).
-* If incorrect, Natura 2000 protected site identifiers present in the provisional list may be flagged for removal from the WFD register of protected areas.
-* For the Natura 2000 sites to be included in the WFD register of protected areas (because where the maintenance or improvement of water status is a critical factor for their protection), the association to water bodies should be reported.
+* If missing, additional Natura 2000 protected site identifiers
+  may be added (from the reference list already reported under the Natura 2000 dataflows).
+* If incorrect, Natura 2000 protected site identifiers present in the provisional list
+  may be flagged for removal from the WFD register of protected areas.
+* For those Natura 2000 sites that were related to WFD surface water bodies in the 3rd reporting cycle, please review in the provided SQLite file the distance value expressed in kilometers from the Natura 2000 site to the associated water body to detect possible issues.
+* For the Natura 2000 sites to be included in the WFD register of protected areas
+  (because where the maintenance or improvement of water status
+  is a critical factor for their protection), the association to water bodies should be reported.
+
+The list of related Natura2000 sites has been generated with the following published datasets:
+
+```{include} tables/ProtectedAreas_Natura2000Datasets_Table
+```
 
 (heading_wfd_protected_areas_descriptive_data_reporting)=
 ## Descriptive data - 4th cycle
@@ -160,62 +191,61 @@ This only applies for the following types of protected areas:
 * Natura 2000 protected sites
   included in the WFD register of protected areas
 
-For Freshwater fish designated waters, the WFD good ecological status fully integrates the integrate Fish Directive (2006/44/EC) objectives. Similarly, the WFD good status integrates the Nitrates Directive and UWWTD objectives related to eutrophication. Therefore, no information on specific objectives is requested or expected for these types of protected area or for bathing waters.
+For Freshwater fish designated waters, the WFD good ecological status
+fully integrates the integrate Fish Directive (2006/44/EC) objectives.
+Similarly, the WFD good status integrates the Nitrates Directive
+and UWWTD objectives related to eutrophication.
+Therefore, no information on specific objectives is requested or expected
+for these types of protected area or for bathing waters.
 
-The analysis of the 3rd cycle reveals that no specific objectives were set for Nationally Designated Areas (NatDA, formerly known as CDDA). Information about this type of protected sites will no longer be requested.
+The analysis of the 3rd cycle reveals that no specific objectives
+were set for Nationally Designated Areas (NatDA, formerly known as CDDA).
+Information about this type of protected sites will no longer be requested.
 
-{numref}`SWAssociatedProtectedAreaClassSimplified` illustrates the reporting
-for protected areas associated with surface water bodies:
+{numref}`ProtectedArea_4thCycle_SWAssociatedProtectedArea_ClassDiagram` illustrates the reporting
+of surface water bodies with specific objectives related to protected areas:
+
 * For shellfish designated areas, report *only* if specific objectives have been set.
 * For drinking water protection areas, report *only* if specific objectives have been set.
-* For Natura2000 sites, report if specific objectives have been set *or* if the Natura2000 site is not part of the "pre-filled" list (to be provided).
+* For Natura2000 sites, report if specific objectives have been set *or*
+  if the Natura2000 site is not part of the "pre-filled" list (to be provided).
 
-```{mermaid}
-:name: SWAssociatedProtectedAreaClassSimplified
-:caption: Surface water body associated protected area - 4th cycle - partial diagram
+```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_SWAssociatedProtectedArea_ClassDiagram.mmd
+:name: ProtectedArea_4thCycle_SWAssociatedProtectedArea_ClassDiagram
+:caption: Surface water bodies with specific objectives associated with protected areas - 4th cycle
 :align: center
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-class SWAssociatedProtectedArea{
- + euSurfaceWaterBodyCode : wiseIdentifier
- + euProtectedAreaType : ProtectedAreaType 
- + euProtectedAreaCode : wiseIdentifier [0..1]
- + protectedAreaObjectivesSet : YesNo
- + protectedAreaObjectivesMet : YesNoUnknown
-    }
- class ProtectedAreaType{
-    <<enumeration>>
-    shellfishDesignatedWater
-    drinkingWaterProtectionArea
-    natura2000
-    }
 ```
 
-{numref}`GWAssociatedProtectedAreaClassSimplified` illustrates the reporting
-for protected areas associated with surface water bodies:
+{numref}`ProtectedArea_4thCycle_GWAssociatedProtectedArea_ClassDiagram` illustrates the reporting
+of groundwater bodies with specific objectives associated with protected areas:
 
 * For shellfish designated areas, report *only* if specific objectives have been set.
 * For drinking water protection areas, report *only* if specific objectives have been set.
 
-```{mermaid}
-:name: GWAssociatedProtectedAreaClassSimplified
-:caption: Groundwater body associated protected area - 4th cycle - partial diagram
+```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_GWAssociatedProtectedArea_ClassDiagram.mmd
+:name: ProtectedArea_4thCycle_GWAssociatedProtectedArea_ClassDiagram
+:caption: Groundwater bodies with specific objectives associated with protected areas - 4th cycle
 :align: center
-%%{init: {'theme': 'neutral'}}%%
-classDiagram
-class GWAssociatedProtectedArea{
- + euGroundWaterBodyCode : wiseIdentifier
- + euProtectedAreaType : ProtectedAreaType 
- + euProtectedAreaCode : wiseIdentifier [0..1]
- + protectedAreaObjectivesSet : YesNo
- + protectedAreaObjectivesMet : YesNoUnknown
-    }
- class ProtectedAreaType{
-    <<enumeration>>
-    shellfishDesignatedWater
-    drinkingWaterProtectionArea
-    }
 ```
+
+The following conditions will raise a quality control *blocker*:
+
+* `euProtectedAreaType = 'shellfishDesignatedWater' AND protectedAreaObjectivesSet = 'no'`
+* `euProtectedAreaType = 'drinkingWaterProtectionArea' AND protectedAreaObjectivesSet = 'no'`
+* `euProtectedAreaType = 'shellfishDesignatedWater' AND euProtectedAreaCode IS NOT NULL`
+* `euProtectedAreaType = 'drinkingWaterProtectionArea' AND euProtectedAreaCode IS NOT NULL`
+* `euProtectedAreaType = 'natura2000' AND euProtectedAreaCode IS NULL`
+* `protectedAreaObjectivesSet = 'yes' AND protectedAreaObjectivesMet = 'inapplicable'`
+
+The following checks against other datasets will also raise a quality control *blocker*:
+
+* if `euProtectedAreaType = 'shellfishDesignatedWater'`
+  but there is no drinking water protected area associated with that water body
+* if `euProtectedAreaType = 'drinkingWaterProtectionArea'`
+  but there is no drinking water protected area associated with that water body
+* if `euProtectedAreaType = 'natura2000'`
+  but there is corresponding Natura2000 identifier in
+  https://dd.eionet.europa.eu/vocabulary/biodiversity/n2000sites
 
 With regard to exemptions related to associated protected areas, see:
 

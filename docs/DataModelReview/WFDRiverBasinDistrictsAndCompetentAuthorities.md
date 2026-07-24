@@ -8,7 +8,8 @@ Last update: 2026-05-14
 
 This section revises the River Basin Districts, Subunits and Competent Authorities classes
 used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ClassDiagram_RBDSUCA_2022`).
-It also revises the associated spatial data in the RiverBasinDistrict dataset and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).  
+It also revises the associated spatial data in the RiverBasinDistrict dataset
+and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).  
 
 ```{figure} img/ClassDiagram_RBDSUCA_2022.png
 :name: ClassDiagram_RBDSUCA_2022
@@ -26,9 +27,9 @@ River Basin Districts, Subunits and Competent Authorities schema - 3rd cycle - O
 
 A proposal is presented for the electronic reporting in the 4th cycle:
 
-* The reporting of the units of management (i.e. the River Basin Districts) 
+* The reporting of the units of management (i.e. the River Basin Districts)
   and of the competent authorities is combined into a single dataflow.
-* The overall structure of the new **River Basin Districts and Competent Authorities** dataflow 
+* The overall structure of the new **River Basin Districts and Competent Authorities** dataflow
   is aligned with similar dataflows, e.g. under the Floods Directive [^floods-directive-footnote].
 * Reporting is only requested under the following conditions:
 
@@ -53,12 +54,14 @@ The Documents dataset follows the standard structure used in various WISE datafl
   It provides the basic Dublin Core metadata elements about the delivery.
 
 * If required by the data providers, and especially if spatial data is being reported,
-  the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
+  the `licenseDocument` and the `metadataDocument` attributes allow
+  the provision of additional information about the dataset.
 
 * The dcMetadata table also functions as a "manifest file" explaining:
 
-  * if the delivery contains an update of the spatial data: `updateSpatialData = 'yes'`
-  * and/or if the delivery contains an update of the competent authorities or their roles: `updateCompetentAuthorities= 'yes'`
+  - if the delivery contains an update of the spatial data, set `updateSpatialData = 'yes'`
+  - and/or if the delivery contains an update of the competent authorities
+    or their roles, set `updateCompetentAuthorities= 'yes'`
   
 * The `Document` table is standard in the WISE dataflows:
 it allows the upload of documents (for example, PDFs)
@@ -76,9 +79,10 @@ or the provision of a hyperlink to a document stored in a publicly accessible na
 
 The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive`):
 
-- The `CompetentAuthority` table contains basic information about each Competent Authority.
+* The `CompetentAuthority` table contains basic information about each Competent Authority.
 
-- The `RiverBasinDistrictCompetentAuthority` table associates each Competent Authority with a River Basin District
+* The `RiverBasinDistrictCompetentAuthority` table associates
+  each Competent Authority with a River Basin District
   and specifies the role(s) of the competent authority in that RBD.
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Descriptive_ClassDiagram.mmd
@@ -95,22 +99,24 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 :zoom:
 ```
 
-(heading_wfd_rbd_and_ca_spatial_dataset_4th_cycle)=
+(heading_riverbasindistrict_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4th cycle
 
-(heading_wfd_monitoring_river_basin_district_dataset_4th_cycle)=
-### RiverBasinDistrict spatial data - 4th cycle
-
-The Spatial dataset contains only the RiverBasinDistrict spatial data ({numref}`Spatial_4thCycle_RiverBasinDistrict`).  
+The Spatial dataset contains only the RiverBasinDistrict spatial data
+({numref}`Spatial_4thCycle_RiverBasinDistrict_ClassDiagram`).  
 As stated before, Subunits are no longer requested in the 4th cycle of reporting.
 
-The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3rd cycle of reporting):
+The following changes have been made to the `RiverBasinDistrict` spatial table
+(in comparison to the 3rd cycle of reporting):
 
-* The attributes `sizeValue` and `sizeUom` were removed, because they can be derived from the reported geometry.
+* The attributes `sizeValue` and `sizeUom` were removed,
+  because they can be derived from the reported geometry.
 
-* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme` were removed, because they are not required at EU level.
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`
+  were removed, because they are not required at EU level.
 
-* All the date values are requested as YYYY-MM-DD, because that was the format used by the data providers in the previous cycles
+* All the date values are requested as YYYY-MM-DD,
+  because that was the format used by all the data providers in the previous cycles
   (and therefore it is not necessary to maintain more variants).
   This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
 
@@ -120,13 +126,14 @@ The following changes have been made to the `RiverBasinDistrict` spatial table (
 * The attributes `thematicIdIdentifierScheme` and `zoneType` have been kept for clarity's sake.
   However, all records in the `RiverBasinDistrict` dataset have a constant value for these attributes.
 
-* The attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake.
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake.
   **In the reported datasets, the value of these attributes will always be NULL.**
   The appropriate value will be derived and included in the published WISE datasets
   for the 1st, 2nd and 3rd cycle RiverBasinDistrict datasets.
 
-```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict.mmd
-:name: Spatial_4thCycle_RiverBasinDistrict
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict_ClassDiagram.mmd
+:name: Spatial_4thCycle_RiverBasinDistrict_ClassDiagram
 :caption: Spatial dataset - RiverBasinDistrict - 4th cycle
 :align: center
 :zoom:
@@ -223,9 +230,8 @@ then it is not necessary to report the information again.
 
 ## References
 
-
-
 ```{warning}
-The original document containing this revised model can still be downloaded but should no longer be used.  
+The original document containing this revised model
+can still be downloaded but should no longer be used.
 See **PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4th_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf>`
 ```
