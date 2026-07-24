@@ -1,0 +1,52 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: lightYellow
+    noteTextColor: grey
+    noteBorderColor: grey 
+---
+classDiagram
+direction TB
+
+class ImpactType{
+  <<enumeration>>
+
+«Impact applicable to surface or groundwater bodies»
+
+I1-1 - Chemical pollution
+I1-2 - Nutrient pollution
+I1-3 - Organic pollution
+I1-4 - Microbiological pollution
+
+«Impact applicable to surface water bodies»
+
+I2-1 - Saline or other intrusion
+I2-2 - Altered habitats due to hydrological changes
+I2-3 - Altered habitats due to morphological changes
+I2-4 - Acidification
+I2-5 - Elevated temperatures
+I2-6 - Litter
+I2-7 - Altered habitats due to hydromorphological changes
+«Impact applicable to groundwater bodies»
+I3-1 - Associated surface waters
+I3-2 - Dependent terrestrial ecosystems
+I3-3 - Water balance / Lowering water table
+I3-4 - Saline or other intrusion
+«Impact applicable only to groundwater bodies at risk or failing to achieve good status»
+I4-1 - Drinking Water Protected Area
+I4-2 - General water quality assessment
+I4-3 - Uses or functions
+I4-5 - Surface waters / terrestrial ecosystems
+I4-6 - Uses or functions / surface waters / terrestrial ecosystems
+unknown
+none
+}
+
+note for ImpactType "the label is not part of the code"
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
