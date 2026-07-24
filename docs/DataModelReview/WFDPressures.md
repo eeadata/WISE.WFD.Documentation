@@ -1,5 +1,19 @@
+# Pressures and impacts
+
+(heading_wfd_impact_type_codelist_4th_cycle)=
+## ImpactType codelist - 4th cycle
+
+The `ImpactType` codelist is under review. 
+
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ImpactType_ClassDiagram.mmd
+:name: Codelist_4thCycle_ImpactType_ClassDiagram
+:caption:  Codelist - ImpactType - 4th cycle
+:align: center
+:zoom:
+```
+
 (heading_wfd_pressure_type_codelist_4th_cycle)=
-# PressureType codelist - 4th cycle
+## PressureType codelist - 4th cycle
 
 The review of the pressure types codelist used in the 3rd cycle of reporting
 is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the following changes:
@@ -23,7 +37,7 @@ is detailed in the {ref}`heading_wfd_pressures_annexes` and resulted in the foll
 
 The revised `PressureType` codelist is a hierarchical codelist
 (see {numref}`Codelist_4thCycle_PressureType_ClassDiagram`).  
-It provides a controlled list of values for different attributes related to pressures.  
+It provides a controlled list of values for different table attributes related to pressures.  
 Depending on the attribute and the context,
 the use of some values may be restricted by the quality control.
 For example: options 'P4-1%', 'P4-2%' or 'P5%' are unlikely to apply to groundwater,
@@ -61,7 +75,7 @@ between the codelist values in the 3rd cycle and in the 4th cycle.
 ```
 
 (heading_wfd_pressures_annexes)=
-## Annexes - Data analysis - 3rd cycle
+## Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
