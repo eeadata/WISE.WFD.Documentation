@@ -29,7 +29,7 @@ class Measure {
 
     + geographicalCoverage: WFDGeographicCoverage
     + euRBDCode: wiseIdentifier [0..n]
-    + waterCategory: WaterCategory [0..1]
+    + waterCategory: MeasureScope [0..1]
     + protectedAreaType: ProtectedAreaType [0..1]
 
     + implementationPeriod: range
@@ -68,6 +68,29 @@ class LegalInstrument{
 }
 class MainKeyTypeOfMeasure{
     <<enumeration>>
+    «basic measure types»
+    B - Measure to implement recovery of costs for water services
+    C - Measure to promote efficient and sustainable water use
+    D - Measure to protect drinking water quality and reduce the level of treatment required
+    E - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+    F - Measure to control artificial recharge or augmentation of groundwater
+    G - Measure to control point source discharges
+    H - Measure to prevent or control inputs of diffuse pollutants
+    J - Measure to prohibit direct discharges to groundwater
+    K - Measure to eliminate by Priority Substances and reduce pollution by other substances
+    L - Measure to prevent accidental pollution
+    «measure to address significant impacts on surface waters»
+    I2-2 - Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes
+    I2-3 - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes
+    I2-4 - Measure to address significant impacts on surface waters - Acidification
+    «measure to address significant pressures on surface waters»
+    P - Measure to address significant pressures on surface waters
+    «other measure types»
+    X01 - Construction or upgrades of wastewater treatment plants
+    X12 - Advisory services
+    X14 - Research, improvement of knowledge base reducing uncertainty
+    X23 - Natural water retention measures
+    X24 - Climate change adaptation measure
 }
 
 class WFDGeographicCoverage{
@@ -77,11 +100,25 @@ class WFDGeographicCoverage{
     waterBody
     protectedArea    
 }
-class WaterCategory{
+class MeasureScope{
     <<enumeration>>
-}
+    rivers
+    lakes
+    transitionalWaters
+    coastalWaters
+    surfaceWater
+    groundwater
+    bothSurfaceAndGroundwater
+    }
 class ProtectedAreaType{
     <<enumeration>>
+    bathingWaters
+    drinkingWaterProtectionArea
+    freshwaterFishDesignatedWater
+    natura2000
+    nitrateVulnerableZone
+    sensitiveArea
+    shellfishDesignatedWater
 }
 
 class PlannedOngoingExecutedCancelled{
@@ -96,9 +133,11 @@ Measure ..> MeasureType
 Measure ..> LegalInstrument
 Measure ..> MainKeyTypeOfMeasure
 Measure ..> WFDGeographicCoverage
-Measure ..> WaterCategory
+Measure ..> MeasureScope
 Measure ..> ProtectedAreaType
 Measure ..> PlannedOngoingExecutedCancelled
+
+note for MainKeyTypeOfMeasure "the label is not part of the code"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

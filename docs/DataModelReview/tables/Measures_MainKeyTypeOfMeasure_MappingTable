@@ -1,5 +1,5 @@
-```{list-table} Mapping between the proposed mainKeyTypeOfMeasure (4th cycle) and current basicMeasureType and keyTypeOfMeasure (2nd and 3rd cycle).
-:name: Measures_MappingMainKeyTypeOfMeasure_ListTable
+```{list-table} Mapping between the mainKeyTypeOfMeasure (4th cycle) and current basicMeasureType and keyTypeOfMeasure (2nd and 3rd cycle).
+:name: Measures_MainKeyTypeOfMeasure_MappingTable
 :width: 100%
 :header-rows: 1
 :align: left
@@ -9,7 +9,9 @@
 
 * - B - Measure to implement recovery of costs for water services 
   - Measure to implement recovery of costs for water services
-  - KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households <br>KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry <br>KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture
+  - KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households  
+    KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry  
+    KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture
 
 * - C - Measure to promote efficient and sustainable water use 
   - Measure to promote efficient and sustainable water use
@@ -17,7 +19,7 @@
 
 * - D - Measure to protect drinking water quality and reduce the level of treatment required
   - Measure to protect drinking water quality and reduce the level of treatment required
-  - KTM13 - Drinking water protection measures (e.g. establishment of safeguard zones, buffer zones etc) 
+  - KTM13 - Drinking water protection measures (e.g. establishment of safeguard zones, buffer zones etc)
 
 * - E - Measure to control abstraction from surface and groundwater, and impoundment of surface water
   - Measure to control abstraction from surface and groundwater
@@ -33,11 +35,16 @@
 
 * - H - Measure to prevent or control inputs of diffuse pollutants
   - Measure to prevent or control inputs of diffuse pollutants
-  - KTM17 - Measures to reduce sediment from soil erosion and surface run-off <br>KTM2 - Reduce nutrient pollution from agriculture <br>KTM21 - Measures to prevent or control the input of pollution from urban areas, transport, and built infrastructure <br>KTM22 - Measures to prevent or control the input of pollution from forestry
+  - KTM17 - Measures to reduce sediment from soil erosion and surface run-off 
+    KTM2 - Reduce nutrient pollution from agriculture  
+    KTM21 - Measures to prevent or control the input of pollution from urban areas, transport, and built infrastructure  
+    KTM22 - Measures to prevent or control the input of pollution from forestry
 
 * - I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes
   - Measure to address significant impacts on the hydromorphological conditions
-  - KTM7 - Improvements in flow regime and/or establishment of ecological flows <br>KTM5 - Improving longitudinal continuity (e.g. establishing fish passes, demolishing old dams) <br>KTM6 - Improving hydromorphological conditions of water bodies other than longitudinal continuity
+  - KTM7 - Improvements in flow regime and/or establishment of ecological flows  
+    KTM5 - Improving longitudinal continuity (e.g. establishing fish passes, demolishing old dams)  
+    KTM6 - Improving hydromorphological conditions of water bodies other than longitudinal continuity
 
 * - I2-4 - Measure to address significant impacts - Acidification
   - 
@@ -49,7 +56,9 @@
 
 * - K - Measure to eliminate by Priority Substances and reduce pollution by other substances
   - Measure to eliminate or reduce pollution by Priority Substances
-  - KTM15 - Measures for the phasing-out of emissions, discharges and losses of Priority Hazardous Substances or for the reduction of emissions, discharges and losses of Priority Substances <br>KTM3 - Reduce pesticides pollution from agriculture
+  - KTM15 - Measures for the phasing-out of emissions, discharges and losses of Priority Hazardous Substances 
+    or for the reduction of emissions, discharges and losses of Priority Substances  
+    KTM3 - Reduce pesticides pollution from agriculture
 
 * - L - Measure to prevent accidental pollution
   - Measure to prevent accidental pollution
@@ -57,11 +66,15 @@
 
 * - P - Measure to address significant pressures
   -  
-  - KTM18 - Measures to prevent or control the adverse impacts of invasive alien species, and introduced diseases <br>KTM19 - Measures to prevent or control the adverse impacts of recreation including angling <br>KTM20 - Measures to prevent or control the adverse impacts of fishing and other exploitation/removal of animal and plants <br>KTM4 - Remediation of contaminated sites (historical pollution including sediments, groundwater, soil)
+  - KTM18 - Measures to prevent or control the adverse impacts of invasive alien species, and introduced diseases  
+    KTM19 - Measures to prevent or control the adverse impacts of recreation including angling  
+    KTM20 - Measures to prevent or control the adverse impacts of fishing and other exploitation/removal of animal and plants  
+    KTM4 - Remediation of contaminated sites (historical pollution including sediments, groundwater, soil)
 
 * - X01 - Construction or upgrades of wastewater treatment plants 
   - 
-  - KTM1 - Construction or upgrades of wastewater treatment plants <br>KTM16 - Upgrades or improvements of industrial wastewater treatment plants (including farms)
+  - KTM1 - Construction or upgrades of wastewater treatment plants  
+    KTM16 - Upgrades or improvements of industrial wastewater treatment plants (including farms)
 
 * - X12 - Advisory services
   -

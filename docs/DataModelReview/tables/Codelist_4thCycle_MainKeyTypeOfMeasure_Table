@@ -1,5 +1,5 @@
-```{list-table} Simplified classification of measures - proposed mainKeyTypeOfMeasure options – 4th cycle.
-:name: Measures_MainKeyTypeOfMeasure_ListTable
+```{list-table} Codelist - 4thCycle - MainKeyTypeOfMeasure
+:name: Codelist_4thCycle_MainKeyTypeOfMeasure_Table
 :header-rows: 1
 :width: 100%
 :widths: 10 50 20 20
@@ -22,7 +22,7 @@
 
 * - D
   - Measure to protect drinking water quality and reduce the level of treatment required 
-  - P1% or P2% or P3% or P9 
+  - P1% or P2% or P3% 
   - «optional»  
 
 * - E
@@ -57,7 +57,7 @@
 
 * - L
   - Measure to prevent accidental pollution 
-  - P1% or P2% or P9 
+  - P1% or P2%
   - «optional» 
 
 * - I2-2
@@ -66,7 +66,7 @@
   - «notApplicable» 
 
 * - I2-3
-  - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes 
+  - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes
   - P4% 
   - «notApplicable»  
 
@@ -77,7 +77,7 @@
 
 * - P
   - Measure to address significant pressures on surface waters 
-  - <<any>> 
+  - P1% or P2% or P3% or P4% or P5%
   - «conditional» 
 
 * - X01
@@ -106,3 +106,4 @@
   - «optional» 
 
   ```
+  
