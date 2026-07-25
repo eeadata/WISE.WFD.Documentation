@@ -1,24 +1,31 @@
-```{list-table} DocumentReference
+```{list-table} Monitoring dataflow - DocumentReference table
 :name: Monitoring_DocumentReference
-:width: 100%
 :header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
 
-* - Column name
-  - Data type
+* - Attribute
+  - Type
+  - {abbr}`M (Multiplicity)`
   - Definition
 
-* -  referenceCode 
-  -  WiseIdentifier 
-  -  Unique identifier of the reference to a document. Required. 
+* - referenceCode 
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique identifier for each reference within a document.
 
-* -  documentCode  
-  -  WiseIdentifier 
-  -  Link to the document the reference belongs to. Required.    
+* - documentCode 
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique identifier of the document the reference belongs to. 
 
-* -  bookmark      
-  -  Text(500)      
-  -  Bookmark within the document. Required.                     
+* - bookmark 
+  - {term}`string`250
+  - [1] 
+  - Name of the bookmark within the document (chapter, section, topic). 
 
-* -  subject       
-  -  Text(500)      
-  -  Subject of the reference. Required.                         
+* - subject 
+  - {term}`string`250
+  - [1] 
+  - Subject of the reference.
+```

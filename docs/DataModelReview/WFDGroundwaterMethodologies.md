@@ -1,10 +1,22 @@
 (heading_wfd_groundwater_methodologies)=
-# WFD groundwater methodologies
-
-Last update: 2026-06-03
+# Groundwater methodologies
 
 ```{warning}
-Public Version - Pending Discussion
+:class: dropdown
+
+Updated: 2026-07-23
+
+* Removed the Documents section: 
+  the groundwater methodologies are integrated 
+  into the groundwater dataflow.
+
+Updated: 2026-07-06
+
+* Changes based on feedback from WG DIS and WG Groundwater members.
+
+  - Removal of the GWType related classes.
+  - Correction of the GWThresholdValue description.
+
 ```
 
 (heading_wfd_groundwater_methodologies_purpose_and_overview)=
@@ -12,13 +24,16 @@ Public Version - Pending Discussion
 
 This section:
 
-* revises the information related to **Groundwater methodologies** 
-  in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the 
+* revises the information related to **Groundwater methodologies**
+  in the 2nd and 3rd cycle of reporting of the
   Water Framework Directive River Basin Management Plans
-* presents a simplified proposal for the electronic reporting in the 4ᵗʰ cycle
+* presents a simplified proposal for the electronic reporting in the 4th cycle
+  as a separate dataset within the **Groundwater** dataflow,
+  to allow the cross-check between the methodologies data
+  and the data reported at water body level
 
 (heading_wfd_groundwater_methodologies_reporting_of_groundwater_methodologies_GWMET_schema_3rd_cycle)=
-## GWMET_2022 schema - 3ʳᵈ cycle
+## GWMET_2022 schema - 3rd cycle
 
 The GWMET_2022 schema defined the required data about  about the groundwater methodologies ({numref}`ClassDiagram_GWMET_2022`).
 
@@ -27,22 +42,25 @@ The GWMET_2022 schema defined the required data about  about the groundwater met
 :align: center
 :width: 75%
 
-GWMET_2022 Schema - 3ʳᵈ cycle - Obsolete
+GWMET_2022 Schema - 3rd cycle
 ```
 
-The GWMET_2022 schema was already partially revised (see {ref}`heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle`). 
-Specifically, the GWExemptions data ({numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`) is no longer requested in the 4ᵗʰ cycle.
+The GWMET_2022 schema was already partially revised
+(see {ref}`heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle`).
+Specifically, the GWExemptions data ({numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`)
+is no longer requested in the 4th cycle.
 
-{numref}`GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram` shows a simplified diagram 
+{numref}`GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram` shows a simplified diagram
 to help focus the discussion on the remaining issues.
 
 ```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram.mmd
 :name: GroundwaterMethodologies_3rdCycle_GWMET_ClassDiagram
 :align: center
-:caption: Class diagram for the GWMET_2022 schema in the 3ʳᵈ cycle.
+:caption: Class diagram for the GWMET_2022 schema in the 3rd cycle.
 ```
 
-The Commission has revised and simplified the **GWMethodologies** class, keeping only a subset of the elements requested in the 3ʳᵈ cycle. 
+The Commission has revised and simplified the **GWMethodologies** class,
+keeping only a subset of the elements requested in the 3rd cycle.
 The following elements were removed:
 
 * GWMET/GWMethodologies/diminutionDamage
@@ -65,9 +83,10 @@ The following elements were removed:
 The following elements were moved or revised:
 
 * GWMET/GWMethodologies/trendAssessmentStatisticalElements
-* GWMET/GWMethodologies/thresholdValueBackgroundLevels 
+* GWMET/GWMethodologies/thresholdValueBackgroundLevels
 
-The Commission has revised and simplified the **ThresholdValue** class, keeping only a subset of the elements requested in the 3ʳᵈ cycle. 
+The Commission has revised and simplified the **ThresholdValue** class,
+keeping only a subset of the elements requested in the 3rd cycle.
 The following elements were removed:
 
 * GWMET/ThresholdValue/pollutantIndicatorCodeOther
@@ -82,122 +101,103 @@ The following elements were removed:
 * GWMET/ThresholdValue/cvOtherValueUnit
 * GWMET/ThresholdValue/thresholdValueScale
 
-The Commission has revised **GWPressures** class. 
+The Commission has revised **GWPressures** class.
 The following elements were removed:
 
 * GWMET/GWPressures/gwSignificantPressureOtherSourceTools
 * GWMET/GWPressures/gwPressuresNotAssessed
+* GWMET/GWPressures/gwPressuresReference
 
-The struture of the **GWPressures** class was also revised.
+The structure of the **GWPressures** class was also revised.
 
 (heading_wfd_groundwater_methodologies_descriptive_4th_cycle)=
-## Descriptive dataset - 4ᵗʰ cycle
+## Methodologies dataset - 4th cycle
 
-{numref}`GroundwaterMethodologies_4thCycle_ClassDiagram` shows proposed struture for the groundwater methodologies reporting.
+This section shows the proposed structure for the groundwater methodologies reporting.
 
-The `GWMethodologies` table has a structure similar to the corresponding class 
-in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
+### GWMethodologies table
 
-The `GWPressureAssessment` table has a modified structure:
+The `GWMethodologies` table has a structure similar to the corresponding class
+in the 3rd cycle reporting, minus the attributes removed by the Commission's review
+(see {numref}`GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram`).
+
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWMethodologies_ClassDiagram
+:align: center
+:caption: Groundwater methodologies - GWMethodologies table - 4th cycle
+```
+
+### GWPressureAssessment table
+
+The `GWPressureAssessment` table has a modified structure
+(see {numref}`GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram`):
 
 * the reporting of "pressures not assessed" is eliminated,
   because the data was difficult to analyse and contained inconsistencies
 * instead, for each pressure (or group of pressures),
-  three attributes are requested 
+  three attributes are requested
   (`gwPressureAssessmentMethod`,`gwSignificanceDefinition`,`gwSignificanceLinkFailure`)
-* given that the pressure codelist is hierarchical, 
+* given that the pressure codelist is hierarchical,
   the granularity of the reporting is selected by Member States
-* the quality control procedure will verify that different levels 
+* the quality control procedure will verify that different levels
   are not selected simultaneously for any given RBD
 
-The `ThresholdValue` table has a structure similar to the corresponding class 
-in the 3ʳᵈ cycle reporting (minus the attributes removed by the Commission's review).
-Note that:
+For more information see {ref}`heading_wfd_pressure_type_codelist_4th_cycle`.
 
-* a unique `gwThresholdIdentifier` was introduced to avoid duplication 
-* for naturally occurring substances, if natural background levels 
-  were taken into account in the definition of the threshold value,
-  then the applicable `nblValueRange` is provided 
-  (in the same unit of measure as the `thresholdValueRange`) 
-
-```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_ClassDiagram.mmd
-:name: GroundwaterMethodologies_4thCycle_ClassDiagram
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWPressureAssessment_ClassDiagram
 :align: center
-:caption: Groundwater methodologies - 4ᵗʰ cycle
+:caption: Groundwater methodologies - GWPressureAssessment table - 4th cycle
 ```
 
-(heading_wfd_groundater_methodologies_codelists_4th_cycle)=
-## Codelists - 4ᵗʰ cycle
+(heading_wfd_groundwater_methodologies_gwthresholdvalue_table)=
+### GWThresholdValue table
 
-* For the `PressureAssessmentMethod` codelist, 
+The `GWThresholdValue` table has a structure similar to the corresponding class
+in the 3rd cycle reporting, minus the attributes removed by the Commission's review
+(see {numref}`GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram`).
+Note that:
+
+* a unique `gwThresholdIdentifier` was introduced to avoid ambiguity
+* duplicate records will be detected
+  (i.e. records with identical values for all attributes, except the identifier)
+
+```{mermaid} /DataModelReview/mmd/GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram.mmd
+:name: GroundwaterMethodologies_4thCycle_GWThresholdValue_ClassDiagram
+:align: center
+:caption: Groundwater methodologies - GWThresholdValue table - 4th cycle
+```
+
+(heading_wfd_groundwater_methodologies_codelists_4th_cycle)=
+## Codelists - 4th cycle
+
+* For the `PressureAssessmentMethod` codelist,
   see {numref}`Codelist_4thCycle_PressureAssessmentMethod_Table`.
-* For the `TrendStatisticalMethod` codelist, 
+  
+* For the `TrendStatisticalMethod` codelist,
   see {numref}`Codelist_4thCycle_TrendStatisticalMethod_Table`.
 
 ```{dropdown} TrendStatisticalMethod codelist
 ```{include} tables/Codelist_4thCycle_TrendStatisticalMethod_Table
 ```
 
-(heading_wfd_groundater_methodologies_documents_dataset_4th_cycle)=
-## Documents dataset - 4ᵗʰ cycle
-
-The Documents dataset follows the standard structure used in various WISE dataflows 
-({numref}`SurfaceWaterMethodologies_4thCycle_Documents`):
-
-* the `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery
-  
-  * if required by the data providers, and especially if spatial data is being reported, 
-    the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset
-  * the `dcMetadata` table also functions as a "manifest file" 
-    explaining if the delivery contains data for a given river basin district or not
-   
-* the `Document` table allows the upload of documents (for example, PDFs) 
-  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site
-
-* the `Reference` table is also standard in the WISE dataflows:
-  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s) 
-  where the relevant information about a `subject`
-  can be found within a document
-
-The following criteria apply:
-
-01. the `dcMetadata` table must contain *one and only one* record 
-    for each of the country's river basin districts, identified by the `euRBDCode`
-    
-02. for countries reporting under the WFD, 
-    the quality control will raise an **ERROR**,
-    if some, or all, the river basin districts have `includesDescriptiveData = no`
-
-```{mermaid} /DataModelReview/mmd/GroundWaterMethodologies_4thCycle_Documents_ClassDiagram.mmd
-:name: GroundWaterMethodologies_4thCycle_Documents
-:caption: GroundWaterMethodologies - 4ᵗʰ cycle - Documents
-:align: center
-:zoom:
-```
-
-```{todo}
-Groundwater methodologies - {ref}`heading_wfd_groundater_methodologies_documents_dataset_4th_cycle`
-
-**Technical** review pending.
-```
-
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ### trendAssessmentMethodology
 
-The WFD2022 guidance document definitions for the 
-trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements elements 
-of the GWMethodologies class are transcribed in 
+The WFD2022 guidance document definitions for the
+trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements elements
+of the GWMethodologies class are transcribed in
 {numref}`trendAssessmentMethodology_definition_3rdCycle`.
 
-```{list-table} Definitions for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3ʳᵈ cycle.
+```{list-table} Definitions for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3rd cycle.
 :name: trendAssessmentMethodology_definition_3rdCycle
 :width: 100%
 :widths: 35 40 25
 :header-rows: 1
 :align: left
 
-* - Element
+* - Attribute
   - Guidance
   - Option
 * - trendAssessmentPerformed
@@ -221,22 +221,24 @@ of the GWMethodologies class are transcribed in
     'None' 
 ```
 
-The reported data for combinations of the three elements is presentes in 
+The reported data for combinations of the three elements is presented in
 {numref}`trendAssessmentMethodology_reported_data_3rdCycle`.
 
 The first four records may be interpreted as:
-* in 95 river basin districts, trends were assessed 
+
+* in 95 river basin districts, trends were assessed
   and a test for statistical significance of an upward trend was used  
-  (e.g. using a linear regression t-test or a non-parametric Mann-Kendall test) 
-* in 36 river basin districts, trends were not assessed 
+  (e.g. using a linear regression t-test or a non-parametric Mann-Kendall test)
+* in 36 river basin districts, trends were not assessed
 * in 16 river basin districts, trends were assessed
-  and the magnitude of significant upward trends 
+  and the magnitude of significant upward trends
   was quantified using confidence intervals
 * in 2 river basin districts, trends were assessed
-  but no methodology for detecting *significant* upward trends exists, 
+  but no methodology for detecting *significant* upward trends exists,
   and no statistical element was used (i.e. only expert judgement was used?)
 
 The last two records are difficult to interpret, and possibly result from reporting mistakes:
+
 * in 6 river basin districts trends were assessed,
   a methodology for detecting *significant* upward trends was applied,
   but somehow no statistical element was used
@@ -245,13 +247,14 @@ The last two records are difficult to interpret, and possibly result from report
   but somehow statistical significance was determined
 
 In conclusion:
-* the trendAssessmentMethodology element appears to be redundant 
+
+* the trendAssessmentMethodology element appears to be redundant
   with respect to the statisticalElements element,
   and may be removed to simplify the reporting and avoid mistakes
-* the meaning of the statisticalElements element should be made clearer 
+* the meaning of the statisticalElements element should be made clearer
   to both data provider and end-users, to facilitate the interpretation
 
-```{csv-table} Reported data for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3ʳᵈ cycle.
+```{csv-table} Reported data for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3rd cycle.
 :name: trendAssessmentMethodology_reported_data_3rdCycle
 :header-rows: 1
 :delim: "|"
@@ -267,5 +270,5 @@ Yes|No|Statistical significance|1|1
 (heading_wfd_groundwater_methodologies_references)=
 ## References
 
-```{include} FragmentReportingGuidanceFiles
+```{footbibliography}
 ```

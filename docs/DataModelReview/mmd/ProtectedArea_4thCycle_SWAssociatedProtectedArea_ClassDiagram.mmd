@@ -1,0 +1,23 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWAssociatedProtectedArea{
+ + euSurfaceWaterBodyCode : wiseIdentifier
+ + euProtectedAreaType : ProtectedAreaType 
+ + euProtectedAreaCode : natura2000Identifier [0..1]
+ + protectedAreaObjectivesSet : YesNo
+ + protectedAreaObjectivesMet : YesNoUnknownInapplicable
+    }
+ class ProtectedAreaType{
+    <<enumeration>>
+    shellfishDesignatedWater
+    drinkingWaterProtectionArea
+    natura2000
+    }

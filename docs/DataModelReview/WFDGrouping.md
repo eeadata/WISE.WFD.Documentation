@@ -1,7 +1,7 @@
 (heading_wfd_grouping)=
 # Grouping
 
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
@@ -106,7 +106,7 @@ The implementation of the quality control (i.e. the code base) was imperfect:
   but it is not possible to trace it back at this point.
 
 ```{dropdown} Show results
-```{csv-table} Grouping - inconsistencies due to inadequate quality control - 3ʳᵈ cycle
+```{csv-table} Grouping - inconsistencies due to inadequate quality control - 3rd cycle
 :name: Grouping_water_bodies_inconsistencies_due_to_quality_control_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -168,7 +168,7 @@ SK|QE3-3 - River Basin Specific Pollutants|0|2|2
 
 ```{dropdown} Show code	
 ```{code-block} sql
-:caption: Grouping - inconsistencies due to inadequate quality control - 3ʳᵈ cycle
+:caption: Grouping - inconsistencies due to inadequate quality control - 3rd cycle
 :linenos:
 SELECT [countryCode]
       ,[qeCode]
@@ -227,7 +227,7 @@ extrapolated for the assessment of waterbodies not monitored.
 However, for 2225 of those waterbodies (62%) 
 there is no evidence (in the Monitoring schema) of the waterbody having been monitored for (at least one of) the expected Quality Element.
 
-```{csv-table} Grouping - inconsistencies with the Monitoring schema data - 3ʳᵈ cycle
+```{csv-table} Grouping - inconsistencies with the Monitoring schema data - 3rd cycle
 :name: Grouping_water_bodies_inconsistencies_with_the_monitoring_schema_data_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -274,7 +274,7 @@ SELECT [qeCode]
 
 #### Basic errors
 
-```{csv-table} Grouping - water bodies grouped with themselves - 3ʳᵈ cycle
+```{csv-table} Grouping - water bodies grouped with themselves - 3rd cycle
 :name: Grouping_water_bodies_grouped_with_themselves_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -290,7 +290,7 @@ IT|ITF015RWN011012156SABATO18SS3|ITF015RWN011012156SABATO18SS3|QE1-3 - Benthic i
 
 ```{dropdown} Show code	
 ```{code-block} sql
-:caption: Grouping - water bodies grouped with themselves - 3ʳᵈ cycle
+:caption: Grouping - water bodies grouped with themselves - 3rd cycle
 :linenos:
 
 SELECT [countryCode]
@@ -301,7 +301,7 @@ SELECT [countryCode]
   WHERE [fromNodeId] = [toNodeId];
 ```
 
-```{csv-table} Grouping - water bodies both receiving and providing data of a given quality element - 3ʳᵈ cycle
+```{csv-table} Grouping - water bodies both receiving and providing data of a given quality element - 3rd cycle
 :name: Grouping_water_bodies_both_receiving_and_providing_data_for_a_qe_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -331,7 +331,7 @@ IT|IT09CI_R000OM173CA|RW|QE3-3 - River Basin Specific Pollutants|3|1|1|1
 
 ```{dropdown} Show code	
 ```{code-block} sql
-:caption: Grouping - water bodies both receiving and providing data - 3ʳᵈ cycle
+:caption: Grouping - water bodies both receiving and providing data - 3rd cycle
 :linenos:
   SELECT [countryCode]
       ,[nodeId]
@@ -361,7 +361,7 @@ From the subset of countries:
 3. The remaining countries use only one monitored waterbody for each waterbody assessed via grouping. Monitored waterbodies may supply data for the assessment of several non-monitored water bodies.
 
 ```{dropdown} Show results
-```{csv-table} Grouping - Countries with grouping data, and no detected issues - 3ʳᵈ cycle
+```{csv-table} Grouping - Countries with grouping data, and no detected issues - 3rd cycle
 :name: Grouping_countries_with_grouping_and_no_issues_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -378,7 +378,7 @@ SI|6|2|3|5|2|1
 
 ```{dropdown} Show code	
 ```{code-block} sql
-:caption: Grouping - Countries with available data, and no detected issues - 3ʳᵈ cycle
+:caption: Grouping - Countries with available data, and no detected issues - 3rd cycle
 :linenos:
 SELECT [countryCode]
       ,COUNT(DISTINCT qeCode) AS [qeCount]

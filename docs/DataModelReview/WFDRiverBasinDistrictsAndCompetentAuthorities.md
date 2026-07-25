@@ -1,139 +1,150 @@
 (heading_wfd_rbd_and_ca)=
-# WFD river basin districts and competent authorities
+# River basin districts and competent authorities
 
 Last update: 2026-05-14
 
 (heading_wfd_rbd_and_ca_purpose_and_overview)=
 ## Purpose and overview
 
-This section revises the River Basin Districts, Subunits and Competent Authorities classes 
-used in the 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ClassDiagram_RBDSUCA_2022`). 
-It also revises the associated spatial data in the RiverBasinDistrict dataset and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).  
+This section revises the River Basin Districts, Subunits and Competent Authorities classes
+used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`ClassDiagram_RBDSUCA_2022`).
+It also revises the associated spatial data in the RiverBasinDistrict dataset
+and SubUnit dataset ({numref}`RBDSU_3rdCycle_Spatial`).  
 
 ```{figure} img/ClassDiagram_RBDSUCA_2022.png
 :name: ClassDiagram_RBDSUCA_2022
 :align: center
 :width: 75%
 
-River Basin Districts, Subunits and Competent Authorities schema - 3ʳᵈ cycle - Obsolete
+River Basin Districts, Subunits and Competent Authorities schema - 3rd cycle - Obsolete
 ```
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_3rdCycle_GML_ClassDiagram.mmd
 :name: RBDSU_3rdCycle_Spatial
-:caption: RiverBasinDistrict and Subunit spatial datasets - 3ʳᵈ cycle - Obsolete
+:caption: RiverBasinDistrict and Subunit spatial datasets - 3rd cycle - Obsolete
 :align: center
 ```
 
-A proposal is presented for the electronic reporting in the 4ᵗʰ cycle:
+A proposal is presented for the electronic reporting in the 4th cycle:
 
-* The reporting of the units of management (i.e. the River Basin Districts) and of the competent authorities is combined into a single dataflow. 
-* The overall structure of the new **River Basin Districts and Competent Authorities** dataflow is aligned with similar dataflows, e.g. under the Floods Directive [^floods-directive-footnote].
+* The reporting of the units of management (i.e. the River Basin Districts)
+  and of the competent authorities is combined into a single dataflow.
+* The overall structure of the new **River Basin Districts and Competent Authorities** dataflow
+  is aligned with similar dataflows, e.g. under the Floods Directive [^floods-directive-footnote].
 * Reporting is only requested under the following conditions:
 
-    * If there are changes to the spatial delineation and/or the identifiers of one or more River Basin Districts (since the 3ʳᵈ cycle), the spatial dataset must be reported.
+  - If there are changes to the spatial delineation and/or the identifiers
+      of one or more River Basin Districts (since the 3rd cycle), the spatial dataset must be reported.
 
-    * If there are changes to the competent authorities or their roles, the descriptive data must be reported in accordance with Article 3(8) and 3(9) of the WFD.
+  - If there are changes to the competent authorities or their roles,
+      the descriptive data must be reported in accordance with Article 3(8) and 3(9) of the WFD.
 
-* Data providers can specify which datasets are being updated (spatial data, descriptive data, or both).  
+* Data providers can specify which datasets are being updated (spatial data, descriptive data, or both).
 * Information about subunits is no longer requested.  
 * The reporting of metadata has also been simplified.
 
 [^floods-directive-footnote]: See [Floods Directive - Units of Management and Competent Authorities[2025]](https://reportnet.europa.eu/public/dataflow/1473).
 
 (heading_wfd_rbd_and_ca_documents_dataset_4th_cycle)=
-## Documents dataset - 4ᵗʰ cycle
+## Documents dataset - 4th cycle
 
 The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`RBDCA_4thCycle_Documents`):
 
-* The `dcMetadata` table is required and contains only one record per delivery (i.e. per country). 
+* The `dcMetadata` table is required and contains only one record per delivery (i.e. per country).
   It provides the basic Dublin Core metadata elements about the delivery.
 
-* If required by the data providers, and especially if spatial data is being reported, 
-  the `licenseDocument` and the `metadataDocument` attributes allow the provision of additional information about the dataset.
+* If required by the data providers, and especially if spatial data is being reported,
+  the `licenseDocument` and the `metadataDocument` attributes allow
+  the provision of additional information about the dataset.
 
-* The dcMetadata table also functions as a "manifest file" explaining: 
+* The dcMetadata table also functions as a "manifest file" explaining:
 
-  * if the delivery contains an update of the spatial data (`updateSpatialData = 'yes'`) 
-  * and/or if the delivery contains an update of the competent authorities or their roles (`updateCompetentAuthorities= 'yes'`). 
+  - if the delivery contains an update of the spatial data, set `updateSpatialData = 'yes'`
+  - and/or if the delivery contains an update of the competent authorities
+    or their roles, set `updateCompetentAuthorities= 'yes'`
   
-* The structure of the `Document` table is standard in the WISE dataflows: 
-it allows the upload of documents (for example, PDFs) 
+* The `Document` table is standard in the WISE dataflows:
+it allows the upload of documents (for example, PDFs)
 or the provision of a hyperlink to a document stored in a publicly accessible national web site.
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Documents_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Documents
-:caption: River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Documents
+:caption: River Basin Districts and Competent Authorities - 4th cycle - Documents
 :align: center
 :zoom:
 ```
 
 (heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle)=
-## Descriptive dataset - 4ᵗʰ cycle
+## Descriptive dataset - 4th cycle
 
 The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive`):
 
-- The `CompetentAuthority` table contains basic information about each Competent Authority.
+* The `CompetentAuthority` table contains basic information about each Competent Authority.
 
-- The `RiverBasinDistrictCompetentAuthority` table associates each Competent Authority with a River Basin District and specifies the role(s) of the competent authority in that specific RBD.
+* The `RiverBasinDistrictCompetentAuthority` table associates
+  each Competent Authority with a River Basin District
+  and specifies the role(s) of the competent authority in that RBD.
 
 ```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Descriptive_ClassDiagram.mmd
 :name: RBDCA_4thCycle_Descriptive
-:caption:  River Basin Districts and Competent Authorities - 4ᵗʰ cycle - Descriptive Data
+:caption:  River Basin Districts and Competent Authorities - 4th cycle - Descriptive Data
 :align: center
 :zoom:
 ```
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Role_ClassDiagram.mmd
 :name: Codelist_4thCycle_Role_ClassDiagram
-:caption:  Codelist - 4ᵗʰ cycle - Role
+:caption:  Codelist - 4th cycle - Role
 :align: center
 :zoom:
 ```
 
-(heading_wfd_rbd_and_ca_spatial_dataset_4th_cycle)=
-## Spatial dataset - 4ᵗʰ cycle
+(heading_riverbasindistrict_spatial_dataset_4th_cycle)=
+## Spatial dataset - 4th cycle
 
-(heading_wfd_monitoring_river_basin_district_dataset_4th_cycle)=
-### RiverBasinDistrict spatial data - 4ᵗʰ cycle
+The Spatial dataset contains only the RiverBasinDistrict spatial data
+({numref}`Spatial_4thCycle_RiverBasinDistrict_ClassDiagram`).  
+As stated before, Subunits are no longer requested in the 4th cycle of reporting.
 
-The Spatial dataset contains only the RiverBasinDistrict spatial data ({numref}`Spatial_4thCycle_RiverBasinDistrict`).  
-As stated before, Subunits are no longer requested in the 4ᵗʰ cycle of reporting.
+The following changes have been made to the `RiverBasinDistrict` spatial table
+(in comparison to the 3rd cycle of reporting):
 
-The following changes have been made to the `RiverBasinDistrict` spatial table (in comparison to the 3ʳᵈ cycle of reporting):
+* The attributes `sizeValue` and `sizeUom` were removed,
+  because they can be derived from the reported geometry.
 
-* Two attributes were removed, because they can be derived from the reported geometry: `sizeValue` and `sizeUom`.
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`
+  were removed, because they are not required at EU level.
 
-* Two attributes were removed, because they are not required at EU level: `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`.
-
-* The date values are now requested as simply as YYYY-MM-DD, 
-  because that was the format used by the data providers during the previous cycles, 
-  and therefore it is not necessary to mantain more variants. 
+* All the date values are requested as YYYY-MM-DD,
+  because that was the format used by all the data providers in the previous cycles
+  (and therefore it is not necessary to maintain more variants).
   This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
 
 * One attribute was moved from the descriptive dataset into the spatial dataset.  
   The `specialisedZoneType` now accepts the options `'internationalRiverBasinDistrict'` and `'nationalRiverBasinDistrict'`.
 
-* The attributes `thematicIdIdentifierScheme*` and `zoneType` have been kept for clarity's sake. 
-  However, all records in the `RiverBasinDistrict` dataset have a fixed value for these attributes.
+* The attributes `thematicIdIdentifierScheme` and `zoneType` have been kept for clarity's sake.
+  However, all records in the `RiverBasinDistrict` dataset have a constant value for these attributes.
 
-* Likewise, the attributes `successorsIdentifier` and `successorsIdentifierScheme` have been kept for clarity's sake. 
-  *In the reported datasets*, the values of these attributes will always be NULL. 
-  The appropriate value will be derived and included in the published WISE datasets 
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake.
+  **In the reported datasets, the value of these attributes will always be NULL.**
+  The appropriate value will be derived and included in the published WISE datasets
   for the 1st, 2nd and 3rd cycle RiverBasinDistrict datasets.
 
-```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict.mmd
-:name: Spatial_4thCycle_RiverBasinDistrict
-:caption: Spatial dataset - RiverBasinDistrict - 4ᵗʰ cycle
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict_ClassDiagram.mmd
+:name: Spatial_4thCycle_RiverBasinDistrict_ClassDiagram
+:caption: Spatial dataset - RiverBasinDistrict - 4th cycle
 :align: center
 :zoom:
 ```
 
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
 
-### National and international RBDs - 3ʳᵈ cycle
+### National and international RBDs
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the delineation of the River Basin Districts did not change,
@@ -142,21 +153,21 @@ then it is not necessary to report the RiverBasinDistrict dataset again.
 ```{dropdown} Show code
 
   ```{code-block} sql
-  :caption: National and international RBDs - 3ʳᵈ cycle
+  :caption: National and international RBDs - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
 
   SELECT [countryCode]
       ,[euRBDCode] AS [thematicIdIdentifier]
       ,'euRBDCode' AS [thematicIdIdentifierScheme]
-      ,IIF([internationalRBD] = 'Yes', 'internationalRiverBasionDistrict', 'nationalRiverBasionDistrict') 
+      ,IIF([internationalRBD] = 'Yes', 'internationalRiverBasinDistrict', 'nationalRiverBasinDistrict')
         AS [specialisedZoneType]
   FROM [WISE_WFD].[v2r1].[RBDSUCA_RBD]
   WHERE [cYear] = 2022
 
   ```
-	
-### Competent authorities and their roles - 3ʳᵈ cycle
+
+### Competent authorities and their roles
 
 The query below retrieves the information reporting during the 3rd cycle.  
 If the information is correct, and the competent authorities and their roles have not changed,
@@ -165,7 +176,7 @@ then it is not necessary to report the information again.
 ```{dropdown} Show code
 
   ```{code-block} sql
-  :caption: Competent authorities and their roles - 3ʳᵈ cycle
+  :caption: Competent authorities and their roles - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
   SELECT [countryCode],
@@ -219,10 +230,8 @@ then it is not necessary to report the information again.
 
 ## References
 
-```{include} FragmentReportingGuidanceFiles
-```
-
 ```{warning}
-The original document containing this revised model can still be downloaded but should no longer be used.  
+The original document containing this revised model
+can still be downloaded but should no longer be used.
 See **PROPOSAL - Version 2026.02.13** {download}`PDF <pdf/WFD_4th_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf>`
 ```

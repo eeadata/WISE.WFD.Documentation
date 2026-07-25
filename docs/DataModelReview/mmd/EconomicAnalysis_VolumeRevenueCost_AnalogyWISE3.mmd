@@ -2,11 +2,11 @@ classDiagram
     direction TB
 
     class VolumeRevenueCostPerService {
-        + euRBDCode: wiseIdentifier [1]
-        + phenomenonTimePeriod: Year [1]
-        + observedProperty: VolumeRevenueCostCodelist value [1]
-        + resultObservedValue: NonNegativeValue [1]
-        + resultUnit: UnitOfMeasureCodeList [1]
+        + euRBDCode: wiseIdentifier 
+        + phenomenonTimePeriod: gYear
+        + observedProperty: VolumeRevenueCost
+        + resultObservedValue: nonNegativeValue
+        + resultUnit: UnitOfMeasure
         + resultObservationStatus: ObservationStatusCode [0..1]
-        + remarks: Text4000 [0..1]
+        + remarks: string4000 [0..1]
     }

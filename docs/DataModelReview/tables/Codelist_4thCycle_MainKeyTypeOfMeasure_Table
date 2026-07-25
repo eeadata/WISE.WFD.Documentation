@@ -1,0 +1,109 @@
+```{list-table} Codelist - 4thCycle - MainKeyTypeOfMeasure
+:name: Codelist_4thCycle_MainKeyTypeOfMeasure_Table
+:header-rows: 1
+:width: 100%
+:widths: 10 50 20 20
+:align: left
+
+* - Notation
+  - Definition
+  - `mainPressureType` 
+  - `mainSubstanceType`
+
+* - B
+  - Measure to implement recovery of costs for water services
+  - P3% or P1% or P2% 
+  - «optional»
+
+* - C
+  - Measure to promote efficient and sustainable water use
+  - P3% 
+  - «optional»  
+
+* - D
+  - Measure to protect drinking water quality and reduce the level of treatment required 
+  - P1% or P2% or P3% 
+  - «optional»  
+
+* - E
+  - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+  - P3% 
+  - «notApplicable» 
+
+* - F
+  - Measure to control artificial recharge or augmentation of groundwater 
+  - P6% 
+  - «notApplicable»  
+
+* - G
+  - Measure to control point source discharges 
+  - P1% 
+  - «optional» 
+
+* - H
+  - Measure to prevent or control inputs of diffuse pollutants 
+  - P2% 
+  - «optional» 
+
+* - J
+  - Measure to prohibit direct discharges to groundwater 
+  - P1% or P2% 
+  - «optional» 
+
+* - K
+  - Measure to eliminate by Priority Substances and reduce pollution by other substances 
+  - P1% or P2% 
+  - «optional»
+
+* - L
+  - Measure to prevent accidental pollution 
+  - P1% or P2%
+  - «optional» 
+
+* - I2-2
+  - Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes
+  - P4-3% 
+  - «notApplicable» 
+
+* - I2-3
+  - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes
+  - P4% 
+  - «notApplicable»  
+
+* - I2-4
+  - Measure to address significant impacts on surface waters - Acidification 
+  - P2-7 
+  - «optional»  
+
+* - P
+  - Measure to address significant pressures on surface waters 
+  - P1% or P2% or P3% or P4% or P5%
+  - «conditional» 
+
+* - X01
+  - Construction or upgrades of wastewater treatment plants 
+  - P1% or P2% 
+  - «optional» 
+
+* - X12
+  - Advisory services 
+  - «any»
+  - «optional» 
+
+* - X14
+  - Research, improvement of knowledge base reducing uncertainty 
+  - «any»
+  - «optional» 
+
+* - X23
+  - Natural water retention measures 
+  - «any»
+  - «optional» 
+
+* - X24
+  - Climate change adaptation measure 
+  - «any»
+  - «optional» 
+
+  ```
+  

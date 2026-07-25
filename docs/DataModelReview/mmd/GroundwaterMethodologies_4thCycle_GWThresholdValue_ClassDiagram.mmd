@@ -1,0 +1,33 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+class GWThresholdValue{
+  + gwThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + thresholdValueRange: range
+  + thresholdValueUnit: UnitOfMeasure
+
+  + startingPointTrendReversal: range [0..1]
+  «reference»
+  + gwThresholdReference: referenceCode [0..n]
+}
+
+class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
+  + euGroundWaterBodyCode
+  + gwPollutantCode
+  + gwThresholdIdentifier
+}
+
+GWThresholdValue <.. GWPollutant: gwThresholdIdentifier
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

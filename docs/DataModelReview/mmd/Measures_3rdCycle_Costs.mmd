@@ -1,0 +1,18 @@
+classDiagram
+
+class Costs {
+ + costOfMeasuresScale20152021: MSorRBD_Enum
+ + costOfMeasurePeriod20152021: YearRangeType
+ + investmentCosts20152021: NumberDecimalType
+ + costExplanation20152021Reference: ReferenceType [1..*]
+
+ + costOfMeasuresScale20212027: MSorRBD_Enum
+ + costOfMeasurePeriod20212027: YearRangeType
+ + investmentCosts20212027: NumberDecimalType
+ + annualCosts20212027: NumberDecimalType
+ + depreciation20212027: YesNoCode_Enum
+ + costExplanation20212027Reference: ReferenceType [1..*]
+
+ + euFunds20152021: NumberDecimalType
+ + euFunds20212027: NumberDecimalType
+}

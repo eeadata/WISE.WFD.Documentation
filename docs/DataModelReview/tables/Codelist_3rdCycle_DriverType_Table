@@ -1,4 +1,4 @@
-```{list-table} Driver definition [^drivers-table-source]. 
+```{list-table} Driver definition. 
 :name: Codelist_3rdCycle_DriverType_Table
 :header-rows: 1
 :width: 100%
@@ -17,19 +17,19 @@
   - Climate change
   - «to-be-provided»
 
-* - hydropower
+* - energy_hydropower
   - Energy – hydropower
   - «to-be-provided»
 
-* - cooling
+* - energy_nonHydropower
   - Energy – non-hydropower
-  - Including cooling activities for thermal and nuclear plants
+  - Including cooling activities for thermal and nuclear plants.
 
 * - aquaculture
   - Fisheries and aquaculture
-  - Commercial fishing and aquaculture 
-    (not recreational or sports angling, 
-    included in category 'tourism' below)
+  - Commercial fishing, aquaculture and fish farms
+    (excluding recreational or sports angling, 
+    which is included in the category 'tourism' below).
 
 * - floodProtection
   - Flood protection
@@ -41,19 +41,20 @@
 
 * - industry
   - Industry
-  - All kinds of industry not included under other categories
+  - All kinds of industry not included under other categories.
 
 * - tourism
   - Tourism and recreation
   - Includes bathing, leisure boating and sailing, sports fishing/angling.  
     It does not include the urban development linked to tourism (under category 'urban').
 
-* - tranport
+* - transport
   - Transport
-  - Road and rail traffic, shipping and navigation, aviation
+  - Road and rail traffic; shipping, navigation and ports; aviation.
+
 * - urban
   - Urban development
   - Includes urban development linked to household, non-manufacturing commercial activities, tourism. 
 ```
 
-[^drivers-table-source]: From the WFD Reporting Guidance 2022.
+Source: {footcite}`WFD2022_ReportingGuidance`.

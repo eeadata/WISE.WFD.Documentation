@@ -1,0 +1,47 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType {
+  + swTypeIdentifier: wiseIdentifier
+}
+
+class SWPollutant ["SurfaceWaterDataset::SWPollutant"]:::otherDataset{
+  + euSurfaceWaterBodyCode
+  + swPollutantCode
+  + swThresholdIdentifier [1..n]
+  + swThresholdExceedance [0..n]
+}
+
+class SWThresholdValue{
+  + swThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+}
+
+class SWThreshold_SWType{
+  + swThresholdIdentifier: wiseIdentifier
+  + swTypeIdentifier: wiseIdentifier
+}
+
+class SWNaturalBackgroundLevel{
+  + swTypeIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + parameterValue: range  
+  + parameterUnit: UnitOfMeasure
+}
+
+SWPollutant ..> SWThresholdValue: swThresholdIdentifier
+SWPollutant ..> SWThresholdValue: swThresholdExceedance
+SWThresholdValue "1" -- "0..n" SWThreshold_SWType 
+SWThreshold_SWType "0..n" -- "1" SWType 
+SWType "1" -- "1..n" SWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;

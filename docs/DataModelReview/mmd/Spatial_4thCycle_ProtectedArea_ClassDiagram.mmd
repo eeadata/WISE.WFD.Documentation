@@ -1,0 +1,41 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+ 
+classDiagram
+direction LR
+class ProtectedArea {
+  + geometry_polygon: MultiPolygon [0..1]
+  + geometry_line: MultiLineString [0..1]
+  + geometry_point: MultiPoint [0..1]
+  + inspireIdLocalId: string254
+  + inspireIdNamespace: string254
+  + inspireIdVersionId: string25 [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + beginLifespanVersion: date [0..1]
+  + endLifespanVersion: date [0..1]
+  + predecessorsIdentifier: wiseIdentifier [0..n]
+  + predecessorsIdentifierScheme: IdentifierScheme [0..1]
+  + successorsIdentifier: wiseIdentifier [0..n]
+  + successorsIdentifierScheme: IdentifierScheme [0..1]
+  + wiseEvolutionType: WiseEvolutionType
+  + nameTextInternational: string254
+  + nameText: string254
+  + nameLanguage: Language
+  + designationPeriodBegin: date
+  + designationPeriodEnd: date [0..1]
+  + zoneType: ZoneType
+  + specialisedZoneType: SpecialisedZoneType
+  + legalBasisName: string254 
+  + legalBasisLink: URL 
+  + legalBasisLevel: LegislationLevelValue 
+  + relatedZoneIdentifier: wiseIdentifier [1..n]
+  + relatedZoneIdentifierScheme: IdentifierScheme
+  + confidentialityStatus: ConfidentialityStatusValue [0..1]
+  + link: URL [0..1]
+}

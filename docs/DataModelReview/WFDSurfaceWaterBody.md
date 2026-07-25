@@ -1,37 +1,56 @@
 (heading_wfd_surface_water_bodies)=
-# WFD surface water bodies
+# Surface water bodies
 
-Last update: 2026-05-13
+```{Warning}
+:class: dropdown
+Last update: 2026-07-16
 
-```{danger}
-DRAFT INTERNAL VERSION - PENDING DISCUSSION - DO NOT USE
+* Added the quality control conditions for quality elements, including cross-checks
+* Added the quality control conditions for national types, including cross-checks
+
+Last update: 2026-07-08
+
+* {ref}`heading_wfd_surface_water_bodies_descriptive_4th_cycle`
+  Removal of swIntercalibrationType from SurfaceWaterBody
+
+* {ref}`heading_wfd_surface_water_bodies_ecological_status_4th_cycle`:  
+  Added QC checks.
+
+* {ref}`heading_wfd_surface_water_SWQualityElement_4th_cycle`:  
+  Clarifying the link with the SWType table.
+  Removal of QE1-2 and QE1-5 from the biological quality elements.
+
 ```
 
 (heading_wfd_surface_water_bodies_purpose_and_overview)=
 ## Purpose and overview
 
-This section revises the reporting of information related to **Surface Water Bodies** 
-in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans. 
-It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
+This section revises the reporting of information related to **Surface Water Bodies**
+in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
+It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
 (heading_wfd_surface_water_bodies_current_structure_3rd_cycle)=
-## Current structure - 3ʳᵈ cycle
+## Current structure - 3rd cycle
 
-The information about Surface water bodies was reported in two separate schemas:
+The information about Surface water bodies was reported in five separate schemas:
 
-* The SWB schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
-* The SWMET schema, containing information about the methodologies.
+* the SWB_2022 schema, containing information about each surface water body ({numref}`SurfaceWater_3rdCycle_SWB_ClassDiagram`)
+* the SWMET_2022 schema, containing information about the methodologies (see {ref}`heading_wfd_surface_water_methodologies`)
+* the GML_SurfaceWaterBody_2022 schema and GML_SurfaceWaterBodyLine_2022 schema,
+  containing the SurfaceWaterBody spatial dataset.
+* the GML_SurfaceWaterBodyCentreline_2022 schema,
+  containing the ancillary SurfaceWaterBodyCentreline spatial dataset.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_3rdCycle_SWB_ClassDiagram.mmd
 :name: SurfaceWater_3rdCycle_SWB_ClassDiagram
 :align: center
-:caption: Class diagram for the SWB_2022 schema in the 3ʳᵈ cycle of reporting.
+:caption: Class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
 ```
 
 (heading_wfd_surface_water_bodies_SWB_schema_3rd_cycle)=
-## SWB schema - 3ʳᵈ cycle
+## SWB_2022 schema - 3rd cycle
 
-The SWB schema was already partially revised with regard to the reporting of exemptions.  
+The SWB_2022 schema was already partially revised with regard to the reporting of exemptions.
 See:
 
 * {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
@@ -45,30 +64,225 @@ Other simplifications already discussed also apply to the revision of the SWB sc
 * Removal of the textual reporting of "other" impacts
 * Removal of the reporting of subunits
 
-{numref}`SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram` shows a simplified diagram 
+{numref}`SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram` shows a simplified diagram
 to help focus the discussion on the remaining issues.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram.mmd
 :name: SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram
 :align: center
-:caption: PARTIAL class diagram for the SWB_2022 schema in the 3ʳᵈ cycle of reporting.
+:caption: PARTIAL class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
 ```
 
-## Surface water - descriptive data - 4ᵗʰ cycle
+(heading_wfd_surface_water_bodies_descriptive_4th_Cycle)=
+## Descriptive dataset - 4th cycle
 
-{numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram` 
-shows a DRAFT diagram including the issues requiring clarification, in the classes marked in red.
+The proposed structure for the 4th cycle electronic reporting is presented in the class diagram in
+({numref}`SurfaceWater_4thCycle_DescriptiveData_ClassDiagram`)
+and a brief description of each table is included in
+{numref}`SurfaceWater_4th_cycle_brief_table_description`.
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_DescriptiveData_ClassDiagram.mmd
 :name: SurfaceWater_4thCycle_DescriptiveData_ClassDiagram
 :align: center
-:caption: Surface water - 4ᵗʰ cycle
+:caption: Surface water - 4th cycle
 ```
 
-(heading_wfd_surface_water_bodies_ecological_status)=
-## Ecological status and potential
+```{list-table} Surface water - 4th cycle - brief table description
+:name: SurfaceWater_4th_cycle_brief_table_description
+:header-rows: 1
+:width: 100%
+:widths: 20 80
+:align: left
 
-The diagram below, adapted from Figure 1 in the CIS Guidance Document 13, 
+* - Table
+  - Description
+
+* - SurfaceWaterBody
+  - *modified*  
+    The `SurfaceWaterBody` table contains the attributes 
+    that describe the surface water body 
+    and that do not vary with the status of the water body.
+    Therefore the table can be prepared immediately, 
+    even if the 4th cycle RBMPs have not yet been finalised. 
+    All the attributes existed in the 3rd cycle reporting. 
+
+* - SWHeavilyModifiedWaterBody
+  - *modified*  
+    
+
+* - SWStatus
+  - *new*  
+    The `SWStatus` table synthesizes 
+    information about the status of the water body.
+    
+    Formally, the `chemicalStatusValue` 
+    could be derived from the information in the `SWPollutant` table.  
+    If, and only if, `chemicalStatusValue = 'unknown'` 
+    and no assessment of the chemical status was done,
+    may all corresponding rows in the `SWPollutant` table be missing.
+    (An ERROR will raised by the quality control, since this is a non-compliance 
+    and should not be reported by mistake.)
+
+    Likewise, the `swEcologicalStatusOrPotentialValue` 
+    could be derived from the `SWQualityElement` table.  
+    If, and only if, `swEcologicalStatusOrPotentialValue = 'unknown'` 
+    and no assessment of the ecological status was done,
+    may the corresponding rows in the `SWQualityElement` table be missing.
+    (An ERROR will raised by the quality control, since this is a non-compliance 
+    and should not be reported by mistake.) 
+
+* - SWPollutant
+  - *modified*  
+    The `SWPollutant` table contains data related to the chemical status at substance level.  
+    The information about the assessment method, assessment confidence, 
+    and assessment period can be reported at pollutant level, 
+    allowing more flexibility in reporting different situations 
+    for different pollutants or indicators of pollution. 
+    (If the same method, confidence and period apply 
+    to all substances assessed for a surface water body, 
+    then identical values can be reported for all substances).
+    
+* - SWQualityElement
+  - *new*  
+    The `SWQualityElement` table gathers 
+    the data related to ecological status or potential.  
+    The assessment method, confidence and period 
+    is reported using the same pattern 
+    applied for surface water pollutants.
+
+* - SWGrouping
+  - *new*   
+    If grouping was not used, this table is not necessary.  
+    If grouping was used for the 
+    assessment of ecological or chemical status,
+    the `SWGrouping` table is used 
+    to define sets of water bodies 
+    that were monitored and assessed as an ensemble.
+    The same ensemble can be used for different purposes. 
+    The same water body can be a member of different ensembles.
+    
+    The `groupingIdentifier` value uniquely identifies an ensemble 
+    using the WISE identifier syntax.
+    The `euSurfaceWaterBodyCode` identifies a member of the ensemble.  
+    If an ensemble is used 
+    in the assessment of a given element,
+    then at least one of its water bodies
+    must be monitored for that element
+    (e.g. must have `swPollutantAssessmentMethod = 'monitoring'`).  
+    (To avoid mistakes and ambiguities, 
+    the `groupingIdentifier` value must be different 
+    from any known water body identifier. 
+    It is recommended to use a clear pattern 
+    to avoid conflicts with existing 
+    and future water body identifiers.
+    For example, using a '_SWGROUPING' suffix).       
+
+* - SWPressureImpact
+  - *modified*.  
+    For the water bodies that do not achieve good ecological status or potential in 2027, 
+    the significant pressures causing poor ecological status or potential 
+    are reported in the `SWEcologicalExemption` table 
+    (see {numref}`Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram`) 
+    and do not need to be reported again in the `SWPressureImpact` table.
+
+    For water bodies that do not achieve good chemical status in 2027, 
+    the significant pressures are reported in the `SWChemicalExemption` table 
+    (see {numref}`Exemptions_4thCycle_SWChemicalExemption_ClassDiagram`) 
+    and do not need to be reported again in the `SWPressureImpact` table.
+    
+    For cases where a pressure is not causing failure, 
+    but still causes an impact that needs to be managed, 
+    the `SWPressureImpact` table should be used.
+
+    Note that the reporting of pressures and impacts 
+    is combined into a single `SWPressureImpact` table. 
+    In the 3rd cycle, the XML structure did not allow 
+    a specific pressure to be link to a given impact.
+    In the proposed structure, this is possible (but not mandatory).  
+    Illustrative examples will be provided.  
+```
+
+The following conditions apply:
+
+* If a surface water body belongs to a given national type,
+  then the surface water body category must match
+  in the SurfaceWaterBody table and in the SWType table.
+  The following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT t.euSurfaceWaterBodyCode, t.swTypeIdentifier
+  FROM SurfaceWaterBody AS t
+  JOIN SWType AS ref
+  ON t.swTypeIdentifier = ref.swTypeIdentifier
+  WHERE t.surfaceWaterBodyCategory <> ref.surfaceWaterBodyCategory
+  ```
+
+* If a surface water body belongs to a given national type,
+  then the water body type must match
+  in the SurfaceWaterBody table and in the SWType table.
+  The following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT t.euSurfaceWaterBodyCode, t.swTypeIdentifier
+  FROM SurfaceWaterBody AS t
+  JOIN SWType AS ref
+  ON t.swTypeIdentifier = ref.swTypeIdentifier
+  WHERE NOT (t.naturalAWBHMWB = ANY(string_to_array(t.naturalAWBHMWB, ';')))
+  ```
+
+(heading_wfd_surface_water_bodies_ecological_status_4th_cycle)=
+### Ecological status and potential
+
+The quality control criteria have been defined, and will be refined as needed.
+
+* The ecological status must be reported for all surface water bodies, except territorial waters.
+  The following clause will raise a *blocker*:  
+   `SurfaceWaterBody.surfaceWaterBodyCategory != 'TeW' AND swEcologicalStatusOrPotentialValue = 'notApplicable'`
+
+* High ecological status is only defined for natural water bodies.
+  The following clause will raise a *blocker*:  
+  `SurfaceWaterBody.naturalAWBHMWB != 'natural' AND swEcologicalStatusOrPotentialValue = '1'`
+
+* If ecological status is high,
+  the status of all applicable quality elements must all be high.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')`
+
+* If ecological status is high,
+  the status of all applicable quality elements must all be high.
+  The following clause will raise a *blocker*:  
+  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')`
+
+* If ecological status is high,
+  at least one hydromorphological quality element (QE2%) must be assessed.
+
+* If ecological status is high,
+  at least one physico-chemical quality element (QE3%) must be assessed.
+
+* If ecological status is good or maximum,
+  the status of all applicable biological quality elements must be at least good or maximum.
+  The following clause will raise a *blocker*:  
+  `swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('3','4','5')`
+
+* If ecological status is good or maximum,
+  the status of all applicable physico-chemical quality elements must be at least good or maximum.
+  The following clause will raise a *blocker*:  
+  `swEcologicalStatusOrPotentialValue = '2' AND qeCode LIKE 'QE3%' AND qeStatusOrPotentialValue in ('3','4','5')`
+
+* If ecological status is moderate,
+  the status of all applicable biological quality elements must be at least moderate.
+  The following clause will raise a *blocker*:  
+  `swEcologicalStatusOrPotentialValue = '3' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('4','5')`
+
+* If ecological status is poor,
+  the status of all applicable biological quality elements must be at least poor.
+  The following clause will raise a *blocker*:  
+  `swEcologicalStatusOrPotentialValue = '5' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('5')`
+
+* If all applicable quality elements have 'unknown' status,
+  then the ecological status must also be 'unknown'.
+
+The diagram below, adapted from Figure 1 in the CIS Guidance Document 13,
 illustrates the assessment criteria for ecological status ({numref}`SurfaceWater_EcologicalStatus_CISGuidance_Flowchart`).
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_EcologicalStatus_CISGuidance_Flowchart.mmd
@@ -77,7 +291,7 @@ illustrates the assessment criteria for ecological status ({numref}`SurfaceWater
 :align: center
 ```
 
-The diagram below, adapted from Figure 2 in the CIS Guidance document 13, 
+The diagram below, adapted from Figure 2 in the CIS Guidance document 13,
 illustrates the assessment criteria for ecological potential ({numref}`SurfaceWater_EcologicalPotential_CISGuidance_Flowchart`).
 
 ```{mermaid} /DataModelReview/mmd/SurfaceWater_EcologicalPotential_CISGuidance_Flowchart.mmd
@@ -86,14 +300,314 @@ illustrates the assessment criteria for ecological potential ({numref}`SurfaceWa
 :align: center
 ```
 
-(heading_wfd_surface_water_bodies_annexes)=
-## Annexes - Data analysis - 3ʳᵈ cycle
+(heading_wfd_surface_water_SWQualityElement_4th_cycle)=
+### SWQualityElement table
 
-```{admonition} Changes to the quality check during the 3ʳᵈ cycle reporting phase
+The data reported in the `SWType` table
+controls the data that must be reported
+in the `SWQualityElement` table
+(see {ref}`heading_wfd_surface_water_methodologies_SWType_4th_cycle`).
+
+It is no longer required to report the status of all quality elements.
+Only the status of the applicable quality elements is reported.
+
+* The allowable `qeCode` values are presented in
+  {numref}`Codelist_4thCycle_QualityElement_ClassDiagram`.
+  
+* The option `'QE1-2'` (Other aquatic flora), which existed in the 3rd cycle,
+  is no longer included.
+
+* The `SWQualityElement` data is not reported for territorial waters,
+  i.e. for water bodies where `surfaceWaterBodyCategory = 'TeW'`
+
+{numref}`SWQualityElement_qeStatus` illustrates the reporting of quality element status:
+
+* the upper table show the range of allowable values in the 3rd cycle
+* the middle table illustrates the possibility
+  to use a '4 - Less than moderate status or potential' class
+  also for hydromorphological and physico-chemical elements
+* the middle table illustrates the possibility
+  to use the classes '4 - Poor status or potential' and '5 - Bad status or potential'
+  for any quality element.
+
+The following conditions apply:
+
+* For the hydromorphological quality elements,
+  the values `'4'` and `'5'` can be used
+  if and only if they have been defined
+  in the `QE2Classification` table, for the corresponding `qeClassificationIdentifier`.
+
+* For the  physico-chemical quality elements,
+  the values `'4'` and `'5'` can be used
+  if and only if their respective ranges have been defined
+  in the `QE3Classification` table, for the corresponding `qeClassificationIdentifier`.
+
+```{figure} img/SWQualityElement_qeStatus.png
+:name: SWQualityElement_qeStatus
+:align: center
+:width: 100%
+Reporting quality element status – 4th cycle.
+```
+
+{numref}`SWB_QC_swEcologicalStatus_qeStatus_natural` illustrates
+the quality control between the status at quality element level
+and the overall ecological status at water body level,
+for natural water bodies.
+
+The quality control will verify if the ecological status is consistent
+with the "one-out-all-out" principle. Some examples:
+
+* if all applicable biological quality elements have `qeStatusOrPotentialValue = '1'`
+  and all applicable hydromorphological quality elements have `qeStatusOrPotentialValue = '2'`
+  and a natural water body has `swEcologicalStatusOrPotentialValue = '1'`,
+  then a quality control *blocker* will be raised.
+
+* if worst applicable applicable biological quality element has `qeStatusOrPotentialValue = '5'`,
+  and a natural water body has `swEcologicalStatusOrPotentialValue = 'unknown'`,
+  then a quality control *blocker* will be raised.
+
+Note that the quality control does not verify
+if the reported ecological status at water body level is worse
+than would be expected by the application of the "one-out-all-out" principle.
+
+```{figure} img/SWB_QC_swEcologicalStatus_qeStatus_natural.png
+:name: SWB_QC_swEcologicalStatus_qeStatus_natural
+:align: center
+:width: 100%
+One-out-all-out principle - ecological status vs. quality element status – 4th cycle.
+```
+
+{numref}`SWB_QC_swEcologicalStatus_qeStatus_not_natural` illustrates
+the quality control between the potential at quality element level
+and the overall ecological potential at water body level,
+for artificial and heavily modified water bodies.
+
+The quality control will verify if the ecological potential is consistent
+with the "one-out-all-out" principle. Some examples:
+
+* if all applicable quality elements have `qeStatusOrPotentialValue = '3'`
+  and an artificial water body has `swEcologicalStatusOrPotentialValue = '2'`,
+  then a quality control *blocker* will be raised.
+
+* if all applicable quality elements have `qeStatusOrPotentialValue = 'unknown'`,
+  and an artificial water body has `swEcologicalStatusOrPotentialValue = 'unknown'`,
+  then a quality control *warning* will be raised.
+
+Note that the quality control does not verify
+if the reported ecological potential at water body level is worse
+than would be expected by the application of the "one-out-all-out" principle.
+
+```{figure} img/SWB_QC_swEcologicalStatus_qeStatus_not_natural.png
+:name: SWB_QC_swEcologicalStatus_qeStatus_not_natural
+:align: center
+:width: 100%
+One-out-all-out principle - ecological potential vs. quality element potential – 4th cycle.
+```
+
+The quality control will also enforce that
+a quality element is reported if and only if it is applicable a given national type,
+and consistent with what was reported for that national type in the `SWType` table
+(see {ref}`heading_wfd_surface_water_methodologies_SWType_4th_cycle`).
+
+For example:
+
+* If quality element QE1-2-3 is NOT applicable to a given national type,
+  then it must NOT be reported, and the following cases will trigger a *blocker*:
+
+  ```sql
+  SELECT t.euSurfaceWaterBodyCode,t.qeCode, ref.swTypeIdentifier, ref.QE1_2_3
+  FROM SWQualityElement AS t
+  JOIN SurfaceWaterBody AS p
+    ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
+  JOIN SWType AS ref
+    ON p.swTypeIdentifier = ref.swTypeIdentifier
+  WHERE ref.QE1_2_3 IN ('inapplicable','notUsed') AND t.qeCode = 'QE1-2-3'
+  ```
+
+* If quality element QE1-2-3 is applicable to a given national type,
+  then it must be reported for all water bodies of that type,
+  and the following cases will trigger a *blocker*:
+
+  ```{code-block} sql
+  SELECT DISTINCT p.euSurfaceWaterBodyCode, p.swTypeIdentifier
+    FROM SurfaceWaterBody AS p
+  JOIN SWType AS ref
+    ON p.swTypeIdentifier = ref.swTypeIdentifier
+  LEFT JOIN SWQualityElement AS t
+    ON t.euSurfaceWaterBodyCode = p.euSurfaceWaterBodyCode
+    AND t.qeCode = 'QE1-2-3'
+  WHERE ref.QE1_2_3 = 'applicable' AND t.euSurfaceWaterBodyCode IS NULL 
+  ```
+
+(heading_surfacewaterbody_spatial_dataset_4th_cycle)=
+## Spatial dataset - 4th cycle
+
+The Spatial dataset contains only the SurfaceWaterBody spatial data
+({numref}`Spatial_4thCycle_SurfaceWaterBody_ClassDiagram`).  
+The SurfaceWaterBodyCentreline dataset is no longer requested in the 4th cycle of reporting.
+
+```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_SurfaceWaterBody_ClassDiagram.mmd
+:name: Spatial_4thCycle_SurfaceWaterBody_ClassDiagram
+:caption: Spatial dataset - SurfaceWaterBody - 4th cycle
+:align: center
+:zoom:
+```
+
+The following changes have been made to the `SurfaceWaterBody` spatial table
+(in comparison to the 3rd cycle of reporting):
+
+* The attributes `sizeValue` and `sizeUom` were removed,
+  because they can be derived from the reported geometry.
+
+* The attribute `meanDepth` was removed,
+  due to low frequency of reporting.
+
+* Two attributes `relatedTransboundaryIdentifier` and `relatedTransboundaryIdentifierScheme`
+  were removed, because they are not required at EU level.
+
+* All the date values are requested as YYYY-MM-DD,
+  because that was the format used by all the data providers in the previous cycles
+  (and therefore it is not necessary to maintain more variants).
+  This applies to `beginLifespanVersion`, `endLifespanVersion`, `designationPeriodBegin`, `designationPeriodEnd`.
+
+* The attributes `successorsIdentifier` and `successorsIdentifierScheme`
+  have been kept for clarity's sake.
+  **In the reported datasets, the value of these attributes will always be NULL.**
+  The appropriate value will be derived and included in the published WISE datasets
+  for the 1st, 2nd and 3rd cycle SurfaceWaterBody datasets.
+
+* The quality control tests enforced in the 3rd cycle of reporting
+  will continue to be applied in the 4th cycle.
+
+* Additionally:
+
+  - The reporting of territorial waters is **mandatory** (except for landlocked countries).
+  - All rivers must be reported as line geometries.
+  - Each surface water body must be related to one and only one river basin district
+    (subunits are no longer used in the related zone attributes).
+
+  - The reporting of objects with `wiseEvolutionType = 'creation'` will raise a *warning*.
+    It is expected that new water bodies result from re-delineation of existing water bodies,
+    and therefore their respective predecessors should be reported.
+  - The reporting of objects with `wiseEvolutionType = 'deletion'` will raise a *error*.
+    If a water body is no longer designated as a WFD water body,
+    its catchment area will likely be part of the catchment area of other WFD water bodies
+    and therefore the "deleted" water body should be reported only as a predecessor.
+
+(heading_wfd_surface_water_codelist_4th_cycle)=
+## Codelists - 4th cycle
+
+* For the `WaterBodyCategory` codelist and `NaturalAWBHMWB` codelist
+  see {numref}`Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram`.  
+
+* For the `Reservoir` codelist,
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  All reservoirs must be reported as artificial or heavily modified lakes.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_Reservoir_Table`.
+
+* For the `HMWBWaterUse` codelist,
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  For heavily modified water bodies only, use this codelist to report the water use for
+  which the water body has been designated. According to Art. 4(3) of the WFD,
+  the water use for which a HMWB
+  was designated is the water use that would be affected significantly by the changes that would be
+  necessary to achieve good ecological status.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_HMWBWaterUse_Table`.  
+  - See the mapping table to the 3rd cycle values in {numref}`MappingTable_4thCycle_HMWBWaterUse_Table`.
+
+* For the `HMWBPhysicalAlteration` codelist,
+  see {numref}`Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram`.  
+  For heavily modified water bodies only, use this codelist to report the physical
+  alteration that has resulted in the designation of the surface water body as a HMWB.  
+  In the context of designation as a HMWB, physical alterations means
+  any significant alterations that have resulted in substantial changes
+  to the hydromorphology of a surface water body such that the surface water body
+  is substantially changed in character.
+  In general, these hydromorphological characteristics are long term
+  and alter both the morphological and hydrological characteristics.
+
+  - See the definitions in {numref}`Codelist_4thCycle_HMWBPhysicalAlteration_Table`.
+  - See the mapping table to the 3rd cycle values in
+    {numref}`MappingTable_4thCycle_HMWBPhysicalAlteration_Table`.
+
+* For the `AssessmentMethod` codelist,
+  see {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
+  The codelist is used to report
+  the assessment method for the chemical status and
+  the assessment method for the ecological status.  
+  The same codelist is used for groundwater bodies,
+  to report the assessment method of quantitative status,
+  and the assessment method of chemical status.
+
+  - See the definitions in {numref}`Codelist_4thCycle_AssessmentMethod_Table`.
+
+* For the `AssessmentConfidence` codelist,
+  see also {numref}`Codelist_4thCycle_AssessmentMethod_AssessmentConfidence_ClassDiagram`.  
+  The codelist allow the reporting of
+  the level of confidence in the results of the status assessment
+  The same codelist is used for groundwater bodies.
+
+  - See the definitions in {numref}`Codelist_4thCycle_AssessmentConfidence_Table`.
+
+* For the `PressureType` codelist,
+  see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in
+  the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle`
+
+% -----------------------------------------------------------------------------
+
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram.mmd
+:name: Codelist_4thCycle_WaterBodyCategory_NaturalAWBHMWB_ClassDiagram
+:align: center
+:caption: WaterBodyCategory codelist and NaturalAWBHMWB codelist - 4th cycle
+```
+
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram.mmd
+:name: Codelist_4thCycle_Reservoir_HMWBWaterUse_HMWBPhysicalAlteration_ClassDiagram
+:align: center
+:caption: Reservoir codelist, HMWBWaterUse codelist, and HMWBPhysicalAlteration codelist - 4th cycle
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_Reservoir_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBWaterUse_Table
+```
+
+```{dropdown} Click to see the mapping table between 3rd cycle and 4th cycle codes
+```{include} /DataModelReview/tables/MappingTable_4thCycle_HMWBWaterUse_Table
+```
+
+```{include} /DataModelReview/tables/Codelist_4thCycle_HMWBPhysicalAlteration_Table
+```
+
+```{dropdown} Click to see the mapping table between 3rd cycle and 4th cycle codes
+```{include} /DataModelReview/tables/MappingTable_4thCycle_HMWBPhysicalAlteration_Table
+```
+
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_QualityElement_ClassDiagram.mmd
+:name: Codelist_4thCycle_QualityElement_ClassDiagram
+:align: center
+:caption: QualityElement codelist - 4th cycle
+```
+
+% -----------------------------------------------------------------------------
+
+```{todo}
+Surface water - Topics that require discussion and clarification.
+* Revision of the **ImpactType** codelist.
+* Mapping tables to 3rd cycle codelists
+```
+
+(heading_wfd_surface_water_bodies_annexes)=
+## Data analysis - 3rd cycle
+
+```{admonition} Changes to the quality check during the 3rd cycle reporting phase
 :class: dropdown
 
 Several data quality issues where detected 
-while the 3ʳᵈ cycle was ongoing (i.e. after the testing phase).
+while the 3rd cycle was ongoing (i.e. after the testing phase).
 
 That required the implementation of additional quality checks, 
 or the correction of existing quality checks.
@@ -105,32 +619,79 @@ versus conditions in the form *if and only if A then B*.
 
 On a case-by-case decision, 
 resubmissions may have been requested or not. 
-Therefore the database may contain inconsistencies (e.g. in early submissions) that were detected and blocked (in later submissions).
+Therefore the database may contain inconsistencies (e.g. in early submissions) 
+that were only detected and blocked in later submissions.
+```
+
+### Quality element status (3rd, 2nd and 1st RBMP), by category
+
+The following dashboard shows the number of quality elements
+used in the assessment of the ecological status or potential:
+
+```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_Status_Compare/SWB_QualityElement_Category.png
+:width: 1024
+:alt: Click to open an interactive dashboard
+:name: dashboard_WFD_SWB_QualityElement_Status_Compare_SWB_QualityElement_Category
+:target: https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_Status_Compare/SWB_QualityElement_Category
+
+Surface water bodies: Quality element status (3rd, 2nd and 1st RBMP), by category
+
+```
+
+### Number of quality elements used
+
+The following dashboard shows the number of quality elements
+used in the assessment of the ecological status or potential:
+
+```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_QEUsed/SWB_QualityElement_QEUsed_Category.png
+:width: 1024
+:alt: Click to open an interactive dashboard
+:name: dashboard_WFD_SWB_QualityElement_QEUsed/SWB_QualityElement_QEUsed_Category
+:target: https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_QualityElement_QEUsed/SWB_QualityElement_QEUsed_Category
+
+Surface water bodies: Number of quality elements used in the assessment of the ecological status or potential
+```
+
+### Status calculated from the quality elements
+
+The following dashboard shows the reported ecological status vs. calculated ecological status
+(based on the quality elements):
+
+```{figure} https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_EcologicalStatus_Calculated/SWB_EcologicalStatus_Calculated_Category.png
+:width: 1024
+:alt: Click to open an interactive dashboard
+:name: dashboard_WFD_SWB_EcologicalStatus_Calculated_SWB_EcologicalStatus_Calculated_Category
+:target: https://tableau-public.discomap.eea.europa.eu/views/WFD_SWB_EcologicalStatus_Calculated/SWB_EcologicalStatus_Calculated_Category
+
+Surface water bodies: Ecological status or potential calculated from the quality elements, by category
 ```
 
 ### Quality element status
 
-In the 3rd cycle reporting, 
-the quality element status value was reported 
+In the 3rd cycle reporting,
+the quality element status value was reported
 using the following values:
+
 * '1' meaning 'high' status or potential
 * '2' meaning 'good' status or potential
 * 'Unknown' meaning 'unknown' status or potential
-* "Not applicable" meaning the quality element is not applicable 
-   in the surface water category or water body national type 
+* "Not applicable" meaning the quality element is not applicable
+   in the surface water category or water body national type
    to which the water body in question belongs.
 
-For *biological quality elements* **only**, 
+For *biological quality elements* **only**,
 the following values were also used:
+
 * '3' meaning 'moderate' status or potential
 * '4' meaning 'poor' status or potential
 * '5' meaning 'bad' status or potential
 
-For *hydro-morphological and physico-chemical quality elements* **only**, 
+For *hydro-morphological and physico-chemical quality elements* **only**,
 the following values were also used:
+
 * '3' meaning 'less than good' status or potential
-* "Monitored but not used" meaning than 
-   the QE was monitored but no standard has been developed **and/or** 
+* "Monitored but not used" meaning than
+   the QE was monitored but no standard has been developed **and/or**
    the QE is not used for status assessment
 
 ```{dropdown} Show technical detail: encoding quality element status
@@ -158,31 +719,34 @@ the following values were also used:
   |QEStatusCode|8|NotApplicable|NilReasonType|inapplicable|
   ```
 
-#### *"Monitored but not used"*
+### *"Monitored but not used"*
 
-The option *"Monitored but not used"* was inherently ambiguous, 
-because it could be applied to signify that 
-the quality element was being monitored 
-although it was in fact not applicable 
+The option *"Monitored but not used"* was inherently ambiguous,
+because it could be applied to signify that
+the quality element was being monitored
+although it was in fact not applicable
 to a specific water category or water body national type.
 
-```{todo} 
-  The option *"Monitored but not used"* should be removed, 
-  because it does not convey concrete information about the *status*.  
-  Member States can report monitoring results 
-  under the WISE-6 Water Quality dataflow: 
-  that provides concrete information 
-  about what is being monitored 
-  beyond the requirements of the ecological status assessment.
-```
+The option *"Monitored but not used"* should be removed,
+because it does not convey concrete information about the *status*.  
+Member States can report monitoring results
+under the WISE-6 Water Quality dataflow:
+that provides concrete information
+about what is being monitored
+beyond the requirements of the ecological status assessment.
 
-#### *"Not applicable"*
+### *"Not applicable"*
 
-The 3ʳᵈ cycle reporting guidance provided 
+The 3rd cycle reporting guidance provided
 a clear definition of the option *"Not applicable"*.  
 
-Theoretically, it should be possible to derive 
-the applicability of the quality elements 
+```{epigraph}
+If the QE is not applicable in the surface water category or type to which the
+water body in question belongs, then select ‘Not applicable’ from the enumeration list. 
+```
+
+Theoretically, it should be possible to derive
+the applicability of the quality elements
 to a given type or category.
 
 ```{dropdown} Show code: applicable QEs per water category or national type
@@ -214,32 +778,32 @@ to a given type or category.
             ,[qeCode]
   ```
 
-For 77% of the 3384 reported national types, 
-the applicability of the quality elements 
+For 77% of the 3384 reported national types,
+the applicability of the quality elements
 can indeed be derived.  
-Unfortunately, for the remaining 772 national types 
+Unfortunately, for the remaining 772 national types
 (23% of the total) the information is inconsistent,
-and a given quality element is simultaneously reported 
-as applicable (because it has a reported status) 
+and a given quality element is simultaneously reported
+as applicable (because it has a reported status)
 and not applicable to the assessment of ecological status.
 
-It is possible that the inconsistencies 
+It is possible that the inconsistencies
 are due to an interchangeable use or interpretation
 of the options 'unknown' and 'inapplicable',
-or are due to a mistake in the reporting of some waterbodies only.
+or are due to a mistake in the reporting of some water bodies only.
 
 Nevertheless, the inconsistencies reveal a flaw in the reporting model,
-and an opportunity for both improvement and simplication. 
-the applicability of the quality elements 
-should be reported in the *surface water methodologies* 
+and an opportunity for both improvement and simplification.
+the applicability of the quality elements
+should be reported in the *surface water methodologies*
 and *only* the applicable quality elements should be
 reported in the *quality elements* table.
 
-#### Proposed changes
+### Proposed changes
 
-The removal of the options *"Not applicable"* and *"Monitored but not used"* 
-reduces the reported data by 25% 
-and provides a clearer and consistent overview 
+The removal of the options *"Not applicable"* and *"Monitored but not used"*
+reduces the reported data by 25%
+and provides a clearer and consistent overview
 of the assessment criteria.
 
 ```{table} Number of records per QE status
@@ -249,18 +813,16 @@ of the assessment criteria.
 
 |qeStatusOrPotentialValue|number of records|% of records|
 |---|---|---|
-|1,2,3,4,5|	 636,742| 	25%|
-|Unknown|	 1,208,667| 	48%|
-|*"Not applicable"*|	 541,637| 	21%|
-|*"Monitored but not used"*|	 136,743 	|5%|
+|1,2,3,4,5|  636,742|  25%|
+|Unknown|  1,208,667|  48%|
+|*"Not applicable"*|  541,637|  21%|
+|*"Monitored but not used"*|  136,743  |5%|
 ```
 
-```{todo}
-The applicability of the quality elements 
-should be reported in the *surface water methodologies* 
+The applicability of the quality elements
+should be reported in the *surface water methodologies*
 and *only* the applicable quality elements should be
 reported in the *quality elements* table.
-```
 
 ### Ecological status and BQE status
 
@@ -269,8 +831,8 @@ then the ecological status or potential cannot be 'good' or 'high'.
 
 The majority of reported data complies with this rule.
 
-A total of 216 water bodies does *not* comply with this rule.   
-The question is, *can the reported ecological status or potential be 'unknown'*? 
+A total of 216 water bodies does *not* comply with this rule.
+The question is, *can the reported ecological status or potential be 'unknown'*?
 
 ```{dropdown} Show code
 
@@ -280,7 +842,9 @@ The question is, *can the reported ecological status or potential be 'unknown'*?
   -- https://discodata.eea.europa.eu/
   
   SELECT a.[swEcologicalStatusOrPotentialValue]
-      ,COUNT(DISTINCT IIF(a.[qeStatusOrPotentialValue] IN ('3','4','5'), [euSurfaceWaterBodyCode], null)) AS wbWithFailingBQE
+      ,COUNT(DISTINCT 
+             IIF(a.[qeStatusOrPotentialValue] IN ('3','4','5'), [euSurfaceWaterBodyCode], NULL)) 
+             AS wbWithFailingBQE
   FROM  [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_QualityElement] a
   WHERE a.[qeCode] LIKE 'QE1%'
     AND a.[cYear] = 2022
@@ -288,16 +852,17 @@ The question is, *can the reported ecological status or potential be 'unknown'*?
   GROUP BY a.[swEcologicalStatusOrPotentialValue]
   ```
 
-From a logical (mathematical) perspective, the ecological status can be 'undeterminate',
+From a logical (mathematical) perspective, the ecological status can be 'indeterminate',
 if not all the relevant biological quality elements were assessed,
 and therefore it could be 'moderate', 'poor' or 'bad'.
 But the ecological status is known to fail to achieve good status.
 
-Furthermore, the analysis of the 216 waterbodies shows that:
+Furthermore, the analysis of the 216 water bodies shows that:
+
 * in 71 cases, the ecological status should have been reported as 'bad'
 * in 69 cases, the ecological status could never be 'moderate'.
 
-```{table} Unknown ecological status of waterbodies with failing BQEs.
+```{table} Unknown ecological status of water bodies with failing BQEs.
 :name: unknown_ecological_status_and_failing_bqes_3rd_cycle_table
 :width: 100%
 :align: center
@@ -312,22 +877,20 @@ Furthermore, the analysis of the 216 waterbodies shows that:
 ```
 
 The low frequency of these cases suggests a reporting error,
-that must be captured in the quality control during the 4ᵗʰ cycle.
+that must be captured in the quality control during the 4th cycle.
 
-#### Proposed change
+### Proposed change
 
-If at least one biological quality element 
-has 'moderate', 'poor' or 'bad' status or potential, 
-then the ecological status cannot be 'unknown'. 
+If at least one biological quality element
+has 'moderate', 'poor' or 'bad' status or potential,
+then the ecological status cannot be 'unknown'.
 
-```{todo}
-If at least one biological quality element 
-has 'moderate', 'poor' or 'bad' status or potential, 
-then the ecological status cannot be 'unknown'. 
+If at least one biological quality element
+has 'moderate', 'poor' or 'bad' status or potential,
+then the ecological status cannot be 'unknown'.
 
 Clearer guidance must be provided to MS with regard to these cases.  
 The quality control must enforce the adopted guidance.
-```
 
 ```{dropdown} Show code
 
@@ -359,104 +922,104 @@ The quality control must enforce the adopted guidance.
 
 ### One-out-all-out: ecological status
 
-```{todo}
-Include the CIS Guidance flowcharts
-for the ecological status assessment.
-```
-
-According to the WFD Annex V 
-and as clarified in the CIS Guidance document 13, 
-the ecological status is assessed 
+According to the WFD Annex V
+and as clarified in the CIS Guidance document 13,
+the ecological status is assessed
 using biological quality elements (QE1 a.k.a. BQE).
 
 The physico-chemical quality elements (QE3)
-act as *modifiers* of the BQE assessment: 
-* all applicable QE3 statuses must be 'high', 
+act as *modifiers* of the BQE assessment:
+
+* all applicable QE3 statuses must be 'high',
   for the ecological status to be 'high',
 * if any applicable QE3 status is 'less than good',
   then the ecological status cannot be 'good'.
 
 Likewise, the hydromorphological quality elements (QE2)
-act as *modifiers* of the BQE assessment: 
-* all applicable QE2 statuses must be 'high', 
+act as *modifiers* of the BQE assessment:
+
+* all applicable QE2 statuses must be 'high',
   for the ecological status to be 'high',
 * if any applicable QE3 status is 'less than good',
   then the ecological status cannot be 'good'.
 
-
-
-
+In the 3rd cycle reporting,
+the quality control checks enforced the interpretation above.
+**Pending: confirm whether if changes are required.**
 
 The hydromorphological quality elements
 
-According to the 3ʳᵈ cycle reporting guidance:
+According to the 3rd cycle reporting guidance:
+
 * *Rule 1:* "If SWB/SurfaceWaterBody/swEcologicalStatusOrPotentialValue = 1
   Then it cannot be lower than the highest of the values reported
   under SWB/SurfaceWaterBody/QualityElement/qeStatusOrPotentialValue"
 * *Rule 2:* "If SWB/SurfaceWaterBody/swEcologicalStatusOrPotentialValue in (2,3,4,5)
   Then it cannot be lower than the highest of the values reported
-  under SWB/SurfaceWaterBody/QualityElement/qeStatusOrPotentialValue 
-  for the set of quality elements 
+  under SWB/SurfaceWaterBody/QualityElement/qeStatusOrPotentialValue
+  for the set of quality elements
   where qeCode starts with QE1 or qeCode starts with QE3."
 * *Rule 3:*  "If SWB/SurfaceWaterBody/swEcologicalStatusOrPotentialValue = 1
   Then at least one hydromorphological quality element (QE2%) must be assessed."
-* *Rule 4:* "If the surface water body has a known status (1,2,3,4 or 5) 
+* *Rule 4:* "If the surface water body has a known status (1,2,3,4 or 5)
   the status of all Quality Elements cannot be 'Unknown', 'Not Applicable' or 'Monitored but not used'."
 
 Preliminary comments:
+
 * *Rule 3* requires that a QE2 be assessed,
-  but does not explicitly mention the QE2 *status*, 
+  but does not explicitly mention the QE2 *status*,
   which should also be taken into account.
 * *Rule 4* requires that at least one QE be assessed,
-  but it should also require 
+  but it should also require
   that at least at least one **QE1** be assessed.
 * According to the CIS Guidance documents,
-  the QE2 status should also be assessed 
-  if the ecological status is '1' 
+  the QE2 status should also be assessed
+  if the ecological status is '1'
   and the worst QE3 status is also '1'.
 * According to the CIS Guidance documents,
-  the QE2 status should also be assessed 
+  the QE2 status should also be assessed
   for the artificial and highly modified water bodies.
 
-
 Checking the *rule 2* (the ecological status cannot be worse than the worst QE1 or QE3):
-* *As expected:* 114204 surface water bodies with ecological status 
+
+* *As expected:* 114204 surface water bodies with ecological status
   equal to the status of the worst known QE1 or QE3
 
-* *NOT as expected:* 309 surface water bodies with ecological status 
+* *NOT as expected:* 309 surface water bodies with ecological status
   better than the status of the worst known QE1 or QE3.
   All the cases where due QE3-3 status (River Basin Specific Pollutants).
 
-* *NOT as expected:* 5665 surface water bodies with ecological status 
+* *NOT as expected:* 5665 surface water bodies with ecological status
   worse than the status of the worst known QE1 or QE3.
 
-  * *of which* 1717 surface water bodies 
+  - *of which* 1717 surface water bodies
     failing to achieve good ecological status,
     when none of the QE1 or or QE3 status is failing.
 
 Repeating the analysis without *'QE3-3 - River Basin Specific Pollutants'*,
 the values are similar.
 
-* *As expected:* 112315 surface water bodies with ecological status 
+* *As expected:* 112315 surface water bodies with ecological status
   equal to the status of the worst known QE1, QE3-1 or QE3-2
 
-* *As expected:* zero surface water bodies with ecological status 
+* *As expected:* zero surface water bodies with ecological status
   better than the status of the worst known QE1, QE3-1 or QE3-2
 
-* *NOT as expected:* 7015 surface water bodies with ecological status 
+* *NOT as expected:* 7015 surface water bodies with ecological status
   worse than the status of the worst known QE1, QE3-1 or QE3-2
 
-  * *of which* 2535 surface water bodies 
+  - *of which* 2535 surface water bodies
     failing to achieve good ecological status,
     when none of the QE1, QE3-1 or QE3-2 status is failing
 
-This raises the question of how to compare 
-the ecological status reported in the 3ʳᵈ cycle, 
-with the ecological status that will be reported in the 4ᵗʰ cycle.
+This raises the question of how to compare
+the ecological status reported in the 3rd cycle,
+with the ecological status that will be reported in the 4th cycle.
 
-Deriving the ecological status 
-from the reported quality elements statuses 
-might somewhat reduce problem.
+Deriving the ecological status
+from the reported quality elements statuses
+might somewhat reduce the problem
+(in the visualisations).
 
 ```{dropdown} Show code
 
@@ -483,10 +1046,10 @@ might somewhat reduce problem.
             ,a.[euSurfaceWaterBodyCode]) b
   ```
 
-### River basin specific pollutants 
+### River basin specific pollutants
 
-According to the rules in the 3ʳᵈ cycle of reporting,  
-if the status or potential of 'QE3-3 - River Basin Specific Pollutants' 
+According to the rules in the 3rd cycle of reporting,  
+if the status or potential of 'QE3-3 - River Basin Specific Pollutants'
 is less than good, than the failing RBSP must be reported.
 
 This rule was enforced by the quality control.
@@ -519,15 +1082,13 @@ This rule was enforced by the quality control.
       ,a.[swEcologicalStatusOrPotentialValue]
   ```
 
-
-
-The following table should that 2588 of those waterbodies 
+The following table should that 2588 of those water bodies
 were reported as being in good or unknown chemical status.
-Incorporating the RBSPs into the chemical status assessment 
-changes the percentage of water bodies 
+Incorporating the RBSPs into the chemical status assessment
+changes the percentage of water bodies
 not achieving good chemical status from 38% to 40%.
 
-```{table} Chemical status of waterbodies with failing QE3-3.
+```{table} Chemical status of water bodies with failing QE3-3.
 :name: chemical_status_with_failing_rbsp_3rd_cycle_table
 :width: 100%
 :align: center
@@ -563,3 +1124,58 @@ not achieving good chemical status from 38% to 40%.
 
   ```
 
+(heading_wfd_heavily_modified_water_bodies)=
+### Heavily modified water bodies
+
+For 60% of the heavily modified water bodies, only one physical alteration
+and only one water use is reported.
+It doesn't make sense to keep the two separate tables used in the 3rd cycle:
+it complicates the reporting and does not allow a link to be made between the alteration and the use.
+
+```{figure} /DataModelReview/img/HMWB_NumberOfAlteration_NumberOfUses.png
+:name: HMWB_NumberOfAlteration_NumberOfUses
+:width: 100%
+:align: center
+Heavily modified water bodies - Number of different physical alterations per water use.
+```
+
+```{dropdown} Show code
+
+  ```{code-block} sql
+  :caption: Heavily modified water bodies - Number of different physical alterations per water use.
+  :linenos:
+  -- https://discodata.eea.europa.eu/
+
+  SELECT 
+  numberOfHMWBPhysicalAlteration,
+  numberOfHMWBWaterUse,
+  COUNT(DISTINCT [euSurfaceWaterBodyCode]) AS numberOfSurfaceWaterBodies
+  FROM 
+  (SELECT [euSurfaceWaterBodyCode],
+  COUNT(DISTINCT [hmwbPhysicalAlteration]) AS numberOfHMWBPhysicalAlteration,
+  COUNT(DISTINCT [hmwbWaterUse]) AS numberOfHMWBWaterUse
+  FROM 
+
+  (  SELECT a.[euSurfaceWaterBodyCode]
+          ,a.[surfaceWaterBodyCategory]
+          ,a.[naturalAWBHMWB]
+          ,a.[hmwbPhysicalAlteration]
+          ,b.[hmwbWaterUse]
+      FROM [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_hmwbPhysicalAlteration] a
+      JOIN  [WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_hmwbWaterUse] b
+      ON a.[euSurfaceWaterBodyCode] = b.[euSurfaceWaterBodyCode]
+      AND a.[cYear] = b.[cYear]
+      WHERE a.[hasDescriptiveData] = 1
+      AND a.[cYear] = 2022) AS a
+
+  GROUP BY [euSurfaceWaterBodyCode]) AS b
+  
+  GROUP BY numberOfHMWBPhysicalAlteration, numberOfHMWBWaterUse
+  ORDER BY numberOfHMWBPhysicalAlteration, numberOfHMWBWaterUse
+
+ ```
+
+## References
+
+```{footbibliography}
+```

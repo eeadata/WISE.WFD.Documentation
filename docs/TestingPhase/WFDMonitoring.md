@@ -1,50 +1,72 @@
 (heading_wfd_monitoring_testing_phase)=
-# WFD Monitoring
+# Monitoring
+
+Last updated: 2026-06-25
 
 ```{warning}
-The definitions are being reviewed.
+The online version of the text is being reviewed.  
 ```
 
-Last update: 2026-05-25
+See additional information in the *data model review documentation*:
 
-(heading_wfd_monitoring_monitoring_table_testing_phase)=
-## Monitoring table
+* {ref}`heading_wfd_monitoring_proposed_structure_4th_cycle`
 
-```{include} tables/Monitoring_Monitoring
-```
+## Descriptive dataset
+
+See additional information in the *data model review documentation*:
+
+* {ref}`heading_wfd_monitoring_4th_cycle`
 
 (heading_wfd_monitoring_monitoringprogrammes_table_testing_phase)=
-## MonitoringProgrammes table
+### MonitoringProgrammes table
 
 ```{include} tables/Monitoring_MonitoringProgrammes
 ```
 
-(heading_wfd_monitoring_monitoringsite_table_testing_phase)=
-## MonitoringSite spatial table
+(heading_wfd_monitoring_monitoring_table_testing_phase)=
+### Monitoring table
 
-Monitoring Sites: Location used for the collection of data about physical-chemical, ecological, quantitative or other observable properties of a surface or groundwater body. Monitoring location included in a WFD surveillance, operational or investigative monitoring programme. Monitoring location included in the EIONET WISE SoE network.Uniqueness: uniqueness 1: inspireIdLocalId + inspireIdNamespace uniqueness 2: thematicIdIdentifier + thematicIdIdentifierScheme
-
-```{include} tables/Monitoring_MonitoringSite
+```{include} tables/Monitoring_Monitoring
 ```
 
-(heading_wfd_monitoring_dcmetadata_table_testing_phase)=
-## dcMetadata table
+(heading_wfd_monitoring_MonitoringPurpose_table_testing_phase)=
+### MonitoringPurpose table
 
-Metadata. One record per country.
+```{include} tables/Monitoring_MonitoringPurpose
+```
+
+## Spatial dataset
+
+See additional information in the *data model review documentation*:
+
+* {ref}`heading_monitoringsite_spatial_dataset_4th_cycle`
+
+(heading_wfd_monitoring_monitoringsite_table_testing_phase)=
+### MonitoringSite spatial table
+
+```{include} tables/Spatial_MonitoringSite
+```
+
+## Documents dataset
+
+See additional information in the *data model review documentation*:
+
+* {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
+
+(heading_wfd_monitoring_dcmetadata_table_testing_phase)=
+### dcMetadata table
 
 ```{include} tables/Monitoring_dcMetadata
 ```
 
 (heading_wfd_monitoring_document_table_testing_phase)=
-## Document table
-
-This table contains information about reported documents. Each document must have a unique identifier, a name and it can be either an external link represented by URL or a local file uploaded.`Uniqueness: documentCode
+### Document table
 
 ```{include} tables/Monitoring_Document
 ```
 
 (heading_wfd_monitoring_documentreference_table_testing_phase)=
-## DocumentReference table
+### DocumentReference table
 
 ```{include} tables/Monitoring_DocumentReference
 ```

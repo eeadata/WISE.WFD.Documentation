@@ -7,13 +7,13 @@ config:
 ---
 classDiagram
 class GWChemicalExemption{
-	+ euGroundWaterBodyCode : wiseIdentifier
-	+ gwPollutantCode : Substance
-	/ exemptionType : ExemptionType
-	+ exemptionRationale : ExemptionRationale [1..n]
-	+ exemptionPeriod : ExemptionPeriod
-	+ exemptionReference : referenceCode [0..1]
-	+ significantPressureType : PressureType [1..n]
+	+ euGroundWaterBodyCode: wiseIdentifier
+	+ gwPollutantCode: Parameter
+	/ exemptionType: ExemptionType
+	+ exemptionRationale: ExemptionRationale [1..n]
+	+ exemptionPeriod: ExemptionPeriod
+	+ exemptionReference: referenceCode [0..1]
+	+ significantPressureType: PressureType [1..n]
 }
 
 classDef default fill:white,stroke:#000;

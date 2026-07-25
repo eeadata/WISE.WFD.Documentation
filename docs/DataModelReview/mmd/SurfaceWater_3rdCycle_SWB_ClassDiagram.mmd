@@ -1,105 +1,105 @@
-%%{init : {'theme' : 'default'}}%%
+%%{init: {'theme': 'default'}}%%
 
 classDiagram
 
 class SWChemicalExemptionType ["«XSDcomplexType»
 SWChemicalExemptionType"]  {
   «XSElement»
-  + swChemicalExemptionType : ExemptionType_Enum
-  + swChemicalExemptionPressure : SignificantPressureType_Enum
+  + swChemicalExemptionType: ExemptionType_Enum
+  + swChemicalExemptionPressure: SignificantPressureType_Enum
 }
 
 
 class SWPrioritySubstance ["«XSDcomplexType»
 SWPrioritySubstance"]  {
   «XSElement»
-  + swPrioritySubstanceCode : PS_Enum
-  + swPrioritySubstanceCausingFailure : YesNoUnknownCode_Enum
-  + swPrioritySubstanceExceedanceType : EQStandardType_Enum [0..3]
-  + swPrioritySubstanceExceedanceInMixingZone : YesNoCode_Enum [0..1]
+  + swPrioritySubstanceCode: PS_Enum
+  + swPrioritySubstanceCausingFailure: YesNoUnknownCode_Enum
+  + swPrioritySubstanceExceedanceType: EQStandardType_Enum [0..3]
+  + swPrioritySubstanceExceedanceInMixingZone: YesNoCode_Enum [0..1]
 }
 
 class SWAssociatedProtectedArea ["«XSDcomplexType»
 SWAssociatedProtectedArea"]  {
   «XSElement»
-  + euProtectedAreaCode : FeatureUniqueEUCodeType
-  + protectedAreaType : ProtectedAreaType_Enum
-  + protectedAreaObjectivesSet : ProtectedAreaObjectivesEnum [0..1]
-  + protectedAreaObjectivesMet : YesNoInformation_Union_Enum [0..1]
-  + protectedAreaComment : String1000Type [0..1]
-  + protectedAreaExemption : ExemptionType_Enum [1..*]
+  + euProtectedAreaCode: FeatureUniqueEUCodeType
+  + protectedAreaType: ProtectedAreaType_Enum
+  + protectedAreaObjectivesSet: ProtectedAreaObjectivesEnum [0..1]
+  + protectedAreaObjectivesMet: YesNoInformation_Union_Enum [0..1]
+  + protectedAreaComment: String1000Type [0..1]
+  + protectedAreaExemption: ExemptionType_Enum [1..*]
 }
 
 class QualityElement ["«XSDcomplexType»
 QualityElement"]  {
   «XSElement»
-  + qeCode : StatusQE_Enum
-  + qeStatusOrPotentialValue : QEStatusCode_Enum
-  + qeMonitoringResults : MonitoringResults_Enum [0..1]
-  + qeMonitoringPeriod : YearRangeType [0..1]
-  + qeGrouping : FeatureUniqueEUCodeType [0..*]
+  + qeCode: StatusQE_Enum
+  + qeStatusOrPotentialValue: QEStatusCode_Enum
+  + qeMonitoringResults: MonitoringResults_Enum [0..1]
+  + qeMonitoringPeriod: YearRangeType [0..1]
+  + qeGrouping: FeatureUniqueEUCodeType [0..*]
   + qeStatusOrPotentialChange: ValueQEX_StatusOrPotentialChange_Enum
-  + qeStatusOrPotentialComparability : SoPComparability_Enum [0..1]
-  + qeEcologicalExemptionType : ExemptionType_Enum [1..*]
+  + qeStatusOrPotentialComparability: SoPComparability_Enum [0..1]
+  + qeEcologicalExemptionType: ExemptionType_Enum [1..*]
 }
 
 class FailingRBSP ["«XSDcomplexType»
 FailingRBSP"]{
   «XSElement»
-  + failingRBSP : RBSP_Enum
-  + failingRBSPOther : OtherType [0..1]
+  + failingRBSP: RBSP_Enum
+  + failingRBSPOther: OtherType [0..1]
 }
 
 class SWEcologicalExemptionType ["«XSDcomplexType»
 SWEcologicalExemptionType"]  {
   «XSElement»
-  + swEcologicalExemptionType : ExemptionType_Enum
-  + swEcologicalExemptionPressure : SignificantPressureType_Enum
+  + swEcologicalExemptionType: ExemptionType_Enum
+  + swEcologicalExemptionPressure: SignificantPressureType_Enum
 }
 
 class SurfaceWaterBody ["«XSDcomplexType»
 SurfaceWaterBody"]  {
   «XSElement»
-  + euSurfaceWaterBodyCode : FeatureUniqueEUCodeType
-  + euSubUnitCode : FeatureUniqueEUCodeType
-  + surfaceWaterBodyCategory : SWCategoryCode_Enum
-  + naturalAWBHMWB : NaturalCode_Enum
-  + hmwbWaterUse : HMWBWaterUse_Enum [0..*]
-  + hmwbPhysicalAlteration : HMWBPhysicalAlteration_Enum [0..*]
-  + reservoir : YesNoUnclearReservoir_Enum [0..1]
-  + surfaceWaterBodyTypeCode : String100Type
-  + surfaceWaterBodyIntercalibrationType : SWIntercalibrationType_Enum [1..*]
-  + surfaceWaterBodyTransboundary : YesNoNotApplicable_Union_Enum
-  + swSignificantPressureType : SignificantPressureType_Enum [1..*]
-  + swPressureOther : String1000Type [0..1]
-  + swSignificantImpactType : SignificantImpactType_Enum [1..*]
-  + swSignificantImpactOther : String1000Type [0..1]
-  + swEcologicalStatusOrPotentialValue : EcologicalStatusCode_Enum
-  + swEcologicalAssessmentYear : YearRangeType
-  + swEcologicalAssessmentConfidence : Confidence_Enum
-  + swEcologicalStatusOrPotentialExpectedAchievementDate : GoodStatus_Enum
-  + swChemicalStatusValue : StatusCode_Enum
-  + swChemicalAssessmentYear : YearRangeType
-  + swChemicalAssessmentConfidence : Confidence_Enum
-  + swChemicalMonitoringResults : ChemicalMonitoringResults_Enum [0..1]
-  + swChemicalStatusGrouping : FeatureUniqueEUCodeType [0..*]
-  + swChemicalStatusExpectedAchievementDate : GoodStatus_Enum
-  + swMixingZones : YesNoNoInformation_Union_Enum
-  + swMixingZonesProportion : NumberPercentageType [0..1]
+  + euSurfaceWaterBodyCode: FeatureUniqueEUCodeType
+  + euSubUnitCode: FeatureUniqueEUCodeType
+  + surfaceWaterBodyCategory: SWCategoryCode_Enum
+  + naturalAWBHMWB: NaturalCode_Enum
+  + hmwbWaterUse: HMWBWaterUse_Enum [0..*]
+  + hmwbPhysicalAlteration: HMWBPhysicalAlteration_Enum [0..*]
+  + reservoir: YesNoUnclearReservoir_Enum [0..1]
+  + surfaceWaterBodyTypeCode: String100Type
+  + surfaceWaterBodyIntercalibrationType: SWIntercalibrationType_Enum [1..*]
+  + surfaceWaterBodyTransboundary: YesNoNotApplicable_Union_Enum
+  + swSignificantPressureType: SignificantPressureType_Enum [1..*]
+  + swPressureOther: String1000Type [0..1]
+  + swSignificantImpactType: SignificantImpactType_Enum [1..*]
+  + swSignificantImpactOther: String1000Type [0..1]
+  + swEcologicalStatusOrPotentialValue: EcologicalStatusCode_Enum
+  + swEcologicalAssessmentYear: YearRangeType
+  + swEcologicalAssessmentConfidence: Confidence_Enum
+  + swEcologicalStatusOrPotentialExpectedAchievementDate: GoodStatus_Enum
+  + swChemicalStatusValue: StatusCode_Enum
+  + swChemicalAssessmentYear: YearRangeType
+  + swChemicalAssessmentConfidence: Confidence_Enum
+  + swChemicalMonitoringResults: ChemicalMonitoringResults_Enum [0..1]
+  + swChemicalStatusGrouping: FeatureUniqueEUCodeType [0..*]
+  + swChemicalStatusExpectedAchievementDate: GoodStatus_Enum
+  + swMixingZones: YesNoNoInformation_Union_Enum
+  + swMixingZonesProportion: NumberPercentageType [0..1]
 }
 
 class SWB {
   ["«XSDcomplexType»
 SWB"] 
   «XSElement»
-  + countryCode : CountryCode_Enum
-  + euRBDCode : FeatureUniqueEUCodeType
+  + countryCode: CountryCode_Enum
+  + euRBDCode: FeatureUniqueEUCodeType
 }
 
-SWChemicalExemptionType --> SWPrioritySubstance  : SWChemicalExemptionType
-SWPrioritySubstance --> SurfaceWaterBody  : SWPrioritySubstance
-SWAssociatedProtectedArea --> SurfaceWaterBody  : SWAssociatedProtectedArea
-QualityElement --> SurfaceWaterBody  : QualityElement
-FailingRBSP --> SurfaceWaterBody  : FailingRBSP
-SWEcologicalExemptionType --> SurfaceWaterBody  : SWEcologicalExemptionType
-SurfaceWaterBody --> SWB  : SurfaceWaterBody
+SWChemicalExemptionType --> SWPrioritySubstance : SWChemicalExemptionType
+SWPrioritySubstance --> SurfaceWaterBody : SWPrioritySubstance
+SWAssociatedProtectedArea --> SurfaceWaterBody : SWAssociatedProtectedArea
+QualityElement --> SurfaceWaterBody : QualityElement
+FailingRBSP --> SurfaceWaterBody : FailingRBSP
+SWEcologicalExemptionType --> SurfaceWaterBody : SWEcologicalExemptionType
+SurfaceWaterBody --> SWB : SurfaceWaterBody

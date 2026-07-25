@@ -1,5 +1,5 @@
 (heading_wfd_exemptions)=
-# WFD exemptions
+# Exemptions
 
 Last update: 2026-05-27
 
@@ -14,62 +14,66 @@ Next planned update: 2026-06-15
 (heading_wfd_exemptions_purpose_and_overview)=
 ## Purpose and overview
 
-This section revises the reporting of information related to Exemptions in the 2ⁿᵈ and 3ʳᵈ cycle of reporting of the Water Framework Directive River Basin Management Plans.  
-It also presents a proposal for simplifying the electronic reporting in the 4ᵗʰ cycle.
+This section revises the reporting of information related to Exemptions in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.  
+It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
 (heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle)=
-## Reporting of exemptions - 3ʳᵈ cycle
+## Reporting of exemptions - 3rd cycle
 
 * The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_ClassDiagram`)
-  will not be requested in the 4ᵗʰ cycle structured data reporting (i.e. it is provided only in the RBMP documents).
+  will not be requested in the 4th cycle structured data reporting (i.e. it is provided only in the RBMP documents).
   
 * The information related to exemptions in the groundwater water methodologies schema (GWExemption class, see {numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`).
-  will not be requested in the 4ᵗʰ cycle structured data reporting (i.e. it is provided only in the RBMP documents).
-  
+  will not be requested in the 4th cycle structured data reporting (i.e. it is provided only in the RBMP documents).
   
 ```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_SWMET_ClassDiagram.mmd
 :name: Exemptions_3rdCycle_SWMET_ClassDiagram
-:caption: SWMET schema, SWExemptions class - 3ʳᵈ cycle - OBSOLETE
+:caption: SWMET schema, SWExemptions class - 3rd cycle - OBSOLETE
 :align: center
 ```
 
 ```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_GWMET_ClassDiagram.mmd
 :name: Exemptions_3rdCycle_GWMET_ClassDiagram
-:caption: GWMET schema, GWExemptions class - 3ʳᵈ cycle - OBSOLETE
+:caption: GWMET schema, GWExemptions class - 3rd cycle - OBSOLETE
 :align: center
 ```
 
 (heading_wfd_exemptions_reporting_of_exemptions_4th_cycle)=
-## Reporting of exemptions - 4ᵗʰ cycle
+## Reporting of exemptions - 4th cycle
 
-The duplicate reporting of the ecological exemptions - 
-both at surface water body level *and* at quality element level - 
-is removed in the revised model for the 4ᵗʰ cycle reporting
+The duplicate reporting of the ecological exemptions -
+both at surface water body level *and* at quality element level -
+is removed in the revised model for the 4th cycle reporting
 
-The reporting of ecological, chemical and quantitative exemptions is aligned into tables with a similar structure:
+The reporting of ecological, chemical and quantitative exemptions
+is aligned into tables with a similar structure:
 
-* The waterbody to which the exemption applies is always identified.
+* The water body to which the exemption applies is always identified.
 * For ecological exemptions, the quality element is identified.
 * For chemical exemptions, the substance is identified.
-* For exemptions associated with protected areas were specific objectives were set but not met, the protected area is identified.
+* For exemptions associated with protected areas
+  where specific objectives were set but not met, the protected area is identified.
 
 The remaining attributes (see {numref}`ExemptionAbstractClass`) identify:
-* the exemption type (`exemptionType`), 
-* the reason why the exemption is applied (`exemptionRationale`), 
-* the expected exemption period (`exemptionPeriod`) until good status is achieved, 
-* and the significant pressure causing failure, if applicable (`exemptionPressureType`). 
+
+* the exemption type (`exemptionType`),
+* the reason why the exemption is applied (`exemptionRationale`),
+* the expected exemption period (`exemptionPeriod`) until good status is achieved,
+* and the significant pressure causing failure, if applicable (`exemptionPressureType`).
 
 Reference to additional information in the RBMPs documentation can be provided via the `exemptionReference`.
 
-The `exemptionPeriod` (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`) replaces the following attributes requested in the  3ʳᵈ cycle:
-* `swEcologicalStatusOrPotentialExpectedAchievementDate`,
-* `swChemicalStatusExpectedAchievementDate`, 
-* `gwChemicalStatusExpectedAchievementDate` and 
-* `gwQuantitativeStatusExpectedAchievementDate`.
+The `exemptionPeriod` replaces the following attributes requested in the 3rd cycle:
+
+* `swEcologicalStatusOrPotentialExpectedAchievementDate`
+* `swChemicalStatusExpectedAchievementDate`
+* `gwChemicalStatusExpectedAchievementDate`
+* `gwQuantitativeStatusExpectedAchievementDate`
+See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
 ```{mermaid}
 :name: ExemptionAbstractClass
-:caption: Exemption - 4ᵗʰ cycle - Abstract pattern for illustrative purposes
+:caption: Exemption - 4th cycle - Abstract pattern for illustrative purposes
 :align: center
 %%{init: {'theme': 'neutral'}}%%
 classDiagram
@@ -79,7 +83,7 @@ Exemption"]{
     + exemptionRationale : ExemptionRationale [1..n]
     + exemptionPeriod : ExemptionPeriod
     + exemptionReference : referenceIdentifier [0..1]
-	+ exemptionPressureType : PressureType [0..n]
+    + exemptionPressureType : PressureType [0..n]
 }
 ```
 
@@ -87,11 +91,11 @@ Exemption"]{
 ## Surface water ecological exemptions by quality element
 
 Ecological exemptions are only reported at quality element level, avoiding duplication.  
-Ecological exemptions are reported using the table in {numref}`SWEcologicalExemptionClass`.
+Ecological exemptions are reported using the table in {numref}`Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram.mmd
-:name: SWEcologicalExemptionClass
-:caption: Surface Water Body - Ecological Exemption - 4ᵗʰ cycle
+:name: Exemptions_4thCycle_SWEcologicalExemption_ClassDiagram
+:caption: Surface Water Body - Ecological Exemption - 4th cycle
 :align: center
 ```
 
@@ -99,16 +103,16 @@ The diagram below presents the applicability criteria for the different exemptio
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_EcologicalExemption_Flowchart.mmd
 :name: Exemptions_EcologicalExemption_Flowchart
-:caption: Surface Water Body - Ecological Exemption Decision Tree - 4ᵗʰ cycle
+:caption: Surface Water Body - Ecological Exemption Decision Tree - 4th cycle
 :align: center
 ```
 
 The following conditions apply:
 01. Ecological exemptions are not reported for Territorial Waters.
 02. Ecological exemptions are not reported for hydromorphological quality elements.
-03. Ecological exemptions are not reported for QE3-3 
+03. Ecological exemptions are not reported for QE3-3
     (see {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`).
-04. Ecological exemptions are not reported for quality elements not used in the ecological status assessment 
+04. Ecological exemptions are not reported for quality elements not used in the ecological status assessment
     (because they are not applicable to a given water category or a given national type).
 05. Reporting is mandatory for biological quality elements in moderate, poor or bad status or potential.
 06. Reporting is mandatory for physico-chemical quality elements is less than good status or potential.
@@ -131,19 +135,19 @@ The following conditions apply:
 09. Not allowed: `qeCode LIKE 'QE3%' AND exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 10. Not allowed: `qeCode LIKE 'QE1%' AND exemptionType = 'article47b_relocationOfWaterOrSediment'`
 11. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
-``` 
+```
 
 (heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
 ## Surface water chemical exemptions by pollutant
 
-Chemical exemptions are reported using the table in {numref}`SWChemicalExemptionClass`.  
-In the 4ᵗʰ cycle of reporting, exemptions associated with river basin specific pollutants 
+Chemical exemptions are reported using the table in {numref}`Exemptions_4thCycle_SWChemicalExemption_ClassDiagram`.  
+In the 4th cycle of reporting, exemptions associated with river basin specific pollutants
 are reported as as chemical exemptions,
 and not as exemptions associated with the quality element "QE3-3 - River Basin Specific Pollutants".
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWChemicalExemption_ClassDiagram.mmd
-:name: SWChemicalExemptionClass
-:caption: Surface Water Body - Chemical Exemption - 4ᵗʰ cycle
+:name: Exemptions_4thCycle_SWChemicalExemption_ClassDiagram
+:caption: Surface Water Body - Chemical Exemption - 4th cycle
 :align: center
 ```
 
@@ -151,15 +155,15 @@ The diagram below presents the applicability criteria for the different exemptio
 
 * In 2027, exemptions are not yet required, if the pollutant is causing failure to achieve good status AND:
 
-  * the pollutant is a 2026 Priority Substance,
-  * the pollutant is a 2008 or 2013 Priority Substance for which the EQS was made more strict in 2026
+  - the pollutant is a 2026 Priority Substance,
+  - the pollutant is a 2008 or 2013 Priority Substance for which the EQS was made more strict in 2026
 
-* Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, 
-  where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent). 
+* Article 4(7) exemptions may be applicable for indirect deterioration of chemical status,
+  where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent).
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_ChemicalExemption_Flowchart.mmd
 :name: Exemptions_ChemicalExemption_Flowchart
-:caption: Surface Water Body - Chemical Exemption Decision Tree - 4ᵗʰ cycle
+:caption: Surface Water Body - Chemical Exemption Decision Tree - 4th cycle
 :align: center
 ```
 
@@ -167,11 +171,11 @@ The following conditions apply:
 01. Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance and the pollutant is causing failure to achieve good status.
 02. Reporting is mandatory if the pollutant is a river basin specific pollutant causing failure to achieve good status.
 03. Exemptions are not applicable to pollutants with unknown status.
-04. In 2027, exemptions are not yet required, if the pollutant is 
+04. In 2027, exemptions are not yet required, if the pollutant is
     a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
     and the pollutant is causing failure to achieve good status.
-05. In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost 
-    are only applicable if the pollutant is 
+05. In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost
+    are only applicable if the pollutant is
     a 2013 Priority Substance (or a substance for which a stricter EQS was set in 2013).
 06. For short-term impacts, the maximum exemption period is one year.
 07. Exemptions under the Groundwater Directive are not allowed for surface waters.
@@ -185,7 +189,7 @@ The following conditions apply:
 05. Not allowed: `swPollutantCode in ({list-of-2013-priority-substances}) AND ExemptionRationale IN ('article44_technicalFeasibility','article44_disproportionateCost')`
 06. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 07. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
-``` 
+```
 
 ```{todo}
 Exemptions - {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
@@ -196,20 +200,22 @@ EEA Water to provide list of substances under each of the categories (e.g. 2026 
 (heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions)=
 ## Surface water related protected area exemptions
 
-Specific objectives may be expressed in terms of WFD Water quality elements for waterbodies associated with some types of protected areas:
+Specific objectives may be expressed in terms of WFD Water quality elements
+for water bodies associated with some types of protected areas:
 
 * Shellfish designated waters
 * Drinking water protection areas
-* Natura 2000 protected sites included in the WFD register of protected areas
+* Natura2000 protected sites included in the WFD register of protected areas
 
-If the specific objectives have been expressed in terms of WFD quality elements, and have not been met, then exemptions may be reported.
-(Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
+If the specific objectives have been expressed in terms of WFD quality elements,
+and have not been met, then exemptions may be reported.
+(Note that the euProtectedAreaCode value is only requested for Natura2000 sites.)
 
-Based on the data reported in the 3ʳᵈ cycle, it is likely that the number of exemptions is relatively low. Therefore the attributes of related to exemptions were simply added to the SWAssociatedProtectedArea table ({numref}`SWAssociatedProtectedAreaClass`).
+Based on the data reported in the 3rd cycle, it is likely that the number of exemptions is relatively low. Therefore the attributes of related to exemptions were simply added to the SWAssociatedProtectedArea table ({numref}`SWAssociatedProtectedAreaClass`).
 
-```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWAssociatedProtectedArea_ClassDiagram.mmd 
+```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWAssociatedProtectedArea_ClassDiagram.mmd
 :name: SWAssociatedProtectedAreaClass
-:caption: Surface Water Body - Associated Protected Area Exemption - 4ᵗʰ cycle
+:caption: Surface Water Body - Associated Protected Area Exemption - 4th cycle
 :align: center
 ```
 
@@ -227,7 +233,7 @@ Chemical exemptions are reported using the table in {numref}`Exemptions_4thCycle
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWChemicalExemption_ClassDiagram.mmd
 :name: Exemptions_4thCycle_GWChemicalExemption_ClassDiagram
-:caption: Groundwater Body - Chemical Exemption - 4ᵗʰ cycle
+:caption: Groundwater Body - Chemical Exemption - 4th cycle
 :align: center
 ```
 
@@ -236,11 +242,11 @@ The following conditions apply:
 02. Reporting is mandatory if the pollutant is a groundwater pollutant
     (or indicator of pollution) causing failure to achieve good status.
 03. Exemptions are not applicable to pollutants with unknown status.
-04. In 2027, exemptions are not yet required, if the pollutant is 
+04. In 2027, exemptions are not yet required, if the pollutant is
     a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
     and the pollutant is causing failure to achieve good status.
-05. In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost 
-    are only applicable if the pollutant is 
+05. In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost
+    are only applicable if the pollutant is
     a 2013 Priority Substance (or a substance for which a stricter EQS was set in 2013).
 06. For short-term impacts, the maximum exemption period is one year.
 
@@ -252,12 +258,12 @@ The following conditions apply:
 04. Not required: `gwPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
 05. Not allowed: `gwPollutantCode in ({list-of-2013-priority-substances}) AND ExemptionRationale IN ('article44_technicalFeasibility','article44_disproportionateCost')`
 06. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
-``` 
+```
 
-Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent). 
+Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent).
 
-With the necessary adaptations, 
-the diagram with the criteria applicable to surface water chemical exemptions 
+With the necessary adaptations,
+the diagram with the criteria applicable to surface water chemical exemptions
 ({numref}`Exemptions_ChemicalExemption_Flowchart`)
 is also applicable to groundwater pollutants and indicators of pollution.
 
@@ -269,19 +275,19 @@ DG ENV to provide draft flowchart and quality control criteria:
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions)=
-## Groundwater quantitative exemptions 
+## Groundwater quantitative exemptions
 
 Quantitative exemptions are reported using the table in {numref}`Exemptions_4thCycle_GWQuantitativeExemption_ClassDiagram`.
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWQuantitativeExemption_ClassDiagram.mmd
 :name: Exemptions_4thCycle_GWQuantitativeExemption_ClassDiagram
-:caption: Groundwater Body - Quantitative Exemption - 4ᵗʰ cycle
+:caption: Groundwater Body - Quantitative Exemption - 4th cycle
 :align: center
 ```
 
 The following conditions apply:
-01. Reporting is mandatory if the waterbody is in poor quantitative status
-02. Exemptions are not applicable to waterbodies with unknown quantitative status.
+01. Reporting is mandatory if the water body is in poor quantitative status
+02. Exemptions are not applicable to water bodies with unknown quantitative status.
 03. For short-term impacts, the maximum exemption period is one year.
 04. Exemptions related to relocation of water or sediment are not applicable quantitative status.
 05. Exemptions related to the recast UWWTD are not applicable quantitative status.
@@ -295,7 +301,7 @@ The following conditions apply:
 04. Not allowed: `exemptionType = 'article47b_relocationOfWaterOrSediment'`
 05. Not allowed: `exemptionType = 'uwwtdArticle154_domesticUrbanWasteWater'`
 06. Not allowed: `exemptionType = 'gwdArticle63_exemptionOfMeasures'`
-``` 
+```
 
 ```{todo}
 Exemptions - Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.  
@@ -307,14 +313,14 @@ The diagram below presents the applicability criteria for the different exemptio
 
 ```{mermaid} /DataModelReview/mmd/Exemptions_QuantitativeExemption_Flowchart.mmd
 :name: Exemptions_QuantitativeExemption_Flowchart
-:caption: Surface Water Body - Quantitative Exemption Decision Tree - 4ᵗʰ cycle
+:caption: Surface Water Body - Quantitative Exemption Decision Tree - 4th cycle
 :align: center
 ```
 
 (heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions)=
 ## Groundwater related protected area exemptions
 
-Specific objectives may be set for waterbodies associated with some types of protected areas:
+Specific objectives may be set for water bodies associated with some types of protected areas:
 
 * Drinking water protection areas
 * Natura 2000 protected sites included in the WFD register of protected areas
@@ -323,7 +329,7 @@ Specific objectives may be set for waterbodies associated with some types of pro
 
 (Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
 
-Based on the data reported in the 3ʳᵈ cycle, it is likely that the number of exemptions is relatively low. 
+Based on the data reported in the 3rd cycle, it is likely that the number of exemptions is relatively low.
 Therefore the attributes of related to exemptions were simply added to the GWAssociatedProtectedArea table ({numref}`GWAssociatedProtectedAreaClass`).
 
 ```{todo}
@@ -332,20 +338,20 @@ Exemptions: {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemp
 DG ENV to provide draft flowchart and quality control criteria
 ```
 
-```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWAssociatedProtectedArea_ClassDiagram.mmd 
+```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWAssociatedProtectedArea_ClassDiagram.mmd
 :name: GWAssociatedProtectedAreaClass
-:caption: Groundwater Body - Associated Protected Area Exemption - 4ᵗʰ cycle
+:caption: Groundwater Body - Associated Protected Area Exemption - 4th cycle
 :align: center
 ```
 
 (heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions)=
 ## Codelists associated with the Exemption tables
 
-Codelists associated with the reporting of exemptions are presented in {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`.
+Codelists associated with the reporting of exemptions are presented in {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
-```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_Codelists_ClassDiagram.mmd 
-:name: Exemptions_4thCycle_Codelists_ClassDiagram
-:caption: Codelists associated with the Exemption classes - 4ᵗʰ cycle
+```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram.mmd
+:name: Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram
+:caption: Codelists associated with the Exemption classes - 4th cycle
 :align: center
 ```
 
@@ -367,7 +373,7 @@ See **EMPTY TEMPLATE** {download}`EXCEL </DataModelReview/files/Exemptions_Quali
 (heading_wfd_exemptions_clarifications_article47a)=
 ### Exemptions under Article 4(7a) - short term-impact
 
-Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy*. 
+Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy*.
 
 ```{epigraph}
 "7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:
@@ -389,8 +395,10 @@ For the purposes of carrying out the ex -post verification under point (c) of th
 
 **Actions taken:**
 
-* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
-* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* A new value `article47a_shortTermImpact` was added to the `ExemptionType` codelist.  
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
+* Two new values `upToOneYear` and `upToThreeYears` were added to the `ExemptionPeriod` codelist.
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
 **Quality checks to be implemented:**
 
@@ -426,13 +434,14 @@ Introduced by the *Directive (EU) 2026/805 of the European Parliament and of the
 
 **Actions taken:**
 
-* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* A new value `article47b_relocationOfWaterOrSediment` was added to the `ExemptionType` codelist.
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
 **Quality checks to be implemented:**
 
 * Not applicable to biological quality element exemptions.
 * Not applicable to quantitative exemptions
-* If applied to chemical exemptions, 
+* If applied to chemical exemptions,
   the receiving water body must be confirmed as already not being in good chemical status,
   in particular with respect to the most persistent and bioaccumulative pollutants relocated.
 
@@ -448,24 +457,31 @@ Quality control specification to be verified by DG ENV.
 ```
 
 (heading_wfd_exemptions_clarifications_uwwtdArticle154)=
-### Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive 
+### Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive
 
 ```{epigraph}
 The recast Urban Waste Water Treatment Directive was adopted 27/11/2024 and MS need to transpose the revised provisions by 31 July 2027.
  
-Article 15(4) includes a new exemption from the obligations under the WFD if a water body deteriorates status or does not achieve good status as a result of :
--	increased loads of domestic wastewater treated by a new/refurbished urban wastewater treatment plant, otherwise untreated (NOT industrial wastewater). 
--	The increase is subject to prior authorisation setting out all technically feasible mitigation measures to minimize the negative impact of the UWWTP on water status
--	all technically feasible mitigating measures are implemented to minimise the negative impact of other activities causing similar pressures in the same water bodies  
--	There are no better environmental means that are not disproportionately costly (eg alternative points of discharge)
--	The authorisation and its conditions are referred to in the RBMP
+Article 15(4) includes a new exemption from the obligations under the WFD 
+if a water body deteriorates status or does not achieve good status as a result of:
+
+- increased loads of domestic wastewater treated by a new/refurbished urban wastewater treatment plant,
+  otherwise untreated (NOT industrial wastewater). 
+- The increase is subject to prior authorisation setting out all technically feasible
+  mitigation measures to minimize the negative impact of the UWWTP on water status
+- all technically feasible mitigating measures are implemented to minimise 
+  the negative impact of other activities causing similar pressures in the same water bodies  
+- There are no better environmental means that are not disproportionately costly
+  (eg alternative points of discharge)
+- The authorisation and its conditions are referred to in the RBMP
 
 -- *Clarification provided by the Commission in 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22*
 ```
 
 **Actions taken:**
 
-* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist (see {numref}`Exemptions_4thCycle_Codelists_ClassDiagram`).
+* A new code `uwwtdArticle154_domesticUrbanWasteWater` was added to the `ExemptionType` codelist.
+  See {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 * The {ref}`Exemptions_EcologicalExemption_Flowchart` was updated.
 * The {ref}`Exemptions_ChemicalExemption_Flowchart` was updated.
 
@@ -477,9 +493,9 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 ### Exemptions related to Protected Areas
 
 ```{epigraph}
--	Where objectives are set in terms of WFD quality /quantity status elements 
+- Where objectives are set in terms of WFD quality /quantity status elements 
   (eg stricter quality standards are set for ‘good’ status in view of protecting certain species), exemptions from good status can be applied. 
--	If no such objectives have been set 
+- If no such objectives have been set 
   and protected areas objectives are only set under other legislation, 
   it’s not possible/necessary to exempt 
   from compliance with those objectives: 
@@ -503,7 +519,6 @@ Article 15(4) includes a new exemption from the obligations under the WFD if a w
 -- *Clarification to provided by the Commission reply to the clarification request during the WG DIS meeting on 2026-04-22.*
 ```
 
-
 ```{todo}
 Exemptions - {ref}`heading_wfd_exemptions_clarification_rbsp`
 
@@ -512,28 +527,28 @@ Exemptions - {ref}`heading_wfd_exemptions_clarification_rbsp`
 ```
 
 (heading_wfd_exemption_annexes_3rd_cycle)=
-## Annexes - Data analysis - 3ʳᵈ cycle
+## Annexes - Data analysis - 3rd cycle
 
 ```{include} FragmentAnnexesDataAnalysis3rdCycle
 ```
 
-### Surface water - ecological exemptions at water body - 3ʳᵈ cycle 
+### Surface water - ecological exemptions at water body - 3rd cycle
 
-In the 3ʳᵈ cycle, the reporting of ecological exemptions was requested:
+In the 3rd cycle, the reporting of ecological exemptions was requested:
 
 * directly at surface water body level, in the SWEcologicalExemptionType class
 * also at quality element level, in the qeEcologicalExemptionType element of the QualityElement class.
 
 In 96.5% of the cases, the data reported is redundant with regard to the reporting at quality element level.
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water - duplication between ecological exemptions at water body level *vs.* at quality element level - 3ʳᵈ cycle
+:caption: Surface water - duplication between ecological exemptions at water body level *vs.* at quality element level - 3rd cycle
 :linenos:
   /**
     "Duplicate" reporting of ecological exemptions 
     at surface water body level and at quality element level 
-    in the 3ʳᵈ cycle reporting
+    in the 3rd cycle reporting
   **/
 
   --  https://discodata.eea.europa.eu
@@ -574,17 +589,19 @@ In 96.5% of the cases, the data reported is redundant with regard to the reporti
   GROUP BY [exemptionTypeTable]
 ```
 
-Based on the analysis of the remaining 3.5% of cases, it is likely that the missing quality element level exemption is simply a reporting error not detected by the quality control.
+Based on the analysis of the remaining 3.5% of cases, it is likely that
+the missing quality element level exemption
+is simply a reporting error not detected by the quality control.
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water - mismatch between ecological exemptions at water body level *vs.* at quality element level - 3ʳᵈ cycle
+:caption: Surface water - mismatch between ecological exemptions at water body level *vs.* at quality element level - 3rd cycle
 :linenos:
   /**
     Analysis of the cases where 
     ecological exemptions reported at surface water body level
     do not match an exemption reported at quality element level 
-    in the 3ʳᵈ cycle reporting
+    in the 3rd cycle reporting
   **/
 
   --  https://discodata.eea.europa.eu
@@ -642,14 +659,13 @@ Based on the analysis of the remaining 3.5% of cases, it is likely that the miss
   ORDER BY [numberOfQualityElementExemptionTypes]
 ```
 
-
-### Surface water - ecological exemptions at quality element level - 3ʳᵈ cycle
+### Surface water - ecological exemptions at quality element level - 3rd cycle
 
 In 98.9% of the cases, only one type of exemption was reported per quality element and water body.
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water - ecological exemptions at quality element level - 3ʳᵈ cycle
+:caption: Surface water - ecological exemptions at quality element level - 3rd cycle
 :linenos:
 --  https://discodata.eea.europa.eu
 
@@ -670,14 +686,14 @@ In 98.9% of the cases, only one type of exemption was reported per quality eleme
   GROUP BY [numberOfExemptionTypes]
   ORDER BY [numberOfExemptionTypes] ASC
 ```
-	
-### Surface water - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+
+### Surface water - chemical exemptions by pollutant and water body - 3rd cycle
 
 In 99.1% of the cases, only one type of exemption was reported per priority substance and water body.
-	
-```{dropdown} Show code	
+
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+:caption: Surface water - chemical exemptions by pollutant and water body - 3rd cycle
 :linenos:
 -- https://discodata.eea.europa.eu/
 
@@ -700,15 +716,15 @@ FROM
       ,[swPrioritySubstanceCode]) t
   GROUP BY [numberOfExemptionTypes]
   ORDER BY [numberOfExemptionTypes] ASC
-```	  
+```
 
-### Groundwater - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+### Groundwater - chemical exemptions by pollutant and water body - 3rd cycle
 
 In 99.5% of the cases, only one type of exemption was reported per pollutant and water body.
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater - chemical exemptions by pollutant and water body - 3ʳᵈ cycle
+:caption: Groundwater - chemical exemptions by pollutant and water body - 3rd cycle
 :linenos:
 -- https://discodata.eea.europa.eu/
 
@@ -731,15 +747,15 @@ FROM
         ,[gwPollutantCode]+isnull([gwPollutantOther],'') ) t
 GROUP BY [numberOfExemptionTypes]
 ORDER BY [numberOfExemptionTypes] ASC
-```	   
-	
-### Groundwater - quantitative exemptions by water body - 3ʳᵈ cycle
+```
+
+### Groundwater - quantitative exemptions by water body - 3rd cycle
 
 In 93.7% of the cases, only one type of exemption was reported per water body.
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater - quantitative exemptions by water body - 3ʳᵈ cycle
+:caption: Groundwater - quantitative exemptions by water body - 3rd cycle
 :linenos:
 --   https://discodata.eea.europa.eu/
 SELECT [numberOfExemptionTypes],
@@ -760,12 +776,12 @@ FROM
 GROUP BY [numberOfExemptionTypes]
 ORDER BY [numberOfExemptionTypes] ASC
 ```
-	
-### Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
+
+### Surface water - exemptions by associated protected area and water body - 3rd cycle
 
 This information is only reported for drinking waters, shellfish designated waters, and Natura 2000 protected sites included in the WFD register of protected areas, *if specific objectives have been set for the associated surface water body*.
 
-```{csv-table} Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
+```{csv-table} Surface water - exemptions by associated protected area and water body - 3rd cycle
 :name: Surface_water_protected_area_exemptions_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -778,9 +794,9 @@ Article 4(5) - Disproportionate cost|1|72|12
 Article 4(5) - Technical feasibility|2|74|14
 ```
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Surface water - exemptions by associated protected area and water body - 3ʳᵈ cycle
+:caption: Surface water - exemptions by associated protected area and water body - 3rd cycle
 :linenos:
 --   https://discodata.eea.europa.eu/
 SELECT [protectedAreaExemption] 
@@ -796,14 +812,16 @@ AND [protectedAreaObjectivesMet] = 'No'
 GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
  ```
 
-### Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
+### Groundwater - exemptions by associated protected area and water body - 3rd cycle
 
-This information is only reported for drinking waters and Natura 2000 protected sites included in the WFD register of protected areas,
+This information is only reported for drinking waters and Natura 2000 protected sites
+included in the WFD register of protected areas,
 *if specific objectives have been set for the associated groundwater body*.
 
-Exemptions were reported for a total of 198 water bodies associated with a total of 273 protected areas, in 9 countries. 
+Exemptions were reported for a total of 198 water bodies associated
+with a total of 273 protected areas, in 9 countries.
 
-```{csv-table} Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
+```{csv-table} Groundwater - exemptions by associated protected area and water body - 3rd cycle
 :name: Groundwater_protected_area_exemptions_3rdCycle_Table
 :header-rows: 1
 :delim: "|"
@@ -816,9 +834,9 @@ Article 4(5) - Disproportionate cost|1|14|14
 Article 4(5) - Technical feasibility|2|18|18
 ```
 
-```{dropdown} Show code	
+```{dropdown} Show code
 ```{code-block} sql
-:caption: Groundwater - exemptions by associated protected area and water body - 3ʳᵈ cycle
+:caption: Groundwater - exemptions by associated protected area and water body - 3rd cycle
 :linenos:
 --   https://discodata.eea.europa.eu/
 
@@ -837,7 +855,3 @@ GROUP BY [protectedAreaExemption],[protectedAreaObjectivesMet]
 
 (heading_wfd_wfd_exemptions_references)=
 ## References
-
-```{include} FragmentReportingGuidanceFiles
-```
-

@@ -1,0 +1,74 @@
+```{list-table} Codelist - 4th cycle - HMWBWaterUse
+:name: Codelist_4thCycle_HMWBWaterUse_Table
+:header-rows: 1
+:width: 100%
+:widths: 25 25 75 
+:align: left
+
+* - Notation
+  - Label 
+  - Definition
+
+* - widerEnvironment_natureProtection
+  - Nature protection
+  - See Article 4(3)(a)(i) of the WFD.
+
+* - widerEnvironment_culturalHeritageProtection
+  - Cultural heritage protection 
+  - Archaeological sites and patrimony. See Article 4(3)(a)(i) of the WFD.
+
+* - transport_navigation
+  - Transport - Navigation and Ports
+  - See Article 4(3)(a)(ii) of the WFD.
+
+* - tourism
+  - Tourism and recreation
+  - See Article 4(3)(a)(ii) of the WFD.
+
+* - urban_drinkingWaterSupply
+  - Urban development - drinking water supply
+  - Water storage for domestic public water supply (mostly drinking water supply).
+    See Article 4(3)(a)(iii) of the WFD.
+
+* - agriculture_irrigation
+  - Agriculture - irrigation
+  - Water storage for irrigation. See Article 4(3)(a)(iii) of the WFD.
+
+* - aquaculture
+  - Aquaculture, fisheries, fish farms
+  - Water storage for aquaculture, fisheries, fish farms. See Article 4(3)(a)(iii) of the WFD.
+
+* - industry_waterSupply
+  - Industry - water supply
+  - Water storage for industry. See Article 4(3)(a)(iii) of the WFD.
+
+* - energy_hydropower
+  - Energy – hydropower
+  - Water storage for hydropower generation. See Article 4(3)(a)(iii) of the WFD.
+
+* - energy_nonHydropower
+  - Energy – non-hydropower
+  - Water storage for power generation. See Article 4(3)(a)(iii) of the WFD.
+    Applicable to cooling activities for thermal and nuclear plants.
+
+* - floodProtection
+  - Flood protection
+  - See Article 4(3)(a)(iv) of the WFD.
+
+* - agriculture_landDrainage
+  - Agriculture - land drainage
+  - See Article 4(3)(a)(iv) of the WFD.
+
+* - urban_other
+  - Urban development - other use
+  - «to be provided»
+
+* - otherSustainableHumanDevelopmentActivities
+  - Other sustainable human development activities
+  - See Article 4(3)(a)(v) of the WFD.
+
+* - unknown
+  - Unknown
+  - Unknown use. The selection of this option will trigger an ERROR.
+
+```

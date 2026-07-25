@@ -2,7 +2,6 @@ classDiagram
     direction TB
 
     class EconomicAnalysis {
-        <<XSDcomplexType>>
         + updatedEconomicAnalysis: YesNoPartially_Union_Enum
         + economicAnalysisReference: ReferenceType [0..*]
         + costEffectiveness: CostEffectiveness_Enum
@@ -14,16 +13,15 @@ classDiagram
         + article9WaterStorage: YesNoCode_Enum
         + article9FloodProtection: YesNoCode_Enum
         + article9Navigation: YesNoCode_Enum
-        + article9Other: String1000Type [0..1]
+        + article9Other: string1000
         + article94: YesNoCode_Enum
         + article94Reference: ReferenceType [0..*]
         + costRecoveryReference: ReferenceType [1..*]
     }
 
     class Service {
-        <<XSDcomplexType>>
         + service: ServiceType_Enum
-        + serviceOther: String1000Type [0..1]
+        + serviceOther: string1000 [0..1]
         + serviceCostInstrument: YesNoPartially_Union_Enum
         + serviceCostInstrumentReference: ReferenceType [0..*]
         + serviceVolumetricCharges: YesNoPartially_Union_Enum
@@ -32,25 +30,24 @@ classDiagram
         + serviceFinancialCostCalculation: YesNoPartially_Union_Enum
         + serviceFinancialCostRecovery: NumberPercentageAboveType
         + serviceEnvironmentalCharge: YesNoCode_Enum
-        + serviceEnvironmentalChargeScale: MoSRBD_Enum [0..1]
+        + serviceEnvironmentalChargeScale: MSorRBD_Enum [0..1]
         + serviceEnvironmentalChargeRevenues: NumberDecimalType [0..1]
         + serviceEnvironmentalChargeRevenuesUse: YesNoPartially_Union_Enum [0..1]
         + serviceExternalEnvironmentalResourceCost: YesNoCode_Enum [0..1]
         + serviceExternalEnvironmentalResourceCostSignificance: YesNoCode_Enum [0..1]
         + serviceExternalEnvironmentalResourceCostInternalisation: YesNoPartially_Union_Enum [0..1]
-        + serviceExternalEnvironmentalResourceCostJustification: String2500Type [0..1]
+        + serviceExternalEnvironmentalResourceCostJustification: string2500 [0..1]
         + serviceWaterUseHouseholds: YesNoCode_Enum
-        + serviceWaterUseIndustry: YesNoCode_Enum
         + serviceWaterUseAgriculture: YesNoCode_Enum
-        + serviceWaterUseOther: String1000Type [0..1]
+        + serviceWaterUseIndustry: YesNoCode_Enum
+        + serviceWaterUseOther: string1000 [0..1]
         + serviceWaterUseContribution: YesNoCode_Enum
     }
 
     class RBMPPoM {
-        <<XSDcomplexType>>
         + countryCode: CountryCode_Enum
         + euRBDCode: FeatureUniqueEUCodeType
     }
 
-    EconomicAnalysis --> RBMPPoM : 1..1
-    Service --> RBMPPoM : 1..*
+    EconomicAnalysis --> RBMPPoM: 1..1
+    Service --> RBMPPoM: 1..*

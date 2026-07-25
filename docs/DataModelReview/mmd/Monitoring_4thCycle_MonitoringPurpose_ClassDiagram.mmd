@@ -6,11 +6,21 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
+direction TB
+
 class MonitoringPurpose{
-  + euMonitoringSiteCode : wiseIdentifier
-  + monitoringPurpose : MonitoringPurpose
+  + euMonitoringSiteCode: wiseIdentifier
+  + monitoringPurpose: WFDMonitoringPurpose [1..3]
 }
 
+class WFDMonitoringPurpose{
+    <<enumeration>>
+    investigativeMonitoring
+    operationalMonitoring
+    surveillanceMonitoring
+    }     
 
+MonitoringPurpose ..> WFDMonitoringPurpose
 
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

@@ -1,0 +1,38 @@
+```{list-table} Codelist - 4th cycle - GEPApproach
+:name: Codelist_4thCycle_GEPApproach_Table
+:header-rows: 1
+:width: 100%
+:widths: 25 25 50 
+:align: left
+
+* - Notation 
+  - Label 
+  - Definition 
+
+* - cisGuidanceReferenceApproach
+  - CIS Guidance 37 reference approach
+  - Reference approach as explained in CIS Guidance 37 {footcite}`CIS_Guidance_37`
+
+* - mitigationMeasuresPragueApproachWithBQE
+  - Mitigation measures (Prague) approach with BQE
+  - Mitigation measures (Prague) approach as explained in CIS Guidance 37, including 
+    an assessment of biological quality elements that would be applicable to natural water bodies.
+
+* - mitigationMeasuresPragueApproachWithoutBQE
+  - Mitigation measures (Prague) approach without BQE
+  - Mitigation measures (Prague) approach, but not yet including 
+    any biological quality elements in the assessment. 
+
+* - hybridApproachReferencePrague
+  - Hybrid CIS Guidance Reference approach / Prague approach
+  - Hybrid between the CIS Guidance 37 reference approach and the mitigation measures (Prague) approach.
+
+* - sameAssessmentAsNaturalWB 
+  - Same assessment system as for natural water bodies
+  - The exact same assessment system as for natural water bodies is used.
+    
+* - gepHasNotBeenDefined 
+  - GEP has not been defined
+  - Good ecological potential has not been not defined for this water category.
+  
+```

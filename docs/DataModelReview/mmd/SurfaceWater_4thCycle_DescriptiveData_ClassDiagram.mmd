@@ -9,82 +9,72 @@ classDiagram
 direction TB
 
 class SurfaceWaterBody {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + surfaceWaterBodyCategory : WaterBodyCategory
-    + naturalAWBHMWB : NaturalAWBHMWB
-    + surfaceWaterBodyTypeCode : swTypeIdentifier [0..1]
-    + surfaceWaterBodyTransboundary : YesNo
-    + reservoir : ReservoirType
-    + swMixingZonesProportion : PercentageInterval
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + surfaceWaterBodyCategory: WaterBodyCategory
+    + naturalAWBHMWB: NaturalAWBHMWB
+    + swTypeIdentifier: wiseIdentifier
+    + surfaceWaterBodyTransboundary: YesNo
+    + reservoir: ReservoirType
+    + swMixingZonesProportion: PercentageInterval
 }
 
-class SWType {
-    + swTypeIdentifier : wiseIdentifier
-    + swTypeDescription : text
-    + swTypeCategory : WaterBodyCategory
-    + swIntercalibrationType : IntercalibrationType
-}
-
-class SWTypeReferenceCondition {
-    + swTypeIdentifier : wiseIdentifier
-    + qeCode: QualityElementCode
-    + swTypeReferenceCondition : text
-}
-
-class SurfaceWaterBodyStatus {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    \ swEcologicalStatusOrPotentialValue : EcologicalStatusValue
-    \ swChemicalStatusValue : ChemicalStatusValue
+class SWStatus {
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swEcologicalStatusOrPotentialValue: EcologicalStatus
+    + swChemicalStatusValue: ChemicalStatus
 }
 
 class SWPollutant {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + swPollutantCode : ParameterCode
-    + swPollutantCausingFailure : YesNoUnknown
-    + swPollutantExceedanceType : EQStandardType [0..n]
-    + swPollutantAssessmentPeriod : range
-    + swPollutantAssessmentMethod : AssessmentMethodValue
-    + swPollutantAssessmentConfidence : AssessmentConfidenceValue
-    + swPollutantAssessmentGrouping : euSurfaceWaterBodyCode [0..n]
-    + swPollutantExceedanceInMixingZone : YesNoUnknown [0..1]
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swPollutantCode: Parameter
+    + swPollutantCausingFailure: YesNoUnknown
+    + swThresholdExceedance: wiseIdentifier [0..n]
+    + swPollutantExceedanceInMixingZone: YesNoUnknownNotApplicable
+    
+    + swPollutantAssessmentPeriod: range
+    + swPollutantAssessmentMethod: AssessmentMethod [1..n]
+    + swPollutantAssessmentConfidence: AssessmentConfidence
+
+    + swThresholdIdentifier: wiseIdentifier [1..n]
+    + swGroupingIdentifier: wiseIdentifier [0..n]
 }
 
 class SWPressureImpact {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + swPressureType : PressureType [0..1]
-    + swImpactType : ImpactType  [0..1]
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swPressureType: PressureType [0..1]
+    + swImpactType: ImpactType  [0..1]
 }
 
-class HighlyModifiedWaterBody {
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + hmwbPhysicalAlterationType : HMWBPhysicalAlterationType [0..1]
-    + hmwbWaterUseType : HMWBWaterUseType [0..1]
+class SWHeavilyModifiedWaterBody {
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + hmwbPhysicalAlteration: HMWBPhysicalAlteration [0..n]
+    + hmwbWaterUse: HMWBWaterUse [0..n]
 }
 
-class SWQualityElement:::forFixing{
-    + euSurfaceWaterBodyCode : wiseIdentifier
-    + qeCode : QualityElementCode
-    + qeStatusOrPotentialValue : EcologicalStatusValue
-    + qeStatusAssessmentPeriod : range
-    + qeStatusAssessmentMethod : AssessmentMethodValue
-    + qeStatusAssessmentConfidence : AssessmentConfidenceValue
-    + swGroupIdentifier : wiseIdentifier [0..n]
+class SWQualityElement{
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + qeCode: QualityElement
+    + qeStatusOrPotentialValue: EcologicalStatus
+    + qeStatusAssessmentPeriod: range
+    + qeStatusAssessmentMethod: AssessmentMethod [1..n]
+    + qeStatusAssessmentConfidence: AssessmentConfidence
+    + qeClassificationIdentifier: wiseIdentifier [1..n]
+    + swGroupingIdentifier: wiseIdentifier [0..n]
 }
-class SWGrouping:::forFixing{
-    + swGroupIdentifier : wiseIdentifier
-    + euSurfaceWaterBodyCode : wiseIdentifier
+class SWGrouping{
+    + swGroupingIdentifier: wiseIdentifier
+    + euSurfaceWaterBodyCode: wiseIdentifier
 }
 
-SWTypeReferenceCondition "1..19" -- "1" SWType
-SWType .. SurfaceWaterBody
-HighlyModifiedWaterBody "0..n" -- SurfaceWaterBody : {naturalAWBHMWB =! 'natural'}
-SurfaceWaterBody -- SurfaceWaterBodyStatus
-SurfaceWaterBodyStatus "1" -- "n" SWQualityElement
-SurfaceWaterBodyStatus -- "0..n" SWPressureImpact
-SurfaceWaterBodyStatus -- "0..n" SWPollutant
+SWHeavilyModifiedWaterBody "0..n" -- "1" SurfaceWaterBody 
+SurfaceWaterBody "1" -- "1" SWStatus
+SWStatus "1" -- "0..n" SWQualityElement
+SWStatus "1" -- "0..n" SWPressureImpact
+SWStatus "1" -- "0..n" SWPollutant
 
-SWQualityElement "0..n" .. "0..n" SWGrouping : swGroupIdentifier
-SWPollutant "0..n" .. "0..n" SWGrouping : swGroupIdentifier
+SWQualityElement ..> SWGrouping: swGroupingIdentifier
+SWPollutant ..> SWGrouping: swGroupingIdentifier
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lightyellow,stroke:#000;

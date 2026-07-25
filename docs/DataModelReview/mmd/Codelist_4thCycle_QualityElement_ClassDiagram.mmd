@@ -1,0 +1,38 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class QualityElement{
+<<enumeration>>
+«biological-quality-element»
+QE1-1 - Phytoplankton
+QE1-2-1 - Macroalgae
+QE1-2-2 - Angiosperms
+QE1-2-3 - Macrophytes
+QE1-2-4 - Phytobenthos
+QE1-3 - Benthic invertebrates
+QE1-4 - Fish
+«hydromorphological-quality-element»
+QE2-1 - Hydrological or tidal regime
+QE2-2 - River continuity conditions
+QE2-3 - Morphological conditions
+«physicochemical-quality-element»
+QE3-1-1 - Transparency conditions
+QE3-1-2 - Thermal conditions
+QE3-1-3 - Oxygenation conditions
+QE3-1-4 - Salinity conditions
+QE3-1-5 - Acidification status
+QE3-1-6-1 - Nitrogen conditions
+QE3-1-6-2 - Phosphorus conditions
+}
+
+note for QualityElement "the label is not part of the code"
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

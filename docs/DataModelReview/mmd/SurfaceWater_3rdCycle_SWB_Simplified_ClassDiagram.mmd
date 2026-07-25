@@ -1,57 +1,57 @@
-%%{init : {'theme' : 'default'}}%%
+%%{init: {'theme': 'default'}}%%
 
 classDiagram
 
 
 class SWPrioritySubstance {
   
-  + swPrioritySubstanceCode : PS_Enum
-  + swPrioritySubstanceCausingFailure : YesNoUnknownCode_Enum
-  + swPrioritySubstanceExceedanceType : EQStandardType_Enum [0..3]
-  + swPrioritySubstanceExceedanceInMixingZone : YesNoCode_Enum [0..1]
+  + swPrioritySubstanceCode: PS_Enum
+  + swPrioritySubstanceCausingFailure: YesNoUnknownCode_Enum
+  + swPrioritySubstanceExceedanceType: EQStandardType_Enum [0..3]
+  + swPrioritySubstanceExceedanceInMixingZone: YesNoCode_Enum [0..1]
 }
 
 class FailingRBSP {
-  + failingRBSP : RBSP_Enum
+  + failingRBSP: RBSP_Enum
   
 }
 
 class QualityElement {
   
-  + qeCode : StatusQE_Enum
-  + qeStatusOrPotentialValue : QEStatusCode_Enum
-  + qeMonitoringResults : MonitoringResults_Enum [0..1]
-  + qeMonitoringPeriod : YearRangeType [0..1]
-  + qeGrouping : FeatureUniqueEUCodeType [0..*]
+  + qeCode: StatusQE_Enum
+  + qeStatusOrPotentialValue: QEStatusCode_Enum
+  + qeMonitoringResults: MonitoringResults_Enum [0..1]
+  + qeMonitoringPeriod: YearRangeType [0..1]
+  + qeGrouping: FeatureUniqueEUCodeType [0..*]
   + qeStatusOrPotentialChange: ValueQEX_StatusOrPotentialChange_Enum
-  + qeStatusOrPotentialComparability : SoPComparability_Enum [0..1]
+  + qeStatusOrPotentialComparability: SoPComparability_Enum [0..1]
 }
 
 class SurfaceWaterBody   {
   
-  + euSurfaceWaterBodyCode : FeatureUniqueEUCodeType
-  + surfaceWaterBodyCategory : SWCategoryCode_Enum
-  + naturalAWBHMWB : NaturalCode_Enum
-  + hmwbWaterUse : HMWBWaterUse_Enum [0..*]
-  + hmwbPhysicalAlteration : HMWBPhysicalAlteration_Enum [0..*]
-  + reservoir : YesNoUnclearReservoir_Enum [0..1]
-  + surfaceWaterBodyTypeCode : String100Type
-  + surfaceWaterBodyIntercalibrationType : SWIntercalibrationType_Enum [1..*]
-  + surfaceWaterBodyTransboundary : YesNoNotApplicable_Union_Enum
-  + swSignificantPressureType : SignificantPressureType_Enum [1..*]
-  + swSignificantImpactType : SignificantImpactType_Enum [1..*]
-  + swEcologicalStatusOrPotentialValue : EcologicalStatusCode_Enum
-  + swEcologicalAssessmentYear : YearRangeType
-  + swEcologicalAssessmentConfidence : Confidence_Enum
-  + swChemicalStatusValue : StatusCode_Enum
-  + swChemicalAssessmentYear : YearRangeType
-  + swChemicalAssessmentConfidence : Confidence_Enum
-  + swChemicalMonitoringResults : ChemicalMonitoringResults_Enum [0..1]
-  + swChemicalStatusGrouping : FeatureUniqueEUCodeType [0..*]
-  + swMixingZones : YesNoNoInformation_Union_Enum
-  + swMixingZonesProportion : NumberPercentageType [0..1]
+  + euSurfaceWaterBodyCode: FeatureUniqueEUCodeType
+  + surfaceWaterBodyCategory: SWCategoryCode_Enum
+  + naturalAWBHMWB: NaturalCode_Enum
+  + hmwbWaterUse: HMWBWaterUse_Enum [0..*]
+  + hmwbPhysicalAlteration: HMWBPhysicalAlteration_Enum [0..*]
+  + reservoir: YesNoUnclearReservoir_Enum [0..1]
+  + surfaceWaterBodyTypeCode: String100Type
+  + surfaceWaterBodyIntercalibrationType: SWIntercalibrationType_Enum [1..*]
+  + surfaceWaterBodyTransboundary: YesNoNotApplicable_Union_Enum
+  + swSignificantPressureType: SignificantPressureType_Enum [1..*]
+  + swSignificantImpactType: SignificantImpactType_Enum [1..*]
+  + swEcologicalStatusOrPotentialValue: EcologicalStatusCode_Enum
+  + swEcologicalAssessmentYear: YearRangeType
+  + swEcologicalAssessmentConfidence: Confidence_Enum
+  + swChemicalStatusValue: StatusCode_Enum
+  + swChemicalAssessmentYear: YearRangeType
+  + swChemicalAssessmentConfidence: Confidence_Enum
+  + swChemicalMonitoringResults: ChemicalMonitoringResults_Enum [0..1]
+  + swChemicalStatusGrouping: FeatureUniqueEUCodeType [0..*]
+  + swMixingZones: YesNoNoInformation_Union_Enum
+  + swMixingZonesProportion: NumberPercentageType [0..1]
 }
 
-SWPrioritySubstance --> SurfaceWaterBody  : SWPrioritySubstance
-FailingRBSP --> SurfaceWaterBody  : FailingRBSP
-QualityElement --> SurfaceWaterBody  : QualityElement
+SWPrioritySubstance --> SurfaceWaterBody : SWPrioritySubstance
+FailingRBSP --> SurfaceWaterBody : FailingRBSP
+QualityElement --> SurfaceWaterBody : QualityElement

@@ -1,0 +1,46 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType {
++ swTypeIdentifier: wiseIdentifier
+}
+
+class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::otherDataset{
++ euSurfaceWaterBodyCode: wiseIdentifier
++ qeCode: QualityElement
++ qeClassificationIdentifier: wiseIdentifier
+}
+
+class BQEMethod{
++ bqeMethodIdentifier: wiseIdentifier
++ bqeCode: BiologicalQualityElement
+}
+
+class QE1Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: BiologicalQualityElement
++ bqeMethodIdentifier: wiseIdentifier 
+}
+
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
+}
+
+SWQualityElement ..> QE1Classification: qeClassificationIdentifier
+
+BQEMethod "1" -- "1..n" QE1Classification 
+QE1Classification "1" -- "0..n" QEClassification_SWType
+QEClassification_SWType "0..n" -- "1" SWType 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;

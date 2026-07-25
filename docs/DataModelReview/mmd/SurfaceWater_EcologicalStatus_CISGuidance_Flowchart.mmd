@@ -12,8 +12,6 @@ title@{ shape: braces, label: "CIS Guidance document 13, Figure 1" }
     initial([start])
     final([end])
     
-
- 
     High["High status"]:::Blue
     Good["Good status"]:::Green
     Moderate["Moderate status"]:::Yellow
@@ -46,6 +44,7 @@ title@{ shape: braces, label: "CIS Guidance document 13, Figure 1" }
 
     is_BQE_High ==>|No|is_BQE_Good
     is_BQE_Good ==>|Yes|is_PhysChemQE_Good
+    is_BQE_Good ==>|No|ClassifyUsingBQEOnly
     is_PhysChemQE_Good ==>|Yes|Good
     Good --> final
     

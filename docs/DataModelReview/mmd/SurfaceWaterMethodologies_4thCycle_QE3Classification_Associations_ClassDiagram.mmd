@@ -1,0 +1,48 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType:::partial{
++ swTypeIdentifier: wiseIdentifier
+}
+
+class SWQualityElement["SurfaceWaterDataset::SWQualityElement"]:::otherDataset{
++ euSurfaceWaterBodyCode: wiseIdentifier
++ qeCode: QualityElement
++ qeClassificationIdentifier: wiseIdentifier
+}
+
+class QE3Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: PhysicoChemicalQualityElement
++ parameterCode: Parameter
++ parameterUnit: UnitOfMeasure
+}
+
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
+}
+
+class SWNaturalBackgroundLevel{
++ swTypeIdentifier: wiseIdentifier
++ parameterCode: Parameter
++ parameterValue: range  
++ parameterUnit: UnitOfMeasure
+}
+
+SWQualityElement ..> QE3Classification
+QE3Classification "1" -- "0..n" QEClassification_SWType
+QEClassification_SWType "0..n" -- "1" SWType
+SWType "1" -- "0..n" SWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;

@@ -1,0 +1,23 @@
+```{list-table} Codelist - 4th cycle - ConfidentialityStatus
+:name: Codelist_4thCycle_ConfidentialityStatus_Table 
+:header-rows: 1
+:width: 100%
+:widths: 20 40 40
+:align: left
+
+* - Notation
+  - Label
+  - Definition and notes
+    {footcite}`sdmxclconfstatus2014`
+    {footcite}`sdmxconfidentialityguideline2018`
+
+* - F
+  - Free for publication
+  - *The geometry will be published as reported.*
+
+* - N
+  - Not for publication, restricted for internal use only 
+  - *The reported geometry will not be published.*
+    For monitoring sites, an arbitrary location within 
+    the water body may be used in some visualisations. 
+```

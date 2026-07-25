@@ -3,6 +3,34 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import sys, os
+from pybtex.style.sorting import BaseSortingStyle
+from pybtex.style.formatting.plain import Style as PlainStyle
+from pybtex.plugin import register_plugin
+
+### BIBTEX EXPERIMENT - SORT SOME BIBLIOGRAPHIES BY TITLE
+# 1. Define the custom sorting logic
+class TitleSorter(BaseSortingStyle):
+    def sorting_key(self, entry):
+        # Fetch the title. If a citation doesn't have a title (e.g., @misc), 
+        # fallback to the citation key so the compiler doesn't crash.
+        title = entry.fields.get('title', entry.key)
+        
+        # Remove any BibTeX curly braces and convert to lowercase 
+        # to ensure perfect alphabetical sorting
+        clean_title = title.replace('{', '').replace('}', '').lower()
+        
+        # Pybtex expects a tuple for sorting keys (primary, secondary, etc.)
+        return (clean_title, )
+
+# 2. Inherit your preferred visual style and inject the new sorter
+class PlainTitleStyle(PlainStyle):
+    default_sorting_style = 'title_sorter'
+
+# 3. Register both plugins with pybtex
+register_plugin('pybtex.style.sorting', 'title_sorter', TitleSorter)
+register_plugin('pybtex.style.formatting', 'plaintitle', PlainTitleStyle)
+
+### 
 
 # Check if this is on ReadTheDocs, which sets a specific environment variable
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
@@ -24,7 +52,18 @@ extensions = ['sphinx.ext.autodoc',
                 'sphinx_copybutton',
                 'sphinx_togglebutton']
 
-bibtex_bibfiles = ['./_sharedFiles/Bibliography.bib']
+# BIBTEXT
+
+bibtex_bibfiles = ['./_sharedFiles/cis_guidance_documents.bib',
+                   './_sharedFiles/wise_gis_guidance.bib',
+                   './_sharedFiles/wfd_reporting_guidance.bib',
+                   './_sharedFiles/sdmx_documents.bib',
+                   './_sharedFiles/inspire_technical_guidance.bib',
+                   './_sharedFiles/eu_legislation.bib',
+                   './_sharedFiles/bibliography.bib',]
+bibtex_reference_style = 'author_year'
+
+
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','*.txt']
@@ -65,7 +104,8 @@ myst_enable_extensions = [
     "amsmath",
     "dollarmath",
     "colon_fence",
-    "linkify"
+    "linkify",
+    "attrs_inline"
 ]
 
 # SQLTABLE - configure the default connection if there is one
@@ -81,7 +121,15 @@ html_show_copyright = False
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
 html_css_files = [
-   'customTable.css'
+   'customTable.css',
+   'customTheme.css'
+]
+html_sidebars = {
+    "**": ["sidebar-collapse", "sidebar-nav-bs"],
+}
+
+html_js_files = [
+    "js/mermaid-zoom.js",
 ]
 
 html_theme_options = {
@@ -93,6 +141,10 @@ html_theme_options = {
     "show_toc_level": 3, 
     "use_edit_page_button": True,
     "navbar_align": "right"
+}
+
+html_sidebars = {
+  "**/index.md": []
 }
 
 html_context = {

@@ -1,7 +1,6 @@
 ---
 html_theme.sidebar_secondary.remove: true
 ---
-
 # WISE - Water Framework Directive
 
 ```{toctree}
@@ -10,22 +9,64 @@ html_theme.sidebar_secondary.remove: true
    
 DataModelReview/index
 TestingPhase/index
-DataModelReview/KnownIssues
+GettingStarted/index
 ```
 
-The **Water Framework Directive Documentation** is organized into the following sections:
+## Main sections
 
-*  {ref}`data-model-review` 
-   
-   This section contains documentation about proposed changes for the 4ᵗʰ cycle of electronic reporting under the Water Framework Directive.
-   The documentation about monitoring, methodologies, water body status assessement and exemptions will be made available in April.
-   The WISE GIS Guidance is also under review.
- 
-*  {ref}`testing-phase` 
+The **Water Framework Directive Documentation** is organized in 4 main sections.
 
-   This section contains information of each of the dataflows opened for testing.
+::::{grid} 2
+:gutter: 1 2 3 3
+:::{grid-item-card} {ref}`data-model-review`
+Contains documentation about proposed changes for the 4ᵗʰ cycle
+of electronic reporting under the Water Framework Directive.
+The WISE GIS Guidance is also under review.
+:::
+:::{grid-item-card} {ref}`testing-phase`
+Contains information about each of the dataflows open for testing.
+:::
+:::{grid-item-card} {ref}`getting-started`
+Contains information about how to start using Reportnet3 for reporting,
+first steps, common problems and solutions.
+:::
+:::{grid-item-card} Reporting phase
+As soon as each dataflow is open for reporting,
+this section contain the final technical guidance.
+:::
+::::
 
-*  **Reporting phase**
+## Known issues
 
-   As soon as each dataflow is open for reporting, this section will provide technical guidance on the process.
+::::{grid} 2
+:gutter: 1 2 3 3
+:::{grid-item-card} {ref}`data-review-known-issues`
+Contains a log of pending issues related to the data model review.
+:::
+:::{grid-item-card} {ref}`testing-phase-known-issues`
+Contains a log of issues detected/reported during the testing phase.
+:::
+::::
+
+## Other resources
+
+::::{grid} 2
+:gutter: 1 2 3 3
+:::{grid-item-card} {ref}`modelling-conventions`
+Contains an overview of modelling conventions
+adopted during the data model review and/or applied to the UML diagrams.
+:::
+:::{grid-item-card} {ref}`glossary-datatypes`
+Contains a glossary of the attribute types and controlled lists of values
+used in the WISE dataflows.
+:::
+:::{grid-item-card} {ref}`bibliographic-references`
+Contains the bibliography
+and links to the documents cited in text.
+:::
+:::{grid-item-card} {ref}`dashboards-3rd-cycle`
+Contains the full list of dashboards
+with data reported in the 3rd, 2nd and 1st River Basin Management Plans.
+:::
+::::
 

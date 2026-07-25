@@ -1,0 +1,24 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class ReasonForRiskOrFailure{
+<<enumeration>>
+salineOrOtherIntrusion
+surfaceWater
+groundWaterDependentTerrestrialEcosystem
+drinkingWaterProtectionArea
+generalWaterQualityAssessment
+waterBalance
+none
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

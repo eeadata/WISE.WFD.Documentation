@@ -1,4 +1,4 @@
-```{list-table} WFD Protected Area spatial data reporting requirements – 4ᵗʰ cycle
+```{list-table} WFD Protected Area spatial data reporting requirements – 4th cycle
 :name: ProtectedAreas_4thCycle_Table
 :width: 100%
 :widths: 70 30
@@ -32,8 +32,8 @@
     • The association between each protected area and one or more surface water bodies *must* be reported, using the relatedZone columns. 
 
     Reporting is *conditional*:  
-    • Member States that have reported Freshwater fish designated areas in the 3ʳᵈ reporting cycle 
-    *must* update the information previously reported (prefilled from the 3ʳᵈ cycle).  
+    • Member States that have reported Freshwater fish designated areas in the 3rd reporting cycle 
+    *must* update the information previously reported (prefilled from the 3rd cycle).  
     • Other Member States *may* optionally report newly created or existing Freshwater fish designated areas.  
   - `zoneType = 'designatedWaters' AND specialisedZoneType = 'freshwaterFishDesignatedWater'`
 
@@ -43,8 +43,8 @@
     • The association between each protected area and one or more surface water bodies *must* be reported, using the relatedZone columns.  
 
     Reporting is *conditional*:  
-    • Member States that have reported Shellfish designated areas in the 3ʳᵈ reporting cycle 
-    *must* update the information previously reported (prefilled from the 3ʳᵈ cycle).  
+    • Member States that have reported Shellfish designated areas in the 3rd reporting cycle 
+    *must* update the information previously reported (prefilled from the 3rd cycle).  
     • Other Member States *must* report newly created or existing Shellfish designated areas.  
   - `zoneType = 'designatedWaters' AND specialisedZoneType IN ('shellfishDesignatedWater')`
 

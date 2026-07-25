@@ -6,37 +6,49 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace ReportingData{
+direction TB
+
 class ExpenditurePerMeasurePerSector {
- + measureCode : wiselIdentifier
- + expenditureDataAvailable : YesNoNotApplicable
- + institutionalSector : SEA2010SectorCode [0..1]
++ measureCode: wiseIdentifier
++ expenditureDataAvailable: YesNoNotApplicable
++ institutionalSector: SEA2010SectorCode [0..1]
 
- + totalCapitalExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
- + totalCurrentExpenditure3rdCycle : NonNegativeNumberDecimalType [0..1]
++ totalCapitalExpenditure3rdCycle: NonNegativeNumberDecimalType [0..1]
++ totalCurrentExpenditure3rdCycle: NonNegativeNumberDecimalType [0..1]
 
- + totalCapitalExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
- + totalCurrentExpenditure4thCycle : NonNegativeNumberDecimalType [0..1]
++ totalCapitalExpenditure4thCycle: NonNegativeNumberDecimalType [0..1]
++ totalCurrentExpenditure4thCycle: NonNegativeNumberDecimalType [0..1]
 
- + millionUnitsOfNationalCurrency : CurrencyCode [0..1]
++ millionUnitsOfNationalCurrency: CurrencyCode [0..1]
 }
-}
-namespace Codelist{
+
 class SEA2010SectorCode{
-    <<enumeration>>
-    }
+  <<enumeration>>
+  S.1
+  S.13
+  S.13_S.15
+  S.11_S.12
+  S.11
+  S.11001
+  S.11002_S.11003
+  S.212
+  }
+
 class CurrencyCode{
     <<enumeration>>
+    EUR
+    CZK
+    DKK
+    HUF
+    PLN
+    RON
+    SEK
+    NOK
+    ISK
     }
-class YesNoNotApplicable{
-    <<enumeration>>
-    yes
-    no
-    notApplicable
-    }
-}
 
+ExpenditurePerMeasurePerSector ..> SEA2010SectorCode
+ExpenditurePerMeasurePerSector ..> CurrencyCode
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

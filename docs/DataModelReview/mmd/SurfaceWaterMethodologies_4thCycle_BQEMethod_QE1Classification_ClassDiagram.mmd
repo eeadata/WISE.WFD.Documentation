@@ -1,0 +1,62 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class BQEMethod{
++ bqeMethodIdentifier: wiseIdentifier
++ bqeCode: BiologicalQualityElement
++ bqeMethodName: string
++ bqeMethodNameLanguage: Language
++ bqeMethodReference: referenceCode [0..n]
+
+«sensitivity»
++ bqeSensitivityImpactNutrients: YesNo
++ bqeSensitivityImpactOrganic: YesNo
++ bqeSensitivityImpactChemical: YesNo
++ bqeSensitivityImpactSaline: YesNo
++ bqeSensitivityImpactAcidification: YesNo
++ bqeSensitivityImpactTemperature: YesNo
++ bqeSensitivityImpactHydrological: YesNo
++ bqeSensitivityImpactMorphological: YesNo
+}
+
+class QE1Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: BiologicalQualityElement
++ parameterUnit: UnitOfMeasure
++ classHighOrMax: range
++ classGood: range
++ classModerate: range
++ classPoor: range
++ classBad: range
+«scope-and-references»
++ bqeMethodIdentifier: wiseIdentifier 
++ qeClassificationReference: referenceCode [0..n]
+}
+
+class BiologicalQualityElement{
+<<enumeration>>
+  QE1-1 - Phytoplankton
+  QE1-2-1 - Macroalgae
+  QE1-2-2 - Angiosperms
+  QE1-2-3 - Macrophytes
+  QE1-2-4 - Phytobenthos
+  QE1-3 - Benthic invertebrates
+  QE1-4 - Fish
+}
+
+BQEMethod <.. QE1Classification
+BQEMethod ..> BiologicalQualityElement
+QE1Classification ..> BiologicalQualityElement
+
+note for BiologicalQualityElement "the label is not part of the code"
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;

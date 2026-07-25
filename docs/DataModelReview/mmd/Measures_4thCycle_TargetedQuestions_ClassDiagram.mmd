@@ -6,78 +6,106 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace ReportingData{
+direction TB
+
 class TargetedQuestions{
-+ euRBDCode : wiseIdentifier
+    + euRBDCode: wiseIdentifier
 
-+ basicMeasuresArt113c : BasicMeasuresChanges
-+ basicMeasuresArt113d : BasicMeasuresArt113d
-+ basicMeasuresArt113ePermit : BasicMeasures
-+ basicMeasuresArt113eRegister : BasicMeasures
-+ basicMeasuresArt113eThreshold : BasicMeasuresArt113eThreshold
-+ basicMeasuresArt113eImpoundment : BasicMeasuresArt113eImpoundment
-+ basicMeasuresArt113f : BasicMeasuresChanges
-+ basicMeasuresArt113gPermit : BasicMeasures
-+ basicMeasuresArt113gRegister : BasicMeasures
-+ basicMeasuresArt113gThreshold : BasicMeasuresArt113gThreshold
-+ basicMeasuresArt113hRules : BasicMeasuresArt113hRules
-+ basicMeasuresArt113iPermit : YesNo 
-+ basicMeasuresArt113iRegister : YesNo 
-+ basicMeasuresArt113j : BasicMeasuresArt113j
-+ basicMeasuresArt113k : YesNo 
+    + basicMeasuresArt113c: MeasuresChanges
+    + basicMeasuresArt113d: BasicMeasuresArt113d
+    + basicMeasuresArt113ePermit: MeasureScope
+    + basicMeasuresArt113eRegister: MeasureScope
+    + basicMeasuresArt113eThreshold: BasicMeasuresArt113eThreshold
+    + basicMeasuresArt113eImpoundment: BasicMeasuresArt113eImpoundment
+    + basicMeasuresArt113f: MeasuresChanges
+    + basicMeasuresArt113gPermit: MeasureScope
+    + basicMeasuresArt113gRegister: MeasureScope
+    + basicMeasuresArt113gThreshold: BasicMeasuresArt113gThreshold
+    + basicMeasuresArt113hRules: BasicMeasuresArt113hRules
+    + basicMeasuresArt113iPermit: YesNo 
+    + basicMeasuresArt113iRegister: YesNo 
+    + basicMeasuresArt113j: BasicMeasuresArt113j
+    + basicMeasuresArt113k: YesNo 
 
-+ waterReUseMeasure : YesNo
-+ ecologicalFlow : EcologicalFlow
-+ ecologicalFlowImplementation : EcologicalFlowImplementation
-+ climateChange : YesNo
-+ climateChangeGuidance : YesNo
-+ floodsDirective : YesNo
-+ structuralMeasures : YesNo
-+ msfdCoOrdination : YesNoNotRelevant
-+ msfdAssessment : YesNoNotRelevant
-}
-}
-namespace Codelist{
-class BasicMeasuresChanges{
-    <<enumeration>>
+    + waterReUseMeasure: YesNo
+    + ecologicalFlowDerived: EcologicalFlow
+    + ecologicalFlowImplemented: EcologicalFlow
+    + climateChange: YesNo
+    + climateChangeGuidance: YesNo
+    + floodsDirective: YesNo
+    + structuralMeasures: YesNo
+    + msfdCoOrdination: YesNoNotRelevant
+    + msfdAssessment: YesNoNotRelevant
     }
-class BasicMeasures{
+
+class MeasuresChanges{
     <<enumeration>>
+    implementedInPreviousCycleAndNonePlanned
+    inPreviousCycleAndNewMeasuresOrChangesPlanned
+    noneInPreviousCycleButNewMeasuresOrChangesPlanned
+    noneInPreviousCycleAndNonePlanned
     }
+
+class MeasureScope{
+    <<enumeration>>
+    surfaceWater
+    groundwater
+    bothSurfaceAndGroundwater
+    }
+
 class BasicMeasuresArt113eThreshold{
     <<enumeration>>
+    smallAbstractionsExemptedFromControls
+    smallAbstractionDoNotRequirePermitButAreRegistered
+    noThresholdForAbstractions
     }
+
 class BasicMeasuresArt113eImpoundment{
     <<enumeration>>
+    registerAndConcessionAuthorisationOrPermitting
+    concessionAuthorisationOrPermitting
+    registerOfImpoundments
+    none
     }
+
 class BasicMeasuresArt113gThreshold{
     <<enumeration>>
+    smallDischargesExemptedFromControls
+    smallDischargesDoNotRequirePermitButAreRegistered
+    noThresholdForDischarges
     }
+
 class BasicMeasuresArt113hRules{
     <<enumeration>>
+    yesSameRulesInTheWholeRBD
+    yesButOnlyInNitrateVulnerableZones
+    yesButDifferentRulesInDifferentPartsOfTheRBD
+    noGeneralBindingRules
     }
+
 class BasicMeasuresArt113j{
     <<enumeration>>
+    prohibitionOfAllDirectDischarges
+    someDirectDischargesAreAuthorised
+    noProhibitionOfDirectDischarges
     }
+
 class EcologicalFlow{
     <<enumeration>>
-    }
-class EcologicalFlowImplementation{
-    <<enumeration>>
-    }
-class YesNo{
-    <<enumeration>>
-    yes
-    no
-    }
-class YesNoNotRelevant{
-    <<enumeration>>
-    yes
-    no
-    notApplicable
-    }
+    yesForAllRelevantWaterBodies
+    partlyOngoingWork
+    notYetOnlyNextCycle
+    noAndNotPlanned
 }
+
+TargetedQuestions ..> MeasuresChanges
+TargetedQuestions ..> MeasureScope
+TargetedQuestions ..> BasicMeasuresArt113eThreshold
+TargetedQuestions ..> BasicMeasuresArt113eImpoundment
+TargetedQuestions ..> BasicMeasuresArt113gThreshold
+TargetedQuestions ..> BasicMeasuresArt113hRules
+TargetedQuestions ..> BasicMeasuresArt113j
+TargetedQuestions ..> EcologicalFlow
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

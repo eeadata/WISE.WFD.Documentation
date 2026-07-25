@@ -1,0 +1,56 @@
+```{list-table} European System of Accounts (ESA 2010) sectors.
+:name: Measures_ESA2010_Table
+:header-rows: 1
+:width: 100%
+:widths: 20 80
+:align: left
+
+* - Notation
+  - Definition of the ESA Sector
+
+* - S.1 
+  - Total economy
+
+* - S.11 
+  - Non-financial corporations (e.g., waste companies, manufacturers).
+
+* - S.11001
+  - Public non-financial corporations. All non-financial corporations,
+    quasi-corporations and non-profit institutions,
+    recognised as independent legal entities,
+    that are market producers and are subject to control by government units.
+
+* - S.11002 
+  - National private non-financial corporations.
+
+* - S.11003
+  - Foreign controlled non-financial corporations.
+
+* - S.12 
+  - Financial corporations (rarely main EPEA actors, but valid).
+
+* - S.13 
+  - General government. Central, state, and local government units 
+    (e.g., municipalities, ministries).
+
+* - S.14
+  - Households. Private individuals acting as consumers.
+
+* - S.15
+  - NPISH. Non-profit institutions serving households (e.g., environmental charities).
+
+* - S.2
+  - Rest of the world. Used for reporting transfers (subsidies/grants) 
+    paid to or received from abroad.
+
+* - S.21
+  - Member states and institutions and bodies of the European Union.
+
+* - S.212
+  - Institutions and bodies of the European Union 
+    (e.g., European Central Bank, European Commission).
+
+* - S.22 
+  - Non-member countries and international organisations non-resident 
+    in the European Union.
+```

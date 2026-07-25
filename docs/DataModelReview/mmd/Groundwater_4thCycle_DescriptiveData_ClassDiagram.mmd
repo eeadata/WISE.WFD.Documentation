@@ -11,87 +11,91 @@ config:
 classDiagram
 direction TB
 
-class LinkSurfaceWaterBody{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + euSurfacedWaterBodyCode : wiseIdentifier
-    + linkType : GroundwaterSurfacewaterLink
+class GWLinkSurfaceWaterBody{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + linkType: GroundwaterSurfaceWaterLink
 }
 
 class GWNaturalBackgroundLevel{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + parameterCode : ParameterCode
-    + naturalBackgroundLevelSet : YesNoNotApplicable
-    + parameterValue : range  
-    + parameterUnit : UnitOfMeasure
+    + euGroundWaterBodyCode: wiseIdentifier
+    + parameterCode: Parameter
+    + parameterValue: range [0..1]
+    + parameterUnit: UnitOfMeasure [0..1]
 }
 
 class GroundWaterBody{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + aquiferType : AquiferMediaTypeValue
-    + aquiferProductivity : AquiferProductivity
-    + aquiferLithology : LithologyValue
-    + groundWaterBodyTransboundary : YesNo
-    + linkSurfaceWaterBody : YesNo
-    + linkTerrestrialEcosystem : YesNoUnknown
-}
-
-class GWPressureImpact{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + gwPressureType : PressureType [0..1]
-    + gwImpactType : ImpactType  [0..1]
+    + euGroundWaterBodyCode: wiseIdentifier
+    + aquiferType: AquiferMediaTypeValue
+    + aquiferProductivity: AquiferProductivity
+    + groundWaterBodyTransboundary: YesNo
+    + linkSurfaceWaterBody: YesNo
+    + linkTerrestrialEcosystem: YesNoUnknown
 }
 
 class GWQuantitativeStatus{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + gwQuantitativeStatusValue : QuantitativeStatus
-    + gwQuantitativeAssessmentPeriod : range
-    + gwQuantitativeAssessmentConfidence : AssessmentConfidence
-    + gwQuantitativeAssessmentMethod : AssessmentMethod [1..n]
-    + gwGroupIdentifier : wiseIdentifier [0..n]
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwAtRiskQuantitative: YesNoUnknown
+    + gwQuantitativeStatusValue: QuantitativeStatus
+    + gwQuantitativeAssessmentPeriod: range
+    + gwQuantitativeAssessmentConfidence: AssessmentConfidence
+    + gwQuantitativeAssessmentMethod: AssessmentMethod [1..n]
+    + gwGroupingIdentifier: wiseIdentifier [0..n]
 }
 
-class GroundWaterBodyStatus{
-    
-    + euGroundWaterBodyCode : wiseIdentifier
-    / gwQuantitativeStatusValue : QuantitativeStatus
-    / gwChemicalStatusValue : ChemicalStatus
+class GWPressureImpact{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwPressureType: PressureType [0..1]
+    + gwImpactType: ImpactType  [0..1]
+}
 
-    + gwQuantitativeReasonsForFailure : ReasonForFailure [1..n]
-    + gwChemicalReasonsForFailure : ReasonForFailure [1..n]
+class GWStatus{
+    
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwQuantitativeStatusValue: QuantitativeStatus
+    + gwChemicalStatusValue: ChemicalStatus
+
+    + gwQuantitativeStatusReasonsForRisk: ReasonForRiskOrFailure [1..n]
+    + gwQuantitativeStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
+    + gwChemicalStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
 } 
 
 class GWPollutant{
-    + euGroundWaterBodyCode : wiseIdentifier
-    + gwPollutantCode : ParameterCode
-    + gwPollutantCausingFailure : YesNoUnknown
-    + gwThresholdIdentifier : wiseIdentifier
-
-    + gwPollutantAssessmentPeriod : range
-    + gwPollutantAssessmentConfidence : AssessmentConfidence 
-    + gwPollutantAssessmentMethod : AssessmentMethod [1..n]
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwPollutantCode: Parameter
+    + gwPollutantCausingRisk: YesNoUnknown
     
-    + gwGroupIdentifier : wiseIdentifier [0..n]
+    + gwThresholdIdentifier: wiseIdentifier
+    + gwPollutantCausingFailure: YesNoUnknown
+    + gwPollutantAssessmentPeriod: range
+    + gwPollutantAssessmentConfidence: AssessmentConfidence 
+    + gwPollutantAssessmentMethod: AssessmentMethod [1..n]
+    + gwGroupingIdentifier: wiseIdentifier [0..n]
 
-    + gwPollutantUpwardTrend : YesNoUnknownNotAssessed
-    + gwPollutantTrendReversal : YesNoUnknownNotApplicableNotAssessed
-    + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableNotAssessed
+    + naturalBackgroundLevelSet: YesNoNotApplicable
+    + gwPollutantUpwardTrend: YesNoUnknownNotAssessed
+    + gwPollutantTrendReversal: YesNoUnknownNotApplicableNotAssessed
+    + gwPollutantTrendReversalProcess: YesNoUnknownNotApplicableNotAssessed
+
 }
 
 class GWGrouping{
-    + gwGroupIdentifier : wiseIdentifier
-    + euGroundWaterBodyCode : wiseIdentifier
+    + gwGroupingIdentifier: wiseIdentifier
+    + euGroundWaterBodyCode: wiseIdentifier
 }
 
-GroundWaterBody -- GroundWaterBodyStatus    
-GroundWaterBodyStatus --  GWQuantitativeStatus
-GroundWaterBodyStatus -- "0..n" GWPollutant
-GroundWaterBodyStatus -- "0..n" GWPressureImpact
+GroundWaterBody "1" -- "1" GWStatus    
+GWStatus "1" -- "0..1" GWQuantitativeStatus
+GWStatus "1" -- "0..n" GWPollutant
+GWStatus "1" -- "0..n" GWPressureImpact
 
-GWQuantitativeStatus "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
-GWPollutant "0..n" .. "0..n" GWGrouping : gwGroupIdentifier
+GWQuantitativeStatus ..> GWGrouping: gwGroupingIdentifier
+GWPollutant ..> GWGrouping: gwGroupingIdentifier
 
-LinkSurfaceWaterBody "0..n" -- "1" GroundWaterBody : {linkSurfaceWaterBody = 'Yes'}
-GWNaturalBackgroundLevel "0..n" -- "1" GroundWaterBody
+GWLinkSurfaceWaterBody "0..n" -- GroundWaterBody: {linkSurfaceWaterBody = 'Yes'}
+GWNaturalBackgroundLevel "0..n" -- GroundWaterBody
+
+GWNaturalBackgroundLevel .. GWPollutant: {quality control}
 
 %% note for GWPollutant "GroundwaterMethodologies::ThresholdValue.gwThresholdIdentifier"
 

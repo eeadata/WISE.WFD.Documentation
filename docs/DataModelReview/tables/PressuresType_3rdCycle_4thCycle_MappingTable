@@ -1,9 +1,9 @@
-```{csv-table} Mapping table - PressureType codelist values - 3ʳᵈ cycle	to 4ᵗʰ cycle
+```{csv-table} Mapping table - PressureType codelist values - 3rd cycle	to 4th cycle
 :name: PressuresType_3rdCycle_4thCycle_MappingTable
 :header-rows: 1
 :delim: "|"
 
-3ʳᵈ cycle|4ᵗʰ cycle|Remarks|Severity level
+3rd cycle|4th cycle|Remarks|Severity level
 none|none||WARNING, ERROR, BLOCKER
 P1-9 - Point - Other|P1 - Point sources|Use parent code|WARNING, ERROR
 P1-1 - Point - Urban waste water|P1-1 - Point - Urban waste water||

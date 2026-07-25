@@ -1,0 +1,56 @@
+```{list-table} Mapping table - 4th cycle - HMWBWaterUse
+:name: MappingTable_4thCycle_HMWBWaterUse_Table
+:header-rows: 1
+:width: 100%
+:widths: 50 50
+:align: left
+
+* - 3rd cycle
+  - 4th cycle
+
+* - "Wider environment - nature protection and other ecological uses"
+  - widerEnvironment_natureProtection
+
+* - "Wider environment - nature protection and other ecological uses" 
+  - widerEnvironment_culturalHeritageProtection
+
+* - "Transport - navigation / ports"
+  - transport
+
+* - "Tourism and recreation"
+  - tourism
+
+* - "Urban development - drinking water supply"
+  - urban_drinkingWaterSupply
+
+* - "Agriculture - irrigation"
+  - agriculture_irrigation
+
+* - "Storage for fisheries/aquaculture/fish farms"
+  - aquaculture
+
+* - "Industry supply"
+  - industry_waterSupply
+
+* - "Energy - hydropower"
+  - energy_hydropower
+
+* - "Energy - non-hydropower"
+  - energy_nonHydropower
+
+* - "Flood protection"  
+  - floodProtection
+
+* - "Agriculture - land drainage"
+  - agriculture_landDrainage
+
+* - "Urban development - other use"
+  - urban_other
+
+* - "Other"
+  - otherSustainableHumanDevelopmentActivities
+
+* - "Unknown"
+  - unknown
+
+```

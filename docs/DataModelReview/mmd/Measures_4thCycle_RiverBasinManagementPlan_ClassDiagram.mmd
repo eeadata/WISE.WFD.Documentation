@@ -6,67 +6,106 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace ReportingData{
+direction TB
+
 class RiverBasinManagementPlan{
-+ euRBDCode :  wiseIdentifier
-+ rbmpName : String1000
++ euRBDCode:  wiseIdentifier
++ rbmpName: string1000
 
-+ rbmpTimetablePublicationDate : Date 
-+ rbmpProgrammePublicationDate : Date 
-+ rbmpConsultationPublicationDate : Date 
-+ rbmpInterimOverviewDate : Date 
-+ rbmpDraftVersionDate : Date 
-+ finalRBMPPublicationDate : Date 
++ rbmpTimetablePublicationDate: date 
++ rbmpProgrammePublicationDate: date 
++ rbmpConsultationPublicationDate: date 
++ rbmpInterimOverviewDate: date 
++ rbmpDraftVersionDate: date 
++ finalRBMPPublicationDate: date 
 
-+ subPlans : YesNo
-+ subPlansCoverage : SubPlansCoverage [0..1]
-+ subPlansReference : referenceIdentifier [0..n]
++ subPlans: YesNo
++ subPlansCoverage: SubPlansCoverage [0..1]
++ subPlansReference: referenceCode [0..n]
 
-+ sea : YesNo
-+ seaReference : referenceIdentifier [0..n]
++ sea: YesNo
++ seaReference: referenceCode [0..n]
 
-+ documentAvailability  : YesNo
++ documentAvailability : YesNo
 
-+ ongoingStakeholderInvolvement : OngoingStakeholderInvolvement [0..n]
-+ stakeholderGroups : StakeholderGroups [0..n]
++ ongoingStakeholderInvolvement: OngoingStakeholderInvolvement [0..n]
++ stakeholderGroups: StakeholderGroups [0..n]
 
-+ internationalCoordination : InternationalCoordination [0..1]
-+ internationalCoordinationPublicParticipation : YesNo [0..1]
-+ pomCoordinationArt5SWMI : Coordination
-+ pomCoordinationIRBMPPoM : Coordination
-+ pomCoordinationRoofReport : Coordination
-+ pomCoordinationFinancial : Coordination
++ internationalCoordination: InternationalCoordination [0..n]
++ internationalCoordinationPublicParticipation: YesNo [0..1]
++ pomCoordinationArt5SWMI: Coordination
++ pomCoordinationIRBMPPoM: Coordination
++ pomCoordinationRoofReport: Coordination
++ pomCoordinationFinancial: Coordination
 
-+ integrationFloodsDirective : YesNo
-+ coordinationFloodsDirective : YesNoNotApplicable
-+ coordinationMSFD : YesNoNotApplicable
++ integrationFloodsDirective: YesNo
++ coordinationFloodsDirective: YesNoNotApplicable
++ coordinationMSFD: YesNoNotApplicable
 
-+ coordinationNRRReference : referenceIdentifier [1..n]
++ coordinationNRRReference: referenceCode [1..n]
 }
-}
-namespace Codelist{
-class SubPlansCoverage{
-    <<enumeration>>
-    }
-class OngoingStakeholderInvolvement{
-    <<enumeration>>
-    }
+
 class Coordination{
     <<enumeration>>
+    withEUMemberStates
+    withCountriesOutsideEU
+    both
+    none
     }
-class YesNo{
+
+class InternationalCoordination{
     <<enumeration>>
-    yes
-    no
+    internationalAgreement
+    permanentCooperationBody
+    internationalRBMP
+    noFormalisedCoordination
     }
-class YesNoNotApplicable{
+
+class OngoingStakeholderInvolvement{
     <<enumeration>>
-    yes
-    no
-    notApplicable
+    regularExhibitions
+    establishmentOfAdvisoryGroups
+    involvementInDrafting
+    otherOutreachActivities
+    formationOfAlliances
+    other
     }
-}
+
+class SubPlansCoverage{
+    <<enumeration>>
+    agriculture
+    chemicalIndustry
+    chemicalPollution
+    climateChange
+    coastalErosion
+    hydropower
+    nutrientEnrichment
+    ruralPlanning
+    transport
+    urbanPlanning
+    waterScarcityAndDroughts
+    other
+    }
+
+class StakeholderGroups{
+    <<enumeration>>
+    waterSupplyAndSanitation
+    agricultureFarmers
+    hydropowerAndEnergy
+    navigationPorts
+    fisheriesAndAquaculture
+    industry
+    ngosNatureProtection
+    consumerGroups
+    localAndRegionalAuthorities
+    other    
+    }
+
+RiverBasinManagementPlan ..> SubPlansCoverage
+RiverBasinManagementPlan ..> OngoingStakeholderInvolvement
+RiverBasinManagementPlan ..> Coordination
+RiverBasinManagementPlan ..> InternationalCoordination
+RiverBasinManagementPlan ..> StakeholderGroups
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

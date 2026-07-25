@@ -1,81 +1,87 @@
-%%{init: {'theme': 'default'}}%%
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
 
 classDiagram
 class GWChemicalExemptionType ["«XSDcomplexType»
 GWChemicalExemptionType"] {
   «XSDelement»
-  + gwChemicalExemptionType : GWChemicalExemptionType_Union_Enum
-  + gwChemicalExemptionPressure : SignificantPressureType_Enum
+  + gwChemicalExemptionType: GWChemicalExemptionType_Union_Enum
+  + gwChemicalExemptionPressure: SignificantPressureType_Enum
 }
 
 class GWPollutant ["«XSDcomplexType»
 GWPollutant"]{
   «XSDelement»
-  + gwPollutantCode : ChemicalSubstances_Enum
-  + gwPollutantOther : OtherType [0..1]
-  + gwPollutantCausingRisk : YesNoUnknown_Linear_Union_Enum
-  + gwPollutantCausingFailure : YesNoCode_Enum
+  + gwPollutantCode: ChemicalSubstances_Enum
+  + gwPollutantOther: OtherType [0..1]
+  + gwPollutantCausingRisk: YesNoUnknown_Linear_Union_Enum
+  + gwPollutantCausingFailure: YesNoCode_Enum
   + gwPollutantUpwardTrend: YesNoUnknownUnknown_Linear_Union_Enum
-  + gwPollutantTrendReversal : YesNoUnknownNotApplicable_Code_Enum
-  + gwPollutantExceedancesNotCounted : YesNoUnknownCode_Enum
-  + gwPollutantBackgroundLevelSet : YesNoCode_Enum
-  + gwPollutantBackgroundLevelValue : ThresholdType [0..1]
-  + gwPollutantBackgroundLevelUnit : UnitOfMeasure_Enum [0..1]
-  + gwPollutantTrendReversalProcess : YesNoUnknownNotApplicableCode_Enum
+  + gwPollutantTrendReversal: YesNoUnknownNotApplicable_Code_Enum
+  + gwPollutantExceedancesNotCounted: YesNoUnknownCode_Enum
+  + gwPollutantBackgroundLevelSet: YesNoCode_Enum
+  + gwPollutantBackgroundLevelValue: ThresholdType [0..1]
+  + gwPollutantBackgroundLevelUnit: UnitOfMeasure_Enum [0..1]
+  + gwPollutantTrendReversalProcess: YesNoUnknownNotApplicableCode_Enum
 }
 
 class GWAssociatedProtectedArea ["«XSDcomplexType»
 GWAssociatedProtectedArea"]{
   «XSDelement»
-  + euProtectedAreaCode : FeatureUniqueEUCodeType
-  + protectedAreaType : ProtectedGWAreaType_Enum
-  + protectedAreaObjectivesSet : ProtectedAreaObjectivesEnum [0..1]
-  + protectedAreaObjectivesMet : YesNoInformation_Union_Enum [0..1]
-  + protectedAreaComment : String1000Type [0..1]
-  + protectedAreaExemption : ExemptionType_Enum [1..*]
+  + euProtectedAreaCode: FeatureUniqueEUCodeType
+  + protectedAreaType: ProtectedGWAreaType_Enum
+  + protectedAreaObjectivesSet: ProtectedAreaObjectivesEnum [0..1]
+  + protectedAreaObjectivesMet: YesNoInformation_Union_Enum [0..1]
+  + protectedAreaComment: String1000Type [0..1]
+  + protectedAreaExemption: ExemptionType_Enum [1..*]
 }
 
 class GroundWaterBody ["«XSDcomplexType»
 GroundWaterBody"] {
   «XSDelement»
-  + euGroundWaterBodyCode : FeatureUniqueEUCodeType
-  + linkSurfaceWaterBody : YesNoCode_Enum
-  + linkSurfaceWaterBodyCode : FeatureUniqueEUCodeType [0..*]
-  + linkTerrestrialEcosystem : YesNoUnknownCode_Enum
-  + geologicalFormation : GeologicalFormation_Enum
-  + groundwaterBodyTransboundary : YesNoCode_Enum
-  + gwSignificantPressureType : SignificantPressureType_Enum [1..*]
-  + gwSignificantPressureOther : String100Type [0..1]
-  + gwSignificantImpactType : SignificantImpactType_Enum [1..*]
-  + gwSignificantImpactOther : String1000Type [0..1]
-  + gwAtRiskQuantitative : YesNoCode_Enum
-  + gwReasonsForRiskQuantitative : QuantitativeFailure_Enum [0..*]
-  + gwEoRiskQuantitative : GWERiskQuantitative_Enum [0..1]
-  + gwQuantitativeStatusValue : StatusCode_Enum
-  + gwQuantitativeReasonsForFailure : QuantitativeFailure_Enum [0..*]
-  + gwQuantitativeAssessmentYear : YearRangeType
-  + gwQuantitativeAssessmentConfidence : Confidence_Enum
-  + gwQuantitativeStatusExpectedAchievementDate : GoodStatus_Enum
-  + gwQuantitativeExemptionType : ExemptionType_Enum [1..*]
-  + gwQuantitativeExemptionPressure : SignificantPressureType_Enum [0..*]
-  + gwAtRiskChemical : YesNoCode_Enum
-  + gwEoRiskChemical : EORiskChemical_Enum [0..1]
-  + gwChemicalStatusValue : StatusCode_Enum
-  + gwChemicalReasonsForFailure : ReasonsForFailure_Enum [0..*]
-  + gwChemicalAssessmentYear : YearRangeType
-  + gwChemicalAssessmentConfidence : Confidence_Enum
-  + gwChemicalStatusExpectedAchievementDate : GoodStatus_Enum
+  + euGroundWaterBodyCode: FeatureUniqueEUCodeType
+  + linkSurfaceWaterBody: YesNoCode_Enum
+  + linkSurfaceWaterBodyCode: FeatureUniqueEUCodeType [0..*]
+  + linkTerrestrialEcosystem: YesNoUnknownCode_Enum
+  + geologicalFormation: GeologicalFormation_Enum
+  + groundwaterBodyTransboundary: YesNoCode_Enum
+  + gwSignificantPressureType: SignificantPressureType_Enum [1..*]
+  + gwSignificantPressureOther: String100Type [0..1]
+  + gwSignificantImpactType: SignificantImpactType_Enum [1..*]
+  + gwSignificantImpactOther: String1000Type [0..1]
+  + gwAtRiskQuantitative: YesNoCode_Enum
+  + gwReasonsForRiskQuantitative: QuantitativeFailure_Enum [0..*]
+  + gwEoRiskQuantitative: GWERiskQuantitative_Enum [0..1]
+  + gwQuantitativeStatusValue: StatusCode_Enum
+  + gwQuantitativeReasonsForFailure: QuantitativeFailure_Enum [0..*]
+  + gwQuantitativeAssessmentYear: YearRangeType
+  + gwQuantitativeAssessmentConfidence: Confidence_Enum
+  + gwQuantitativeStatusExpectedAchievementDate: GoodStatus_Enum
+  + gwQuantitativeExemptionType: ExemptionType_Enum [1..*]
+  + gwQuantitativeExemptionPressure: SignificantPressureType_Enum [0..*]
+  + gwAtRiskChemical: YesNoCode_Enum
+  + gwEoRiskChemical: EORiskChemical_Enum [0..1]
+  + gwChemicalStatusValue: StatusCode_Enum
+  + gwChemicalReasonsForFailure: ReasonsForFailure_Enum [0..*]
+  + gwChemicalAssessmentYear: YearRangeType
+  + gwChemicalAssessmentConfidence: Confidence_Enum
+  + gwChemicalStatusExpectedAchievementDate: GoodStatus_Enum
 }
 
 class GWB ["«XSDcomplexType»
 GWB"]{
   «XSDelement»
-  + countryCode : CountryCode_Enum
-  + euRBDCode : FeatureUniqueEUCodeType
+  + countryCode: CountryCode_Enum
+  + euRBDCode: FeatureUniqueEUCodeType
 }
 
 
-GWAssociatedProtectedArea --> GroundWaterBody : GWAssociatedProtectedArea
-GWPollutant --> GroundWaterBody : GWPollutant
-GWChemicalExemptionType --> GWPollutant : GWChemicalExemptionType
-GroundWaterBody --> GWB : GroundWaterBody
+GWAssociatedProtectedArea --> GroundWaterBody: GWAssociatedProtectedArea
+GWPollutant --> GroundWaterBody: GWPollutant
+GWChemicalExemptionType --> GWPollutant: GWChemicalExemptionType
+GroundWaterBody --> GWB: GroundWaterBody

@@ -1,0 +1,62 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWMethodologies {
+  + euRBDCode: wiseIdentifier
+  + minimumCatchmentAreaRivers: nonNegativeValue
+  + minimumSurfaceAreaLakes: nonNegativeValue
+  + hmwbMethodologyReference: referenceCode [1..n]
+}
+
+class SWManagementObjectives {
+  + euRBDCode: wiseIdentifier
+  + managementObjectivesNutrients: YesNo
+  + managementObjectivesNutrientsQuantitativeN: YesNo
+  + managementObjectivesNutrientsQuantitativeP: YesNo
+  + managementObjectivesContinuity: YesNo
+  + managementObjectivesReference: referenceCode [1..n]
+  + waterResourcePlans: YesNoRBMP
+  + waterResourcePlansReference: referenceCode [1..n]
+}
+
+class SWChemicalStatusClassification {
+  + euRBDCode: wiseIdentifier
+  + limitOfQuantification: YesNo
+  + backgroundConcentrations: YesNo
+  + backgroundConcentrationsReference: referenceCode [0..n]
+  + bioavailability: YesNo
+  + bioavailabilityReference: referenceCode [0..n]
+  + longTermTrendAnalysis: YesNo
+  + longTermTrendAnalysisReference: referenceCode [0..n]
+  + mixingZoneMethodology: YesNo
+  + alternativeMixingZoneMethodologyReference: referenceCode [0..n]
+  + mixingZoneMeasure: MixingZoneMeasure [0..n]
+}
+
+class MixingZoneMeasure{
+<<enumeration>>
+measureArticle113k
+reviewOfPermitsIED
+priorRegulationsArticle113g
+other
+notApplicable
+}
+
+class YesNoRBMP{
+<<enumeration>>
+yes
+no
+RBMP}
+
+SWChemicalStatusClassification ..> MixingZoneMeasure: mixingZoneMeasure
+SWManagementObjectives ..> YesNoRBMP: waterResourcePlans
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

@@ -4,17 +4,95 @@ config:
     hideEmptyMembersBox: true
   layout: dagre
   theme: neutral
+  themeVariables:
+    noteBkgColor: lightYellow
+    noteTextColor: grey
+    noteBorderColor: grey 
 ---
 classDiagram
-direction LR
+direction TB
+
+
 class Monitoring{
-  + euMonitoringSiteCode : wiseIdentifier
-  + parameterCode : ParameterCode
-  + chemicalMatrix : ChemicalMatrixType [0..1]
-  + chemicalPurpose : ChemicalPurpose [0..1]
-  + frequency : MonitoringFrequency
-  + cycle : MonitoringCycle
-  + lastMonitored : Year
+  + euMonitoringSiteCode: wiseIdentifier
+  + parameterCode: Parameter
+  + chemicalMatrix: ChemicalMatrixType [0..3]
+  + chemicalPurpose: ChemicalPurpose [0..2]
+  + frequency: MonitoringFrequency
+  + cycle: MonitoringCycle
+  + lastMonitored: gYear
 }
 
+class Parameter{
+  <<enumeration>>
 
+  «quantitative monitoring»
+  EEA_00-01-1 - Quantitative monitoring
+
+  «biological quality elements»
+  QE1-1 - Phytoplankton
+  QE1-2-1 - Macroalgae
+  QE1-2-2 - Angiosperms
+  QE1-2-3 - Macrophytes
+  QE1-2-4 - Phytobenthos
+  QE1-3 - Benthic invertebrates
+  QE1-4 - Fish
+
+  «hydromorphological quality elements»
+  QE2-1 - Hydrological or tidal regime
+  QE2-2 - River continuity conditions
+  QE2-3 - Morphological conditions
+
+  «CAS codes and EEA codes under WISE-6»
+  ...
+}
+
+class ChemicalMatrixType{
+    <<enumeration>>
+    water
+    biota
+    sediment
+    }
+
+class ChemicalPurpose{
+    <<enumeration>>
+    status
+    trend
+    }   
+
+class MonitoringFrequency{
+    <<enumeration>>
+    continuousSampling
+    oneSamplePerMonitoringYear
+    from2To3SamplesPerMonitoringYear
+    from4To11SamplesPerMonitoringYear
+    from12To24SamplesPerMonitoringYear
+    moreThan24SamplesPerMonitoringYear
+    unknown
+    }   
+
+class MonitoringCycle{
+    <<enumeration>>
+    once
+    onceEvery1Year
+    onceEvery2Years
+    onceEvery3Years
+    onceEvery4Years
+    onceEvery5Years
+    onceEvery6Years
+    onceEvery2RBMPs
+    onceEvery3RBMPs
+    unknown
+    }   
+
+Monitoring ..> Parameter
+Monitoring ..> ChemicalMatrixType
+Monitoring ..> ChemicalPurpose
+
+Monitoring ..> MonitoringCycle
+Monitoring ..> MonitoringFrequency
+
+note for Parameter "the label is not part of the code"
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

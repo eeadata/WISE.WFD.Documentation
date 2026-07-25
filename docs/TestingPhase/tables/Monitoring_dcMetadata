@@ -1,4 +1,4 @@
-```{list-table} Monitoring - - dcMetadata
+```{list-table} Monitoring dataflow - dcMetadata table
 :name: Monitoring_dcMetadata
 :header-rows: 1
 :width: 100%
@@ -6,70 +6,89 @@
 
 * - Attribute
   - Type
-  - {abbr}`m (multiplicity)`
-  - Definition
+  - {abbr}`M (Multiplicity)`
+  - Definition {footcite}`dublin-core`
 
-* - title 
+* - title
   - {term}`string`
   - [1]
   - Name given to the dataset.  
 
-* - creatorOrganisationName 
+* - creatorOrganisationName
   - {term}`string`
   - [1]
   - Name of the organization doing the reporting.  
 
-* - creatorElectronicMailAddress 
-  - {term}`Email` 
+* - creatorElectronicMailAddress
+  - {term}`Email`
   - [1]
-  - Email address of the point of contact 
+  - Email address of the point of contact
     in the organisation responsible for the dataset.  
 
-* - description 
+* - description
   - {term}`string`
   - [0..1]
   - Description of the dataset.
 
-* - created 
-  - {term}`date` 
-  - [0..1] 
+* - created
+  - {term}`date`
+  - [0..1]
   - Date of creation of the dataset.  
 
-* - language 
-  - {term}`Language` 
-  - [0..1]
-  - Code of the dataset's language/s from the 'Language' codelist.
+* - language
+  - {term}`Language`
+  - [1..n]
+  - Code of the dataset's language/s from the `'Language'` codelist.
 
-* - license 
+* - license
   - {term}`Licence`
   - [1]
   - A legal document giving official permission to do something with the resource.  
-    Provide the URL to the licence text of a CC BY compatible licence. 
-    Use a persistent identifier to an English or multilingual version of the licence agreement. 
 
 * - rights
   - {term}`string`
   - [0..1]
-  - Information about rights held in and over the resource. 
-    If necessary, provide the attribution text required by the licence, or other relevant information. 
+  - Information about rights held in and over the resource.
+    If necessary, provide the attribution text required by the licence, or other relevant information.
 
-* - rightsHolder 
+* - rightsHolder
   - {term}`string`
   - [0..1]
   - A person or organization owning or managing rights over the resource.  
-    This element can be provided if the rights holder reserved rights 
-    (e.g. should to be contacted for specific uses), 
-    or if the rights holder is not the organisation responsible for the dataset. 
+    This element can be provided if the rights holder reserved rights
+    (e.g. should to be contacted for specific uses),
+    or if the rights holder is not the organisation responsible for the dataset.
 
-* - licenseDocument 
-  - {term}`documentCode` 
-  - [0..1]
-  - Documents about licensing information.  
-    It must be reported if license is equal to 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'.  
-    More than one option can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., "value1; value2; value3". 
+* - licenseDocument
+  - {term}`documentCode`
+  - [0..n]
+  - Document(s) about licensing information.  
+    It must be reported if `license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')`.
 
 * - metadataDocument
-  - {term}`documentCode` 
-  - [0..1] 
-  - Documents about metadata information.  
-    More than one option can be selected. If more than one, values need to be separated by a semicolon followed by a whitespace. e.g., "value1; value2; value3". 
+  - {term}`documentCode`
+  - [0..n]
+  - Document(s) about metadata information.  
+    Reported if `includesSpatialData = 'yes'`.
+
+* - euRBDCode
+  - {term}`wiseIdentifier`
+  - [1]
+  - Identifier of the river basing district.
+
+* - includesSpatialData
+  - {term}`YesNo`
+  - [1]
+  - Choose 'yes' if the data includes spatial data for the specified river basin district.
+    Otherwise, choose 'no'.  
+    **Very important note:**  
+    If spatial data is delivered, all the river basin districts must be reported.
+
+* - includesMonitoringData
+  - {term}`YesNo`
+  - [1]
+  - Choose 'yes' if the data delivery
+    includes data about the monitoring programmes for the specified river basin district.
+    Otherwise, choose 'no'.
+
+```

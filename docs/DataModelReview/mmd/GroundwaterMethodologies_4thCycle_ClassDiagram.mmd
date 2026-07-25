@@ -5,49 +5,58 @@ config:
   layout: dagre
   theme: neutral
   themeVariables:
-    noteBkgColor: LightYellow
-    noteTextColor: black 
+    noteBkgColor: lightYellow
+    noteTextColor: grey
+    noteBorderColor: grey 
 ---
 classDiagram
 
 class GWMethodologies {
-  + euRBDCode : wiseIdentifier
-  + gwCharacterisationReference : referenceCode
-  + trendAssessmentPerformed : YesNo
-  + trendAssessmentTimeSeries : range [0..1]
-  + trendAssessmentStatisticalMethod : TrendStatisticalMethod [0..1]
-  + additionalTrendAssessment : YesNo
-  + trendReversalMethodology : YesNo
-  + thresholdValueElementProtectionEcosystem : YesNo
-  + transboundaryThresholdValues : YesNoNotApplicable
-  + thresholdValueElementProtectionGWDE : YesNo
-  + thresholdValueElementProtectionUses : YesNo
-  + thresholdValueElementSalineIntrusion : YesNo
+  + euRBDCode: wiseIdentifier
+  + gwCharacterisationReference: referenceCode
+  + trendAssessmentPerformed: YesNo
+  + trendAssessmentTimeSeries: range [0..1]
+  + trendAssessmentStatisticalMethod: TrendStatisticalMethod [0..1]
+  + additionalTrendAssessment: YesNo
+  + trendReversalMethodology: YesNo
+  + thresholdValueElementProtectionEcosystem: YesNo
+  + transboundaryThresholdValues: YesNoNotApplicable
+  + thresholdValueElementProtectionGWDE: YesNo
+  + thresholdValueElementProtectionUses: YesNo
+  + thresholdValueElementSalineIntrusion: YesNo
 }
 
 class GWPressureAssessment{
-  + euRBDCode : wiseIdentifier
-  + gwPressure : PressureType
-  + gwPressureAssessmentMethod : PressureAssessmentMethod
-  + gwSignificanceDefinition : YesNoNotApplicable
-  + gwSignificanceLinkFailure : YesNoNotApplicable
+  + euRBDCode: wiseIdentifier
+  + gwPressure: PressureType
+  + gwPressureAssessmentMethod: PressureAssessmentMethod
+  + gwSignificanceDefinition: YesNoNotApplicable
+  + gwSignificanceLinkFailure: YesNoNotApplicable
 }
 
-class ThresholdValue{
-  + gwThresholdIdentifier : wiseIdentifier
-  + parameterCode : SubstanceCode
-  + thresholdValueDefined : YesNo
-  + thresholdValueRange : range [0..1]
-  + thresholdValueUnit : UnitOfMeasure [0..1]
-  + startingPointTrendReversal : range [0..1]
-  + naturalBackgroundLevelSet : YesNoNotApplicable
-  + nblValueRange : range  [0..1] 
+class GWThresholdValue{
++ gwThresholdIdentifier: wiseIdentifier
++ parameterCode: Parameter
++ thresholdValueDefined: YesNo
++ thresholdValueRange: range [0..1]
++ thresholdValueUnit: UnitOfMeasure [0..1]
++ naturalBackgroundLevelSet: YesNoNotApplicable
++ nblValueRange: range  [0..1] 
+
+«trend-reversal-measures»
++ startingPointTrendReversal: range [0..1]
+}
+
+class GWPollutant ["GroundWaterDataset::GWPollutant"]:::otherDataset{
++ euGroundWaterBodyCode
++ gwPollutantCode
++ gwThresholdIdentifier
 }
 
 class PressureAssessmentMethod{
 <<enumeration>>
 numericalTools
-expertJudgment
+expertJudgement
 combinationOfBoth
 notAssessed 
 }
@@ -59,10 +68,11 @@ confidenceIntervalTrendMagnitude
 none
 }
 
-GWPressureAssessment .. PressureAssessmentMethod : gwPressureAssessmentMethod
-GWMethodologies .. TrendStatisticalMethod : trendAssessmentStatisticalMethod
+GWPressureAssessment .. PressureAssessmentMethod: gwPressureAssessmentMethod
+GWMethodologies .. TrendStatisticalMethod: trendAssessmentStatisticalMethod
 
-note for ThresholdValue "GroundwaterDataset::GWPollutant.gwThresholdIdentifier"
+GWThresholdValue .. "1..n" GWPollutant: gwThresholdIdentifier
 
 classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lightyellow,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

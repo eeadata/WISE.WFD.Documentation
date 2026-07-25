@@ -1,0 +1,137 @@
+```{list-table} Codelist - Nature Restoration Regulation - BarrierType
+:name: Codelist_NatureRestorationRegulation_BarrierType_Table
+:header-rows: 1
+:width: 100%
+:widths: 20 40 40
+:align: left
+
+* - Notation
+  - Label {footcite}`natureRestorationRegulation_UniformFormat`
+  - Definition
+
+* - dam
+  - a) Dam  
+  - A dam is a constructed barrier across a river or stream designed to impound 
+  or control the flow of water, creating a reservoir or changing downstream flow regimes.
+  Dams vary by design and material (earthfill, gravity, arch, buttress, rockfill, steel, etc.)
+  and commonly include spillways, gates, outlets and ancillary structures for flow control, storage,
+  hydropower, irrigation, or flood protection. 
+  [ferc](https://www.ferc.gov/sites/default/files/2020-04/fema-148.pdf)
+
+* - weir
+  - b) Weir  
+  - A weir is a fixed or adjustable low-crested barrier built across the full width (or a portion)
+  of a channel to raise upstream water level, measure discharge, divert flow, or form small impoundments;
+  types include sharp-crested, broad-crested, drowned and submerged weirs.
+  Weirs are often simpler and lower than dams and may be combined with fish-passage measures
+  (e.g., pool-and-weir, bypass channels) where ecological connectivity is a concern.
+  [dnr.wisconsin](https://dnr.wisconsin.gov/sites/default/files/topic/Dams/documents/FSNomenclature.pdf)
+
+* - weir_abstraction
+  - b1) Abstraction weir  
+  - An abstraction weir is a weir constructed specifically to raise water level 
+  to facilitate diversion of water into intakes, canals, or abstraction infrastructure for water supply,
+  irrigation, or industrial use. Its primary function is to provide a stable upstream head
+  for abstraction rather than to create a large storage reservoir,
+  and it may include intake structures and screens to protect downstream and intake habitats.
+  [cawater-info](https://www.cawater-info.net/bk/glossary/water_management/en/glossary2.htm)
+
+* - weir_consolidation
+  - b2) Consolidation weir
+  - A consolidation weir is a structure intended to stabilise or reprofile channel bed 
+  and banks—promoting sediment deposition upstream to consolidate (compact) sediments and
+  reduce erosion downstream. These weirs are used in river restoration or channel management
+  to create more stable channel geometry and to limit channel incision. 
+  [tools.thewerg.unimelb.edu](https://tools.thewerg.unimelb.edu.au/mwstr_manual/c9-barriers.html)
+
+* - weir_retention
+  - b3) Retention weir  
+  - A retention weir is built to retain water to maintain an upstream pool or wetland area, 
+  support habitat, provide flow buffering, or temporarily store runoff during high flows.
+  Retention weirs may be designed to detain sediments and moderate downstream peak flows
+  and are often part of integrated water-management or ecological design.
+  [wildfish](https://wildfish.org/wp-content/uploads/2026/03/25.03.26_River-Barriers-Literature-Review.pdf)
+
+* - sluice
+  - c) Sluice  
+  - A sluice (or sluice gate) is an operable gate or set of gates within a barrier or 
+  channel control structure that can be opened or closed to regulate water level
+  and discharge through a conduit or spillway.
+  Sluices are used for flow control, drainage, and navigation
+  and may be part of dams, weirs, locks or flood defence works;
+  when operated they can temporarily permit passage that would otherwise be blocked.
+  [dnr.wisconsin](https://dnr.wisconsin.gov/sites/default/files/topic/Dams/documents/FSNomenclature.pdf)
+
+* - crossing
+  - d) Crossing  
+  - A crossing is a structure or engineered point where a transport route (road, path, railway)
+   or utility traverses a watercourse and may include features that affect in-stream continuity
+   (culvert, ford, bridge). Crossings can become barriers to aquatic organisms if undersized
+   perched, clogged, or poorly aligned with the channel and flow conditions.
+   [business.qld.gov](https://www.business.qld.gov.au/industries/farms-fishing-forestry/fisheries/development/waterways/barriers)
+
+* - crossing_culvert
+  - d1) Culvert  
+  - A culvert is a closed conduit (pipe, box or arch) that conveys water beneath a road,
+    railway or embankment; culverts may be concrete, metal or plastic and range from small pipes
+    to large box culverts. Poorly designed culverts (too small, steep, perched outlet, high velocities,
+    blocked by debris) often create barriers to fish and sediment transport and require mitigation such
+    as naturalbed designs or low-gradient invert treatments.
+    [nzta.govt](https://www.nzta.govt.nz/assets/resources/bridge-manual/docs/Bridge-manual-pdf-appendix-B-v3.2.pdf)
+
+* - crossing_ford
+  - d2) Ford
+  - A ford is a shallow, intentionally passable section of a channel where vehicles or people
+    cross the bed; it is typically an exposed bed surface reinforced or paved for passage. 
+    Fords can alter bed morphology, concentrate flows, and create local scour or elevated 
+    velocities that may impede aquatic organism passage unless designed to maintain low-gradient,
+    natural substrate conditions.
+    [tools.thewerg.unimelb.edu](https://tools.thewerg.unimelb.edu.au/mwstr_manual/c9-barriers.html)
+
+* - crossing_bridge
+  - d3) Bridge
+  - A bridge is a span structure that carries a road, rail or footway over a watercourse while
+    ideally leaving the natural channel unobstructed beneath; bridge components include abutments,
+    piers and approachworks. Although bridges themselves may allow passage, associated works
+    (abutment extensions, wingwalls, bank revetment, or scour protection) can encroach on the
+    channel and create local barriers or alter hydraulic conditions. 
+    [business.qld.gov](https://www.business.qld.gov.au/industries/farms-fishing-forestry/fisheries/development/waterways/barriers)
+
+* - rampAndBedSill
+  - e) Ramp and bed sill  
+  - A ramp and bed sill are engineered low-gradient structures placed on the channel bed (ramp)
+    often combined with transverse sills to stabilise the bed, reduce channel incision, 
+    and provide step pools; bed sills act as small transverse controls that raise the
+    local bed level. They are used in river restoration and crossing design to provide
+    a naturalised bed for organism passage and sediment continuity when properly profiled
+    and constructed with appropriate substrate.
+    [wildfish](https://wildfish.org/wp-content/uploads/2026/03/25.03.26_River-Barriers-Literature-Review.pdf)
+
+* - bankProtection
+  - f) Bank protection  
+  - Bank protection (also bank revetment) comprises engineered measures—such as rock armour (riprap),
+    gabions, concrete facing, or vegetated stabilisation—installed along channel banks to prevent
+    erosion and protect infrastructure. While preventing bank loss, hard bank protection can reduce
+    habitat complexity and, if extended into the channel or poorly designed, may alter hydraulics and
+    contribute to barrier effects for fauna or sediment transport. 
+    [ferc](https://www.ferc.gov/sites/default/files/2020-04/fema-148.pdf)
+
+* - embankment
+  - g) Embankment  
+  - An embankment is a raised earth or rock structure placed along or across a floodplain or channel
+    to raise ground level or confine flow (e.g., levees, dam approaches, road embankments)
+    and may act as a barrier to lateral exchange or longitudinal connectivity.
+    Embankments can alter floodplain hydrology and block small channels or side-connections
+    unless properly setback, perforated with culverts, or fitted with fish-friendly passways.
+    [cawater-info](https://www.cawater-info.net/bk/glossary/water_management/en/glossary2.htm)
+
+* - bedRevetment
+  - h) Bed revetment
+  - Bed revetment is structural protection applied to the channel bed—typically rock,
+  concrete or engineered mats—to prevent bed scour and stabilise the channel invert.
+  While effective against erosion, hard bed revetments can reduce substrate heterogeneity,
+  increase flow velocities, and create physical or hydraulic barriers to benthic organisms
+  and fish movement unless designed to mimic natural bedforms.
+  [business.qld.gov](https://www.business.qld.gov.au/industries/farms-fishing-forestry/fisheries/development/waterways/barriers)
+
+```

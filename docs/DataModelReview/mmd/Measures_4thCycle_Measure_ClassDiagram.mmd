@@ -6,73 +6,138 @@ config:
   theme: neutral
 ---
 classDiagram
-direction LR
-namespace ReportingData{
+direction TB
+
 class Measure {
- + measureCode : wiselIdentifier
- + measureName : String1000
- + measureReference : referenceIdentifier [0..1]
+    + measureCode: wiseIdentifier
+    + measureName: string
+    + measureNameLanguage: Language
+    + measureReference: referenceCode [0..1]
 
- + measureType : MeasureType 
- + mainLegalInstrument : LegalInstrument
- + mainKeyTypeOfMeasure : MainKeyTypeOfMeasure
+    + measureType: MeasureType 
+    + mainLegalInstrument: LegalInstrument
+    + mainKeyTypeOfMeasure: MainKeyTypeOfMeasure
 
- + mainPressureType : HierarchicalPressureType [0..1]
- + mainSubstanceType : HierarchicalSubstanceType [0..1]
+    + mainPressureType: PressureType [0..1]
+    + mainSubstanceType: SubstanceType [0..1]
+    
+    + msfdRelevance: YesNo
+    + floodsRelevance: YesNo
+    + natureRestorationRegulationRelevance: YesNo
+    + draughtManagementPlanRelevance: YesNo
+    + climateAdaptationPlanRelevance: YesNo
 
- + msfdRelevance : YesNo
- + floodsRelevance : YesNo
- + natureRestorationRegulationRelevance : YesNo
- + draughtManagementPlanRelevance : YesNo
- + climateAdaptationPlanRelevance : YesNo
+    + geographicalCoverage: WFDGeographicCoverage
+    + euRBDCode: wiseIdentifier [0..n]
+    + waterCategory: MeasureScope [0..1]
+    + protectedAreaType: ProtectedAreaType [0..1]
 
- + geographicalCoverage : WFDGeographicCoverage
- + euRBDCode : wiselIdentifier [0..n]
- + waterCategory : HierarchicalWaterCategory [0..1]
- + protectedAreaType : ProtectedAreaType [0..1]
-
- + implementationPeriod : YearRangeType
- + implementationStatus : PlannedOngoingExecutedCancelled
+    + implementationPeriod: range
+    + implementationStatus: PlannedOngoingExecutedCancelled
 }
+
+class MeasureType{
+    <<enumeration>>
+    legislativeOrRegulatory
+    administrativeOrGovernance
+    physicalOrTechnical
+    economicOrFinancial
+    knowledgeOrPreparatory
 }
-namespace Codelist{
-    class MeasureType{
-        <<enumeration>>
-    }
-    class LegalInstrument{
-        <<enumeration>>
-    }
-    class MainKeyTypeOfMeasure{
-        <<enumeration>>
-    }
-    class HierarchicalPressureType{
-        <<enumeration>>
-    }
-    class HierarchicalSubstanceType{
-        <<enumeration>>
-    }
-    class WFDGeographicCoverage{
-        <<enumeration>>
-    }
-    class HierarchicalWaterCategory{
-        <<enumeration>>
-    }
-    class ProtectedAreaType{
-        <<enumeration>>
-    }
-    class YesNo{
-        <<enumeration>>
-        yes
-        no
-    }
-    class PlannedOngoingExecutedCancelled{
-        <<enumeration>>
-        planned
-        ongoing
-        executed
-        cancelled
-    }
+class LegalInstrument{
+    <<enumeration>>
+    birdsDirective 
+    bathingWaterDirective
+    environmentalImpactAssessmentDirective
+    environmentalQualityStandardsDirective2008 
+    environmentalQualityStandardsDirective2013 
+    floodsDirective
+    groundwaterDirective 
+    habitatsDirective 
+    industrialEmissionsDirective
+    marineStrategyFrameworkDirective 
+    natureRestorationRegulation
+    nitratesDirective 
+    plantProtectionProductsRegulation
+    recastDrinkingWaterDirective
+    recastUrbanWasteWaterTreatmentDirective
+    sevesoIIIDirective 
+    sewageSludgeDirective 
+    waterFrameworkDirective
+    waterReuseRegulation
 }
+class MainKeyTypeOfMeasure{
+    <<enumeration>>
+    «basic measure types»
+    B - Measure to implement recovery of costs for water services
+    C - Measure to promote efficient and sustainable water use
+    D - Measure to protect drinking water quality and reduce the level of treatment required
+    E - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+    F - Measure to control artificial recharge or augmentation of groundwater
+    G - Measure to control point source discharges
+    H - Measure to prevent or control inputs of diffuse pollutants
+    J - Measure to prohibit direct discharges to groundwater
+    K - Measure to eliminate by Priority Substances and reduce pollution by other substances
+    L - Measure to prevent accidental pollution
+    «measure to address significant impacts on surface waters»
+    I2-2 - Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes
+    I2-3 - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes
+    I2-4 - Measure to address significant impacts on surface waters - Acidification
+    «measure to address significant pressures on surface waters»
+    P - Measure to address significant pressures on surface waters
+    «other measure types»
+    X01 - Construction or upgrades of wastewater treatment plants
+    X12 - Advisory services
+    X14 - Research, improvement of knowledge base reducing uncertainty
+    X23 - Natural water retention measures
+    X24 - Climate change adaptation measure
+}
+
+class WFDGeographicCoverage{
+    <<enumeration>>
+    national
+    riverBasinDistrict
+    waterBody
+    protectedArea    
+}
+class MeasureScope{
+    <<enumeration>>
+    rivers
+    lakes
+    transitionalWaters
+    coastalWaters
+    surfaceWater
+    groundwater
+    bothSurfaceAndGroundwater
+    }
+class ProtectedAreaType{
+    <<enumeration>>
+    bathingWaters
+    drinkingWaterProtectionArea
+    freshwaterFishDesignatedWater
+    natura2000
+    nitrateVulnerableZone
+    sensitiveArea
+    shellfishDesignatedWater
+}
+
+class PlannedOngoingExecutedCancelled{
+    <<enumeration>>
+    planned
+    ongoing
+    executed
+    cancelled
+}
+
+Measure ..> MeasureType
+Measure ..> LegalInstrument
+Measure ..> MainKeyTypeOfMeasure
+Measure ..> WFDGeographicCoverage
+Measure ..> MeasureScope
+Measure ..> ProtectedAreaType
+Measure ..> PlannedOngoingExecutedCancelled
+
+note for MainKeyTypeOfMeasure "the label is not part of the code"
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

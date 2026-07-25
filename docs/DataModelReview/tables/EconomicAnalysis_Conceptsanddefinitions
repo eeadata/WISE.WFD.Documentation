@@ -1,4 +1,4 @@
-```{list-table} Concepts and definitions for requested data on volumes – 4ᵗʰ cycle of reporting.
+```{list-table} Concepts and definitions for requested data on volumes – 4th cycle of reporting.
 :name: EconomicAnalysis_Conceptsanddefinitions
 :width: 100%
 :header-rows: 1
@@ -16,34 +16,34 @@
   - The volumes are reported in the river basin district where the point of abstraction is located.
 
 * - **V4**
-  - *Water abstraction – for other water supply + irrigation water*
+  - *Water abstraction – for other water supply - irrigation water*
   - Volume of water abstracted for the purpose of collective irrigation water supply.  
-    Note that the balance condition **V4 ≈ V41** is not expected to hold, due to losses during transport and water returned without use (V4 > V41) or due to transfers between river basin districts (V4 < V41).
+    Note that the balance condition **V4 ≈ V41** is not expected to hold, due to losses during transport and water returned without use (which result in V4 > V41) or due to transfers between river basin districts (which may result in V41 > V4).
   - The volumes are reported in the river basin district where the point of abstraction is located.
 
 * - **V41**
-  - *Water use – from other water supply + irrigation water*
-  - To maintain alignment with the OECD/Eurostat Joint Questionnaire, “Other water supply + irrigation water” refers to the portion of water supplied to agriculture that is not counted under either “self‑supply” or “public water supply.”  
+  - *Water use – from other water supply - irrigation water*
+  - To maintain alignment with the OECD/Eurostat Joint Questionnaire, “Other water supply - irrigation water” refers to the portion of water supplied to agriculture that is not counted under either “self‑supply” or “public water supply.”  
     This includes all irrigation systems operations that are not individual (on‑farm) irrigation systems, and may also include some water originating from self‑supply that is subsequently distributed to other users.  
-    See Table 2 for the definition of the water user sector Agriculture.
+    See Table 15 for the definition of the water user sector Agriculture.
   - The volumes are reported in the river basin district where the point of use/consumption is located.
 
 * - **V5**
-  - *Water abstraction – for public water supply + drinking water*
+  - *Water abstraction – for public water supply - drinking water*
   - Volume of water abstracted for the purpose of collective drinking water supply.  
     Note that the balance condition **V5 ≈ V52 + V53** is not expected to hold, due to losses and transfers, including cases where the user/consumer is outside the river basin district where the water is abstracted.
   - The volumes are reported in the river basin district where the point of abstraction is located.
 
 * - **V52, V53**
-  - *Water use – from public water supply + drinking water*
+  - *Water use – from public water supply - drinking water*
   - Water supplied by economic units engaged in collection, purification and distribution of water.  
     “Public” means publicly accessible service — provided either by public or private operators — not “public sector.”  
     “Public water supply” = “drinking water supply.”  
-    See Table 2 for the definition of the water user sectors: Manufacturing Industry (V52) and Households (V53).  
+    See Table 15 for the definition of the water user sectors: Manufacturing Industry (V52) and Households (V53).  
     **Excludes:**  
-    – Non‑drinking water (unsafe for human consumption)  
-    – Treatment of wastewater solely to prevent pollution  
-    – Operation of systems for agricultural irrigation (e.g., irrigation canals) — this falls under “Other supply” in the OECD/Eurostat Joint Questionnaire and under “Other water supply – irrigation water” in the 4ᵗʰ cycle of WFD reporting  
+    – Non‑drinking water (i.e. unsafe for human consumption)  
+    – Treatment of wastewater done solely to prevent pollution  
+    – Operation of systems for agricultural irrigation (e.g., irrigation canals) — this falls under “Other supply” in the OECD/Eurostat Joint Questionnaire and under “Other water supply – irrigation water” in the 4th cycle of WFD reporting  
     – Deliveries of water from one public supplier to another (to avoid double counting)
   - Note that the desalination of marine water to produce water as the principal product is included in the Public Water 
 Supply definition and reporting under the OECD/Eurostat Joint Questionnaire (see ABS_PWS).  However, for the 4th cycle of electronic reporting under the WFD, the volumes reported for 'Water use - from public water supply - drinking water' (see V52 and V53) do not include desalinated water. 
@@ -58,7 +58,7 @@ Supply definition and reporting under the OECD/Eurostat Joint Questionnaire (see
  
 * - **V62, V63**
   - *Sewerage – Collection and treatment of wastewater*
-  - See Table 2 for the definition of the water user sector Manufacturing Industry (for V62) and Households (for V63).  
+  - See Table 15 for the definition of the water user sector Manufacturing Industry (for V62) and Households (for V63).  
     The following definitions from the OECD/Eurostat Joint Questionnaire are relevant for the correct apportionment of the volume reported under V6:  
     – “Treatment in UWWTPs – Total inflow” (TRT_URB_IF)  
     – “Generation of Wastewater – Manufacturing Industry” (GEN_MAN)  

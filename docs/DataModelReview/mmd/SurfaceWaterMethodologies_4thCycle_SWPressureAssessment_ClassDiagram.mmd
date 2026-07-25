@@ -1,0 +1,30 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWPressureAssessment{
+  + euRBDCode: wiseIdentifier
+  + swPressure: PressureType
+  + swPressureAssessmentMethod: PressureAssessmentMethod
+  + swSignificanceDefinition: YesNoNotApplicable
+  + swSignificanceLinkFailure: YesNoNotApplicable
+}
+
+class PressureAssessmentMethod{
+  <<enumeration>>
+  numericalTools
+  expertJudgement
+  combinationOfBoth
+  notAssessed 
+}
+
+SWPressureAssessment ..> PressureAssessmentMethod 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

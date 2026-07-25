@@ -1,0 +1,48 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+ 
+classDiagram
+direction LR
+class GroundWaterBody {
+  + geometry_polygon: MultiPolygon [0..1]
+  
+  + inspireIdLocalId: string254
+  + inspireIdNamespace: string254
+  + inspireIdVersionId: string25 [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + beginLifespanVersion: date [0..1]
+  + endLifespanVersion: date [0..1]
+  + predecessorsIdentifier: wiseIdentifier [0..n]
+  + predecessorsIdentifierScheme: IdentifierScheme [0..1]
+  + successorsIdentifier: wiseIdentifier [0..n]
+  + successorsIdentifierScheme: IdentifierScheme [0..1]
+  + wiseEvolutionType: WiseEvolutionType
+  + nameTextInternational: string254
+  + nameText: string254
+  + nameLanguage: Language
+  + designationPeriodBegin: date
+  + designationPeriodEnd: date [0..1]
+  + zoneType: ZoneType
+  + specialisedZoneType: SpecialisedZoneType
+  + legalBasisName: string254 [0..1]
+  + legalBasisLink: URL [0..1]
+  + legalBasisLevel: LegislationLevelValue [0..1]
+  + relatedZoneIdentifier: wiseIdentifier
+  + relatedZoneIdentifierScheme: IdentifierScheme
+  + link: URL [0..1]
+  + horizons: int [1..n]
+}
+
+
+class GroundWaterBodyHorizon {
+  + geometry_polygon: MultiPolygon [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + horizon: int
+}

@@ -1,0 +1,38 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWTargetedQuestions{
+  + euRBDCode: wiseIdentifier
+  + gepApproachRW: GEPApproach
+  + bqeForMEPGEPRW: BiologicalQualityElement [0..n]
+  + gepApproachLW: GEPApproach
+  + bqeForMEPGEPLW: BiologicalQualityElement [0..n]
+  + gepApproachTW: GEPApproach
+  + bqeForMEPGEPTW: BiologicalQualityElement [0..n]
+  + gepApproachCW: GEPApproach
+  + bqeForMEPGEPCW: BiologicalQualityElement [0..n]
+  + ecologicalStatusMethodReference: referenceCode [1..n]
+  + gepMethodReference: referenceCode [1..n]
+}
+
+class GEPApproach {
+<<enumeration>>
+cisGuidanceReferenceApproach
+mitigationMeasuresPragueApproachWithBQE
+mitigationMeasuresPragueApproachWithoutBQE
+hybridApproachReferencePrague
+sameAssessmentAsNaturalWB
+gepHasNotBeenDefined
+}
+
+SWTargetedQuestions ..> GEPApproach
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

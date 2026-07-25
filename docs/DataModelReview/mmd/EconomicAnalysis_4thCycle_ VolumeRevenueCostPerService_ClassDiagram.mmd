@@ -10,12 +10,12 @@ classDiagram
 
     class VolumeRevenueCostPerService {
         + geo: wiseIdentifier 
-        + time: Year 
+        + time: gYear
         + dimension: VolumeRevenueCost 
         + obs_value: nonNegativeValue
         + obs_unit: UnitOfMeasure 
         + obs_status: ObservationStatus [0..1]
-        + obs_comment: Text4000 [0..1]
+        + obs_comment: string4000 [0..1]
     }
 
 classDef default fill:white,stroke:#000;

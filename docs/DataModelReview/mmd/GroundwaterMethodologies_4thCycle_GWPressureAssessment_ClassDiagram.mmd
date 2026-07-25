@@ -1,0 +1,33 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+
+class GWPressureAssessment{
+  + euRBDCode: wiseIdentifier
+  + gwPressure: PressureType
+  + gwPressureAssessmentMethod: PressureAssessmentMethod
+  + gwSignificanceDefinition: YesNoNotApplicable
+  + gwSignificanceLinkFailure: YesNoNotApplicable
+}
+
+class PressureAssessmentMethod{
+<<enumeration>>
+  numericalTools
+  expertJudgement
+  combinationOfBoth
+  notAssessed 
+}
+
+GWPressureAssessment ..> PressureAssessmentMethod 
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lightyellow,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

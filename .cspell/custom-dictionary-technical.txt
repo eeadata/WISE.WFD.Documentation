@@ -1,0 +1,22 @@
+# Custom Dictionary Words related to Technical Jargon
+bedforms
+Classdiagram
+codelist
+codelists
+dagre
+datatypes
+dcmetadata
+discodata
+EIONET
+footbibliography
+footcite
+ISNULL
+lightyellow
+linenos
+numref
+postgis
+Postgre
+Reportnet3
+SDMX
+skos
+toctree
