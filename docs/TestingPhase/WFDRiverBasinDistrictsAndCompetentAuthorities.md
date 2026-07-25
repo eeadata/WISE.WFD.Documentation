@@ -29,7 +29,7 @@ See additional information in the *data model review documentation*:
 
 See additional information in the *data model review documentation*:
 
-* {ref}`heading_wfd_rbd_and_ca_spatial_dataset_4th_cycle`
+* {ref}`heading_riverbasindistrict_spatial_dataset_4th_cycle`
 
 (heading_wfd_rbd_and_ca_riverbasindistrict_table_testing_phase)=
 ### RiverBasinDistrict spatial table
