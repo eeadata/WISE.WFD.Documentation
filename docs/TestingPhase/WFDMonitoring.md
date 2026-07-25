@@ -39,7 +39,7 @@ See additional information in the *data model review documentation*:
 
 See additional information in the *data model review documentation*:
 
-* {ref}`heading_wfd_monitoring_spatial_dataset_4th_cycle`
+* {ref}`heading_monitoringsite_spatial_dataset_4th_cycle`
 
 (heading_wfd_monitoring_monitoringsite_table_testing_phase)=
 ### MonitoringSite spatial table

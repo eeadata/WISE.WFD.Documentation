@@ -23,10 +23,28 @@ class ExpenditurePerMeasurePerSector {
 }
 
 class SEA2010SectorCode{
-    <<enumeration>>
-    }
+  <<enumeration>>
+  S.1
+  S.13
+  S.13_S.15
+  S.11_S.12
+  S.11
+  S.11001
+  S.11002_S.11003
+  S.212
+  }
+
 class CurrencyCode{
     <<enumeration>>
+    EUR
+    CZK
+    DKK
+    HUF
+    PLN
+    RON
+    SEK
+    NOK
+    ISK
     }
 
 ExpenditurePerMeasurePerSector ..> SEA2010SectorCode

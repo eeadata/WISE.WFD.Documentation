@@ -1,12 +1,7 @@
 (heading_wfd_measures)=
-# Measures
+# Programme of Measures
 
-Last update: 2026-06-26
-
-```{warning}
-The online version of the text is being reviewed.  
-See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
-```
+Last update: 2026-07-24
 
 ## Purpose and overview
 
@@ -80,7 +75,7 @@ River Basin Management Plan, international Coordination and Progress - 3rd cycle
 Regarding the economic data in the programme of measure,
 the revision of the electronic reporting focuses on the main issues
 described in the Note to the CIS Working Group Economics quoted below
-{footcite}`Arnoldus2025Workstream1`:
+{footcite}`Arnoldus2025`:
 
 ```{epigraph}
 “[…] Both the Commission’s 6th and 7th WFD Implementation Reports indicate persistent problems in
@@ -88,7 +83,7 @@ the (electronic) reporting on the investments and the costs of other measures in
 Measures (**PoM**).
 
 The 6th WFD Implementation Report notes that the Member States’ reporting on costs and financing of
-the **PoMs** appears overall patchy and that a consultant’s study estimate is an underestimation for 
+the **PoMs** appears overall patchy and that a consultant’s study estimate is an underestimation for
 the total costs, as there are significant data gaps and it excludes operational and infrastructure
 maintenance costs. The corresponding investment overview table shows indeed large gaps.
 {footcite}`6thWFDImplementationReport`
@@ -130,8 +125,6 @@ The EPEA are based on a clear, publicly available protocol (following UN statist
 defining the environmental domains, spending economic sectors, and expenditure types. 
 The latter includes the distinction between **capital** and **current** expenditures. 
 Hence, it meets the features described in the three bullets points above.
-
--- {cite}`Arnoldus2025Workstream1`
 
 ```
 
@@ -190,7 +183,7 @@ difficulty in achieving a meaningful analysis.
 
 ## Proposed structure - 4th cycle
 
-* The former RBMP and Coordination tables are simplified 
+* The former RBMP and Coordination tables are simplified
   to a single `RiverBasinManagementPlan` table,
   containing a selected subset of attributes.  
 
@@ -203,12 +196,12 @@ difficulty in achieving a meaningful analysis.
 * Information about measures is requested in a single `Measure` table.
 
 * The former Costs table is removed.
-  Information about the planned `ExpenditurePerMeasure` 
+  Information about the planned `ExpenditurePerMeasure`
   is reported in a separate table, if data is available.
   
 * The KTM classification, KTM indicators and indicator gaps data is completely removed.
 
-## RiverBasinManagementPlan table – 4th cycle
+## RiverBasinManagementPlan table - 4th cycle
 
 The simplified `RiverBasinManagementPlan` table contains a subset of the data previously requested
 in the **RBMP** and **Coordination** classes in the 3rd cycle
@@ -225,7 +218,7 @@ in the **RBMP** and **Coordination** classes in the 3rd cycle
 :align: center
 ```
 
-## Progress table – 4th cycle
+## Progress table - 4th cycle
 
 The `Progress` table is modified to provide an
 overview of the proportion of the measures of the 3rd RBMPs
@@ -270,7 +263,7 @@ which are in different statuses and may have faced different obstacles
 The example in {numref}`measures_example_progress`
 illustrates how to synthesize the information in the Progress table.
 
-```{table} Illustrative example - Progress table records for the example in the previous table.
+```{table} Illustrative example - Progress table records for the previous example.
 :name: measures_example_progress
 :width: 100%
 
@@ -284,7 +277,7 @@ illustrates how to synthesize the information in the Progress table.
 | cancelled | 10 | No | No | Yes | No |
 ```
 
-## TargetedQuestions table – 4th cycle
+## TargetedQuestions table - 4th cycle
 
 The `TargetedQuestions` table collects summary information about the measures in the RBMP,
 and the progress since the previous cycle. For each RBMP, only one record is required.
@@ -302,7 +295,7 @@ keeping a subset of the questions requested in the previous cycle
 :align: center
 ```
 
-## Measure table – 4th cycle
+## Measure table - 4th cycle
 
 The simplified `Measure` table proposed for the 4th cycle is illustrated in
 ({numref}`Measures_4thCycle_Measure_ClassDiagram`).
@@ -333,116 +326,115 @@ For each measure:
 :align: center
 ```
 
-### measureType
+* The primary `measureLegalInstrument` under which the measure was defined
+  must be clearly identified.
+  This avoids double reporting in other Directives:
+  the measures can be reported only once under the RBMP electronic reporting.
+  An updated list of EU water and other environmental legislation is provided
+  ({numref}`Codelist_4thCycle_LegalInstrument_Table`).
 
-The `measureType` typology is described in {numref}`Codelist_4thCycle_MeasureType_Table`.
+  The scope of some basic measures is clearly linked to the two Daughter directives:
 
-```{include} tables/Codelist_4thCycle_MeasureType_Table
-```
+  - Measures to prohibit direct discharges to groundwater: *Groundwater Directive*
+  - Measures to eliminate or reduce pollution by Priority Substances:
+    *Environmental Quality Standards Directive*
 
-### measureLegalInstrument
+  These two legal instruments are part of the codelist.
+  The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD),
+  that existed in the 3rd cycle,
+  is now eliminated because it did not convey relevant information.
 
-The primary `measureLegalInstrument` under which the measure was defined
-must be clearly identified.
-This avoids double reporting in other Directives:
-the measures can be reported only once under the RBMP electronic reporting.
-An updated list of EU water and other environmental legislation is provided
-({numref}`Codelist_4thCycle_LegalInstrument_Table`).
+* The `mainKeyTypeOfMeasure` attribute contains the classification to be used
+  for both basic and supplementary measures (see {numref}`Codelist_4thCycle_MainKeyTypeOfMeasure_Table`).
+  It simplifies, consolidates and replaces both
+  the **basicMeasureType** and the **keyTypeOfMeasure** classifications used in the 2nd and 3rd cycles.
 
-The scope of some basic measures is clearly linked to the two Daughter directives:
+  The purpose of the simplified classification is:
 
-* Measures to prohibit direct discharges to groundwater: *Groundwater Directive*
-* Measures to eliminate or reduce pollution by Priority Substances:
-  *Environmental Quality Standards Directive*
+  - To reduce the number of classes to a manageable set (19 options).
+  - To use a single classification scheme applicable to both basic measures and supplementary
+    measures.
+  - To avoid redundancy and reporting burden in the classification of the measures.
+  - To maintain the options directly linked to the basic measure types in Articles 11(3)(b) to
+    11(3)(l) of the WFD – see codes B, C, D, E, F, G, H, J, K, L.
+  - To maintain the disaggregation in the measures to address significant impacts in the status of
+    water as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
+  - To allow flexibility in the reporting of the measures to address significant pressures, when
+    combined with the optional mainPressureType attribute.
+  - To maintain the previous KTM that do not fit the criteria above and were reported with high
+    frequency in the 3rd cycle – see codes X01, X12, X14, X23 and X24.
+  - Regarding the measures to address significant impacts in the status of water
+    as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
+    Note that only some of the impacts applicable to surface water are detailed.
 
-These two legal instruments are part of the codelist.
-The option 'Other' (Other Directives mentioned in Part A of Annex VI of the WFD),
-that existed in the 3rd cycle,
-is now eliminated because it did not convey relevant information.
+* A mapping table ({numref}`Measures_MainKeyTypeOfMeasure_MappingTable`) 
+  if provided with the correspondence between the `mainKeyTypeOfMeasure` classes 
+  and the previous separate classification schemes used in the 3rd cycle.
+  
+* In the **3rd cycle**, the reporting guidance stated that
+  "the name [of the measure] should reflect the pressure that is being tackled by the measure"
+  {footcite}`WFD2022_ReportingGuidance` — 
+  meaning the pressure(s) should be described textually in the name of the measure.
+  This recommendation was not consistently followed, and an analysis of the measure names across
+  Europe does not yield useful results.
 
-```{include} tables/Codelist_4thCycle_LegalInstrument_Table
-```
+  It is easier to keep the *original name of the measure*,
+  and to allow MS to optionally select the `mainPressureType` that the measure addresses,
+  at the adequate level of detail (e.g. a generic measure may address `'P2'` (Diffuse sources), while
+  a more targeted measure may address only `'P2‑5'` (Diffuse – Contaminated sites or abandoned
+  industrial sites).
 
-### mainKeyTypeOfMeasure
+  The `mainPressureType` attribute allows more clarity and flexibility and can be applied to
+  supplementary measures too.
+  The `mainPressureType` attribute is optional, except for measures of type `'G'` and `'H'`.
+  For measures of type G and H, the Commission requires additional information to differentiate
+  measures addressing issues related to Urban Waste Water - `'P1‑1'` -
+  from issues related to diffuse pollution from Agriculture - `'P2-2'`.
 
-The `mainKeyTypeOfMeasure` attribute contains the classification to be used
-for both basic and supplementary measures (see {numref}`Measures_MainKeyTypeOfMeasure_ListTable`).
-It simplifies, consolidates and replaces both
-the **basicMeasureType** and the **keyTypeOfMeasure** classifications used in the 2nd and 3rd cycles.
+* *If needed and applicable*, a similar approach can be used for `mainSubstanceType`,
+  allowing MS to identify measures targeting specific substances or groups of substances.
 
-```{include} tables/Measures_MainKeyTypeOfMeasure_ListTable
-```
+* The geographical scope of a measure is specified in the `geographicalCoverage` attribute:
 
-### mainPressureType and mainSubstanceType
+  - use `geographicalCoverage = 'national'` for measures
+    that target any water body affected by a given significant pressure or substance failing
 
-In the **3rd cycle**, the reporting guidance stated that
-"the name [of the measure] should reflect the pressure that is being tackled by the measure" {footcite}`WFD2022_ReportingGuidance` — meaning the pressure(s)
-should be described textually in the name of the measure.
-This recommendation was not consistently followed, and an analysis of the measure names across
-Europe does not yield useful results.
+  - use `geographicalCoverage = 'riverBasinDistrict'` for measures
+    that target any water body affected by a given significant pressure or substance failing
+    within the RBD indicated in the `euRBDCode` attribute value
 
-It is easier to keep the *original name of the measure*,
-and to allow MS to optionally select the `mainPressureType` that the measure addresses,
-at the adequate level of detail (e.g. a generic measure may address `'P2'` (Diffuse sources), while
-a more targeted measure may address only `'P2‑5'` (Diffuse – Contaminated sites or abandoned
-industrial sites).
+  - if appropriate and necessary, it is possible to specify that a measure
+    only applies to a specific category of water bodies,
+    using the optional `waterCategory` attribute
 
-The `mainPressureType` attribute allows more clarity and flexibility and can be applied to
-supplementary measures too.
-The `mainPressureType` attribute is optional, except for measures of type `'G'` and `'H'`.
-For measures of type G and H, the Commission requires additional information to differentiate
-measures addressing issues related to Urban Waste Water - `'P1‑1'` -
-from issues related to diffuse pollution from Agriculture - `'P2-2'`.
+  - if appropriate and necessary, it is possible to specify that a measure
+    only applies to a specific type of WFD protected area,
+    using the optional `protectedAreaType` attribute
 
-*If needed and applicable*, a similar approach can be used for `mainSubstanceType`,
-allowing MS to identify measures targeting specific substances or groups of substances.
+  - the option `geographicalCoverage = 'waterBody'` should be reserved for measures
+    that target specific water bodies (for example, one river, or a set of lakes)
 
-### geographicalCoverage
+  - the option `geographicalCoverage = 'protectedArea'` should be reserved for measures
+    that target specific protected areas
+    (for example, a set of bathing waters or a specific UWWTD sensitive area)
 
-* The geographical scope of a measure is specified in the `geographicalCoverage` attribute,
-  by selecting the most adequate option:
-  `'national'`, `'riverBasinDistrict'`, `'waterBody'` or `'protectedArea'`.
-
-* The option `geographicalCoverage = 'national'` should be used for measures
-  that target any water body affected by a given significant pressure or substance failing.
-
-* The option `geographicalCoverage = 'riverBasinDistrict'` should be used for measures
-  that target any water body affected by a given significant pressure or substance failing
-  within the RBD indicated in the `euRBDCode` attribute value.
-
-* If appropriate and necessary, it is possible to specify that a measure
-  only applies to a specific category of water bodies,
-  using the optional `waterCategory` attribute.
-
-* If appropriate and necessary, it is possible to specify that a measure
-  only applies to a specific type of WFD protected area,
-  using the optional `protectedAreaType` attribute.
-
-* The option `geographicalCoverage = 'waterBody'` should be reserved for measures
-  that target specific water bodies (for example, one river, or a set of lakes).
-
-* The option `geographicalCoverage = 'protectedArea'` should be reserved for measures
-  that target specific protected areas
-  (for example, a set of bathing waters or a specific UWWTD sensitive area).
-
-* In these cases, it is NOT requested to individually identify the water bodies or protected areas.
-
-### implementationPeriod and implementationStatus
+  - in the 2 previous cases, it is NOT requested to individually identify 
+    the water bodies or protected areas, respectively.
 
 * The temporal scope of a measure is provided in the `implementationPeriod` value.
-* The range of years indicated in the `implementationPeriod` is used
-  to check the reporting of information related to expenditures
-  (e.g. if a measure is yet to start, then no past expenditures exist).
+
+  - the range of years indicated in the `implementationPeriod` is used
+    to check the reporting of information related to expenditures
+    (e.g. if a measure is yet to start, then no past expenditures exist)
 
 * The `implementationStatus` value allows the distinction between planned and ongoing measures.  
   It may also be used for measures planned for the 3rd cycle
   but already executed or cancelled by the end of 2027.
 
-## ExpenditurePerMeasurePerSector table – 4th cycle
+## ExpenditurePerMeasurePerSector table - 4th cycle
 
-{numref}`Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram` 
+{numref}`Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram`
 illustrates the `ExpenditurePerMeasurePerSector` table proposed for the 4th cycle.
-
 The data is reported for each measure, *if it is available*: the `measureCode` identifier and the
 `expenditureDataAvailable` attribute are the only mandatory attributes.
 
@@ -452,37 +444,50 @@ The data is reported for each measure, *if it is available*: the `measureCode` i
 :align: center
 ```
 
-The geographical scope of the measure is inherited from the parent record in the `Measure` table
-and does not need to be reported again. Likewise, the temporal scope is inherited from the parent
-records and can be used to verify the reported data [^ErrorExplained].
+The geographical scope of the measure is inherited from the parent record
+in the `Measure` table and does not need to be reported again. 
+Likewise, the temporal scope is inherited from the parent records
+and can be used to verify the reported data.
 
-[^ErrorExplained]: An error should be raised when there is missing data. In pseudo-code (the &&
-    operators tests whether a range of values overlaps):<br>a) IF
-    expenditureDataAvailable = 'Yes' AND Measure.implementationPeriod &&
-    '[2022,2027]' AND Measure.implementationStatus IN ('executed', 'ongoing',
-    'implemented') AND totalCapitalExpenditure3rdCycle IS NULL AND
-    annualCurrentExpenditure3rdCycle IS NULL. <br>b) IF expenditureDataAvailable
-    = 'Yes' AND Measure.implementationPeriod && '[2028,2033]' AND
-    Measure.implementationStatus IN ('ongoing', 'implemented', 'planned') AND
-    totalCapitalExpenditure4thCycle IS NULL AND annualCurrentExpenditure4thCycle
-    IS NULL.
+* An error should be raised when there is missing data for the 3rd cycle 
+  In pseudo-code (the && operator tests whether a range of values overlaps):
+
+  ```{code-block} sql
+  WHERE expenditureDataAvailable = 'Yes' 
+  AND Measure.implementationStatus IN ('executed', 'ongoing','implemented') 
+  AND Measure.implementationPeriod && '[2022,2027]' 
+  AND totalCapitalExpenditure3rdCycle IS NULL 
+  AND annualCurrentExpenditure3rdCycle IS NULL
+  ```
+
+* An error should be raised when there is missing data for the 4th cycle 
+  In pseudo-code (the && operator tests whether a range of values overlaps):
+
+  ```{code-block} sql
+  WHERE expenditureDataAvailable = 'Yes' 
+  AND Measure.implementationStatus IN ('ongoing', 'implemented', 'planned') 
+  AND Measure.implementationPeriod && '[2028,2033]' 
+  AND totalCapitalExpenditure4thCycle IS NULL 
+  AND annualCurrentExpenditure4thCycle IS NULL
+  ```
 
 The attribute `millionUnitsOfNationalCurrency` was introduced to facilitate reporting by MS
-outside the Euro area, in alignment with common statistical practices ([^DataReportedCurrency]). 
+outside the Euro area, in alignment with common statistical practices.
 It also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
 
-[^DataReportedCurrency]: Data must be reported in Millions of Euro for Euro Area Member States,
-    and in Millions of National currency for non-Euro Area countries. (The
-    unit multiplier is set to 6 and it is applied to all the data, so it
-    doesn't need to be specified.) Non-Euro Area countries should use the
-    relevant code for its national currency (e.g. BGN, CZK, DKK, HRK, HUF,
-    PLN, RON, SEK) rather than common code for domestic currency (XDC).
-    Euro Area countries must use EUR. Generally, the number of decimal
-    digits is “0”. If a country wants to send a figure lower than 1
-    million, decimals may be used. In this case, the separator must be a
-    dot (.). (Example: if a country wants to report a value of 10 000 the
-    figure 0.01 must be sent). If necessary the proposal can be modified to
-    use a different multiplier (e.g. thousands).
+* Data must be reported in Millions of Euro for Euro Area Member States,
+  and in Millions of National currency for non-Euro Area countries. 
+  The unit multiplier is set to 6 and it is applied to all the data, so it doesn't need to be specified.
+
+* Non-Euro Area countries should use the relevant code for its national currency
+  (e.g. CZK, DKK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC).
+  Euro Area countries must use EUR. 
+
+* Generally, the number of decimal digits is “0”. 
+  If a country wants to send a figure lower than 1 million, decimals may be used.
+  In this case, the separator must be a dot (.). 
+  Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent. 
+  If necessary the proposal can be modified to use a different multiplier (e.g. thousands).
 
 A clear separation is made between **capital** expenditure vs. **current** expenditure and between
 the 3rd cycle and the 4th cycle data. Only total values are requested.
@@ -494,27 +499,25 @@ The European System of Accounts (ESA 2010) has a standard classification of inst
 (see {numref}`Measures_ESA2010_Table`).
 The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly,
 the 3rd cycle of WFD reporting used it.
-The dichotomous key in {numref}`MeasuresUnitResidentflowchart` clarifies the allocation of units to
-sectors.
-
-The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors ([^Sectors]):
-
-[^Sectors]: See e.g. the Environmental protection expenditure accounts Handbook , 2017 edition
-    [https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000](https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000).
-
-* S13 and S15 – General government and **NPISH**
-* S11 and S12 – Corporations
-* S14 – Households
-* S2 – Rest of the World
 
 ```{include} /DataModelReview/tables/Measures_ESA2010_Table
 ```
 
-```{mermaid} /DataModelReview/mmd/MeasuresUnitResidentflowchart.mmd
-:name: MeasuresUnitResidentflowchart
+The dichotomous key in {numref}`Measures_ESA2010_Allocation_of_institutional_units_to_sectors` clarifies the allocation of units to
+sectors.
+
+```{mermaid} /DataModelReview/mmd/Measures_ESA2010_Allocation_of_institutional_units_to_sectors.mmd
+:name: Measures_ESA2010_Allocation_of_institutional_units_to_sectors
 :align: center
 :caption: European System of Accounts (ESA 2010) allocation of institutional units to sectors
 ```
+
+The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors {footcite}`eurostat2017epea`:
+
+* S13 and S15 – General government and NPISH (Non-Profit Institutions Serving Households)
+* S11 and S12 – Corporations
+* S14 – Households
+* S2 – Rest of the World
 
 {numref}`Codelist_4thCycle_SEA2010SectorCode_Table` presents
 a proposed list of institutional sectors that can be used in the 4th cycle of reporting.
@@ -553,13 +556,14 @@ A new Urban Waste Water Treatment Plant required a total capital expenditure of 
   4M€ of national funds transferred by the General Government (S.13) to the company
   and 1M€ of EU funds transferred to the company via the national government.
 
-{numref}`measures_reportingSectorExample` illustrates the reporting of the different scenarios.
+{numref}`Measures_ReportingExpenditurePerSector_Example` illustrates the reporting of the different scenarios.
 
 Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view.  
 Likewise, scenario 3 and scenario 4 are identical.
 
 ```{table} Illustrative example with the reporting of expenditure per sector.
-:name: measures_reportingSectorExample
+:name: Measures_ReportingExpenditurePerSector_Example
+:widths: 10 70 20
 :width: 100%
 | Scenario | Institutional Sector | Total Capital Expenditure |
 | --- | --- | --- |
@@ -574,7 +578,7 @@ Likewise, scenario 3 and scenario 4 are identical.
 | 5 | S.212 – Institutions and bodies of the European Union | 1 M€ |
 ```
 
-The Commission must provide guidance on the reporting of
+The Commission will provide guidance on the reporting of
 expenditure for which may be outside the scope of the EPEA.
 
 * Measures to promote efficient and sustainable water use:
@@ -582,70 +586,69 @@ expenditure for which may be outside the scope of the EPEA.
 * Measure to control abstraction from surface and groundwater,
   and impoundment of surface water: `mainKeyTypeOfMeasure = 'E'`
 
-**Alignment with the Classification of environmental protection activities**
+## Codelists - 4th cycle
 
-The EPEA categorises activities using the CEPA 2000, the Classification of Environmental Protection Activities ({numref}`Measures_SubsetOfCEPAClasses_ListTable`).
+* For the `SubPlansCoverage` codelist, see {numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`.
+* For the `OngoingStakeholderInvolvement` codelist, see {numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`.
+* For the `Coordination` codelist, see {numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`.
+* For the `InternationalCoordination` codelist, see {numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`.
+* For the `StakeholderGroups` codelist, see {numref}`Measures_4thCycle_RiverBasinManagementPlan_ClassDiagram`.
 
-The proposed classification of Measures using the `mainKeyTypeOfMeasure` value
-({numref}`Measures_MainKeyTypeOfMeasure_ListTable`)
-is not based on the CEPA 2000 classification.
+* For the `PlannedOngoingExecutedCancelled` codelist, see {numref}`Measures_4thCycle_Progress_ClassDiagram`.
 
-Note also that CEPA strictly covers
-Environmental Protection (preventing pollution and degradation)
-and excludes Resource Management (saving water or energy),
-which falls under CReMA([^CReMA]), the Classification of Resource Management Activities.
+* For the `MeasuresChanges` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `MeasureScope` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `BasicMeasuresArt113eThreshold` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `BasicMeasuresArt113eImpoundment` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `BasicMeasuresArt113gThreshold` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `BasicMeasuresArt113hRules` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `BasicMeasuresArt113j` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
+* For the `EcologicalFlow` codelist, see {numref}`Measures_4thCycle_TargetedQuestions_ClassDiagram`.
 
-[^CReMA]: [https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103](https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103)
+* For the `MeasureType` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
+* For the `LegalInstrument` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
+* For the `WFDGeographicCoverage` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
 
-Nevertheless, it seems to be possible to map
-most of the `mainKeyTypeOfMeasure` classes
-to a primary CEPA 2000 class
- ({numref}`Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable`).
+* For the `MeasureType` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_MeasureType_Table`.
 
-The mapping and post-classification can be done by the Commission,
-using the reported data per Measure,
-to analyse and aggregate the data according CEPA classes, if that is required.
+* For the `LegalInstrument` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_LegalInstrument_Table`.
+
+* For the `MainKeyTypeOfMeasure` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
+  
+  - See the definitions in {numref}`Codelist_4thCycle_MainKeyTypeOfMeasure_Table`.
+  - See the mapping table between the 3rd and 4th cycle classifications in {numref}`Measures_MainKeyTypeOfMeasure_MappingTable`.
+
+* For the `PressureType` codelist,
+  see {numref}`Codelist_4thCycle_PressureType_ClassDiagram` in
+  the section {ref}`heading_wfd_pressure_type_codelist_4th_cycle`.
+
+  - See the mapping table between the 3rd and 4th cycle classifications in {numref}`PressuresType_3rdCycle_4thCycle_MappingTable`.
+
+* For the `ProtectedAreaType` codelist, see {numref}`Measures_4thCycle_Measure_ClassDiagram`.
+
+* For the `SEA2010SectorCode` codelist, see {numref}`Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram`.
+
+  - See the definitions in {numref}`Codelist_4thCycle_SEA2010SectorCode_Table`.
+
+* For the `CurrencyCode` codelist, see {numref}`Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram`.
+
+```{include} tables/Codelist_4thCycle_MeasureType_Table
+```
+
+```{include} tables/Codelist_4thCycle_LegalInstrument_Table
+```
+
+```{include} tables/Codelist_4thCycle_MainKeyTypeOfMeasure_Table
+```
+
+```{include} tables/Measures_MainKeyTypeOfMeasure_MappingTable
+```
 
 ## Annexes
-
-### Simplified classification of measures – 4th cycle
-
-This annex presents the `mainKeyTypeOfMeasure`,
-a simplified classification of measures that consolidates and replaces
-the **basicMeasureType** and the **keyTypeOfMeasure** classifications
-used in the 3rd cycle.
-
-The purpose of the simplified classification is:
-
-* To reduce the number of classes to a manageable set (19 options).
-* To use a single classification scheme applicable to both basic measures and supplementary
-  measures.
-* To avoid redundancy and reporting burden in the classification of the measures.
-* To maintain the options directly linked to the basic measure types in Articles 11(3)(b) to
-  11(3)(l) of the WFD – see codes B, C, D, E, F, G, H, J, K, L.
-* To maintain the disaggregation in the measures to address significant impacts in the status of
-  water as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
-* To allow flexibility in the reporting of the measures to address significant pressures, when
-  combined with the optional mainPressureType attribute.
-* To maintain the previous KTM that do not fit the criteria above and were reported with high
-  frequency in the 3rd cycle – see codes X01, X12, X14, X23 and X24.
-
-{numref}`Measures_MappingMainKeyTypeOfMeasure_ListTable`
-aligns the `mainKeyTypeOfMeasure` with the previous separate classification schemes.
-
-It supports Member States in the migration to the single simplified codelist
-to be used in the `mainKeyTypeOfMeasure` attribute in the 4th cycle of reporting.
-
-The proposed classification is provisional
-and can be reviewed by MS to detect potential issues
-and clarify the scope of the definitions.
-
-Regarding the measures to address significant impacts in the status of water
-as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
-Note that only some of the impacts applicable to surface water are detailed.
-
-```{include} tables/Measures_MappingMainKeyTypeOfMeasure_ListTable
-```
 
 ### Classification of environmental protection activities
 
@@ -661,6 +664,24 @@ it is only relevant for the analysis of reported data.
 
 ### Mapping between mainKeyTypeOfMeasure and CEPA 2000
 
+The EPEA categorises activities using the CEPA 2000, 
+the Classification of Environmental Protection Activities ({numref}`Measures_SubsetOfCEPAClasses_ListTable`).
+
+The proposed classification of Measures using the `mainKeyTypeOfMeasure` value
+({numref}`Codelist_4thCycle_MainKeyTypeOfMeasure_Table`)
+is not based on the CEPA 2000 classification.
+
+Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation)
+and excludes Resource Management (saving water or energy),
+which falls under CReMA, the Classification of Resource Management Activities {footcite}`eurostat2020cepa_crema`.
+
+Nevertheless, it seems to be possible to map most of the `mainKeyTypeOfMeasure` classes
+to a primary CEPA 2000 class ({numref}`Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable`).
+
+The mapping and post-classification can be done by the Commission,
+using the reported data per Measure,
+to analyse and aggregate the data according CEPA classes, if that is required.
+
 ```{dropdown} Click to show the mapping table
 ```{include} tables/Measures_MainKeyTypeOfMeasure_CEPA2000_ListTable
 ```
@@ -669,4 +690,10 @@ it is only relevant for the analysis of reported data.
 ## References
 
 ```{footbibliography}
+```
+
+```{warning}
+The original document containing this revised model
+can still be downloaded but should no longer be used.
+See **PROPOSAL - Version 2026.02.17** {download}`PDF <pdf/WFD_4th_cycle_Measures_v20260217.pdf>`
 ```
