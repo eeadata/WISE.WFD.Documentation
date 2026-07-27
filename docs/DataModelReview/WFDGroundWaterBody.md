@@ -4,6 +4,12 @@
 ```{warning}
 :class: dropdown
 
+Updated: 2026-07-27 
+
+* Renamed the GWCharacterisation table to avoid collisions.
+* Added the overview diagram
+* Corrected the NBL query.
+
 Updated: 2026-07-23 
 
 * Included the Spatial dataset.
@@ -111,6 +117,28 @@ methodology set out in Part A of Annex II to that Directive.
 -- ELI: http://data.europa.eu/eli/dir/2026/805/oj
 ```
 
+## Proposed structure - 4th cycle
+
+For the 4th cycle of reporting, the proposed structure combines into a single dataflow
+(see {numref}`Groundwater_4thCycle_Overview_ClassDiagram`)
+the information related to groundwater:
+
+* {ref}`heading_wfd_groundwater_descriptive_4th_cycle`
+* {ref}`heading_groundwaterbody_spatial_dataset_4th_cycle`
+* {ref}`heading_wfd_groundwater_methodologies_4th_cycle`
+* {ref}`heading_wfd_groundwater_documents_dataset_4th_cycle`
+
+Note that, *if there are changes since the 3rd cycle*, the national spatial data related
+to river basin districts and surface water bodies
+must be reported before it can be referenced to
+in the groundwater dataflow tables.
+
+```{mermaid} /DataModelReview/mmd/Groundwater_4thCycle_Overview_ClassDiagram.mmd
+:name: Groundwater_4thCycle_Overview_ClassDiagram
+:caption: Groundwater - overview - 4th cycle
+:align: center
+```
+
 (heading_wfd_groundwater_descriptive_4th_cycle)=
 ## Descriptive dataset - 4th cycle
 
@@ -119,7 +147,7 @@ is presented in the class diagram in {numref}`Groundwater_4thCycle_DescriptiveDa
 and a brief description of each table is included in {numref}`Groundwater_4th_cycle_brief_table_description`.
 
 * The core data about each groundwater body
-  is reported in 3 tables: `GroundWaterBody`, `LinkSurfaceWaterBody` and `GWNaturalBackgroundLevel`.
+  is reported in 3 tables: `GWCharacterisation`, `LinkSurfaceWaterBody` and `GWNaturalBackgroundLevel`.
 
   - The content of this set of tables does not depend
     of the status assessment, and can be prepared in advance.
@@ -127,7 +155,7 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * A second set of tables contains information about
   the chemical and quantitative status assessment
   and about pressures and impacts:
-  `GroundWaterBodyStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
+  `GWStatus`, `GWQuantitativeStatus`, `GWPollutant` and `GWPressureImpact`.
 
   - The ancillary table `GWGrouping`
     supports the reporting of grouping (if used the assessment).
@@ -152,9 +180,9 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 * - Table
   - Description
 
-* - GroundWaterBody
+* - GWCharacterisation
   - *modified*  
-    The `GroundWaterBody` table contains the attributes 
+    The `GWCharacterisation` table contains the attributes 
     that describe the groundwater body 
     and that do not vary with the status of the water body.
     Therefore the table can be prepared immediately, 
@@ -347,6 +375,66 @@ The following changes have been made to the `GroundWaterBody` spatial table
     In this case, geometry is not reported in the `GroundWaterBody` table.
 
 The structure of the `GroundWaterBodyHorizon` spatial table was not modified.
+
+(heading_wfd_groundwater_documents_dataset_4th_cycle)=
+## Documents dataset - 4th cycle
+
+The Documents dataset follows the standard structure used in various WISE dataflows
+({numref}`Groundwater_4thCycle_Documents_ClassDiagram`):
+
+* The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
+  
+  - If required by the data providers, and especially if spatial data is being reported,
+    the `licenseDocument` and the `metadataDocument` attributes 
+    allow the provision of additional information about the dataset.
+  - The `dcMetadata` table also functions as a "manifest file"
+    explaining if the delivery contains data for a given river basin district or not.
+
+* The `Document` table allows the upload of documents (for example, PDFs)
+  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
+
+* The `Reference` table is also standard in the WISE dataflows:
+  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
+  where the relevant information about a `subject`
+  can be found within a document.
+
+```{mermaid} /DataModelReview/mmd/Groundwater_4thCycle_Documents_ClassDiagram.mmd
+:name: Groundwater_4thCycle_Documents_ClassDiagram
+:caption: Groundwater - 4th cycle - Documents
+:align: center
+:zoom:
+```
+
+The following criteria apply:
+
+01. The `dcMetadata` table must contain *one and only one* record
+    for each of the country's river basin districts, identified by the `euRBDCode`.
+
+02. The spatial dataset is **national**.
+    The `includesSpatialData` and the `includesGroundWaterBodyHorizons` value
+    must be the same for all river basin districts.
+
+03. If `includesSpatialData = 'no'` then no spatial data is expected,
+    and the quality control of the monitoring dataset will run
+    against the last technically accepted delivery of groundwater bodies spatial data.
+
+04. For countries reporting under the WFD,
+    the last technically accepted delivery of groundwater bodies spatial data
+    is **always the data reported in the 3rd cycle**.
+
+05. If `includesSpatialData = 'yes' AND includesGroundWaterBodyHorizons = 'no'`,
+    the geometry is reported in the GroundWaterBody spatial dataset.
+
+06. If `includesSpatialData = 'yes' AND includesGroundWaterBodyHorizons = 'yes'`,
+    the geometry is reported ONLY in the GroundWaterBodyHorizons spatial dataset.
+
+07. The descriptive dataset is also **national**,
+    but the quality control will allow deliveries
+    where some, or all, the river basin districts have `includesGroundwaterAndMethodologiesData = no`.
+
+08. For countries reporting under the WFD,
+    the quality control will raise an **ERROR**,
+    if some, or all, the river basin districts have `includesGroundwaterAndMethodologiesData = no`.
 
 (heading_wfd_groundwater_codelist_4th_cycle)=
 ## Codelists - 4th cycle
@@ -675,62 +763,67 @@ or clearly unlikely.
   :caption: Substances for which natural background levels were reported - 3rd cycle
   :linenos:
   -- https://discodata.eea.europa.eu/
-  SELECT ISNULL(b.[parameterGroup],'undefined') AS [parameterGroup]
-        ,[gwPollutantCode] AS [parameter]
-        ,COUNT(DISTINCT [countryCode]) AS nCountries
-        ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS nWaterBodies
-    FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWPollutant] a
-    LEFT JOIN (
-    SELECT *
-      FROM (VALUES
-      ('Metals and Metalloids', 'CAS_7429-90-5', 'Aluminium and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-36-0', 'Antimony'),
-      ('Metals and Metalloids', 'CAS_7440-38-2', 'Arsenic and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-39-3', 'Barium'),
-      ('Metals and Metalloids', 'CAS_7440-42-8', 'Boron'),
-      ('Metals and Metalloids', 'CAS_7440-43-9', 'Cadmium and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-47-3', 'Chromium and its compounds'),
-      ('Metals and Metalloids', 'CAS_18540-29-9', 'Chromium VI'),
-      ('Metals and Metalloids', 'CAS_7440-48-4', 'Cobalt and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-50-8', 'Copper and its compounds'),
-      ('Metals and Metalloids', 'CAS_7439-89-6', 'Iron and its compounds'),
-      ('Metals and Metalloids', 'CAS_7439-92-1', 'Lead and its compounds'),
-      ('Metals and Metalloids', 'CAS_7439-96-5', 'Manganese and its compounds'),
-      ('Metals and Metalloids', 'CAS_7439-97-6', 'Mercury and its compounds'),
-      ('Metals and Metalloids', 'CAS_7439-98-7', 'Molybdenum and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-28-0', 'Thallium'),
-      ('Metals and Metalloids', 'CAS_7440-02-0', 'Nickel and its compounds'),
-      ('Metals and Metalloids', 'CAS_7782-49-2', 'Selenium and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-61-1', 'Uranium'),
-      ('Metals and Metalloids', 'CAS_7440-62-2', 'Vanadium and its compounds'),
-      ('Metals and Metalloids', 'CAS_7440-66-6', 'Zinc and its compounds'),
-      ('Major Ions and Nutrients', 'CAS_14798-03-9', 'Ammonium'),
-      ('Major Ions and Nutrients', 'CAS_7440-70-2', 'Calcium'),
-      ('Major Ions and Nutrients', 'CAS_16887-00-6', 'Chloride'),
-      ('Major Ions and Nutrients', 'CAS_16984-48-8', 'Fluoride'),
-      ('Major Ions and Nutrients', 'CAS_71-52-3', 'Hydrogen Carbonate Bicarbonate HCO3'),
-      ('Major Ions and Nutrients', 'CAS_7439-95-4', 'Magnesium'),
-      ('Major Ions and Nutrients', 'CAS_14797-55-8', 'Nitrate'),
-      ('Major Ions and Nutrients', 'CAS_14797-65-0', 'Nitrite'),
-      ('Major Ions and Nutrients', 'CAS_14265-44-2', 'Phosphate'),
-      ('Major Ions and Nutrients', 'CAS_7440-09-7', 'Potassium'),
-      ('Major Ions and Nutrients', 'CAS_7440-23-5', 'Sodium'),
-      ('Major Ions and Nutrients', 'CAS_18785-72-3', 'Sulphate'),
-      ('Major Ions and Nutrients', 'CAS_7723-14-0', 'Total phosphorus'),
-      ('Physico-chemical Parameters', 'EEA_3142-01-6', 'Electrical conductivity'),
-      ('Physico-chemical Parameters', 'EEA_3152-01-0', 'pH'),
-      ('Physico-chemical Parameters', 'EEA_3121-01-5', 'Water temperature')
-  ) AS v(parameterGroup, parameterCode, name) ) b
+SELECT ISNULL(b.[parameterGroup],'undefined') AS [parameterGroup]
+      ,[gwPollutantCode] AS [parameter]
+      ,COUNT(DISTINCT [countryCode]) AS nCountries
+      ,COUNT(DISTINCT [euGroundWaterBodyCode]) AS nWaterBodies
+  FROM [WISE_WFD].[v2r1].[GWB_GroundWaterBody_GWPollutant] a
+  LEFT JOIN (
+  SELECT *
+    FROM (VALUES
+    ('Metals and Metalloids', 'CAS_18540-29-9', 'Chromium VI'),
+    ('Metals and Metalloids', 'CAS_7429-90-5', 'Aluminium and its compounds'),
+    ('Metals and Metalloids', 'CAS_7439-89-6', 'Iron and its compounds'),
+    ('Metals and Metalloids', 'CAS_7439-92-1', 'Lead and its compounds'),
+    ('Metals and Metalloids', 'CAS_7439-96-5', 'Manganese and its compounds'),
+    ('Metals and Metalloids', 'CAS_7439-97-6', 'Mercury and its compounds'),
+    ('Metals and Metalloids', 'CAS_7439-98-7', 'Molybdenum and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-02-0', 'Nickel and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-28-0', 'Thallium'),
+    ('Metals and Metalloids', 'CAS_7440-36-0', 'Antimony'),
+    ('Metals and Metalloids', 'CAS_7440-38-2', 'Arsenic and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-39-3', 'Barium'),
+    ('Metals and Metalloids', 'CAS_7440-42-8', 'Boron'),
+    ('Metals and Metalloids', 'CAS_7440-43-9', 'Cadmium and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-47-3', 'Chromium and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-48-4', 'Cobalt and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-50-8', 'Copper and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-61-1', 'Uranium'),
+    ('Metals and Metalloids', 'CAS_7440-62-2', 'Vanadium and its compounds'),
+    ('Metals and Metalloids', 'CAS_7440-66-6', 'Zinc and its compounds'),
+    ('Metals and Metalloids', 'CAS_7782-49-2', 'Selenium and its compounds'),
+    ('Major Ions and Nutrients', 'CAS_14265-44-2', 'Phosphate'),
+    ('Major Ions and Nutrients', 'CAS_14797-55-8', 'Nitrate'),
+    ('Major Ions and Nutrients', 'CAS_14797-65-0', 'Nitrite'),
+    ('Major Ions and Nutrients', 'CAS_14798-03-9', 'Ammonium'),
+    ('Major Ions and Nutrients', 'CAS_16887-00-6', 'Chloride'),
+    ('Major Ions and Nutrients', 'CAS_16984-48-8', 'Fluoride'),
+    ('Major Ions and Nutrients', 'CAS_18785-72-3', 'Sulphate'),
+    ('Major Ions and Nutrients', 'CAS_71-52-3', 'Hydrogen Carbonate Bicarbonate HCO3'),
+    ('Major Ions and Nutrients', 'CAS_7439-95-4', 'Magnesium'),
+    ('Major Ions and Nutrients', 'CAS_7440-09-7', 'Potassium'),
+    ('Major Ions and Nutrients', 'CAS_7440-23-5', 'Sodium'),
+    ('Major Ions and Nutrients', 'CAS_7440-70-2', 'Calcium'),
+    ('Major Ions and Nutrients', 'CAS_7723-14-0', 'Total phosphorus'),
+    
+    ('Other parameter', 'CAS_14998-27-7', 'Chlorite'),
+    ('Other parameter', 'CAS_64743-03-9', 'Phenols'),
 
-      ON a.[gwPollutantCode] like b.parameterCode+' - %'
+    ('Physico-chemical Parameters', 'EEA_3121-01-5', 'Water temperature'),
+    ('Physico-chemical Parameters', 'EEA_3142-01-6', 'Electrical conductivity'),
+    ('Physico-chemical Parameters', 'EEA_3152-01-0', 'pH')
+    
+) AS v(parameterGroup, parameterCode, name) ) b
 
-    WHERE a.[gwPollutantBackgroundLevelSet] = 'yes' 
-        AND a.[cYear] = 2022 
-        AND a.[hasDescriptiveData] = 1
-        AND a.[gwPollutantCode] != 'EEA_00-00-0 - Other parameter'
-    GROUP BY a.[gwPollutantCode]
-        ,b.[parameterGroup]
-    ORDER BY 1, 4 desc, a.[gwPollutantCode]
+    ON a.[gwPollutantCode] like b.parameterCode+' - %'
+
+  WHERE a.[gwPollutantBackgroundLevelSet] = 'yes' 
+      AND a.[cYear] = 2022 
+      AND a.[hasDescriptiveData] = 1
+      AND a.[gwPollutantCode] != 'EEA_00-00-0 - Other parameter'
+  GROUP BY a.[gwPollutantCode]
+      ,b.[parameterGroup]
+  ORDER BY 1, 4 desc, a.[gwPollutantCode]
   ```
 
 ## References

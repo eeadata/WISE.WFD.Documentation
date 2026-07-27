@@ -1,0 +1,85 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+direction TB
+
+namespace GroundWaterDataset {
+
+class GWNaturalBackgroundLevel{}
+class GWLinkSurfaceWaterBody{}
+class GWCharacterisation{}
+class GWQuantitativeStatus{}
+class GWPressureImpact{}
+class GWStatus{} 
+class GWPollutant{}
+class GWGrouping{}
+}
+
+namespace SpatialDataset {
+class GroundWaterBodyHorizon{}
+class GroundWaterBody{}
+}
+
+namespace MethodologiesDataset {
+class GWThresholdValue{}
+class GWPressureAssessment{}
+class GWMethodologies{}
+}
+
+namespace DocumentsData {
+class dcMetadata{}
+class Reference{}
+class Document{}
+}
+
+namespace ReferenceDataset {
+class RiverBasinDistrict_4thCycle:::otherDataset{
+  
+}
+class SurfaceWaterBody_4thCycle:::otherDataset{
+  
+}
+class GroundWaterBody_3rdCycle:::otherDataset{
+  
+}
+}
+
+GWCharacterisation "1" -- "1" GWStatus    
+GWStatus "1" -- "0..1" GWQuantitativeStatus
+GWStatus "1" -- "0..n" GWPollutant
+GWStatus "1" -- "0..n" GWPressureImpact
+
+GWQuantitativeStatus ..> GWGrouping
+GWPollutant ..> GWGrouping
+
+GWNaturalBackgroundLevel "0..n" -- GWCharacterisation
+GWLinkSurfaceWaterBody "0..n" -- GWCharacterisation
+GWLinkSurfaceWaterBody "0..n" ..> SurfaceWaterBody_4thCycle
+
+GroundWaterBody "1" -- "0..n" GroundWaterBodyHorizon
+GroundWaterBody ..> GroundWaterBody_3rdCycle
+GroundWaterBody ..> RiverBasinDistrict_4thCycle
+
+GWCharacterisation ..> GroundWaterBody
+GWPollutant ..> GWThresholdValue
+GWPressureImpact ..> GWPressureAssessment
+
+GWThresholdValue ..> Reference
+GWPressureAssessment ..> Reference
+GWMethodologies ..> Reference
+
+Reference ..> Document
+dcMetadata ..> RiverBasinDistrict_4thCycle
+dcMetadata ..> Document
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;

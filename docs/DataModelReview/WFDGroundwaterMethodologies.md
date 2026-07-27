@@ -110,7 +110,7 @@ The following elements were removed:
 
 The structure of the **GWPressures** class was also revised.
 
-(heading_wfd_groundwater_methodologies_descriptive_4th_cycle)=
+(heading_wfd_groundwater_methodologies_4th_cycle)=
 ## Methodologies dataset - 4th cycle
 
 This section shows the proposed structure for the groundwater methodologies reporting.
