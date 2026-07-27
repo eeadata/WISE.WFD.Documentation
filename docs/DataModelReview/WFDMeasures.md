@@ -1,5 +1,5 @@
 (heading_wfd_measures)=
-# Programme of Measures
+# Programme of measures
 
 Last update: 2026-07-24
 
@@ -367,13 +367,13 @@ For each measure:
     as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
     Note that only some of the impacts applicable to surface water are detailed.
 
-* A mapping table ({numref}`Measures_MainKeyTypeOfMeasure_MappingTable`) 
-  if provided with the correspondence between the `mainKeyTypeOfMeasure` classes 
+* A mapping table ({numref}`Measures_MainKeyTypeOfMeasure_MappingTable`)
+  if provided with the correspondence between the `mainKeyTypeOfMeasure` classes
   and the previous separate classification schemes used in the 3rd cycle.
   
 * In the **3rd cycle**, the reporting guidance stated that
   "the name [of the measure] should reflect the pressure that is being tackled by the measure"
-  {footcite}`WFD2022_ReportingGuidance` — 
+  {footcite}`WFD2022_ReportingGuidance` —
   meaning the pressure(s) should be described textually in the name of the measure.
   This recommendation was not consistently followed, and an analysis of the measure names across
   Europe does not yield useful results.
@@ -418,7 +418,7 @@ For each measure:
     that target specific protected areas
     (for example, a set of bathing waters or a specific UWWTD sensitive area)
 
-  - in the 2 previous cases, it is NOT requested to individually identify 
+  - in the 2 previous cases, it is NOT requested to individually identify
     the water bodies or protected areas, respectively.
 
 * The temporal scope of a measure is provided in the `implementationPeriod` value.
@@ -445,11 +445,11 @@ The data is reported for each measure, *if it is available*: the `measureCode` i
 ```
 
 The geographical scope of the measure is inherited from the parent record
-in the `Measure` table and does not need to be reported again. 
+in the `Measure` table and does not need to be reported again.
 Likewise, the temporal scope is inherited from the parent records
 and can be used to verify the reported data.
 
-* An error should be raised when there is missing data for the 3rd cycle 
+* An error should be raised when there is missing data for the 3rd cycle
   In pseudo-code (the && operator tests whether a range of values overlaps):
 
   ```{code-block} sql
@@ -460,7 +460,7 @@ and can be used to verify the reported data.
   AND annualCurrentExpenditure3rdCycle IS NULL
   ```
 
-* An error should be raised when there is missing data for the 4th cycle 
+* An error should be raised when there is missing data for the 4th cycle
   In pseudo-code (the && operator tests whether a range of values overlaps):
 
   ```{code-block} sql
@@ -476,17 +476,17 @@ outside the Euro area, in alignment with common statistical practices.
 It also facilitates human analysis, namely the cross‑checking against the RBMP documentation.
 
 * Data must be reported in Millions of Euro for Euro Area Member States,
-  and in Millions of National currency for non-Euro Area countries. 
+  and in Millions of National currency for non-Euro Area countries.
   The unit multiplier is set to 6 and it is applied to all the data, so it doesn't need to be specified.
 
 * Non-Euro Area countries should use the relevant code for its national currency
   (e.g. CZK, DKK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC).
-  Euro Area countries must use EUR. 
+  Euro Area countries must use EUR.
 
-* Generally, the number of decimal digits is “0”. 
+* Generally, the number of decimal digits is “0”.
   If a country wants to send a figure lower than 1 million, decimals may be used.
-  In this case, the separator must be a dot (.). 
-  Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent. 
+  In this case, the separator must be a dot (.).
+  Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent.
   If necessary the proposal can be modified to use a different multiplier (e.g. thousands).
 
 A clear separation is made between **capital** expenditure vs. **current** expenditure and between
@@ -664,7 +664,7 @@ it is only relevant for the analysis of reported data.
 
 ### Mapping between mainKeyTypeOfMeasure and CEPA 2000
 
-The EPEA categorises activities using the CEPA 2000, 
+The EPEA categorises activities using the CEPA 2000,
 the Classification of Environmental Protection Activities ({numref}`Measures_SubsetOfCEPAClasses_ListTable`).
 
 The proposed classification of Measures using the `mainKeyTypeOfMeasure` value
