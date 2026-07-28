@@ -1,0 +1,3494 @@
+Table,Field,Code,QC Name,QC Description,Message,Expression,Type of QC,Severity Level,Creation Mode,Status,Valid
+MonitoringSite,inspireIdLocalId,V212,V212,Checks if the field is missing or empty,The value must not be missing or empty. [V212],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,inspireIdNamespace,V214,V214,Checks if the field is missing or empty,The value must not be missing or empty. [V214],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,V250,V250,Checks if the field is missing or empty,The value must not be missing or empty. [V250],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,V252,V252,Checks if the field is missing or empty,The value must not be missing or empty. [V252],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,V254,V254,Checks if the field is missing or empty,The value must not be missing or empty. [V254],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,nameText,V227,V227,Checks if the field is missing or empty,The value must not be missing or empty. [V227],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,nameLanguage,V225,V225,Checks if the field is missing or empty,The value must not be missing or empty. [V225],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,V232,V232,Checks if the field is missing or empty,The value must not be missing or empty. [V232],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,V207,V207,Checks if the field is missing or empty,The value must not be missing or empty. [V207],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifierScheme,V209,V209,Checks if the field is missing or empty,The value must not be missing or empty. [V209],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,mediaMonitoredBiota,V219,V219,Checks if the field is missing or empty,The value must not be missing or empty. [V219],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,mediaMonitoredWater,V223,V223,Checks if the field is missing or empty,The value must not be missing or empty. [V223],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,mediaMonitoredSediment,V221,V221,Checks if the field is missing or empty,The value must not be missing or empty. [V221],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,confidentialityStatus,V204,V204,Checks if the field is missing or empty,The value must not be missing or empty. [V204],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,V253,V253,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V253],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,supersedesIdentifierScheme,V245,V245,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V245],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,supersededByIdentifierScheme,V240,V240,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V240],,FIELD,BLOCKER,TRUE,FALSE,TRUE
+MonitoringSite,wiseEvolutionType,V255,V255,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V255],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,nameLanguage,V226,V226,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V226],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifierScheme,V210,V210,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V210],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,mediaMonitoredBiota,V220,V220,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V220],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,mediaMonitoredWater,V224,V224,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V224],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,mediaMonitoredSediment,V222,V222,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V222],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,purpose,V236,V236,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V236],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,confidentialityStatus,V205,V205,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V205],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,,TU201,TU201,Checks if inspireIdLocalId and inspireIdNamespace are uniques within table,The combination inspireIdLocalId + inspireIdNamespace must be unique. [TU201],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,,TU202,TU202,Checks if thematicIdIdentifier and thematicIdIdentifierScheme are uniques within table,The combination thematicIdIdentifier + thematicIdIdentifierScheme must be unique. [TU202],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,link,V217,V217,Checks if the field is a valid URL,The value does not follow the expected syntax for a valid URL. [V217],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,beginLifespanVersion,V201,V201,beginLifespanVersion must contain a valid date (YYYY-MM-DD),beginLifespanVersion must contain a valid date (YYYY-MM-DD). [V201],"select  M.record_id,
+        M.beginLifespanVersion
+from    dataset_37015.MonitoringSite M
+where   -- Avoids blocker when value not reported
+        coalesce(M.beginLifespanVersion, '') <> ''
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                 M.beginLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) IS NULL
+        )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,beginLifespanVersion,V200,V200,beginLifespanVersion must not be set in the future,beginLifespanVersion must not be set in the future. [V200],"select  M.record_id,
+        M.beginLifespanVersion
+from    dataset_37015.MonitoringSite M
+where   -- Avoids blocker when value not reported
+        coalesce(M.beginLifespanVersion, '') <> ''
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                M.beginLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) IS NOT NULL
+        )
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                M.beginLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) > CURRENT_DATE()
+        )
+",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,endLifespanVersion,V206,V206,endLifespanVersion must contain a valid date (YYYY-MM-DD),endLifespanVersion must contain a valid date (YYYY-MM-DD). [V206],"select  M.record_id,
+        M.endLifespanVersion
+from    dataset_37015.MonitoringSite M
+where   -- Avoids blocker when value not reported
+        coalesce(M.endLifespanVersion, '') <> ''
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                M.endLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) IS NULL
+        )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,inspireIdLocalId,V213,V213,The length of the value must be <= 254,The length of the value must be <= 254. [V213],( LEN( inspireIdLocalId ) <= 254 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,inspireIdNamespace,V215,V215,The length of the value must be <= 254,The length of the value must be <= 254. [V215],( LEN( inspireIdNamespace ) <= 254 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,inspireIdVersionId,R206,R206,inspireIdVersionId must be reported if wiseEvolutionType is 'change',inspireIdVersionId must be reported if wiseEvolutionType is 'change'. [R206],"select  record_id,
+        inspireIdVersionId,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(inspireIdVersionId, '') = ''
+        and wiseEvolutionType = 'change'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R206,R206,inspireIdVersionId must be reported if wiseEvolutionType is 'change',inspireIdVersionId must be reported if wiseEvolutionType is 'change'. [R206],"select  record_id,
+        inspireIdVersionId,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(inspireIdVersionId, '') = ''
+        and wiseEvolutionType = 'change'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,inspireIdVersionId,V216,V216,The length of the value must be <= 25,The length of the value must be <= 25. [V216],( LEN( inspireIdVersionId ) <= 25 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,nameText,V229,V229,The length of the value must be <= 254,The length of the value must be <= 254. [V229],( LEN( nameText ) <= 254 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,nameTextInternational,V230,V230,The length of the value must be <= 254,The length of the value must be <= 254. [V230],( LEN( nameTextInternational ) <= 254 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,nameTextInternational,V231,V231,Only text with upper case letters (A to Z) and digits (0 to 9) is allowed. Spaces and hiphens can be used as separators,Only text with upper case letters (A to Z) and digits (0 to 9) is allowed. Spaces and hiphens can be used as separators. [V231],"select  record_id,
+        nameTextInternational
+from    dataset_37015.MonitoringSite
+where   COALESCE(nameTextInternational, '') <> ''
+AND NOT REGEXP_LIKE(nameTextInternational, '^[A-Z0-9]+(?:[ -]+[A-Z0-9]+)*$')
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,V233,V233,operationalActivityPeriodBegin must not be set in the future,operationalActivityPeriodBegin must not be set in the future. [V233],"select  M.record_id,
+        M.operationalActivityPeriodBegin 
+        
+from    dataset_37015.MonitoringSite M
+where   -- Avoids blocker when value not reported
+        coalesce(M.operationalActivityPeriodBegin , '') <> ''
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                M.operationalActivityPeriodBegin ,
+                'YYYY-MM-DD',
+                1
+            ) IS NOT NULL
+        )
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                M.operationalActivityPeriodBegin ,
+                'YYYY-MM-DD',
+                1
+            ) > CURRENT_DATE()
+        )
+",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,V234,V234,operationalActivityPeriodBegin must contain a valid date (YYYY-MM-DD),operationalActivityPeriodBegin must contain a valid date (YYYY-MM-DD) [V234],"select  M.record_id,
+        M.operationalActivityPeriodBegin
+from    dataset_37015.MonitoringSite M
+where   -- Avoids blocker when value not reported
+        coalesce(M.operationalActivityPeriodBegin, '') <> ''
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                 M.operationalActivityPeriodBegin,
+                'YYYY-MM-DD',
+                1
+            ) IS NULL
+        )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodEnd,V235,V235,operationalActivityPeriodEnd must contain a valid date (YYYY-MM-DD),operationalActivityPeriodEnd must contain a valid date (YYYY-MM-DD) [V235],"select  M.record_id,
+        M.operationalActivityPeriodEnd
+from    dataset_37015.MonitoringSite M
+where   -- Avoids blocker when value not reported
+        coalesce(M.operationalActivityPeriodEnd, '') <> ''
+        and (
+            -- Converting invalid dates returns NULL
+            TO_DATE(
+                -- All values reported are converted to date and time
+                M.operationalActivityPeriodEnd,
+                'YYYY-MM-DD',
+                1
+            ) IS NULL
+        )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,V260,V260,"These wiseEvolutionType values are no valid for monitoring sites: 'changeExtendedArea', 'changeExtendedAreaAndDepth', 'changeExtendedDepth', 'changeReducedArea', 'changeReducedAreaAndDepth', 'changeReducedDepth'","These wiseEvolutionType values are no valid for monitoring sites: 'changeExtendedArea', 'changeExtendedAreaAndDepth', 'changeExtendedDepth', 'changeReducedArea', 'changeReducedAreaAndDepth', 'changeReducedDepth'. [V260]","select  record_id,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   wiseEvolutionType in ('changeExtendedArea', 'changeExtendedAreaAndDepth', 'changeExtendedDepth', 'changeReducedArea', 'changeReducedAreaAndDepth', 'changeReducedDepth')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,nameText,V228,V228,nameText contains invalid characters,nameText contains invalid characters. [V228],"( nameText MATCH ""^[\u0020-\u007E\u00AA\u00B0\u00B7\u00BA\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\u0100-\u017F\u0180-\u024F\u2010-\u2013\u2019-\u2019\u2032-\u2033\u2035-\u2036\u0370-\u052F]*$"" )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,R233,R233,The monitoring site must have zero predecessors if the wiseEvolutionType value is 'change' or 'noChange' ,The monitoring site must have zero predecessors if the wiseEvolutionType value is 'change' or 'noChange' [R233],"SELECT record_id
+	,MS.supersedesidentifier
+	,MS.wiseevolutiontype
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" IN (
+		'change'
+		,'noChange'
+		)
+	AND (COALESCE(MS.""supersedesidentifier"", '') <> '')
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,R220,R220,"wiseEvolutionType='reactivation' is not valid if thematicIdIdentifierScheme not in ('euMonitoringSiteCode','eionetMonitoringSiteCode') [R220]","wiseEvolutionType='reactivation' is not valid if thematicIdIdentifierScheme not in ('euMonitoringSiteCode','eionetMonitoringSiteCode') [R220]","SELECT record_id, ms.wiseevolutiontype, ms.thematicididentifierscheme
+FROM dataset_37015.""monitoringsite"" ms
+WHERE MS.""wiseevolutiontype"" = 'reactivation' AND MS.""thematicididentifierscheme"" NOT IN ('euMonitoringSiteCode','eionetMonitoringSiteCode')",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R220,R220,"wiseEvolutionType='reactivation' is not valid if thematicIdIdentifierScheme not in ('euMonitoringSiteCode','eionetMonitoringSiteCode') [R220]","wiseEvolutionType='reactivation' is not valid if thematicIdIdentifierScheme not in ('euMonitoringSiteCode','eionetMonitoringSiteCode') [R220]","SELECT record_id, ms.wiseevolutiontype, ms.thematicididentifierscheme
+FROM dataset_37015.""monitoringsite"" ms
+WHERE MS.""wiseevolutiontype"" = 'reactivation' AND MS.""thematicididentifierscheme"" NOT IN ('euMonitoringSiteCode','eionetMonitoringSiteCode')",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersededByIdentifierScheme,V244,V244,An 'eu' thematic identifier must not be replaced by an 'eionet' thematic identifier [V244],An 'eu' thematic identifier must not be replaced by an 'eionet' thematic identifier [V244],"SELECT record_id,  MS.""thematicididentifierscheme"" , MS.""supersededbyidentifierscheme""
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""thematicididentifierscheme"" LIKE 'euMonitoringSiteCode' AND MS.""supersededbyidentifierscheme"" LIKE 'eionetMonitoringSiteCode'",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R208,R208,operationalActivityPeriodEnd must be reported if wiseEvolutionType is 'deletion',operationalActivityPeriodEnd must be reported if wiseEvolutionType is 'deletion''. [R208],"select  record_id,
+        operationalActivityPeriodEnd,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(operationalActivityPeriodEnd, '') = ''
+        and wiseEvolutionType = 'deletion'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodEnd,R208,R208,operationalActivityPeriodEnd must be reported if wiseEvolutionType is 'deletion',operationalActivityPeriodEnd must be reported if wiseEvolutionType is 'deletion''. [R208],"select  record_id,
+        operationalActivityPeriodEnd,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(operationalActivityPeriodEnd, '') = ''
+        and wiseEvolutionType = 'deletion'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdentifier,R212,R212,supersedesIdentifier and supersedesIdentifierScheme combination must not be equal to thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself). ,supersedesIdentifier and supersedesIdentifierScheme combination must not be equal to thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself). [R212],"WITH split
+AS (
+	SELECT thematicIdIdentifier
+		,thematicIdIdentifierScheme
+		,TRIM(FLATTEN(REGEXP_SPLIT(supersedesIdentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier
+		,supersedesIdentifierScheme
+		,record_id
+	FROM dataset_37015.MonitoringSite
+	WHERE coalesce(supersedesIdentifier, '') <> ''
+	)
+SELECT record_id
+	,thematicIdIdentifier
+	,thematicIdIdentifierScheme
+	,onePredecessorIdentifier
+	,supersedesIdentifierScheme
+FROM split
+WHERE supersedesIdentifierScheme = thematicIdIdentifierScheme
+	AND onePredecessorIdentifier = thematicIdIdentifier
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,R212,R212,supersedesIdentifier and supersedesIdentifierScheme combination must not be equal to thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself). ,supersedesIdentifier and supersedesIdentifierScheme combination must not be equal to thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself). [R212],"WITH split
+AS (
+	SELECT thematicIdIdentifier
+		,thematicIdIdentifierScheme
+		,TRIM(FLATTEN(REGEXP_SPLIT(supersedesIdentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier
+		,supersedesIdentifierScheme
+		,record_id
+	FROM dataset_37015.MonitoringSite
+	WHERE coalesce(supersedesIdentifier, '') <> ''
+	)
+SELECT record_id
+	,thematicIdIdentifier
+	,thematicIdIdentifierScheme
+	,onePredecessorIdentifier
+	,supersedesIdentifierScheme
+FROM split
+WHERE supersedesIdentifierScheme = thematicIdIdentifierScheme
+	AND onePredecessorIdentifier = thematicIdIdentifier
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifierScheme,V247,V247,Invalid supersedesIdentifierScheme value for this spatial object type ,Invalid supersedesIdentifierScheme value for this spatial object type [V247],"SELECT ms.supersedesidentifierscheme, record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE COALESCE(MS.""supersedesidentifierscheme"", '') <> ''
+AND MS.""supersedesidentifierscheme"" NOT IN ('eionetMonitoringSiteCode', 'euMonitoringSiteCode')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,V264,V264,Invalid thematicIdIdentifierScheme value for this spatial object type. [V264],Invalid thematicIdIdentifierScheme value for this spatial object type. [V264],"SELECT ms.thematicIdIdentifierScheme
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE COALESCE(MS.""thematicIdIdentifierScheme"", '') <> ''
+	AND MS.""thematicididentifierscheme"" NOT IN (
+		'eionetMonitoringSiteCode'
+		,'euMonitoringSiteCode'
+		)
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,V249,V249,An 'eu' thematic identifier must not be replaced by an 'eionet' thematic identifier ,An 'eu' thematic identifier must not be replaced by an 'eionet' thematic identifier [V249],"SELECT record_id, supersedesidentifierscheme, thematicididentifierscheme
+FROM dataset_37015.""monitoringsite"" MS
+WHERE ms.""thematicididentifierscheme"" like 'eionet%' and MS.""supersedesidentifierscheme"" LIKE 'euMonitoringSiteCode'",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,V256,V256,Invalid wiseEvolutionType value for this spatial object type ,Invalid wiseEvolutionType value for this spatial object type [V256],"SELECT record_id
+	,MS.wiseevolutiontype
+FROM dataset_37015.""monitoringsite"" MS
+WHERE COALESCE(MS.""wiseevolutiontype"", '') <> ''
+	AND MS.""wiseevolutiontype"" NOT IN (
+		'noChange'
+		,'creation'
+		,'deletion'
+		,'aggregation'
+		,'splitting'
+		,'change'
+		,'changeCode'
+		,'reactivation'
+		)
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R224,R224,A spatial object with wiseEvolutionType value equal to 'changeCode' must not have the same predecessor of another spatial object. ,A spatial object with wiseEvolutionType value equal to 'changeCode' must not have the same predecessor of another spatial object. [R224],"WITH predecessors -- GET THE PREDECCESSORs 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,MS.thematicididentifier
+		,MS.thematicididentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+		,MS.wiseEvolutionType
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		
+	)
+SELECT ori.predecessor, ori.record_id
+FROM predecessors ori
+INNER JOIN predecessors pred ON 
+ORI.predecessor = pred.predecessor
+	AND ori.thematicididentifierscheme = pred.thematicididentifierscheme
+	--exclude itself
+	AND ori.thematicididentifier <> pred.thematicididentifier--
+WHERE ori.wiseEvolutionType LIKE 'changeCode'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R219,R219,Monitoring site has been reactivated. ,"Monitoring site has been reactivated. [R219]	","SELECT record_id
+from dataset_37015.""monitoringsite""
+where ""wiseevolutiontype"" like 'reactivation'",FIELD,WARNING,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifierScheme,V266,V266,Invalid featureOfInterestIdentifierScheme value for this spatial object type.,Invalid featureOfInterestIdentifierScheme value for this spatial object type. [V266],"SELECT ms.thematicIdIdentifierScheme
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE COALESCE(MS.""featureofinterestidentifierscheme"", '') <> ''
+	AND MS.""featureofinterestidentifierscheme"" NOT IN ('euSurfaceWaterBodyCode','eionetSurfaceWaterBodyCode','euGroundWaterBodyCode','eionetGroundWaterBodyCode')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,V267,V267,EIONET thematic identifiers must be used for all spatial objects. ,EIONET thematic identifiers must be used for all spatial objects. [V267],"SELECT ms.record_id, MS.""thematicididentifier"", '{%R3_COUNTRY_CODE%}'
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""thematicIdIdentifierScheme"" not LIKE 'eionet%'
+ AND COALESCE(MS.""thematicIdIdentifierScheme"", '') <> ''
+and exists (
+            select 1
+            from dataset_37016.""country"" c
+            where c.""countrycode"" =  
+              ( '{%R3_COUNTRY_CODE%}' )
+and c.""reportingtype"" = 'WISE5')  ",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,V268,V268,WFD thematic identifiers must be used for all spatial objects.,WFD thematic identifiers must be used for all spatial objects. [V268],"SELECT ms.record_id
+	,MS.""thematicIdIdentifierScheme""
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""thematicIdIdentifierScheme"" NOT LIKE 'eu%'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WFD'
+		)",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,V208,V208,The value of featureOfInterestIdentifier must follow the syntax of WISE identifiers ,The value of featureOfInterestIdentifier must follow the syntax of WISE identifiers [V208],"WITH Dataset AS (
+    select  record_id,
+            featureOfInterestIdentifier,
+            (
+            select  concat(
+                    '^',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from    dataset_37015.""monitoringsite""
+    where   coalesce(featureOfInterestIdentifier, '') <> ''
+)
+select  record_id,
+        featureOfInterestIdentifier
+from    Dataset
+where   NOT REGEXP_COL_LIKE(featureOfInterestIdentifier, regexp) 
+
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,V265,V265,The value of supersedesIdentifier must follow the syntax of one WISE identifiers or a comma-separated list of WISE identifiers. ,The value of supersedesIdentifier must follow the syntax of one WISE identifiers or a comma-separated list of WISE identifiers. [V265],"WITH Data AS (
+    select  record_id,
+            supersedesIdentifier,
+            (
+            select  concat(
+                    '^',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}(, ?',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1})*$'
+                )
+            ) as regexp
+    from    dataset_37015.""monitoringsite""
+ where   coalesce(supersedesIdentifier, '') <> ''
+)
+select  record_id,
+        supersedesIdentifier
+from    Data
+where   NOT REGEXP_COL_LIKE(supersedesIdentifier, regexp)",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,V251,V251,The value of thematicIdIdentifier must follow the syntax of WISE identifiers,The value of thematicIdIdentifier must follow the syntax of WISE identifiers [V251],"WITH Dataset AS (
+    select  record_id,
+            thematicididentifier,
+            (
+            select  concat(
+                    '^',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from    dataset_37015.""monitoringsite""
+    where   coalesce(thematicididentifier, '') <> ''
+)
+select  record_id,
+        thematicididentifier
+from    Dataset
+where   NOT REGEXP_COL_LIKE(thematicididentifier, regexp) 
+
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifierScheme,V271,V271,An EIONET thematic identifier must be used for all the spatial objects.,An EIONET thematic identifier must be used for all the spatial objects. [V271],"SELECT ms.record_id, MS.""featureofinterestidentifierscheme"", '{%R3_COUNTRY_CODE%}'
+FROM dataset_37015.""monitoringsite"" MS
+WHERE COALESCE(MS.""featureofinterestidentifierscheme"", '') <> '' AND  
+MS.""featureofinterestidentifierscheme"" not LIKE 'eionet%'
+and exists (
+            select 1
+            from dataset_37016.""country"" c
+            where c.""countrycode"" =  
+              ( '{%R3_COUNTRY_CODE%}' )
+and c.""reportingtype"" = 'WISE5')  ",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifierScheme,V272,V272,WFD thematic identifiers must be used for all spatial objects.,WFD thematic identifiers must be used for all spatial objects. [V272],"SELECT ms.record_id
+	,MS.""featureOfInterestIdentifierScheme""
+FROM dataset_37015.""monitoringsite"" MS
+WHERE COALESCE(featureOfInterestIdentifierScheme, '') <> '' AND MS.""featureOfInterestIdentifierScheme"" NOT LIKE 'eu%'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WFD'
+		)
+		",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifierScheme,V246,V246,WFD thematic identifiers must be used for all spatial objects ,WFD thematic identifiers must be used for all spatial objects [V246],"SELECT ms.record_id
+	,MS.""supersedesIdentifierScheme""
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""supersedesIdentifierScheme"" NOT LIKE 'eu%'
+AND COALESCE(MS.""supersedesIdentifierScheme"", '') <> '' 
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WFD'
+		)",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifierScheme,V269,V269,EIONET thematic identifiers must be used for all spatial objects. ,EIONET thematic identifiers must be used for all spatial objects. [V269],"SELECT ms.record_id, MS.""supersedesIdentifierScheme"", '{%R3_COUNTRY_CODE%}'
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""supersedesIdentifierScheme"" not LIKE 'eionet%'
+ AND COALESCE(MS.""supersedesIdentifierScheme"", '') <> ''
+and exists (
+            select 1
+            from dataset_37016.""country"" c
+            where c.""countrycode"" =  
+              ( '{%R3_COUNTRY_CODE%}' )
+and c.""reportingtype"" = 'WISE5')  ",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifierScheme,R213,R213,supersedesIdentifierScheme must be reported if supersedesIdentifier is reported. ,supersedesIdentifierScheme must be reported if supersedesIdentifier is reported. [R213],"select  record_id,
+        supersedesIdentifier,
+        supersedesIdentifierScheme
+from    dataset_37015.MonitoringSite
+where   coalesce(supersedesIdentifierScheme, '') = ''
+        and coalesce(supersedesIdentifier, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,R213,R213,supersedesIdentifierScheme must be reported if supersedesIdentifier is reported. ,supersedesIdentifierScheme must be reported if supersedesIdentifier is reported. [R213],"select  record_id,
+        supersedesIdentifier,
+        supersedesIdentifierScheme
+from    dataset_37015.MonitoringSite
+where   coalesce(supersedesIdentifierScheme, '') = ''
+        and coalesce(supersedesIdentifier, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,beginLifespanVersion,R200,R200,beginLifespanVersion must be reported if endLifespanVersion is reported. ,beginLifespanVersion must be reported if endLifespanVersion is reported. [R200],"select  record_id,
+        beginLifespanVersion,
+        endLifespanVersion
+from    dataset_37015.MonitoringSite
+where   coalesce(beginLifespanVersion, '') = ''
+        and coalesce(endLifespanVersion, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,endLifespanVersion,R200,R200,beginLifespanVersion must be reported if endLifespanVersion is reported. ,beginLifespanVersion must be reported if endLifespanVersion is reported. [R200],"select  record_id,
+        beginLifespanVersion,
+        endLifespanVersion
+from    dataset_37015.MonitoringSite
+where   coalesce(beginLifespanVersion, '') = ''
+        and coalesce(endLifespanVersion, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,beginLifespanVersion,R201,R201,beginLifespanVersion must be reported if inspireIdVersionId is reported.,beginLifespanVersion must be reported if inspireIdVersionId is reported. [R201],"select  record_id,
+        beginLifespanVersion,
+        inspireIdVersionId
+from    dataset_37015.MonitoringSite
+where   coalesce(beginLifespanVersion, '') = ''
+        and coalesce(inspireIdVersionId, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,inspireIdVersionId,R201,R201,beginLifespanVersion must be reported if inspireIdVersionId is reported.,beginLifespanVersion must be reported if inspireIdVersionId is reported. [R201],"select  record_id,
+        beginLifespanVersion,
+        inspireIdVersionId
+from    dataset_37015.MonitoringSite
+where   coalesce(beginLifespanVersion, '') = ''
+        and coalesce(inspireIdVersionId, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,beginLifespanVersion,R202,R202,beginLifespanVersion must be reported unless wiseEvolutionType is 'creation' or 'noChange'. [R202],beginLifespanVersion must be reported unless wiseEvolutionType is 'creation' or 'noChange'. [R202],"-- beginLifespanVersion must be reported unless wiseEvolutionType is 'creation' or 'noChange'
+select  record_id,
+        beginLifespanVersion,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(beginLifespanVersion, '') = ''
+        and wiseEvolutionType <> 'creation'
+        and wiseEvolutionType <> 'noChange'
+",RECORD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R202,R202,beginLifespanVersion must be reported unless wiseEvolutionType is 'creation' or 'noChange'. [R202],beginLifespanVersion must be reported unless wiseEvolutionType is 'creation' or 'noChange'. [R202],"-- beginLifespanVersion must be reported unless wiseEvolutionType is 'creation' or 'noChange'
+select  record_id,
+        beginLifespanVersion,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(beginLifespanVersion, '') = ''
+        and wiseEvolutionType <> 'creation'
+        and wiseEvolutionType <> 'noChange'
+",RECORD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,endLifespanVersion,R203,R203,endLifespanVersion must be greater than beginLifespanVersion. ,endLifespanVersion must be greater than beginLifespanVersion. [R203],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+                 beginLifespanVersion
+                ,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                 endLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_37015.""monitoringsite""
+    where   -- Avoids values not reported
+            coalesce(beginLifespanVersion, '') <> ''
+            and coalesce(endLifespanVersion, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,beginLifespanVersion,R203,R203,endLifespanVersion must be greater than beginLifespanVersion. ,endLifespanVersion must be greater than beginLifespanVersion. [R203],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+                 beginLifespanVersion
+                ,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                 endLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_37015.""monitoringsite""
+    where   -- Avoids values not reported
+            coalesce(beginLifespanVersion, '') <> ''
+            and coalesce(endLifespanVersion, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,endLifespanVersion,R204,R204,"The endLifespanVersion value must be reported, if the wiseEvolutionType is 'deletion'.","The endLifespanVersion value must be reported, if the wiseEvolutionType is 'deletion'. [R204]","select  record_id,
+        endLifespanVersion,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(endLifespanVersion, '') = ''
+        and wiseEvolutionType = 'deletion'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R204,R204,"The endLifespanVersion value must be reported, if the wiseEvolutionType is 'deletion'.","The endLifespanVersion value must be reported, if the wiseEvolutionType is 'deletion'. [R204]","select  record_id,
+        endLifespanVersion,
+        wiseEvolutionType
+from    dataset_37015.MonitoringSite
+where   coalesce(endLifespanVersion, '') = ''
+        and wiseEvolutionType = 'deletion'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R222,R222,At least one predecessor of an object with wiseEvolutionType value equal to 'splitting' or 'changeBothAggregationAndSplitting' must be reported as predecessor of another spatial object. ,At least one predecessor of an object with wiseEvolutionType value equal to 'splitting' or 'changeBothAggregationAndSplitting' must be reported as predecessor of another spatial object. [R222],"--At least one predecessor of an object with wiseEvolutionType value equal to 'splitting' or 'changeBothAggregationAndSplitting' must be reported as predecessor of another spatial object. 
+WITH predecessors -- GET THE PREDECCESSOR 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,MS.thematicididentifier
+		,MS.thematicididentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+		,MS.wiseEvolutionType
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		AND MS.wiseEvolutionType IN (
+			'splitting'
+			,'changeBothAggregationAndSplitting'
+			)
+	)---- Get the ids that have a predecessor that is predecessor of only one element
+SELECT DISTINCT record_id, thematicididentifier
+FROM predecessors 
+WHERE thematicididentifier NOT IN -- -- we get the thematic ids that have a predecessor that is predecessor of more than one element and remove them
+ (
+		SELECT thematicididentifier
+		FROM predecessors 
+		WHERE predecessor IN (
+		--  --Get the predecessors that are only predecessors of more than one element
+				SELECT predecessor
+				FROM predecessors preds
+				GROUP BY predecessor
+				HAVING count(*) > 1
+				)
+		)
+
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,R211,R211,supersedesIdentifier must be reported if supersedesIdentifierScheme is reported. ,supersedesIdentifier must be reported if supersedesIdentifierScheme is reported. [R211],"select  record_id,
+        supersedesIdentifier,
+        supersedesIdentifierScheme
+from    dataset_37015.MonitoringSite
+where   coalesce(supersedesIdentifier, '') = ''
+        and coalesce(supersedesIdentifierScheme, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifierScheme,R211,R211,supersedesIdentifier must be reported if supersedesIdentifierScheme is reported. ,supersedesIdentifier must be reported if supersedesIdentifierScheme is reported. [R211],"select  record_id,
+        supersedesIdentifier,
+        supersedesIdentifierScheme
+from    dataset_37015.MonitoringSite
+where   coalesce(supersedesIdentifier, '') = ''
+        and coalesce(supersedesIdentifierScheme, '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R225,R225,The monitoring site must have zero predecessors if the wiseEvolutionType value is 'creation',The monitoring site must have zero predecessors if the wiseEvolutionType value is 'creation' [R225],"SELECT MS.wiseevolutiontype
+	,MS.supersedesidentifier
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" = 'creation'
+	AND coalesce(MS.""supersedesidentifier"", '') <> ''
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R226,R226,The monitoring site must have one and only one predecessor if the wiseEvolutionType value is 'changeCode' or 'splitting',The monitoring site must have one and only one predecessor if the wiseEvolutionType value is 'changeCode'  or 'splitting' [R226] ,"SELECT MS.""supersedesidentifier""
+	,MS.""wiseevolutiontype""
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" in ('changeCode', 'splitting')
+	AND (MS.""supersedesidentifier"" LIKE '%,%'
+OR COALESCE(MS.""supersedesidentifier"", '') = '')",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R227,R227,The monitoring site must have two or more predecessors if the wiseEvolutionType value is 'aggregation' ,The monitoring site must have two or more predecessors if the wiseEvolutionType value is 'aggregation' [R227],"SELECT record_id
+	,MS.wiseevolutiontype
+	,MS.supersedesidentifier
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" LIKE 'aggregation'
+	AND MS.""supersedesidentifier"" NOT LIKE '%,%'
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolution,R228,R228,"If an identifier is the predecessor of two or more objects, then those objects must have wiseEvolution equal to 'splitting' or 'changeBothAggregationAndSplitting' ","If an identifier is the predecessor of two or more objects, then those objects must have wiseEvolution equal to 'splitting' or 'changeBothAggregationAndSplitting' [R228]","WITH split  -- OBJECTOR WITH PREDECESSOR
+AS (
+	
+select	TRIM(FLATTEN(REGEXP_SPLIT(ms.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,ms.thematicididentifier
+		,MS.wiseEvolutionType 
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		
+	)
+	
+	
+-- Select unique records that belong to predecessors
+-- linked to multiple thematic IDs
+SELECT DISTINCT
+    split.record_id,              -- Unique record identifier
+    split.thematicididentifier,   
+    split.predecessor             -- Predecessor identifier
+FROM split
+
+-- Join with a derived table that identifies predecessors
+-- associated with 2 or more distinct thematic IDs
+JOIN (
+    SELECT
+        predecessor,
+        COUNT(DISTINCT thematicididentifier) AS cnt
+    FROM split
+    GROUP BY predecessor
+    HAVING COUNT(DISTINCT thematicididentifier) >= 2
+) AS preds
+    ON split.predecessor = preds.predecessor
+
+-- Exclude cases where the evolution type
+-- already represents an expected split
+WHERE wiseEvolutionType NOT IN (
+    'splitting',
+    'changeBothAggregationAndSplitting'
+)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,T201,T201,"If the object has successor(s), then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value. ","If the object has successor(s), then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value. [T201] Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}","SELECT  
+    X.record_id,
+    CASE
+        WHEN LENGTH(X.ids) > 4000 THEN 
+            CONCAT(
+                LEFT(
+                    X.ids,
+                    CASE 
+                        WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0 THEN
+                            3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                        ELSE 3997
+                    END
+                ),
+                '...'
+            )
+        ELSE X.ids
+    END AS identifiers,
+    X.numberofrecords
+from    (
+      SELECT  listagg(supersededbyidentifier, ', ') as ids,
+        (select record_id from dataset_37015.""monitoringsite""  limit 1) as record_id, count(*) as numberofrecords
+FROM   dataset_37015.""monitoringsite"" M 
+WHERE COALESCE(M.""supersededbyidentifier"", '') <> '' OR
+COALESCE(M.""supersededbyidentifierscheme"", '') <> ''
+HAVING COUNT(*) > 0
+        ) X",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,T202,T202,"If the object is the predecessor of another object, then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value. ","If the object is the predecessor of another object, then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value. [T202] Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}","WITH split
+AS (
+	SELECT  TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,ms.thematicididentifier
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesIdentifier"", '') <> ''
+		
+	)
+	
+	
+	SELECT
+    X.record_id,
+    CASE
+        WHEN LENGTH(X.ids) > 4000 THEN 
+            CONCAT(
+                LEFT(
+                    X.ids,
+                    CASE 
+                        WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0 THEN
+                            3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                        ELSE 3997
+                    END
+                ),
+                '...'
+            )
+        ELSE X.ids
+    END AS identifiers,
+    X.numberofrecords
+FROM (
+	
+SELECT (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id,
+        
+         listagg(split.predecessor, ', ') as ids,
+        COUNT(*) AS numberofrecords
+FROM dataset_37015.""monitoringsite"" m
+JOIN split ON split.predecessor = m.thematicididentifier 
+HAVING COUNT(*) > 0) X",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,R231,R231,"wiseEvolutionType= 'reactivation' is not valid if thematicIdIdentifierScheme = 'eionetMonitoringSiteCode' and countryCode not in ('CH','LI','TR','AL','BA','ME','MK','RS','XK') ","wiseEvolutionType= 'reactivation' is not valid if thematicIdIdentifierScheme = 'eionetMonitoringSiteCode' and countryCode not in ('CH','LI','TR','AL','BA','ME','MK','RS','XK') [R231]","SELECT record_id, M.""wiseevolutiontype"" , M.""thematicididentifierscheme"", M.""thematicididentifier""
+FROM dataset_37015.""monitoringsite"" M 
+WHERE M.""wiseevolutiontype"" = 'reactivation' 
+AND M.""thematicididentifierscheme"" = 'eionetMonitoringSiteCode' 
+AND  ( '{%R3_COUNTRY_CODE%}' )
+               NOT IN ('CH','LI','TR','AL','BA','ME','MK','RS','XK')
+
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifierScheme,R231,R231,"wiseEvolutionType= 'reactivation' is not valid if thematicIdIdentifierScheme = 'eionetMonitoringSiteCode' and countryCode not in ('CH','LI','TR','AL','BA','ME','MK','RS','XK') ","wiseEvolutionType= 'reactivation' is not valid if thematicIdIdentifierScheme = 'eionetMonitoringSiteCode' and countryCode not in ('CH','LI','TR','AL','BA','ME','MK','RS','XK') [R231]","SELECT record_id, M.""wiseevolutiontype"" , M.""thematicididentifierscheme"", M.""thematicididentifier""
+FROM dataset_37015.""monitoringsite"" M 
+WHERE M.""wiseevolutiontype"" = 'reactivation' 
+AND M.""thematicididentifierscheme"" = 'eionetMonitoringSiteCode' 
+AND  ( '{%R3_COUNTRY_CODE%}' )
+               NOT IN ('CH','LI','TR','AL','BA','ME','MK','RS','XK')
+
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,R207,R207,operationalActivityPeriodEnd must be greater than operationalActivityPeriodBegin. ,operationalActivityPeriodEnd must be greater than operationalActivityPeriodBegin. [R207],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+                operationalActivityPeriodBegin
+                ,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                 operationalActivityPeriodEnd
+                ,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_37015.""monitoringsite""
+    where   -- Avoids values not reported
+            coalesce(operationalActivityPeriodBegin, '') <> ''
+            and coalesce(operationalActivityPeriodEnd, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodEnd,R207,R207,operationalActivityPeriodEnd must be greater than operationalActivityPeriodBegin. ,operationalActivityPeriodEnd must be greater than operationalActivityPeriodBegin. [R207],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+                operationalActivityPeriodBegin
+                ,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                 operationalActivityPeriodEnd
+                ,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_37015.""monitoringsite""
+    where   -- Avoids values not reported
+            coalesce(operationalActivityPeriodBegin, '') <> ''
+            and coalesce(operationalActivityPeriodEnd, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,link,V273,V273,The length of the value must be <= 2048,The length of the value must be <= 2048 [V273],( LEN( link ) <= 2048 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersededByIdentifierScheme,R232,R232,Reporting of supersededByIdentifierScheme & supersededByIdentifier is not allowed,Reporting of supersededByIdentifierScheme & supersededByIdentifier is not allowed [R232],"SELECT record_id, supersededbyidentifierscheme, supersededbyidentifier
+FROM dataset_37015.""monitoringsite""
+WHERE COALESCE(dataset_37015.""monitoringsite"".""supersededbyidentifier"") <> ''
+OR COALESCE(dataset_37015.""monitoringsite"".""supersededbyidentifierscheme"") <> ''",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersededByIdentifier,R232,R232,Reporting of supersededByIdentifierScheme & supersededByIdentifier is not allowed,Reporting of supersededByIdentifierScheme & supersededByIdentifier is not allowed [R232],"SELECT record_id, supersededbyidentifierscheme, supersededbyidentifier
+FROM dataset_37015.""monitoringsite""
+WHERE COALESCE(dataset_37015.""monitoringsite"".""supersededbyidentifier"") <> ''
+OR COALESCE(dataset_37015.""monitoringsite"".""supersededbyidentifierscheme"") <> ''",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S203,S203,The geometry must not be empty or degenerate (e.g. zero-lenth line or zero-area polygon).,The geometry must not be empty or degenerate (e.g. zero-lenth line or zero-area polygon). [S203],"
+WITH vMonitoring AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any
+   from  dataset_37015.""monitoringsite""
+),
+ 
+vDimensionOriginal AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dim
+    FROM vMonitoring 
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_MakeValidGeometry AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        ST_MakeValid(geometry_any) AS geometry_any,
+        geometry_dim
+    FROM vDimensionOriginal
+    WHERE geometry_any IS NOT NULL
+),
+ 
+vDimensionMakeValid AS (
+    SELECT
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        geometry_dim,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dimMakeValid
+    FROM vReportedZone_MakeValidGeometry
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_IsValidGeometry AS (
+    SELECT 
+        record_id,
+        geometry_any
+    FROM vDimensionMakeValid
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+      AND geometry_dimMakeValid = geometry_dim
+)
+ 
+
+
+select  record_id
+from    vReportedZone_IsValidGeometry 
+where   (
+                -- It is not valid
+            ST_IsValid(geometry_any) IS FALSE
+            or
+                -- It is not empty
+            ST_IsEmpty(geometry_any) IS TRUE
+            )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,S204,S204,Only one EPSG is allowed in the table,Only one EPSG is allowed in the table [S204],"
+WITH vMonitoring AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any
+   from  dataset_37015.""monitoringsite""
+),
+ 
+vDimensionOriginal AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dim
+    FROM vMonitoring 
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_MakeValidGeometry AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        ST_MakeValid(geometry_any) AS geometry_any,
+        geometry_dim
+    FROM vDimensionOriginal
+    WHERE geometry_any IS NOT NULL
+),
+ 
+vDimensionMakeValid AS (
+    SELECT
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        geometry_dim,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dimMakeValid
+    FROM vReportedZone_MakeValidGeometry
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_IsValidGeometry AS (
+    SELECT 
+        record_id,
+        geometry_any
+    FROM vDimensionMakeValid
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+      AND geometry_dimMakeValid = geometry_dim
+),
+ 
+vSRIDs AS (
+    SELECT
+        record_id,
+        ST_SRID(geometry_any) AS srid
+    FROM vReportedZone_IsValidGeometry
+)
+ 
+SELECT 
+    LISTAGG(DISTINCT srid, ',') AS srid_list,
+    MIN(record_id) AS record_id
+FROM vSRIDs
+HAVING COUNT(DISTINCT srid) > 1",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S206,S206,"The coordinate reference system (CRS) is not valid. (It must be one of the following:ETRS89-GRS80 (urn:ogc:def:crs:EPSG::4258),ETRS89-LAEA","The coordinate reference system (CRS) is not valid. (It must be one of the following:ETRS89-GRS80 (urn:ogc:def:crs:EPSG::4258),ETRS89-LAEA","WITH vMonitoring AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any
+   from  dataset_37015.""monitoringsite""
+),
+ 
+vDimensionOriginal AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dim
+    FROM vMonitoring 
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_MakeValidGeometry AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        ST_MakeValid(geometry_any) AS geometry_any,
+        geometry_dim
+    FROM vDimensionOriginal
+    WHERE geometry_any IS NOT NULL
+),
+ 
+vDimensionMakeValid AS (
+    SELECT
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        geometry_dim,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dimMakeValid
+    FROM vReportedZone_MakeValidGeometry
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_IsValidGeometry AS (
+    SELECT 
+        record_id,
+        geometry_any
+    FROM vDimensionMakeValid
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+      AND geometry_dimMakeValid = geometry_dim
+)
+ 
+SELECT record_id
+FROM vReportedZone_IsValidGeometry 
+WHERE ST_SRID(geometry_any) not in ('4326', '4258', '3035')
+
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S205,S205,"The geometry must not have anomalous geometric points, such as self-intersections","The geometry must not have anomalous geometric points, such as self-intersections [S205]","WITH vMonitoring AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any
+   from  dataset_37015.""monitoringsite""
+),
+ 
+vDimensionOriginal AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dim
+    FROM vMonitoring 
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_MakeValidGeometry AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+
+        ST_MakeValid(geometry_any) AS geometry_any,
+        geometry_dim
+    FROM vDimensionOriginal
+    WHERE geometry_any IS NOT NULL
+),
+ 
+vDimensionMakeValid AS (
+    SELECT
+        record_id,
+        ""thematicididentifier"",
+
+        geometry_any,
+        geometry_dim,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dimMakeValid
+    FROM vReportedZone_MakeValidGeometry
+    WHERE geometry_any <> ''
+),
+ 
+vReportedZone_IsValidGeometry AS (
+    SELECT 
+        record_id,
+        geometry_any
+    FROM vDimensionMakeValid
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+      AND geometry_dimMakeValid = geometry_dim
+)
+ 
+Select record_id
+From vReportedZone_IsValidGeometry 
+Where ST_IsSimple(geometry_any) = false
+
+",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,nameTextInternational,V202,V202,Checks if the field is missing or empty,The value must not be missing or empty [V202],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,RF200_WFD,RF200_WFD,The monitoring site has a feature of interest (waterbody) that does not exist in the register,The monitoring site has a feature of interest (waterbody) that does not exist in the register [RF200_WFD],"SELECT
+       MS.featureofinterestidentifier
+       ,record_id
+FROM
+       dataset_37015.""monitoringsite"" MS
+WHERE
+       COALESCE(MS.""featureofinterestidentifier"", '') <> ''
+       AND NOT EXISTS
+       (
+              SELECT
+                     1
+              FROM
+                     dataset_37016.""relatedzonewfd"" B
+              WHERE
+B.""thematicididentifier"" = MS.""featureofinterestidentifier""
+AND b.""thematicididentifierscheme"" = MS.""featureofinterestidentifierscheme""
+       )
+             -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,RF200_WISE5,RF200_WISE5,The monitoring site has a feature of interest (waterbody) that does not exist in the register ,The monitoring site has a feature of interest (waterbody) that does not exist in the register [RF200_WISE5],"SELECT
+       MS.featureofinterestidentifier
+       ,record_id
+FROM
+       dataset_37015.""monitoringsite"" MS
+WHERE
+       COALESCE(MS.""featureofinterestidentifier"", '') <> ''
+       AND NOT EXISTS
+       (
+              SELECT
+                     1
+              FROM
+                     dataset_37016.""relatedzoneWISE5"" B
+              WHERE
+B.""thematicididentifier"" = MS.""featureofinterestidentifier""
+AND b.""thematicididentifierscheme"" = MS.""featureofinterestidentifierscheme""
+       )
+   -- This QC is for countries reporting under wise5 only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,RF201_WFD,RF201_WFD,The featureOfInterestIdentifier is deprecated (only objects with wiseEvolutionType = 'deletion' can be have a deprecated featureOfInterest) ,The featureOfInterestIdentifier is deprecated (only objects with wiseEvolutionType = 'deletion' can be have a deprecated featureOfInterest) [RF201_WFD],"WITH split -- STEP 1: Unnest and normalize water body predecessors
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(WB.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+		,WB.thematicididentifier
+		,WB.thematicididentifierscheme
+		,WB.predecessorsidentifierscheme
+		,WB.record_id
+	FROM dataset_37016.""relatedzoneWFD"" WB
+	WHERE COALESCE(WB.""predecessorsidentifier"", '') <> ''
+		
+	)
+	,invalidrelatedZones
+AS (
+    -- STEP 2: Combine predecessors and deleted water bodies into a single invalid list
+	SELECT predecessorsidentifier AS thematicididentifier
+		,predecessorsidentifierscheme AS thematicididentifierscheme
+	FROM split
+	
+	UNION ALL
+	
+	SELECT thematicididentifier
+		,thematicididentifierscheme -- Include water bodies marked for deletion
+	FROM dataset_37016.""relatedzoneWFD"" WB
+	WHERE wiseevolutiontype LIKE 'deletion'
+	)
+	
+-- PART A: Direct link between Monitoring Site and an invalid/deleted Water Body
+SELECT distinct  ms.thematicididentifier
+	,ms.wiseevolutiontype
+	,MS.record_id
+	,ms.featureofinterestidentifier
+	,ms.featureofinterestidentifierscheme
+FROM dataset_37015.""monitoringsite"" ms
+JOIN invalidrelatedZones RZ ON MS.featureofinterestidentifier = RZ.thematicididentifier
+	AND MS.featureofinterestidentifierscheme = RZ.thematicididentifierscheme
+WHERE ms.wiseevolutiontype <> 'deletion'
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+
+UNION ALL
+
+-- PART B: Link to Water Bodies that are officially deprecated, retired, or superseded
+SELECT distinct  baseTable.thematicididentifier
+	,baseTable.wiseevolutiontype
+	,baseTable.record_id
+	,baseTable.featureofinterestidentifier
+	,baseTable.featureofinterestidentifierscheme
+FROM dataset_37015.""monitoringsite"" as baseTable 
+LEFT JOIN invalidrelatedZones relatedTable 
+ON baseTable.featureOfInterestIdentifier = relatedTable.thematicIdIdentifier 
+   AND baseTable.featureOfInterestIdentifierScheme = relatedTable.thematicIdIdentifierScheme 
+LEFT JOIN dataset_37016.""relatedzoneWFD"" as r
+ON baseTable.featureOfInterestIdentifier = r.thematicIdIdentifier 
+   AND baseTable.featureOfInterestIdentifierScheme = r.thematicIdIdentifierScheme 
+ WHERE COALESCE(relatedTable.thematicIdIdentifier, '') = '' -- Filter to avoid duplicating Part A results
+ AND (r.statusCode IN('deprecated','superseded','retired') 
+ OR r.wiseEvolutionType = 'deletion') 
+ AND baseTable.wiseevolutiontype <> 'deletion'
+       -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,RF201_WISE5,RF201_WISE5,The featureOfInterestIdentifier is deprecated (only objects with wiseEvolutionType = 'deletion' can be have a deprecated featureOfInterest) ,The featureOfInterestIdentifier is deprecated (only objects with wiseEvolutionType = 'deletion' can be have a deprecated featureOfInterest) [RF201_WISE5],"WITH split -- STEP 1: Unnest and normalize water body predecessors
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(WB.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+		,WB.thematicididentifier
+		,WB.thematicididentifierscheme
+		,WB.predecessorsidentifierscheme
+		,WB.record_id
+	FROM dataset_37016.""relatedzoneWISE5"" WB
+	WHERE COALESCE(WB.""predecessorsidentifier"", '') <> ''
+		
+	)
+	,invalidrelatedZones
+AS (
+    -- STEP 2: Combine predecessors and deleted water bodies into a single invalid list
+	SELECT predecessorsidentifier AS thematicididentifier
+		,predecessorsidentifierscheme AS thematicididentifierscheme
+	FROM split
+	
+	UNION ALL
+	
+	SELECT thematicididentifier
+		,thematicididentifierscheme -- Include water bodies marked for deletion
+	FROM dataset_37016.""relatedzoneWISE5"" WB
+	WHERE wiseevolutiontype LIKE 'deletion'
+	)
+	
+-- PART A: Direct link between Monitoring Site and an invalid/deleted Water Body
+SELECT distinct  ms.thematicididentifier
+	,ms.wiseevolutiontype
+	,MS.record_id
+	,ms.featureofinterestidentifier
+	,ms.featureofinterestidentifierscheme
+FROM dataset_37015.""monitoringsite"" ms
+JOIN invalidrelatedZones RZ ON MS.featureofinterestidentifier = RZ.thematicididentifier
+	AND MS.featureofinterestidentifierscheme = RZ.thematicididentifierscheme
+WHERE ms.wiseevolutiontype <> 'deletion'
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+
+UNION ALL
+
+-- PART B: Link to Water Bodies that are officially deprecated, retired, or superseded
+SELECT distinct  baseTable.thematicididentifier
+	,baseTable.wiseevolutiontype
+	,baseTable.record_id
+	,baseTable.featureofinterestidentifier
+	,baseTable.featureofinterestidentifierscheme
+FROM dataset_37015.""monitoringsite"" as baseTable 
+LEFT JOIN invalidrelatedZones relatedTable 
+ON baseTable.featureOfInterestIdentifier = relatedTable.thematicIdIdentifier 
+   AND baseTable.featureOfInterestIdentifierScheme = relatedTable.thematicIdIdentifierScheme 
+LEFT JOIN dataset_37016.""relatedzoneWISE5"" as r
+ON baseTable.featureOfInterestIdentifier = r.thematicIdIdentifier 
+   AND baseTable.featureOfInterestIdentifierScheme = r.thematicIdIdentifierScheme 
+ WHERE COALESCE(relatedTable.thematicIdIdentifier, '') = '' -- Filter to avoid duplicating Part A results
+ AND (r.statusCode IN('deprecated','superseded','retired') 
+ OR r.wiseEvolutionType = 'deletion') 
+ AND baseTable.wiseevolutiontype <> 'deletion'
+       -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,RF202_WFD,RF202_WFD,The Monitoring Site is for deletion and the featureOfInterestIdentifier is deprecated,The Monitoring Site is for deletion and the featureOfInterestIdentifier is deprecated [RF202_WFD],"SELECT ms.thematicididentifier
+	,ms.wiseevolutiontype
+	,record_id
+	,ms.featureofinterestidentifier
+	,ms.featureofinterestidentifierscheme
+FROM dataset_37015.""monitoringsite"" ms
+WHERE EXISTS (
+		SELECT 1
+		FROM dataset_37016.""relatedzoneWFD"" B
+		WHERE B.""thematicididentifier"" = ms.""featureofinterestidentifier""
+			AND ms.""featureofinterestidentifierscheme"" = b.""thematicididentifierscheme""
+			AND (
+			MS.""wiseevolutiontype"" LIKE 'deletion'
+			AND B.""statusCode"" IN ('deprecated','retired','superseded')))
+
+
+      -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,featureOfInterestIdentifier,RF202_WISE5,RF202_WISE5,The Monitoring Site is for deletion and the featureOfInterestIdentifier is deprecated ,The Monitoring Site is for deletion and the featureOfInterestIdentifier is deprecated [RF202_WISE5],"SELECT ms.thematicididentifier
+	,ms.wiseevolutiontype
+	,record_id
+	,ms.featureofinterestidentifier
+	,ms.featureofinterestidentifierscheme
+FROM dataset_37015.""monitoringsite"" ms
+WHERE EXISTS (
+		SELECT 1
+		FROM dataset_37016.""relatedzoneWISE5"" B
+		WHERE B.""thematicididentifier"" = ms.""featureofinterestidentifier""
+			AND ms.""featureofinterestidentifierscheme"" = b.""thematicididentifierscheme""
+			AND (
+			MS.""wiseevolutiontype"" LIKE 'deletion'
+			AND B.""statusCode"" IN ('deprecated','retired','superseded')))
+
+
+      -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF203_WFD,RF203_WFD,"wiseEvolutionType='reactivation' is not valid if a former surface water monitoring site is now reactivated as a groundwater monitoring site, or vice-versa ","wiseEvolutionType='reactivation' is not valid if a former surface water monitoring site is now reactivated as a groundwater monitoring site, or vice-versa [RF203_WFD]","SELECT MS.""wiseevolutiontype""
+	,MS.""featureofinterestidentifierscheme""
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" LIKE 'reactivation'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWFD"" RF
+		WHERE RF.""thematicididentifier"" = MS.""thematicididentifier""
+			AND RF.""thematicididentifierscheme"" = MS.""thematicididentifierscheme""
+			AND RF.""relatedzoneidentifierscheme"" <> MS.""featureofinterestidentifierscheme""
+		)
+      -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF203_WISE5,RF203_WISE5,"wiseEvolutionType='reactivation' is not valid if a former surface water monitoring site is now reactivated as a groundwater monitoring site, or vice-versa","wiseEvolutionType='reactivation' is not valid if a former surface water monitoring site is now reactivated as a groundwater monitoring site, or vice-versa [RF203_WISE5]","SELECT MS.""wiseevolutiontype""
+	,MS.""featureofinterestidentifierscheme""
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" LIKE 'reactivation'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWISE5"" RF
+		WHERE RF.""thematicididentifier"" = MS.""thematicididentifier""
+			AND RF.""thematicididentifierscheme"" = MS.""thematicididentifierscheme""
+			AND RF.""relatedzoneidentifierscheme"" <> MS.""featureofinterestidentifierscheme""
+		)
+      -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,RF204_WFD,RF204_WFD,"operationalActivityPeriodBegin for the successor can not be the same as the operationalActivityPeriodBegin of the object being replaced, except if wiseEvolutionType is ‘changeCode’","operationalActivityPeriodBegin for the successor can not be the same as the operationalActivityPeriodBegin of the object being replaced, except if wiseEvolutionType is ‘changeCode ’[RF204_WFD]","  WITH predecessors AS (
+        SELECT 
+        TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessor,
+        M.thematicididentifier,
+        M.thematicididentifierscheme,
+        M.supersedesidentifierscheme,
+        M.record_id,
+        M.wiseevolutiontype,
+        CAST(TO_DATE(M.operationalActivityPeriodBegin
+             , 'YYYY-MM-DD', 1)
+
+ AS DATE )
+				AS operationalActivityPeriodBegin
+    FROM dataset_37015.""monitoringsite"" M
+    WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+        AND COALESCE(M.""operationalActivityPeriodBegin"", '') <> ''
+        AND M.wiseevolutiontype <> 'changeCode')
+        
+,refer AS (
+    SELECT 
+        R.thematicididentifier,
+        R.thematicididentifierscheme,
+        cast(TO_DATE(R.designationPeriodBegin, 'YYYY-MM-DD', 1) as date) AS designationPeriodBegin
+    FROM dataset_37016.""monitoringsiteWFD"" R
+    WHERE COALESCE(R.""designationPeriodBegin"", '') <> ''
+)
+
+SELECT 
+    p.*, 
+    r.designationPeriodBegin
+FROM predecessors p
+LEFT JOIN refer r 
+    ON p.predecessor = r.thematicididentifier 
+    AND p.supersedesidentifierscheme = r.thematicididentifierscheme
+WHERE r.designationPeriodBegin = p.operationalActivityPeriodBegin    
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,RF204_WISE5,RF204_WISE5,"operationalActivityPeriodBegin for the successor can not be the same as the operationalActivityPeriodBegin of the object being replaced, except if wiseEvolutionType is ‘changeCode’","operationalActivityPeriodBegin for the successor can not be the same as the operationalActivityPeriodBegin of the object being replaced, except if wiseEvolutionType is ‘changeCode’  [RF204_WISE5]","  WITH predecessors AS (
+        SELECT 
+        TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessor,
+        M.thematicididentifier,
+        M.thematicididentifierscheme,
+        M.supersedesidentifierscheme,
+        M.record_id,
+        M.wiseevolutiontype,
+        CAST(TO_DATE(M.operationalActivityPeriodBegin
+             , 'YYYY-MM-DD', 1)
+
+ AS DATE )
+				AS operationalActivityPeriodBegin
+    FROM dataset_37015.""monitoringsite"" M
+    WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+        AND COALESCE(M.""operationalActivityPeriodBegin"", '') <> ''
+        AND M.wiseevolutiontype <> 'changeCode')
+        
+,refer AS (
+    SELECT 
+        R.thematicididentifier,
+        R.thematicididentifierscheme,
+        cast(TO_DATE(R.designationPeriodBegin, 'YYYY-MM-DD', 1) as date) AS designationPeriodBegin
+    FROM dataset_37016.""monitoringsiteWISE5"" R
+    WHERE COALESCE(R.""designationPeriodBegin"", '') <> ''
+)
+
+SELECT 
+    p.*, 
+    r.designationPeriodBegin
+FROM predecessors p
+LEFT JOIN refer r 
+    ON p.predecessor = r.thematicididentifier 
+    AND p.supersedesidentifierscheme = r.thematicididentifierscheme
+WHERE r.designationPeriodBegin = p.operationalActivityPeriodBegin    
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,RF205_WISE5,RF205_WISE5,"operationalActivityPeriodBegin value cannot be higher than the one stored in the registry for the same object if wiseEvolutionType value is equal to 'change', 'changeCode', 'noChange' or 'reactivation'","operationalActivityPeriodBegin value cannot be higher than the one stored in the registry for the same object if wiseEvolutionType value is equal to 'change', 'changeCode', 'noChange' or 'reactivation' [RF205_WISE5]","
+with predeccessors -- GET THE PREDECCESSORs and changecode they need to be checked separately 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predeccessor
+		,M.thematicididentifier
+		,M.thematicididentifierscheme
+		,M.supersedesidentifierscheme
+		,M.record_id
+		,M.wiseevolutiontype 
+		,CAST(TO_DATE(M.operationalActivityPeriodBegin, 'YYYY-MM-DD', 1)
+
+ AS DATE )
+				AS operationalActivityPeriodBegin
+	FROM dataset_37015.""monitoringsite"" M
+	WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+		AND COALESCE(M.""operationalActivityPeriodBegin"", '') <> ''
+		and wiseevolutiontype like 'changeCode'
+	)
+	,Monitor -- get the values with wiseevolutiontype affected
+AS (
+	SELECT Monitoring.thematicididentifier
+		,Monitoring.thematicididentifierscheme
+		,Monitoring.supersedesidentifierscheme
+		,Monitoring.record_id
+		,Monitoring.wiseevolutiontype
+		,CAST(TO_DATE(Monitoring.operationalActivityPeriodBegin, 'YYYY-MM-DD', 1)
+
+ AS DATE )
+				AS operationalActivityPeriodBegin
+	FROM dataset_37015.""monitoringsite"" Monitoring
+	WHERE COALESCE(Monitoring.""operationalActivityPeriodBegin"", '') <> ''
+	and wiseevolutiontype in ('change','noChange','reactivation', 'changeCode')
+	)
+	,refer -- get the reference values
+AS (
+	SELECT R.thematicididentifier
+		,R.thematicididentifierscheme
+		,cast(TO_DATE(R.designationPeriodBegin, 'YYYY-MM-DD', 1) as date) AS designationPeriodBegin
+	FROM dataset_37016.""monitoringsiteWISE5"" R
+	WHERE COALESCE(R.""designationPeriodBegin"", '') <> ''
+	)
+
+SELECT record_id
+	,monitor.thematicididentifier
+	,monitor.operationalActivityPeriodBegin
+	,refer.designationPeriodBegin
+	,monitor.wiseevolutiontype
+FROM Monitor
+JOIN refer ON refer.thematicididentifier = Monitor.thematicididentifier
+	AND refer.thematicididentifierscheme = Monitor.thematicididentifierscheme
+WHERE COALESCE(Monitor.operationalActivityPeriodBegin, '') <> ''
+	AND COALESCE(refer.designationPeriodBegin, '') <> ''
+	AND refer.designationPeriodBegin < Monitor.operationalActivityPeriodBegin
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+UNION ALL
+
+SELECT record_id
+	,predeccessors.predeccessor
+	,predeccessors.operationalActivityPeriodBegin
+	,refer.designationPeriodBegin
+	,predeccessors.wiseevolutiontype
+FROM predeccessors
+JOIN refer ON refer.thematicididentifier = predeccessors.predeccessor
+	AND refer.thematicididentifierscheme = predeccessors.supersedesidentifierscheme
+WHERE COALESCE(predeccessors.operationalActivityPeriodBegin, '') <> ''
+	AND COALESCE(refer.designationPeriodBegin, '') <> ''
+	AND refer.designationPeriodBegin < predeccessors.operationalActivityPeriodBegin
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,operationalActivityPeriodBegin,RF205_WFD,RF205_WFD,"operationalActivityPeriodBegin value cannot be higher than the one stored in the registry for the same object if wiseEvolutionType value is equal to 'change', 'changeCode', 'noChange' or 'reactivation' [RF205]","operationalActivityPeriodBegin value cannot be higher than the one stored in the registry for the same object if wiseEvolutionType value is equal to 'change', 'changeCode', 'noChange' or 'reactivation' [RF205_WFD]","
+with predeccessors -- GET THE PREDECCESSORs and changecode they need to be checked separately 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predeccessor
+		,M.thematicididentifier
+		,M.thematicididentifierscheme
+		,M.supersedesidentifierscheme
+		,M.record_id
+		,M.wiseevolutiontype 
+		,CAST(TO_DATE(M.operationalActivityPeriodBegin, 'YYYY-MM-DD', 1)
+
+ AS DATE )
+				AS operationalActivityPeriodBegin
+	FROM dataset_37015.""monitoringsite"" M
+	WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+		AND COALESCE(M.""operationalActivityPeriodBegin"", '') <> ''
+		and wiseevolutiontype like 'changeCode'
+	)
+	,Monitor -- get the values with wiseevolutiontype affected
+AS (
+	SELECT Monitoring.thematicididentifier
+		,Monitoring.thematicididentifierscheme
+		,Monitoring.supersedesidentifierscheme
+		,Monitoring.record_id
+		,Monitoring.wiseevolutiontype
+		,CAST(TO_DATE(Monitoring.operationalActivityPeriodBegin, 'YYYY-MM-DD', 1)
+
+ AS DATE )
+				AS operationalActivityPeriodBegin
+	FROM dataset_37015.""monitoringsite"" Monitoring
+	WHERE COALESCE(Monitoring.""operationalActivityPeriodBegin"", '') <> ''
+	and wiseevolutiontype in ('change','noChange','reactivation', 'changeCode')
+	)
+	,refer -- get the reference values
+AS (
+	SELECT R.thematicididentifier
+		,R.thematicididentifierscheme
+		,cast(TO_DATE(R.designationPeriodBegin, 'YYYY-MM-DD', 1) as date) AS designationPeriodBegin
+	FROM dataset_37016.""monitoringsiteWFD"" R
+	WHERE COALESCE(R.""designationPeriodBegin"", '') <> ''
+	)
+
+SELECT record_id
+	,monitor.thematicididentifier
+	,monitor.operationalActivityPeriodBegin
+	,refer.designationPeriodBegin
+	,monitor.wiseevolutiontype
+FROM Monitor
+JOIN refer ON refer.thematicididentifier = Monitor.thematicididentifier
+	AND refer.thematicididentifierscheme = Monitor.thematicididentifierscheme
+WHERE COALESCE(Monitor.operationalActivityPeriodBegin, '') <> ''
+	AND COALESCE(refer.designationPeriodBegin, '') <> ''
+	AND refer.designationPeriodBegin < Monitor.operationalActivityPeriodBegin
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+UNION ALL
+
+SELECT record_id
+	,predeccessors.predeccessor
+	,predeccessors.operationalActivityPeriodBegin
+	,refer.designationPeriodBegin
+	,predeccessors.wiseevolutiontype
+FROM predeccessors
+JOIN refer ON refer.thematicididentifier = predeccessors.predeccessor
+	AND refer.thematicididentifierscheme = predeccessors.supersedesidentifierscheme
+WHERE COALESCE(predeccessors.operationalActivityPeriodBegin, '') <> ''
+	AND COALESCE(refer.designationPeriodBegin, '') <> ''
+	AND refer.designationPeriodBegin < predeccessors.operationalActivityPeriodBegin
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF212_WFD,RF212_WFD,The monitoring site has a predecessor in a different category of waterbody (surface water versus groundwater) ,The monitoring site has a predecessor in a different category of waterbody (surface water versus groundwater) [RF212_WFD],"WITH split
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,ms.thematicididentifier
+		,MS.featureofinterestidentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesIdentifier"", '') <> ''
+		
+	)
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+FROM dataset_37015.""monitoringsite"" site
+JOIN split 
+       ON split.predecessor = site.thematicididentifier
+       AND split.supersedesidentifierscheme =                                                                               Site.thematicididentifierscheme
+WHERE split.featureofinterestidentifierscheme <> site.featureofinterestidentifierscheme
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+UNION ALL
+
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+FROM split
+LEFT JOIN dataset_37015.""monitoringsite"" M ON split.predecessor = m.thematicIdIdentifier
+JOIN dataset_37016.""monitoringsiteWFD"" R 
+        ON split.predecessor = r.thematicIdIdentifier
+	AND split.supersedesidentifierscheme = r.thematicididentifierscheme
+WHERE COALESCE(m.thematicIdIdentifier, '') = ''
+	AND split.featureofinterestidentifierscheme <> R.relatedZoneIdentifierScheme
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF212_WISE5,RF212_WISE5,The monitoring site has a predecessor in a different category of waterbody (surface water versus groundwater) ,The monitoring site has a predecessor in a different category of waterbody (surface water versus groundwater) [RF212_WISE5],"WITH split
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,ms.thematicididentifier
+		,MS.featureofinterestidentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesIdentifier"", '') <> ''
+		
+	)
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+FROM dataset_37015.""monitoringsite"" site
+JOIN split 
+       ON split.predecessor = site.thematicididentifier
+       AND split.supersedesidentifierscheme =                                                                               Site.thematicididentifierscheme
+WHERE split.featureofinterestidentifierscheme <> site.featureofinterestidentifierscheme
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+UNION ALL
+
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+FROM split
+LEFT JOIN dataset_37015.""monitoringsite"" M ON split.predecessor = m.thematicIdIdentifier
+JOIN dataset_37016.""monitoringsiteWISE5"" R 
+        ON split.predecessor = r.thematicIdIdentifier
+	AND split.supersedesidentifierscheme = r.thematicididentifierscheme
+WHERE COALESCE(m.thematicIdIdentifier, '') = ''
+	AND split.featureofinterestidentifierscheme <> R.relatedZoneIdentifierScheme
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF213_WFD,RF213_WFD,The monitoring site has a predecessor in a different category of surface water body [RF213],The monitoring site has a predecessor in a different category of surface water body [RF213_WFD],"WITH split
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(supersedesidentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier
+		,ms.thematicididentifier
+		,MS.featureofinterestidentifier
+		,MS.featureofinterestidentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		AND MS.featureofinterestidentifierscheme LIKE '%SurfaceWaterBodyCode'
+		
+	)
+	,SWB
+AS (
+	SELECT wb.thematicididentifier
+		,wb.thematicididentifierscheme
+		,wb.zonetype
+		,wb.specialisedzonetype
+	FROM dataset_37016.""relatedzoneWFD"" wb
+	WHERE wb.""thematicididentifierscheme"" LIKE '%SurfaceWaterBodyCode'
+	)
+SELECT split.record_id
+	,split.thematicididentifier
+	,split.onePredecessorIdentifier
+	,split.featureofinterestidentifier
+	,SWB.specialisedzonetype
+FROM split
+JOIN SWB ON split.featureofinterestidentifier = SWB.thematicididentifier
+	AND split.featureofinterestidentifierscheme = SWB.thematicididentifierscheme
+JOIN dataset_37015.""monitoringsite"" mon 
+        ON split.onePredecessorIdentifier = mon.thematicididentifier
+	AND split.supersedesidentifierscheme = mon.thematicididentifierscheme
+JOIN SWB swb_pred 
+        ON mon.featureofinterestidentifier = swb_pred.thematicididentifier
+	AND mon.featureofinterestidentifierscheme =         swb_pred.thematicididentifierscheme
+WHERE swb.specialisedzonetype <> swb_pred.specialisedzonetype
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+
+UNION ALL
+
+SELECT split.record_id
+	,split.thematicididentifier
+	,split.onePredecessorIdentifier
+	,split.featureofinterestidentifier
+	,SWB.specialisedzonetype
+	
+FROM split
+JOIN SWB ON split.featureofinterestidentifier = SWB.thematicididentifier
+	AND split.featureofinterestidentifierscheme = SWB.thematicididentifierscheme
+LEFT JOIN dataset_37015.""monitoringsite"" mon ON split.onePredecessorIdentifier = mon.thematicididentifier
+	AND split.supersedesidentifierscheme =        mon.thematicididentifierscheme
+JOIN dataset_37016.""monitoringsiteWFD"" r
+	ON SPLIT.onePredecessorIdentifier = R.thematicididentifier
+	AND SPLIT.supersedesidentifierscheme = R.thematicididentifierscheme
+JOIN dataset_37016.""relatedzoneWFD"" rswb 
+        ON R.relatedZoneIdentifier = RSWB.thematicididentifier AND 
+        R.relatedZoneIdentifierScheme = RSWB.thematicididentifierscheme
+WHERE COALESCE(MON.thematicididentifier , '') = ''
+AND swb.specialisedZoneType <> RSWB.specialisedZoneType 
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF213_WISE5,RF213_WISE5,The monitoring site has a predecessor in a different category of surface water body [RF213],The monitoring site has a predecessor in a different category of surface water body [RF213_WISE5],"WITH split
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(supersedesidentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier
+		,ms.thematicididentifier
+		,MS.featureofinterestidentifier
+		,MS.featureofinterestidentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		AND MS.featureofinterestidentifierscheme LIKE '%SurfaceWaterBodyCode'
+		
+	)
+	,SWB
+AS (
+	SELECT wb.thematicididentifier
+		,wb.thematicididentifierscheme
+		,wb.zonetype
+		,wb.specialisedzonetype
+	FROM dataset_37016.""relatedzoneWISE5"" wb
+	WHERE wb.""thematicididentifierscheme"" LIKE '%SurfaceWaterBodyCode'
+	)
+SELECT split.record_id
+	,split.thematicididentifier
+	,split.onePredecessorIdentifier
+	,split.featureofinterestidentifier
+	,SWB.specialisedzonetype
+FROM split
+JOIN SWB ON split.featureofinterestidentifier = SWB.thematicididentifier
+	AND split.featureofinterestidentifierscheme = SWB.thematicididentifierscheme
+JOIN dataset_37015.""monitoringsite"" mon 
+        ON split.onePredecessorIdentifier = mon.thematicididentifier
+	AND split.supersedesidentifierscheme = mon.thematicididentifierscheme
+JOIN SWB swb_pred 
+        ON mon.featureofinterestidentifier = swb_pred.thematicididentifier
+	AND mon.featureofinterestidentifierscheme =         swb_pred.thematicididentifierscheme
+WHERE swb.specialisedzonetype <> swb_pred.specialisedzonetype
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+
+UNION ALL
+
+SELECT split.record_id
+	,split.thematicididentifier
+	,split.onePredecessorIdentifier
+	,split.featureofinterestidentifier
+	,SWB.specialisedzonetype
+	
+FROM split
+JOIN SWB ON split.featureofinterestidentifier = SWB.thematicididentifier
+	AND split.featureofinterestidentifierscheme = SWB.thematicididentifierscheme
+LEFT JOIN dataset_37015.""monitoringsite"" mon ON split.onePredecessorIdentifier = mon.thematicididentifier
+	AND split.supersedesidentifierscheme =        mon.thematicididentifierscheme
+JOIN dataset_37016.""monitoringsiteWISE5"" r
+	ON SPLIT.onePredecessorIdentifier = R.thematicididentifier
+	AND SPLIT.supersedesidentifierscheme = R.thematicididentifierscheme
+JOIN dataset_37016.""relatedzoneWISE5"" rswb 
+        ON R.relatedZoneIdentifier = RSWB.thematicididentifier AND 
+        R.relatedZoneIdentifierScheme = RSWB.thematicididentifierscheme
+WHERE COALESCE(MON.thematicididentifier , '') = ''
+AND swb.specialisedZoneType <> RSWB.specialisedZoneType 
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF214_WFD,RF214_WFD,The monitoring site has a predecessor in a different water body ,The monitoring site has a predecessor in a different water body [RF214_WFD],"WITH split
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,MS.thematicididentifier
+		,MS.featureofinterestidentifier
+		,MS.featureofinterestidentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesIdentifier"", '') <> ''
+		
+	)
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+	,predecessor
+FROM dataset_37015.""monitoringsite"" site
+JOIN split ON split.predecessor = site.thematicididentifier
+	AND split.supersedesidentifierscheme = site.thematicididentifierscheme
+WHERE split.featureofinterestidentifier <> site.featureofinterestidentifier OR 
+split.featureofinterestidentifierscheme <> site.featureofinterestidentifierscheme
+ and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+UNION ALL
+
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+	,predecessor
+FROM split 
+LEFT JOIN dataset_37015.""monitoringsite"" m 
+    ON SPLIT.predecessor = M.thematicididentifier
+JOIN dataset_37016.""monitoringsiteWFD"" r 
+    ON SPLIT.predecessor = r.thematicididentifier and split.supersedesidentifierscheme = r.thematicIdIdentifierScheme
+WHERE 
+  COALESCE(m.thematicididentifier, '') = ''
+and (split.featureofinterestidentifier <> r.relatedzoneidentifier OR split.featureofinterestidentifierscheme <> r.relatedzoneidentifierscheme)
+ and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF214_WISE5,RF214_WISE5,The monitoring site has a predecessor in a different water body ,The monitoring site has a predecessor in a different water body [RF214_WISE5],"WITH split
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,MS.thematicididentifier
+		,MS.featureofinterestidentifier
+		,MS.featureofinterestidentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesIdentifier"", '') <> ''
+		
+	)
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+	,predecessor
+FROM dataset_37015.""monitoringsite"" site
+JOIN split ON split.predecessor = site.thematicididentifier
+	AND split.supersedesidentifierscheme = site.thematicididentifierscheme
+WHERE split.featureofinterestidentifier <> site.featureofinterestidentifier OR 
+split.featureofinterestidentifierscheme <> site.featureofinterestidentifierscheme
+ and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+UNION ALL
+
+SELECT DISTINCT SPLIT.record_id
+	,split.thematicididentifier
+	,predecessor
+FROM split 
+LEFT JOIN dataset_37015.""monitoringsite"" m 
+    ON SPLIT.predecessor = M.thematicididentifier
+JOIN dataset_37016.""monitoringsiteWISE5"" r 
+    ON SPLIT.predecessor = r.thematicididentifier and split.supersedesidentifierscheme = r.thematicIdIdentifierScheme
+WHERE 
+  COALESCE(m.thematicididentifier, '') = ''
+and (split.featureofinterestidentifier <> r.relatedzoneidentifier OR split.featureofinterestidentifierscheme <> r.relatedzoneidentifierscheme)
+ and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,RF215_WFD,RF215_WFD,"thematicIdIdentifier must be a valid identifier in the register if the wiseEvolutionType value is 'deletion', 'noChange' or 'change' ","thematicIdIdentifier must be a valid identifier in the register if the wiseEvolutionType value is 'deletion', 'noChange' or 'change' [RF215_WFD]","SELECT MS.wiseevolutiontype
+	,MS.thematicididentifier
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" IN ('deletion','noChange','change')
+	AND NOT EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWFD"" RF
+		WHERE RF.""thematicididentifier"" = MS.""thematicididentifier""
+			AND RF.""thematicididentifierscheme"" = MS.""thematicididentifierscheme""
+			AND RF.""wiseevolutiontype"" <> 'deletion'
+		)
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,RF215_WISE5,RF215_WISE5,"thematicIdIdentifier must be a valid identifier in the register if the wiseEvolutionType value is 'deletion', 'noChange' or 'change' ","thematicIdIdentifier must be a valid identifier in the register if the wiseEvolutionType value is 'deletion', 'noChange' or 'change' [RF215_WISE5]","SELECT MS.wiseevolutiontype
+	,MS.thematicididentifier
+	,record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" IN ('deletion','noChange','change')
+	AND NOT EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWISE5"" RF
+		WHERE RF.""thematicididentifier"" = MS.""thematicididentifier""
+			AND RF.""thematicididentifierscheme"" = MS.""thematicididentifierscheme""
+			AND RF.""wiseevolutiontype"" <> 'deletion'
+		)
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,RF216_WFD,RF216_WFD,"thematicIdIdentifier must not exist in the register unless the wiseEvolutionType value is 'deletion', 'noChange', 'reactivation' or 'change' ","thematicIdIdentifier must not exist in the register unless the wiseEvolutionType value is 'deletion', 'noChange', 'reactivation' or 'change' [RF216_WFD]","SELECT MS.""thematicididentifier""
+	,ms.record_id
+FROM dataset_37015.""monitoringsite"" MS
+LEFT JOIN dataset_37016.""monitoringsiteWFD"" R 
+    ON MS.thematicIdIdentifier = R.thematicIdIdentifier AND         MS.thematicIdIdentifierScheme  = r.thematicIdIdentifierScheme 
+ WHERE MS.""wiseevolutiontype"" NOT IN (
+		'deletion'
+		,'noChange'
+		,'reactivation'
+		,'change'
+		)
+ AND COALESCE(R.thematicIdIdentifier, '') <> ''
+
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,RF216_WISE,RF216_WISE,"thematicIdIdentifier must not exist in the register unless the wiseEvolutionType value is 'deletion', 'noChange', 'reactivation' or 'change' ","thematicIdIdentifier must not exist in the register unless the wiseEvolutionType value is 'deletion', 'noChange', 'reactivation' or 'change' [RF216_WISE]","SELECT MS.""thematicididentifier""
+	,ms.record_id
+FROM dataset_37015.""monitoringsite"" MS
+LEFT JOIN dataset_37016.""monitoringsiteWISE5"" R 
+    ON MS.thematicIdIdentifier = R.thematicIdIdentifier AND         MS.thematicIdIdentifierScheme  = r.thematicIdIdentifierScheme 
+ WHERE MS.""wiseevolutiontype"" NOT IN (
+		'deletion'
+		,'noChange'
+		,'reactivation'
+		,'change'
+		)
+ AND COALESCE(R.thematicIdIdentifier, '') <> ''
+
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,RF217_WFD,RF217_WFD,The monitoring site is associated with waterbody in a different category (surface water versus groundwater) than the waterbody previously reported ,The monitoring site is associated with waterbody in a different category (surface water versus groundwater) than the waterbody previously reported [RF217_WFD],"SELECT MS.featureofinterestidentifierScheme
+	,record_id
+	,MS.thematicididentifier
+FROM dataset_37015.""monitoringsite"" MS
+WHERE EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWFD"" B
+		WHERE B.""thematicididentifier"" = MS.""thematicididentifier""
+			AND b.""thematicididentifierscheme"" = MS.""thematicididentifierscheme""
+			AND B.""relatedzoneidentifierScheme"" <> MS.""featureofinterestidentifierScheme""
+		)
+ and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,thematicIdIdentifier,RF217_WISE5,RF217_WISE5,The monitoring site is associated with waterbody in a different category (surface water versus groundwater) than the waterbody previously reported ,The monitoring site is associated with waterbody in a different category (surface water versus groundwater) than the waterbody previously reported [RF217_WISE5],"SELECT MS.featureofinterestidentifierScheme
+	,record_id
+	,MS.thematicididentifier
+FROM dataset_37015.""monitoringsite"" MS
+WHERE EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWISE5"" B
+		WHERE B.""thematicididentifier"" = MS.""thematicididentifier""
+			AND b.""thematicididentifierscheme"" = MS.""thematicididentifierscheme""
+			AND B.""relatedzoneidentifierScheme"" <> MS.""featureofinterestidentifierScheme""
+		)
+ and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,,RF218_WFD,RF218_WFD,A valid 'eu' thematic identifier exists in the register but was not reported (either as a spatial object or as a predecessor) ,A valid 'eu' thematic identifier exists in the register but was not reported (either as a spatial object or as a predecessor) [RF218_WFD]. Values: {%identifiers%}. Number of missing values: {%numberofrecords%} ,"WITH predecessors
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,MS.thematicididentifier
+		,MS.thematicididentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		
+	)
+SELECT -- format the list of results
+    X.record_id,
+    CASE
+        WHEN LENGTH(X.ids) > 4000 THEN 
+            CONCAT(
+                LEFT(
+                    X.ids,
+                    CASE 
+                        WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0 THEN
+                            3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                        ELSE 3997
+                    END
+                ),
+                '...'
+            )
+        ELSE X.ids
+    END AS identifiers,
+    X.numberofrecords
+FROM (
+    SELECT
+        (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id,
+        listagg(RF.thematicIdIdentifier, ', ') as ids,
+        COUNT(*) AS numberofrecords
+    FROM dataset_37016.""monitoringsiteWFD"" RF
+    LEFT JOIN dataset_37015.""monitoringsite"" D
+        ON D.thematicIdIdentifier = RF.thematicIdIdentifier
+       AND D.thematicIdIdentifierScheme = RF.thematicIdIdentifierScheme
+    LEFT JOIN predecessors P
+        ON P.predecessor = RF.thematicIdIdentifier
+       AND P.thematicIdIdentifierScheme = RF.thematicIdIdentifierScheme
+    WHERE RF.countrycode = ( '{%R3_COUNTRY_CODE%}'
+    ) -- the indentifier is valid
+    AND RF.wiseEvolutionType <> 'deletion'
+    AND RF.statusCode NOT IN ('retired', 'deprecated', 'superseded')
+    -- not present as identifier or predeccessor
+    AND (D.thematicIdIdentifier IS NULL 
+    AND P.predecessor IS NULL
+     and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                ))
+    HAVING COUNT(*) > 0
+) X
+",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,RF218_WISE5,RF218_WISE5,A valid 'eu' thematic identifier exists in the register but was not reported (either as a spatial object or as a predecessor) ,A valid 'eu' thematic identifier exists in the register but was not reported (either as a spatial object or as a predecessor) [RF218_WISE5]. Values: {%identifiers%}. Number of missing values: {%numberofrecords%} ,"WITH predecessors
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor
+		,MS.thematicididentifier
+		,MS.thematicididentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+		
+	)
+SELECT -- format the list of results
+    X.record_id,
+    CASE
+        WHEN LENGTH(X.ids) > 4000 THEN 
+            CONCAT(
+                LEFT(
+                    X.ids,
+                    CASE 
+                        WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0 THEN
+                            3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                        ELSE 3997
+                    END
+                ),
+                '...'
+            )
+        ELSE X.ids
+    END AS identifiers,
+    X.numberofrecords
+FROM (
+    SELECT
+        (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id,
+        listagg(RF.thematicIdIdentifier, ', ') as ids,
+        COUNT(*) AS numberofrecords
+    FROM dataset_37016.""monitoringsiteWISE5"" RF
+    LEFT JOIN dataset_37015.""monitoringsite"" D
+        ON D.thematicIdIdentifier = RF.thematicIdIdentifier
+       AND D.thematicIdIdentifierScheme = RF.thematicIdIdentifierScheme
+    LEFT JOIN predecessors P
+        ON P.predecessor = RF.thematicIdIdentifier
+       AND P.thematicIdIdentifierScheme = RF.thematicIdIdentifierScheme
+    WHERE LEFT(RF.thematicIdIdentifier, 2) = ( '{%R3_COUNTRY_CODE%}'
+    ) -- the indentifier is valid
+    AND RF.wiseEvolutionType <> 'deletion'
+    AND RF.statusCode NOT IN ('retired', 'deprecated', 'superseded')
+    -- not present as identifier or predeccessor
+    AND (D.thematicIdIdentifier IS NULL 
+    AND P.predecessor IS NULL
+     and EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                ))
+    HAVING COUNT(*) > 0
+) X
+",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF219_WFD,RF219_WFD,wiseEvolutionType='reactivation' is not valid if the object does not exist in the MonitoringSite register [RF219],wiseEvolutionType='reactivation' is not valid if the object does not exist in the MonitoringSite register [RF219_WFD],"SELECT record_id
+	,MS.""thematicididentifier""
+	,MS.""thematicididentifierscheme""
+FROM dataset_37015.""monitoringsite"" MS
+WHERE NOT EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWFD"" B
+		WHERE 
+		B.""thematicididentifier"" = MS.""thematicididentifier""
+		AND B.""thematicididentifierscheme"" =       MS.""thematicididentifierscheme""
+		)
+AND MS.""wiseevolutiontype"" = 'reactivation'
+      -- This QC is for countries reporting under WFD only
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF219_WISE5,RF219_WISE5,wiseEvolutionType='reactivation' is not valid if the object does not exist in the MonitoringSite register [RF219_WISE5],wiseEvolutionType='reactivation' is not valid if the object does not exist in the MonitoringSite register [RF219_WISE5],"SELECT record_id
+	,MS.""thematicididentifier""
+	,MS.""thematicididentifierscheme""
+FROM dataset_37015.""monitoringsite"" MS
+WHERE NOT EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWISE5"" B
+		WHERE 
+		B.""thematicididentifier"" = MS.""thematicididentifier""
+		AND B.""thematicididentifierscheme"" =       MS.""thematicididentifierscheme""
+		)
+AND MS.""wiseevolutiontype"" = 'reactivation'
+      -- This QC is for countries reporting under WFD only
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF220_WISE5,RF220_WISE5,wiseEvolutionType='reactivation' is not valid if the status of the object is 'valid' in the MonitoringSite register,wiseEvolutionType='reactivation' is not valid if the status of the object is 'valid' in the MonitoringSite register [RF220_WISE5],"SELECT record_id
+	,ms.""thematicididentifier""
+FROM dataset_37015.""monitoringsite"" ms
+WHERE ms.""wiseevolutiontype"" LIKE 'reactivation'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWISE5"" REFERENCE
+		WHERE 
+		ms.""thematicididentifier"" = REFERENCE.""thematicididentifier""
+		AND ms.""thematicididentifierscheme"" = REFERENCE.""thematicididentifierscheme""
+		AND REFERENCE.""wiseevolutiontype""  = 'deletion'
+		)
+AND  EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF220_WFD,RF220_WFD,wiseEvolutionType='reactivation' is not valid if the status of the object is 'valid' in the MonitoringSite register,wiseEvolutionType='reactivation' is not valid if the status of the object is 'valid' in the MonitoringSite register [RF220_WFD],"SELECT record_id
+	,ms.""thematicididentifier""
+FROM dataset_37015.""monitoringsite"" ms
+WHERE ms.""wiseevolutiontype"" LIKE 'reactivation'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWFD"" REFERENCE
+		WHERE 
+		ms.""thematicididentifier"" = REFERENCE.""thematicididentifier""
+		AND ms.""thematicididentifierscheme"" = REFERENCE.""thematicididentifierscheme""
+		AND REFERENCE.""wiseevolutiontype""  = 'deletion'
+		)
+AND  EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF221_WFD,RF221_WFD,wiseEvolutionType='reactivation' is not valid if the status of the object is 'superseded' in the MonitoringSite register ,wiseEvolutionType='reactivation' is not valid if the status of the object is 'superseded' in the MonitoringSite register [RF221_WFD],"SELECT record_id
+	,ms.""thematicididentifier""
+FROM dataset_37015.""monitoringsite"" ms
+WHERE ms.""wiseevolutiontype"" = 'reactivation'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWFD"" R
+		WHERE ms.""thematicididentifier"" = R.""thematicididentifier""
+			AND ms.""thematicididentifierscheme"" = R.""thematicididentifierscheme""
+			AND R.""statuscode"" = 'superseded'
+		)
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF221_WISE5,RF221_WISE5,wiseEvolutionType='reactivation' is not valid if the status of the object is 'superseded' in the MonitoringSite register ,wiseEvolutionType='reactivation' is not valid if the status of the object is 'superseded' in the MonitoringSite register [RF221_WISE5],"SELECT record_id
+	,ms.""thematicididentifier""
+FROM dataset_37015.""monitoringsite"" ms
+WHERE ms.""wiseevolutiontype"" = 'reactivation'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""monitoringsiteWISE5"" R
+		WHERE ms.""thematicididentifier"" = R.""thematicididentifier""
+			AND ms.""thematicididentifierscheme"" = R.""thematicididentifierscheme""
+			AND R.""statuscode"" = 'superseded'
+		)
+ AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF227_WFD,RF227_WFD,wiseEvolutionType='reactivation' is not a valid option if the featureOfInterestIdentifier is different to the previous one ,wiseEvolutionType='reactivation' is not a valid option if the featureOfInterestIdentifier is different to the previous one [RF227_WFD],"SELECT MS.""wiseevolutiontype"", MS.""featureofinterestidentifierscheme"" , record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" LIKE 'reactivation'
+AND EXISTS (
+            SELECT 1
+            FROM dataset_37016.""monitoringsiteWFD"" RF
+            WHERE RF.""thematicididentifier"" = MS.""thematicididentifier""                 AND
+RF.""thematicididentifierscheme"" = MS.""thematicididentifierscheme"" 
+AND 
+(RF.""relatedzoneidentifierscheme"" <> MS.""featureofinterestidentifierscheme"" OR 
+RF.""relatedzoneidentifier"" <> MS.""featureofinterestidentifier"" )) 
+AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF227_WISE5,RF227_WISE5,wiseEvolutionType='reactivation' is not a valid option if the featureOfInterestIdentifier is different to the previous one ,wiseEvolutionType='reactivation' is not a valid option if the featureOfInterestIdentifier is different to the previous one [RF227_WISE5],"SELECT MS.""wiseevolutiontype"", MS.""featureofinterestidentifierscheme"" , record_id
+FROM dataset_37015.""monitoringsite"" MS
+WHERE MS.""wiseevolutiontype"" LIKE 'reactivation'
+AND EXISTS (
+            SELECT 1
+            FROM dataset_37016.""monitoringsiteWISE5"" RF
+            WHERE RF.""thematicididentifier"" = MS.""thematicididentifier""                 AND
+RF.""thematicididentifierscheme"" = MS.""thematicididentifierscheme"" 
+AND 
+(RF.""relatedzoneidentifierscheme"" <> MS.""featureofinterestidentifierscheme"" OR 
+RF.""relatedzoneidentifier"" <> MS.""featureofinterestidentifier"" )) 
+AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF223_WFD,RF223_WFD,The object has a predecessor that does not exist in the register. ,The object has a predecessor that does not exist in the register. [RF223_WFD],"WITH predecessors -- GET THE PREDECCESSOR OF wb
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(MS.supersedesidentifier, ',', 'ALL', 999))) AS predecessor 
+		,MS.thematicididentifier
+		,MS.thematicididentifierscheme
+		,MS.supersedesidentifierscheme
+		,MS.record_id
+		,MS.wiseEvolutionType
+	FROM dataset_37015.""monitoringsite"" MS
+	WHERE COALESCE(MS.""supersedesidentifier"", '') <> ''
+	
+	)
+SELECT DISTINCT predecessors.record_id
+FROM predecessors
+
+LEFT JOIN dataset_37016.""monitoringsiteWFD"" RF ON RF.thematicididentifier = predecessors.predecessor 
+	AND RF.thematicididentifierscheme = predecessors.supersedesidentifierscheme
+WHERE (
+		(COALESCE(RF.thematicIdIdentifier, '') = '')
+		OR (
+		COALESCE(RF.thematicIdIdentifier, '') <> ''
+			
+			AND RF.statusCode = 'superseded'
+			)
+		)
+	AND predecessors.wiseEvolutionType NOT IN (
+		'deletion'
+		,'reactivation'
+		) 
+	AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF222_WFD,RF222_WFD,"If an object is reported as 'deletion', it must have the same predecessors as before","If an object is reported as 'deletion', it must have the same predecessors as before [RF222_WFD]","/**
+ * DATA VALIDATION: Predecessor Consistency Check
+ * * DESCRIPTION:
+ * Compares 'supersedesIdentifier' from the report (M) against 
+ * 'predecessorsIdentifier' in the reference (R).
+ *
+ * RULES:
+ * 1. Filter by wiseEvolutionType = 'deletion'.
+ * 2. Ignore cases where the report is completely empty (Cardinality = 0).
+ * 3. Flag an error if the reported list is NOT an exact mirror of the reference.
+ 
+ 		RW29: applies to objects reported as 'deletion'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+
+ */
+WITH unnested_predecessors -- GET THE PREDECESSOR FROM THE REPORTED DATA
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+		,M.thematicididentifier
+		,M.record_id
+	FROM dataset_37015.""monitoringsite"" M
+	WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+		AND m.wiseevolutiontype = 'deletion'
+	)
+	,unnested_reference -- GET THE PREDECESSOR FROM THE REFERENCE DATA
+AS (
+	SELECT R.thematicididentifier
+		,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+	FROM dataset_37016.""monitoringsiteWFD"" R
+	WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+	)
+	-- CTE 3a: Report - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_report
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+		,record_id
+	FROM unnested_predecessors
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 3b: Report - Grouping
+	,ordered_report
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+		,MAX(record_id) AS record_id
+	FROM preordered_report
+	GROUP BY thematicididentifier
+	)
+	-- CTE 4a: Reference - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_reference
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+	FROM unnested_reference
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 4b: Reference - Grouping
+	,ordered_reference
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+	FROM preordered_reference
+	GROUP BY thematicididentifier
+	)
+SELECT 
+    r.thematicididentifier,
+    r.sorted_predecessors AS reported_predecessors,
+    ref_data.sorted_predecessors AS reference_predecessors,
+    r.record_id
+FROM ordered_report r
+-- Using LEFT JOIN to avoid losing records that do not exist in reference
+LEFT JOIN ordered_reference ref_data 
+    ON r.thematicididentifier = ref_data.thematicididentifier
+WHERE 
+    -- Rule 2: Ignore if the report is empty
+    CARDINALITY(r.sorted_predecessors) > 0 
+    AND (
+        -- Rule 3a: If it doesn't exist in reference but does in report, it's an error
+        ref_data.thematicididentifier IS NULL 
+        OR 
+        -- Rule 3b: If both exist but are different
+        r.sorted_predecessors <> ref_data.sorted_predecessors
+    ) AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,wiseEvolutionType,RF222_WISE5,RF222_WISE5,"If an object is reported as 'deletion', it must have the same predecessors as before","If an object is reported as 'deletion', it must have the same predecessors as before [RF222_WISE5]","/**
+ * DATA VALIDATION: Predecessor Consistency Check
+ * * DESCRIPTION:
+ * Compares 'supersedesIdentifier' from the report (M) against 
+ * 'predecessorsIdentifier' in the reference (R).
+ *
+ * RULES:
+ * 1. Filter by wiseEvolutionType = 'deletion'.
+ * 2. Ignore cases where the report is completely empty (Cardinality = 0).
+ * 3. Flag an error if the reported list is NOT an exact mirror of the reference.
+ 
+ 		RW29: applies to objects reported as 'deletion'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+
+ */
+WITH unnested_predecessors -- GET THE PREDECESSOR FROM THE REPORTED DATA
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+		,M.thematicididentifier
+		,M.record_id
+	FROM dataset_37015.""monitoringsite"" M
+	WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+		AND m.wiseevolutiontype = 'deletion'
+	)
+	,unnested_reference -- GET THE PREDECESSOR FROM THE REFERENCE DATA
+AS (
+	SELECT R.thematicididentifier
+		,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+	FROM dataset_37016.""monitoringsiteWISE5"" R
+	WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+	)
+	-- CTE 3a: Report - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_report
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+		,record_id
+	FROM unnested_predecessors
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 3b: Report - Grouping
+	,ordered_report
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+		,MAX(record_id) AS record_id
+	FROM preordered_report
+	GROUP BY thematicididentifier
+	)
+	-- CTE 4a: Reference - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_reference
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+	FROM unnested_reference
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 4b: Reference - Grouping
+	,ordered_reference
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+	FROM preordered_reference
+	GROUP BY thematicididentifier
+	)
+SELECT 
+    r.thematicididentifier,
+    r.sorted_predecessors AS reported_predecessors,
+    ref_data.sorted_predecessors AS reference_predecessors,
+    r.record_id
+FROM ordered_report r
+-- Using LEFT JOIN to avoid losing records that do not exist in reference
+LEFT JOIN ordered_reference ref_data 
+    ON r.thematicididentifier = ref_data.thematicididentifier
+WHERE 
+    -- Rule 2: Ignore if the report is empty
+    CARDINALITY(r.sorted_predecessors) > 0 
+    AND (
+        -- Rule 3a: If it doesn't exist in reference but does in report, it's an error
+        ref_data.thematicididentifier IS NULL 
+        OR 
+        -- Rule 3b: If both exist but are different
+        r.sorted_predecessors <> ref_data.sorted_predecessors
+    ) AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,RF224_WFD,RF224_WFD,"If an object is reported as 'reactivation', it must have the same predecessors as before","If an object is reported as 'reactivation', it must have the same predecessors as before. Identifiers affected: {%end_result%}  [RF224_WFD]","/*
+RW30: applies to objects reported as 'reactivation'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: ERROR
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+*/
+
+WITH unnested_predecessors 
+AS (
+    SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+        ,M.thematicididentifier
+        ,M.record_id
+    FROM dataset_37015.""monitoringsite"" M
+    WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+    AND m.wiseevolutiontype = 'reactivation'
+)
+,unnested_reference 
+AS (
+    SELECT R.thematicididentifier
+        ,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+    FROM dataset_37016.""monitoringsiteWFD"" R
+    WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+    AND countrycode LIKE '{%R3_COUNTRY_CODE%}'
+)
+,preordered_report
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+        ,record_id
+    FROM unnested_predecessors
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_report
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+        ,MAX(record_id) AS record_id
+    FROM preordered_report
+    GROUP BY thematicididentifier
+)
+,preordered_reference
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+    FROM unnested_reference
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_reference
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+    FROM preordered_reference
+    GROUP BY thematicididentifier
+),
+endtable AS (
+
+    -- BLOCK 1: Detects CASE 3 (Extra in report) and CASE 4 (Different predecessors)
+    SELECT 
+    SUBSTRING(
+      LISTAGG(r.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY r.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM ordered_report r
+    LEFT JOIN ordered_reference ref_data 
+        ON r.thematicididentifier = ref_data.thematicididentifier
+    WHERE 
+        COALESCE(ref_data.thematicididentifier, '') = ''                -- CASE 3
+        OR r.sorted_predecessors <> ref_data.sorted_predecessors        -- CASE 4
+
+    UNION ALL
+
+    -- BLOCK 2: Detects CASE 2 (Missing in report)
+    SELECT SUBSTRING(
+      LISTAGG(ref_data.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY ref_data.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM dataset_37016.""monitoringsiteWFD"" ref_data
+    LEFT JOIN dataset_37015.""monitoringsite"" m 
+        ON ref_data.thematicididentifier = m.thematicididentifier
+    WHERE COALESCE(m.""supersedesidentifier"", '') = '' 
+    AND COALESCE(predecessorsidentifier, '') <> '' 
+    AND LEFT(ref_data.thematicIdIdentifier, 2) = (
+       '{%R3_COUNTRY_CODE%}'
+    ) 
+    AND m.wiseevolutiontype = 'reactivation'
+    
+)
+SELECT 
+    record_id,
+    ARRAY_AGG(RECORDS) AS end_result
+FROM endtable 
+ WHERE EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+GROUP BY record_id
+HAVING COUNT(RECORDS) > 0",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,RF224_WISE5,RF224_WISE5,"If an object is reported as 'reactivation', it must have the same predecessors as before","If an object is reported as 'reactivation', it must have the same predecessors as before. Identifiers affected: {%end_result%}  [RF224_WISE5]","/*
+RW30: applies to objects reported as 'reactivation'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: ERROR
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+*/
+
+WITH unnested_predecessors 
+AS (
+    SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+        ,M.thematicididentifier
+        ,M.record_id
+    FROM dataset_37015.""monitoringsite"" M
+    WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+    AND m.wiseevolutiontype = 'reactivation'
+)
+,unnested_reference 
+AS (
+    SELECT R.thematicididentifier
+        ,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+    FROM dataset_37016.""monitoringsiteWISE5"" R
+    WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+    AND countrycode LIKE '{%R3_COUNTRY_CODE%}'
+)
+,preordered_report
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+        ,record_id
+    FROM unnested_predecessors
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_report
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+        ,MAX(record_id) AS record_id
+    FROM preordered_report
+    GROUP BY thematicididentifier
+)
+,preordered_reference
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+    FROM unnested_reference
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_reference
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+    FROM preordered_reference
+    GROUP BY thematicididentifier
+),
+endtable AS (
+
+    -- BLOCK 1: Detects CASE 3 (Extra in report) and CASE 4 (Different predecessors)
+    SELECT 
+    SUBSTRING(
+      LISTAGG(r.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY r.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM ordered_report r
+    LEFT JOIN ordered_reference ref_data 
+        ON r.thematicididentifier = ref_data.thematicididentifier
+    WHERE 
+        COALESCE(ref_data.thematicididentifier, '') = ''                -- CASE 3
+        OR r.sorted_predecessors <> ref_data.sorted_predecessors        -- CASE 4
+
+    UNION ALL
+
+    -- BLOCK 2: Detects CASE 2 (Missing in report)
+    SELECT SUBSTRING(
+      LISTAGG(ref_data.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY ref_data.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM dataset_37016.""monitoringsiteWISE5"" ref_data
+    LEFT JOIN dataset_37015.""monitoringsite"" m 
+        ON ref_data.thematicididentifier = m.thematicididentifier
+    WHERE COALESCE(m.""supersedesidentifier"", '') = '' 
+    AND COALESCE(predecessorsidentifier, '') <> '' 
+    AND LEFT(ref_data.thematicIdIdentifier, 2) = ('{%R3_COUNTRY_CODE%}'
+    ) 
+    AND m.wiseevolutiontype = 'reactivation'
+  
+)
+SELECT 
+    record_id,
+    ARRAY_AGG(RECORDS) AS end_result
+FROM endtable 
+WHERE  EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+GROUP BY record_id
+HAVING COUNT(RECORDS) > 0",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF222_WFD,RF222_WFD,"If an object is reported as 'deletion', it must have the same predecessors as before","If an object is reported as 'deletion', it must have the same predecessors as before [RF222_WFD]","/**
+ * DATA VALIDATION: Predecessor Consistency Check
+ * * DESCRIPTION:
+ * Compares 'supersedesIdentifier' from the report (M) against 
+ * 'predecessorsIdentifier' in the reference (R).
+ *
+ * RULES:
+ * 1. Filter by wiseEvolutionType = 'deletion'.
+ * 2. Ignore cases where the report is completely empty (Cardinality = 0).
+ * 3. Flag an error if the reported list is NOT an exact mirror of the reference.
+ 
+ 		RW29: applies to objects reported as 'deletion'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+
+ */
+WITH unnested_predecessors -- GET THE PREDECESSOR FROM THE REPORTED DATA
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+		,M.thematicididentifier
+		,M.record_id
+	FROM dataset_37015.""monitoringsite"" M
+	WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+		AND m.wiseevolutiontype = 'deletion'
+	)
+	,unnested_reference -- GET THE PREDECESSOR FROM THE REFERENCE DATA
+AS (
+	SELECT R.thematicididentifier
+		,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+	FROM dataset_37016.""monitoringsiteWFD"" R
+	WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+	)
+	-- CTE 3a: Report - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_report
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+		,record_id
+	FROM unnested_predecessors
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 3b: Report - Grouping
+	,ordered_report
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+		,MAX(record_id) AS record_id
+	FROM preordered_report
+	GROUP BY thematicididentifier
+	)
+	-- CTE 4a: Reference - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_reference
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+	FROM unnested_reference
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 4b: Reference - Grouping
+	,ordered_reference
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+	FROM preordered_reference
+	GROUP BY thematicididentifier
+	)
+SELECT 
+    r.thematicididentifier,
+    r.sorted_predecessors AS reported_predecessors,
+    ref_data.sorted_predecessors AS reference_predecessors,
+    r.record_id
+FROM ordered_report r
+-- Using LEFT JOIN to avoid losing records that do not exist in reference
+LEFT JOIN ordered_reference ref_data 
+    ON r.thematicididentifier = ref_data.thematicididentifier
+WHERE 
+    -- Rule 2: Ignore if the report is empty
+    CARDINALITY(r.sorted_predecessors) > 0 
+    AND (
+        -- Rule 3a: If it doesn't exist in reference but does in report, it's an error
+        ref_data.thematicididentifier IS NULL 
+        OR 
+        -- Rule 3b: If both exist but are different
+        r.sorted_predecessors <> ref_data.sorted_predecessors
+    ) AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,supersedesIdentifier,RF222_WISE5,RF222_WISE5,"If an object is reported as 'deletion', it must have the same predecessors as before","If an object is reported as 'deletion', it must have the same predecessors as before [RF222_WISE5]","/**
+ * DATA VALIDATION: Predecessor Consistency Check
+ * * DESCRIPTION:
+ * Compares 'supersedesIdentifier' from the report (M) against 
+ * 'predecessorsIdentifier' in the reference (R).
+ *
+ * RULES:
+ * 1. Filter by wiseEvolutionType = 'deletion'.
+ * 2. Ignore cases where the report is completely empty (Cardinality = 0).
+ * 3. Flag an error if the reported list is NOT an exact mirror of the reference.
+ 
+ 		RW29: applies to objects reported as 'deletion'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+
+ */
+WITH unnested_predecessors -- GET THE PREDECESSOR FROM THE REPORTED DATA
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+		,M.thematicididentifier
+		,M.record_id
+	FROM dataset_37015.""monitoringsite"" M
+	WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+		AND m.wiseevolutiontype = 'deletion'
+	)
+	,unnested_reference -- GET THE PREDECESSOR FROM THE REFERENCE DATA
+AS (
+	SELECT R.thematicididentifier
+		,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+	FROM dataset_37016.""monitoringsiteWISE5"" R
+	WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+	)
+	-- CTE 3a: Report - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_report
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+		,record_id
+	FROM unnested_predecessors
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 3b: Report - Grouping
+	,ordered_report
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+		,MAX(record_id) AS record_id
+	FROM preordered_report
+	GROUP BY thematicididentifier
+	)
+	-- CTE 4a: Reference - Sort data BEFORE aggregation (Dremio specific)
+	,preordered_reference
+AS (
+	SELECT thematicididentifier
+		,predecessorsidentifier
+	FROM unnested_reference
+	ORDER BY thematicididentifier
+		,predecessorsidentifier
+	)
+	-- CTE 4b: Reference - Grouping
+	,ordered_reference
+AS (
+	SELECT thematicididentifier
+		,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+	FROM preordered_reference
+	GROUP BY thematicididentifier
+	)
+SELECT 
+    r.thematicididentifier,
+    r.sorted_predecessors AS reported_predecessors,
+    ref_data.sorted_predecessors AS reference_predecessors,
+    r.record_id
+FROM ordered_report r
+-- Using LEFT JOIN to avoid losing records that do not exist in reference
+LEFT JOIN ordered_reference ref_data 
+    ON r.thematicididentifier = ref_data.thematicididentifier
+WHERE 
+    -- Rule 2: Ignore if the report is empty
+    CARDINALITY(r.sorted_predecessors) > 0 
+    AND (
+        -- Rule 3a: If it doesn't exist in reference but does in report, it's an error
+        ref_data.thematicididentifier IS NULL 
+        OR 
+        -- Rule 3b: If both exist but are different
+        r.sorted_predecessors <> ref_data.sorted_predecessors
+    ) AND EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,RF224_WFD,RF224_WFD,"If an object is reported as 'reactivation', it must have the same predecessors as before","If an object is reported as 'reactivation', it must have the same predecessors as before. Identifiers affected: {%end_result%}  [RF224_WFD]","/*
+RW30: applies to objects reported as 'reactivation'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: ERROR
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+*/
+
+WITH unnested_predecessors 
+AS (
+    SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+        ,M.thematicididentifier
+        ,M.record_id
+    FROM dataset_37015.""monitoringsite"" M
+    WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+    AND m.wiseevolutiontype = 'reactivation'
+)
+,unnested_reference 
+AS (
+    SELECT R.thematicididentifier
+        ,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+    FROM dataset_37016.""monitoringsiteWFD"" R
+    WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+    AND countrycode LIKE '{%R3_COUNTRY_CODE%}'
+)
+,preordered_report
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+        ,record_id
+    FROM unnested_predecessors
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_report
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+        ,MAX(record_id) AS record_id
+    FROM preordered_report
+    GROUP BY thematicididentifier
+)
+,preordered_reference
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+    FROM unnested_reference
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_reference
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+    FROM preordered_reference
+    GROUP BY thematicididentifier
+),
+endtable AS (
+
+    -- BLOCK 1: Detects CASE 3 (Extra in report) and CASE 4 (Different predecessors)
+    SELECT 
+    SUBSTRING(
+      LISTAGG(r.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY r.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM ordered_report r
+    LEFT JOIN ordered_reference ref_data 
+        ON r.thematicididentifier = ref_data.thematicididentifier
+    WHERE 
+        COALESCE(ref_data.thematicididentifier, '') = ''                -- CASE 3
+        OR r.sorted_predecessors <> ref_data.sorted_predecessors        -- CASE 4
+
+    UNION ALL
+
+    -- BLOCK 2: Detects CASE 2 (Missing in report)
+    SELECT SUBSTRING(
+      LISTAGG(ref_data.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY ref_data.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM dataset_37016.""monitoringsiteWFD"" ref_data
+    LEFT JOIN dataset_37015.""monitoringsite"" m 
+        ON ref_data.thematicididentifier = m.thematicididentifier
+    WHERE COALESCE(m.""supersedesidentifier"", '') = '' 
+    AND COALESCE(predecessorsidentifier, '') <> '' 
+    AND LEFT(ref_data.thematicIdIdentifier, 2) = (
+       '{%R3_COUNTRY_CODE%}'
+    ) 
+    AND m.wiseevolutiontype = 'reactivation'
+    
+)
+SELECT 
+    record_id,
+    ARRAY_AGG(RECORDS) AS end_result
+FROM endtable 
+ WHERE EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+GROUP BY record_id
+HAVING COUNT(RECORDS) > 0",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,,RF224_WISE5,RF224_WISE5,"If an object is reported as 'reactivation', it must have the same predecessors as before","If an object is reported as 'reactivation', it must have the same predecessors as before. Identifiers affected: {%end_result%}  [RF224_WISE5]","/*
+RW30: applies to objects reported as 'reactivation'.
+
+		CASE 1: CORRECT
+			original predecessors --> EXIST
+			delivered predecessors = original predecessor
+
+		CASE 2: ERROR
+			original predecessors --> EXIST
+			delivered predecessors = MISSING
+
+		CASE 3: ERROR
+			original predecessors --> MISSING
+			delivered predecessors --> EXIST
+
+		CASE 4: ERROR
+			original predecessors --> EXIST
+			delivered predecessors --> Different to original predecessors
+*/
+
+WITH unnested_predecessors 
+AS (
+    SELECT TRIM(FLATTEN(REGEXP_SPLIT(M.supersedesidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+        ,M.thematicididentifier
+        ,M.record_id
+    FROM dataset_37015.""monitoringsite"" M
+    WHERE COALESCE(M.""supersedesidentifier"", '') <> ''
+    AND m.wiseevolutiontype = 'reactivation'
+)
+,unnested_reference 
+AS (
+    SELECT R.thematicididentifier
+        ,TRIM(FLATTEN(REGEXP_SPLIT(r.predecessorsidentifier, ',', 'ALL', 999))) AS predecessorsidentifier
+    FROM dataset_37016.""monitoringsiteWISE5"" R
+    WHERE COALESCE(R.""predecessorsidentifier"", '') <> ''
+    AND countrycode LIKE '{%R3_COUNTRY_CODE%}'
+)
+,preordered_report
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+        ,record_id
+    FROM unnested_predecessors
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_report
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+        ,MAX(record_id) AS record_id
+    FROM preordered_report
+    GROUP BY thematicididentifier
+)
+,preordered_reference
+AS (
+    SELECT thematicididentifier
+        ,predecessorsidentifier
+    FROM unnested_reference
+    ORDER BY thematicididentifier ASC, predecessorsidentifier ASC
+)
+,ordered_reference
+AS (
+    SELECT thematicididentifier
+        ,ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+    FROM preordered_reference
+    GROUP BY thematicididentifier
+),
+endtable AS (
+
+    -- BLOCK 1: Detects CASE 3 (Extra in report) and CASE 4 (Different predecessors)
+    SELECT 
+    SUBSTRING(
+      LISTAGG(r.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY r.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM ordered_report r
+    LEFT JOIN ordered_reference ref_data 
+        ON r.thematicididentifier = ref_data.thematicididentifier
+    WHERE 
+        COALESCE(ref_data.thematicididentifier, '') = ''                -- CASE 3
+        OR r.sorted_predecessors <> ref_data.sorted_predecessors        -- CASE 4
+
+    UNION ALL
+
+    -- BLOCK 2: Detects CASE 2 (Missing in report)
+    SELECT SUBSTRING(
+      LISTAGG(ref_data.thematicIdIdentifier, ' / ')
+        WITHIN GROUP (ORDER BY ref_data.thematicIdIdentifier ASC),
+      1,
+      2000
+    ) AS RECORDS,
+    (SELECT MIN(record_id) FROM dataset_37015.""monitoringsite"") AS record_id
+    FROM dataset_37016.""monitoringsiteWISE5"" ref_data
+    LEFT JOIN dataset_37015.""monitoringsite"" m 
+        ON ref_data.thematicididentifier = m.thematicididentifier
+    WHERE COALESCE(m.""supersedesidentifier"", '') = '' 
+    AND COALESCE(predecessorsidentifier, '') <> '' 
+    AND LEFT(ref_data.thematicIdIdentifier, 2) = ('{%R3_COUNTRY_CODE%}'
+    ) 
+    AND m.wiseevolutiontype = 'reactivation'
+  
+)
+SELECT 
+    record_id,
+    ARRAY_AGG(RECORDS) AS end_result
+FROM endtable 
+WHERE  EXISTS (
+                SELECT  0
+                FROM    dataset_37016.""country"" C
+                WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WISE5'
+                )
+GROUP BY record_id
+HAVING COUNT(RECORDS) > 0",TABLE,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S201_WFD,S201_WFD,geometry_point must be covered by or be within 200 metres of the geometry of the associated water body,geometry_point must be covered by or be within 200 metres of the geometry of the associated water body [S201_WFD],"WITH vReportedZone AS (-- extract the geometry
+    SELECT 
+        record_id,
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any,
+        ""thematicididentifier"",
+        ""featureofinterestidentifier"",
+        ""featureofinterestidentifierscheme""
+    FROM dataset_37015.""monitoringsite""
+),
+
+vReportedZone_MakeValidGeometry AS ( -- make valid the geometry to be sure we work with valid geometries when applying geometric process
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""featureofinterestidentifier"",
+        ""featureofinterestidentifierscheme"",
+        ST_MakeValid(geometry_any) AS geometry_any,
+      case
+            when ST_Area(geometry_any) > 0 then 2
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1
+            when ST_Length(geometry_any) = 0 then 0
+            else -1 -- Unknown
+        end as dimension
+     --   ST_GeometryType(geometry_any) AS geometry_type
+
+    FROM vReportedZone
+    WHERE geometry_any IS NOT NULL
+),
+
+vReportedZone_IsValidGeometry AS ( -- check if the geometry is valid after the MakeValid
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        geometry_any,
+        ""featureofinterestidentifier"",
+        ""featureofinterestidentifierscheme""
+    FROM vReportedZone_MakeValidGeometry
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+	   AND dimension = (
+          CASE 
+              WHEN ST_Area(geometry_any) > 0 THEN 2
+              WHEN ST_Length(geometry_any) > 0 THEN 1
+              ELSE 0 
+          END
+      )
+    --  AND ST_Dimension(geometry_any) = geometry_dim
+     -- AND ST_GeometryType(geometry_any) = geometry_type
+)
+-- make the geometric operation 
+SELECT 
+    rz.record_id,
+    rz.""thematicididentifier""
+FROM vReportedZone_IsValidGeometry AS rz
+JOIN  dataset_37016.""relatedzoneWFD"" FOI
+  ON FOI.""thematicididentifier"" = rz.""featureofinterestidentifier""
+ AND FOI.""thematicididentifierscheme"" = rz.""featureofinterestidentifierscheme""
+WHERE FOI.geometry_buffer200 <> CAST ('' as VARBINARY) 
+AND  NOT ST_Within(
+    CASE 
+        WHEN ST_SRID(rz.geometry_any) = 3035 THEN rz.geometry_any
+        ELSE ST_Transform(rz.geometry_any, 3035)
+    END,
+    FOI.geometry_buffer200
+)
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WFD'
+		)",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S201_WISE5,S201_WISE5,geometry_point must be covered by or be within 200 metres of the geometry of the associated water body,geometry_point must be covered by or be within 200 metres of the geometry of the associated water body [S201_WISE5],"WITH vReportedZone AS (-- extract the geometry
+    SELECT 
+        record_id,
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any,
+        ""thematicididentifier"",
+        ""featureofinterestidentifier"",
+        ""featureofinterestidentifierscheme""
+    FROM dataset_37015.""monitoringsite""
+),
+
+vReportedZone_MakeValidGeometry AS ( -- make valid the geometry to be sure we work with valid geometries when applying geometric process
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""featureofinterestidentifier"",
+        ""featureofinterestidentifierscheme"",
+        ST_MakeValid(geometry_any) AS geometry_any,
+      case
+            when ST_Area(geometry_any) > 0 then 2
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1
+            when ST_Length(geometry_any) = 0 then 0
+            else -1 -- Unknown
+        end as dimension
+     --   ST_GeometryType(geometry_any) AS geometry_type
+
+    FROM vReportedZone
+    WHERE geometry_any IS NOT NULL
+),
+
+vReportedZone_IsValidGeometry AS ( -- check if the geometry is valid after the MakeValid
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        geometry_any,
+        ""featureofinterestidentifier"",
+        ""featureofinterestidentifierscheme""
+    FROM vReportedZone_MakeValidGeometry
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+	   AND dimension = (
+          CASE 
+              WHEN ST_Area(geometry_any) > 0 THEN 2
+              WHEN ST_Length(geometry_any) > 0 THEN 1
+              ELSE 0 
+          END
+      )
+    --  AND ST_Dimension(geometry_any) = geometry_dim
+     -- AND ST_GeometryType(geometry_any) = geometry_type
+)
+-- make the geometric operation 
+SELECT 
+    rz.record_id,
+    rz.""thematicididentifier""
+FROM vReportedZone_IsValidGeometry AS rz
+JOIN  dataset_37016.""relatedzoneWISE5"" FOI
+  ON FOI.""thematicididentifier"" = rz.""featureofinterestidentifier""
+ AND FOI.""thematicididentifierscheme"" = rz.""featureofinterestidentifierscheme""
+WHERE FOI.geometry_buffer200 <> CAST ('' as VARBINARY) 
+AND  NOT ST_Within(
+    CASE 
+        WHEN ST_SRID(rz.geometry_any) = 3035 THEN rz.geometry_any
+        ELSE ST_Transform(rz.geometry_any, 3035)
+    END,
+    FOI.geometry_buffer200
+)	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WISE5'
+		)",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S202_WFD,S202_WFD,The position of the element has changed in more than 10 km.,The position of the element has changed in more than 10 km. [S202_WFD],"WITH vReportedZone AS (-- extract the geometry
+    SELECT 
+        record_id,
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any,
+        ""thematicididentifier"",
+        ""thematicididentifierscheme""
+    FROM dataset_37015.""monitoringsite""
+),
+
+vReportedZone_MakeValidGeometry AS ( -- make valid the geometry to be sure we work with valid geometries when applying geometric process
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""thematicididentifierscheme"",
+        
+        ST_MakeValid(geometry_any) AS geometry_any,
+      case
+            when ST_Area(geometry_any) > 0 then 2
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1
+            when ST_Length(geometry_any) = 0 then 0
+            else -1 -- Unknown
+        end as dimension
+     --   ST_GeometryType(geometry_any) AS geometry_type
+
+    FROM vReportedZone
+    WHERE geometry_any IS NOT NULL
+),
+
+vReportedZone_IsValidGeometry AS ( -- check if the geometry is valid after the MakeValid
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        geometry_any,
+        ""thematicididentifierscheme""
+        
+    FROM vReportedZone_MakeValidGeometry
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+	   AND dimension = (
+          CASE 
+              WHEN ST_Area(geometry_any) > 0 THEN 2
+              WHEN ST_Length(geometry_any) > 0 THEN 1
+              ELSE 0 
+          END
+      )
+    --  AND ST_Dimension(geometry_any) = geometry_dim
+     -- AND ST_GeometryType(geometry_any) = geometry_type
+)
+-- make the geometric operation 
+SELECT 
+    rz.record_id,
+    rz.""thematicididentifier""
+FROM vReportedZone_IsValidGeometry AS rz
+JOIN  dataset_37016.""monitoringsiteWFD"" MSR
+  ON MSR.""thematicididentifier"" = rz.""thematicididentifier""
+ AND MSR.""thematicididentifierscheme"" = rz.""thematicididentifierscheme""
+WHERE MSR.geometry_point <> CAST ('' as VARBINARY) 
+ AND ST_Distance(
+    CASE 
+        WHEN ST_SRID(rz.geometry_any) = 3035 THEN rz.geometry_any
+        ELSE ST_Transform(rz.geometry_any, 3035)
+    END,
+    MSR.geometry_point
+) > 10000
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WFD'
+		)",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,S202_WISE5,S202_WISE5,The position of the element has changed in more than 10 km.,The position of the element has changed in more than 10 km. [S202_WISE5],"WITH vReportedZone AS (-- extract the geometry
+    SELECT 
+        record_id,
+        CASE WHEN geometry_point = CAST ('' as VARBINARY) THEN NULL ELSE ""geometry_point"" END AS geometry_any,
+        ""thematicididentifier"",
+        ""thematicididentifierscheme""
+    FROM dataset_37015.""monitoringsite""
+),
+
+vReportedZone_MakeValidGeometry AS ( -- make valid the geometry to be sure we work with valid geometries when applying geometric process
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""thematicididentifierscheme"",
+        
+        ST_MakeValid(geometry_any) AS geometry_any,
+      case
+            when ST_Area(geometry_any) > 0 then 2
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1
+            when ST_Length(geometry_any) = 0 then 0
+            else -1 -- Unknown
+        end as dimension
+     --   ST_GeometryType(geometry_any) AS geometry_type
+
+    FROM vReportedZone
+    WHERE geometry_any IS NOT NULL
+),
+
+vReportedZone_IsValidGeometry AS ( -- check if the geometry is valid after the MakeValid
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        geometry_any,
+        ""thematicididentifierscheme""
+        
+    FROM vReportedZone_MakeValidGeometry
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+	   AND dimension = (
+          CASE 
+              WHEN ST_Area(geometry_any) > 0 THEN 2
+              WHEN ST_Length(geometry_any) > 0 THEN 1
+              ELSE 0 
+          END
+      )
+    --  AND ST_Dimension(geometry_any) = geometry_dim
+     -- AND ST_GeometryType(geometry_any) = geometry_type
+)
+-- make the geometric operation 
+SELECT 
+    rz.record_id,
+    rz.""thematicididentifier""
+FROM vReportedZone_IsValidGeometry AS rz
+JOIN  dataset_37016.""monitoringsiteWFD"" MSR
+  ON MSR.""thematicididentifier"" = rz.""thematicididentifier""
+ AND MSR.""thematicididentifierscheme"" = rz.""thematicididentifierscheme""
+WHERE  MSR.geometry_point <> CAST ('' as VARBINARY)  AND 
+ST_Distance(
+    CASE 
+        WHEN ST_SRID(rz.geometry_any) = 3035 THEN rz.geometry_any
+        ELSE ST_Transform(rz.geometry_any, 3035)
+    END,
+    MSR.geometry_point
+) > 10000 
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = (
+				 '{%R3_COUNTRY_CODE%}' )
+		AND c.""reportingtype"" = 'WISE5'
+		)",FIELD,ERROR,FALSE,TRUE,TRUE
+MonitoringSite,supersededByIdentifier,V007,V007,The length of the value must be <= 500,The length of the value must be <= 500 [V007],( LEN( supersededByIdentifier ) <= 500 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringSite,geometry_point,FC121,Field cardinality,Checks if the field is missing or empty,The value must not be missing or empty,,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,geometry_point,FT122,Field type MULTIPOINT,Checks if the field is a valid MULTIPOINT,The value does not follow the expected syntax for a valid multipoint {%reason%} ,,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,geometry_point,FT123,Field type MULTIPOINT,Checks if the field is a valid MULTIPOINT,Unsupported SRID,,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringSite,geometry_point,FT124,Field type MULTIPOINT,Checks if the field is a valid MULTIPOINT,Geometry is not valid. Reason: {%reason%},,FIELD,BLOCKER,TRUE,TRUE,TRUE

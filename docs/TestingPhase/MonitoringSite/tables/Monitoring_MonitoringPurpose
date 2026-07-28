@@ -1,0 +1,23 @@
+```{list-table} Monitoring dataflow - MonitoringPurpose table
+:name: Monitoring_MonitoringPurpose
+:header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
+
+* - Attribute
+  - Type
+  - {abbr}`M (Multiplicity)`
+  - Definition
+
+* - euMonitoringSiteCode  
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique European identifier of the monitoring site
+
+* - monitoringPurpose 
+  - {term}`WFDMonitoringPurpose`
+  - [1..3]
+  - Indicate if the monitoring site if used for investigative, 
+    operational and/or surveillance monitoring.
+
+```

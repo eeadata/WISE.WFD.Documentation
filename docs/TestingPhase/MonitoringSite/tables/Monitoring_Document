@@ -1,0 +1,33 @@
+```{list-table} Monitoring dataflow - Document table
+:name: Monitoring_Document
+:header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
+
+* - Attribute
+  - Type
+  - {abbr}`M (Multiplicity)`
+  - Definition
+
+* - documentCode 
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique identifier for each document.
+
+* - documentName 
+  - {term}`string`250
+  - [1] 
+  - Name of the document. 
+
+* - hyperlink 
+  - {term}`URL`
+  - [0..1]
+  - URL of the document if available on the internet. 
+    Either the `hyperlink` or the `documentFile` must be provided.
+  
+* - documentFile 
+  - {term}`Attachment`
+  - [0..1]
+  - Document file as an attachment uploaded in Reportnet.
+    Either the `hyperlink` or the `documentFile` must be provided.
+```
