@@ -171,8 +171,6 @@ def render_table_qcs_doc(table_name, qcs):
     table_level_qcs = [qc for qc in qcs if not qc_field(qc)]
 
     lines = ["##### Table QCs", ""]
-    lines.append("**Description:** *(no description available — generated from a QC export only)*")
-    lines.append("")
     if table_level_qcs:
         lines += render_list_table(
             None,
@@ -199,7 +197,6 @@ def render_field_qcs_doc(table_name, qcs):
     if fields:
         for field_name, field_qcs in fields.items():
             lines.append(f"###### {field_name}")
-            lines.append("")
             lines += render_list_table(
                 None,
                 ["Code", "Severity", "Description"],

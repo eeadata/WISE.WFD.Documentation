@@ -1,6 +1,5 @@
 ##### Table QCs
 
-**Description:** *(no description available — generated from a QC export only)*
 
 ```{list-table}
 :widths: 10 15 75
