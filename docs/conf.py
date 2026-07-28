@@ -138,7 +138,7 @@ html_theme_options = {
         "text": "Water Framework Directive",
     },
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
-    "show_toc_level": 3, 
+    "show_toc_level": 4,
     "use_edit_page_button": True,
     "navbar_align": "right"
 }
