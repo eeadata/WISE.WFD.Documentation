@@ -20,26 +20,26 @@ See additional information in the *data model review documentation*:
 ### Field description
 
 (heading_wfd_monitoring_monitoringprogrammes_table_testing_phase)=
-#### MonitoringProgrammes table
+#### MonitoringProgrammes
 
-```{include} tables/Monitoring_MonitoringProgrammes
+```{include} MonitoringSite/tables/Monitoring_MonitoringProgrammes
 ```
 
 (heading_wfd_monitoring_monitoring_table_testing_phase)=
-#### Monitoring table
+#### Monitoring
 
-```{include} tables/Monitoring_Monitoring
+```{include} MonitoringSite/tables/Monitoring_Monitoring
 ```
 
 (heading_wfd_monitoring_MonitoringPurpose_table_testing_phase)=
-#### MonitoringPurpose table
+#### MonitoringPurpose
 
-```{include} tables/Monitoring_MonitoringPurpose
+```{include} MonitoringSite/tables/Monitoring_MonitoringPurpose
 ```
 
 ### Quality control
 
-```{include} /TestingPhase/QualityControl/descriptive/index.md
+```{include} /TestingPhase/MonitoringSite/QualityControl/descriptive/index.md
 ```
 
 ## Spatial dataset
@@ -51,14 +51,14 @@ See additional information in the *data model review documentation*:
 ### Field description
 
 (heading_wfd_monitoring_monitoringsite_table_testing_phase)=
-#### MonitoringSite spatial table
+#### MonitoringSite spatial
 
-```{include} tables/Spatial_MonitoringSite
+```{include} MonitoringSite/tables/Spatial_MonitoringSite
 ```
 
 ### Quality control
 
-```{include} /TestingPhase/QualityControl/spatial/index.md
+```{include} /TestingPhase/MonitoringSite/QualityControl/spatial/index.md
 ```
 
 ## Documents dataset
@@ -70,24 +70,24 @@ See additional information in the *data model review documentation*:
 ### Field description
 
 (heading_wfd_monitoring_dcmetadata_table_testing_phase)=
-#### dcMetadata table
+#### dcMetadata
 
-```{include} tables/Monitoring_dcMetadata
+```{include} MonitoringSite/tables/Monitoring_dcMetadata
 ```
 
 (heading_wfd_monitoring_document_table_testing_phase)=
-#### Document table
+#### Document
 
-```{include} tables/Monitoring_Document
+```{include} MonitoringSite/tables/Monitoring_Document
 ```
 
 (heading_wfd_monitoring_documentreference_table_testing_phase)=
-#### DocumentReference table
+#### DocumentReference
 
-```{include} tables/Monitoring_DocumentReference
+```{include} MonitoringSite/tables/Monitoring_DocumentReference
 ```
 
 ### Quality control
 
-```{include} /TestingPhase/QualityControl/documents/index.md
+```{include} /TestingPhase/MonitoringSite/QualityControl/documents/index.md
 ```

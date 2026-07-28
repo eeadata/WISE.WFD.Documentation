@@ -33,22 +33,46 @@ from collections import OrderedDict
 # CONFIGURATION — edit these values
 # --------------------------------------------------------------------------
 PROJECT_NAME = "QualityControl"       # name of the project (= name of its folder)
-DOCS_ROOT = "."                       # current folder — run this script from inside docs/TestingPhase
+DOCS_ROOT = "MonitoringSite"          # created automatically if it doesn't exist yet
 
 # Path from the Sphinx *source root* (the "docs" folder) down to where
 # this script writes its output. Used to build absolute-style include
 # paths (leading "/") so nested includes (WFDMonitoring.md -> section
 # index.md -> table_qcs.md/field_qcs.md) resolve correctly regardless of
 # nesting depth. Adjust if you move this script to a different folder.
-SOURCE_ROOT_PREFIX = "/TestingPhase/QualityControl"
+SOURCE_ROOT_PREFIX = "/TestingPhase/MonitoringSite/QualityControl"
 
-# One entry per top-level section. Add/remove entries here if needed.
-# Each entry is (input_csv_or_xlsx, section_folder, section_caption).
-SECTIONS = [
-    ("Spatial_QCs.csv", "spatial", "Spatial QCs"),
-    ("Descriptive_QCs.csv", "descriptive", "Descriptive QCs"),
-    ("Documents_QCs.csv", "documents", "Documents QCs"),
-]
+# Folder containing one CSV/Excel per section (e.g. "Spatial_QCs.csv",
+# "Descriptive_QCs.csv", "Documents_QCs.csv"). Every .csv/.xlsx/.xls file
+# found here becomes its own section automatically — no need to list
+# filenames by hand. The section name is taken from the filename itself
+# (a trailing "_QCs"/"_QC" is stripped, and underscores become spaces),
+# so "Spatial_QCs.csv" -> folder "spatial", caption "Spatial QCs".
+QC_FILES_DIR = "MonitoringSite/QC files"
+
+
+def discover_sections(qc_dir):
+    """Scans qc_dir for CSV/Excel files and turns each one into a
+    (input_path, section_folder, section_caption) tuple, sorted
+    alphabetically by filename."""
+    sections = []
+    if not os.path.isdir(qc_dir):
+        return sections
+    for filename in sorted(os.listdir(qc_dir)):
+        ext = os.path.splitext(filename)[1].lower()
+        if ext not in (".csv", ".xlsx", ".xls"):
+            continue
+        base = os.path.splitext(filename)[0]
+        name = base
+        for suffix in ("_QCs", "_QC", "-QCs", "-QC"):
+            if name.lower().endswith(suffix.lower()):
+                name = name[: -len(suffix)]
+                break
+        name = name.replace("_", " ").replace("-", " ").strip()
+        folder = slug(name).strip("_").lower()
+        caption = f"{name} QCs"
+        sections.append((os.path.join(qc_dir, filename), folder, caption))
+    return sections
 
 
 def slug(name: str) -> str:
@@ -271,7 +295,12 @@ def main():
     project_dir = os.path.join(DOCS_ROOT, PROJECT_NAME)
     section_folders = []
 
-    for input_path, section_folder, section_caption in SECTIONS:
+    sections = discover_sections(QC_FILES_DIR)
+    if not sections:
+        print(f"No CSV/Excel files found in '{QC_FILES_DIR}'.")
+        return
+
+    for input_path, section_folder, section_caption in sections:
         result = generate_section(project_dir, input_path, section_folder, section_caption)
         if result:
             section_folders.append((section_caption, result))
