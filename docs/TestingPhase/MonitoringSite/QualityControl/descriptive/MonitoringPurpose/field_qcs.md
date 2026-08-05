@@ -1,7 +1,6 @@
 ##### Field QCs
 
 ###### euMonitoringSiteCode
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -21,7 +20,6 @@
 ```
 
 ###### monitoringPurpose
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -41,7 +39,6 @@
 ```
 
 ###### includesMonitoringData
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -55,7 +52,6 @@
 ```
 
 ###### wisevolutiontype
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -72,7 +68,6 @@
 ```
 
 ###### includesSpatialData
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1

@@ -1,7 +1,6 @@
 ##### Field QCs
 
 ###### title
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -18,7 +17,6 @@
 ```
 
 ###### creatorOrganisationName
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -35,7 +33,6 @@
 ```
 
 ###### licenseDocument
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -55,7 +52,6 @@
 ```
 
 ###### metadataDocument
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -69,10 +65,12 @@
 * - V016
   - BLOCKER
   - "metadataDocument" contains duplicate values. [V016]
+* - R004
+  - BLOCKER
+  - metadataDocument must be reported if includesSpatialData = 'yes' [R004]
 ```
 
 ###### creatorElectronicMailAddress
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -92,7 +90,6 @@
 ```
 
 ###### description
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -106,7 +103,6 @@
 ```
 
 ###### language
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -126,7 +122,6 @@
 ```
 
 ###### rights
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -140,7 +135,6 @@
 ```
 
 ###### rightsHolder
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -154,7 +148,6 @@
 ```
 
 ###### license
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -171,10 +164,12 @@
 * - V011
   - BLOCKER
   - The value is not a valid member of the referenced list. [V011]
+* - R005
+  - BLOCKER
+  - Document(s) about licensing information must be reported if license IN ('exactMatch\_CC\_BY\_4\_0', 'narrowMatch\_CC\_BY\_4\_0') [R005]
 ```
 
 ###### includesSpatialData
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -200,10 +195,12 @@
 * - XC002
   - BLOCKER
   - If includesSpatialData = 'no' then Spatial dataset must be empty [XC002]
+* - R004
+  - BLOCKER
+  - metadataDocument must be reported if includesSpatialData = 'yes' [R004]
 ```
 
 ###### includesMonitoringData
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -226,7 +223,6 @@
 ```
 
 ###### euRBDCode
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -252,7 +248,6 @@
 ```
 
 ###### created
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -266,7 +261,6 @@
 ```
 
 ###### includesmonitoringdata
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -289,4 +283,17 @@
 * - XC008\_WISE5
   - BLOCKER
   - If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table MonitoringPurpose related with the RBD. [XC008\_WISE5]
+```
+
+###### licensedocument
+```{list-table}
+:widths: 10 15 75
+:header-rows: 1
+
+* - Code
+  - Severity
+  - Description
+* - R005
+  - BLOCKER
+  - Document(s) about licensing information must be reported if license IN ('exactMatch\_CC\_BY\_4\_0', 'narrowMatch\_CC\_BY\_4\_0') [R005]
 ```

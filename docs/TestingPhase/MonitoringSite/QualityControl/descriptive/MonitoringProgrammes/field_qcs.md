@@ -1,7 +1,6 @@
 ##### Field QCs
 
 ###### gwChemicalMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -21,7 +20,6 @@
 ```
 
 ###### gwQuantitativeMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -41,7 +39,6 @@
 ```
 
 ###### swChemicalMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -61,7 +58,6 @@
 ```
 
 ###### swEcologicalMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -81,7 +77,6 @@
 ```
 
 ###### programmesReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -98,7 +93,6 @@
 ```
 
 ###### investigativeMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -115,7 +109,6 @@
 ```
 
 ###### surveillanceMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -132,7 +125,6 @@
 ```
 
 ###### operationalMonitoringReference
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -149,7 +141,6 @@
 ```
 
 ###### euRBDCode
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -187,7 +178,6 @@
 ```
 
 ###### useWaterbaseForMonitoringData
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
