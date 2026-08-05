@@ -1,7 +1,6 @@
 ##### Field QCs
 
 ###### referenceCode
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -18,7 +17,6 @@
 ```
 
 ###### documentCode
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -35,7 +33,6 @@
 ```
 
 ###### bookmark
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1
@@ -52,7 +49,6 @@
 ```
 
 ###### subject
-
 ```{list-table}
 :widths: 10 15 75
 :header-rows: 1

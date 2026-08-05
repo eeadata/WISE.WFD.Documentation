@@ -805,3 +805,19 @@ WHERE NOT EXISTS (
     )",FIELD,BLOCKER,FALSE,TRUE,TRUE
 dcMetadata,license,V010,V010,Checks if the field is missing or empty,The value must not be missing or empty [V010],,FIELD,BLOCKER,TRUE,TRUE,TRUE
 dcMetadata,license,V011,V011,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V011],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,metadataDocument,R004,R004,metadataDocument must be reported if includesSpatialData = 'yes',metadataDocument must be reported if includesSpatialData = 'yes' [R004],"select record_id
+from dataset_37014.""dcmetadata"" 
+where COALESCE(dataset_37014.""dcmetadata"".""metadatadocument"", '') = ''
+AND dataset_37014.""dcmetadata"".""includesspatialdata""= 'yes'",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesSpatialData,R004,R004,metadataDocument must be reported if includesSpatialData = 'yes',metadataDocument must be reported if includesSpatialData = 'yes' [R004],"select record_id
+from dataset_37014.""dcmetadata"" 
+where COALESCE(dataset_37014.""dcmetadata"".""metadatadocument"", '') = ''
+AND dataset_37014.""dcmetadata"".""includesspatialdata""= 'yes'",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,license,R005,R005,"Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') ","Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') [R005]","select record_id
+from dataset_37014.""dcmetadata""
+where dataset_37014.""dcmetadata"".""license"" in ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')
+and coalesce(dataset_37014.""dcmetadata"".""licensedocument"", '') = ''",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,licensedocument,R005,R005,"Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') ","Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') [R005]","select record_id
+from dataset_37014.""dcmetadata""
+where dataset_37014.""dcmetadata"".""license"" in ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')
+and coalesce(dataset_37014.""dcmetadata"".""licensedocument"", '') = ''",RECORD,BLOCKER,FALSE,TRUE,TRUE
