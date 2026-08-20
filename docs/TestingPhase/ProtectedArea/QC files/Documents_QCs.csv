@@ -1,0 +1,265 @@
+Table,Field,Code,QC Name,QC Description,Message,Expression,Type of QC,Severity Level,Creation Mode,Status,Valid
+dcMetadata,title,V100,V100,Checks if the field is missing or empty,The value must not be missing or empty [V100],,FIELD,BLOCKER,true,true,true
+dcMetadata,creatorElectronicMailAddress,V108,V108,Checks if the field is missing or empty,The value must not be missing or empty [V108],,FIELD,BLOCKER,true,true,true
+dcMetadata,creatorElectronicMailAddress,V109,V109,Checks if the field is a valid EMAIL,The value does not follow the expected syntax for a valid email [V109],,FIELD,BLOCKER,true,true,true
+dcMetadata,creatorOrganisationName,V102,V102,Checks if the field is missing or empty,The value must not be missing or empty [V102],,FIELD,BLOCKER,true,true,true
+dcMetadata,,TU100,TU100,dcMetadata must have one record only. ,dcMetadata must have one record only. [TU100],"select  record_id
+from    (
+        select  record_id
+        from    dataset_46377.dcMetadata
+        limit 1
+        ) AS A
+where   ( select count(*) from dataset_46377.dcMetadata ) <> 1",TABLE,BLOCKER,false,true,true
+dcMetadata,creatorOrganisationName,V110,V110,The length of the value must be <= 4000. ,The length of the value must be <= 4000. [V110],( LEN( creatorOrganisationName ) <= 4000 ),FIELD,BLOCKER,false,true,true
+dcMetadata,description,V111,V111,The length of the value must be <= 4000. ,The length of the value must be <= 4000. [V111],( LEN( description ) <= 4000 ),FIELD,BLOCKER,false,true,true
+dcMetadata,language,V112,V112,"""language"" contains duplicate values","""language"" contains duplicate values [V112]","WITH IndividualLanguage as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(""language"", chr(59), 'ALL', 999))) as oneLanguage
+    from    dataset_46377.dcMetadata
+),
+
+Duplicates as (
+    select  IL.record_id
+    from    IndividualLanguage IL
+    group by IL.record_id, IL.oneLanguage
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.""language""
+from    dataset_46377.dcMetadata M
+join     Duplicates D 
+ON M.record_id = D.record_id
+
+",FIELD,BLOCKER,false,true,true
+dcMetadata,licenseDocument,V113,V113,"""licenseDocument"" contains duplicate values. ","""licenseDocument"" contains duplicate values. [V113]","WITH IndividualDocument AS (
+    SELECT
+        record_id,
+        TRIM(FLATTEN(REGEXP_SPLIT(""licensedocument"", chr(59), 'ALL', 999))) as oneDocument
+    FROM dataset_46377.dcMetadata
+),
+
+Duplicates AS (
+    SELECT
+        record_id
+    FROM IndividualDocument
+    GROUP BY record_id, oneDocument
+    HAVING count(*) > 1
+)
+
+SELECT
+    M.record_id,
+    M.licenseDocument
+FROM dataset_46377.dcMetadata M
+join Duplicates D 
+ON M.record_id = D.record_id
+
+
+
+",FIELD,BLOCKER,false,true,true
+dcMetadata,metadataDocument,V114,V114,"""metadataDocument"" contains duplicate values","""metadataDocument"" contains duplicate values [V114]","WITH IndividualDocument AS (
+    SELECT
+        record_id,
+         TRIM(FLATTEN(REGEXP_SPLIT(""metadatadocument"", chr(59), 'ALL', 999))) as oneDocument
+    FROM dataset_46377.dcMetadata
+),
+
+Duplicates AS (
+    SELECT
+        record_id
+    FROM IndividualDocument
+    GROUP BY record_id, oneDocument
+    HAVING count(*) > 1
+)
+
+SELECT
+    M.record_id,
+    M.metadataDocument
+FROM dataset_46377.dcMetadata M
+join Duplicates D 
+ON M.record_id = D.record_id
+",FIELD,BLOCKER,false,true,true
+dcMetadata,rights,V115,V115,The length of the value must be <= 4000,The length of the value must be <= 4000 [V115],( LEN( rights ) <= 4000 ),FIELD,BLOCKER,false,true,true
+dcMetadata,rightsHolder,V116,V116,The length of the value must be <= 4000,The length of the value must be <= 4000 [V116],( LEN( rightsHolder ) <= 4000 ),FIELD,BLOCKER,false,true,true
+dcMetadata,title,V117,V117,The length of the value must be <= 4000,The length of the value must be <= 4000 [V117],( LEN( title ) <= 4000 ),FIELD,BLOCKER,false,true,true
+Document,documentCode,V118,V118,Checks if the field is missing or empty,The value must not be missing or empty [V118],,FIELD,BLOCKER,true,true,true
+Document,,TU101,TU101,Checks if documentCode is unique within table,The field documentCode is unique within table. [TU101],,TABLE,BLOCKER,true,true,true
+Document,documentName,V119,V119,Checks if the field is missing or empty,The value must not be missing or empty [V119],,FIELD,BLOCKER,true,true,true
+Document,hyperlink,V120,V120,Checks if the field is a valid URL,The value does not follow the expected syntax for a valid URL [V120],,FIELD,BLOCKER,true,true,true
+Document,documentName,V121,V121,The length of the value must be <= 50,The length of the value must be <= 50 [V121],( LEN( documentName ) <= 50 ),FIELD,BLOCKER,false,true,true
+Document,hyperlink,R101,R101,"Either hyperlink or documentFile must be reported, but not both","Either hyperlink or documentFile must be reported, but not both [R101]","SELECT  record_id
+FROM    dataset_46377.Document D
+WHERE   (
+            (coalesce(D.hyperlink, '') <> '' AND coalesce(D.documentFile, '') <> '')
+            OR
+            (coalesce(D.hyperlink, '') = '' AND coalesce(D.documentFile, '') = '')
+        )
+",RECORD,BLOCKER,false,true,true
+dcMetadata,licenseDocument,V125,V125,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list.[V125],,FIELD,BLOCKER,true,true,true
+dcMetadata,metadataDocument,V126,V126,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V126],,FIELD,BLOCKER,true,true,true
+Document,documentCode,V122,V122,The value of documentCode must follow the syntax of WISE identifiers,The value of documentCode must follow the syntax of WISE identifiers [V122],"WITH Dataset AS (
+    select  record_id,
+            documentcode,
+            (
+            select  concat(
+                    '^',
+                    '{%R3_COUNTRY_CODE%}',
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from   dataset_46377.Document
+    where   coalesce(documentcode, '') <> ''
+)
+select  record_id,
+        documentcode
+from    Dataset
+where   NOT REGEXP_COL_LIKE(documentcode, regexp) 
+
+            ",FIELD,BLOCKER,false,true,true
+dcMetadata,,T100,T100,"When a table is marked as mandatory, checks at least one record is added",Mandatory table has no records [T100],,TABLE,BLOCKER,true,true,true
+dcMetadata,language,V103,V103,Checks if the field is missing or empty,The value must not be missing or empty [V103],,FIELD,BLOCKER,true,true,true
+dcMetadata,language,V101,V101,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V101],,FIELD,BLOCKER,true,true,true
+dcMetadata,,RF9999,RF9999,There are reference tables that have to be updated,"The following reference tables have to be updated: {%REFERENCE_TABLES%} . [RF9999] Please, contact helpdesk. [RF9999]","WITH 
+-- ============================================================================
+-- 1. CHECK THE 'ProtectedArea' DATASET
+-- ============================================================================
+Expected_PA AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_46376.ReferenceMetadata 
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'ProtectedArea'
+),
+Observed_PA AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_46376.ProtectedArea 
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_PA AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'ProtectedArea is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'ProtectedArea contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_PA E 
+            FULL OUTER JOIN Observed_PA O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+-- ============================================================================
+-- 2. CHECK THE 'RelatedZone' DATASET
+-- ============================================================================
+Expected_RZ AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_46376.ReferenceMetadata 
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'RelatedZone'
+),
+Observed_RZ AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_46376.RelatedZone 
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_RZ AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'RelatedZone is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'RelatedZone contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_RZ E 
+            FULL OUTER JOIN Observed_RZ O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+-- ============================================================================
+-- COMBINE ALL RESULTS FOR REPORTNET 3 BLOCKER
+-- ============================================================================
+
+Mismatch AS (
+    SELECT  LISTAGG(X.validation_error, ' / ') REFERENCE_TABLES
+    FROM    (
+            SELECT  validation_error FROM Mismatch_PA
+            UNION ALL
+            SELECT  validation_error FROM Mismatch_RZ
+            ) X
+    HAVING  count(*) > 0
+)
+
+SELECT  case 
+            when length(REFERENCE_TABLES) > 3997
+                then CONCAT (
+                        left(left(REFERENCE_TABLES, 3997), 3997 - position('/' IN reverse(left(REFERENCE_TABLES, 3997))) + 1)
+                        ,'...'
+                        )
+            else REFERENCE_TABLES
+        end AS REFERENCE_TABLES,
+        (select min(record_id) from dataset_46377.dcMetadata) as record_id
+FROM    Mismatch
+",TABLE,BLOCKER,false,true,true
+dcMetadata,license,V123,V123,Checks if the field is missing or empty,The value must not be missing or empty [V123],,FIELD,BLOCKER,true,true,true
+dcMetadata,license,V104,V104,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V104],,FIELD,BLOCKER,true,true,true
+Document,hyperlink,V131,V131,The length must be less than or equal to 2100,The length must be less than or equal to 2100. [V131],( LEN( hyperlink ) <= 2100 ),FIELD,BLOCKER,false,true,true
+dcMetadata,creatorElectronicMailAddress,V132,V132,The length must be less than or equal to 250,The length must be less than or equal to 250 [V132],( LEN( creatorElectronicMailAddress ) <= 250 ),FIELD,BLOCKER,false,true,true
+dcMetadata,includesSpatialData,V133,V133,Checks if the field is missing or empty,The value must not be missing or empty [V133],,FIELD,BLOCKER,true,true,true
+dcMetadata,includesDescriptiveData,V136,V136,Checks if the field is missing or empty,The value must not be missing or empty [V136],,FIELD,BLOCKER,true,true,true
+dcMetadata,includesSpatialData,V134,V134,includesSpatialData must be a valid YesNo value.,includesSpatialData must be a valid YesNo value. [V134],"SELECT record_id
+FROM dataset_46377.""dcmetadata""
+WHERE coalesce(""includesspatialdata"",'') NOT IN ('yes','no')",FIELD,BLOCKER,false,true,true
+dcMetadata,includesDescriptiveData,V135,V135,includesDescriptiveData must be a valid YesNo value.,includesDescriptiveData must be a valid YesNo value. [V135],"SELECT record_id
+FROM dataset_46377.""dcmetadata""
+WHERE coalesce(""includesdescriptivedata"",'') NOT IN ('yes','no')",FIELD,BLOCKER,false,true,true
+dcMetadata,includesDescriptiveData,R003,R003,It been reported includesDescriptiveData = no,It been reported includesDescriptiveData = no [R003],"select  record_id
+from    dataset_46377.dcMetadata
+where   ""includesdescriptivedata""= 'no'",RECORD,ERROR,false,true,true
+dcMetadata,metadataDocument,R004,R004,metadataDocument must be reported if includesSpatialData = 'yes',metadataDocument must be reported if includesSpatialData = 'yes' [R004],"select  record_id
+from    dataset_46377.dcMetadata
+where   coalesce(metadataDocument, '') = ''
+and     includesSpatialData = 'yes'",RECORD,BLOCKER,false,true,true
+dcMetadata,includesSpatialData,R004,R004,metadataDocument must be reported if includesSpatialData = 'yes',metadataDocument must be reported if includesSpatialData = 'yes' [R004],"select  record_id
+from    dataset_46377.dcMetadata
+where   coalesce(metadataDocument, '') = ''
+and     includesSpatialData = 'yes'",RECORD,BLOCKER,false,true,true
+dcMetadata,license,R005,R005,"Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')","Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') [R005]","select  record_id
+from    dataset_46377.dcMetadata
+where   license in ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')
+and     coalesce(licenseDocument, '') = ''",RECORD,BLOCKER,false,true,true
+dcMetadata,includesSpatialData,XC001,XC001,If includesSpatialData = 'yes' then Spatial dataset cannot be empty,If includesSpatialData = 'yes' then Spatial dataset cannot be empty [XC001],"select  record_id, includesSpatialData
+from    dataset_46377.dcMetadata
+where   includesSpatialData = 'yes'
+and     NOT EXISTS (
+            select  1
+            from dataset_46374.""protectedarea""
+        )",RECORD,BLOCKER,false,true,true
+dcMetadata,includesSpatialData,XC002,XC002,If includesSpatialData = 'no' then Spatial dataset must be empty,If includesSpatialData = 'no' then Spatial dataset must be empty [XC002],"select  record_id, includesSpatialData
+from    dataset_46377.dcMetadata
+where   includesSpatialData = 'no'
+and     EXISTS (
+            select  1
+            from   dataset_46374.""protectedarea""
+        )",RECORD,BLOCKER,false,true,true
+dcMetadata,includesDescriptiveData,XC003,XC003,If includesdescriptivedata= 'no' then it is not possible to report any waterbody related with the protected area,If includesdescriptivedata= 'no' then it is not possible to report any waterbody related with the protected area [XC003],"select  record_id
+from    dataset_46377.dcMetadata dc
+where   dc.includesDescriptiveData= 'no'
+and     (
+        EXISTS (
+            select  1
+            from    dataset_46598.""swassociatedprotectedarea"" sw
+        )
+OR      EXISTS (
+            select  1
+            from    dataset_46598.""gwassociatedprotectedarea"" gw
+        )
+        )",RECORD,BLOCKER,false,true,true
+dcMetadata,includesDescriptiveData,XC004,XC004,If includesdescriptivedata= 'yes' then you need to report a waterbody related with the protected area ,If includesdescriptivedata= 'yes' then you need to report a waterbody related with the protected area [XC004],"select  record_id
+from    dataset_46377.dcMetadata dc
+where   dc.includesDescriptiveData= 'yes'
+and     (
+        NOT EXISTS (
+            select  1
+            from    dataset_46598.""swassociatedprotectedarea"" sw
+        )
+AND     NOT EXISTS (
+            select  1
+            from    dataset_46598.""gwassociatedprotectedarea"" gw
+        )
+        )",RECORD,BLOCKER,false,true,true
+dcMetadata,created,V107,V107,Checks if the field is a valid DATE,The value is not a valid date (YYYY-MM-DD) [V107],,FIELD,BLOCKER,true,true,true

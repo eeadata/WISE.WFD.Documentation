@@ -1,0 +1,224 @@
+```{list-table} ProtectedArea spatial data
+:name: Spatial_ProtectedArea
+:header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
+
+* - Attribute
+  - Type
+  - {abbr}`M (Multiplicity)`
+  - Definition {footcite}`inspire_feature_catalogue`
+
+* - geometry_polygon
+  - {term}`MultiPolygon`
+  - [0..1]
+  - The geometry representing the spatial extent of the spatial object, when the protected area is reported as a polygon.
+
+    **WISE**: The geometry of a Management, Restriction or Regulation Zone can be reported using a polygon, a polyline or a point geometry. Only one type of geometry can be used for a given object.
+
+* - geometry_line
+  - {term}`MultiLineString`
+  - [0..1]
+  - The geometry representing the spatial extent of the spatial object, when the protected area is reported as a polyline.
+
+* - geometry_point
+  - {term}`MultiPoint`
+  - [0..1]
+  - The geometry representing the spatial extent of the spatial object, when the protected area is reported as a point.
+
+* - inspireIdLocalId
+  - {term}`string`254
+  - [1]
+  - A local identifier, assigned by the data provider.
+    The local identifier is unique within the namespace,
+    that is, no other spatial object carries the same unique identifier.
+    It is the responsibility of the data provider to guarantee uniqueness of the local identifier within the namespace.
+
+    **WISE**: It is recommended that Data Providers reporting under WFD
+    use a localId value identical to the thematicIdIdentifier value.
+
+* - inspireIdNamespace
+  - {term}`string`254
+  - [1]
+  - Namespace uniquely identifying the data source of the spatial object.
+
+    **WISE**:
+    For Data Providers in countries not implementing the INSPIRE Directive,
+    the country code can be used as placeholder.
+
+* - inspireIdVersionId
+  - {term}`string`25
+  - [0..1]
+  - The identifier of the particular version of the spatial object,
+    with a maximum length of 25 characters.
+    The maximum length has been selected to allow for time stamps based on ISO 8601, for example, '2007-02-12T12:12:12+05:30' as the version identifier.
+
+* - thematicIdIdentifier
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique identifier used to identify the spatial object within the specified identification scheme.
+
+    **WISE**: Must have the same value as `euProtectedAreaCode`, used in the River Basin Management Plans reporting. Protected Areas reported here must not share the same `thematicIdIdentifier` as any water body.
+
+* - thematicIdIdentifierScheme
+  - {term}`IdentifierScheme`
+  - [1]
+  - Identifier defining the scheme used to assign the identifier.
+
+    **WISE**: Data Providers must use the value `'euProtectedAreaCode'`.
+
+* - beginLifespanVersion
+  - {term}`date`
+  - [0..1]
+  - Date at which this version of the spatial object was inserted or changed in the spatial data set. The `beginLifespanVersion` value must be provided if the `endLifespanVersion` value is provided.
+
+* - endLifespanVersion
+  - {term}`date`
+  - [0..1]
+  - Date at which this version of the spatial object was superseded or retired in the spatial data set.
+
+* - predecessorsIdentifier
+  - {term}`wiseIdentifier`
+  - [0..n]
+  - In a genealogy, the object(s) that has (have) been deactivated or replaced by the current object.
+
+    **WISE**: Comma-separated list with the `thematicIdIdentifier` of the object(s) that were deactivated or replaced. Report if, and only if, the object replaces one or more objects that were previously reported.
+
+* - predecessorsIdentifierScheme
+  - {term}`IdentifierScheme`
+  - [0..1]
+  - Identifier defining the scheme used to assign the identifier value(s)
+    in the `predecessorsIdentifier` value.
+
+    **WISE**: Mandatory if, and only if, one or more predecessors are reported.
+    The value is identical to `thematicIdIdentifierScheme`.
+
+* - successorsIdentifier
+  - {term}`wiseIdentifier`
+  - [0..n]
+  - In a genealogy, the newly active object(s) that replace(s) the current object.
+
+    **WISE**: Comma-separated list with the `thematicIdIdentifier` of the object(s) that replace the current object. Report if, and only if, the reported object has been replaced and no longer exists (`wiseEvolutionType = 'deletion'`).  
+    This attribute is **NOT** reported in the 4th cycle spatial datasets. 
+    It will be derived by the EEA and populated in the European datasets 
+    for the 1st, 2nd, and 3rd cycle of reporting of the WFD River Basin Management Plans, for the objects that have being replaced in subsequent reporting cycles.
+
+* - successorsIdentifierScheme
+  - {term}`IdentifierScheme`
+  - [0..1]
+  - Identifier defining the scheme used to assign the identifier value(s)
+    in the `successorsIdentifier` value.
+
+    **WISE**:  This attribute is **NOT** reported in the 4th cycle spatial datasets. 
+
+* - wiseEvolutionType
+  - {term}`WiseEvolutionType`
+  - [1]
+  - Type of event that produced or modified the version of the object being reported (for example 'creation', 'change', 'deletion', 'aggregation', 'splitting').
+
+    **WISE**: Determines the acceptable number of identifiers in the
+    `predecessorsIdentifier` attribute.
+
+* - nameTextInternational
+  - {term}`string`254
+  - [1]
+  - Name, in English. English exonym, or understandable English version
+    of the name of the protected area.
+
+    **WISE**: If an English version does not exist, report a transliteration of the national name to the ISO basic Latin alphabet.
+
+* - nameText
+  - {term}`string`254
+  - [1]
+  - Name of the protected area, in the national language.
+
+* - nameLanguage
+  - {term}`Language`
+  - [1]
+  - Language code of the language used in the `nameText` value.
+    Use the ISO 639-2/B code of the national language.
+
+* - designationPeriodBegin
+  - {term}`date`
+  - [1]
+  - Beginning of the time period defining when the management, restriction or regulation zone was legally designated or became effective in the real world.
+
+* - designationPeriodEnd
+  - {term}`date`
+  - [0..1]
+  - End of the time period defining when the management, restriction or regulation zone was legally designated or became effective in the real world.
+
+    **WISE**: Report if, and only if, the end of the validity period is known, or if the object has `wiseEvolutionType = 'deletion'`.
+    If not reported, the zone is assumed to remain in force indefinitely.
+
+* - zoneType
+  - {term}`ZoneType`
+  - [1]
+  - High-level classification defining the type of Management, Restriction or Regulation Zone.
+
+    **WISE**: Data Providers reporting under WFD may use `'designatedWaters'`. Data Providers reporting under BWD must use `'bathingWaters'`.
+    Data Providers reporting under UWWTD must use `'sensitiveArea'`. Data Providers reporting under the Nitrates Directive must use `'nitrateVulnerableZone'`. Data Providers reporting under DWD must use `'drinkingWaterProtectionArea'`.
+
+* - specialisedZoneType
+  - {term}`SpecialisedZoneType`
+  - [1]
+  - Additional classification value which further specialises the type of management,
+    regulation or restriction zone.
+
+    **WISE (4th cycle)**: The allowed values depend on the dataflow through which the protected area is reported (`zoneType`). For drinking water protection areas (reported under the recast DWD), the value must be one of `'catchmentArea'`, `'waterBody'` or
+    `'waterAbstractionSafeguardZone'`. For freshwater fish or shellfish designated waters (`zoneType = 'designatedWaters'`), the value must be `'freshwaterFishDesignatedWater'` or `'shellfishDesignatedWater'`. For nitrate vulnerable zones (`zoneType = 'nitrateVulnerableZone'`), no specialised value applies. For UWWTD sensitive areas (`zoneType = 'sensitiveArea'`), the value must be one of
+    `'catchmentOfSensitiveArea'`, `'lessSensitiveArea'`, `'coastalSensitiveArea'`,
+    `'transitionalSensitiveArea'`, `'lakeSensitiveArea'` or `'riverSensitiveArea'`.
+    For bathing waters (`zoneType = 'bathingWaters'`), the value must be one of `'transitionalBathingWater'`, `'lakeBathingWater'` or `'riverBathingWater'`.
+
+* - legalBasisName
+  - {term}`string`254
+  - [1]
+  - Name of the legislative instrument establishing the protected area.
+
+    **WISE**: If `legalBasisLevel` is `'european'`, a default value applies depending on `zoneType`/`specialisedZoneType` (for example, Directive 98/83/EC for drinking water protection areas, Directive 2006/7/EC for bathing waters, Directive 91/271/EEC for sensitive areas, Directive 91/676/EEC for nitrate vulnerable zones).
+
+* - legalBasisLink
+  - {term}`URL`
+  - [1]
+  - Link to an online authoritative version of the document.
+
+    **WISE**: If `legalBasisLevel` is `'european'`, the link corresponding to the default `legalBasisName` value must be used.
+
+* - legalBasisLevel
+  - {term}`LegislationLevelValue`
+  - [1]
+  - The level at which the legislative instrument is adopted
+    (`'european'`, `'international'`, `'national'` or `'sub-national'`).
+
+* - relatedZoneIdentifier
+  - {term}`wiseIdentifier`
+  - [1..n]
+  - Reference(s) to the related water body/bodies (or, for drinking water protection areas, the related catchment area), via its thematic identifier(s).
+
+    **WISE (4th cycle)**: Mandatory. Unlike previous cycles, the association between the protected area and the related water body is now reported only once, in this spatial dataset (it is no longer requested in the WFD descriptive data reporting, except for
+    Natura 2000 protected sites). The specific constraints depend on the dataflow (i.e. on the type of protected area).
+
+* - relatedZoneIdentifierScheme
+  - {term}`IdentifierScheme`
+  - [1]
+  - Identifier defining the scheme used to assign the identifier value(s)
+    in the `relatedZoneIdentifier` value.
+
+    **WISE**: Mandatory. For example, if `zoneType` is `'bathingWaters'`, must be `'euSurfaceWaterBodyCode'` (or `'eionetSurfaceWaterBodyCode'` if the related zone is not a WFD water body).
+
+* - confidentialityStatus
+  - {term}`ConfidentialityStatusValue`
+  - [0..1]
+  - Information about the sensitivity and confidentiality status of the protected area.
+
+    **WISE (4th cycle)**: New attribute, added to allow Data Providers to flag spatial data that will not be published in particular for drinking water protected areas, to address concerns about publishing the location of some abstraction points/catchment areas.
+
+* - link
+  - {term}`URL`
+  - [0..1]
+  - Hyperlink to where additional information about the object is available on the internet.
+
+    **WISE**: Report only if a stable and resolvable URL can be provided to the specific object being reported. Do not provide generic URLs to institutional domains or webpages.
+
+```

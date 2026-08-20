@@ -1,0 +1,1551 @@
+Table,Field,Code,QC Name,QC Description,Message,Expression,Type of QC,Severity Level,Creation Mode,Status,Valid
+ProtectedArea,,TU001,Mandatory table records check (TU001),"When a table is marked as mandatory, checks at least one record is added  [TU001]",Mandatory table has no records [TU001],,TABLE,BLOCKER,true,true,true
+ProtectedArea,thematicIdIdentifier,V024,V024,Checks if the field is missing or empty,The value must not be missing or empty [V024],,FIELD,BLOCKER,true,true,true
+ProtectedArea,legalBasisLink,V012,V012,Checks if the field is a valid URL,The legalBasisLink value must be a valid URL [V012],,FIELD,BLOCKER,true,true,true
+ProtectedArea,link,V014,V014,Checks if the field is a valid URL,The link value must be a valid URL. [V014],,FIELD,BLOCKER,true,true,true
+ProtectedArea,thematicIdIdentifier,V005,V005,The thematicIdIdentifier value must be a string starting with the 2-letter country code. Upper case letters (A to Z) and digits (0 to 9) are allowed in the remaining part (the hifen and the underscore can be used as non-consecutive separators),The thematicIdIdentifier value must be a string starting with the 2-letter country code. Upper case letters (A to Z) and digits (0 to 9) are allowed in the remaining part (the hifen and the underscore can be used as non-consecutive separators) [V005],"( thematicIdIdentifier MATCH ""^{%R3_COUNTRY_CODE%}[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$"" )",FIELD,BLOCKER,false,true,true
+ProtectedArea,thematicIdIdentifierScheme,V052,V052,WFD thematic identifiers must be used for all spatial objects,WFD thematic identifiers must be used for all spatial objects [V052],"SELECT *
+FROM dataset_46374.""protectedarea"" PA
+WHERE COALESCE(""thematicididentifierscheme"",'') not like 'eu%'
+
+
+",FIELD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifierScheme,V053,V053,WFD thematic identifiers must be used for all spatial objects,WFD thematic identifiers must be used for all spatial objects [V053],"SELECT *
+FROM dataset_46374.""protectedarea"" PA
+WHERE COALESCE(""predecessorsidentifierscheme"",'') not like 'eu%'
+",FIELD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifierScheme,V055,V055,WFD thematic identifiers must be used for all spatial objects,WFD thematic identifiers must be used for all spatial objects [V055],"SELECT p.*
+FROM dataset_46374.""protectedarea"" AS p
+JOIN dataset_46376.""country"" AS c
+    ON LEFT(p.""thematicIdIdentifier"", 2) = c.""countryCode""
+WHERE
+(
+    c.""reportingtype"" = 'WFD'
+    AND COALESCE(p.""relatedzoneidentifierscheme"", '') NOT LIKE 'eu%'
+)
+",FIELD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifier,RF008,RF008,The object has a predecessor that does not exist in the register,The object has a predecessor that does not exist in the register [RF008],"WITH predecessors 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor 
+		,PA.thematicididentifier
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> ''
+	
+	)
+SELECT DISTINCT predecessors.record_id
+FROM predecessors
+
+LEFT JOIN dataset_46376.""protectedarea"" RF ON RF.thematicididentifier = predecessors.predecessor 
+	AND RF.thematicididentifierscheme = predecessors.predecessorsidentifierscheme
+WHERE (
+		(COALESCE(RF.thematicIdIdentifier, '') = '')
+		OR (
+		COALESCE(RF.thematicIdIdentifier, '') <> ''
+			
+			AND RF.statusCode = 'superseded'
+			)
+		)
+	AND predecessors.wiseEvolutionType <> 'deletion'",FIELD,BLOCKER,false,true,true
+ProtectedArea,inspireIdLocalId,V002,V002,The inspireIdLocalId value must be a non-empty string with less than 255 characters,The inspireIdLocalId value must be a non-empty string with less than 255 characters [V002],( LEN( inspireIdLocalId ) < 255 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,inspireIdVersionId,V004,V004,The inspireIdVersionId value must be a non-empty string with less than 25 characters [V004],"If present, the inspireIdVersionId value must be less than 25 characters [V004]",( LEN( inspireIdVersionId ) <= 25 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,nameTextInternational,V007,V007,The nameTextInternational value must be a non-empty string with less than 255 characters. Upper case letters (A to Z) and digits (0 to 9) are allowed (spaces and hifens can be used as separators),The nameTextInternational value must be a non-empty string with less than 255 characters. Upper case letters (A to Z) and digits (0 to 9) are allowed (spaces and hifens can be used as separators) [V007],"( nameTextInternational MATCH ""[0-9A-Za-z -]+"" ) AND ( LEN( nameTextInternational ) < 255 )",FIELD,BLOCKER,false,true,true
+ProtectedArea,nameText,V008,V008,The nameText value must be a string with less than 255 characters,The nameText value must be a string with less than 255 characters [V008],( LEN( nameText ) < 255 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,legalBasisName,V011,V011,The legalBasisName value must be a string with less than 255 characters,The legalBasisName value must be a string with less than 255 characters [V011],( LEN( legalBasisName ) < 255 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,legalBasisLink,V064,V064,The legalBasisLink value must be an URL with less than 255 characters,The legalBasisLink value must be an URL with less than 255 characters [V064],( LEN( legalBasisLink ) < 255 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,link,V043,V043,The link value must be an URL with less than 255 characters,The link value must be an URL with less than 255 characters [V043],( LEN( link ) <= 2100 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,,TU003,TU003,The thematicIdIdentifier and thematicIdIdentifierScheme combination must be unique for any ProtectedArea,The thematicIdIdentifier and thematicIdIdentifierScheme combination must be unique for any ProtectedArea [TU003],,TABLE,BLOCKER,true,true,true
+ProtectedArea,,TU002,Table type uniqueConstraint,The inspireIdLocalId and inspireIdNamespace combination must be unique for each object.,The inspireIdLocalId and inspireIdNamespace combination must be unique for each object.  [TU002],,TABLE,BLOCKER,true,true,true
+ProtectedArea,wiseEvolutionType,RF011,RF011,A spatial object with wiseEvolutionType value equal to 'changeCode' must not have the same predecessor of another spatial object,A spatial object with wiseEvolutionType value equal to 'changeCode' must not have the same predecessor of another spatial object [RF011],"WITH predecessors 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor
+		,PA.thematicididentifier
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> ''
+		
+	)
+SELECT DISTINCT ori.predecessor, ori.record_id
+FROM predecessors ori
+INNER JOIN predecessors pred ON 
+ORI.predecessor = pred.predecessor
+	AND ori.thematicididentifierscheme = pred.thematicididentifierscheme
+	--exclude itself
+	AND ori.thematicididentifier <> pred.thematicididentifier
+WHERE ori.wiseEvolutionType = 'changeCode'",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,R032,R032,At least one predecessor of an object with wiseEvolutionType value equal to 'splitting' or 'changeBothAggregationAndSplitting' must be reported as predecessor of another spatial object,At least one predecessor of an object with wiseEvolutionType value equal to 'splitting' or 'changeBothAggregationAndSplitting' must be reported as predecessor of another spatial object [R032],"WITH predecessors 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor
+		,PA.thematicididentifier
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> ''
+		AND PA.wiseEvolutionType IN (
+			'splitting'
+			,'changeBothAggregationAndSplitting'
+			)
+	)
+
+SELECT DISTINCT record_id, thematicididentifier
+FROM predecessors 
+WHERE thematicididentifier NOT IN -- -- we get the thematic ids that have a predecessor that is predecessor of more than one element and remove them
+ (
+		SELECT thematicididentifier
+		FROM predecessors 
+		WHERE predecessor IN (
+		 --Get the predecessors that are only predecessors of more than one element
+				SELECT predecessor
+				FROM predecessors preds
+				GROUP BY predecessor
+				HAVING count(*) > 1
+				)
+		)
+
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,,R029,R029,"If an identifier is the predecessor of 2 or more objects, then those objects must have wiseEvolution in ('splitting','changeBothAggregationAndSplitting')","If an identifier is the predecessor of 2 or more objects, then those objects must have wiseEvolution in ('splitting','changeBothAggregationAndSplitting') [R029]","WITH objectWithPredecessors
+AS (
+	
+select	TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor
+		,PA.thematicididentifier
+		,PA.wiseEvolutionType 
+		,PA.predecessorsidentifierscheme
+		,PA.record_id
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> ''
+		
+	)
+	 
+SELECT DISTINCT
+    objectWithPredecessors.record_id,             
+    objectWithPredecessors.thematicididentifier,   
+    objectWithPredecessors.predecessor
+FROM objectWithPredecessors
+
+JOIN (
+    SELECT
+        predecessor,
+        COUNT(DISTINCT thematicididentifier) AS cnt
+    FROM objectWithPredecessors
+    GROUP BY predecessor
+    HAVING COUNT(DISTINCT thematicididentifier) >= 2
+) AS preds
+    ON objectWithPredecessors.predecessor = preds.predecessor
+WHERE wiseEvolutionType NOT IN (
+    'splitting',
+    'changeBothAggregationAndSplitting'
+)",RECORD,BLOCKER,false,true,true
+ProtectedArea,,RF005,RF005,"If an object is reported as 'deletion', it must have the same predecessors as before","If an object is reported as 'deletion', it must have the same predecessors as before [RF005]","WITH unnested_predecessors AS (
+    SELECT 
+        TRIM(FLATTEN(
+            REGEXP_SPLIT(M.predecessorsidentifier, ',', 'ALL', 999)
+        )) AS predecessorsidentifier,
+        M.thematicididentifier,
+        M.record_id
+    FROM dataset_46374.""protectedarea"" M
+    WHERE COALESCE(M.predecessorsidentifier, '') <> ''
+      AND M.wiseevolutiontype = 'deletion'
+),
+
+unnested_reference AS (
+    SELECT 
+        R.thematicididentifier,
+        TRIM(FLATTEN(
+            REGEXP_SPLIT(R.predecessorsidentifier, ',', 'ALL', 999)
+        )) AS predecessorsidentifier
+    FROM dataset_46376.""protectedarea"" R
+    WHERE COALESCE(R.predecessorsidentifier, '') <> ''
+),
+
+preordered_report AS (
+    SELECT 
+        thematicididentifier,
+        predecessorsidentifier,
+        record_id
+    FROM unnested_predecessors
+    ORDER BY thematicididentifier, predecessorsidentifier
+),
+
+ordered_report AS (
+    SELECT 
+        thematicididentifier,
+        ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors,
+        MAX(record_id) AS record_id
+    FROM preordered_report
+    GROUP BY thematicididentifier
+),
+
+preordered_reference AS (
+    SELECT 
+        thematicididentifier,
+        predecessorsidentifier
+    FROM unnested_reference
+    ORDER BY thematicididentifier, predecessorsidentifier
+),
+
+ordered_reference AS (
+    SELECT 
+        thematicididentifier,
+        ARRAY_AGG(predecessorsidentifier) AS sorted_predecessors
+    FROM preordered_reference
+    GROUP BY thematicididentifier
+)
+
+SELECT 
+    r.thematicididentifier,
+    r.sorted_predecessors AS reported_predecessors,
+    ref_data.sorted_predecessors AS reference_predecessors,
+    r.record_id
+FROM ordered_report r
+LEFT JOIN ordered_reference ref_data 
+       ON r.thematicididentifier = ref_data.thematicididentifier
+WHERE 
+    CARDINALITY(r.sorted_predecessors) > 0
+    AND (
+           ref_data.thematicididentifier IS NULL
+        OR r.sorted_predecessors <> ref_data.sorted_predecessors
+    )
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifier,RF009,RF009,The object has an 'eu' related zone that does not exist in the register,The object has an 'eu' related zone that does not exist in the register [RF009],"SELECT original.""relatedzoneidentifier""
+       ,record_id
+FROM   dataset_46374.""protectedarea"" original
+WHERE  COALESCE(original.""relatedzoneidentifier"", '') <> ''
+       AND NOT EXISTS
+       (
+              SELECT
+                     1
+              FROM
+                     dataset_46376.""relatedzone"" RZ
+              WHERE
+RZ.""thematicididentifier"" = original.""relatedzoneidentifier""
+AND RZ.""thematicididentifierscheme"" = original.""relatedzoneidentifierscheme""
+       )",FIELD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,RF006,RF006,A spatial object with wiseEvolutionType value equal to 'changeCode' must not have the same predecessor of another spatial object of the registry table.,A spatial object with wiseEvolutionType value equal to 'changeCode' must not have the same predecessor of another spatial object of the registry table.[RF006],"WITH splitpredecessors AS (
+    SELECT
+		record_id,
+        thematicididentifier,
+        thematicIdIdentifierScheme,
+        TRIM(FLATTEN(REGEXP_SPLIT(predecessorsidentifier, ',', 'ALL', 999))) AS predecessor,
+        wiseEvolutionType
+    FROM
+        dataset_46376.""protectedarea""
+    WHERE
+        COALESCE(predecessorsidentifier,'') <> ''
+)
+
+SELECT DISTINCT
+    pred.thematicididentifier AS identifier,
+    pred.predecessorsIdentifier AS valor,
+    pred.record_id
+FROM
+    splitpredecessors ori
+INNER JOIN
+    dataset_46374.""protectedarea"" pred
+    ON ltrim(rtrim(ori.predecessor)) = ltrim(rtrim(pred.predecessorsIdentifier)) 
+        AND ltrim(rtrim(ori.thematicIdIdentifierScheme)) = ltrim(rtrim(pred.thematicIdIdentifierScheme)) 
+        AND ori.thematicididentifier <> pred.thematicididentifier
+WHERE
+    pred.wiseEvolutionType = 'changeCode'
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,zoneType,V020,V020,Checks if the field is missing or empty,The value must not be missing or empty [V020],,FIELD,BLOCKER,true,true,true
+ProtectedArea,nameText,V022,V022,Checks if the field is missing or empty,The value must not be missing or empty [V022],,FIELD,BLOCKER,true,true,true
+ProtectedArea,nameTextInternational,V023,V023,Checks if the field is missing or empty,The value must not be missing or empty [V023],,FIELD,BLOCKER,true,true,true
+ProtectedArea,wiseEvolutionType,V017,V017,Checks if the field is missing or empty,The value must not be missing or empty [V017],,FIELD,BLOCKER,true,true,true
+ProtectedArea,wiseEvolutionType,V027,V027,Checks if the record based on criteria is valid LINK,The wiseEvolutionType value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/WiseEvolutionTypeValue).[V027],,FIELD,BLOCKER,true,true,true
+ProtectedArea,thematicIdIdentifierScheme,V016,V016,Checks if the field is missing or empty,The value must not be missing or empty [V016],,FIELD,BLOCKER,true,true,true
+ProtectedArea,inspireIdLocalId,V015,V015,Checks if the field is missing or empty,The value must not be missing or empty [V015],,FIELD,BLOCKER,true,true,true
+ProtectedArea,inspireIdNamespace,V019,V019,Checks if the field is missing or empty,The value must not be missing or empty [V019],,FIELD,BLOCKER,true,true,true
+ProtectedArea,nameLanguage,V018,V018,Checks if the field is missing or empty,The value must not be missing or empty [V018],,FIELD,BLOCKER,true,true,true
+ProtectedArea,nameText,V001,V001,The used encoding is not correct. Strange characters in nameText field. [V001],The used encoding is not correct. Strange characters in nameText field. [V001],"( nameText MATCH ""^[\u0020-\u007E\u00AA\u00B0\u00B7\u00BA\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\u0100-\u017F\u0180-\u024F\u2010-\u2013\u2019-\u2019\u2032-\u2033\u2035-\u2036\u0370-\u052F]*$"" )",FIELD,ERROR,false,true,true
+ProtectedArea,inspireIdNamespace,V003,V003,The inspireIdNamespace value must be a string with less than 255 characters [V003],The inspireIdNamespace value must be a string with less than 255 characters [V003],( LEN( inspireIdNamespace ) < 255 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodBegin,V021,V021,Checks if the field is missing or empty,The value must not be missing or empty [V021],,FIELD,BLOCKER,true,true,true
+ProtectedArea,nameLanguage,V028,V028,Checks if the record based on criteria is valid LINK,The nameLanguage value is not a valid ISO 639-2/B language code [V028],,FIELD,BLOCKER,true,true,true
+ProtectedArea,relatedZoneIdentifier,V042,V042,The relatedZoneIdentifier value must be a string starting with the 2-letter country code. Upper case letters (A to Z) and digits (0 to 9) are allowed in the remaining part (the hifen and the underscore can be used as non-consecutive separators)  [V042],The relatedZoneIdentifier value must be a string starting with the 2-letter country code. Upper case letters (A to Z) and digits (0 to 9) are allowed in the remaining part (the hifen and the underscore can be used as non-consecutive separators)  [V042],"( relatedZoneIdentifier MATCH ""^{%R3_COUNTRY_CODE%}[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$"" )",FIELD,BLOCKER,false,true,true
+ProtectedArea,beginLifespanVersion,R002,R002,"The beginLifespanVersion value must be reported, if the inspireVersionId value is reported.","The beginLifespanVersion value must be reported, if the inspireVersionId value is reported. [R002]","SELECT ""beginlifespanversion"",""inspireidversionid"",record_id
+FROM dataset_46374.""protectedarea""
+WHERE COALESCE(""beginlifespanversion"",'') = ''
+AND COALESCE(""inspireidversionid"",'') <> ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,inspireIdVersionId,R002,R002,"The beginLifespanVersion value must be reported, if the inspireVersionId value is reported.","The beginLifespanVersion value must be reported, if the inspireVersionId value is reported. [R002]","SELECT ""beginlifespanversion"",""inspireidversionid"",record_id
+FROM dataset_46374.""protectedarea""
+WHERE COALESCE(""beginlifespanversion"",'') = ''
+AND COALESCE(""inspireidversionid"",'') <> ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,beginLifespanVersion,R013,R013," The beginLifespanVersion value must be reported, if the endLifespanVersion value is reported [R013]"," The beginLifespanVersion value must be reported, if the endLifespanVersion value is reported [R013]","SELECT ""beginlifespanversion"",""endlifespanversion"",record_id 
+FROM dataset_46374.""protectedarea"" 
+WHERE COALESCE(""endlifespanversion"",'') <> '' AND COALESCE(""beginlifespanversion"",'') = ''
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,endLifespanVersion,R013,R013," The beginLifespanVersion value must be reported, if the endLifespanVersion value is reported [R013]"," The beginLifespanVersion value must be reported, if the endLifespanVersion value is reported [R013]","SELECT ""beginlifespanversion"",""endlifespanversion"",record_id 
+FROM dataset_46374.""protectedarea"" 
+WHERE COALESCE(""endlifespanversion"",'') <> '' AND COALESCE(""beginlifespanversion"",'') = ''
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,beginLifespanVersion,R003,R003,The beginLifespanVersion date must not be after the endLifespanVersion.,The beginLifespanVersion date must not be after the endLifespanVersion.[R003],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+               beginLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                 endLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_46374.""protectedarea"" 
+    where   -- Avoids values not reported
+            coalesce(beginLifespanVersion, '') <> ''
+            and coalesce(endLifespanVersion, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,false,true,true
+ProtectedArea,endLifespanVersion,R003,R003,The beginLifespanVersion date must not be after the endLifespanVersion.,The beginLifespanVersion date must not be after the endLifespanVersion.[R003],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+               beginLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                 endLifespanVersion,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_46374.""protectedarea"" 
+    where   -- Avoids values not reported
+            coalesce(beginLifespanVersion, '') <> ''
+            and coalesce(endLifespanVersion, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifier,R014,R014,"The predecessorsIdentifier value must be reported, if the predecessorsIdentifierScheme value is reported.[R014]","The predecessorsIdentifier value must be reported, if the predecessorsIdentifierScheme value is reported.[R014]","SELECT ""predecessorsidentifier"",""predecessorsidentifierscheme"", record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE coalesce(predecessorsIdentifierScheme, '') <> '' 
+and coalesce(predecessorsIdentifier, '') = ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifierScheme,R014,R014,"The predecessorsIdentifier value must be reported, if the predecessorsIdentifierScheme value is reported.[R014]","The predecessorsIdentifier value must be reported, if the predecessorsIdentifierScheme value is reported.[R014]","SELECT ""predecessorsidentifier"",""predecessorsidentifierscheme"", record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE coalesce(predecessorsIdentifierScheme, '') <> '' 
+and coalesce(predecessorsIdentifier, '') = ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifierScheme,R016,R016,"The predecessorsIdentifierScheme value must be reported, if the predecessorsIdentifier value is reported.","The predecessorsIdentifierScheme value must be reported, if the predecessorsIdentifier value is reported.[R016]","SELECT ""predecessorsidentifier"",""predecessorsidentifierscheme"", record_id 
+FROM dataset_46374.""protectedarea"" 
+WHERE COALESCE(""predecessorsidentifier"",'') <> '' AND COALESCE(""predecessorsidentifierscheme"",'') = ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifier,R016,R016,"The predecessorsIdentifierScheme value must be reported, if the predecessorsIdentifier value is reported.","The predecessorsIdentifierScheme value must be reported, if the predecessorsIdentifier value is reported.[R016]","SELECT ""predecessorsidentifier"",""predecessorsidentifierscheme"", record_id 
+FROM dataset_46374.""protectedarea"" 
+WHERE COALESCE(""predecessorsidentifier"",'') <> '' AND COALESCE(""predecessorsidentifierscheme"",'') = ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifier,R015,R015,The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself).,The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself).[R015],"WITH OnePredecessorIdentifier AS (
+    select  record_id,
+            thematicIdIdentifier,
+            thematicIdIdentifierScheme,
+            TRIM(FLATTEN(REGEXP_SPLIT(predecessorsIdentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier,
+            predecessorsIdentifierScheme
+    from    dataset_46374.""protectedarea""
+)
+select  record_id,
+        thematicIdIdentifier,
+        thematicIdIdentifierScheme
+from    OnePredecessorIdentifier
+where   onePredecessorIdentifier = thematicIdIdentifier
+        and thematicIdIdentifierScheme = predecessorsIdentifierScheme",RECORD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifierScheme,R015,R015,The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself).,The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself).[R015],"WITH OnePredecessorIdentifier AS (
+    select  record_id,
+            thematicIdIdentifier,
+            thematicIdIdentifierScheme,
+            TRIM(FLATTEN(REGEXP_SPLIT(predecessorsIdentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier,
+            predecessorsIdentifierScheme
+    from    dataset_46374.""protectedarea""
+)
+select  record_id,
+        thematicIdIdentifier,
+        thematicIdIdentifierScheme
+from    OnePredecessorIdentifier
+where   onePredecessorIdentifier = thematicIdIdentifier
+        and thematicIdIdentifierScheme = predecessorsIdentifierScheme",RECORD,BLOCKER,false,true,true
+ProtectedArea,,R017,R017,An 'eu' thematic identifier must not be replaced by an 'eionet' thematic identifier.,An 'eu' thematic identifier must not be replaced by an 'eionet' thematic identifier. [R017],"SELECT * 
+FROM dataset_46374.""protectedarea"" 
+WHERE COALESCE(""predecessorsidentifierscheme"",'') <> '' 
+AND ""predecessorsidentifierscheme"" <> ""thematicididentifierscheme""",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodBegin,R004,R004,The designationPeriodBegin date must not be after the designationPeriodEnd.,The designationPeriodBegin date must not be after the designationPeriodEnd.[R004],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+               designationPeriodBegin,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                designationPeriodEnd,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_46374.""protectedarea""
+    where   -- Avoids values not reported
+            coalesce(designationPeriodBegin, '') <> ''
+            and coalesce(designationPeriodEnd, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodEnd,R004,R004,The designationPeriodBegin date must not be after the designationPeriodEnd.,The designationPeriodBegin date must not be after the designationPeriodEnd.[R004],"WITH BothDates as (
+    select  record_id,
+            TO_DATE(
+               designationPeriodBegin,
+                'YYYY-MM-DD',
+                1
+            ) as beginDate,
+            TO_DATE(
+                designationPeriodEnd,
+                'YYYY-MM-DD',
+                1
+            ) as endDate
+    from    dataset_46374.""protectedarea""
+    where   -- Avoids values not reported
+            coalesce(designationPeriodBegin, '') <> ''
+            and coalesce(designationPeriodEnd, '') <> ''
+    )
+select  record_id,
+        beginDate,
+        endDate
+from    BothDates
+where   beginDate IS NOT NULL
+        and endDate IS NOT  NULL
+        and endDate <= beginDate",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifier,RF017,RF017,The relatedZoneIdentifier is deprecated.,The relatedZoneIdentifier is deprecated.[RF017],"SELECT
+    baseTable.thematicIdIdentifier,
+    baseTable.record_id
+FROM dataset_46374.""protectedarea"" baseTable
+LEFT JOIN dataset_46376.""relatedzone"" rz
+    ON baseTable.relatedZoneIdentifier = rz.thematicIdIdentifier
+   AND baseTable.relatedZoneIdentifierScheme = rz.thematicIdIdentifierScheme
+WHERE
+(
+       -- Case 1: relatedZone is invalid
+       rz.thematicIdIdentifier IS NOT NULL
+   AND (
+           rz.statusCode IN ('deprecated', 'superseded', 'retired')
+        OR rz.wiseEvolutionType = 'deletion'
+       )
+)
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,inspireIdVersionId,R022,R022,"The inspireIdVersionId value must be reported, if the wiseEvolutionType value is 'change'.","The inspireIdVersionId value must be reported, if the wiseEvolutionType value is 'change'.[R022]","Select thematicididentifier,wiseevolutiontype ,inspireidversionid,record_id
+From dataset_46374.""protectedarea"" 
+Where wiseevolutiontype ='change' and COALESCE(inspireidversionid,'') = ''",RECORD,WARNING,false,true,true
+ProtectedArea,wiseEvolutionType,R022,R022,"The inspireIdVersionId value must be reported, if the wiseEvolutionType value is 'change'.","The inspireIdVersionId value must be reported, if the wiseEvolutionType value is 'change'.[R022]","Select thematicididentifier,wiseevolutiontype ,inspireidversionid,record_id
+From dataset_46374.""protectedarea"" 
+Where wiseevolutiontype ='change' and COALESCE(inspireidversionid,'') = ''",RECORD,WARNING,false,true,true
+ProtectedArea,wiseEvolutionType,R023,R023,"The thematic identifier must be a valid identifier in the register, if the wiseEvolutionType value is 'deletion', 'noChange' or 'change'.","The thematic identifier must be a valid identifier in the register, if the wiseEvolutionType value is 'deletion', 'noChange' or 'change'.[R023]","select  P.record_id,
+        P.thematicIdIdentifier,
+        P.wiseEvolutionType
+from    dataset_46374.""protectedarea"" P
+where   not exists (
+            select  0
+            from   dataset_46376.""protectedarea""  PF
+            where   PF.thematicIdIdentifier = P.thematicIdIdentifier
+                    and PF.thematicIdIdentifierScheme = P.thematicIdIdentifierScheme
+            )
+        and wiseEvolutionType in ('deletion', 'noChange', 'change')",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,RF004,RF004,"The thematic identifier must not exist in the register,  unless the wiseEvolutionType value is 'deletion', 'noChange' or 'change'.","The thematic identifier must not exist in the register,  unless the wiseEvolutionType value is 'deletion', 'noChange' or 'change'.[RF004]","select  P.record_id,
+        P.thematicIdIdentifier,
+        P.wiseEvolutionType
+from    dataset_46374.""protectedarea"" P
+where   exists (
+            select  0
+            from    dataset_46376.""protectedarea"" PF
+            where   PF.thematicIdIdentifier = P.thematicIdIdentifier
+                    and PF.thematicIdIdentifierScheme = P.thematicIdIdentifierScheme
+            )
+        and wiseEvolutionType not in ('deletion','noChange', 'change')",RECORD,BLOCKER,false,true,true
+ProtectedArea,beginLifespanVersion,R024,R024,"The beginLifespanVersion value must be reported, unless the wiseEvolutionType is 'creation' or 'noChange'.","The beginLifespanVersion value must be reported, unless the wiseEvolutionType is 'creation' or 'noChange'.[R024]","SELECT  ""beginlifespanversion"",""wiseevolutiontype"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE wiseEvolutionType not in ('creation', 'noChange')
+      and coalesce(beginLifespanVersion, '') = ''",RECORD,WARNING,false,true,true
+ProtectedArea,wiseEvolutionType,R024,R024,"The beginLifespanVersion value must be reported, unless the wiseEvolutionType is 'creation' or 'noChange'.","The beginLifespanVersion value must be reported, unless the wiseEvolutionType is 'creation' or 'noChange'.[R024]","SELECT  ""beginlifespanversion"",""wiseevolutiontype"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE wiseEvolutionType not in ('creation', 'noChange')
+      and coalesce(beginLifespanVersion, '') = ''",RECORD,WARNING,false,true,true
+ProtectedArea,endLifespanVersion,R025,R025,"The endLifespanVersion value must be reported, if  and only if the wiseEvolutionType is 'deletion'.","The endLifespanVersion value must be reported, if and only if the wiseEvolutionType is 'deletion'.[R025]","Select thematicididentifier,endlifespanversion, ""wiseevolutiontype"",record_id
+From dataset_46374.""protectedarea"" 
+WHERE (""wiseevolutiontype""='deletion' AND COALESCE(""endlifespanversion"",'') = '') or (""wiseevolutiontype""<>'deletion' AND COALESCE(""endlifespanversion"",'') <> '')",RECORD,WARNING,false,true,true
+ProtectedArea,wiseEvolutionType,R025,R025,"The endLifespanVersion value must be reported, if  and only if the wiseEvolutionType is 'deletion'.","The endLifespanVersion value must be reported, if and only if the wiseEvolutionType is 'deletion'.[R025]","Select thematicididentifier,endlifespanversion, ""wiseevolutiontype"",record_id
+From dataset_46374.""protectedarea"" 
+WHERE (""wiseevolutiontype""='deletion' AND COALESCE(""endlifespanversion"",'') = '') or (""wiseevolutiontype""<>'deletion' AND COALESCE(""endlifespanversion"",'') <> '')",RECORD,WARNING,false,true,true
+ProtectedArea,wiseEvolutionType,R011,R011,"The object must have zero predecessors, if the wiseEvolutionType value is 'creation'.","The object must have zero predecessors, if the wiseEvolutionType value is 'creation'.[R011]","SELECT ""wiseevolutiontype"",""predecessorsidentifier"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE ""wiseevolutiontype"" = 'creation' AND COALESCE(""predecessorsidentifier"",'') <> ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,R026,R026,"The object must have one and only one predecessor, if the wiseEvolutionType value is 'changeCode' or 'splitting'.","The object must have one and only one predecessor, if the wiseEvolutionType value is 'changeCode' or 'splitting'.[R026]","SELECT ""predecessorsidentifier"", ""wiseevolutiontype"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE wiseEvolutionType in ('changeCode', 'splitting')
+        and (
+            POSITION(',' in predecessorsIdentifier) > 0
+            or
+            COALESCE(predecessorsIdentifier, '') = ''
+            )",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,R027,R027,"The object must have two or more predecessors, if the wiseEvolutionType value is 'aggregation' or 'changeBothAggregationAndSplitting'.","The object must have two or more predecessors, if the wiseEvolutionType value is 'aggregation' or 'changeBothAggregationAndSplitting'.[R027]","SELECT ""wiseevolutiontype"",""predecessorsidentifier"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE wiseEvolutionType in ('aggregation','changeBothAggregationAndSplitting')
+        and (
+            POSITION(',' IN COALESCE(predecessorsIdentifier,'')) < 1
+            )",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,R028,R028,"The object must have zero predecessors, if the wiseEvolutionType value is 'change' or 'noChange'.","The object must have zero predecessors, if the wiseEvolutionType value is 'change' or 'noChange'.[R028]","SELECT ""wiseevolutiontype"",""predecessorsidentifier"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE ""wiseevolutiontype"" in ('change','noChange') and COALESCE(""predecessorsidentifier"",'') <> ''
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodEnd,R030,R030,"The designationPeriodEnd date must be reported, if and only if, the wiseEvolutionType value is 'deletion'.","The designationPeriodEnd date must be reported, if and only if, the wiseEvolutionType value is 'deletion'.[R030]","SELECT  ""wiseevolutiontype"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE (""wiseevolutiontype""='deletion' AND COALESCE(""designationperiodend"",'') = '')
+or (""wiseevolutiontype"" <> 'deletion' AND COALESCE(""designationperiodend"",'') <> '') ",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,R030,R030,"The designationPeriodEnd date must be reported, if and only if, the wiseEvolutionType value is 'deletion'.","The designationPeriodEnd date must be reported, if and only if, the wiseEvolutionType value is 'deletion'.[R030]","SELECT  ""wiseevolutiontype"",record_id
+FROM dataset_46374.""protectedarea"" 
+WHERE (""wiseevolutiontype""='deletion' AND COALESCE(""designationperiodend"",'') = '')
+or (""wiseevolutiontype"" <> 'deletion' AND COALESCE(""designationperiodend"",'') <> '') ",RECORD,BLOCKER,false,true,true
+ProtectedArea,,S014,S014,The geometry of the protected areas must be covered by or be within 200 metre of the geometry of the associated water body.,The geometry of the protected areas must be covered by or be within 200 metre of the geometry of the associated water body.[S014],"WITH vProtectedArea AS
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",
+            ""relatedzoneidentifier"",
+            ""relatedzoneidentifierscheme"",
+            CASE
+               WHEN geometry_polygon <> CAST('' AS VARBINARY) THEN geometry_polygon
+               WHEN geometry_point  <> CAST('' AS VARBINARY)  THEN geometry_point
+               WHEN geometry_line  <> CAST('' AS VARBINARY)  THEN geometry_line
+               ELSE NULL
+            END AS geometry_any
+    FROM dataset_46374.""protectedarea"" )
+    
+,vDimensionOriginal AS
+(select  record_id,
+            ""thematicididentifier"", 
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",
+            geometry_any,
+           -- ST_GeometryType(geometry_any) AS geometry_type, 
+        case 
+            when ST_Area(geometry_any) > 0 then 2 
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1 
+            when ST_Length(geometry_any) = 0 then 0 
+            else -1 -- Unknown 
+        end as geometry_dim
+from    vProtectedArea  
+where   coalesce(geometry_any,'') <> '' )
+
+,vReportedZone_MakeValidGeometry AS  -- so that GEOS doesn't go berserk
+ 
+    (SELECT record_id,
+            ""thematicididentifier"", 
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",  
+            ST_MakeValid(geometry_any) AS geometry_any, 
+            --geometry_type,
+            geometry_dim
+     FROM vDimensionOriginal 
+     WHERE geometry_any <> CAST('' AS VARBINARY))
+ 
+,vDimensionMakeValid AS
+(select  record_id,
+            ""thematicididentifier"", 
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",
+            geometry_any,
+            --geometry_type, 
+            geometry_dim,
+        case 
+            when ST_Area(geometry_any) > 0 then 2 
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1 
+            when ST_Length(geometry_any) = 0 then 0 
+            else -1 -- Unknown 
+        end as geometry_dimMakeValid
+from    vReportedZone_MakeValidGeometry 
+where   geometry_any <> CAST('' AS VARBINARY) )
+
+
+,vReportedZone_IsValidGeometry AS  -- only correct things move to the next phase
+ 
+    (SELECT record_id,
+           ""thematicididentifier"", 
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",     
+            geometry_any
+            
+     FROM vDimensionMakeValid 
+     WHERE ST_IsValid(geometry_any)                    -- if the geometry is valid
+     AND NOT ST_IsEmpty(geometry_any)                  -- if the geometry is not empty
+     AND geometry_dimMakeValid = geometry_dim     -- if it didn't collapse to a lower dimension
+     --AND ST_GeometryType(geometry_any) = geometry_type 
+     ) -- if it didn't become a geometry collection or something weird
+
+
+SELECT
+    PA.""thematicididentifier"",
+    PA.record_id,
+    PA.""relatedzoneidentifier"",
+    RELATEDWB.thematicididentifier
+    --RELATEDWB.geometry_buffer200
+FROM
+    vReportedZone_IsValidGeometry PA
+JOIN dataset_46376.""relatedzone"" RELATEDWB ON PA.""relatedzoneidentifier"" = RELATEDWB.""thematicididentifier"" AND PA.""relatedzoneidentifierscheme"" = RELATEDWB.""thematicididentifierscheme""
+
+WHERE coalesce(PA.""relatedzoneidentifier"",'') <> ''
+AND 
+( RELATEDWB.geometry_buffer200 <> CAST('' AS VARBINARY) AND 
+    NOT ST_Within(
+        ST_Transform(PA.geometry_any, 3035),
+        RELATEDWB.geometry_buffer200  -- ya en 3035
+    )
+)
+
+
+
+
+",RECORD,WARNING,false,true,true
+ProtectedArea,,RF007,RF007,The object has a predecessor with a different zone type.,The object has a predecessor with a different zone type.[RF007],"WITH originalObject AS 
+(
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor 
+		,PA.thematicididentifier
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.zonetype
+		,PA.record_id
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> '' 
+)
+
+
+SELECT DISTINCT
+T1.""thematicididentifier"", 
+T1.""thematicididentifierscheme"",
+T1.record_id
+FROM originalObject T1
+LEFT JOIN dataset_46374.""protectedarea"" T2
+ON T1.predecessor = T2.thematicididentifier and 
+T1.predecessorsidentifierscheme= T2.thematicididentifierscheme
+LEFT JOIN dataset_46376.""protectedarea"" REFE
+ON T1.predecessor = REFE.thematicididentifier and 
+T1.predecessorsidentifierscheme= REFE.thematicididentifierscheme
+where (T2.thematicididentifier IS NOT NULL AND T1.zonetype<> T2.zonetype) OR 
+(REFE.thematicididentifier IS NOT NULL AND T1.zonetype<> REFE.zonetype) ",RECORD,BLOCKER,false,true,true
+ProtectedArea,thematicIdIdentifierScheme,V032,V032,The thematicIdIdentifierScheme value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme).,The thematicIdIdentifierScheme value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme).[V032],"SELECT PA.thematicididentifier, PA.""thematicididentifierscheme"", PA.record_id
+FROM dataset_46374.""protectedarea"" PA
+WHERE coalesce(PA.""thematicididentifierscheme"",'') <> 'euProtectedAreaCode'",FIELD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifierScheme,V044,V044,The predecessorsIdentifierScheme value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme).,The predecessorsIdentifierScheme value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme).[V044],"SELECT PA.""predecessorsidentifierscheme"", PA.record_id
+FROM dataset_46374.""protectedarea"" PA
+WHERE coalesce(PA.""predecessorsidentifierscheme"",'') <> 'euProtectedAreaCode'",FIELD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifierScheme,V030,V030,The relatedZoneIdentifierScheme value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme).,The relatedZoneIdentifierScheme value is not valid (see http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme).[V030],"Select ""relatedzoneidentifierscheme"",record_id
+From dataset_46374.""protectedarea""
+where coalesce(""relatedzoneidentifierscheme"",'') not in ('euSurfaceWaterBodyCode','euGroundWaterBodyCode')",FIELD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,RF012,RF012,"If wiseEvolutionType in ('deletion','change','noChange'), the designationPeriodBegin must be equal to the designationPeriodBegin of the object in the register.[RF012]","If wiseEvolutionType in ('deletion','change','noChange'), the designationPeriodBegin must be equal to the designationPeriodBegin of the object in the register.[RF012]","Select DISTINCT original.thematicididentifier,original.inspireidversionid,original.designationperiodbegin,original.record_id
+ FROM  dataset_46374.""protectedarea"" original 
+ JOIN dataset_46376.""protectedarea"" regi  ON original.thematicIdIdentifier = regi.thematicIdIdentifier 
+ AND original.thematicIdIdentifierScheme = regi .thematicIdIdentifierScheme 
+ WHERE  original.wiseEvolutionType in ('change','noChange','deletion') 
+ AND  COALESCE(regi .designationPeriodBegin,'') <> COALESCE(original.designationPeriodBegin,'')  ",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodBegin,RF012,RF012,"If wiseEvolutionType in ('deletion','change','noChange'), the designationPeriodBegin must be equal to the designationPeriodBegin of the object in the register.[RF012]","If wiseEvolutionType in ('deletion','change','noChange'), the designationPeriodBegin must be equal to the designationPeriodBegin of the object in the register.[RF012]","Select DISTINCT original.thematicididentifier,original.inspireidversionid,original.designationperiodbegin,original.record_id
+ FROM  dataset_46374.""protectedarea"" original 
+ JOIN dataset_46376.""protectedarea"" regi  ON original.thematicIdIdentifier = regi.thematicIdIdentifier 
+ AND original.thematicIdIdentifierScheme = regi .thematicIdIdentifierScheme 
+ WHERE  original.wiseEvolutionType in ('change','noChange','deletion') 
+ AND  COALESCE(regi .designationPeriodBegin,'') <> COALESCE(original.designationPeriodBegin,'')  ",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,RF013,RF013," If wiseEvolutionType in ('splitting','aggregation','changeBothAggregationAndSplitting','changeExtendedArea','changeExtendedDepth','changeExtendedAreaAndDepth','changeReducedArea','changeReducedDepth','changeReducedAreaAndDepth'), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor.[RF013]"," If wiseEvolutionType in ('splitting','aggregation','changeBothAggregationAndSplitting','changeExtendedArea','changeExtendedDepth','changeExtendedAreaAndDepth','changeReducedArea','changeReducedDepth','changeReducedAreaAndDepth'), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor.[RF013]","WITH originalPA 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor 
+		,PA.thematicididentifier
+		,PA.inspireidversionid
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.designationPeriodBegin
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> '' AND wiseEvolutionType in ('splitting','aggregation','changeBothAggregationAndSplitting','changeExtendedArea','changeExtendedDepth','changeExtendedAreaAndDepth','changeReducedArea','changeReducedDepth','changeReducedAreaAndDepth') 
+	
+	)
+
+SELECT distinct originalPA.inspireidversionid, originalPA.thematicIdIdentifier, originalPA.thematicIdIdentifierScheme, originalPA.designationPeriodBegin,originalPA.wiseEvolutionType, originalPA.predecessorsIdentifierScheme,
+ originalPA.predecessor, originalPA.record_id
+ FROM originalPA 
+ JOIN dataset_46376.""protectedarea"" reg ON originalPA.predecessor = reg.thematicIdIdentifier 
+ AND originalPA.thematicIdIdentifierScheme = reg.thematicIdIdentifierScheme 
+ AND  (COALESCE(reg.designationPeriodBegin,'') >= COALESCE(originalPA.designationPeriodBegin,'')) 
+ 
+ 
+",RECORD,ERROR,false,true,true
+ProtectedArea,designationPeriodBegin,RF013,RF013," If wiseEvolutionType in ('splitting','aggregation','changeBothAggregationAndSplitting','changeExtendedArea','changeExtendedDepth','changeExtendedAreaAndDepth','changeReducedArea','changeReducedDepth','changeReducedAreaAndDepth'), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor.[RF013]"," If wiseEvolutionType in ('splitting','aggregation','changeBothAggregationAndSplitting','changeExtendedArea','changeExtendedDepth','changeExtendedAreaAndDepth','changeReducedArea','changeReducedDepth','changeReducedAreaAndDepth'), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor.[RF013]","WITH originalPA 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor 
+		,PA.thematicididentifier
+		,PA.inspireidversionid
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.designationPeriodBegin
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> '' AND wiseEvolutionType in ('splitting','aggregation','changeBothAggregationAndSplitting','changeExtendedArea','changeExtendedDepth','changeExtendedAreaAndDepth','changeReducedArea','changeReducedDepth','changeReducedAreaAndDepth') 
+	
+	)
+
+SELECT distinct originalPA.inspireidversionid, originalPA.thematicIdIdentifier, originalPA.thematicIdIdentifierScheme, originalPA.designationPeriodBegin,originalPA.wiseEvolutionType, originalPA.predecessorsIdentifierScheme,
+ originalPA.predecessor, originalPA.record_id
+ FROM originalPA 
+ JOIN dataset_46376.""protectedarea"" reg ON originalPA.predecessor = reg.thematicIdIdentifier 
+ AND originalPA.thematicIdIdentifierScheme = reg.thematicIdIdentifierScheme 
+ AND  (COALESCE(reg.designationPeriodBegin,'') >= COALESCE(originalPA.designationPeriodBegin,'')) 
+ 
+ 
+",RECORD,ERROR,false,true,true
+ProtectedArea,wiseEvolutionType,RF014,RF014,"If wiseEvolutionType = 'changeCode', the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor.[RF014]","If wiseEvolutionType = 'changeCode', the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor.[RF014]","WITH originalPA 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor 
+		,PA.thematicididentifier
+		,PA.inspireidversionid
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.designationPeriodBegin
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> '' AND  wiseEvolutionType ='changeCode'
+	
+	)
+
+SELECT distinct original.inspireidversionid, original.thematicIdIdentifier, original.thematicIdIdentifierScheme, original.designationPeriodBegin,original.wiseEvolutionType, original.predecessorsIdentifierScheme,
+ original.predecessor, original.record_id
+ FROM originalPA original
+ JOIN dataset_46376.""protectedarea"" reg ON original.predecessor = reg.thematicIdIdentifier 
+ AND original.thematicIdIdentifierScheme = reg.thematicIdIdentifierScheme 
+ AND  (COALESCE(reg.designationPeriodBegin,'') <> COALESCE(original.designationPeriodBegin,'')) ",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodBegin,RF014,RF014,"If wiseEvolutionType = 'changeCode', the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor.[RF014]","If wiseEvolutionType = 'changeCode', the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor.[RF014]","WITH originalPA 
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsidentifier, ',', 'ALL', 999))) AS predecessor 
+		,PA.thematicididentifier
+		,PA.inspireidversionid
+		,PA.thematicididentifierscheme
+		,PA.predecessorsidentifierscheme
+		,PA.designationPeriodBegin
+		,PA.record_id
+		,PA.wiseEvolutionType
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.""predecessorsidentifier"", '') <> '' AND  wiseEvolutionType ='changeCode'
+	
+	)
+
+SELECT distinct original.inspireidversionid, original.thematicIdIdentifier, original.thematicIdIdentifierScheme, original.designationPeriodBegin,original.wiseEvolutionType, original.predecessorsIdentifierScheme,
+ original.predecessor, original.record_id
+ FROM originalPA original
+ JOIN dataset_46376.""protectedarea"" reg ON original.predecessor = reg.thematicIdIdentifier 
+ AND original.thematicIdIdentifierScheme = reg.thematicIdIdentifierScheme 
+ AND  (COALESCE(reg.designationPeriodBegin,'') <> COALESCE(original.designationPeriodBegin,'')) ",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodBegin,R035,R035,Objects with the same predecessor must have the same designationPeriodBegin value.[R035],Objects with the same predecessor must have the same designationPeriodBegin value: {%RECORDS%}. [R035],"WITH OnePredecessor AS (
+    select  record_id,
+            thematicIdIdentifier,
+            thematicIdIdentifierScheme,
+            TRIM(FLATTEN(REGEXP_SPLIT(predecessorsIdentifier, ',', 'ALL', 999))) AS onePredecessorIdentifier,
+            designationPeriodBegin
+               
+    from    dataset_46374.""protectedarea"" 
+    where   -- Avoids values not reported
+            coalesce(predecessorsIdentifier, '') <> ''
+),
+PredecessorsDifferentDate AS (
+    select  distinct P1.onePredecessorIdentifier
+    from    OnePredecessor P1
+            join OnePredecessor P2 on
+                P1.onePredecessorIdentifier = P2.onePredecessorIdentifier
+                and (P1.thematicIdIdentifier <> P2.thematicIdIdentifier)
+                and coalesce(P1.designationPeriodBegin,'') <> coalesce(P2.designationPeriodBegin,'')
+)
+select  OP.record_id,
+        OP.thematicIdIdentifier,
+        OP.thematicIdIdentifierScheme,
+        LISTAGG(CONCAT('[', OP.onePredecessorIdentifier, ' / ', OP.designationPeriodBegin, ']'), ', ') AS RECORDS
+from    OnePredecessor OP
+        join PredecessorsDifferentDate PDD on
+            PDD.onePredecessorIdentifier = OP.onePredecessorIdentifier
+group by OP.record_id, OP.thematicIdIdentifier, OP.thematicIdIdentifierScheme
+having count(*) > 0",RECORD,BLOCKER,false,true,true
+ProtectedArea,,RF001,RF001,A valid 'eu' thematic identifier exists in the register but was not reported in the spatial file (either as a spatial object or as a predecessor).,A valid 'eu' thematic identifier exists in the register but was not reported in the spatial file (either as a spatial object or as a predecessor).[RF001] Number of missing identifiers: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%},"WITH predecessors
+AS (
+	SELECT TRIM(FLATTEN(REGEXP_SPLIT(PA.predecessorsIdentifier, ',', 'ALL', 999))) AS predecessor
+		,PA.thematicIdIdentifier
+		,PA.thematicIdIdentifierScheme
+		,PA.predecessorsIdentifierScheme
+		,PA.record_id
+	FROM dataset_46374.""protectedarea"" PA
+	WHERE COALESCE(PA.predecessorsIdentifier, '') <> ''
+	)
+SELECT
+    X.record_id,
+    CASE
+        WHEN LENGTH(X.ids) > 3997 THEN
+            CONCAT(
+                LEFT(
+                    X.ids,
+                    3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997 )))
+                ),
+                '...'
+            )
+        ELSE X.ids
+    END AS IDENTIFIERS,
+    X.NUMBEROFRECORDS
+FROM (
+    SELECT
+        (SELECT MIN(record_id) FROM dataset_46374.""protectedarea"") AS record_id,
+        
+        listagg(RF.thematicIdIdentifier, ', ') as ids,
+        COUNT(*) AS numberofrecords
+    FROM dataset_46376.""protectedarea"" RF
+    LEFT JOIN dataset_46374.""protectedarea"" D
+        ON D.thematicIdIdentifier = RF.thematicIdIdentifier
+       AND D.thematicIdIdentifierScheme = RF.thematicIdIdentifierScheme
+    LEFT JOIN predecessors P
+        ON P.predecessor = RF.thematicIdIdentifier
+       AND P.thematicIdIdentifierScheme = RF.thematicIdIdentifierScheme
+    WHERE RF.countryCode = '{%R3_COUNTRY_CODE%}'
+    AND (D.thematicIdIdentifier IS NULL AND P.predecessor IS NULL)
+    AND RF.zonetype = 'designatedWaters'
+    AND RF.wiseEvolutionType <> 'deletion'
+    AND RF.statuscode NOT IN ('deprecated','retired','superseded')
+    HAVING COUNT(*) > 0
+) X",TABLE,BLOCKER,false,true,true
+ProtectedArea,geometry_point,S010,S010,Checks if the field is a valid MULTIPOINT,The value does not follow the expected syntax for a valid multipoint {%reason%} [S010],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_point,S002,S002,Checks if the field is a valid MULTIPOINT,Unsupported SRID [S002],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_point,S011,S011,Checks if the field is a valid MULTIPOINT,Geometry is not valid. Reason: {%reason%} [S011],,FIELD,BLOCKER,true,true,true
+ProtectedArea,thematicIdIdentifierScheme,R038,R038,A spatial object with an 'eu' thematicIdIdentifierScheme must be associated with a related zone with an 'eu' relatedZoneIdentifierScheme.,A spatial object with an 'eu' thematicIdIdentifierScheme must be associated with a related zone with an 'eu' relatedZoneIdentifierScheme. [R038],"Select 
+  original.record_id,original.thematicIdIdentifier,original.relatedzoneidentifierscheme
+from 
+  dataset_46374.""protectedarea"" original 
+where 
+  (
+      thematicIdIdentifierScheme = 'euProtectedAreaCode' 
+      AND LEFT(thematicIdIdentifierScheme, 2) <> LEFT(relatedzoneidentifierscheme, 2)
+  )
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifierScheme,R038,R038,A spatial object with an 'eu' thematicIdIdentifierScheme must be associated with a related zone with an 'eu' relatedZoneIdentifierScheme.,A spatial object with an 'eu' thematicIdIdentifierScheme must be associated with a related zone with an 'eu' relatedZoneIdentifierScheme. [R038],"Select 
+  original.record_id,original.thematicIdIdentifier,original.relatedzoneidentifierscheme
+from 
+  dataset_46374.""protectedarea"" original 
+where 
+  (
+      thematicIdIdentifierScheme = 'euProtectedAreaCode' 
+      AND LEFT(thematicIdIdentifierScheme, 2) <> LEFT(relatedzoneidentifierscheme, 2)
+  )
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,V061,V061,Invalid wiseEvolutionType value for this spatial object type.,Invalid wiseEvolutionType value for this spatial object type. [V061],"SELECT wiseevolutiontype, record_id
+FROM dataset_46374.""protectedarea""
+WHERE wiseevolutiontype NOT IN ('creation','deletion','aggregation','splitting','change','changeCode','changeBothAggregationAndSplitting','noChange')",FIELD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifier,R043,R043,"The relatedZoneIdentifier value must be reported, if the relatedZoneIdentifierScheme value is reported.","The relatedZoneIdentifier value must be reported, if the relatedZoneIdentifierScheme value is reported.[R043]","SELECT thematicididentifier,relatedzoneidentifier, record_id
+FROM dataset_46374.""protectedarea""
+WHERE coalesce(""relatedzoneidentifier"",'') = '' 
+AND coalesce(""relatedzoneidentifierscheme"",'') <> '' ",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifierScheme,R043,R043,"The relatedZoneIdentifier value must be reported, if the relatedZoneIdentifierScheme value is reported.","The relatedZoneIdentifier value must be reported, if the relatedZoneIdentifierScheme value is reported.[R043]","SELECT thematicididentifier,relatedzoneidentifier, record_id
+FROM dataset_46374.""protectedarea""
+WHERE coalesce(""relatedzoneidentifier"",'') = '' 
+AND coalesce(""relatedzoneidentifierscheme"",'') <> '' ",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifierScheme,R044,R044,"The relatedZoneIdentifierScheme value must be reported, if the relatedZoneIdentifier value is reported.","The relatedZoneIdentifierScheme value must be reported, if the relatedZoneIdentifier value is reported.[R044]","SELECT thematicididentifier, relatedzoneidentifier, record_id
+FROM dataset_46374.""protectedarea""
+WHERE coalesce(""relatedzoneidentifier"",'') <> '' and coalesce(""relatedzoneidentifierscheme"",'') = ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifier,R044,R044,"The relatedZoneIdentifierScheme value must be reported, if the relatedZoneIdentifier value is reported.","The relatedZoneIdentifierScheme value must be reported, if the relatedZoneIdentifier value is reported.[R044]","SELECT thematicididentifier, relatedzoneidentifier, record_id
+FROM dataset_46374.""protectedarea""
+WHERE coalesce(""relatedzoneidentifier"",'') <> '' and coalesce(""relatedzoneidentifierscheme"",'') = ''",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifier,R045,R045,relatedZoneIdentifier/relatedZoneIdentifierScheme is mandatory.,relatedZoneIdentifier is mandatory. [R045],"Select record_id
+from dataset_46374.""protectedarea""
+where (COALESCE(""relatedzoneidentifier"",'')= '' OR COALESCE(""relatedzoneidentifierscheme"",'')= '') ",RECORD,BLOCKER,false,true,true
+ProtectedArea,relatedZoneIdentifierScheme,R045,R045,relatedZoneIdentifier/relatedZoneIdentifierScheme is mandatory.,relatedZoneIdentifier is mandatory. [R045],"Select record_id
+from dataset_46374.""protectedarea""
+where (COALESCE(""relatedzoneidentifier"",'')= '' OR COALESCE(""relatedzoneidentifierscheme"",'')= '') ",RECORD,BLOCKER,false,true,true
+ProtectedArea,,R031,R031,"The spatial object reported as predecessor, cannot be reported again.","The spatial object reported as predecessor, cannot be reported again..[R031]","WITH splitpredecessors AS (
+    SELECT
+        ""thematicididentifier"",
+        ""thematicididentifierscheme"",
+        TRIM(FLATTEN(REGEXP_SPLIT(predecessorsIdentifier, ',', 'ALL', 999))) AS predecessor,
+        ""wiseevolutiontype""
+    FROM
+        dataset_46374.""protectedarea""
+    WHERE coalesce(""predecessorsidentifier"",'') <> ''
+)
+
+SELECT distinct
+    pred.""thematicididentifier"",pred.record_id
+FROM
+    splitpredecessors ori
+INNER JOIN
+    dataset_46374.""protectedarea"" pred
+ON
+    ori.predecessor = pred.""thematicididentifier""
+
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,wiseEvolutionType,R046,R046,If wiseEvolutionType = 'deletion then the designationPeriodEnd value must not be after @today,If wiseEvolutionType = 'deletion then the designationPeriodEnd value must not be after @today [R046],"SELECT *
+FROM dataset_46374.""protectedarea""
+WHERE wiseevolutiontype = 'deletion'
+AND
+    CASE
+        -- YYYY → YYYY-01-01
+        WHEN REGEXP_MATCHES(designationperiodend, '^[0-9]{4}$') THEN
+            TO_DATE(designationperiodend || '-01-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM → YYYY-MM-01
+        WHEN REGEXP_MATCHES(designationperiodend, '^[0-9]{4}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodend || '-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM-DD → ya es fecha válida
+        WHEN REGEXP_MATCHES(designationperiodend, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodend, 'YYYY-MM-DD')
+
+        ELSE NULL
+    END
+> CURRENT_DATE",RECORD,ERROR,false,true,true
+ProtectedArea,designationPeriodEnd,R046,R046,If wiseEvolutionType = 'deletion then the designationPeriodEnd value must not be after @today,If wiseEvolutionType = 'deletion then the designationPeriodEnd value must not be after @today [R046],"SELECT *
+FROM dataset_46374.""protectedarea""
+WHERE wiseevolutiontype = 'deletion'
+AND
+    CASE
+        -- YYYY → YYYY-01-01
+        WHEN REGEXP_MATCHES(designationperiodend, '^[0-9]{4}$') THEN
+            TO_DATE(designationperiodend || '-01-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM → YYYY-MM-01
+        WHEN REGEXP_MATCHES(designationperiodend, '^[0-9]{4}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodend || '-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM-DD → ya es fecha válida
+        WHEN REGEXP_MATCHES(designationperiodend, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodend, 'YYYY-MM-DD')
+
+        ELSE NULL
+    END
+> CURRENT_DATE",RECORD,ERROR,false,true,true
+ProtectedArea,wiseEvolutionType,R047,R047,"If wiseEvolutionType in ('creation', 'splitting','aggregation','changeBothAggregationAndSplitting') then the designationPeriodBegin value must not be after @today.","If wiseEvolutionType in ('creation', 'splitting','aggregation','changeBothAggregationAndSplitting') then the designationPeriodBegin value must not be after @today. [R047]","SELECT *
+FROM dataset_46374.""protectedarea""
+WHERE wiseevolutiontype IN (
+        'creation',
+        'splitting',
+        'aggregation',
+        'changeBothAggregationAndSplitting'
+      )
+AND 
+    CASE
+        -- YYYY → YYYY-01-01
+        WHEN REGEXP_MATCHES(designationperiodbegin, '^[0-9]{4}$') THEN
+            TO_DATE(designationperiodbegin || '-01-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM → YYYY-MM-01
+        WHEN REGEXP_MATCHES(designationperiodbegin, '^[0-9]{4}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodbegin || '-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM-DD → válida directamente
+        WHEN REGEXP_MATCHES(designationperiodbegin, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodbegin, 'YYYY-MM-DD')
+
+        ELSE NULL
+    END
+> CURRENT_DATE",RECORD,ERROR,false,true,true
+ProtectedArea,designationPeriodBegin,R047,R047,"If wiseEvolutionType in ('creation', 'splitting','aggregation','changeBothAggregationAndSplitting') then the designationPeriodBegin value must not be after @today.","If wiseEvolutionType in ('creation', 'splitting','aggregation','changeBothAggregationAndSplitting') then the designationPeriodBegin value must not be after @today. [R047]","SELECT *
+FROM dataset_46374.""protectedarea""
+WHERE wiseevolutiontype IN (
+        'creation',
+        'splitting',
+        'aggregation',
+        'changeBothAggregationAndSplitting'
+      )
+AND 
+    CASE
+        -- YYYY → YYYY-01-01
+        WHEN REGEXP_MATCHES(designationperiodbegin, '^[0-9]{4}$') THEN
+            TO_DATE(designationperiodbegin || '-01-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM → YYYY-MM-01
+        WHEN REGEXP_MATCHES(designationperiodbegin, '^[0-9]{4}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodbegin || '-01', 'YYYY-MM-DD')
+
+        -- YYYY-MM-DD → válida directamente
+        WHEN REGEXP_MATCHES(designationperiodbegin, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') THEN
+            TO_DATE(designationperiodbegin, 'YYYY-MM-DD')
+
+        ELSE NULL
+    END
+> CURRENT_DATE",RECORD,ERROR,false,true,true
+ProtectedArea,successorsIdentifier,V065,V065,successorsIdentifier must be empty.,successorIdentifier must be empty [V065],"SELECT *
+FROM dataset_46374.""protectedarea""
+WHERE COALESCE(successorsIdentifier,'') <> ''",FIELD,BLOCKER,false,true,true
+ProtectedArea,successorsIdentifierScheme,V066,V066,successorsIdentifierScheme must be empty.,successorIdentifierScheme must be empty [V066],"SELECT *
+FROM dataset_46374.""protectedarea""
+WHERE COALESCE(successorsIdentifierScheme,'') <> ''",FIELD,BLOCKER,false,true,true
+ProtectedArea,thematicIdIdentifier,RF021,RF021,A thematic identifier cannot be equal to an existing thematic identifier for a different type of ProtectedArea.,A thematic identifier cannot be equal to an existing thematic identifier for a different type of ProtectedArea. [RF021],"SELECT
+  A.thematicIdIdentifier,
+  A.thematicIdIdentifierScheme,
+  A.zoneType,
+  B.zoneType,
+  A.record_id
+FROM dataset_46374.""protectedarea"" A
+JOIN dataset_46376.""protectedarea"" B
+  ON A.thematicIdIdentifier = B.thematicIdIdentifier
+ AND A.thematicIdIdentifierScheme = B.thematicIdIdentifierScheme
+WHERE coalesce(A.zoneType,'') <> coalesce(B.zoneType,'')
+
+
+",FIELD,BLOCKER,false,true,true
+ProtectedArea,thematicIdIdentifier,RF022,RF022,A ProtectedArea thematicIdIdentifier can not be the same as the thematicIdIdentifier of a waterbody.,A ProtectedArea thematicIdIdentifier can not be the same as the thematicIdIdentifier of a waterbody. [RF022],"SELECT
+    pa.thematicIdIdentifier,
+    pa.record_id
+FROM dataset_46374.""protectedarea"" pa
+WHERE pa.thematicIdIdentifier IS NOT NULL
+AND pa.specialisedZoneType <> 'waterbody'
+AND EXISTS (
+    SELECT 1
+    FROM dataset_46376.""relatedzone"" rz
+    WHERE rz.thematicIdIdentifier IS NOT NULL
+      AND rz.thematicIdIdentifier = pa.thematicIdIdentifier
+)",RECORD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodBegin,V067,V067,The date must have the format YYYY-MM-dd,The date must have the format YYYY-MM-dd [V067],"SELECT
+    designationPeriodBegin,
+    record_id
+FROM dataset_46374.""protectedarea""
+WHERE
+    -- No vacío
+    COALESCE(TRIM(designationPeriodBegin), '') <> ''
+    AND (
+        -- 1) NO cumple el patrón YYYY-MM-DD
+        NOT REGEXP_MATCHES(designationPeriodBegin, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+
+        OR
+        -- 2) Cumple el patrón, PERO:
+        (
+            REGEXP_MATCHES(designationPeriodBegin, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+            AND (
+                   -- a) La conversión falla → NO es una fecha válida
+                   TO_DATE(designationPeriodBegin, 'YYYY-MM-DD') IS NULL
+
+                   -- b) O la fecha es ""formalmente válida"", pero no coincide cuando se normaliza
+                   --    Ejemplos detectables: 2023-2-03, 2024-00-15, 2021-13-01
+                   OR TO_CHAR(
+                        TO_DATE(designationPeriodBegin, 'YYYY-MM-DD'),
+                        'YYYY-MM-DD'
+                     ) <> designationPeriodBegin
+               )
+        )
+    )",FIELD,BLOCKER,false,true,true
+ProtectedArea,designationPeriodEnd,V068,V068,The date must have the format YYYY-MM-dd,The date must have the format YYYY-MM-dd [V068],"SELECT
+    designationPeriodEnd,
+    record_id
+FROM dataset_46374.""protectedarea""
+WHERE
+    -- No vacío
+    COALESCE(TRIM(designationPeriodEnd), '') <> ''
+    AND (
+        -- 1) NO cumple el patrón YYYY-MM-DD
+        NOT REGEXP_MATCHES(designationPeriodEnd, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+
+        OR
+        -- 2) Cumple el patrón, PERO:
+        (
+            REGEXP_MATCHES(designationPeriodEnd, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+            AND (
+                   -- a) La conversión falla → NO es una fecha válida
+                   TO_DATE(designationPeriodEnd, 'YYYY-MM-DD') IS NULL
+
+                   -- b) O la fecha es ""formalmente válida"", pero no coincide cuando se normaliza
+                   --    Ejemplos detectables: 2023-2-03, 2024-00-15, 2021-13-01
+                   OR TO_CHAR(
+                        TO_DATE(designationPeriodEnd, 'YYYY-MM-DD'),
+                        'YYYY-MM-DD'
+                     ) <> designationPeriodEnd
+               )
+        )
+    )
+
+",FIELD,BLOCKER,false,true,true
+ProtectedArea,beginLifespanVersion,V069,V069,The date must have the format YYYY-MM-dd,The date must have the format YYYY-MM-dd [V069],"SELECT
+    beginLifespanVersion,
+    record_id
+FROM dataset_46374.""protectedarea""
+WHERE
+    -- No vacío
+    COALESCE(TRIM(beginLifespanVersion), '') <> ''
+    AND (
+        -- 1) NO cumple el patrón YYYY-MM-DD
+        NOT REGEXP_MATCHES(beginLifespanVersion, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+
+        OR
+        -- 2) Cumple el patrón, PERO:
+        (
+            REGEXP_MATCHES(beginLifespanVersion, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+            AND (
+                   -- a) La conversión falla → NO es una fecha válida
+                   TO_DATE(beginLifespanVersion, 'YYYY-MM-DD') IS NULL
+
+                   -- b) O la fecha es ""formalmente válida"", pero no coincide cuando se normaliza
+                   --    Ejemplos detectables: 2023-2-03, 2024-00-15, 2021-13-01
+                   OR TO_CHAR(
+                        TO_DATE(beginLifespanVersion, 'YYYY-MM-DD'),
+                        'YYYY-MM-DD'
+                     ) <> beginLifespanVersion
+               )
+        )
+    )",FIELD,BLOCKER,false,true,true
+ProtectedArea,endLifespanVersion,V070,V070,The date must have the format YYYY-MM-dd,The date must have the format YYYY-MM-dd [V070],"SELECT
+    endLifespanVersion,
+    record_id
+FROM dataset_46374.""protectedarea""
+WHERE
+    -- No vacío
+    COALESCE(TRIM(endLifespanVersion), '') <> ''
+    AND (
+        -- 1) NO cumple el patrón YYYY-MM-DD
+        NOT REGEXP_MATCHES(endLifespanVersion, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+
+        OR
+        -- 2) Cumple el patrón, PERO:
+        (
+            REGEXP_MATCHES(endLifespanVersion, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+            AND (
+                   -- a) La conversión falla → NO es una fecha válida
+                   TO_DATE(endLifespanVersion, 'YYYY-MM-DD') IS NULL
+
+                   -- b) O la fecha es ""formalmente válida"", pero no coincide cuando se normaliza
+                   --    Ejemplos detectables: 2023-2-03, 2024-00-15, 2021-13-01
+                   OR TO_CHAR(
+                        TO_DATE(endLifespanVersion, 'YYYY-MM-DD'),
+                        'YYYY-MM-DD'
+                     ) <> endLifespanVersion
+               )
+        )
+    )",FIELD,BLOCKER,false,true,true
+ProtectedArea,,S015,S015,The position of the element has changed in more than 10 km. ,The position of the element has changed in more than 10 km. [S015],"WITH vProtectedArea AS
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",
+            thematicIdIdentifierScheme,
+            ""relatedzoneidentifier"",
+            ""relatedzoneidentifierscheme"",
+            CASE
+                WHEN geometry_polygon <> CAST ('' as VARBINARY) THEN geometry_polygon
+                WHEN geometry_point <> CAST ('' as VARBINARY) THEN geometry_point
+                WHEN geometry_line <> CAST ('' as VARBINARY) THEN geometry_line
+                ELSE NULL
+            END AS geometry_any
+    FROM dataset_46374.""protectedarea"" )
+    
+,vDimensionOriginal AS
+(select  record_id,
+            ""thematicididentifier"", 
+            thematicIdIdentifierScheme,
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",
+            geometry_any,
+           -- ST_GeometryType(geometry_any) AS geometry_type, 
+        case 
+            when ST_Area(geometry_any) > 0 then 2 
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1 
+            when ST_Length(geometry_any) = 0 then 0 
+            else -1 -- Unknown 
+        end as geometry_dim
+from    vProtectedArea  
+where   geometry_any <> CAST ('' as VARBINARY) )
+
+,vReportedZone_MakeValidGeometry AS  -- so that GEOS doesn't go berserk
+ 
+    (SELECT record_id,
+            ""thematicididentifier"", 
+            thematicIdIdentifierScheme,
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",  
+            ST_MakeValid(geometry_any) AS geometry_any, 
+            --geometry_type,
+            geometry_dim
+     FROM vDimensionOriginal )
+ 
+,vDimensionMakeValid AS
+(select  record_id,
+            ""thematicididentifier"", 
+            thematicIdIdentifierScheme,
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",
+            geometry_any,
+            --geometry_type, 
+            geometry_dim,
+        case 
+            when ST_Area(geometry_any) > 0 then 2 
+            when ST_Length(geometry_any) > 0 and ST_Area(geometry_any) = 0 then 1 
+            when ST_Length(geometry_any) = 0 then 0 
+            else -1 -- Unknown 
+        end as geometry_dimMakeValid
+from    vReportedZone_MakeValidGeometry  )
+
+
+,vReportedZone_IsValidGeometry AS  -- only correct things move to the next phase
+ 
+    (SELECT record_id,
+           ""thematicididentifier"",
+           thematicIdIdentifierScheme, 
+            ""relatedzoneidentifier"", 
+            ""relatedzoneidentifierscheme"",     
+            geometry_any
+            
+     FROM vDimensionMakeValid 
+     WHERE ST_IsValid(geometry_any)                    -- if the geometry is valid
+     AND NOT ST_IsEmpty(geometry_any)                  -- if the geometry is not empty
+     AND geometry_dimMakeValid = geometry_dim     -- if it didn't collapse to a lower dimension
+     --AND ST_GeometryType(geometry_any) = geometry_type 
+     ) -- if it didn't become a geometry collection or something weird
+
+
+,vNew AS (
+    SELECT
+        thematicIdIdentifier AS id,
+        thematicIdIdentifierScheme,
+        record_id,
+        CASE
+            WHEN ST_SRID(geometry_any) = 3035
+                THEN geometry_any
+            ELSE ST_Transform(geometry_any, 3035)
+        END AS geom
+    FROM vReportedZone_IsValidGeometry
+    WHERE geometry_any IS NOT NULL
+),
+
+vProtectedAreaOld AS
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",
+            thematicIdIdentifierScheme,
+            ""relatedzoneidentifier"",
+            ""relatedzoneidentifierscheme"",
+            CASE
+                WHEN geometry_polygon <> CAST ('' as VARBINARY) THEN geometry_polygon
+                WHEN geometry_point <> CAST ('' as VARBINARY) THEN geometry_point
+                WHEN geometry_line <> CAST ('' as VARBINARY) THEN geometry_line
+                ELSE NULL
+            END AS geometry_any
+    FROM dataset_46376.""protectedarea"" 
+    )
+	
+,vOld AS (
+    SELECT
+        thematicIdIdentifier AS id,
+        thematicIdIdentifierScheme,
+        CASE
+            WHEN ST_SRID(geometry_any) = 3035
+                THEN geometry_any
+            ELSE ST_Transform(geometry_any, 3035)
+        END AS geom
+    FROM vProtectedAreaOld
+    WHERE geometry_any <> CAST ('' as VARBINARY)
+)
+
+SELECT
+    n.id,
+    n.thematicIdIdentifierScheme,
+    n.record_id,
+    ROUND(
+        ST_Distance(n.geom, o.geom) / 1000,
+        1
+    ) AS distance_km_to_reference
+FROM vNew n
+JOIN vOld o
+  ON n.id = o.id
+ AND n.thematicIdIdentifierScheme = o.thematicIdIdentifierScheme
+WHERE ST_Distance(n.geom, o.geom) > 10000
+ --AND ST_Type(n.geom) = ST_Type(o.geom) 
+ORDER BY distance_km_to_reference DESC",RECORD,ERROR,false,true,true
+ProtectedArea,zoneType,V029,V029,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V029],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_polygon,S017,S017,Checks if the field is a valid MULTIPOLYGON,The value does not follow the expected syntax for a valid multipolygon {%reason%} [S017],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_polygon,S016,S016,Checks if the field is a valid MULTIPOLYGON,Unsupported SRID [S016],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_polygon,S012,S012,Checks if the field is a valid MULTIPOLYGON,Geometry is not valid. Reason: {%reason%} [S012],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_line,S009,S009,Checks if the field is a valid MULTILINESTRING,The value does not follow the expected syntax for a valid multilinestring {%reason%} [S009],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_line,S008,S008,Checks if the field is a valid MULTILINESTRING,Unsupported SRID [S008],,FIELD,BLOCKER,true,true,true
+ProtectedArea,geometry_line,S007,S007,Checks if the field is a valid MULTILINESTRING,Geometry is not valid. Reason: {%reason%} [S007],,FIELD,BLOCKER,true,true,true
+ProtectedArea,wiseEvolutionType,S013,S013,"The geometry must not be empty or degenerate (e.g. zero-lenth line or zero-area polygon), except if the wiseEvolutionType value is 'deletion'","The geometry must not be empty or degenerate (e.g. zero-lenth line or zero-area polygon), except if the wiseEvolutionType value is 'deletion' [S013]","WITH vProtectedArea AS 
+
+(
+SELECT record_id, 
+      ""thematicididentifier"", 
+      ""wiseevolutiontype"", 
+      CASE WHEN geometry_polygon IS NOT NULL THEN geometry_polygon 
+           WHEN geometry_point IS NOT NULL THEN geometry_point 
+           WHEN geometry_line IS NOT NULL THEN geometry_line 
+           ELSE NULL 
+      END AS geometry_any 
+FROM dataset_46374.""protectedarea"" ) 
+
+select record_id 
+from vProtectedArea 
+where geometry_any <> '' and geometry_any is not null and 
+( 
+    -- It is not valid 
+    ST_IsValid(geometry_any ) IS FALSE 
+    or -- It is not empty 
+    (ST_IsEmpty(geometry_any ) IS TRUE and ""wiseevolutiontype"" <> 'deletion')
+ )",RECORD,BLOCKER,false,true,true
+ProtectedArea,,S005,S005,"The coordinate reference system (CRS) is not valid. (It must be one of the following:ETRS89-GRS80 (urn:ogc:def:crs:EPSG::4258),ETRS89-LAEA ","The coordinate reference system (CRS) is not valid. (It must be one of the following:ETRS89-GRS80 (urn:ogc:def:crs:EPSG::4258),ETRS89-LAEA [S005]","WITH vProtectedArea AS
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",
+            CASE
+                WHEN geometry_polygon <> CAST ('' as VARBINARY) THEN geometry_polygon
+                WHEN geometry_point <> CAST ('' as VARBINARY) THEN geometry_point
+                WHEN geometry_line <> CAST ('' as VARBINARY) THEN geometry_line
+                ELSE NULL
+            END AS geometry_any
+    FROM dataset_46374.""protectedarea"" 
+    WHERE geometry_any <> CAST ('' as VARBINARY))
+ 
+,vReportedZone_MakeValidGeometry AS  -- so that GEOS doesn't go berserk
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",    
+            ST_MakeValid(geometry_any) AS geometry_any
+     FROM vProtectedArea 
+     WHERE geometry_any <> CAST ('' as VARBINARY))
+ 
+
+SELECT record_id
+FROM vReportedZone_MakeValidGeometry 
+WHERE ST_SRID(geometry_any) not in ('4326', '4258', '3035')
+
+
+
+",RECORD,BLOCKER,false,true,true
+ProtectedArea,,S006,S006,"The geometry must not have anomalous geometric points, such as self-intersections ","The geometry must not have anomalous geometric points, such as self-intersections [S006]","WITH vProtectedArea AS
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",
+            CASE
+                WHEN geometry_polygon <> CAST ('' as VARBINARY) THEN geometry_polygon
+                WHEN geometry_point <> CAST ('' as VARBINARY) THEN geometry_point
+                WHEN geometry_line <> CAST ('' as VARBINARY) THEN geometry_line
+                ELSE NULL
+            END AS geometry_any
+    FROM dataset_46374.""protectedarea"" )
+ 
+,vReportedZone_MakeValidGeometry AS  -- so that GEOS doesn't go berserk
+ 
+    (SELECT record_id,
+            ""thematicididentifier"",    
+            ST_MakeValid(geometry_any) AS geometry_any
+     FROM vProtectedArea 
+     WHERE geometry_any <> CAST ('' as VARBINARY))
+ 
+Select record_id
+From vReportedZone_MakeValidGeometry 
+Where ST_IsSimple(geometry_any) = false",RECORD,ERROR,false,true,true
+ProtectedArea,,R048,R048,The geometry must not be missing or empty.,The geometry must not be missing or empty. [R048],"Select * 
+From dataset_46374.""protectedarea"" 
+Where ""geometry_point"" = CAST('' AS VARBINARY) AND ""geometry_line"" = CAST('' AS VARBINARY) AND ""geometry_polygon"" = CAST('' AS VARBINARY) ",RECORD,BLOCKER,false,true,true
+ProtectedArea,,S018,S018,Only one SRID can be used,ProtectedArea geometries use more than one CRS : {%srid_list%} [S018],"WITH vProtectedArea AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""relatedzoneidentifier"",
+        ""relatedzoneidentifierscheme"",
+        CASE
+            WHEN geometry_polygon <> CAST ('' as VARBINARY) THEN geometry_polygon
+            WHEN geometry_point <> CAST ('' as VARBINARY) THEN geometry_point
+            WHEN geometry_line <> CAST ('' as VARBINARY) THEN geometry_line
+            ELSE NULL
+        END AS geometry_any
+    FROM dataset_46374.""protectedarea""
+),
+
+vDimensionOriginal AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""relatedzoneidentifier"",
+        ""relatedzoneidentifierscheme"",
+        geometry_any,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dim
+    FROM vProtectedArea
+    WHERE geometry_any <> CAST ('' as VARBINARY)
+),
+
+vReportedZone_MakeValidGeometry AS (
+    SELECT 
+        record_id,
+        ""thematicididentifier"",
+        ""relatedzoneidentifier"",
+        ""relatedzoneidentifierscheme"",
+        ST_MakeValid(geometry_any) AS geometry_any,
+        geometry_dim
+    FROM vDimensionOriginal
+    WHERE geometry_any <> CAST ('' as VARBINARY)
+),
+
+vDimensionMakeValid AS (
+    SELECT
+        record_id,
+        ""thematicididentifier"",
+        ""relatedzoneidentifier"",
+        ""relatedzoneidentifierscheme"",
+        geometry_any,
+        geometry_dim,
+        CASE
+            WHEN ST_Area(geometry_any) > 0 THEN 2
+            WHEN ST_Length(geometry_any) > 0 AND ST_Area(geometry_any) = 0 THEN 1
+            WHEN ST_Length(geometry_any) = 0 THEN 0
+            ELSE -1
+        END AS geometry_dimMakeValid
+    FROM vReportedZone_MakeValidGeometry
+    WHERE geometry_any <> CAST ('' as VARBINARY)
+),
+
+vReportedZone_IsValidGeometry AS (
+    SELECT 
+        record_id,
+        geometry_any
+    FROM vDimensionMakeValid
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+      AND geometry_dimMakeValid = geometry_dim
+),
+
+vSRIDs AS (
+    SELECT
+        record_id,
+        ST_SRID(geometry_any) AS srid
+    FROM vReportedZone_IsValidGeometry
+)
+
+SELECT 
+    LISTAGG(DISTINCT srid, ',') AS srid_list,
+    MIN(record_id) AS record_id
+FROM vSRIDs
+HAVING COUNT(DISTINCT srid) > 1",TABLE,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifier,V071,V071,The predecessorIdIdentifier value must be a string with less than 501 characters.,The predecessorIdIdentifier value must be a string with less than 501 characters. [V071],( LEN( predecessorsIdentifier ) <= 500 ),FIELD,BLOCKER,false,true,true
+ProtectedArea,predecessorsIdentifier,V040,V040,The value does not match the pattern to be used for a WISE Identifier. Several identifiers can be reported separated by comma. ,The value does not match the pattern to be used for a WISE Identifier. Several identifiers can be reported separated by comma. [V040],"WITH Data AS (
+    select  record_id,
+            predecessorsIdentifier,
+            '^{%R3_COUNTRY_CODE%}[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}(, ?{%R3_COUNTRY_CODE%}[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1})*$' as regexp
+    from    dataset_46374.""protectedarea""
+	where   coalesce(predecessorsIdentifier, '') <> ''
+)
+select  record_id,
+        predecessorsIdentifier 
+from    Data
+where   NOT REGEXP_COL_LIKE(predecessorsIdentifier, regexp)",FIELD,BLOCKER,false,true,true
+ProtectedArea,confidentialityStatus,V072,V072,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V072],,FIELD,BLOCKER,true,true,true
+ProtectedArea,,XC002,XC002,More than one geometry type detected in the same record.,More than one geometry type detected in the same record. [XC001],"SELECT
+    record_id
+FROM dataset_46374.""protectedarea""
+WHERE
+    (
+        CASE
+            WHEN geometry_polygon <> CAST('' AS VARBINARY) THEN 1 ELSE 0
+        END
+      + CASE
+            WHEN geometry_line <> CAST('' AS VARBINARY) THEN 1 ELSE 0
+        END
+      + CASE
+            WHEN geometry_point <> CAST('' AS VARBINARY) THEN 1 ELSE 0
+        END
+    ) > 1",RECORD,BLOCKER,false,true,true
+ProtectedArea,specialisedZoneType,V073,V073,Checks if the field is missing or empty,The value must not be missing or empty [V073],,FIELD,BLOCKER,true,true,true
+ProtectedArea,specialisedZoneType,V046,V046,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list.[V046],,FIELD,BLOCKER,true,true,true
+ProtectedArea,relatedZoneIdentifier,FC140,Field cardinality,Checks if the field is missing or empty,The value must not be missing or empty,,FIELD,ERROR,true,true,true
+ProtectedArea,relatedZoneIdentifierScheme,FC141,Field cardinality,Checks if the field is missing or empty,The value must not be missing or empty,,FIELD,BLOCKER,true,true,true
+ProtectedArea,legalBasisName,V036,V036,Checks if the field is missing or empty,The value must not be missing or empty [V036],,FIELD,BLOCKER,true,true,true
+ProtectedArea,legalBasisLink,V035,V035,Checks if the field is missing or empty,The value must not be missing or empty [V035],,FIELD,BLOCKER,true,true,true
+ProtectedArea,legalBasisLevel,V034,V034,Checks if the field is missing or empty,The value must not be missing or empty [V034],,FIELD,BLOCKER,true,true,true
+ProtectedArea,legalBasisLevel,V033,V033,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V033],,FIELD,BLOCKER,true,true,true
+ProtectedArea,,S019,S019,The geometry of the protected areas must not be disjoint of the geometry of the surface water body's river basin district (except for coastal and territorial waters).,The geometry of the protected areas must not be disjoint of the geometry of the surface water body's river basin district (except for coastal and territorial waters).[S019],"WITH vProtectedArea AS
+(
+    SELECT record_id,
+           ""thematicididentifier"",
+           ""relatedzoneidentifier"",
+           ""relatedzoneidentifierscheme"",
+           CASE
+               WHEN geometry_polygon <> CAST('' AS VARBINARY) THEN geometry_polygon
+               WHEN geometry_point  <> CAST('' AS VARBINARY)  THEN geometry_point
+               WHEN geometry_line   <> CAST('' AS VARBINARY)  THEN geometry_line
+               ELSE NULL
+           END AS geometry_any
+    FROM dataset_46374.""protectedarea""
+)
+
+,vPAValid1 AS
+(
+    SELECT record_id,
+           ""thematicididentifier"",
+           ""relatedzoneidentifier"",
+           ""relatedzoneidentifierscheme"",
+           ST_MakeValid(geometry_any) AS geometry_any
+    FROM vProtectedArea
+    WHERE geometry_any <> CAST('' AS VARBINARY)
+)
+
+,vPAValid2 AS
+(
+    SELECT record_id,
+           ""thematicididentifier"",
+           ""relatedzoneidentifier"",
+           ""relatedzoneidentifierscheme"",
+           geometry_any
+    FROM vPAValid1
+    WHERE ST_IsValid(geometry_any)
+      AND NOT ST_IsEmpty(geometry_any)
+)
+
+,vSurfaceWaterBody AS
+(
+    SELECT ""thematicididentifier""        AS wb_id,
+           ""thematicididentifierscheme""  AS wb_scheme,
+           ""relatedzoneidentifier""       AS rbd_id,
+           ""relatedzoneidentifierscheme"" AS rbd_scheme,
+           ""zonetype""                    AS wb_category
+    FROM dataset_46376.""relatedzone""
+)
+
+,vRBDValid1 AS
+(
+    SELECT ""thematicididentifier""       AS rbd_id,
+           ""thematicididentifierscheme"" AS rbd_scheme,
+           ST_MakeValid(geometry_polygon) AS geometry_polygon
+    FROM dataset_46376.""riverbasindistrict""
+    WHERE geometry_polygon <> CAST('' AS VARBINARY)
+)
+
+,vRBDValid2 AS
+(
+    SELECT rbd_id, rbd_scheme, geometry_polygon
+    FROM vRBDValid1
+    WHERE ST_IsValid(geometry_polygon)
+      AND NOT ST_IsEmpty(geometry_polygon)
+)
+
+SELECT
+    PA.""thematicididentifier"",
+    PA.record_id,
+    PA.""relatedzoneidentifier"",
+    WB.rbd_id
+FROM vPAValid2 PA
+JOIN vSurfaceWaterBody WB
+    ON PA.""relatedzoneidentifier"" = WB.wb_id
+   AND PA.""relatedzoneidentifierscheme"" = WB.wb_scheme
+JOIN vRBDValid2 RBD
+    ON WB.rbd_id = RBD.rbd_id
+   AND WB.rbd_scheme = RBD.rbd_scheme
+WHERE coalesce(PA.""relatedzoneidentifier"",'') <> ''
+  AND coalesce(WB.wb_category,'') NOT IN ('coastalWaters','territorialWaters')
+  AND (
+      ST_Disjoint (PA.geometry_any, RBD.geometry_polygon)=true
+      )",RECORD,ERROR,false,true,true

@@ -1,0 +1,36 @@
+```{list-table} GWB dataflow - GWAssociatedProtectedArea table
+:name: GWB_GWAssociatedProtectedArea
+:header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
+
+* - Attribute
+  - Type
+  - {abbr}`M (Multiplicity)`
+  - Definition
+
+* - euGroundwaterBodyCode
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique European identifier of the groundwater body to which the protected area is associated.
+
+* - euProtectedAreaType
+  - {term}`ProtectedAreaType`
+  - [1]
+  - Type of Protected Area related to the groundwater body, selected from the enumeration list.
+
+    **WISE**: Fewer types of Protected Areas are relevant to groundwater bodies than to surface water bodies. `'Birds / Habitats'` applies when protected habitats or species rely on groundwater-dependent surface waters or terrestrial ecosystems.
+
+* - protectedAreaObjectivesSet
+  - {term}`YesNoOther`
+  - [0..1]
+  - Indicates whether specific water objectives or additional standards have been set with the aim of complying with the relevant legislation for the protected area concerned.
+
+* - protectedAreaObjectivesMet
+  - {term}`YesNoOther`
+  - [0..1]
+  - Indicates, when specific water objectives or additional standards have been set for the protected area, whether they have been met.
+
+    **WISE**: Report if, and only if, `protectedAreaObjectivesSet` is `'Yes'`.
+
+```

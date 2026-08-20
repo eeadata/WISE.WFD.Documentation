@@ -1,0 +1,185 @@
+Table,Field,Code,QC Name,QC Description,Message,Expression,Type of QC,Severity Level,Creation Mode,Status,Valid
+SWAssociatedProtectedArea,protectedAreaObjectivesSet,V101,V101,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V101],"SELECT record_id, ""protectedAreaObjectivesSet""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE coalesce(""protectedAreaObjectivesSet"",'') NOT IN ('yes','no')",FIELD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesMet,V102,V102,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V102],"SELECT record_id, ""protectedAreaObjectivesMet""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE coalesce(""protectedAreaObjectivesMet"",'') NOT IN ('yes','no','unknown','inapplicable')",FIELD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesSet,R100,R100,"For shellfish designated waters, protectedAreaObjectivesSet cannot be 'no'.","For shellfish designated waters, protectedAreaObjectivesSet cannot be 'no'. [r100]","SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'shellfishDesignatedWater'
+AND ""protectedAreaObjectivesSet"" = 'no'",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesSet,R101,R101,"For drinking water protection areas, protectedAreaObjectivesSet cannot be 'no'.","For drinking water protection areas, protectedAreaObjectivesSet cannot be 'no'. [R101]","SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'drinkingWaterProtectionArea'
+AND ""protectedAreaObjectivesSet"" = 'no'",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,euProtectedAreaCode,R102,R102,"For shellfish designated waters, euProtectedAreaCode must not be reported.","For shellfish designated waters, euProtectedAreaCode must not be reported. [R102]","SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'shellfishDesignatedWater'
+AND COALESCE(""euProtectedAreaCode"",'') <> ''",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,euProtectedAreaCode,R103,R103,"For drinking water protection areas, euProtectedAreaCode must not be reported.","For drinking water protection areas, euProtectedAreaCode must not be reported. [R103]","SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'drinkingWaterProtectionArea'
+AND COALESCE(""euProtectedAreaCode"",'') <> ''",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,euProtectedAreaCode,R104,R104,"For Natura2000 sites, euProtectedAreaCode must be reported.","For Natura2000 sites, euProtectedAreaCode must be reported. [R104]","SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'natura2000'
+AND COALESCE(""euProtectedAreaCode"",'') = ''",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesMet,R105,R105,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'.,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'. [R105],"SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""protectedAreaObjectivesSet"" = 'yes'
+AND ""protectedAreaObjectivesMet"" = 'inapplicable'",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesSet,R105,R105,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'.,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'. [R105],"SELECT record_id, ""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea""
+WHERE ""protectedAreaObjectivesSet"" = 'yes'
+AND ""protectedAreaObjectivesMet"" = 'inapplicable'",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,,RF100,RF100,A shellfish designated water protected area must exist for the referenced surface water body.,A shellfish designated water protected area must exist for the referenced surface water body.[RF100],"SELECT sw.record_id, sw.""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea"" sw
+WHERE sw.""euProtectedAreaType"" = 'shellfishDesignatedWater'
+AND NOT EXISTS (
+    SELECT 1
+    FROM dataset_46376.""protectedarea"" pa
+    WHERE pa.""zonetype"" = 'designatedWaters'
+    AND pa.""specialisedzonetype"" = 'shellfishDesignatedWater'
+    AND pa.""relatedzoneidentifier"" = sw.""euSurfaceWaterBodyCode""
+    AND pa.""relatedzoneidentifierscheme"" = 'euSurfaceWaterBodyCode'
+)",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,,RF101,RF101,A drinking water protection area must exist for the referenced surface water body.,A drinking water protection area must exist for the referenced surface water body. [RF101],"SELECT sw.record_id, sw.""euSurfaceWaterBodyCode""
+FROM dataset_46598.""swassociatedprotectedarea"" sw
+WHERE sw.""euProtectedAreaType"" = 'drinkingWaterProtectionArea'
+AND NOT EXISTS (
+    SELECT 1
+    FROM dataset_46376.""protectedarea"" pa
+    WHERE pa.""zonetype"" = 'drinkingWaterProtectionArea'
+    AND pa.""relatedzoneidentifier"" = sw.""euSurfaceWaterBodyCode""
+    AND pa.""relatedzoneidentifierscheme"" = 'euSurfaceWaterBodyCode'
+)",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,,RF103,RF103,Natura2000 objectives are required when site is not in the pre-filled list,Natura2000 objectives are required when site is not in the pre-filled list. [RF103],"SELECT sw.record_id, sw.""euSurfaceWaterBodyCode"", sw.""euProtectedAreaCode""
+FROM dataset_46598.""swassociatedprotectedarea"" sw
+WHERE sw.""euProtectedAreaType"" = 'natura2000'
+  AND COALESCE(sw.""protectedAreaObjectivesSet"",'') = ''
+  AND NOT EXISTS (
+      SELECT 1
+      FROM dataset_46855.""natura2000"" n2k
+      WHERE n2k.""euSurfaceWaterBodyCode"" = sw.""euSurfaceWaterBodyCode""
+        AND n2k.""euProtectedAreaCode"" = sw.""euProtectedAreaCode""
+  )",RECORD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,euProtectedAreaType,V200,V200,"euProtectedAreaType must be one of: shellfishDesignatedWater, drinkingWaterProtectionArea","euProtectedAreaType must be one of: shellfishDesignatedWater, drinkingWaterProtectionArea [V200]","SELECT record_id, ""euProtectedAreaType""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE coalesce(""euProtectedAreaType"",'') NOT IN ('shellfishDesignatedWater','drinkingWaterProtectionArea')",FIELD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesSet,V202,V202,protectedAreaObjectivesSet must be a valid Yes value,protectedAreaObjectivesSet must be a valid Yes value [V202],"SELECT record_id, ""protectedareaobjectivesset""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE coalesce(""protectedareaobjectivesset"",'') <> 'yes'",FIELD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesMet,V203,V203,protectedAreaObjectivesMet must be a valid YesNoUnknown value.,protectedAreaObjectivesMet must be a valid YesNoUnknown value. [V203],"SELECT record_id, ""protectedAreaObjectivesMet""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE coalesce(""protectedAreaObjectivesMet"",'') NOT IN ('yes','no','unknown')",FIELD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesSet,R200,R200,"For shellfish designated waters, protectedAreaObjectivesSet cannot be 'no'.","For shellfish designated waters, protectedAreaObjectivesSet cannot be 'no'. [R200]","SELECT record_id, ""euGroundwaterBodyCode""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'shellfishDesignatedWater'
+AND ""protectedAreaObjectivesSet"" = 'no'",RECORD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesSet,R201,R201,"For drinking water protection areas, protectedAreaObjectivesSet cannot be 'no'.","For drinking water protection areas, protectedAreaObjectivesSet cannot be 'no'. [R201]","SELECT record_id, ""euGroundwaterBodyCode""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE ""euProtectedAreaType"" = 'drinkingWaterProtectionArea'
+AND ""protectedAreaObjectivesSet"" = 'no'",RECORD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesMet,R202,R202,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'.,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'. [R202],"SELECT record_id, ""euGroundwaterBodyCode""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE ""protectedAreaObjectivesSet"" = 'yes'
+AND ""protectedAreaObjectivesMet"" = 'inapplicable'",RECORD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesSet,R202,R202,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'.,protectedAreaObjectivesMet cannot be 'inapplicable' when protectedAreaObjectivesSet is 'yes'. [R202],"SELECT record_id, ""euGroundwaterBodyCode""
+FROM dataset_46598.""gwassociatedprotectedarea""
+WHERE ""protectedAreaObjectivesSet"" = 'yes'
+AND ""protectedAreaObjectivesMet"" = 'inapplicable'",RECORD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,,RF200,R200,A shellfish designated water protected area must exist for the referenced groundwater body.,A shellfish designated water protected area must exist for the referenced groundwater body.[RF200],"SELECT gw.record_id, gw.""euGroundwaterBodyCode""
+FROM dataset_46598.""gwassociatedprotectedarea"" gw
+WHERE gw.""euProtectedAreaType"" = 'shellfishDesignatedWater'
+AND NOT EXISTS (
+    SELECT 1
+    FROM dataset_46376.""protectedarea"" pa
+    WHERE pa.""zonetype"" = 'designatedWaters'
+    AND pa.""specialisedzonetype"" = 'shellfishDesignatedWater'
+    AND pa.""relatedzoneidentifier"" = gw.""euGroundwaterBodyCode""
+    AND pa.""relatedzoneidentifierscheme"" = 'euGroundwaterBodyCode'
+)",RECORD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,,RF201,RF201,A drinking water protection area must exist for the referenced groundwater body.,A drinking water protection area must exist for the referenced groundwater body. [RF201],"SELECT gw.record_id, gw.""euGroundwaterBodyCode""
+FROM dataset_46598.""gwassociatedprotectedarea"" gw
+WHERE gw.""euProtectedAreaType"" = 'drinkingWaterProtectionArea'
+AND NOT EXISTS (
+    SELECT 1
+    FROM dataset_46376.""protectedarea"" pa
+    WHERE pa.""zonetype"" = 'drinkingWaterProtectionArea'
+    AND pa.""relatedzoneidentifier"" = gw.""euGroundwaterBodyCode""
+    AND pa.""relatedzoneidentifierscheme"" = 'euGroundwaterBodyCode'
+)",RECORD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,euSurfaceWaterBodyCode,V103,V103,The value of euSurfaceWaterBodyCode must follow the syntax of WISE identifiers,The value of euSurfaceWaterBodyCode must follow the syntax of WISE identifiers [V103],"WITH Dataset AS (
+    select  record_id,
+            euSurfaceWaterBodyCode,
+            (
+            select  concat(
+                    '^',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from    dataset_46598.""swassociatedprotectedarea""
+    where   coalesce(euSurfaceWaterBodyCode, '') <> ''
+)
+select  record_id,
+        euSurfaceWaterBodyCode
+from    Dataset
+where   NOT REGEXP_COL_LIKE(euSurfaceWaterBodyCode, regexp)",FIELD,BLOCKER,false,true,true
+GWAssociatedProtectedArea,euGroundwaterBodyCode,V204,V204,The value of euGroundWaterBodyCode must follow the syntax of WISE identifiers,The value of euGroundWaterBodyCode must follow the syntax of WISE identifiers [V204],"WITH Dataset AS (
+    select  record_id,
+            euGroundwaterBodyCode,
+            (
+            select  concat(
+                    '^',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from    dataset_46598.""gwassociatedprotectedarea""
+    where   coalesce(euGroundwaterBodyCode, '') <> ''
+)
+select  record_id,
+        euGroundwaterBodyCode
+from    Dataset
+where   NOT REGEXP_COL_LIKE(euGroundwaterBodyCode, regexp)",FIELD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,euProtectedAreaCode,V104,V104,The value of euProtectedAreaCode must follow the syntax of WISE identifiers,The value of euProtectedAreaCode must follow the syntax of WISE identifiers [V104],"WITH Dataset AS (
+    select  record_id,
+            euProtectedAreaCode,
+            (
+            select  concat(
+                    '^',
+                    (
+                     '{%R3_COUNTRY_CODE%}' 
+                    ),
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from    dataset_46598.""swassociatedprotectedarea""
+    where   coalesce(euProtectedAreaCode, '') <> ''
+)
+select  record_id,
+        euProtectedAreaCode
+from    Dataset
+where   NOT REGEXP_COL_LIKE(euProtectedAreaCode, regexp)",FIELD,BLOCKER,false,true,true
+SWAssociatedProtectedArea,euSurfaceWaterBodyCode,V105,V105,Checks if the field is missing or empty,The value must not be missing or empty [V105],,FIELD,BLOCKER,true,true,true
+SWAssociatedProtectedArea,,TU20,Table type uniqueConstraint,Checks if euSurfaceWaterBodyCode is unique within table,Uniqueness and multiplicity constraints - The field euSurfaceWaterBodyCode is unique within table [TU20],,TABLE,BLOCKER,true,true,true
+SWAssociatedProtectedArea,euProtectedAreaType,V106,V106,Checks if the field is missing or empty,The value must not be missing or empty [V106],,FIELD,BLOCKER,true,true,true
+SWAssociatedProtectedArea,euProtectedAreaType,V107,V107,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list.[V107],,FIELD,BLOCKER,true,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesSet,V108,V108,Checks if the field is missing or empty,The value must not be missing or empty [V108],,FIELD,BLOCKER,true,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesSet,V109,V109,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V109],,FIELD,BLOCKER,true,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesMet,V110,V110,Checks if the field is missing or empty,The value must not be missing or empty [V110],,FIELD,BLOCKER,true,true,true
+SWAssociatedProtectedArea,protectedAreaObjectivesMet,V111,V111,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V111],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,euGroundwaterBodyCode,V205,V205,Checks if the field is missing or empty,The value must not be missing or empty [V205],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,,TU28,Table type uniqueConstraint,Checks if euGroundwaterBodyCode is unique within table,Uniqueness and multiplicity constraints - The field euGroundwaterBodyCode is unique within table [TU28],,TABLE,BLOCKER,true,true,true
+GWAssociatedProtectedArea,euProtectedAreaType,V206,V206,Checks if the field is missing or empty,The value must not be missing or empty [V206],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,euProtectedAreaType,V207,V207,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V207],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesSet,V208,V208,Checks if the field is missing or empty,The value must not be missing or empty [V208],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesSet,V209,V209,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V209],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesMet,V210,V210,Checks if the field is missing or empty,The value must not be missing or empty [V210],,FIELD,BLOCKER,true,true,true
+GWAssociatedProtectedArea,protectedAreaObjectivesMet,V211,V211,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V211],,FIELD,BLOCKER,true,true,true

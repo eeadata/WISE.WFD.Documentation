@@ -1,0 +1,48 @@
+```{list-table} SWB dataflow - SWAssociatedProtectedArea table
+:name: SWB_SWAssociatedProtectedArea
+:header-rows: 1
+:width: 100%
+:widths: 25 15 10 50
+
+* - Attribute
+  - Type
+  - {abbr}`M (Multiplicity)`
+  - Definition
+
+* - euSurfaceWaterBodyCode
+  - {term}`wiseIdentifier`
+  - [1]
+  - Unique European identifier of the surface water body to which specific objectives,
+    related to an associated protected area, apply.
+
+* - euProtectedAreaType
+  - {term}`ProtectedAreaType`
+  - [1]
+  - Type of protected area for which specific objectives may have been set for the surface water body: `'shellfishDesignatedWater'`,'drinkingWaterProtectionArea'` or `'natura2000'`.
+
+    **WISE (4th cycle)**: Specific objectives are only relevant, for surface water bodies, for these three types of protected area. For Freshwater fish designated waters, bathing waters, the Nitrates Directive and the UWWTD, the WFD good status already integrates the corresponding objectives, so no information is requested for those types.
+    Reporting of specific objectives for Nationally Designated Areas (NatDA, formerly CDDA) is also no longer requested.
+
+* - euProtectedAreaCode
+  - {term}`natura2000Identifier`
+  - [0..1]
+  - Natura 2000 site code associated with the water body.
+
+    **WISE (4th cycle)**: 
+    The reported code must correspond to an identifier registered in the
+    [Natura2000 vocabulary](https://dd.eionet.europa.eu/vocabulary/biodiversity/n2000sites).
+
+* - protectedAreaObjectivesSet
+  - {term}`YesNoOther`
+  - [1]
+  - Indicates whether specific water objectives or additional standards have been set for the associated protected area.
+
+    **WISE (4th cycle)**: For shellfish designated waters and drinking water protection areas, report only if specific objectives have actually been set. For Natura 2000 sites, report if specific objectives have been set, or if the Natura 2000 site is not part of the pre-filled list of water-dependent sites.
+    
+* - protectedAreaObjectivesMet
+  - {term}`YesNoOther`
+  - [1]
+  - Indicates whether the specific water objectives or additional standards set for the protected area have been met.
+
+
+```
