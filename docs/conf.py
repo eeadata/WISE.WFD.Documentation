@@ -3,6 +3,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '_ext'))
 from pybtex.style.sorting import BaseSortingStyle
 from pybtex.style.formatting.plain import Style as PlainStyle
 from pybtex.plugin import register_plugin
@@ -47,6 +48,7 @@ extensions = ['sphinx.ext.autodoc',
                 'sphinxcontrib.bibtex', 
                 'sphinxcontrib.mermaid', 
                 'sphinxcontrib.sqltable',
+                'sql_dataset',
                 'nbsphinx',
                 'sphinx_design',
                 'sphinx_copybutton',
@@ -138,7 +140,7 @@ html_theme_options = {
         "text": "Water Framework Directive",
     },
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
-    "show_toc_level": 4,
+    "show_toc_level": 3,
     "use_edit_page_button": True,
     "navbar_align": "right"
 }

@@ -8,6 +8,7 @@ html_theme.sidebar_secondary.remove: true
 :maxdepth: 2
 WFDRiverBasinDistrictsAndCompetentAuthorities
 WFDMonitoring
+WFDProtectedArea
 ```
 
 ## Issues
