@@ -71,7 +71,6 @@ or the provision of a hyperlink to a document stored in a publicly accessible na
 :name: RBDCA_4thCycle_Documents
 :caption: River Basin Districts and Competent Authorities - 4th cycle - Documents
 :align: center
-:zoom:
 ```
 
 (heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle)=
@@ -89,14 +88,12 @@ The Descriptive dataset contains two tables ({numref}`RBDCA_4thCycle_Descriptive
 :name: RBDCA_4thCycle_Descriptive
 :caption:  River Basin Districts and Competent Authorities - 4th cycle - Descriptive Data
 :align: center
-:zoom:
 ```
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_Role_ClassDiagram.mmd
 :name: Codelist_4thCycle_Role_ClassDiagram
 :caption:  Codelist - 4th cycle - Role
 :align: center
-:zoom:
 ```
 
 (heading_riverbasindistrict_spatial_dataset_4th_cycle)=
@@ -136,7 +133,6 @@ The following changes have been made to the `RiverBasinDistrict` spatial table
 :name: Spatial_4thCycle_RiverBasinDistrict_ClassDiagram
 :caption: Spatial dataset - RiverBasinDistrict - 4th cycle
 :align: center
-:zoom:
 ```
 
 ## Annexes - Data analysis - 3rd cycle

@@ -338,7 +338,6 @@ and, optionally, the GroundWaterBodyHorizon spatial data
 :name: Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram
 :caption: Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle
 :align: center
-:zoom:
 ```
 
 The following changes have been made to the `GroundWaterBody` spatial table
@@ -402,7 +401,6 @@ The Documents dataset follows the standard structure used in various WISE datafl
 :name: Groundwater_4thCycle_Documents_ClassDiagram
 :caption: Groundwater - 4th cycle - Documents
 :align: center
-:zoom:
 ```
 
 The following criteria apply:

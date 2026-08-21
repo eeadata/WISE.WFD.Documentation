@@ -137,7 +137,6 @@ Therefore, for the 4th cycle of reporting, the requested information is simplifi
 :name: Monitoring_4thCycle_Overview_ClassDiagram
 :caption:  Monitoring dataflow - overview - 4th cycle
 :align: center
-:zoom:
 ```
 
 (heading_wfd_monitoring_4th_cycle)=
@@ -154,7 +153,6 @@ in the `MonitoringProgrammes` table (see {numref}`Monitoring_4thCycle_Monitoring
 :name: Monitoring_4thCycle_MonitoringProgrammes_ClassDiagram
 :caption:  Descriptive data - Monitoring Programmes - 4th cycle
 :align: center
-:zoom:
 ```
 
 The following conditions apply:
@@ -225,7 +223,6 @@ A simplified `Monitoring` table is proposed (see {numref}`Monitoring_4thCycle_Mo
 :name: Monitoring_4thCycle_Monitoring_ClassDiagram
 :caption:  Descriptive data - Monitoring - 4th cycle
 :align: center
-:zoom:
 ```
 
 For the 4th cycle, the following conditions apply:
@@ -327,7 +324,6 @@ surveillance, operational, and/or investigative monitoring
 :name: Monitoring_4thCycle_MonitoringPurpose_ClassDiagram
 :caption:  Descriptive data - MonitoringPurpose - 4th cycle
 :align: center
-:zoom:
 ```
 
 (heading_wfd_monitoring_codelists_4th_cycle)=
@@ -410,7 +406,6 @@ The following changes have been made to the `MonitoringSite` spatial table
 :name: Spatial_4thCycle_MonitoringSite_ClassDiagram
 :caption: Spatial dataset - MonitoringSite - 4th cycle
 :align: center
-:zoom:
 ```
 
 (heading_wfd_monitoring_codelists_monitoring_site_4th_cycle)=
@@ -460,7 +455,6 @@ The Documents dataset follows the standard structure used in various WISE datafl
 :name: Monitoring_4thCycle_Documents_ClassDiagram
 :caption: Monitoring - 4th cycle - Documents
 :align: center
-:zoom:
 ```
 
 The following criteria apply:

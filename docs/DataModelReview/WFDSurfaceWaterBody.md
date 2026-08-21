@@ -480,7 +480,6 @@ The SurfaceWaterBodyCentreline dataset is no longer requested in the 4th cycle o
 :name: Spatial_4thCycle_SurfaceWaterBody_ClassDiagram
 :caption: Spatial dataset - SurfaceWaterBody - 4th cycle
 :align: center
-:zoom:
 ```
 
 The following changes have been made to the `SurfaceWaterBody` spatial table
@@ -550,7 +549,6 @@ The Documents dataset follows the standard structure used in various WISE datafl
 :name: SurfaceWater_4thCycle_Documents_ClassDiagram
 :caption: Surface water - 4th cycle - Documents
 :align: center
-:zoom:
 ```
 
 The following criteria apply:
