@@ -5,7 +5,7 @@
 The definitions are being reviewed.
 ```
 
-Last update: 2026-06-25
+Last update: 2026-08-21
 
 ## Descriptive dataset
 
@@ -13,16 +13,12 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle`
 
-(heading_wfd_rbd_and_ca_competent_authority_table_testing_phase)=
-### CompetentAuthority table
-
-```{include} tables/RBDCA_CompetentAuthority
+```{sql-dataset} CompetentAuthority 11708
+:connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-(heading_wfd_rbd_and_ca_riverbasindistrictcompetentauthority_table_testing_phase)=
-### RiverBasinDistrictCompetentAuthority table
-
-```{include} tables/RBDCA_RiverBasinDistrictCompetentAuthority
+```{sql-dataset} RiverBasinDistrictCompetentAuthority 11708
+:connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
 ## Spatial dataset
@@ -31,10 +27,8 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_riverbasindistrict_spatial_dataset_4th_cycle`
 
-(heading_wfd_rbd_and_ca_riverbasindistrict_table_testing_phase)=
-### RiverBasinDistrict spatial table
-
-```{include} tables/Spatial_RiverBasinDistrict
+```{sql-dataset} RiverBasinDistrict 11708
+:connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
 ## Documents dataset
@@ -43,14 +37,10 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_rbd_and_ca_documents_dataset_4th_cycle`
 
-(heading_wfd_rbd_and_ca_dcmetadata_table_testing_phase)=
-### dcMetadata table
-
-```{include} tables/RBDCA_dcMetadata
+```{sql-dataset} dcMetadata 11708
+:connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-(heading_wfd_rbd_and_ca_document_table_testing_phase)=
-### Document table
-
-```{include} tables/RBDCA_Document
+```{sql-dataset} Document 11708
+:connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```

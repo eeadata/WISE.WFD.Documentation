@@ -78,7 +78,7 @@ class SqlDatasetDirective(SphinxDirective):
     pulled live from the database."""
 
     required_arguments = 1  # table name, e.g. "ProtectedArea"
-    optional_arguments = 1  # optional dataset name, e.g. "Monitoring" -
+    optional_arguments = 1  # optional dataflowid -
                              # disambiguates when the same table name is
                              # reused across different dataflows/datasets
     final_argument_whitespace = True
