@@ -17,11 +17,11 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_protected_areas_descriptive_data_reporting`
 
-```{sql-dataset} GWAssociatedProtectedArea
+```{sql-dataset} GWAssociatedProtectedArea WFDProtectedArea
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-```{sql-dataset} SWAssociatedProtectedArea
+```{sql-dataset} SWAssociatedProtectedArea WFDProtectedArea
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
@@ -31,16 +31,16 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_protected_areas_spatial_data_reporting_4th_cycle`
 
-```{sql-dataset} ProtectedArea
+```{sql-dataset} ProtectedArea WFDProtectedArea
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
 ## Documents dataset
 
-```{sql-dataset} dcMetadata 13195
+```{sql-dataset} dcMetadata WFDProtectedArea
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-```{sql-dataset} Document 13195
+```{sql-dataset} Document WFDProtectedArea
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```

@@ -17,15 +17,15 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_monitoring_4th_cycle`
 
-```{sql-dataset} MonitoringProgrammes 11909
+```{sql-dataset} MonitoringProgrammes WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-```{sql-dataset} Monitoring 11909
+```{sql-dataset} Monitoring WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-```{sql-dataset} MonitoringPurpose 11909
+```{sql-dataset} MonitoringPurpose WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
@@ -35,7 +35,7 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_monitoringsite_spatial_dataset_4th_cycle`
 
-```{sql-dataset} MonitoringSite 11909
+```{sql-dataset} MonitoringSite WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
@@ -45,14 +45,14 @@ See additional information in the *data model review documentation*:
 
 * {ref}`heading_wfd_monitoring_documents_dataset_4th_cycle`
 
-```{sql-dataset} dcMetadata 11909
+```{sql-dataset} dcMetadata WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-```{sql-dataset} Document 11909
+```{sql-dataset} Document WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```
 
-```{sql-dataset} DocumentReference 11909
+```{sql-dataset} DocumentReference WFDMonitoring
 :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
 ```

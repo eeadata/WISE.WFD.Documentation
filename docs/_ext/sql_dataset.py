@@ -2,31 +2,36 @@
 """
 sql_dataset.py — custom Sphinx extension.
 
-Provides a single directive, `sql-dataset`, that renders the *entire*
-documentation of one dataset table (table description, table-level QCs,
-and one sub-section per field with its definition and field-level QCs)
-by querying a SQLAlchemy-accessible database at build time.
+Provides a single directive, `sql-dataset`, that renders the full
+documentation of one dataset table by querying a SQLAlchemy-accessible
+database at build time:
 
-Unlike sphinxcontrib-sqltable (one query -> one table), this directive
-loops over the query results and builds the section/heading structure
-itself. This means the *structure* of the documentation (how many
-fields, their order, their headings) comes from the database too -
-adding/removing/reordering a row in `metadata` changes the rendered
-docs on the next build, with no markdown file to edit or regenerate.
+    - the table name (heading)
+    - one combined table listing every field (Attribute / Type /
+      Multiplicity / Definition)
+    - the table's own description
+    - the table-level quality controls (as a table, no extra heading)
+    - one sub-heading per field, each followed directly by that
+      field's quality controls (as a table, no extra heading)
 
 Usage (MyST):
 
-    ```{sql-dataset} GWAssociatedProtectedArea
-    :connection_string: sqlite:///docs/TestingPhase/ProtectedArea/db/WFD_ProtectedArea.db3
+    ```{sql-dataset} GWAssociatedProtectedArea WFDProtectedArea
+    :connection_string: sqlite:///docs/TestingPhase/db/WFD_Documentation.db3
     ```
+
+The second argument is the dataflow's short code (e.g. WFDProtectedArea,
+WFDMonitoring, WFDRiverBasinDistrict), used to disambiguate tables whose
+name is reused across dataflows (Document, dcMetadata).
 
 Expects two tables in the database:
 
     metadata(tableName, columnName, columnPosition, columnDataType,
-             metadataInfo, objectType, dataflowId, datasetName)
+             multiplicity, metadataInfo, objectType, dataflowId,
+             dataflowCode)
     qc(Table, Field, Code, "QC Name", "QC Description", Message,
        Expression, "Type of QC", "Severity Level", "Creation Mode",
-       Status, Valid)
+       Status, Valid, dataflowId, dataflowCode)
 """
 
 import re
@@ -34,11 +39,24 @@ import re
 import sqlalchemy
 from docutils import nodes
 from docutils.parsers.rst.directives import unchanged
+from sphinx import addnodes
 from sphinx.util.docutils import SphinxDirective
 
 
 def _slug(text):
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def _dataflow_filter(table_name, dataflow_code, **extra_params):
+    """Builds the (params, sql_suffix) pair used to optionally scope a
+    query by dataflowCode, avoiding duplicating this logic at every
+    call site. extra_params lets callers add e.g. the field name."""
+    params = {"t": table_name, **extra_params}
+    sql_suffix = ""
+    if dataflow_code:
+        sql_suffix = " AND dataflowCode=:dfcode"
+        params["dfcode"] = dataflow_code
+    return params, sql_suffix
 
 
 def _build_table(headers, rows, widths):
@@ -65,36 +83,65 @@ def _build_table(headers, rows, widths):
         row_node = nodes.row()
         for cell in row:
             entry = nodes.entry()
-            entry += nodes.paragraph(text="" if cell is None else str(cell))
+            if isinstance(cell, list):
+                # pre-built inline nodes (e.g. a glossary term reference)
+                para = nodes.paragraph()
+                para += cell
+                entry += para
+            else:
+                entry += nodes.paragraph(text="" if cell is None else str(cell))
             row_node += entry
         tbody += row_node
 
     return table
 
 
+_TYPE_LENGTH_RE = re.compile(r"^(.*)\((\d+)\)$")
+
+
 class SqlDatasetDirective(SphinxDirective):
-    """Renders one dataset table: description, table QCs, and one
-    sub-section per field with its definition and field QCs - all
-    pulled live from the database."""
+    """Renders one dataset table: an all-fields overview table, the
+    table description, the table-level QCs, and one sub-section per
+    field with just its QCs - all pulled live from the database."""
 
     required_arguments = 1  # table name, e.g. "ProtectedArea"
-    optional_arguments = 1  # optional dataflowid -
+    optional_arguments = 1  # optional dataflow code (e.g. "WFDProtectedArea") -
                              # disambiguates when the same table name is
-                             # reused across different dataflows/datasets
+                             # reused across different dataflows
     final_argument_whitespace = True
     option_spec = {
         "connection_string": unchanged,
         "id_prefix": unchanged,  # override auto-generated anchor prefix
-        "dataflow": unchanged,   # alternative way to pass the dataflowId
+        "dataflow": unchanged,   # alternative way to pass the dataflow code
     }
     has_content = False
 
+    def _type_cell(self, raw_type):
+        """Builds the Type column cell: a real cross-reference link to
+        the glossary term (built the same way Sphinx's own :term: role
+        does internally, via a pending_xref node), with any trailing
+        length (e.g. "(4000)") appended as plain text right after it -
+        matching the "string254"-style rendering used across the
+        project."""
+        m = _TYPE_LENGTH_RE.match(raw_type)
+        base, length = (m.group(1), m.group(2)) if m else (raw_type, None)
+
+        xref = addnodes.pending_xref(
+            "", refdomain="std", reftype="term", reftarget=base.lower(),
+            refexplicit=False, refwarn=True,
+        )
+        xref += nodes.Text(base)
+        nodelist = [xref]
+        if length:
+            nodelist.append(nodes.Text(length))
+        return nodelist
+
     def run(self):
         table_name = self.arguments[0].strip()
-        dataflow_id = None
+        dataflow_code = None
         if len(self.arguments) > 1:
-            dataflow_id = self.arguments[1].strip()
-        dataflow_id = self.options.get("dataflow", dataflow_id)
+            dataflow_code = self.arguments[1].strip()
+        dataflow_code = self.options.get("dataflow", dataflow_code)
 
         conn_str = self.options.get("connection_string") or getattr(
             self.env.config, "sqltable_connection_string", None
@@ -108,17 +155,7 @@ class SqlDatasetDirective(SphinxDirective):
             )
             return [error]
 
-        params = {"t": table_name}
-        dataflow_filter_sql = ""
-        if dataflow_id:
-            dataflow_filter_sql = " AND dataflowId=:dfid"
-            params["dfid"] = dataflow_id
-
-        qc_dataflow_filter_sql = ""
-        qc_params_base = {"t": table_name}
-        if dataflow_id:
-            qc_dataflow_filter_sql = " AND dataflowId=:dfid"
-            qc_params_base["dfid"] = dataflow_id
+        params, dataflow_filter_sql = _dataflow_filter(table_name, dataflow_code)
 
         engine = sqlalchemy.create_engine(conn_str)
         with engine.connect() as conn:
@@ -134,14 +171,14 @@ class SqlDatasetDirective(SphinxDirective):
             table_qcs = conn.execute(
                 sqlalchemy.text(
                     'SELECT Code, "Severity Level", Message FROM qc '
-                    f'WHERE "Table"=:t AND "Field"=\'\'{qc_dataflow_filter_sql} ORDER BY Code'
+                    f'WHERE "Table"=:t AND "Field"=\'\'{dataflow_filter_sql} ORDER BY Code'
                 ),
-                qc_params_base,
+                params,
             ).fetchall()
 
             fields = conn.execute(
                 sqlalchemy.text(
-                    "SELECT columnName, columnDataType, columnPosition, metadataInfo "
+                    "SELECT columnName, columnDataType, multiplicity, metadataInfo "
                     f"FROM metadata WHERE objectType='column' AND tableName=:t{dataflow_filter_sql} "
                     "ORDER BY columnPosition"
                 ),
@@ -152,58 +189,58 @@ class SqlDatasetDirective(SphinxDirective):
 
         top_section = nodes.section(ids=[id_prefix])
         top_section += nodes.title(text=table_name)
+
+        # --- combined all-fields table (Attribute | Type | M | Definition) ---
+        if fields:
+            top_section += _build_table(
+                ["Attribute", "Type", "M", "Definition"],
+                [
+                    (column_name, self._type_cell(dtype), mult, field_desc)
+                    for column_name, dtype, mult, field_desc in fields
+                ],
+                widths=[18, 15, 7, 60],
+            )
+
+        # --- table description ---
         if description:
             top_section += nodes.paragraph(text=description)
 
+        # --- table-level QCs (no heading) ---
         if table_qcs:
-            top_section += nodes.rubric(text="Table level quality controls")
             top_section += _build_table(
                 ["Code", "Severity", "Description"],
                 list(table_qcs),
                 widths=[10, 15, 75],
             )
 
-        fields_section = top_section
-        if fields:
-            fields_section = nodes.section(ids=[f"{id_prefix}-fields"])
-            fields_section += nodes.title(text="Fields")
-            top_section += fields_section
-
-        for column_name, dtype, position, field_desc in fields:
+        # --- one sub-section per field: title + QCs only (no heading, no def table) ---
+        for column_name, dtype, mult, field_desc in fields:
             field_id = f"{id_prefix}-{_slug(column_name)}"
             field_section = nodes.section(ids=[field_id])
             field_section += nodes.title(text=column_name)
-            field_section += _build_table(
-                ["Type", "Description"],
-                [(dtype, field_desc)],
-                widths=[20, 80],
-            )
 
+            field_qc_params, _ = _dataflow_filter(table_name, dataflow_code, f=column_name)
             with engine.connect() as conn:
-                field_qc_params = {"t": table_name, "f": column_name}
-                if dataflow_id:
-                    field_qc_params["dfid"] = dataflow_id
                 field_qcs = conn.execute(
                     sqlalchemy.text(
                         'SELECT Code, "Severity Level", Message FROM qc '
-                        f'WHERE "Table"=:t AND "Field"=:f{qc_dataflow_filter_sql} ORDER BY Code'
+                        f'WHERE "Table"=:t AND "Field"=:f{dataflow_filter_sql} ORDER BY Code'
                     ),
                     field_qc_params,
                 ).fetchall()
 
             if field_qcs:
-                field_section += nodes.rubric(text="Field level quality controls")
                 field_section += _build_table(
                     ["Code", "Severity", "Description"],
                     list(field_qcs),
                     widths=[10, 15, 75],
                 )
 
-            fields_section += field_section
+            top_section += field_section
 
         return [top_section]
 
 
 def setup(app):
     app.add_directive("sql-dataset", SqlDatasetDirective)
-    return {"version": "0.1", "parallel_read_safe": True, "parallel_write_safe": True}
+    return {"version": "0.2", "parallel_read_safe": True, "parallel_write_safe": True}
