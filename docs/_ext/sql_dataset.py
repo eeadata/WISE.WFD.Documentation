@@ -27,7 +27,7 @@ name is reused across dataflows (Document, dcMetadata).
 Expects two tables in the database:
 
     metadata(tableName, columnName, columnPosition, columnDataType,
-             multiplicity, metadataInfo, objectType, dataflowId,
+             multiplicity, description, objectType, dataflowId,
              dataflowCode)
     qc(Table, Field, Code, "QC Name", "QC Description", Message,
        Expression, "Type of QC", "Severity Level", "Creation Mode",
@@ -161,7 +161,7 @@ class SqlDatasetDirective(SphinxDirective):
         with engine.connect() as conn:
             desc_row = conn.execute(
                 sqlalchemy.text(
-                    "SELECT metadataInfo FROM metadata "
+                    "SELECT description FROM Metadata "
                     f"WHERE objectType='table' AND tableName=:t{dataflow_filter_sql}"
                 ),
                 params,
@@ -170,16 +170,16 @@ class SqlDatasetDirective(SphinxDirective):
 
             table_qcs = conn.execute(
                 sqlalchemy.text(
-                    'SELECT Code, "Severity Level", Message FROM qc '
-                    f'WHERE "Table"=:t AND "Field"=\'\'{dataflow_filter_sql} ORDER BY Code'
+                    'SELECT Code, "Severity Level", Message FROM Qc '
+                    f'WHERE "Table"=:t AND "Field"=\'\' AND UPPER(Status)=\'TRUE\'{dataflow_filter_sql} ORDER BY Code'
                 ),
                 params,
             ).fetchall()
 
             fields = conn.execute(
                 sqlalchemy.text(
-                    "SELECT columnName, columnDataType, multiplicity, metadataInfo "
-                    f"FROM metadata WHERE objectType='column' AND tableName=:t{dataflow_filter_sql} "
+                    "SELECT columnName, columnDataType, multiplicity, description "
+                    f"FROM Metadata WHERE objectType='column' AND tableName=:t{dataflow_filter_sql} "
                     "ORDER BY columnPosition"
                 ),
                 params,
@@ -193,7 +193,7 @@ class SqlDatasetDirective(SphinxDirective):
         # --- combined all-fields table (Attribute | Type | M | Definition) ---
         if fields:
             top_section += _build_table(
-                ["Attribute", "Type", "M", "Definition"],
+                ["Field", "Data type", "M", "Description"],
                 [
                     (column_name, self._type_cell(dtype), mult, field_desc)
                     for column_name, dtype, mult, field_desc in fields
@@ -223,8 +223,8 @@ class SqlDatasetDirective(SphinxDirective):
             with engine.connect() as conn:
                 field_qcs = conn.execute(
                     sqlalchemy.text(
-                        'SELECT Code, "Severity Level", Message FROM qc '
-                        f'WHERE "Table"=:t AND "Field"=:f{dataflow_filter_sql} ORDER BY Code'
+                        'SELECT Code, "Severity Level", Message FROM Qc '
+                        f'WHERE "Table"=:t AND "Field"=:f AND UPPER(Status)=\'TRUE\'{dataflow_filter_sql} ORDER BY Code'
                     ),
                     field_qc_params,
                 ).fetchall()
