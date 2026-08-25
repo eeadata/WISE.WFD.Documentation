@@ -364,14 +364,12 @@ The following criteria apply:
     The `includesSpatialData` value must be the same for all river basin districts.
 
 03. If `includesSpatialData = 'no'` then no spatial data is expected,
-    and the quality control of the monitoring dataset will run
-    against the last technically accepted delivery of monitoring sites.
+    and the quality control of the descriptive dataset will run
+    against **the designated areas (freshwater fish and shellfish) reported in the 3rd cycle**,
+    plus the last technically accepted deliveries of the
+    other types of WFD protected areas in the WISE register.
 
-04. For countries reporting under the WFD,
-    the last technically accepted delivery of monitoring sites
-    is **always the data reported in the 3rd cycle**.
-
-05. The monitoring dataset is also **national**,
+04. The descriptive dataset tables are also **national**,
     but the quality control will allow deliveries
     where some, or all, the river basin districts have `includesDescriptiveData = no`.
 
