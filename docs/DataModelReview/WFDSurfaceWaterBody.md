@@ -62,7 +62,7 @@ See:
 
 * {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
 * {ref}`heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element`
-* {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
+* {ref}`heading_wfd_protected_areas_surface_water_bodies_exemptions`
 
 Other simplifications already discussed also apply to the revision of the SWB schema:
 

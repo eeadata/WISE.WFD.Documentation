@@ -1,7 +1,7 @@
 (heading_wfd_protected_areas)=
 # Protected areas
 
-Last update: 2026-05-12
+Last update: 2026-08-25
 
 (heading_wfd_protected_areas_purpose_and_overview)=
 ## Purpose and overview
@@ -38,9 +38,6 @@ A proposal is presented for the electronic reporting in the 4th cycle.
 :align: center
 :caption: ProtectedArea spatial datasets - 3rd cycle - Obsolete
 ```
-
-(heading_wfd_protected_areas_spatial_data_reporting_3rd_cycle)=
-## Spatial data - 2nd and 3rd cycle
 
 The WFD Protected Area spatial data reporting requirements were stable
 during the 2nd and 3rd cycle of electronic reporting
@@ -93,12 +90,30 @@ These issues are addressed in the simplification of the reporting for the 4th cy
 These principles (same model, unique identifiers, report only once)
 were applied for all WFD protected area types, *except Natura2000 protected sites*.
 
+(heading_wfd_protected_areas_proposed_structure_4th_cycle)=
+## Proposed structure - 4th cycle
+
+For the 4th cycle of reporting, the requested information detailed in (see also {numref}`ProtectedArea_4thCycle_Overview_ClassDiagram`):
+
+* {ref}`heading_wfd_protected_areas_spatial_data_reporting_4th_cycle`
+* {ref}`heading_wfd_protected_areas_descriptive_data_reporting`
+* {ref}`heading_wfd_protected_areas_documents_dataset_4th_cycle`
+
+```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_Overview_ClassDiagram.mmd
+:name: ProtectedArea_4thCycle_Overview_ClassDiagram
+:caption:  WFD Protected Areas dataflow - overview - 4th cycle
+:align: center
+```
+
 (heading_wfd_protected_areas_spatial_data_reporting_4th_cycle)=
 ## Spatial data - 4th cycle
 
-In keeping with the approach taken in the 3rd cycle,
-the reporting of spatial data related to WFD protected areas in done under the dataflows
-pertaining to the legal instruments under which the protected areas were defined ({numref}`ProtectedAreas_LegalInstruments_Table`)
+The reporting of spatial data related to WFD protected areas in done under the dataflows
+pertaining to the legal instruments under which the protected areas were defined
+({numref}`ProtectedAreas_LegalInstruments_Table`).  
+
+**Only designated waters (freshwater fish and shellfish designated waters)
+are reported in directly in the 4th RBMP dataflow.**
 
 ```{include} tables/ProtectedAreas_LegalInstruments_Table
 ```
@@ -147,8 +162,6 @@ for the proposed generic ProtectedArea dataset:
 The Natura2000 dataflows do not include information about the association
 between protected sites and WFD water bodies.
 Therefore, a different approach is necessary to simplify the WFD reporting.
-A provisional prefilled list of "water-dependent" Natura 2000 protected sites will be created,
-based on the Natura2000 reporting based on the habitat type and species type {footcite}`links_between_wfd_nature_directives`.
 
 A Natura 2000 site should be designated as "water-dependent"
 if it contains Annex I habitat types
@@ -164,13 +177,19 @@ and that meet the ecological criteria below:
   on surface water for essential activities
   such as breeding, incubation, juvenile development, feeding, or roosting.
 
-The provisional prefilled list is available {download}`here <files/WFD_RelatedNatura2000Sites.sqlite>`, for validation purposes:
+A provisional prefilled list of "water-dependent" Natura 2000 protected sites was created,
+based on the Natura2000 reporting and the habitat type {footcite}`links_between_wfd_nature_directives`.
+
+The provisional prefilled list is available {download}`here <files/WFD_RelatedNatura2000Sites.sqlite>`
+for validation purposes:
 
 * If missing, additional Natura 2000 protected site identifiers
   may be added (from the reference list already reported under the Natura 2000 dataflows).
 * If incorrect, Natura 2000 protected site identifiers present in the provisional list
   may be flagged for removal from the WFD register of protected areas.
-* For those Natura 2000 sites that were related to WFD surface water bodies in the 3rd reporting cycle, please review in the provided SQLite file the distance value expressed in kilometers from the Natura 2000 site to the associated water body to detect possible issues.
+* For those Natura 2000 sites that were related to WFD surface water bodies in the 3rd reporting cycle
+  please review, in the provided SQLite file, the distance value (expressed in kilometers)
+  from the Natura 2000 site to the associated water body to detect possible issues.
 * For the Natura 2000 sites to be included in the WFD register of protected areas
   (because where the maintenance or improvement of water status
   is a critical factor for their protection), the association to water bodies should be reported.
@@ -247,11 +266,114 @@ The following checks against other datasets will also raise a quality control *b
   but there is corresponding Natura2000 identifier in
   https://dd.eionet.europa.eu/vocabulary/biodiversity/n2000sites
 
-With regard to exemptions related to associated protected areas, see:
+(heading_wfd_protected_areas_surface_water_bodies_exemptions)=
+### Exemptions for surface water bodies associated with protected areas
 
-* {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
-* {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
-* {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
+Specific objectives may be expressed in terms of WFD Water quality elements
+for surface water bodies associated with some types of protected areas:
+
+* Shellfish designated waters
+* Drinking water protection areas
+* Natura2000 protected sites included in the WFD register of protected areas
+
+If the specific objectives have been expressed in terms of WFD quality elements,
+and have not been met, then exemptions may be reported.
+(Note that the euProtectedAreaCode value is only requested for Natura2000 sites.)
+
+Based on the data reported in the 3rd cycle, the expected number of exemptions is relatively low.
+Therefore the attributes related to exemptions were simply
+added to the SWAssociatedProtectedArea table ({numref}`SWAssociatedProtectedAreaClass`).  
+See also {ref}`heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions`.
+
+```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_SWAssociatedProtectedArea_ClassDiagram.mmd
+:name: SWAssociatedProtectedAreaClass
+:caption: Surface water body associated protected area - Exemptions - 4th cycle
+:align: center
+```
+
+```{todo}
+Exemptions - {ref}`heading_wfd_protected_areas_surface_water_bodies_exemptions`
+
+DG ENV to provide draft flowchart and quality control criteria 
+for {ref}`heading_wfd_protected_areas_surface_water_bodies_exemptions`.
+```
+
+(heading_wfd_protected_areas_groundwater_bodies_exemptions)=
+### Exemptions for groundwater bodies associated with protected areas
+
+Specific objectives may be set for water bodies associated with some types of protected areas:
+
+* Drinking water protection areas
+* Natura 2000 protected sites included in the WFD register of protected areas
+
+*If the specific objectives have not been met*, then exemptions may be reported.
+
+(Note that the euProtectedAreaCode value is only requested for Natura 2000 sites.)
+
+Based on the data reported in the 3rd cycle, the expected number of exemptions is relatively low.
+Therefore the attributes related to exemptions were simply
+added to the GWAssociatedProtectedArea table ({numref}`GWAssociatedProtectedAreaClass`).  
+See also {ref}`heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions`.
+
+```{todo}
+Exemptions: {ref}`heading_wfd_protected_areas_groundwater_bodies_exemptions`
+
+DG ENV to provide draft flowchart and quality control criteria
+```
+
+```{mermaid} /DataModelReview/mmd/Exemptions_4thCycle_GWAssociatedProtectedArea_ClassDiagram.mmd
+:name: GWAssociatedProtectedAreaClass
+:caption: Groundwater body associated protected area - Exemptions - 4th cycle
+:align: center
+```
+
+(heading_wfd_protected_areas_documents_dataset_4th_cycle)=
+## Documents dataset - 4th cycle
+
+The Documents dataset follows the standard structure used in various WISE dataflows
+({numref}`ProtectedArea_4thCycle_Documents_ClassDiagram`):
+
+* The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
+  
+  - If required by the data providers, and especially if spatial data is being reported,
+    the `licenseDocument` and the `metadataDocument` attributes allow the provision
+    of additional information about the dataset.
+  - The `dcMetadata` table also functions as a "manifest file"
+    explaining if the delivery contains data for a given river basin district or not.
+
+* The `Document` table allows the upload of documents (for example, PDFs)
+  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
+
+* The `Reference` table is also standard in the WISE dataflows:
+  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
+  where the relevant information about a `subject`
+  can be found within a document.
+
+```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_Documents_ClassDiagram.mmd
+:name: ProtectedArea_4thCycle_Documents_ClassDiagram
+:caption: WFD Protected Area - 4th cycle - Documents
+:align: center
+```
+
+The following criteria apply:
+
+01. The `dcMetadata` table must contain *one and only one* record
+    for each of the country's river basin districts, identified by the `euRBDCode`.
+
+02. The spatial dataset is **national**.
+    The `includesSpatialData` value must be the same for all river basin districts.
+
+03. If `includesSpatialData = 'no'` then no spatial data is expected,
+    and the quality control of the monitoring dataset will run
+    against the last technically accepted delivery of monitoring sites.
+
+04. For countries reporting under the WFD,
+    the last technically accepted delivery of monitoring sites
+    is **always the data reported in the 3rd cycle**.
+
+05. The monitoring dataset is also **national**,
+    but the quality control will allow deliveries
+    where some, or all, the river basin districts have `includesDescriptiveData = no`.
 
 ## Annexes - Data analysis - 3rd cycle
 

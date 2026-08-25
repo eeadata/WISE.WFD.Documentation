@@ -57,7 +57,7 @@ The GWB_2022 schema was already partially revised with regard to the reporting o
 
 * {ref}`heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant`
 * {ref}`heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions`
-* {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
+* {ref}`heading_wfd_protected_areas_groundwater_bodies_exemptions`
 
 Other simplifications already discussed also apply to the GWB schema:
 

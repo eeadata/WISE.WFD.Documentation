@@ -1,7 +1,7 @@
 (heading_wfd_monitoring)=
 # Monitoring
 
-Last updated: 2026-06-24
+Last updated: 2026-08-24
 
 ```{warning}
 The online version of the text is being reviewed.  
