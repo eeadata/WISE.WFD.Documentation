@@ -351,7 +351,7 @@ The Documents dataset follows the standard structure used in various WISE datafl
 
 ```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_Documents_ClassDiagram.mmd
 :name: ProtectedArea_4thCycle_Documents_ClassDiagram
-:caption: WFD Protected Area - 4th cycle - Documents
+:caption: WFD Protected Area dataflow - 4th cycle - Documents
 :align: center
 ```
 

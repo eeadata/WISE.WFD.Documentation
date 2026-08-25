@@ -11,12 +11,12 @@ WFDRiverBasinDistrictsAndCompetentAuthorities
 WFDMonitoring
 WFDProtectedAreas
 WFDMeasures
-WFDEconomicAnalysis
-WFDExemptions
 WFDGroundWaterBody
 WFDGroundwaterMethodologies
 WFDSurfaceWaterBody
 WFDSurfaceWaterMethodologies
+WFDExemptions
+WFDEconomicAnalysis
 
 ```
 

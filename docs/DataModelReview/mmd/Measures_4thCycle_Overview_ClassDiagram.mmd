@@ -1,0 +1,28 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class dcMetadata{<<documents>>}
+class Reference{<<documents>>}
+class Document {<<documents>>}
+class RiverBasinManagementPlan{<<descriptive>>}
+class Progress{<<descriptive>>}
+class TargetedQuestions{<<descriptive>>}
+class Measure{<<descriptive>>}
+class ExpenditurePerMeasurePerSector{<<descriptive>>}
+
+dcMetadata ..> Document
+Reference ..> Document
+RiverBasinManagementPlan ..> Reference
+Measure ..> Reference
+
+Measure "1" -- "0..n" ExpenditurePerMeasurePerSector 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
