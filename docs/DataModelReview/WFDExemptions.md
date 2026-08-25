@@ -1,24 +1,24 @@
 (heading_wfd_exemptions)=
 # Exemptions
 
-Last update: 2026-05-27
-
-Next planned update: 2026-06-15
-
 ```{warning}
+:class: dropdown
 
-  See {ref}`heading_wfd_exemptions_clarifications`
+Updated: 2026-08-25
+
+* Moved the protected area exemptions to the WFD Protected Area dataflow section.
 
 ```
 
 (heading_wfd_exemptions_purpose_and_overview)=
 ## Purpose and overview
 
-This section revises the reporting of information related to Exemptions in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.  
+This section revises the reporting of information related to Exemptions 
+in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
 It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
 (heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle)=
-## Reporting of exemptions - 3rd cycle
+## Current structure - 3rd cycle
 
 * The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_ClassDiagram`)
   will not be requested in the 4th cycle structured data reporting (i.e. it is provided only in the RBMP documents).
@@ -39,7 +39,7 @@ It also presents a proposal for simplifying the electronic reporting in the 4th 
 ```
 
 (heading_wfd_exemptions_reporting_of_exemptions_4th_cycle)=
-## Reporting of exemptions - 4th cycle
+## Proposed structure - 4th cycle
 
 The duplicate reporting of the ecological exemptions -
 both at surface water body level *and* at quality element level -
@@ -52,7 +52,10 @@ is aligned into tables with a similar structure:
 * For ecological exemptions, the quality element is identified.
 * For chemical exemptions, the substance is identified.
 * For exemptions associated with protected areas
-  where specific objectives were set but not met, the protected area is identified.
+  where specific objectives were set but not met,
+  the type of protected area is identified,
+  but the identification of the specific protected area
+  is only requested for Natura2000 sites.
 
 The remaining attributes (see {numref}`ExemptionAbstractClass`) identify:
 
@@ -140,7 +143,8 @@ The following conditions apply:
 (heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant)=
 ## Surface water - chemical exemptions by pollutant
 
-Chemical exemptions are reported using the table in {numref}`Exemptions_4thCycle_SWChemicalExemption_ClassDiagram`.  
+Chemical exemptions are reported using the table
+in {numref}`Exemptions_4thCycle_SWChemicalExemption_ClassDiagram`.  
 In the 4th cycle of reporting, exemptions associated with river basin specific pollutants
 are reported as as chemical exemptions,
 and not as exemptions associated with the quality element "QE3-3 - River Basin Specific Pollutants".
@@ -197,7 +201,7 @@ Exemptions - {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptio
 EEA Water to provide list of substances under each of the categories (e.g. 2026 PS, 2013 PS, 2008 PS, has2026EQS).
 ```
 
-## Surface water - related protected area exemptions
+## Surface water - protected area exemptions
 
 See the section about the WFD Protected Area dataflow: {ref}`heading_wfd_protected_areas_surface_water_bodies_exemptions`
 
@@ -293,12 +297,12 @@ The diagram below presents the applicability criteria for the different exemptio
 :align: center
 ```
 
-## Groundwater - related protected area exemptions
+## Groundwater - protected area exemptions
 
 See the section about the WFD Protected Area dataflow: {ref}`heading_wfd_protected_areas_groundwater_bodies_exemptions`.
 
 (heading_wfd_exemptions_codelists_associated_with_the_reporting_of_exemptions)=
-## Codelists associated with the Exemption tables
+## Codelists - 4th cycle
 
 Codelists associated with the reporting of exemptions are presented in {numref}`Codelist_4thCycle_ExemptionType_ExemptionRationale_ExemptionPeriod_ClassDiagram`.
 
