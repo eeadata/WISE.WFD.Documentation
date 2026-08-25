@@ -1,7 +1,7 @@
 (heading_wfd_rbd_and_ca)=
 # River basin districts and competent authorities
 
-Last update: 2026-05-14
+Last update: 2026-08-24
 
 (heading_wfd_rbd_and_ca_purpose_and_overview)=
 ## Purpose and overview
@@ -45,31 +45,18 @@ A proposal is presented for the electronic reporting in the 4th cycle:
 
 [^floods-directive-footnote]: See [Floods Directive - Units of Management and Competent Authorities[2025]](https://reportnet.europa.eu/public/dataflow/1473).
 
-(heading_wfd_rbd_and_ca_documents_dataset_4th_cycle)=
-## Documents dataset - 4th cycle
+(heading_wfd_rbd_and_ca_proposed_structure_4th_cycle)=
+## Proposed structure - 4th cycle
 
-The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`RBDCA_4thCycle_Documents`):
+For the 4th cycle of reporting, the requested information is described below (see {numref}`RBDCA_4thCycle_Overview_ClassDiagram`):
 
-* The `dcMetadata` table is required and contains only one record per delivery (i.e. per country).
-  It provides the basic Dublin Core metadata elements about the delivery.
+* {ref}`heading_wfd_rbd_and_ca_descriptive_dataset_4th_cycle`
+* {ref}`heading_riverbasindistrict_spatial_dataset_4th_cycle`
+* {ref}`heading_wfd_rbd_and_ca_documents_dataset_4th_cycle`
 
-* If required by the data providers, and especially if spatial data is being reported,
-  the `licenseDocument` and the `metadataDocument` attributes allow
-  the provision of additional information about the dataset.
-
-* The dcMetadata table also functions as a "manifest file" explaining:
-
-  - if the delivery contains an update of the spatial data, set `updateSpatialData = 'yes'`
-  - and/or if the delivery contains an update of the competent authorities
-    or their roles, set `updateCompetentAuthorities= 'yes'`
-  
-* The `Document` table is standard in the WISE dataflows:
-it allows the upload of documents (for example, PDFs)
-or the provision of a hyperlink to a document stored in a publicly accessible national web site.
-
-```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Documents_ClassDiagram.mmd
-:name: RBDCA_4thCycle_Documents
-:caption: River Basin Districts and Competent Authorities - 4th cycle - Documents
+```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Overview_ClassDiagram.mmd
+:name: RBDCA_4thCycle_Overview_ClassDiagram
+:caption:  River basin district and competent authorities dataflow - overview - 4th cycle
 :align: center
 ```
 
@@ -132,6 +119,34 @@ The following changes have been made to the `RiverBasinDistrict` spatial table
 ```{mermaid} /DataModelReview/mmd/Spatial_4thCycle_RiverBasinDistrict_ClassDiagram.mmd
 :name: Spatial_4thCycle_RiverBasinDistrict_ClassDiagram
 :caption: Spatial dataset - RiverBasinDistrict - 4th cycle
+:align: center
+```
+
+(heading_wfd_rbd_and_ca_documents_dataset_4th_cycle)=
+## Documents dataset - 4th cycle
+
+The Documents dataset follows the standard structure used in various WISE dataflows ({numref}`RBDCA_4thCycle_Documents`):
+
+* The `dcMetadata` table is required and contains only one record per delivery (i.e. per country).
+  It provides the basic Dublin Core metadata elements about the delivery.
+
+* If required by the data providers, and especially if spatial data is being reported,
+  the `licenseDocument` and the `metadataDocument` attributes allow
+  the provision of additional information about the dataset.
+
+* The dcMetadata table also functions as a "manifest file" explaining:
+
+  - if the delivery contains an update of the spatial data, set `updateSpatialData = 'yes'`
+  - and/or if the delivery contains an update of the competent authorities
+    or their roles, set `updateCompetentAuthorities= 'yes'`
+  
+* The `Document` table is standard in the WISE dataflows:
+it allows the upload of documents (for example, PDFs)
+or the provision of a hyperlink to a document stored in a publicly accessible national web site.
+
+```{mermaid} /DataModelReview/mmd/RBDCA_4thCycle_Documents_ClassDiagram.mmd
+:name: RBDCA_4thCycle_Documents
+:caption: River Basin Districts and Competent Authorities - 4th cycle - Documents
 :align: center
 ```
 
