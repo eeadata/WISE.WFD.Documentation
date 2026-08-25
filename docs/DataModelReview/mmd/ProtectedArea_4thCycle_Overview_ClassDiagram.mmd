@@ -18,8 +18,8 @@ class SWAssociatedProtectedArea{<<descriptive>>}
 class ProtectedArea{<<spatial>>
 + zoneType: 'designatedWaters'}
 
-class WFDProtectedArea:::reference{<<reference dataset>>}
-class Natura2000:::reference{<<reference dataset>>}
+class WFDProtectedArea:::otherDataset{<<reference>>}
+class Natura2000:::otherDataset{<<reference>>}
 
 dcMetadata ..> Document
 Reference ..> Document
@@ -34,5 +34,5 @@ GWAssociatedProtectedArea ..> Natura2000
 ProtectedArea "0..1" -- "1" SWAssociatedProtectedArea 
 
 classDef default fill:white,stroke:#000;
-classDef reference fill:lightgrey,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;
