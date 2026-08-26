@@ -3,12 +3,24 @@
 
 ```{Warning}
 :class: dropdown
-Last update: 2026-07-16
+
+Updated: 2026-08-25
+
+* Added the SWChemicalExemption and SWEcologicalExemption table to the descriptive dataset.
+* Corrected the dcMetadata table diagram and description.
+
+Updated: 2026-07-27
+
+* Renamed the SWCharacterisation table to avoid collisions.
+* Added the overview diagram
+* Added the documents dataset
+
+Updated: 2026-07-16
 
 * Added the quality control conditions for quality elements, including cross-checks
 * Added the quality control conditions for national types, including cross-checks
 
-Last update: 2026-07-08
+Updated: 2026-07-08
 
 * {ref}`heading_wfd_surface_water_bodies_descriptive_4th_cycle`
   Removal of swIntercalibrationType from SurfaceWaterBody
@@ -55,7 +67,7 @@ See:
 
 * {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
 * {ref}`heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element`
-* {ref}`heading_wfd_exemptions_surface_water_bodies_protected_area_exemptions`
+* {ref}`heading_wfd_protected_areas_surface_water_bodies_exemptions`
 
 Other simplifications already discussed also apply to the revision of the SWB schema:
 
@@ -71,6 +83,29 @@ to help focus the discussion on the remaining issues.
 :name: SurfaceWater_3rdCycle_SWB_Simplified_ClassDiagram
 :align: center
 :caption: PARTIAL class diagram for the SWB_2022 schema in the 3rd cycle of reporting.
+```
+
+## Proposed structure - 4th cycle
+
+For the 4th cycle of reporting, the proposed structure combines into a single dataflow
+(see {numref}`SurfaceWater_4thCycle_Overview_ClassDiagram`)
+the information related to surface water:
+
+* {ref}`heading_wfd_surface_water_bodies_descriptive_4th_Cycle`
+* {ref}`heading_surfacewaterbody_spatial_dataset_4th_cycle`
+* {ref}`heading_wfd_surfacewater_methodologies_4th_cycle`
+* {ref}`heading_wfd_surfacewater_documents_dataset_4th_cycle`
+
+Note that, *if there are changes since the 3rd cycle*,
+the national spatial data related
+to river basin districts
+must be reported before it can be referenced to
+in the surface water dataflow tables.
+
+```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_Overview_ClassDiagram.mmd
+:name: SurfaceWater_4thCycle_Overview_ClassDiagram
+:caption: Surface water - overview - 4th cycle
+:align: center
 ```
 
 (heading_wfd_surface_water_bodies_descriptive_4th_Cycle)=
@@ -199,7 +234,16 @@ and a brief description of each table is included in
     In the 3rd cycle, the XML structure did not allow 
     a specific pressure to be link to a given impact.
     In the proposed structure, this is possible (but not mandatory).  
-    Illustrative examples will be provided.  
+    Illustrative examples will be provided.
+
+* - SWEcologicalExemption
+  - *modified*.  
+    See {ref}`heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element`.
+
+* - SWChemicalExemption
+  - *modified*.  
+    See {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`.
+
 ```
 
 The following conditions apply:
@@ -439,6 +483,17 @@ For example:
   WHERE ref.QE1_2_3 = 'applicable' AND t.euSurfaceWaterBodyCode IS NULL 
   ```
 
+### Exemptions
+
+Refer to the documentation about exemptions, specifically:
+
+* {ref}`heading_wfd_exemptions_surface_water_bodies_ecological_exemptions_by_quality_element`
+* {ref}`heading_wfd_exemptions_surface_water_bodies_chemical_exemptions_by_pollutant`
+
+## Methodologies dataset - 4th cycle
+
+Refer to the {ref}`heading_wfd_surface_water_methodologies`section.
+
 (heading_surfacewaterbody_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4th cycle
 
@@ -450,7 +505,6 @@ The SurfaceWaterBodyCentreline dataset is no longer requested in the 4th cycle o
 :name: Spatial_4thCycle_SurfaceWaterBody_ClassDiagram
 :caption: Spatial dataset - SurfaceWaterBody - 4th cycle
 :align: center
-:zoom:
 ```
 
 The following changes have been made to the `SurfaceWaterBody` spatial table
@@ -493,6 +547,62 @@ The following changes have been made to the `SurfaceWaterBody` spatial table
     If a water body is no longer designated as a WFD water body,
     its catchment area will likely be part of the catchment area of other WFD water bodies
     and therefore the "deleted" water body should be reported only as a predecessor.
+
+(heading_wfd_surfacewater_documents_dataset_4th_cycle)=
+## Documents dataset - 4th cycle
+
+The Documents dataset follows the standard structure used in various WISE dataflows
+({numref}`SurfaceWater_4thCycle_Documents_ClassDiagram`):
+
+* The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
+  
+  - If required by the data providers, and especially if spatial data is being reported,
+    the `licenseDocument` and the `metadataDocument` attributes
+    allow the provision of additional information about the dataset.
+  - The `dcMetadata` table also functions as a "manifest file"
+    explaining if the delivery contains data for a given river basin district or not.
+
+* The `Document` table allows the upload of documents (for example, PDFs)
+  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
+
+* The `Reference` table is also standard in the WISE dataflows:
+  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
+  where the relevant information about a `subject`
+  can be found within a document.
+
+```{mermaid} /DataModelReview/mmd/SurfaceWater_4thCycle_Documents_ClassDiagram.mmd
+:name: SurfaceWater_4thCycle_Documents_ClassDiagram
+:caption: Surface water - 4th cycle - Documents
+:align: center
+```
+
+The following criteria apply:
+
+01. The `dcMetadata` table must contain *one and only one* record
+    for each of the country's river basin districts, identified by the `euRBDCode` value.
+
+02. The spatial dataset is **national**.
+    The `includesSpatialData` value
+    must be the same for all river basin districts.
+
+03. If `includesSpatialData = 'no'` then no spatial data is expected,
+    and the quality control of the descriptive dataset will run
+    against the last technically accepted delivery of surface water bodies spatial data.
+
+04. For countries reporting under the WFD,
+    the last technically accepted delivery of surface water bodies spatial data
+    is **always the data reported in the 3rd cycle**.
+
+05. The descriptive dataset is also **national**,
+    but the quality control will allow deliveries
+    where some, or all, the river basin districts have `includesDescriptiveData = 'no'`.
+
+06. For countries reporting under the WFD,
+    the quality control will raise an **ERROR**,
+    if some, or all, the river basin districts have `includesDescriptiveData = 'no'`.
+
+07. Note that the Methodologies dataset tables must always be reported
+    for the  river basin districts where `includesDescriptiveData = 'yes'`
 
 (heading_wfd_surface_water_codelist_4th_cycle)=
 ## Codelists - 4th cycle

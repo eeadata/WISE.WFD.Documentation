@@ -1,0 +1,38 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class dcMetadata{<<documents>>}
+class Reference{<<documents>>}
+class Document {<<documents>>}
+
+class GWAssociatedProtectedArea{<<descriptive>>}
+class SWAssociatedProtectedArea{<<descriptive>>}
+
+class ProtectedArea{<<spatial>>
++ zoneType: 'designatedWaters'}
+
+class WFDProtectedArea:::otherDataset{<<reference>>}
+class Natura2000:::otherDataset{<<reference>>}
+
+dcMetadata ..> Document
+Reference ..> Document
+SWAssociatedProtectedArea ..> Reference 
+GWAssociatedProtectedArea ..> Reference 
+
+SWAssociatedProtectedArea ..> WFDProtectedArea 
+GWAssociatedProtectedArea ..> WFDProtectedArea 
+SWAssociatedProtectedArea ..> Natura2000 
+GWAssociatedProtectedArea ..> Natura2000 
+
+ProtectedArea "0..1" -- "1" SWAssociatedProtectedArea 
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

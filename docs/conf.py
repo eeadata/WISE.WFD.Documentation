@@ -121,8 +121,7 @@ html_show_copyright = False
 # JavaScript: Scripts for custom interactivity not provided by extensions.
 html_static_path = ['_static']
 html_css_files = [
-   'customTable.css',
-   'customTheme.css'
+   'customTable.css'
 ]
 html_sidebars = {
     "**": ["sidebar-collapse", "sidebar-nav-bs"],
@@ -138,13 +137,9 @@ html_theme_options = {
         "text": "Water Framework Directive",
     },
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
-    "show_toc_level": 3, 
+    "show_toc_level": 4,
     "use_edit_page_button": True,
     "navbar_align": "right"
-}
-
-html_sidebars = {
-  "**/index.md": []
 }
 
 html_context = {

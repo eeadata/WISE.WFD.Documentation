@@ -1,0 +1,823 @@
+Table,Field,Code,QC Name,QC Description,Message,Expression,Type of QC,Severity Level,Creation Mode,Status,Valid
+dcMetadata,,T001,T001,"When a table is marked as mandatory, checks at least one record is added",Mandatory table has no records. [T001],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,title,V019,V019,Checks if the field is missing or empty,The value must not be missing or empty. [V019],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Document,documentCode,V102,V102,Checks if the field is missing or empty,The value must not be missing or empty. [V102],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Document,,TU101,TU101,Checks if documentCode must be unique within table,The field documentCode must be unqiue within table. [TU101],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+Document,documentName,V104,V104,Checks if the field is missing or empty,The value must not be missing or empty. [V104],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Document,hyperlink,V105,V105,Checks if the field is a valid URL,The value does not follow the expected syntax for a valid URL. [V105],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,creatorOrganisationName,V005,V005,Checks if the field is missing or empty,The value must not be missing or empty. [V005],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,licenseDocument,V013,V013,The value is not a valid member of the referenced list,The value is not a valid member of the referenced list. [V013],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,metadataDocument,V015,V015,The value is not a valid member of the referenced list,The value is not a valid member of the referenced list. [V015],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,creatorElectronicMailAddress,V002,V002,Checks if the field is missing or empty,The value must not be missing or empty. [V002],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,creatorElectronicMailAddress,V003,V003,Checks if the field is a valid EMAIL,The value does not follow the expected syntax for a valid email. [V003],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,creatorOrganisationName,V004,V004,The length of the value must be <= 4000,The length of the value must be <= 4000. [V004],( LEN( creatorOrganisationName ) <= 4000 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,description,V006,V006,The length of the value must be <= 4000,The length of the value must be <= 4000. [V006],( LEN( description ) <= 4000 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,language,V009,V009,"""language"" contains duplicate values","""language"" contains duplicate values. [V009]","WITH
+IndividualLanguage as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(""language"", chr(59), 'ALL', 999))) as oneLanguage
+    from    dataset_37014.dcMetadata
+),
+
+Duplicates as (
+    select  IL.record_id,
+            IL.oneLanguage,
+            count(*) as quantity
+    from    IndividualLanguage IL
+    group by IL.record_id, IL.oneLanguage
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.""language""
+from    dataset_37014.dcMetadata M
+where   M.record_id in (
+            select  D.record_id
+            from    Duplicates D
+            )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,licenseDocument,V014,V014,"""licenseDocument"" contains duplicate values","""licenseDocument"" contains duplicate values. [V014]","WITH
+IndividualDocument as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(licenseDocument, chr(59), 'ALL', 999))) as oneDocument
+    from    dataset_37014.dcMetadata
+),
+
+Duplicates as (
+    select  ID.record_id,
+            ID.oneDocument,
+            count(*) as quantity
+    from    IndividualDocument ID
+    group by ID.record_id, ID.oneDocument
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.licenseDocument
+from    dataset_37014.dcMetadata M
+where   M.record_id in (
+            select  D.record_id
+            from    Duplicates D
+            )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,metadataDocument,V016,V016,"""metadataDocument"" contains duplicate values","""metadataDocument"" contains duplicate values. [V016]","WITH
+IndividualDocument as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(metadataDocument, chr(59), 'ALL', 999))) as oneDocument
+    from    dataset_37014.dcMetadata
+),
+
+Duplicates as (
+    select  ID.record_id,
+            ID.oneDocument,
+            count(*) as quantity
+    from    IndividualDocument ID
+    group by ID.record_id, ID.oneDocument
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.metadataDocument
+from    dataset_37014.dcMetadata M
+where   M.record_id in (
+            select  D.record_id
+            from    Duplicates D
+            )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,rights,V017,V017,The length of the value must be <= 4000,The length of the value must be <= 4000. [V017],( LEN( rights ) <= 4000 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,rightsHolder,V018,V018,The length of the value must be <= 4000,The length of the value must be <= 4000. [V018],( LEN( rightsHolder ) <= 4000 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,title,V020,V020,The length of the value must be <= 4000,The length of the value must be <= 4000. [V020],( LEN( title ) <= 4000 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+Document,documentName,V103,V103,The length of the value must be <= 50,The length of the value must be <= 50. [V103],( LEN( documentName ) <= 250 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+Document,hyperlink,R101,R101,"Either hyperlink or documentFile must be reported, but not both","Either hyperlink or documentFile must be reported, but not both. [R101]","SELECT  record_id
+FROM    dataset_37014.Document D
+WHERE   (
+            (coalesce(D.hyperlink, '') <> '' AND coalesce(D.documentFile, '') <> '')
+            OR
+            (coalesce(D.hyperlink, '') = '' AND coalesce(D.documentFile, '') = '')
+        )
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Document,documentFile,R101,R101,"Either hyperlink or documentFile must be reported, but not both","Either hyperlink or documentFile must be reported, but not both. [R101]","SELECT  record_id
+FROM    dataset_37014.Document D
+WHERE   (
+            (coalesce(D.hyperlink, '') <> '' AND coalesce(D.documentFile, '') <> '')
+            OR
+            (coalesce(D.hyperlink, '') = '' AND coalesce(D.documentFile, '') = '')
+        )
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,license,R001,R001,licenseDocument must be reported if license is 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. ,licenseDocument must be reported if license is 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. [R001],"select  M.record_id,
+        M.license
+from    dataset_37014.dcMetadata M
+where   coalesce(M.licenseDocument, '') = ''
+        and (
+            license = 'exactMatch_CC_BY_4_0'
+            or
+            license = 'narrowMatch_CC_BY_4_0'
+        )
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,licenseDocument,R001,R001,licenseDocument must be reported if license is 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. ,licenseDocument must be reported if license is 'exactMatch_CC_BY_4_0' or 'narrowMatch_CC_BY_4_0'. [R001],"select  M.record_id,
+        M.license
+from    dataset_37014.dcMetadata M
+where   coalesce(M.licenseDocument, '') = ''
+        and (
+            license = 'exactMatch_CC_BY_4_0'
+            or
+            license = 'narrowMatch_CC_BY_4_0'
+        )
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Document,documentCode,V101,V101,The value of documentCode must follow the syntax of WISE identifiers,The value of documentCode must follow the syntax of WISE identifiers [V101],"WITH Dataset AS (
+    select  record_id,
+            documentcode,
+            (
+            select  concat(
+                    '^',
+                    '{%R3_COUNTRY_CODE%}',
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from   dataset_37014.""document""
+    where   coalesce(documentcode, '') <> ''
+)
+select  record_id,
+        documentcode
+from    Dataset
+where   NOT REGEXP_COL_LIKE(documentcode, regexp) 
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,creatorElectronicMailAddress,V021,V021,The length of the value must be <= 4000,The length of the value must be <= 4000 [V021],( LEN( creatorElectronicMailAddress ) <= 4000 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+Document,hyperlink,V106,V106,The length of the value must be <= 2048,The length of the value must be <= 2048 [V106],( LEN( hyperlink ) <= 2048 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,,RF9999,RF9999,There are reference tables that have to be updated,"The following reference tables have to be updated: {%REFERENCE_TABLES%} . [RF9999] Please, contact helpdesk. [RF9999]","WITH 
+-- ============================================================================
+-- 1. CHECK THE 'MonitoringSiteWFD' DATASET
+-- ============================================================================
+Expected_MSWFD AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_37016.""referencemetadata""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'MonitoringSiteWFD'
+),
+Observed_MSWFD AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_37016.""monitoringsitewfd""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_MSWFD AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'MonitoringSiteWFD is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'MonitoringSiteWFD contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_MSWFD E 
+            FULL OUTER JOIN Observed_MSWFD O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+-- ============================================================================
+-- 2. CHECK THE 'MSWISE5' DATASET
+-- ============================================================================
+Expected_MSWISE5 AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_37016.""referencemetadata""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'MonitoringSiteWISE5'
+),
+Observed_MSWISE5 AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_37016.""monitoringsitewise5""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_MSWISE5 AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'MonitoringSiteWISE5 is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'MonitoringSiteWISE5 contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_MSWISE5 E 
+            FULL OUTER JOIN Observed_MSWISE5 O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+
+-- ============================================================================
+-- 3. CHECK THE 'relatedzonewfd' DATASET
+-- ============================================================================
+Expected_RZWFD AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_37016.""referencemetadata""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'relatedzonewfd'
+),
+Observed_RZWFD AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_37016.""relatedzonewfd""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_RZWWFD AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'RelatedzoneWFD is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'RelatedzoneWFD contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_RZWFD E 
+            FULL OUTER JOIN Observed_RZWFD O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+
+-- ============================================================================
+-- 4. CHECK THE 'relatedzonewise5' DATASET
+-- ============================================================================
+Expected_RZWISE5 AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_37016.""referencemetadata""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'relatedzonewise5'
+),
+Observed_RZWISE5 AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_37016.""relatedzonewise5""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_RZWISE5 AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'RelatedzoneWISE5 is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'RelatedzoneWISE5 contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_RZWISE5 E 
+            FULL OUTER JOIN Observed_RZWISE5 O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+-- ============================================================================
+-- 5. CHECK THE 'RiverBasinDistrictWFD' DATASET
+-- ============================================================================
+Expected_RBDWFD AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_37016.""referencemetadata""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'RiverBasinDistrictWFD'
+),
+Observed_RBDWFD AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_37016.""riverbasindistrictwfd""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_RBDWFD AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'RiverBasinDistrictWFD is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'RiverBasinDistrictWFD contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_RBDWFD E 
+            FULL OUTER JOIN Observed_RBDWFD O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+),
+
+-- ============================================================================
+-- 6. CHECK THE 'RiverBasinDistrictWISE5' DATASET
+-- ============================================================================
+Expected_RBDWISE5 AS (
+    SELECT  snapshotId AS expectedSnapshotId 
+    FROM    dataset_37016.""referencemetadata""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+            AND referenceTable = 'RiverBasinDistrictWISE5'
+),
+Observed_RBDWISE5 AS (
+    SELECT  DISTINCT snapshotId 
+    FROM    dataset_37016.""RiverBasinDistrictWISE5""
+    WHERE   countryCode = '{%R3_COUNTRY_CODE%}'
+),
+Mismatch_RBDWISE5 AS (
+    SELECT  CASE 
+                WHEN O.snapshotId IS NULL THEN 'RiverBasinDistrictWISE5 is missing expected data: ' || E.expectedSnapshotId
+                WHEN E.expectedSnapshotId IS NULL THEN 'RiverBasinDistrictWISE5 contains unexpected data: ' || O.snapshotId
+            END AS validation_error
+    FROM    Expected_RBDWISE5 E 
+            FULL OUTER JOIN Observed_RBDWISE5 O 
+                ON E.expectedSnapshotId = O.snapshotId 
+    WHERE   O.snapshotId IS NULL OR E.expectedSnapshotId IS NULL
+)
+
+,
+-- ============================================================================
+-- COMBINE ALL RESULTS FOR REPORTNET 3 BLOCKER
+-- ============================================================================
+
+Mismatch AS (
+    SELECT  LISTAGG(X.validation_error, ' / ') REFERENCE_TABLES
+    FROM    (
+            SELECT  validation_error FROM Mismatch_MSWFD
+            UNION ALL
+            SELECT  validation_error FROM Mismatch_MSWISE5
+			UNION ALL
+			SELECT  validation_error FROM Mismatch_RZWWFD
+            UNION ALL
+            SELECT  validation_error FROM Mismatch_RZWISE5
+			UNION ALL
+			SELECT  validation_error FROM Mismatch_RBDWFD
+            UNION ALL
+            SELECT  validation_error FROM Mismatch_RBDWISE5
+			
+            ) X
+    HAVING  count(*) > 0
+)
+
+SELECT  case 
+            when length(REFERENCE_TABLES) > 3997
+                then CONCAT (
+                        left(left(REFERENCE_TABLES, 3997), 3997 - position('/' IN reverse(left(REFERENCE_TABLES, 3997))) + 1)
+                        ,'...'
+                        )
+            else REFERENCE_TABLES
+        end AS REFERENCE_TABLES,
+        (select min(record_id) from dataset_37014.""dcmetadata"") as record_id
+FROM    Mismatch",TABLE,BLOCKER,FALSE,TRUE,TRUE
+DocumentReference,referenceCode,V300,V300,Checks if the field is missing or empty,The value must not be missing or empty [V300],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+DocumentReference,,TU300,TU300,Checks if referenceCode must be unique within table,Uniqueness and multiplicity constraints - The field referenceCode must be unique within table [TU300],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+DocumentReference,documentCode,V301,V301,Checks if the field is missing or empty,The value must not be missing or empty [V301],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+DocumentReference,bookmark,V303,V303,Checks if the field is missing or empty,The value must not be missing or empty [V303],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+DocumentReference,subject,V304,V304,Checks if the field is missing or empty,The value must not be missing or empty [V304],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+DocumentReference,referenceCode,V305,V305,The value of referenceCode must follow the syntax of WISE identifiers,The value of referenceCode must follow the syntax of WISE identifiers [V305],"WITH Dataset AS (
+    select  record_id,
+            referencecode,
+            (
+            select  concat(
+                    '^',
+                    '{%R3_COUNTRY_CODE%}',
+                    '[0-9A-Z]{1}(([0-9A-Z]|\-(?![\-_])|_(?![\-_])){0,38}[0-9A-Z]{1}){0,1}$'
+                )
+            ) as regexp
+    from   dataset_37014.""documentreference""
+    where   coalesce(documentcode, '') <> ''
+)
+select  record_id,
+        referencecode
+from    Dataset
+where   NOT REGEXP_COL_LIKE(referencecode, regexp) 
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+DocumentReference,documentCode,V302,V302,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V302],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+DocumentReference,bookmark,V306,V306,The length of the value must be <= 50,The length of the value must be <= 50 [V306],( LEN( bookmark ) <= 50 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+DocumentReference,subject,V307,V307,The length of the value must be <= 250,The length of the value must be <= 250 [V307],( LEN( subject ) <= 250 ),FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesSpatialData,V022,V022,Checks if the field is missing or empty,The value must not be missing or empty [V022],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,includesMonitoringData,V024,V024,Checks if the field is missing or empty,The value must not be missing or empty [V024],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,euRBDCode,V030,V030,Checks if the field is missing or empty,The value must not be missing or empty [V030],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,created,V001,V001,Checks if the field is a valid DATE,The value is not a valid date (YYYY-MM-DD) [V001],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,language,V029,V029,Checks if the field is missing or empty,The value must not be missing or empty [V029],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,language,V008,V008,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V008],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,includesSpatialData,V023,V023,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V023],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,includesMonitoringData,V025,V025,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V025],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,includesSpatialData,V026,V026,The value must be 'yes' or 'no',The value must be 'yes' or 'no' [V026],"SELECT record_id, includesspatialdata
+FROM dataset_37014.""dcmetadata""
+WHERE dataset_37014.""dcmetadata"".""includesspatialdata"" NOT IN ('yes', 'no')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesMonitoringData,V027,V027,The value must be 'yes' or 'no',The value must be 'yes' or 'no' [V027],"SELECT record_id, includesmonitoringdata
+FROM dataset_37014.""dcmetadata"" 
+WHERE dataset_37014.""dcmetadata"".""includesmonitoringdata"" NOT IN ('yes', 'no')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesMonitoringData,R003,R003,The RBD is reported as includesMonitoringData = no,The RBD is reported as includesMonitoringData = no [R003],"SELECT record_id
+FROM dataset_37014.""dcmetadata""
+WHERE dataset_37014.""dcmetadata"".""includesmonitoringdata"" = 'no'",RECORD,ERROR,FALSE,TRUE,TRUE
+dcMetadata,includesSpatialData,R002,R002,"If one RBD is reported as includesSpatialData  = 'yes', then all the RBDs needs to be reported includesSpatialData = 'yes'","If one RBD is reported as includesSpatialData  = 'yes', then all the RBDs needs to be reported includesSpatialData = 'yes' [R002]","SELECT 
+    record_id,
+    euRBDCode,
+    includesSpatialData
+FROM dataset_37014.""dcmetadata""
+WHERE includesSpatialData = 'no'
+AND EXISTS (
+    SELECT 1 
+    FROM dataset_37014.""dcmetadata""
+    WHERE includesSpatialData = 'yes'
+)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesSpatialData,XC001,XC001,If includesSpatialData = 'yes' then Spatial dataset cannot be empty,If includesSpatialData = 'yes' then Spatial dataset cannot be empty [XC001],"SELECT record_id
+	,includesspatialdata
+FROM dataset_37014.""dcmetadata""
+WHERE dataset_37014.""dcmetadata"".""includesspatialdata"" = 'yes'
+	AND NOT EXISTS (
+		SELECT 1
+		FROM dataset_37015.""monitoringsite""
+		)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesSpatialData,XC002,XC002,If includesSpatialData = 'no' then Spatial dataset must be empty,If includesSpatialData = 'no' then Spatial dataset must be empty [XC002],"SELECT record_id
+	,includesspatialdata
+FROM dataset_37014.""dcmetadata""
+WHERE dataset_37014.""dcmetadata"".""includesspatialdata"" = 'no'
+	AND  EXISTS (
+		SELECT 1
+		FROM dataset_37015.""monitoringsite""
+		)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesmonitoringdata,XC006,XC006,If includesmonitoringdata= 'no' then it is not possible to report any programme related with the RBD,If includesmonitoringdata= 'no' then it is not possible to report any programme related with the RBD [XC006],"SELECT record_id, dc.""eurbdcode""
+FROM dataset_37014.""dcmetadata"" dc
+WHERE dc.""includesmonitoringdata"" = 'no'
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_44489.""monitoringprogrammes"" mp
+		WHERE mp.""eurbdcode"" = dc.""eurbdcode""
+		)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,euRBDCode,RF001_WFD,RF001_WFD,The value must be a valid RBDCode,The value must be a valid RBDCode [RF001_WFD],"SELECT record_id
+FROM dataset_37014.""dcmetadata"" dc
+WHERE dc.""eurbdcode"" NOT IN (
+		SELECT rbd.""thematicididentifier""
+		FROM dataset_37016.""riverbasindistrictwfd"" rbd
+		WHERE dc.""eurbdcode"" = rbd.""thematicididentifier"" AND
+		rbd.""statuscode"" IN (
+				'stable'
+				,'valid'
+				)
+		)
+	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = ('{%R3_COUNTRY_CODE%}')
+			AND c.""reportingtype"" = 'WFD'
+		)
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,,T002_WFD,T002_WFD,"The dcMetadata table must contain one and only one record for each of the country’s river basin districts, identified by the euRBDCode. Identifier missing : Identifier duplicated: ","The dcMetadata table must contain one and only one record for each of the country’s river basin districts, identified by the euRBDCode. Identifier missing Values: {%identifiers%} . Number of invalid values: {%numberofrecords%} [T002_WFD]","SELECT X.record_id
+	,CASE 
+		WHEN LENGTH(X.ids) > 4000
+			THEN CONCAT (
+					LEFT(X.ids, CASE 
+							WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0
+								THEN 3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+							ELSE 3997
+							END)
+					,'...'
+					)
+		ELSE X.ids
+		END AS identifiers
+	,X.numberofrecords
+FROM (
+	SELECT (
+			SELECT record_id
+			FROM dataset_37014.""dcmetadata"" limit 1
+			) AS record_id
+		,listagg(rf.thematicididentifier , ', ') AS ids
+		,COUNT(*) AS numberofrecords
+	FROM dataset_37016.""riverbasindistrictwfd"" rf
+	WHERE rf.thematicididentifier NOT IN (
+			SELECT sub.euRBDCode
+			FROM dataset_37014.""dcmetadata"" sub
+			)
+		AND rf.""statuscode"" IN (
+			'valid'
+			,'stable'
+			) 
+		AND rf.countrycode = '{%R3_COUNTRY_CODE%}'
+	HAVING COUNT(*) > 0
+	) X
+",TABLE,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,,TU001,TU001,Checks if euRBDCode must be unique within table,Uniqueness and multiplicity constraints - The field euRBDCode must be unique within table [TU001],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,includesmonitoringdata,XC005_WFD,XC005_WFD,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table Monitoring related with the RBD.,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table Monitoring related with the RBD. [XC005_WFD],"SELECT record_id, eurbdcode
+FROM dataset_37014.""dcmetadata"" DC
+WHERE DC.""includesmonitoringdata"" = 'no'
+AND EXISTS (
+    SELECT 1
+    FROM dataset_44489.""monitoring"" M
+    LEFT JOIN dataset_37016.""monitoringsitewfd"" RM_WFD 
+        ON RM_WFD.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    LEFT JOIN dataset_37015.""monitoringsite"" RM_SPATIAL 
+        ON RM_SPATIAL.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    JOIN dataset_37016.""relatedzonewfd"" RZ 
+        ON RZ.""thematicididentifier"" = RM_WFD.""relatedzoneidentifier""
+        OR RZ.""thematicididentifier"" = RM_SPATIAL.""featureofinterestidentifier""
+    WHERE DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+)	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = ('{%R3_COUNTRY_CODE%}')
+			AND c.""reportingtype"" = 'WFD'
+		)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesmonitoringdata,XC008_WFD,XC008_WFD,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table MonitoringPurpose related with the RBD.,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table MonitoringPurpose related with the RBD. [XC008_WFD],"SELECT record_id, eurbdcode
+FROM dataset_37014.""dcmetadata"" DC
+WHERE DC.""includesmonitoringdata"" = 'no'
+AND EXISTS (
+    SELECT 1
+    FROM dataset_44489.""monitoringpurpose"" M
+    LEFT JOIN dataset_37016.""monitoringsitewfd"" RM_WFD 
+        ON RM_WFD.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    LEFT JOIN dataset_37015.""monitoringsite"" RM_SPATIAL 
+        ON RM_SPATIAL .""thematicididentifier"" = M.""euMonitoringSiteCode""
+    JOIN dataset_37016.""relatedzonewfd"" RZ 
+        ON RZ.""thematicididentifier"" = RM_WFD.""relatedzoneidentifier""
+        OR RZ.""thematicididentifier"" = RM_SPATIAL.""featureOfInterestIdentifier""
+    WHERE DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+)	AND EXISTS (
+		SELECT 1
+		FROM dataset_37016.""country"" c
+		WHERE c.""countrycode"" = ('{%R3_COUNTRY_CODE%}')
+			AND c.""reportingtype"" = 'WFD'
+		)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,euRBDCode,T404_WFD,T404_WFD,The Monitoring table must always list the groundwater monitoring sites for quantitative monitoring ('EEA_00-01-1') for every river basin district with designated groundwater bodies.,The Monitoring table must always list the groundwater monitoring sites for quantitative monitoring ('EEA_00-01-1') for every river basin district with designated groundwater bodies. [T404_WFD]  Values: {%identifiers%}. Number of missing values: {%numberofrecords%}   [T404_WFD],"
+
+WITH
+    -- Retrieve all RBDs for which monitoring data has been submitted.
+    rbd_metadata AS (
+        SELECT
+            euRBDCode,
+            record_id
+        FROM dataset_37014.""dcmetadata""
+        WHERE ""includesMonitoringData"" = 'yes'
+    ),
+
+    spatial_flag AS (
+        SELECT
+            MAX(CASE WHEN ""includesspatialdata"" = 'yes' THEN 1 ELSE 0 END) AS is_spatial
+        FROM dataset_37014.""dcmetadata""
+    ),
+
+    -- Identify RBDs that contain at least one eligible GWB (valid or stable).
+    rbd_with_eligible_gwb AS (
+        SELECT
+            r.thematicIdIdentifier AS euRBDCode
+        FROM dataset_37016.""riverbasindistrictwfd"" r
+        WHERE r.statusCode IN ('valid', 'stable')
+          AND r.countrycode = '{%R3_COUNTRY_CODE%}'
+          AND EXISTS (
+                SELECT 1
+                FROM dataset_37016.""relatedzonewfd"" rz
+                WHERE rz.relatedZoneIdentifier       = r.thematicIdIdentifier
+                  AND rz.thematicIdIdentifierScheme  = 'euGroundWaterBodyCode'
+                  AND rz.statusCode                 IN ('valid', 'stable')
+            )
+    ),
+
+    -- Map monitoring sites to their parent RBD via eligible GWBs.
+    -- Approach 1 (reference): active when is_spatial = 0 (no spatial data submitted).
+    -- Approach 2 (spatial):   active when is_spatial = 1 (spatial data submitted).
+    -- The spatial_flag value is read once as a scalar subquery in each WHERE clause.
+    sites_linked_to_eligible_gwb AS (
+
+        -- Approach 1: link through the reference dataset (no spatial data submitted)
+        SELECT DISTINCT
+            gwb.relatedzoneidentifier       AS euRBDCode,
+            mref.thematicIdIdentifier       AS euMonitoringSiteCode
+        FROM  dataset_44489.""monitoring""              mo
+        INNER JOIN dataset_37016.""monitoringsitewfd""  mref
+            ON mo.eumonitoringsitecode          = mref.thematicIdIdentifier
+        INNER JOIN dataset_37016.""relatedzonewfd""     gwb
+            ON mref.relatedzoneidentifier       = gwb.thematicIdIdentifier
+        WHERE (SELECT is_spatial FROM spatial_flag) = 0
+          AND mref.countrycode                  = '{%R3_COUNTRY_CODE%}'
+          AND gwb.thematicIdIdentifierScheme    = 'euGroundWaterBodyCode'
+          AND gwb.statusCode                   IN ('valid', 'stable')
+
+        UNION
+
+        -- Approach 2: link through the spatial MonitoringSite dataset (spatial data submitted)
+        SELECT DISTINCT
+            gwb.relatedzoneidentifier       AS euRBDCode,
+            ms.euMonitoringSiteCode
+        FROM  dataset_44489.""monitoring""              ms
+        INNER JOIN dataset_37015.""monitoringsite""     spatial
+            ON ms.euMonitoringSiteCode          = spatial.thematicIdIdentifier
+        INNER JOIN dataset_37016.""relatedzonewfd""     gwb
+            ON spatial.featureofinterestidentifier = gwb.thematicIdIdentifier
+        WHERE (SELECT is_spatial FROM spatial_flag) = 1
+          AND gwb.countrycode                   = '{%R3_COUNTRY_CODE%}'
+          AND gwb.thematicIdIdentifierScheme    = 'euGroundWaterBodyCode'
+          AND gwb.statusCode                   IN ('valid', 'stable')
+    ),
+
+    -- Identify RBDs for which parameter EEA_00-01-1 has been reported
+    -- through at least one eligible monitoring site.
+    rbd_with_param_reported AS (
+        SELECT DISTINCT
+            s.euRBDCode
+        FROM  dataset_44489.""monitoring""          m
+        INNER JOIN sites_linked_to_eligible_gwb   s
+            ON m.euMonitoringSiteCode = s.euMonitoringSiteCode
+        WHERE m.parameterCode = 'EEA_00-01-1'
+    )
+
+
+SELECT
+    rm.record_id,
+    rm.euRBDCode
+FROM  rbd_metadata               rm
+INNER JOIN rbd_with_eligible_gwb rg
+    ON rm.euRBDCode = rg.euRBDCode
+WHERE NOT EXISTS (
+        SELECT 1
+        FROM rbd_with_param_reported rp
+        WHERE rp.euRBDCode = rm.euRBDCode
+    )
+  -- Guard: only execute this QC for WFD-reporting countries.
+  AND EXISTS (
+        SELECT 1
+        FROM dataset_37016.""country""
+        WHERE countryCode   = '{%R3_COUNTRY_CODE%}'
+          AND reportingType = 'WFD'
+    )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,euRBDCode,RF001_WISE5,RF001_WISE5,The value must be a valid RBDCode,The value must be a valid RBDCode [RF001_WISE5],"SELECT record_id
+FROM dataset_37014.""dcmetadata"" dc
+WHERE dc.""eurbdcode"" NOT IN (
+        SELECT rbd.""thematicididentifier""
+        FROM dataset_37016.""riverbasindistrictwise5"" rbd
+        WHERE dc.""eurbdcode"" = rbd.""thematicididentifier""
+          AND rbd.""statuscode"" IN (
+                'stable',
+                'valid'
+              )
+    )
+    AND EXISTS (
+        SELECT 1
+        FROM dataset_37016.""country"" c
+        WHERE c.""countrycode"" = '{%R3_COUNTRY_CODE%}'
+          AND c.""reportingtype"" = 'WISE5'
+    )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,,T002_WISE5,T002_WISE5,"The dcMetadata table must contain one and only one record for each of the country’s river basin districts, identified by the euRBDCode. Identifier missing Values: {%identifiers%} . Number of invalid values: {%numberofrecords%} ","The dcMetadata table must contain one and only one record for each of the country’s river basin districts, identified by the euRBDCode. Identifier missing Values: {%identifiers%} . Number of invalid values: {%numberofrecords%} [T002_WISE5]","SELECT X.record_id,
+    CASE
+        WHEN LENGTH(X.ids) > 4000
+            THEN CONCAT(
+                    LEFT(
+                        X.ids,
+                        CASE
+                            WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0
+                                THEN 3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                            ELSE 3997
+                        END
+                    ),
+                    '...'
+                )
+        ELSE X.ids
+    END AS identifiers,
+    X.numberofrecords
+FROM (
+    SELECT (
+            SELECT record_id
+            FROM dataset_37014.""dcmetadata""
+            LIMIT 1
+        ) AS record_id,
+        listagg(rf.thematicididentifier, ', ') AS ids,
+        COUNT(*) AS numberofrecords
+    FROM dataset_37016.""riverbasindistrictwise5"" rf
+    WHERE rf.thematicididentifier NOT IN (
+            SELECT sub.euRBDCode
+            FROM dataset_37014.""dcmetadata"" sub
+        )
+        AND rf.""statuscode"" IN (
+            'valid',
+            'stable'
+        )
+        AND rf.countrycode = '{%R3_COUNTRY_CODE%}'
+    HAVING COUNT(*) > 0
+) X",TABLE,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesmonitoringdata,XC005_WISE5,XC005_WISE5,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table Monitoring related with the RBD.,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table Monitoring related with the RBD. [XC005_WISE5],"SELECT record_id, eurbdcode
+FROM dataset_37014.""dcmetadata"" DC
+WHERE DC.""includesmonitoringdata"" = 'no'
+AND EXISTS (
+    SELECT 1
+    FROM dataset_44489.""monitoring"" M
+    LEFT JOIN dataset_37016.""monitoringsitewise5"" RM_WFD
+        ON RM_WFD.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    LEFT JOIN dataset_37015.""monitoringsite"" RM_SPATIAL
+        ON RM_SPATIAL.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    JOIN dataset_37016.""relatedzonewise5"" RZ
+        ON RZ.""thematicididentifier"" = RM_WFD.""relatedzoneidentifier""
+        OR RZ.""thematicididentifier"" = RM_SPATIAL.""featureofinterestidentifier""
+    WHERE DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+)
+AND EXISTS (
+    SELECT 1
+    FROM dataset_37016.""country"" c
+    WHERE c.""countrycode"" = '{%R3_COUNTRY_CODE%}'
+      AND c.""reportingtype"" = 'WISE5'
+)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesmonitoringdata,XC008_WISE5,XC008_WISE5,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table MonitoringPurpose related with the RBD.,If includesmonitoringdata = 'no' then it is not possible to report any Monitoring Code in table MonitoringPurpose related with the RBD. [XC008_WISE5],"SELECT record_id, eurbdcode
+FROM dataset_37014.""dcmetadata"" DC
+WHERE DC.""includesmonitoringdata"" = 'no'
+AND EXISTS (
+    SELECT 1
+    FROM dataset_44489.""monitoringpurpose"" M
+    LEFT JOIN dataset_37016.""monitoringsitewise5"" RM_WFD
+        ON RM_WFD.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    LEFT JOIN dataset_37015.""monitoringsite"" RM_SPATIAL
+        ON RM_SPATIAL.""thematicididentifier"" = M.""euMonitoringSiteCode""
+    JOIN dataset_37016.""relatedzonewise5"" RZ
+        ON RZ.""thematicididentifier"" = RM_WFD.""relatedzoneidentifier""
+        OR RZ.""thematicididentifier"" = RM_SPATIAL.""featureOfInterestIdentifier""
+    WHERE DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+)
+AND EXISTS (
+    SELECT 1
+    FROM dataset_37016.""country"" c
+    WHERE c.""countrycode"" = '{%R3_COUNTRY_CODE%}'
+      AND c.""reportingtype"" = 'WISE5'
+)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,euRBDCode,T404_WISE5,T404_WISE5,The Monitoring table must always list the groundwater monitoring sites for quantitative monitoring ('EEA_00-01-1') for every river basin district with designated groundwater bodies. ,The Monitoring table must always list the groundwater monitoring sites for quantitative monitoring ('EEA_00-01-1') for every river basin district with designated groundwater bodies.  Values: {%identifiers%}. Number of missing values: {%numberofrecords%}   [T404_WISE5],"WITH
+    -- Retrieve all RBDs for which monitoring data has been submitted.
+    rbd_metadata AS (
+        SELECT
+            euRBDCode,
+            record_id
+        FROM dataset_37014.""dcmetadata""
+        WHERE ""includesMonitoringData"" = 'yes'
+    ),
+
+    spatial_flag AS (
+        SELECT
+            MAX(CASE WHEN ""includesspatialdata"" = 'yes' THEN 1 ELSE 0 END) AS is_spatial
+        FROM dataset_37014.""dcmetadata""
+    ),
+
+    -- Identify RBDs that contain at least one eligible GWB (valid or stable).
+    rbd_with_eligible_gwb AS (
+        SELECT
+            r.thematicIdIdentifier AS euRBDCode
+        FROM dataset_37016.""riverbasindistrictwise5"" r
+        WHERE r.statusCode IN ('valid', 'stable')
+          AND r.countrycode = '{%R3_COUNTRY_CODE%}'
+          AND EXISTS (
+                SELECT 1
+                FROM dataset_37016.""relatedzonewise5"" rz
+                WHERE rz.relatedZoneIdentifier      = r.thematicIdIdentifier
+                  AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+                  AND rz.statusCode IN ('valid', 'stable')
+            )
+    ),
+
+    -- Map monitoring sites to their parent RBD via eligible GWBs.
+    -- Approach 1 (reference): active when is_spatial = 0 (no spatial data submitted).
+    -- Approach 2 (spatial):   active when is_spatial = 1 (spatial data submitted).
+    -- The spatial_flag value is read once as a scalar subquery in each WHERE clause.
+    sites_linked_to_eligible_gwb AS (
+
+        -- Approach 1: link through the reference dataset (no spatial data submitted)
+        SELECT DISTINCT
+            gwb.relatedzoneidentifier AS euRBDCode,
+            mref.thematicIdIdentifier AS euMonitoringSiteCode
+        FROM dataset_44489.""monitoring"" mo
+        INNER JOIN dataset_37016.""monitoringsitewise5"" mref
+            ON mo.eumonitoringsitecode = mref.thematicIdIdentifier
+        INNER JOIN dataset_37016.""relatedzonewise5"" gwb
+            ON mref.relatedzoneidentifier = gwb.thematicIdIdentifier
+        WHERE (SELECT is_spatial FROM spatial_flag) = 0
+          AND mref.countrycode = '{%R3_COUNTRY_CODE%}'
+          AND gwb.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+          AND gwb.statusCode IN ('valid', 'stable')
+
+        UNION
+
+        -- Approach 2: link through the spatial MonitoringSite dataset (spatial data submitted)
+        SELECT DISTINCT
+            gwb.relatedzoneidentifier AS euRBDCode,
+            ms.euMonitoringSiteCode
+        FROM dataset_44489.""monitoring"" ms
+        INNER JOIN dataset_37015.""monitoringsite"" spatial
+            ON ms.euMonitoringSiteCode = spatial.thematicIdIdentifier
+        INNER JOIN dataset_37016.""relatedzonewise5"" gwb
+            ON spatial.featureofinterestidentifier = gwb.thematicIdIdentifier
+        WHERE (SELECT is_spatial FROM spatial_flag) = 1
+          AND gwb.countrycode = '{%R3_COUNTRY_CODE%}'
+          AND gwb.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+          AND gwb.statusCode IN ('valid', 'stable')
+    ),
+
+    -- Identify RBDs for which parameter EEA_00-01-1 has been reported
+    -- through at least one eligible monitoring site.
+    rbd_with_param_reported AS (
+        SELECT DISTINCT
+            s.euRBDCode
+        FROM dataset_44489.""monitoring"" m
+        INNER JOIN sites_linked_to_eligible_gwb s
+            ON m.euMonitoringSiteCode = s.euMonitoringSiteCode
+        WHERE m.parameterCode = 'EEA_00-01-1'
+    )
+
+SELECT
+    rm.record_id,
+    rm.euRBDCode
+FROM rbd_metadata rm
+INNER JOIN rbd_with_eligible_gwb rg
+    ON rm.euRBDCode = rg.euRBDCode
+WHERE NOT EXISTS (
+        SELECT 1
+        FROM rbd_with_param_reported rp
+        WHERE rp.euRBDCode = rm.euRBDCode
+    )
+  -- Guard: only execute this QC for WISE5-reporting countries.
+  AND EXISTS (
+        SELECT 1
+        FROM dataset_37016.""country""
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+          AND reportingType = 'WISE5'
+    )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,license,V010,V010,Checks if the field is missing or empty,The value must not be missing or empty [V010],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,license,V011,V011,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V011],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+dcMetadata,metadataDocument,R004,R004,metadataDocument must be reported if includesSpatialData = 'yes',metadataDocument must be reported if includesSpatialData = 'yes' [R004],"select record_id
+from dataset_37014.""dcmetadata"" 
+where COALESCE(dataset_37014.""dcmetadata"".""metadatadocument"", '') = ''
+AND dataset_37014.""dcmetadata"".""includesspatialdata""= 'yes'",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,includesSpatialData,R004,R004,metadataDocument must be reported if includesSpatialData = 'yes',metadataDocument must be reported if includesSpatialData = 'yes' [R004],"select record_id
+from dataset_37014.""dcmetadata"" 
+where COALESCE(dataset_37014.""dcmetadata"".""metadatadocument"", '') = ''
+AND dataset_37014.""dcmetadata"".""includesspatialdata""= 'yes'",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,license,R005,R005,"Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') ","Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') [R005]","select record_id
+from dataset_37014.""dcmetadata""
+where dataset_37014.""dcmetadata"".""license"" in ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')
+and coalesce(dataset_37014.""dcmetadata"".""licensedocument"", '') = ''",RECORD,BLOCKER,FALSE,TRUE,TRUE
+dcMetadata,licensedocument,R005,R005,"Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') ","Document(s) about licensing information must be reported if license IN ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0') [R005]","select record_id
+from dataset_37014.""dcmetadata""
+where dataset_37014.""dcmetadata"".""license"" in ('exactMatch_CC_BY_4_0', 'narrowMatch_CC_BY_4_0')
+and coalesce(dataset_37014.""dcmetadata"".""licensedocument"", '') = ''",RECORD,BLOCKER,FALSE,TRUE,TRUE

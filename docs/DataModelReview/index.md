@@ -9,14 +9,14 @@ html_theme.sidebar_secondary.remove: true
 
 WFDRiverBasinDistrictsAndCompetentAuthorities
 WFDMonitoring
-WFDMeasures
-WFDEconomicAnalysis
 WFDProtectedAreas
-WFDExemptions
+WFDMeasures
 WFDGroundWaterBody
 WFDGroundwaterMethodologies
 WFDSurfaceWaterBody
 WFDSurfaceWaterMethodologies
+WFDExemptions
+WFDEconomicAnalysis
 
 ```
 

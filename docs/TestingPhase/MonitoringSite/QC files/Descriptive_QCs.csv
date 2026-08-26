@@ -1,0 +1,2901 @@
+Table,Field,Code,QC Name,QC Description,Message,Expression,Type of QC,Severity Level,Creation Mode,Status,Valid
+MonitoringProgrammes,gwChemicalMonitoringReference,V401,V401,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V401],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,gwQuantitativeMonitoringReference,V402,V402,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V402],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,swChemicalMonitoringReference,V403,V403,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V403],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,swEcologicalMonitoringReference,V404,V404,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V404],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,programmesReference,V405,V405,Checks if the field is missing or empty,The value must not be missing or empty [V405],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,programmesReference,V406,V406,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V406],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,investigativeMonitoringReference,V407,V407,Checks if the field is missing or empty,The value must not be missing or empty [V407],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,investigativeMonitoringReference,V408,V408,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V408],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,surveillanceMonitoringReference,V409,V409,Checks if the field is missing or empty,The value must not be missing or empty [V409],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,surveillanceMonitoringReference,V410,V410,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V410],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,operationalMonitoringReference,V411,V411,Checks if the field is missing or empty,The value must not be missing or empty [V411],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,operationalMonitoringReference,V412,V412,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V412],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,lastMonitored,V415,V415,Checks if the field is a valid NUMBER - INTEGER,The value is not a valid whole number [V415],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,euMonitoringSiteCode,V416,V416,Checks if the field is missing or empty,The value must not be missing or empty [V416],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,parameterCode,V417,V417,Checks if the field is missing or empty,The value must not be missing or empty [V417],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,parameterCode,V418,V418,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V418],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,frequency,V419,V419,Checks if the field is missing or empty,The value must not be missing or empty [V419],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,frequency,V420,V420,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V420],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,lastMonitored,V421,V421,Checks if the field is missing or empty,The value must not be missing or empty [V421],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,cycle,V422,V422,Checks if the field is missing or empty,The value must not be missing or empty [V422],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,cycle,V423,V423,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V423],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,,TU400,TU400,"Checks if euMonitoringSiteCode, parameterCode and chemicalMatrix are uniques within table [TU400]","Uniqueness and multiplicity constraints - The fields euMonitoringSiteCode, parameterCode and chemicalMatrix are uniques within table [TU400]",,TABLE,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,lastMonitored,V426,V426,The value must follow the YYYY format.,The value must follow the YYYY format. [V426],"WITH Dataset AS (
+    select  record_id,
+            lastmonitored,
+             ('^\d{4}$'
+                
+            ) as regexp
+    from    dataset_44489.""monitoring""
+    where   coalesce(lastmonitored, '') <> ''
+)
+select  record_id,
+        lastmonitored
+from    Dataset
+where   NOT REGEXP_COL_LIKE(lastmonitored, regexp) 
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,RF401_WFD,RF401_WFD,The euRBDCode must match a RiverBasinDistrict in the reference where wiseevolutiontype != 'deletion',The euRBDCode must match a RiverBasinDistrict in the reference where wiseevolutiontype != 'deletion' [RF401_WFD],"select
+    record_id,
+    MP.""eurbdcode""
+from
+    dataset_44489.""monitoringprogrammes"" MP
+where
+    NOT EXISTS (
+        select
+            1
+        from
+            dataset_37016.""riverbasindistrictwfd"" rbd
+        where
+            MP.""eurbdcode"" = rbd.""thematicididentifier""
+            and rbd.""wiseevolutiontype"" <> 'deletion'
+    )    and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,euMonitoringSiteCode,V425,V425,Checks if the field is missing or empty,The value must not be missing or empty [V425],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringPurpose,monitoringPurpose,V427,V427,Checks if the field is missing or empty,The value must not be missing or empty [V427],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringPurpose,monitoringPurpose,V428,V428,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V428],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringPurpose,includesMonitoringData,XC410_WFD,XC410_WFD,euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes',euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes' [XC410],"SELECT MP.record_id, MP.""eumonitoringsitecode"", MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37015.""monitoringsite"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewfd"" RZ
+    ON RZ.""thematicididentifier"" = MS.""featureofinterestidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesspatialdata"" = 'yes'
+            AND DC.""includesmonitoringdata"" = 'yes'
+            AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,wisevolutiontype,XC410_WFD,XC410_WFD,euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes',euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes' [XC410],"SELECT MP.record_id, MP.""eumonitoringsitecode"", MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37015.""monitoringsite"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewfd"" RZ
+    ON RZ.""thematicididentifier"" = MS.""featureofinterestidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesspatialdata"" = 'yes'
+            AND DC.""includesmonitoringdata"" = 'yes'
+            AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,includesSpatialData,XC410_WFD,XC410_WFD,euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes',euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes' [XC410],"SELECT MP.record_id, MP.""eumonitoringsitecode"", MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37015.""monitoringsite"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewfd"" RZ
+    ON RZ.""thematicididentifier"" = MS.""featureofinterestidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesspatialdata"" = 'yes'
+            AND DC.""includesmonitoringdata"" = 'yes'
+            AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+ and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,wisevolutiontype,RF409_WFD,RF409_WFD,euMonitoringSiteCode must exist in the Spatial Reference if includesSpatialData = 'no'  with wisevolutiontype != 'deletion' ,euMonitoringSiteCode must exist in the Spatial Reference if includesSpatialData = 'no'  with wisevolutiontype != 'deletion' [RF409_WFD],"SELECT MP.record_id, MP.""eumonitoringsitecode"", MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37016.""monitoringsitewfd"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewfd"" RZ
+    ON RZ.""thematicididentifier"" = MS.""relatedzoneidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesmonitoringdata"" = 'yes'
+            AND DC.""includesspatialdata"" = 'no'
+            AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+    AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE C.""countryCode"" = '{%R3_COUNTRY_CODE%}'
+            AND C.""reportingType"" = 'WFD'
+    )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,includesSpatialData,RF409_WFD,RF409_WFD,euMonitoringSiteCode must exist in the Spatial Reference if includesSpatialData = 'no'  with wisevolutiontype != 'deletion' ,euMonitoringSiteCode must exist in the Spatial Reference if includesSpatialData = 'no'  with wisevolutiontype != 'deletion' [RF409_WFD],"SELECT MP.record_id, MP.""eumonitoringsitecode"", MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37016.""monitoringsitewfd"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewfd"" RZ
+    ON RZ.""thematicididentifier"" = MS.""relatedzoneidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesmonitoringdata"" = 'yes'
+            AND DC.""includesspatialdata"" = 'no'
+            AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+    AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE C.""countryCode"" = '{%R3_COUNTRY_CODE%}'
+            AND C.""reportingType"" = 'WFD'
+    )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,monitoringPurpose,V429,V429,monitoringPurpose contains duplicate values,monitoringPurpose contains duplicate values [V429],"WITH
+IndividualLanguage as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(""monitoringpurpose"", chr(59), 'ALL', 999))) as oneLanguage
+    from    dataset_44489.""monitoringpurpose""
+),
+
+Duplicates as (
+    select  IL.record_id,
+            IL.oneLanguage,
+            count(*) as quantity
+    from    IndividualLanguage IL
+    group by IL.record_id, IL.oneLanguage
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.""monitoringpurpose""
+from    dataset_44489.""monitoringpurpose"" M
+where   M.record_id in (
+            select  D.record_id
+            from    Duplicates D
+            )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,gwChemicalMonitoringReference,RF402_WFD,RF402_WFD,gwChemicalMonitoringReference Must be reported for every RBD with designated groundwater bodies.,gwChemicalMonitoringReference Must be reported for every RBD with designated groundwater bodies. [RF402_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid GWB.
+--    Positive matching: safer and more efficient than
+--    the original NOT IN (RBDs without GWBs) approach.
+-- =========================================================
+rbds_with_gwb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwfd"" r
+    INNER JOIN dataset_37016.""relatedzonewfd"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have GWBs but are missing
+-- gwChemicalMonitoringReference. [RF402_WFD]
+-- =========================================================
+SELECT MP.record_id, MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_gwb r          -- only RBDs confirmed to have GWBs
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check            -- blocks result if not WFD country
+WHERE (MP.""gwChemicalMonitoringReference"" IS NULL
+    OR COALESCE(MP.""gwChemicalMonitoringReference"", '') = '')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,gwQuantitativeMonitoringReference,RF403_WFD,RF403_WFD,gwQuantitativeMonitoringReference Must be reported for every RBD with designated groundwater bodies.,gwQuantitativeMonitoringReference Must be reported for every RBD with designated groundwater bodies. [RF403_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid GWB.
+--    Positive matching: safer and more efficient than
+--    the original NOT IN (RBDs without GWBs) approach.
+-- =========================================================
+rbds_with_gwb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwfd"" r
+    INNER JOIN dataset_37016.""relatedzonewfd"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have GWBs but are missing
+-- gwQuantitativeMonitoringReference. [RF403_WFD]
+-- =========================================================
+SELECT MP.record_id, MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_gwb r          -- only RBDs confirmed to have GWBs
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check            -- blocks result if not WFD country
+WHERE (MP.""gwQuantitativeMonitoringReference"" IS NULL
+    OR coalesce(MP.""gwQuantitativeMonitoringReference"", '') = '')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,swChemicalMonitoringReference,RF404_WFD,RF404_WFD,swChemicalMonitoringReference Must be reported for every RBD with designated surface water bodies.,swChemicalMonitoringReference Must be reported for every RBD with designated surface water bodies. [RF404_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid surface water
+--    body that is NOT a territorial water.
+-- =========================================================
+rbds_with_swb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwfd"" r
+    INNER JOIN dataset_37016.""relatedzonewfd"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+     
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have designated surface water bodies
+-- (excluding territorial waters) but are missing
+-- swChemicalMonitoringReference.
+-- =========================================================
+SELECT MP.record_id, MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_swb r          -- only RBDs confirmed to have SWBs
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check            -- blocks result if not WFD country
+WHERE (MP.""swChemicalMonitoringReference"" IS NULL
+    OR COALESCE(MP.""swChemicalMonitoringReference"", '') = '')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,swEcologicalMonitoringReference,RF405_WFD,RF405_WFD,swEcologicalMonitoringReference Must be reported for every RBD with designated surface water bodies that are not territorial waters.,swEcologicalMonitoringReference Must be reported for every RBD with designated surface water bodies that are not territorial waters.[RF405_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid surface water
+--    body that is NOT a territorial water.
+-- =========================================================
+rbds_with_swb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwfd"" r
+    INNER JOIN dataset_37016.""relatedzonewfd"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+        AND m.specialisedZoneType        <> 'territorialWaters'  --  exclude territorial waters
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have designated surface water bodies
+-- (excluding territorial waters) but are missing
+-- swEcologicalMonitoringReference.
+-- =========================================================
+SELECT MP.record_id, MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_swb r          -- only RBDs confirmed to have SWBs
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check            -- blocks result if not WFD country
+WHERE (MP.""swEcologicalMonitoringReference"" IS NULL
+    OR COALESCE(MP.""swEcologicalMonitoringReference"", '') = '')",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,,TU401,TU401,Checks if euRBDCode is unique within table,The field euRBDCode must be unique within table [TU401],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,V431,V431,Checks if the field is missing or empty,The value must not be missing or empty [V431],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,useWaterbaseForMonitoringData,V432,V432,Checks if the field is missing or empty,The value must not be missing or empty [V432],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,useWaterbaseForMonitoringData,V424,V424,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V424],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+MonitoringProgrammes,,T401,T401,The MonitoringProgrammes table must have one record for each of the river basin districts being reported (i.e. where dcMetadata.includesMonitoringData = 'yes').,The MonitoringProgrammes table must have one record for each of the river basin districts being reported (i.e. where dcMetadata.includesMonitoringData = 'yes'). Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}  [T401],"SELECT X.record_id
+    ,CASE 
+        WHEN LENGTH(X.ids) > 4000
+            THEN CONCAT (
+                    LEFT(X.ids, CASE 
+                            WHEN POSITION(',' IN REVERSE(LEFT(X.ids, 3997))) > 0
+                                THEN 3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                            ELSE 3997
+                            END)
+                    ,'...'
+                    )
+        ELSE X.ids
+        END AS identifiers
+    ,X.numberofrecords
+FROM (
+    SELECT MIN(record_id) AS record_id
+        ,listagg(dc.euRBDCode, ', ') AS ids
+        ,COUNT(*) AS numberofrecords
+    FROM dataset_37014.""dcmetadata"" DC
+    WHERE DC.""includesmonitoringdata"" = 'yes'
+        AND NOT EXISTS (
+            SELECT 1
+            FROM dataset_44489.""monitoringprogrammes"" mp
+            WHERE mp.""euRBDCode"" = dc.""euRBDCode""
+            )
+    HAVING COUNT(*) > 0
+    ) X",TABLE,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,lastMonitored,V430,V430,lastMonitored must be a year <= 2027 or 9999 (only when the parameter has never been monitored before but will be monitored during the 4th cycle). Any other value is invalid.,lastMonitored must be a year <= 2027 or 9999 (only when the parameter has never been monitored before but will be monitored during the 4th cycle). Any other value is invalid.[V430],"SELECT record_id, M.""lastmonitored""
+FROM dataset_44489.""monitoring"" M 
+WHERE M.""lastmonitored"" > '2028' AND M.""lastmonitored"" <> '9999'",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,R400_WFD,R400_WFD,The chemicalMatrix value must be reported if and only if chemical monitoring occurs.,The chemicalMatrix value must be reported if and only if chemical monitoring occurs. [R400_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+),
+-- =========================================================
+-- 4. SWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euSurfaceWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euSurfaceWaterBodyCode)
+-- =========================================================
+swb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+swb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_swb_sites AS (
+	SELECT euMonitoringSiteCode FROM swb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM swb_sites_ref
+),
+-- =========================================================
+-- 5. Tag each monitoring record with its water body type.
+--    GWB takes precedence if a site appears in both.
+-- =========================================================
+monitoring_with_bodytype AS (
+	SELECT
+		M.record_id
+		,M.""eumonitoringsitecode""
+		,M.""parametercode""
+		,M.""chemicalmatrix""
+		,CASE WHEN gwb.euMonitoringSiteCode IS NOT NULL THEN 'GWB' ELSE 'SWB' END AS bodytype
+	FROM dataset_44489.""monitoring"" M
+	LEFT JOIN all_gwb_sites gwb ON gwb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	LEFT JOIN all_swb_sites swb ON swb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	WHERE gwb.euMonitoringSiteCode IS NOT NULL
+		OR swb.euMonitoringSiteCode IS NOT NULL
+)
+-- =========================================================
+-- RESULT: chemicalMatrix reported if and only if chemical
+-- monitoring occurs, per GWB/SWB body type. [R400_WFD]
+-- =========================================================
+SELECT
+	MB.record_id
+	,MB.""chemicalmatrix""
+	,MB.""parametercode""
+	,MB.bodytype
+	,mb.""eumonitoringsitecode""
+	,PC.""isGroundWaterPollutant""
+	,PC.""isSurfaceWaterPollutant""
+FROM monitoring_with_bodytype MB
+JOIN dataset_44488.""parametercode"" PC ON PC.""notation"" = MB.""parametercode""
+CROSS JOIN country_check
+WHERE (
+		-- chemicalMatrix missing but parameter IS chemical for this body type
+		COALESCE(MB.""chemicalmatrix"", '') = ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '1')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '1')
+			)
+		)
+	OR (
+		-- chemicalMatrix reported but parameter is NOT chemical for this body type
+		COALESCE(MB.""chemicalmatrix"", '') <> ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '0')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '0')
+			)
+		)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalPurpose,R401_WFD,R401_WFD,The chemicalPurpose value must be reported if and only if chemical monitoring occurs.,The chemicalPurpose value must be reported if and only if chemical monitoring occurs. [R401_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+),
+-- =========================================================
+-- 4. SWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euSurfaceWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euSurfaceWaterBodyCode)
+-- =========================================================
+swb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+swb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_swb_sites AS (
+	SELECT euMonitoringSiteCode FROM swb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM swb_sites_ref
+),
+-- =========================================================
+-- 5. Tag each monitoring record with its water body type.
+--    GWB takes precedence if a site appears in both.
+-- =========================================================
+monitoring_with_bodytype AS (
+	SELECT
+		M.record_id
+		,M.""eumonitoringsitecode""
+		,M.""parametercode""
+		,M.""chemicalpurpose""
+		,CASE WHEN gwb.euMonitoringSiteCode IS NOT NULL THEN 'GWB' ELSE 'SWB' END AS bodytype
+	FROM dataset_44489.""monitoring"" M
+	LEFT JOIN all_gwb_sites gwb ON gwb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	LEFT JOIN all_swb_sites swb ON swb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	WHERE gwb.euMonitoringSiteCode IS NOT NULL
+		OR swb.euMonitoringSiteCode IS NOT NULL
+)
+-- =========================================================
+-- RESULT: chemicalPurpose reported if and only if chemical
+-- monitoring occurs, per GWB/SWB body type. [R401_WFD]
+-- =========================================================
+SELECT
+	MB.record_id
+	,MB.""chemicalpurpose""
+	,MB.""parametercode""
+	,MB.bodytype
+	,MB.""eumonitoringsitecode""
+FROM monitoring_with_bodytype MB
+JOIN dataset_44488.""parametercode"" PC ON PC.""notation"" = MB.""parametercode""
+CROSS JOIN country_check
+WHERE (
+		-- chemicalPurpose missing but parameter IS chemical for this body type
+		COALESCE(MB.""chemicalpurpose"", '') = ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '1')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '1')
+			)
+		)
+	OR (
+		-- chemicalPurpose reported but parameter is NOT chemical for this body type
+		COALESCE(MB.""chemicalpurpose"", '') <> ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '0')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '0')
+			)
+		)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,R403_WFD,R403_WFD,Seven physico-chemical parameters applicable to surface water are NOT valid in groundwater monitoring sites.,"Seven physico-chemical parameters applicable to surface water are NOT valid in groundwater monitoring sites. List includes: EEA_3133-07-1 (Oxidisability), EEA_3133-02-6 (BOD7), EEA_3111-01-1 (Secchi depth), EEA_3161-04-4 (Particulate organic nitrogen), EEA_3164-08-7 (Nitrate to orthophosphate ratio), EEA_3164-07-6 (Total N to total P ratio), EEA_3164-01-0 (Chlorophyll a). [R403_WFD]","WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. Groundwater monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = MS.""featureofinterestidentifier""
+		AND rz.""thematicididentifierscheme"" = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+		AND rz.""thematicididentifierscheme"" = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+)
+-- =========================================================
+-- RESULT: Monitoring records using surface-water-only
+-- physico-chemical parameters at groundwater sites. [R403_WFD]
+-- =========================================================
+SELECT record_id, M.""parametercode"" ,  M.""eumonitoringsitecode""
+FROM dataset_44489.""monitoring"" M
+JOIN all_gwb_sites gs ON gs.euMonitoringSiteCode = M.""eumonitoringsitecode""
+CROSS JOIN country_check
+WHERE M.""parametercode"" IN (
+	'EEA_3133-07-1' -- Oxidisability
+	,'EEA_3133-02-6' -- BOD7
+	,'EEA_3111-01-1' -- Secchi depth
+	,'EEA_3161-04-4' -- Particulate organic nitrogen
+	,'EEA_3164-08-7' -- Nitrate to orthophosphate ratio
+	,'EEA_3164-07-6' -- Total N to total P ratio
+	,'EEA_3164-01-0' -- Chlorophyll a
+	)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,R402_WFD,R402_WFD,"For groundwater sites with chemical monitoring, the only valid value for chemicalMatrix is 'water'. ","For groundwater sites with chemical monitoring, the only valid value for chemicalMatrix is 'water'. [R402_WFD]","WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+)
+-- =========================================================
+-- RESULT: For GWB sites with chemical monitoring, chemicalMatrix
+-- must be 'water'. Flags chemical-monitoring records at GWB
+-- sites where chemicalMatrix is missing or not 'water'. [R402_WFD]
+-- =========================================================
+SELECT
+	M.record_id
+	,M.""chemicalmatrix""
+	,M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+JOIN all_gwb_sites gs ON gs.euMonitoringSiteCode = M.""eumonitoringsitecode""
+JOIN dataset_44488.""parametercode"" PC ON PC.""notation"" = M.""parametercode""
+CROSS JOIN country_check
+WHERE PC.""isGroundWaterPollutant"" = '1'
+	AND COALESCE(M.""chemicalmatrix"", '') <> 'water'",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,R404_WFD,R404_WFD,The option parameterCode LIKE 'EEA_00-01-1%' (Quantitative monitoring) is only valid for monitoring sites in groundwater bodies.,The option parameterCode LIKE 'EEA_00-01-1%' (Quantitative monitoring) is only valid for monitoring sites in groundwater bodies. [R404_WFD],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WFD'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewfd (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewfd →
+--            relatedzonewfd (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewfd"" MR
+	JOIN dataset_37016.""relatedzonewfd"" rz ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'euGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+)
+-- =========================================================
+-- RESULT: parameterCode LIKE 'EEA_00-01-1%' (Quantitative
+-- monitoring) is only valid for GWB sites. Flags records
+-- using this parameter at sites NOT in a groundwater
+-- body. [R404_WFD]
+-- =========================================================
+SELECT
+	M.record_id
+	,M.""eumonitoringsitecode""
+	,M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+LEFT JOIN all_gwb_sites gs ON gs.euMonitoringSiteCode = M.""eumonitoringsitecode""
+CROSS JOIN country_check
+WHERE M.""parametercode"" ='EEA_00-01-1'
+	AND gs.euMonitoringSiteCode IS NULL",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,euMonitoringSiteCode,RF406_WFD,RF406_WFD,The value euMonitoringSiteCode must exist in reference dataset with wiseevolutiontype != 'deletion',The value euMonitoringSiteCode must exist in reference dataset with wiseevolutiontype != 'deletion' [RF406_WFD],"-- ============================================================
+-- QC: Monitoring sites present in the reference dataset (monitoringsitewfd)
+-- ------------------------------------------------------------
+-- Rule: Every monitoring site reported in the Monitoring table must exist
+--       in the reference dataset (monitoringsitewfd) with a non-deletion
+--       evolution type when no spatial data has been submitted.
+-- Flags: Monitoring sites not found in monitoringsitewfd (excluding deletions).
+-- Only applies when spatial data has NOT been submitted.
+-- ============================================================
+
+-- Only active when no spatial data has been submitted.
+
+SELECT
+    M.record_id,
+    M.""eumonitoringsitecode""
+FROM dataset_44489.""monitoring"" M
+WHERE NOT EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesspatialdata"" = 'yes'
+    )
+  AND NOT EXISTS (
+        SELECT 1
+        FROM dataset_37016.""monitoringsitewfd"" MR
+        WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+          AND MR.""wiseevolutiontype""   <> 'deletion'
+    )
+  -- Guard: only execute this QC for WFD-reporting countries.
+  AND EXISTS (
+        SELECT 1
+        FROM dataset_37016.""country""
+        WHERE countryCode   = '{%R3_COUNTRY_CODE%}'
+          AND reportingType = 'WFD'
+    )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,XC404_WFD,XC404_WFD,"parameterCode LIKE 'QE1-%' (Biological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies.","parameterCode LIKE 'QE1-%' (Biological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies. [XC404_WFD]","SELECT record_id,  M.""eumonitoringsitecode"", M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+WHERE M.""parametercode"" LIKE 'QE1%'
+AND ( EXISTS (--check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+		SELECT 1
+		FROM dataset_37015.""monitoringsite"" MS
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = ms.""featureofinterestidentifier""
+		WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'yes'
+				)
+			AND rz.""specialisedZoneType"" NOT IN  ('riverWaterBody', 'coastalWaterBody', 'lakeWaterBody', 'transitionalWaterBody'
+		) )
+	OR EXISTS (--check relatedzone against reference data if ""includesspatialdata"" = 'no'
+		SELECT 1
+		FROM dataset_37016.""monitoringsitewfd"" MR
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+		WHERE Mr.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'no'
+				)
+			AND rz.""specialisedZoneType"" NOT IN  ('riverWaterBody', 'coastalWaterBody', 'lakeWaterBody', 'transitionalWaterBody'
+		)
+	)
+)    and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,XC405_WFD,XC405_WFD,"parameterCode LIKE 'QE2-%' (Hydromorphological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies.","parameterCode LIKE 'QE2-%' (Hydromorphological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies. [XC405_WFD]","SELECT record_id,  M.""eumonitoringsitecode"", M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+WHERE M.""parametercode"" LIKE 'QE2%'
+AND ( EXISTS (--check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+		SELECT 1
+		FROM dataset_37015.""monitoringsite"" MS
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = ms.""featureofinterestidentifier""
+		WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'yes'
+				)
+			AND rz.""specialisedZoneType"" NOT IN  ('riverWaterBody', 'coastalWaterBody', 'lakeWaterBody', 'transitionalWaterBody'
+		))
+	OR EXISTS (--check relatedzone against reference data if ""includesspatialdata"" = 'no'
+		SELECT 1
+		FROM dataset_37016.""monitoringsitewfd"" MR
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+		WHERE Mr.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'no'
+				)
+			AND rz.""specialisedZoneType"" NOT IN  ('riverWaterBody', 'coastalWaterBody', 'lakeWaterBody', 'transitionalWaterBody'
+		)
+	)
+)    and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode ,XC402_WFD,XC402_WFD,"For sites in surface water bodies, chemical monitoring includes priority substances and river basin specific pollutants.","For sites in surface water bodies, chemical monitoring includes priority substances and river basin specific pollutants. [XC402_WFD]","SELECT m.record_id,  M.""eumonitoringsitecode"", M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+join dataset_44488.""parametercode"" pc ON PC.""notation"" = M.""parametercode""
+WHERE pc.""isSurfaceWaterPollutant"" = 0 AND COALESCE(M.chemicalmatrix, '') <> ''
+AND (  EXISTS ( --check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+		SELECT 1
+		FROM dataset_37015.""monitoringsite"" MS
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = ms.""featureofinterestidentifier""
+		WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'yes'
+				)
+			AND rz.""thematicididentifierscheme"" =  ('euSurfaceWaterBodyCode'
+		))
+	OR EXISTS (--check relatedzone against reference data if ""includesspatialdata"" = 'no'
+		SELECT 1
+		FROM dataset_37016.""monitoringsitewfd"" MR
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+		WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'no'
+				)
+			AND rz.""thematicididentifierscheme"" =  ('euSurfaceWaterBodyCode')
+		
+	))
+	  -- This QC is for countries reporting under WFD only
+            and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode ,XC403_WFD,XC403_WFD,"For sites in groundwater bodies, chemical monitoring includes priority substances, the pollutants designated as “river basin specific pollutants” (for surface waters), and any other chemical substances where parameterCode LIKE 'CAS%'","For sites in groundwater bodies, chemical monitoring includes priority substances, the pollutants designated as “river basin specific pollutants” (for surface waters), and any other chemical substances where parameterCode LIKE 'CAS%' [XC403_WFD]","SELECT m.record_id,  M.""eumonitoringsitecode"", M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+join dataset_44488.""parametercode"" pc ON PC.""notation"" = M.""parametercode""
+WHERE pc.""isgroundwaterpollutant"" = 0 AND COALESCE(M.chemicalmatrix, '') <> ''
+AND ( EXISTS ( --check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+		SELECT 1
+		FROM dataset_37015.""monitoringsite"" MS
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = ms.""featureofinterestidentifier""
+		WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'yes'
+				)
+			AND rz.""thematicididentifierscheme"" =  ('euGroundWaterBodyCode'
+		))
+	OR EXISTS (--check relatedzone against reference data if ""includesspatialdata"" = 'no'
+		SELECT 1
+		FROM dataset_37016.""monitoringsitewfd"" MR
+		JOIN dataset_37016.""relatedzonewfd"" rz ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+		WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND EXISTS (
+				SELECT 1
+				FROM dataset_37014.""dcmetadata"" dc
+				WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+					AND dc.""includesspatialdata"" = 'no'
+				)
+			AND rz.""thematicididentifierscheme"" =  ('euGroundWaterBodyCode')
+		
+	))    and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,,TU402,TU402,Checks if euMonitoringSiteCode is unique within table,The field euMonitoringSiteCode must be unique within table [TU402],,TABLE,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,euMonitoringSiteCode,XC401,XC401,The value euMonitoringSiteCode must exist in Spatial dataset with wiseevolutiontype != 'deletion',The value euMonitoringSiteCode must exist in Spatial dataset with wiseevolutiontype != 'deletion' [XC401],"SELECT record_id, m.""eumonitoringsitecode""
+FROM dataset_44489.""monitoring"" M
+WHERE EXISTS (
+		SELECT 1
+		FROM dataset_37014.""dcmetadata"" DC
+		WHERE DC.""includesspatialdata"" = 'yes'
+		)
+	AND NOT EXISTS (
+		SELECT 1
+		FROM dataset_37015.""monitoringsite"" MS
+		WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+			AND ms.""wiseevolutiontype"" <>  'deletion'
+		)
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,lastMonitored,R406,R406,Unknown option in cycle is valid if and only if: lastMonitored = 9999,Unknown option in cycle is valid if and only if: lastMonitored = 9999 [R406],"select record_id, m.""lastmonitored"", ""cycle""
+from dataset_44489.""monitoring"" m
+WHERE
+COALESCE(m.""lastmonitored"", '') <> ''
+ AND COALESCE(m.""cycle"" , '') <> ''
+ AND 
+ (m.""cycle""= 'unknown' AND m.""lastmonitored""<>'9999')
+    OR
+    (m.""cycle""<> 'unknown' AND m.""lastmonitored""= '9999')",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,T405_WFD,T405_WFD,"If, for a given river basin district, the option useWaterbaseForMonitoringData = 'yes' is reported in the MonitoringProgrammes table, then the monitoring of physico-chemical and chemical parameters must NOT be reported in the Monitoring table.","If, for a given river basin district, the option useWaterbaseForMonitoringData = 'yes' is reported in the MonitoringProgrammes table, then the monitoring of physico-chemical and chemical parameters must NOT be reported in the Monitoring table. [T405_WFD]","-- =========================================================
+-- QC4: Validates that RBDs which declared they use Waterbase
+-- as their source for monitoring data (useWaterbaseForMonitoringData = 'yes')
+-- have NOT reported any physico-chemical or chemical parameters
+-- in the Monitoring table. If they did, those RBDs and the
+-- offending monitoring sites are returned as violations.
+-- =========================================================
+WITH
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 0. Compute the spatial data flag ONCE.
+-- =========================================================
+
+-- =========================================================
+-- 1. Identify RBDs that declared Waterbase as their monitoring
+--    data source. These RBDs should not have reported any
+--    physico-chemical or chemical data in the Monitoring table.
+-- =========================================================
+rbd_using_waterbase AS (
+    SELECT DISTINCT MP.euRBDCode, record_id
+    FROM dataset_44489.""monitoringprogrammes"" MP
+    WHERE MP.useWaterbaseForMonitoringData = 'yes'
+),
+-- =========================================================
+-- 2. Identify monitoring sites that reported physico-chemical
+--    or chemical parameters. QE% and EEA_00-01-1 are excluded
+--    as they are the always-mandatory parameters.
+-- =========================================================
+monitoring_reported_physchem AS (
+    SELECT DISTINCT m.eumonitoringsitecode
+    FROM dataset_44489.""monitoring"" m
+    WHERE m.parameterCode NOT LIKE 'QE%'
+      AND m.parameterCode <> 'EEA_00-01-1'
+),
+-- =========================================================
+-- 3a. For countries NOT reporting spatial data:
+--     link monitoring sites to their RBD using the WFD
+--     reference dataset.
+-- =========================================================
+sites_via_reference AS (
+    SELECT DISTINCT
+        swb1.relatedzoneidentifier AS euRBDCode,
+        mref.thematicIdIdentifier  AS euMonitoringSiteCode
+    FROM monitoring_reported_physchem mo
+    INNER JOIN dataset_37016.""monitoringsitewfd"" mref
+           ON mo.eumonitoringsitecode    = mref.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb1
+           ON mref.relatedzoneidentifier = swb1.thematicIdIdentifier
+   CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode               = '{%R3_COUNTRY_CODE%}'
+    AND sf.includes_spatial            = 0
+      AND swb1.statusCode                IN ('valid', 'stable')  ),
+-- =========================================================
+-- 3b. For countries reporting spatial data:
+--     link monitoring sites to their RBD using the MonitoringSite
+--     dataset submitted in the current delivery.
+-- =========================================================
+sites_via_spatial AS (
+    SELECT DISTINCT
+        swb2.relatedzoneidentifier AS euRBDCode,
+        mo.eumonitoringsitecode    AS euMonitoringSiteCode
+    FROM monitoring_reported_physchem mo
+    INNER JOIN dataset_37015.""monitoringsite"" spatial
+           ON mo.eumonitoringsitecode             = spatial.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb2
+           ON spatial.featureofinterestidentifier = swb2.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE swb2.countrycode                        = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                     = 1
+      AND swb2.statusCode                         IN ('valid', 'stable')  
+),
+-- =========================================================
+-- 4. Merge both paths.
+--    UNION ALL is safe: branches are mutually exclusive.
+-- =========================================================
+all_violating_sites AS (
+    SELECT euRBDCode, euMonitoringSiteCode FROM sites_via_reference
+    UNION ALL
+    SELECT euRBDCode, euMonitoringSiteCode FROM sites_via_spatial
+)
+-- =========================================================
+-- RESULT: RBDs that FAIL QC4.
+-- An RBD fails if it declared Waterbase as its data source
+-- but still reported physico-chemical or chemical monitoring
+-- data. Returns each offending RBD and monitoring site pair.
+-- =========================================================
+SELECT
+    r.record_id,
+    r.euRBDCode
+FROM rbd_using_waterbase r
+INNER JOIN all_violating_sites v
+        ON r.euRBDCode = v.euRBDCode
+ORDER BY r.euRBDCode, v.euMonitoringSiteCode",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,lastMonitored,R405,R405,Unknown option in frequency is valid if and only if:lastMonitored = 9999 or monitoringCycle = 'once',Unknown option in frequency is valid if and only if:lastMonitored = 9999 or monitoringCycle = 'once' [R405],"select record_id, m.""frequency"", m.""lastmonitored"", ""cycle""
+from dataset_44489.""monitoring"" m
+WHERE
+    (m.""frequency"" = 'unknown'
+        AND NOT (m.""lastMonitored"" = '9999' OR m.""cycle""= 'once'))
+    OR
+    (m.""frequency"" <> 'unknown'
+        AND (m.""lastmonitored""= '9999' OR m.""cycle"" = 'once'))",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,lastMonitored,R405,R405,Unknown option in frequency is valid if and only if:lastMonitored = 9999 or monitoringCycle = 'once',Unknown option in frequency is valid if and only if:lastMonitored = 9999 or monitoringCycle = 'once' [R405],"select record_id, m.""frequency"", m.""lastmonitored"", ""cycle""
+from dataset_44489.""monitoring"" m
+WHERE
+    (m.""frequency"" = 'unknown'
+        AND NOT (m.""lastMonitored"" = '9999' OR m.""cycle""= 'once'))
+    OR
+    (m.""frequency"" <> 'unknown'
+        AND (m.""lastmonitored""= '9999' OR m.""cycle"" = 'once'))",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,monitoringCycle,XC413_WFD,XC413_WFD,"If a monitoring site is associated with a territorialwater, it must NOT report any parameter codes matching -- 'QE1%' or 'QE2%'.","If a monitoring site is associated with a territorialwater, it must NOT report any parameter codes matching -- 'QE1%' or 'QE2%'. [XC413_WFD]","-- =========================================================
+-- QC: If a monitoring site is associated with a territorial
+-- water, it must NOT report any parameter codes matching
+-- 'QE1%' or 'QE2%'. Returns all violating monitoring records.
+-- =========================================================
+WITH
+-- =========================================================
+-- 0. Compute the spatial data flag ONCE.
+--    includes_spatial = 1 if spatial data was submitted,
+--    0 otherwise.
+-- =========================================================
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 1. For countries NOT reporting spatial data:
+--    identify monitoring sites linked to territorial waters
+--    using the WFD reference dataset.
+-- =========================================================
+territorial_sites_ref AS (
+    SELECT DISTINCT
+        mref.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_37016.""monitoringsitewfd"" mref
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb
+           ON  mref.relatedzoneidentifier    = swb.thematicIdIdentifier
+           AND swb.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+           AND swb.statusCode                IN ('valid', 'stable')
+           AND swb.specialisedZoneType       = 'territorialWaters'
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode     = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial  = 0
+),
+-- =========================================================
+-- 2. For countries reporting spatial data:
+--    identify monitoring sites linked to territorial waters
+--    using the MonitoringSite dataset from the current delivery.
+-- =========================================================
+territorial_sites_spatial AS (
+    SELECT DISTINCT
+        spatial.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_37015.""monitoringsite"" spatial
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb
+           ON  spatial.featureofinterestidentifier = swb.thematicIdIdentifier
+           AND swb.thematicIdIdentifierScheme      = 'euSurfaceWaterBodyCode'
+           AND swb.statusCode                      IN ('valid', 'stable')
+           AND swb.specialisedZoneType             = 'territorialWaters'
+    CROSS JOIN spatial_flag sf
+    WHERE swb.countrycode      = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial  = 1
+),
+-- =========================================================
+-- 3. Merge both paths into a single set of monitoring sites
+--    associated with territorial waters.
+--    UNION ALL is safe: branches are mutually exclusive.
+-- =========================================================
+all_territorial_sites AS (
+    SELECT euMonitoringSiteCode FROM territorial_sites_ref
+    UNION ALL
+    SELECT euMonitoringSiteCode FROM territorial_sites_spatial
+)
+-- =========================================================
+-- RESULT: Monitoring records that FAIL this QC.
+-- A record fails if its monitoring site is linked to a
+-- territorial water AND its parameterCode matches QE1% or QE2%.
+-- =========================================================
+SELECT
+    m.record_id,
+    m.euMonitoringSiteCode,
+    m.parameterCode
+FROM dataset_44489.""monitoring"" m
+INNER JOIN all_territorial_sites t
+        ON m.euMonitoringSiteCode = t.euMonitoringSiteCode
+WHERE (m.parameterCode LIKE 'QE1%'
+    OR m.parameterCode LIKE 'QE2%')
+      and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+ORDER BY m.euMonitoringSiteCode, m.parameterCode",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,XC411_WFD,XC411_WFD,"If, for a given RBD, useWaterbaseForMonitoringData = 'no' and there are monitoring sites in Surface Water Bodies, then at least one site MUST report a parameterCode NOT LIKE 'QE%'","If, for a given RBD, useWaterbaseForMonitoringData = 'no' and there are monitoring sites in Surface Water Bodies, then at least one site MUST report a parameterCode NOT LIKE 'QE%'. [XC411_WFD]","-- =========================================================
+-- QC1 (SWB): For a given RBD where useWaterbaseForMonitoringData = 'no',
+-- if there are monitoring sites associated with Surface Water Bodies,
+-- at least one of them MUST report a parameterCode NOT LIKE 'QE%'.
+-- Triggers an error if no such parameter is found.
+-- =========================================================
+WITH
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+rbd_not_using_waterbase AS (
+    SELECT DISTINCT MP.euRBDCode, MP.record_id
+    FROM dataset_44489.""monitoringprogrammes"" MP
+    WHERE MP.useWaterbaseForMonitoringData = 'no'
+),
+swb_sites_ref AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier AS euRBDCode,
+        mref.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37016.""monitoringsitewfd"" mref
+           ON mo.eumonitoringsitecode             = mref.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb
+           ON mref.relatedzoneidentifier          = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode                        = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                     = 0
+      AND swb.thematicIdIdentifierScheme          ='euSurfaceWaterBodyCode'
+      AND swb.statusCode                          IN ('valid', 'stable')
+),
+swb_sites_spatial AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier    AS euRBDCode,
+        spatial.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37015.""monitoringsite"" spatial
+           ON mo.eumonitoringsitecode               = spatial.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb
+           ON spatial.featureofinterestidentifier   = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE swb.countrycode                           = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                       = 1
+      AND swb.thematicIdIdentifierScheme            ='euSurfaceWaterBodyCode'
+      AND swb.statusCode                            IN ('valid', 'stable')
+),
+all_swb_sites AS (
+    SELECT euRBDCode, euMonitoringSiteCode FROM swb_sites_ref
+    UNION ALL
+    SELECT euRBDCode, euMonitoringSiteCode FROM swb_sites_spatial
+),
+-- ✅ Only NOT LIKE 'QE%' — no EEA_00-01-1 exclusion for SWB
+rbds_reporting_physchem AS (
+    SELECT DISTINCT s.euRBDCode
+    FROM all_swb_sites s
+    INNER JOIN dataset_44489.""monitoring"" m
+           ON s.euMonitoringSiteCode = m.eumonitoringsitecode
+    WHERE m.parameterCode NOT LIKE 'QE%'
+)
+SELECT
+    r.record_id,
+    r.euRBDCode
+FROM rbd_not_using_waterbase r
+INNER JOIN (SELECT DISTINCT euRBDCode FROM all_swb_sites) s
+        ON r.euRBDCode = s.euRBDCode
+LEFT JOIN rbds_reporting_physchem q
+        ON r.euRBDCode = q.euRBDCode
+WHERE q.euRBDCode IS NULL and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+ORDER BY r.euRBDCode",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,XC412_WFD,XC412_WFD,"If, for a given RBD where useWaterbaseForMonitoringData = 'no', if there are monitoring sites associated with Groundwater Bodies, at least one of them MUST report a parameterCode != 'EEA_00-01-1'.","If, for a given RBD where useWaterbaseForMonitoringData = 'no', if there are monitoring sites associated with Groundwater Bodies, at least one of them MUST report a parameterCode != 'EEA_00-01-1'. [XC412_WFD]","-- =========================================================
+-- QC2 (GWB): For a given RBD where useWaterbaseForMonitoringData = 'no',
+-- if there are monitoring sites associated with Groundwater Bodies,
+-- at least one of them MUST report a parameterCode <> 'EEA_00-01-1'.
+-- Triggers an error if ALL sites only report 'EEA_00-01-1' and
+-- none report any additional physico-chemical parameter.
+-- =========================================================
+WITH
+-- =========================================================
+-- 0. Compute the spatial data flag ONCE.
+-- =========================================================
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 1. RBDs that declared they do NOT use Waterbase.
+--    These are the only RBDs in scope for this QC.
+-- =========================================================
+rbd_not_using_waterbase AS (
+    SELECT DISTINCT MP.euRBDCode, MP.record_id
+    FROM dataset_44489.""monitoringprogrammes"" MP
+    WHERE MP.useWaterbaseForMonitoringData = 'no'
+),
+-- =========================================================
+-- 2a. For countries NOT reporting spatial data:
+--     identify monitoring sites linked to GWBs
+--     using the WFD reference dataset.
+-- =========================================================
+gwb_sites_ref AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier AS euRBDCode,
+        mref.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37016.""monitoringsitewfd"" mref
+           ON mo.eumonitoringsitecode             = mref.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb
+           ON mref.relatedzoneidentifier          = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode                        = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                     = 0
+      AND swb.thematicIdIdentifierScheme           = 'euGroundWaterBodyCode'
+      AND swb.statusCode                          IN ('valid', 'stable')
+),
+-- =========================================================
+-- 2b. For countries reporting spatial data:
+--     identify monitoring sites linked to GWBs
+--     using the MonitoringSite dataset from current delivery.
+-- =========================================================
+gwb_sites_spatial AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier    AS euRBDCode,
+        spatial.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37015.""monitoringsite"" spatial
+           ON mo.eumonitoringsitecode               = spatial.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewfd"" swb
+           ON spatial.featureofinterestidentifier   = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE swb.countrycode                           = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                       = 1
+      AND swb.thematicIdIdentifierScheme            = 'euGroundWaterBodyCode'
+      AND swb.statusCode                            IN ('valid', 'stable')
+),
+-- =========================================================
+-- 3. Merge both paths.
+--    UNION ALL is safe: branches are mutually exclusive.
+-- =========================================================
+all_gwb_sites AS (
+    SELECT euRBDCode, euMonitoringSiteCode FROM gwb_sites_ref
+    UNION ALL
+    SELECT euRBDCode, euMonitoringSiteCode FROM gwb_sites_spatial
+),
+-- =========================================================
+-- 4. Among the GWB sites, find RBDs that DO have at least
+--    one site reporting a parameterCode <> 'EEA_00-01-1'.
+--    These are the RBDs that PASS the QC.
+--    Note: EEA_00-01-1 alone is not sufficient — at least one
+--    additional physico-chemical parameter must be reported.
+-- =========================================================
+rbds_reporting_non_eea AS (
+    SELECT DISTINCT s.euRBDCode
+    FROM all_gwb_sites s
+    INNER JOIN dataset_44489.""monitoring"" m
+           ON s.euMonitoringSiteCode = m.eumonitoringsitecode
+    WHERE m.parameterCode <> 'EEA_00-01-1'  -- at least one non-EEA parameter
+)
+-- =========================================================
+-- RESULT: RBDs that FAIL QC2.
+-- Conditions for failure:
+--   1. useWaterbaseForMonitoringData = 'no'
+--   2. Has at least one GWB monitoring site
+--   3. None of those sites report a parameterCode <> 'EEA_00-01-1'
+-- =========================================================
+SELECT
+    r.record_id,
+    r.euRBDCode
+FROM rbd_not_using_waterbase r
+INNER JOIN (SELECT DISTINCT euRBDCode FROM all_gwb_sites) s
+        ON r.euRBDCode = s.euRBDCode
+LEFT JOIN rbds_reporting_non_eea q
+        ON r.euRBDCode = q.euRBDCode
+WHERE q.euRBDCode IS NULL and exists (
+                select  0
+                from    dataset_37016.""country"" C
+                where   countryCode = '{%R3_COUNTRY_CODE%}'
+                        and reportingType = 'WFD'
+                )
+ORDER BY r.euRBDCode",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,,T402_WFD,T402_WFD,The MonitoringPurpose table must have one record for each of the monitoringsites being reported for the RBD where includesMonitoringData='yes'.,The MonitoringPurpose table must have one record for each of the monitoringsites  being reported for the RBD where includesMonitoringData='yes'. Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}  [T402_WFD],"SELECT X.record_id,
+        CASE
+            WHEN LENGTH(X.ids) > 3997 THEN
+                CONCAT(
+                    LEFT(
+                        X.ids,
+                        3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                    ),
+                    '...'
+                )
+            ELSE X.ids
+        END AS identifiers,
+        X.numberofrecords
+FROM    (
+        SELECT  (SELECT MIN(record_id) FROM dataset_37014.""dcmetadata"") AS record_id,
+                listagg(RF.""thematicididentifier"", ', ') AS ids,
+                COUNT(*) AS numberofrecords
+        FROM    dataset_37015.""monitoringsite"" RF
+                LEFT JOIN dataset_44489.""monitoringpurpose"" MP ON
+                    MP.""eumonitoringsitecode"" = RF.""thematicididentifier""
+                JOIN dataset_37016.""relatedzonewfd"" RZ
+                    ON RZ.""thematicididentifier"" = RF.""featureofinterestidentifier""
+                JOIN dataset_37014.""dcmetadata"" DC
+                    ON DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+        WHERE   EXISTS (
+                    SELECT 0
+                    FROM dataset_37016.""country"" C
+                    WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+                        AND reportingType = 'WFD'
+                )
+                AND DC.""includesmonitoringdata"" = 'yes' and ""includesspatialdata"" ='yes'
+                AND MP.""eumonitoringsitecode"" IS NULL
+        HAVING COUNT(*) > 0
+        ) X
+UNION ALL
+SELECT X.record_id,
+        CASE
+            WHEN LENGTH(X.ids) > 3997 THEN
+                CONCAT(
+                    LEFT(
+                        X.ids,
+                        3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                    ),
+                    '...'
+                )
+            ELSE X.ids
+        END AS identifiers,
+        X.numberofrecords
+FROM    (
+        SELECT  (SELECT MIN(record_id) FROM dataset_37014.""dcmetadata"") AS record_id,
+                listagg(RF.""thematicididentifier"", ', ') AS ids,
+                COUNT(*) AS numberofrecords
+        FROM    dataset_37016.""monitoringsitewfd"" RF
+                LEFT JOIN dataset_44489.""monitoringpurpose"" MP ON
+                    MP.""eumonitoringsitecode"" = RF.""thematicididentifier""
+                JOIN dataset_37016.""relatedzonewfd"" RZ
+                    ON RZ.""thematicididentifier"" = RF.""relatedzoneidentifier""
+                JOIN dataset_37014.""dcmetadata"" DC
+                    ON DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+        WHERE   EXISTS (
+                    SELECT 0
+                    FROM dataset_37016.""country"" C
+                    WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+                        AND reportingType = 'WFD' and RF.countryCode=C.countryCode
+                )
+                AND DC.""includesmonitoringdata"" = 'yes'
+                AND ""includesspatialdata"" = 'no' 
+                AND MP.""eumonitoringsitecode"" IS NULL
+        HAVING COUNT(*) > 0
+        ) X",TABLE,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,V413,V413,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V413],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,chemicalPurpose,V414,V414,Checks if the record based on criteria is valid LINK,The value is not a valid member of the referenced list. [V414],,FIELD,BLOCKER,TRUE,TRUE,TRUE
+Monitoring,chemicalMatrix,V433,V433,chemicalMatrix contains duplicate values,chemicalMatrix contains duplicate values [V433],"WITH
+IndividualLanguage as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(""chemicalmatrix"", chr(59), 'ALL', 999))) as oneLanguage
+    from   dataset_44489.""monitoring""
+),
+
+Duplicates as (
+    select  IL.record_id,
+            IL.oneLanguage,
+            count(*) as quantity
+    from    IndividualLanguage IL
+    group by IL.record_id, IL.oneLanguage
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.""chemicalmatrix""
+from    dataset_44489.""monitoring"" M
+where   M.record_id in (
+            select  D.record_id
+            from    Duplicates D
+            )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalPurpose,V434,V434,chemicalPurpose contains duplicate values,chemicalPurpose contains duplicate values [V434],"WITH
+IndividualLanguage as (
+    select  record_id,
+            TRIM(FLATTEN(REGEXP_SPLIT(""chemicalpurpose"", chr(59), 'ALL', 999))) as oneLanguage
+    from   dataset_44489.""monitoring""
+),
+
+Duplicates as (
+    select  IL.record_id,
+            IL.oneLanguage,
+            count(*) as quantity
+    from    IndividualLanguage IL
+    group by IL.record_id, IL.oneLanguage
+    having  count(*) > 1
+)
+
+select  M.record_id,
+        M.""chemicalpurpose""
+from    dataset_44489.""monitoring"" M
+where   M.record_id in (
+            select  D.record_id
+            from    Duplicates D
+            )
+",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,RF401_WISE5,RF401_WISE5,The euRBDCode must match a RiverBasinDistrict in the reference where wiseevolutiontype != 'deletion' ,The euRBDCode must match a RiverBasinDistrict in the reference where wiseevolutiontype != 'deletion' [RF401_WISE5],"select
+    record_id,
+    MP.""eurbdcode""
+from
+    dataset_44489.""monitoringprogrammes"" MP
+where
+    NOT EXISTS (
+        select
+            1
+        from
+            dataset_37016.""riverbasindistrictwise5"" rbd
+        where
+            MP.""eurbdcode"" = rbd.""thematicididentifier""
+            and rbd.""wiseevolutiontype"" <> 'deletion'
+    )
+    and exists (
+        select
+            0
+        from
+            dataset_37016.""country"" C
+        where
+            countryCode = '{%R3_COUNTRY_CODE%}'
+            and reportingType = 'WISE5'
+    )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,euMonitoringSiteCode,XC410_WISE5,XC410_WISE5,euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes' ,euMonitoringSiteCode must exist in the Spatial dataset if includesSpatialData = 'yes' with wisevolutiontype != 'deletion' and includesMonitoringData = 'yes' [XC410_WISE5],"SELECT
+    MP.record_id,
+    MP.""eumonitoringsitecode"",
+    MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37015.""monitoringsite"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewise5"" RZ
+    ON RZ.""thematicididentifier"" = MS.""featureofinterestidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesspatialdata"" = 'yes'
+            AND DC.""includesmonitoringdata"" = 'yes'
+          AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+    AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+            AND reportingType = 'WISE5'
+    )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,euMonitoringSiteCode,RF409_WISE5,RF409_WISE5,euMonitoringSiteCode must exist in the Spatial Reference if includesSpatialData = 'no' with wisevolutiontype != 'deletion',euMonitoringSiteCode must exist in the Spatial Reference if includesSpatialData = 'no' with wisevolutiontype != 'deletion' [RF409_WISE5],"SELECT
+    MP.record_id,
+    MP.""eumonitoringsitecode"",
+    MP.""monitoringpurpose""
+FROM dataset_44489.""monitoringpurpose"" MP
+LEFT JOIN dataset_37016.""monitoringsitewise5"" MS
+    ON MS.""thematicididentifier"" = MP.""eumonitoringsitecode""
+    AND MS.""wiseevolutiontype"" <> 'deletion'
+JOIN dataset_37016.""relatedzonewise5"" RZ
+    ON RZ.""thematicididentifier"" = MS.""relatedzoneidentifier""
+WHERE EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesmonitoringdata"" = 'yes'
+            AND DC.""includesspatialdata"" = 'no'
+            AND DC.""eurbdcode"" = RZ.""relatedzoneidentifier""
+    )
+    AND MS.""thematicididentifier"" IS NULL
+    AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE C.""countryCode"" = '{%R3_COUNTRY_CODE%}'
+            AND C.""reportingType"" = 'WISE5'
+    )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,gwChemicalMonitoringReference,RF402_WISE5,RF402_WISE5,gwChemicalMonitoringReference Must be reported for every RBD with designated groundwater bodies. ,gwChemicalMonitoringReference Must be reported for every RBD with designated groundwater bodies. [RF402_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid GWB.
+--    Positive matching: safer and more efficient than
+--    the original NOT IN (RBDs without GWBs) approach.
+-- =========================================================
+rbds_with_gwb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwise5"" r
+    INNER JOIN dataset_37016.""relatedzonewise5"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have GWBs but are missing
+-- gwChemicalMonitoringReference. [RF402_WFD]
+-- =========================================================
+SELECT
+    MP.record_id,
+    MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_gwb r
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check
+WHERE (
+        MP.""gwChemicalMonitoringReference"" IS NULL
+        OR COALESCE(MP.""gwChemicalMonitoringReference"", '') = ''
+      )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,gwQuantitativeMonitoringReference,RF403_WISE5,RF403_WISE5,gwQuantitativeMonitoringReference Must be reported for every RBD with designated groundwater bodies. ,gwQuantitativeMonitoringReference Must be reported for every RBD with designated groundwater bodies. [RF403_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid GWB.
+--    Positive matching: safer and more efficient than
+--    the original NOT IN (RBDs without GWBs) approach.
+-- =========================================================
+rbds_with_gwb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwise5"" r
+    INNER JOIN dataset_37016.""relatedzonewise5"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have GWBs but are missing
+-- gwQuantitativeMonitoringReference. [RF403_WFD]
+-- =========================================================
+SELECT
+    MP.record_id,
+    MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_gwb r
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check
+WHERE (
+        MP.""gwQuantitativeMonitoringReference"" IS NULL
+        OR COALESCE(MP.""gwQuantitativeMonitoringReference"", '') = ''
+      )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,swChemicalMonitoringReference,RF404_WISE5,RF404_WISE5,swChemicalMonitoringReference Must be reported for every RBD with designated surface water bodies.,swChemicalMonitoringReference Must be reported for every RBD with designated surface water bodies. [RF404_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid surface water
+--    body that is NOT a territorial water.
+-- =========================================================
+rbds_with_swb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwise5"" r
+    INNER JOIN dataset_37016.""relatedzonewise5"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+     
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have designated surface water bodies
+-- (excluding territorial waters) but are missing
+-- swChemicalMonitoringReference.
+-- =========================================================
+SELECT
+    MP.record_id,
+    MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_swb r
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check
+WHERE (
+        MP.""swChemicalMonitoringReference"" IS NULL
+        OR COALESCE(MP.""swChemicalMonitoringReference"", '') = ''
+      )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,swEcologicalMonitoringReference,RF405_WISE5,RF405_WISE5,swEcologicalMonitoringReference Must be reported for every RBD with designated surface water bodies that are not territorial waters.,swEcologicalMonitoringReference Must be reported for every RBD with designated surface water bodies that are not territorial waters. [RF405_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+    SELECT 1 AS is_wfd
+    FROM dataset_37016.""country"" C
+    WHERE C.countryCode   = '{%R3_COUNTRY_CODE%}'
+      AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Identify RBDs that have at least one valid surface water
+--    body that is NOT a territorial water.
+-- =========================================================
+rbds_with_swb AS (
+    SELECT DISTINCT r.thematicIdIdentifier AS euRBDCode
+    FROM dataset_37016.""riverbasindistrictwise5"" r
+    INNER JOIN dataset_37016.""relatedzonewise5"" m
+        ON  r.thematicIdIdentifier       = m.relatedZoneIdentifier
+        AND m.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+        AND m.statusCode                 IN ('valid', 'stable')
+        AND m.specialisedZoneType        <> 'territorialWaters'  -- exclude territorial waters
+    WHERE r.statusCode   IN ('valid', 'stable')
+      AND r.countrycode  = '{%R3_COUNTRY_CODE%}'
+)
+-- =========================================================
+-- RESULT: RBDs that have designated surface water bodies
+-- (excluding territorial waters) but are missing
+-- swEcologicalMonitoringReference.
+-- =========================================================
+SELECT
+    MP.record_id,
+    MP.""eurbdcode""
+FROM dataset_44489.""monitoringprogrammes"" MP
+INNER JOIN rbds_with_swb r
+        ON MP.""eurbdcode"" = r.euRBDCode
+CROSS JOIN country_check
+WHERE (
+        MP.""swEcologicalMonitoringReference"" IS NULL
+        OR COALESCE(MP.""swEcologicalMonitoringReference"", '') = ''
+      )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalPurpose,R401_WISE5,R401_WISE5,The chemicalPurpose value must be reported if and only if chemical monitoring occurs.,The chemicalPurpose value must be reported if and only if chemical monitoring occurs. [R401_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+),
+-- =========================================================
+-- 4. SWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euSurfaceWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euSurfaceWaterBodyCode)
+-- =========================================================
+swb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'eionetSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+swb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'eionetSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_swb_sites AS (
+	SELECT euMonitoringSiteCode FROM swb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM swb_sites_ref
+),
+-- =========================================================
+-- 5. Tag each monitoring record with its water body type.
+--    GWB takes precedence if a site appears in both.
+-- =========================================================
+monitoring_with_bodytype AS (
+	SELECT
+		M.record_id,
+		M.""eumonitoringsitecode"",
+		M.""parametercode"",
+		M.""chemicalpurpose"",
+		CASE
+			WHEN gwb.euMonitoringSiteCode IS NOT NULL THEN 'GWB'
+			ELSE 'SWB'
+		END AS bodytype
+	FROM dataset_44489.""monitoring"" M
+	LEFT JOIN all_gwb_sites gwb
+		ON gwb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	LEFT JOIN all_swb_sites swb
+		ON swb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	WHERE gwb.euMonitoringSiteCode IS NOT NULL
+		OR swb.euMonitoringSiteCode IS NOT NULL
+)
+-- =========================================================
+-- RESULT: chemicalPurpose reported if and only if chemical
+-- monitoring occurs, per GWB/SWB body type. [R401_WFD]
+-- =========================================================
+SELECT
+	MB.record_id,
+	MB.""chemicalpurpose"",
+	MB.""parametercode"",
+	MB.bodytype,
+	MB.""eumonitoringsitecode""
+FROM monitoring_with_bodytype MB
+JOIN dataset_44488.""parametercode"" PC
+	ON PC.""notation"" = MB.""parametercode""
+CROSS JOIN country_check
+WHERE (
+		COALESCE(MB.""chemicalpurpose"", '') = ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '1')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '1')
+		)
+	)
+	OR (
+		COALESCE(MB.""chemicalpurpose"", '') <> ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '0')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '0')
+		)
+	)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,R400_WISE5,R400_WISE5,The chemicalMatrix value must be reported if and only if chemical monitoring occurs. ,The chemicalMatrix value must be reported if and only if chemical monitoring occurs. [R400_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+),
+-- =========================================================
+-- 4. SWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euSurfaceWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euSurfaceWaterBodyCode)
+-- =========================================================
+swb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'eionetSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+swb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'eionetSurfaceWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_swb_sites AS (
+	SELECT euMonitoringSiteCode FROM swb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM swb_sites_ref
+),
+-- =========================================================
+-- 5. Tag each monitoring record with its water body type.
+--    GWB takes precedence if a site appears in both.
+-- =========================================================
+monitoring_with_bodytype AS (
+	SELECT
+		M.record_id,
+		M.""eumonitoringsitecode"",
+		M.""parametercode"",
+		M.""chemicalmatrix"",
+		CASE
+			WHEN gwb.euMonitoringSiteCode IS NOT NULL THEN 'GWB'
+			ELSE 'SWB'
+		END AS bodytype
+	FROM dataset_44489.""monitoring"" M
+	LEFT JOIN all_gwb_sites gwb
+		ON gwb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	LEFT JOIN all_swb_sites swb
+		ON swb.euMonitoringSiteCode = M.""eumonitoringsitecode""
+	WHERE gwb.euMonitoringSiteCode IS NOT NULL
+		OR swb.euMonitoringSiteCode IS NOT NULL
+)
+-- =========================================================
+-- RESULT: chemicalMatrix reported if and only if chemical
+-- monitoring occurs, per GWB/SWB body type. [R400_WFD]
+-- =========================================================
+SELECT
+	MB.record_id,
+	MB.""chemicalmatrix"",
+	MB.""parametercode"",
+	MB.bodytype,
+	MB.""eumonitoringsitecode"",
+	PC.""isGroundWaterPollutant"",
+	PC.""isSurfaceWaterPollutant""
+FROM monitoring_with_bodytype MB
+JOIN dataset_44488.""parametercode"" PC
+	ON PC.""notation"" = MB.""parametercode""
+CROSS JOIN country_check
+WHERE (
+		COALESCE(MB.""chemicalmatrix"", '') = ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '1')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '1')
+		)
+	)
+	OR (
+		COALESCE(MB.""chemicalmatrix"", '') <> ''
+		AND (
+			(MB.bodytype = 'GWB' AND PC.""isGroundWaterPollutant"" = '0')
+			OR (MB.bodytype = 'SWB' AND PC.""isSurfaceWaterPollutant"" = '0')
+		)
+	)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,R403_WISE5,R403_WISE5,"Seven physico-chemical parameters applicable to surface water are NOT valid in groundwater monitoring sites. List includes: EEA_3133-07-1 (Oxidisability), EEA_3133-02-6 (BOD7), EEA_3111-01-1 (Secchi depth), EEA_3161-04-4 (Particulate organic nitrogen), EEA_3164-08-7 (Nitrate to orthophosphate ratio), EEA_3164-07-6 (Total N to total P ratio), EEA_3164-01-0 (Chlorophyll a). ","Seven physico-chemical parameters applicable to surface water are NOT valid in groundwater monitoring sites. List includes: EEA_3133-07-1 (Oxidisability), EEA_3133-02-6 (BOD7), EEA_3111-01-1 (Secchi depth), EEA_3161-04-4 (Particulate organic nitrogen), EEA_3164-08-7 (Nitrate to orthophosphate ratio), EEA_3164-07-6 (Total N to total P ratio), EEA_3164-01-0 (Chlorophyll a). [R403_WISE5]","WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. Groundwater monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.""thematicididentifier"" = MS.""featureofinterestidentifier""
+		AND rz.""thematicididentifierscheme"" = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+		AND rz.""thematicididentifierscheme"" = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+)
+-- =========================================================
+-- RESULT: Monitoring records using surface-water-only
+-- physico-chemical parameters at groundwater sites. [R403_WFD]
+-- =========================================================
+SELECT
+	record_id,
+	M.""parametercode"",
+	M.""eumonitoringsitecode""
+FROM dataset_44489.""monitoring"" M
+JOIN all_gwb_sites gs
+	ON gs.euMonitoringSiteCode = M.""eumonitoringsitecode""
+CROSS JOIN country_check
+WHERE M.""parametercode"" IN (
+	'EEA_3133-07-1', -- Oxidisability
+	'EEA_3133-02-6', -- BOD7
+	'EEA_3111-01-1', -- Secchi depth
+	'EEA_3161-04-4', -- Particulate organic nitrogen
+	'EEA_3164-08-7', -- Nitrate to orthophosphate ratio
+	'EEA_3164-07-6', -- Total N to total P ratio
+	'EEA_3164-01-0'  -- Chlorophyll a
+)
+",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,R404_WISE5,R404_WISE5,The option parameterCode LIKE 'EEA_00-01-1%' (Quantitative monitoring) is only valid for monitoring sites in groundwater bodies.,The option parameterCode LIKE 'EEA_00-01-1%' (Quantitative monitoring) is only valid for monitoring sites in groundwater bodies. [R404_WISE5],"WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+)
+-- =========================================================
+-- RESULT: parameterCode LIKE 'EEA_00-01-1%' (Quantitative
+-- monitoring) is only valid for GWB sites. Flags records
+-- using this parameter at sites NOT in a groundwater
+-- body. [R404_WFD]
+-- =========================================================
+SELECT
+	M.record_id,
+	M.""eumonitoringsitecode"",
+	M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+LEFT JOIN all_gwb_sites gs
+	ON gs.euMonitoringSiteCode = M.""eumonitoringsitecode""
+CROSS JOIN country_check
+WHERE M.""parametercode"" = 'EEA_00-01-1'
+	AND gs.euMonitoringSiteCode IS NULL",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,euMonitoringSiteCode,RF406_WISE5,RF406_WISE5,The value euMonitoringSiteCode must exist in reference dataset with wiseevolutiontype != 'deletion',The value euMonitoringSiteCode must exist in reference dataset with wiseevolutiontype != 'deletion' [RF406_WISE5],"-- ============================================================
+-- QC: Monitoring sites present in the reference dataset (monitoringsitewise5)
+-- ------------------------------------------------------------
+-- Rule: Every monitoring site reported in the Monitoring table must exist
+--       in the reference dataset (monitoringsitewise5) with a non-deletion
+--       evolution type when no spatial data has been submitted.
+-- Flags: Monitoring sites not found in monitoringsitewise5 (excluding deletions).
+-- Only applies when spatial data has NOT been submitted.
+-- ============================================================
+
+-- Only active when no spatial data has been submitted.
+
+SELECT
+    M.record_id,
+    M.""eumonitoringsitecode""
+FROM dataset_44489.""monitoring"" M
+WHERE NOT EXISTS (
+        SELECT 1
+        FROM dataset_37014.""dcmetadata"" DC
+        WHERE DC.""includesspatialdata"" = 'yes'
+    )
+  AND NOT EXISTS (
+        SELECT 1
+        FROM dataset_37016.""monitoringsitewise5"" MR
+        WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+          AND MR.""wiseevolutiontype"" <> 'deletion'
+    )
+  -- Guard: only execute this QC for WISE5-reporting countries.
+  AND EXISTS (
+        SELECT 1
+        FROM dataset_37016.""country""
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+          AND reportingType = 'WISE5'
+    )",FIELD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,XC404_WISE5,XC404_WISE5,"parameterCode LIKE 'QE1-%' (Biological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies. ","parameterCode LIKE 'QE1-%' (Biological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies. [XC404_WISE5]","SELECT
+    record_id,
+    M.""eumonitoringsitecode"",
+    M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+WHERE M.""parametercode"" LIKE 'QE1%'
+AND (
+    EXISTS ( -- check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+        SELECT 1
+        FROM dataset_37015.""monitoringsite"" MS
+        JOIN dataset_37016.""relatedzonewise5"" rz
+            ON rz.""thematicididentifier"" = MS.""featureofinterestidentifier""
+        WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+            AND EXISTS (
+                SELECT 1
+                FROM dataset_37014.""dcmetadata"" dc
+                WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                    AND dc.""includesspatialdata"" = 'yes'
+            )
+            AND rz.""specialisedZoneType"" NOT IN (
+                'riverWaterBody',
+                'coastalWaterBody',
+                'lakeWaterBody',
+                'transitionalWaterBody'
+            )
+    )
+    OR EXISTS ( -- check relatedzone against reference data if ""includesspatialdata"" = 'no'
+        SELECT 1
+        FROM dataset_37016.""monitoringsitewise5"" MR
+        JOIN dataset_37016.""relatedzonewise5"" rz
+            ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+        WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+            AND EXISTS (
+                SELECT 1
+                FROM dataset_37014.""dcmetadata"" dc
+                WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                    AND dc.""includesspatialdata"" = 'no'
+            )
+            AND rz.""specialisedZoneType"" NOT IN (
+                'riverWaterBody',
+                'coastalWaterBody',
+                'lakeWaterBody',
+                'transitionalWaterBody'
+            )
+    )
+)
+AND EXISTS (
+    SELECT 0
+    FROM dataset_37016.""country"" C
+    WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+        AND reportingType = 'WISE5'
+)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,XC405_WISE5,XC405_WISE5,"parameterCode LIKE 'QE2-%' (Hydromorphological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies. ","parameterCode LIKE 'QE2-%' (Hydromorphological quality elements) is only valid in rivers, lakes, transitional and coastal water bodies. [XC405_WISE5]","SELECT
+    record_id,
+    M.""eumonitoringsitecode"",
+    M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+WHERE M.""parametercode"" LIKE 'QE2%'
+AND (
+    EXISTS ( -- check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+        SELECT 1
+        FROM dataset_37015.""monitoringsite"" MS
+        JOIN dataset_37016.""relatedzonewise5"" rz
+            ON rz.""thematicididentifier"" = MS.""featureofinterestidentifier""
+        WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+            AND EXISTS (
+                SELECT 1
+                FROM dataset_37014.""dcmetadata"" dc
+                WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                    AND dc.""includesspatialdata"" = 'yes'
+            )
+            AND rz.""specialisedZoneType"" NOT IN (
+                'riverWaterBody',
+                'coastalWaterBody',
+                'lakeWaterBody',
+                'transitionalWaterBody'
+            )
+    )
+    OR EXISTS ( -- check relatedzone against reference data if ""includesspatialdata"" = 'no'
+        SELECT 1
+        FROM dataset_37016.""monitoringsitewise5"" MR
+        JOIN dataset_37016.""relatedzonewise5"" rz
+            ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+        WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+            AND EXISTS (
+                SELECT 1
+                FROM dataset_37014.""dcmetadata"" dc
+                WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                    AND dc.""includesspatialdata"" = 'no'
+            )
+            AND rz.""specialisedZoneType"" NOT IN (
+                'riverWaterBody',
+                'coastalWaterBody',
+                'lakeWaterBody',
+                'transitionalWaterBody'
+            )
+    )
+)
+AND EXISTS (
+    SELECT 0
+    FROM dataset_37016.""country"" C
+    WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+        AND reportingType = 'WISE5'
+)",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,XC402_WISE5,XC402_WISE5,"For sites in surface water bodies, chemical monitoring includes priority substances and river basin specific pollutants.","For sites in surface water bodies, chemical monitoring includes priority substances and river basin specific pollutants. [XC402_WISE5]","SELECT
+    M.record_id,
+    M.""eumonitoringsitecode"",
+    M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+JOIN dataset_44488.""parametercode"" pc
+    ON pc.""notation"" = M.""parametercode""
+WHERE pc.""isSurfaceWaterPollutant"" = 0
+    AND COALESCE(M.""chemicalmatrix"", '') <> ''
+    AND (
+        EXISTS ( -- check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+            SELECT 1
+            FROM dataset_37015.""monitoringsite"" MS
+            JOIN dataset_37016.""relatedzonewise5"" rz
+                ON rz.""thematicididentifier"" = MS.""featureofinterestidentifier""
+            WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+                AND EXISTS (
+                    SELECT 1
+                    FROM dataset_37014.""dcmetadata"" dc
+                    WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                        AND dc.""includesspatialdata"" = 'yes'
+                )
+                AND rz.""thematicididentifierscheme"" = 'eionetSurfaceWaterBodyCode'
+        )
+        OR EXISTS ( -- check relatedzone against reference data if ""includesspatialdata"" = 'no'
+            SELECT 1
+            FROM dataset_37016.""monitoringsitewise5"" MR
+            JOIN dataset_37016.""relatedzonewise5"" rz
+                ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+            WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+                AND EXISTS (
+                    SELECT 1
+                    FROM dataset_37014.""dcmetadata"" dc
+                    WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                        AND dc.""includesspatialdata"" = 'no'
+                )
+                AND rz.""thematicididentifierscheme"" = 'eionetSurfaceWaterBodyCode'
+        )
+    )
+    -- This QC is for countries reporting under WISE5 only
+    AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+            AND reportingType = 'WISE5'
+    )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,XC403_WISE5,XC403_WISE5,"For sites in groundwater bodies, chemical monitoring includes priority substances, the pollutants designated as “river basin specific pollutants” (for surface waters), and any other chemical substances where parameterCode LIKE 'CAS%'","For sites in groundwater bodies, chemical monitoring includes priority substances, the pollutants designated as “river basin specific pollutants” (for surface waters), and any other chemical substances where parameterCode LIKE 'CAS%' [XC403_WISE5]","SELECT m.record_id, M.""eumonitoringsitecode"", M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+JOIN dataset_44488.""parametercode"" pc
+    ON PC.""notation"" = M.""parametercode""
+WHERE pc.""isgroundwaterpollutant"" = 0
+    AND COALESCE(M.chemicalmatrix, '') <> ''
+    AND (
+        EXISTS ( --check relatedzone against spatial data if ""includesspatialdata"" = 'yes'
+            SELECT 1
+            FROM dataset_37015.""monitoringsite"" MS
+            JOIN dataset_37016.""relatedzonewise5"" rz
+                ON rz.""thematicididentifier"" = ms.""featureofinterestidentifier""
+            WHERE MS.""thematicididentifier"" = M.""eumonitoringsitecode""
+                AND EXISTS (
+                    SELECT 1
+                    FROM dataset_37014.""dcmetadata"" dc
+                    WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                        AND dc.""includesspatialdata"" = 'yes'
+                )
+                AND rz.""thematicididentifierscheme"" = ('eionetGroundWaterBodyCode'
+        ))
+        OR EXISTS ( --check relatedzone against reference data if ""includesspatialdata"" = 'no'
+            SELECT 1
+            FROM dataset_37016.""monitoringsitewise5"" MR
+            JOIN dataset_37016.""relatedzonewise5"" rz
+                ON rz.""thematicididentifier"" = MR.""relatedzoneidentifier""
+            WHERE MR.""thematicididentifier"" = M.""eumonitoringsitecode""
+                AND EXISTS (
+                    SELECT 1
+                    FROM dataset_37014.""dcmetadata"" dc
+                    WHERE dc.""eurbdcode"" = rz.""relatedzoneidentifier""
+                        AND dc.""includesspatialdata"" = 'no'
+                )
+                AND rz.""thematicididentifierscheme"" = ('eionetGroundWaterBodyCode')
+        )
+    )
+    AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+            AND reportingType = 'WISE5'
+    )",RECORD,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,parameterCode,XC413_WISE5,XC413_WISE5,"If a monitoring site is associated with a territorialwater, it must NOT report any parameter codes matching -- 'QE1%' or 'QE2%'.","If a monitoring site is associated with a territorialwater, it must NOT report any parameter codes matching -- 'QE1%' or 'QE2%'. [XC413_WISE5]","-- =========================================================
+-- QC: If a monitoring site is associated with a territorial
+-- water, it must NOT report any parameter codes matching
+-- 'QE1%' or 'QE2%'. Returns all violating monitoring records.
+-- =========================================================
+WITH
+-- =========================================================
+-- 0. Compute the spatial data flag ONCE.
+--    includes_spatial = 1 if spatial data was submitted,
+--    0 otherwise.
+-- =========================================================
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 1. For countries NOT reporting spatial data:
+--    identify monitoring sites linked to territorial waters
+--    using the WFD reference dataset.
+-- =========================================================
+territorial_sites_ref AS (
+    SELECT DISTINCT
+        mref.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_37016.""monitoringsitewise5"" mref
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb
+           ON  mref.relatedzoneidentifier     = swb.thematicIdIdentifier
+           AND swb.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+           AND swb.statusCode                 IN ('valid', 'stable')
+           AND swb.specialisedZoneType        = 'territorialWaters'
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode    = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial = 0
+),
+-- =========================================================
+-- 2. For countries reporting spatial data:
+--    identify monitoring sites linked to territorial waters
+--    using the MonitoringSite dataset from the current delivery.
+-- =========================================================
+territorial_sites_spatial AS (
+    SELECT DISTINCT
+        spatial.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_37015.""monitoringsite"" spatial
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb
+           ON  spatial.featureofinterestidentifier = swb.thematicIdIdentifier
+           AND swb.thematicIdIdentifierScheme      = 'euSurfaceWaterBodyCode'
+           AND swb.statusCode                      IN ('valid', 'stable')
+           AND swb.specialisedZoneType             = 'territorialWaters'
+    CROSS JOIN spatial_flag sf
+    WHERE swb.countrycode     = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial = 1
+),
+-- =========================================================
+-- 3. Merge both paths into a single set of monitoring sites
+--    associated with territorial waters.
+--    UNION ALL is safe: branches are mutually exclusive.
+-- =========================================================
+all_territorial_sites AS (
+    SELECT euMonitoringSiteCode FROM territorial_sites_ref
+    UNION ALL
+    SELECT euMonitoringSiteCode FROM territorial_sites_spatial
+)
+-- =========================================================
+-- RESULT: Monitoring records that FAIL this QC.
+-- A record fails if its monitoring site is linked to a
+-- territorial water AND its parameterCode matches QE1% or QE2%.
+-- =========================================================
+SELECT
+    m.record_id,
+    m.euMonitoringSiteCode,
+    m.parameterCode
+FROM dataset_44489.""monitoring"" m
+INNER JOIN all_territorial_sites t
+        ON m.euMonitoringSiteCode = t.euMonitoringSiteCode
+WHERE (m.parameterCode LIKE 'QE1%'
+    OR m.parameterCode LIKE 'QE2%')
+      AND EXISTS (
+                SELECT 0
+                FROM dataset_37016.""country"" C
+                WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+                  AND reportingType = 'WISE5'
+                )
+ORDER BY m.euMonitoringSiteCode, m.parameterCode",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,XC411_WISE5,XC411_WISE5,"If, for a given RBD, useWaterbaseForMonitoringData = 'no' and there are monitoring sites in Surface Water Bodies, then at least one site MUST report a parameterCode NOT LIKE 'QE%'.","If, for a given RBD, useWaterbaseForMonitoringData = 'no' and there are monitoring sites in Surface Water Bodies, then at least one site MUST report a parameterCode NOT LIKE 'QE%'. [XC411_WISE5]","-- =========================================================
+-- QC1 (SWB): For a given RBD where useWaterbaseForMonitoringData = 'no',
+-- if there are monitoring sites associated with Surface Water Bodies,
+-- at least one of them MUST report a parameterCode NOT LIKE 'QE%'.
+-- Triggers an error if no such parameter is found.
+-- =========================================================
+WITH
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+rbd_not_using_waterbase AS (
+    SELECT DISTINCT MP.euRBDCode, MP.record_id
+    FROM dataset_44489.""monitoringprogrammes"" MP
+    WHERE MP.useWaterbaseForMonitoringData = 'no'
+),
+swb_sites_ref AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier AS euRBDCode,
+        mref.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37016.""monitoringsitewise5"" mref
+           ON mo.eumonitoringsitecode = mref.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb
+           ON mref.relatedzoneidentifier = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial = 0
+      AND swb.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+      AND swb.statusCode IN ('valid', 'stable')
+),
+swb_sites_spatial AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier    AS euRBDCode,
+        spatial.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37015.""monitoringsite"" spatial
+           ON mo.eumonitoringsitecode = spatial.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb
+           ON spatial.featureofinterestidentifier = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE swb.countrycode = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial = 1
+      AND swb.thematicIdIdentifierScheme = 'euSurfaceWaterBodyCode'
+      AND swb.statusCode IN ('valid', 'stable')
+),
+all_swb_sites AS (
+    SELECT euRBDCode, euMonitoringSiteCode FROM swb_sites_ref
+    UNION ALL
+    SELECT euRBDCode, euMonitoringSiteCode FROM swb_sites_spatial
+),
+-- ✅ Only NOT LIKE 'QE%' — no EEA_00-01-1 exclusion for SWB
+rbds_reporting_physchem AS (
+    SELECT DISTINCT s.euRBDCode
+    FROM all_swb_sites s
+    INNER JOIN dataset_44489.""monitoring"" m
+           ON s.euMonitoringSiteCode = m.eumonitoringsitecode
+    WHERE m.parameterCode NOT LIKE 'QE%'
+)
+SELECT
+    r.record_id,
+    r.euRBDCode
+FROM rbd_not_using_waterbase r
+INNER JOIN (SELECT DISTINCT euRBDCode FROM all_swb_sites) s
+        ON r.euRBDCode = s.euRBDCode
+LEFT JOIN rbds_reporting_physchem q
+        ON r.euRBDCode = q.euRBDCode
+WHERE q.euRBDCode IS NULL
+  AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+          AND reportingType = 'WISE5'
+    )
+ORDER BY r.euRBDCode",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,XC412_WISE5,XC412_WISE5,"If, for a given RBD where useWaterbaseForMonitoringData = 'no', if there are monitoring sites associated with Groundwater Bodies, at least one of them MUST report a parameterCode != 'EEA_00-01-1'. ","If, for a given RBD where useWaterbaseForMonitoringData = 'no', if there are monitoring sites associated with Groundwater Bodies, at least one of them MUST report a parameterCode != 'EEA_00-01-1'. [XC412_WISE5]","-- =========================================================
+-- QC2 (GWB): For a given RBD where useWaterbaseForMonitoringData = 'no',
+-- if there are monitoring sites associated with Groundwater Bodies,
+-- at least one of them MUST report a parameterCode <> 'EEA_00-01-1'.
+-- Triggers an error if ALL sites only report 'EEA_00-01-1' and
+-- none report any additional physico-chemical parameter.
+-- =========================================================
+WITH
+-- =========================================================
+-- 0. Compute the spatial data flag ONCE.
+-- =========================================================
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 1. RBDs that declared they do NOT use Waterbase.
+--    These are the only RBDs in scope for this QC.
+-- =========================================================
+rbd_not_using_waterbase AS (
+    SELECT DISTINCT MP.euRBDCode, MP.record_id
+    FROM dataset_44489.""monitoringprogrammes"" MP
+    WHERE MP.useWaterbaseForMonitoringData = 'no'
+),
+-- =========================================================
+-- 2a. For countries NOT reporting spatial data:
+--     identify monitoring sites linked to GWBs
+--     using the WFD reference dataset.
+-- =========================================================
+gwb_sites_ref AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier AS euRBDCode,
+        mref.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37016.""monitoringsitewise5"" mref
+           ON mo.eumonitoringsitecode             = mref.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb
+           ON mref.relatedzoneidentifier          = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode                        = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                     = 0
+      AND swb.thematicIdIdentifierScheme          = 'eionetGroundWaterBodyCode'
+      AND swb.statusCode                          IN ('valid', 'stable')
+),
+-- =========================================================
+-- 2b. For countries reporting spatial data:
+--     identify monitoring sites linked to GWBs
+--     using the MonitoringSite dataset from current delivery.
+-- =========================================================
+gwb_sites_spatial AS (
+    SELECT DISTINCT
+        swb.relatedzoneidentifier    AS euRBDCode,
+        spatial.thematicIdIdentifier AS euMonitoringSiteCode
+    FROM dataset_44489.""monitoring"" mo
+    INNER JOIN dataset_37015.""monitoringsite"" spatial
+           ON mo.eumonitoringsitecode               = spatial.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb
+           ON spatial.featureofinterestidentifier   = swb.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE swb.countrycode                           = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial                       = 1
+      AND swb.thematicIdIdentifierScheme            = 'eionetGroundWaterBodyCode'
+      AND swb.statusCode                            IN ('valid', 'stable')
+),
+-- =========================================================
+-- 3. Merge both paths.
+--    UNION ALL is safe: branches are mutually exclusive.
+-- =========================================================
+all_gwb_sites AS (
+    SELECT euRBDCode, euMonitoringSiteCode FROM gwb_sites_ref
+    UNION ALL
+    SELECT euRBDCode, euMonitoringSiteCode FROM gwb_sites_spatial
+),
+-- =========================================================
+-- 4. Among the GWB sites, find RBDs that DO have at least
+--    one site reporting a parameterCode <> 'EEA_00-01-1'.
+--    These are the RBDs that PASS the QC.
+--    Note: EEA_00-01-1 alone is not sufficient — at least one
+--    additional physico-chemical parameter must be reported.
+-- =========================================================
+rbds_reporting_non_eea AS (
+    SELECT DISTINCT s.euRBDCode
+    FROM all_gwb_sites s
+    INNER JOIN dataset_44489.""monitoring"" m
+           ON s.euMonitoringSiteCode = m.eumonitoringsitecode
+    WHERE m.parameterCode <> 'EEA_00-01-1'
+)
+-- =========================================================
+-- RESULT: RBDs that FAIL QC2.
+-- Conditions for failure:
+--   1. useWaterbaseForMonitoringData = 'no'
+--   2. Has at least one GWB monitoring site
+--   3. None of those sites report a parameterCode <> 'EEA_00-01-1'
+-- =========================================================
+SELECT
+    r.record_id,
+    r.euRBDCode
+FROM rbd_not_using_waterbase r
+INNER JOIN (SELECT DISTINCT euRBDCode FROM all_gwb_sites) s
+        ON r.euRBDCode = s.euRBDCode
+LEFT JOIN rbds_reporting_non_eea q
+        ON r.euRBDCode = q.euRBDCode
+WHERE q.euRBDCode IS NULL
+  AND EXISTS (
+        SELECT 0
+        FROM dataset_37016.""country"" C
+        WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+          AND reportingType = 'WISE5'
+    )
+ORDER BY r.euRBDCode",FIELD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringPurpose,,T402_WISE5,T402_WISE5,The MonitoringPurpose table must have one record for each of the monitoringsites  being reported for the RBD where includesMonitoringData='yes'. Values: {%identifiers%} . Number of invalid values: {%numberofrecords%} ,The MonitoringPurpose table must have one record for each of the monitoringsites  being reported for the RBD where includesMonitoringData='yes'. Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}  [T402_WISE5],"SELECT X.record_id,
+        CASE
+            WHEN LENGTH(X.ids) > 3997 THEN
+                CONCAT(
+                    LEFT(
+                        X.ids,
+                        3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                    ),
+                    '...'
+                )
+            ELSE X.ids
+        END AS identifiers,
+        X.numberofrecords
+FROM    (
+        SELECT  (SELECT MIN(record_id) FROM dataset_37014.""dcmetadata"") AS record_id,
+                listagg(RF.""thematicididentifier"", ', ') AS ids,
+                COUNT(*) AS numberofrecords
+        FROM    dataset_37015.""monitoringsite"" RF
+                LEFT JOIN dataset_44489.""monitoringpurpose"" MP ON
+                    MP.""eumonitoringsitecode"" = RF.""thematicididentifier""
+                JOIN dataset_37016.""relatedzonewise5"" RZ
+                    ON RZ.""thematicididentifier"" = RF.""featureofinterestidentifier""
+                JOIN dataset_37014.""dcmetadata"" DC
+                    ON DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+        WHERE   EXISTS (
+                    SELECT 0
+                    FROM dataset_37016.""country"" C
+                    WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+                        AND reportingType = 'WISE5'
+                )
+                AND DC.""includesmonitoringdata"" = 'yes'
+                AND ""includesspatialdata"" = 'yes'
+                AND MP.""eumonitoringsitecode"" IS NULL
+        HAVING COUNT(*) > 0
+        ) X
+UNION ALL
+SELECT X.record_id,
+        CASE
+            WHEN LENGTH(X.ids) > 3997 THEN
+                CONCAT(
+                    LEFT(
+                        X.ids,
+                        3997 - POSITION(',' IN REVERSE(LEFT(X.ids, 3997)))
+                    ),
+                    '...'
+                )
+            ELSE X.ids
+        END AS identifiers,
+        X.numberofrecords
+FROM    (
+        SELECT  (SELECT MIN(record_id) FROM dataset_37014.""dcmetadata"") AS record_id,
+                listagg(RF.""thematicididentifier"", ', ') AS ids,
+                COUNT(*) AS numberofrecords
+        FROM    dataset_37016.""monitoringsitewise5"" RF
+                LEFT JOIN dataset_44489.""monitoringpurpose"" MP ON
+                    MP.""eumonitoringsitecode"" = RF.""thematicididentifier""
+                JOIN dataset_37016.""relatedzonewise5"" RZ
+                    ON RZ.""thematicididentifier"" = RF.""relatedzoneidentifier""
+                JOIN dataset_37014.""dcmetadata"" DC
+                    ON DC.""eurbdCode"" = RZ.""relatedzoneidentifier""
+        WHERE   EXISTS (
+                    SELECT 0
+                    FROM dataset_37016.""country"" C
+                    WHERE countryCode = '{%R3_COUNTRY_CODE%}'
+                        AND reportingType = 'WISE5'
+                        AND RF.countryCode = C.countryCode
+                )
+                AND DC.""includesmonitoringdata"" = 'yes'
+                AND ""includesspatialdata"" = 'no'
+                AND MP.""eumonitoringsitecode"" IS NULL
+        HAVING COUNT(*) > 0
+        ) X",TABLE,BLOCKER,FALSE,TRUE,TRUE
+Monitoring,chemicalMatrix,R402_WISE5,R402_WISE5,"For groundwater sites with chemical monitoring, the only valid value for chemicalMatrix is 'water'.","For groundwater sites with chemical monitoring, the only valid value for chemicalMatrix is 'water'. [R402_WISE5]","WITH
+-- =========================================================
+-- 1. Country check computed ONCE.
+-- =========================================================
+country_check AS (
+	SELECT 1 AS is_wfd
+	FROM dataset_37016.""country"" C
+	WHERE C.countryCode = '{%R3_COUNTRY_CODE%}'
+		AND C.reportingType = 'WISE5'
+),
+-- =========================================================
+-- 2. Spatial flag computed ONCE from dcmetadata.
+-- =========================================================
+spatial_flag AS (
+	SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+	FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 3. GWB monitoring sites via two reporting paths
+--    gated by spatial_flag:
+--    Path A (includes_spatial = 1): monitoringsite →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+--    Path B (includes_spatial = 0): monitoringsitewise5 →
+--            relatedzonewise5 (euGroundWaterBodyCode)
+-- =========================================================
+gwb_sites_spatial AS (
+	SELECT DISTINCT MS.""thematicididentifier"" AS euMonitoringSiteCode
+	FROM dataset_37015.""monitoringsite"" MS
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MS.""featureofinterestidentifier""
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE rz.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 1
+),
+gwb_sites_ref AS (
+	SELECT DISTINCT MR.thematicIdIdentifier AS euMonitoringSiteCode
+	FROM dataset_37016.""monitoringsitewise5"" MR
+	JOIN dataset_37016.""relatedzonewise5"" rz
+		ON rz.thematicIdIdentifier = MR.relatedzoneidentifier
+		AND rz.thematicIdIdentifierScheme = 'eionetGroundWaterBodyCode'
+	CROSS JOIN spatial_flag sf
+	WHERE MR.countrycode = '{%R3_COUNTRY_CODE%}'
+		AND rz.statusCode IN ('valid', 'stable')
+		AND sf.includes_spatial = 0
+),
+all_gwb_sites AS (
+	SELECT euMonitoringSiteCode FROM gwb_sites_spatial
+	UNION ALL
+	SELECT euMonitoringSiteCode FROM gwb_sites_ref
+)
+-- =========================================================
+-- RESULT: For GWB sites with chemical monitoring, chemicalMatrix
+-- must be 'water'. Flags chemical-monitoring records at GWB
+-- sites where chemicalMatrix is missing or not 'water'. [R402_WFD]
+-- =========================================================
+SELECT
+	M.record_id,
+	M.""chemicalmatrix"",
+	M.""parametercode""
+FROM dataset_44489.""monitoring"" M
+JOIN all_gwb_sites gs
+	ON gs.euMonitoringSiteCode = M.""eumonitoringsitecode""
+JOIN dataset_44488.""parametercode"" PC
+	ON PC.""notation"" = M.""parametercode""
+CROSS JOIN country_check
+WHERE PC.""isGroundWaterPollutant"" = '1'
+	AND COALESCE(M.""chemicalmatrix"", '') <> 'water'",RECORD,BLOCKER,FALSE,TRUE,TRUE
+MonitoringProgrammes,euRBDCode,T405_WISE5,T405_WISE5,"If, for a given river basin district, the option useWaterbaseForMonitoringData = 'yes' is reported in the MonitoringProgrammes table, then the monitoring of physico-chemical and chemical parameters must NOT be reported in the Monitoring table.","If, for a given river basin district, the option useWaterbaseForMonitoringData = 'yes' is reported in the MonitoringProgrammes table, then the monitoring of physico-chemical and chemical parameters must NOT be reported in the Monitoring table. [T405_WISE5]","-- =========================================================
+-- QC4: Validates that RBDs which declared they use Waterbase
+-- as their source for monitoring data (useWaterbaseForMonitoringData = 'yes')
+-- have NOT reported any physico-chemical or chemical parameters
+-- in the Monitoring table. If they did, those RBDs and the
+-- offending monitoring sites are returned as violations.
+-- =========================================================
+WITH
+spatial_flag AS (
+    SELECT MAX(CASE WHEN includesspatialdata = 'yes' THEN 1 ELSE 0 END) AS includes_spatial
+    FROM dataset_37014.""dcmetadata""
+),
+-- =========================================================
+-- 0. Compute the spatial data flag ONCE.
+-- =========================================================
+
+-- =========================================================
+-- 1. Identify RBDs that declared Waterbase as their monitoring
+--    data source. These RBDs should not have reported any
+--    physico-chemical or chemical data in the Monitoring table.
+-- =========================================================
+rbd_using_waterbase AS (
+    SELECT DISTINCT MP.euRBDCode, record_id
+    FROM dataset_44489.""monitoringprogrammes"" MP
+    WHERE MP.useWaterbaseForMonitoringData = 'yes'
+),
+-- =========================================================
+-- 2. Identify monitoring sites that reported physico-chemical
+--    or chemical parameters. QE% and EEA_00-01-1 are excluded
+--    as they are the always-mandatory parameters.
+-- =========================================================
+monitoring_reported_physchem AS (
+    SELECT DISTINCT m.eumonitoringsitecode
+    FROM dataset_44489.""monitoring"" m
+    WHERE m.parameterCode NOT LIKE 'QE%'
+      AND m.parameterCode <> 'EEA_00-01-1'
+),
+-- =========================================================
+-- 3a. For countries NOT reporting spatial data:
+--     link monitoring sites to their RBD using the reference dataset.
+-- =========================================================
+sites_via_reference AS (
+    SELECT DISTINCT
+        swb1.relatedzoneidentifier AS euRBDCode,
+        mref.thematicIdIdentifier  AS euMonitoringSiteCode
+    FROM monitoring_reported_physchem mo
+    INNER JOIN dataset_37016.""monitoringsitewise5"" mref
+           ON mo.eumonitoringsitecode = mref.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb1
+           ON mref.relatedzoneidentifier = swb1.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE mref.countrycode = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial = 0
+      AND swb1.statusCode IN ('valid', 'stable')
+),
+-- =========================================================
+-- 3b. For countries reporting spatial data:
+--     link monitoring sites to their RBD using the MonitoringSite
+--     dataset submitted in the current delivery.
+-- =========================================================
+sites_via_spatial AS (
+    SELECT DISTINCT
+        swb2.relatedzoneidentifier AS euRBDCode,
+        mo.eumonitoringsitecode    AS euMonitoringSiteCode
+    FROM monitoring_reported_physchem mo
+    INNER JOIN dataset_37015.""monitoringsite"" spatial
+           ON mo.eumonitoringsitecode = spatial.thematicIdIdentifier
+    INNER JOIN dataset_37016.""relatedzonewise5"" swb2
+           ON spatial.featureofinterestidentifier = swb2.thematicIdIdentifier
+    CROSS JOIN spatial_flag sf
+    WHERE swb2.countrycode = '{%R3_COUNTRY_CODE%}'
+      AND sf.includes_spatial = 1
+      AND swb2.statusCode IN ('valid', 'stable')
+),
+-- =========================================================
+-- 4. Merge both paths.
+--    UNION ALL is safe: branches are mutually exclusive.
+-- =========================================================
+all_violating_sites AS (
+    SELECT euRBDCode, euMonitoringSiteCode FROM sites_via_reference
+    UNION ALL
+    SELECT euRBDCode, euMonitoringSiteCode FROM sites_via_spatial
+)
+-- =========================================================
+-- RESULT: RBDs that FAIL QC4.
+-- An RBD fails if it declared Waterbase as its data source
+-- but still reported physico-chemical or chemical monitoring
+-- data. Returns each offending RBD and monitoring site pair.
+-- =========================================================
+SELECT
+    r.record_id,
+    r.euRBDCode
+FROM rbd_using_waterbase r
+INNER JOIN all_violating_sites v
+        ON r.euRBDCode = v.euRBDCode
+ORDER BY r.euRBDCode, v.euMonitoringSiteCode",FIELD,BLOCKER,FALSE,TRUE,TRUE

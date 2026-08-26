@@ -6,8 +6,8 @@ config:
   theme: default
 ---
 classDiagram
-direction LR
-namespace GML_2022{
+direction TB
+
 class RiverBasinDistrict["«FeatureType»
 RiverBasinDistrict"] {
 + geometry: GM_MultiSurface
@@ -80,6 +80,6 @@ SubUnit"] {
 class FeatureCollectionSU["«FeatureType»
 FeatureCollection"] {
 }
-}
+
 RiverBasinDistrict "1..*" <-- FeatureCollectionRBD : + featureMember
 SubUnit "1..*" <-- FeatureCollectionSU : + featureMember

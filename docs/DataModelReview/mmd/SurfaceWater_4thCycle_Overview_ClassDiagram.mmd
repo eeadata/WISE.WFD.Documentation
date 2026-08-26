@@ -1,0 +1,115 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+direction LR
+
+namespace DescriptiveDataset {
+class SWPressureImpact{}
+class SWHeavilyModifiedWaterBody{}
+class SWCharacterisation{}
+class SWStatus{} 
+
+class SWQualityElement{}
+class SWGrouping{}
+class SWPollutant{}
+
+class SWEcologicalExemption{}
+class SWChemicalExemption{}
+}
+
+namespace SpatialDataset {
+  class SurfaceWaterBody{}
+}
+
+namespace MethodologiesDataset {
+class SWMethodologies{}
+class SWManagementObjectives{}
+class SWChemicalStatusClassification{}
+class SWTargetedQuestions{}
+
+class SWPressureAssessment{}
+class SWThresholdValue{}
+class SWThreshold_SWType{}
+class SWType{}
+class SWNaturalBackgroundLevel{}
+
+class QE1Classification{}
+class QE2Classification{}
+class QE3Classification{}
+class QEClassification_SWType{}
+
+class BQEMethod{}
+}
+
+namespace DocumentsData {
+class dcMetadata{}
+class Reference{}
+class Document{}
+}
+
+namespace ReferenceDataset {
+class RiverBasinDistrict_4thCycle:::otherDataset{
+  
+}
+
+class SurfaceWaterBody_3rdCycle:::otherDataset{
+  
+}
+}
+
+SWHeavilyModifiedWaterBody "0..n" -- SWCharacterisation
+SWCharacterisation "1" -- "1" SWStatus    
+SWStatus "1" -- "0..1" SWQualityElement
+SWStatus "1" -- "0..n" SWPollutant
+SWStatus "1" -- "0..n" SWPressureImpact
+
+SWQualityElement "1" -- "0..n" SWEcologicalExemption
+SWPollutant "1" -- "0..n" SWChemicalExemption
+
+SWThresholdValue -- "1..n" SWThreshold_SWType
+SWThreshold_SWType "1..n" -- SWType
+
+SWNaturalBackgroundLevel "0..n" -- SWType
+QE1Classification "n" -- BQEMethod
+
+
+QE3Classification -- "1..n" QEClassification_SWType
+QE1Classification -- "1..n" QEClassification_SWType
+QE2Classification -- "1..n" QEClassification_SWType
+QEClassification_SWType "1..n" -- SWType
+
+
+SWPollutant ..> SWGrouping
+SWQualityElement ..> SWGrouping
+
+SWQualityElement ..> QE1Classification
+SWQualityElement ..> QE2Classification
+SWQualityElement ..> QE3Classification
+
+SurfaceWaterBody ..> SurfaceWaterBody_3rdCycle
+SurfaceWaterBody ..> RiverBasinDistrict_4thCycle
+
+SWPollutant ..> SWThresholdValue
+SWPressureImpact ..> SWPressureAssessment
+SWCharacterisation ..> SurfaceWaterBody
+
+SWMethodologies ..> Reference
+SWManagementObjectives ..> Reference
+SWChemicalStatusClassification ..> Reference
+SWTargetedQuestions ..> Reference
+
+Reference ..> Document
+dcMetadata ..> RiverBasinDistrict_4thCycle
+dcMetadata ..> Document
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;

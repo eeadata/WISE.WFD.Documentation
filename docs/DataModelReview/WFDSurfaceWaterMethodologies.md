@@ -209,7 +209,7 @@ and inconsistencies in the reporting of the biological quality elements classifi
 :caption: WISE2 Biology - BiologyEQRClassificationProcedure table.
 ```
 
-(heading_wfd_surface_water_methodologies_reporting_of_surface_water_methodologies_4th_cycle)=
+(heading_wfd_surfacewater_methodologies_4th_cycle)=
 ## Methodologies dataset - 4th cycle
 
 The revised structure for the surface water methodologies reporting
@@ -457,7 +457,6 @@ for each quality element, depending on the water category.
 :width: 100%
 SWType quality elements - default option – 4th cycle.
 ```
-
 
 * Select `'applicable'` if the quality element is applicable
   and should therefore be used in the assessment

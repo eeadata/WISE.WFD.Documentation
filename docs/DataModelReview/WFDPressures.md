@@ -9,7 +9,6 @@ The `ImpactType` codelist is under review.
 :name: Codelist_4thCycle_ImpactType_ClassDiagram
 :caption:  Codelist - ImpactType - 4th cycle
 :align: center
-:zoom:
 ```
 
 (heading_wfd_pressure_type_codelist_4th_cycle)=
@@ -47,7 +46,6 @@ options like 'P6%' are unlike to apply to surface water bodies.
 :name: Codelist_4thCycle_PressureType_ClassDiagram
 :caption:  Codelist - PressureType - 4th cycle
 :align: center
-:zoom:
 ```
 
 In the pressures codelist used in the 2nd and 3rd cycle of reporting,
