@@ -10,142 +10,238 @@ See **PROPOSAL - Version 2026.02.20** {download}`PDF </DataModelReview/pdf/WFD_4
 
 ## Purpose and overview
 
-The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_3rdCycle_ClassDiagram`) and presents a proposal for the electronic reporting in the 4th cycle ({numref}`EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram`).
-
-The former questionnaire in the *EconomicAnalysis* class is removed.
-
-The questionnaire in the `CostRecovery` and `CostRecoveryPerService` tables maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
-
-The *Service* table is removed. Information about volumes, revenues and costs is requested in the `VolumeRevenueCostPerService` table, using the standard structure for statistical data commonly used by Eurostat.
+The document revises the **Economic Analysis & Services** classes used in the 3rd cycle of reporting
+of the Water Framework Directive River Basin Management Plans ({numref}`EconomicAnalysis_3rdCycle_ClassDiagram`)
+and presents a proposal for the electronic reporting in the 4th cycle.
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_3rdCycle_ClassDiagram.mmd
 :name: EconomicAnalysis_3rdCycle_ClassDiagram
 :align: center
-:caption: Partial class diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema.
+:caption: Partial diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema - 3rd cycle
 ```
+
+## Proposed structure - 4th cycle
+
+See {numref}`EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram`.
+
+* The questionnaire in the `CostRecovery` and `CostRecoveryPerService` tables maintains
+  the same simplified Yes/No approach and requests information only for three collective services
+  (drinking water supply services, irrigation water supply services and
+  wastewater collection and treatment services).
+
+* The *Service* table is removed. Information about volumes, revenues and costs is requested
+  in the `VolumeRevenueCostPerService` table, using the standard structure for statistical data
+  commonly used by Eurostat.
+
+* The former questionnaire in the *EconomicAnalysis* class is removed.  
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram.mmd
 :name: EconomicAnalysis_4thCycle_CostRecovery_CostRecoveryPerSector_VolumeRevenueCostPerService_ClassDiagram
 :align: center
-:caption: Cost recovery questionnaire and volume, revenue and costs per service – 4th cycle
+:caption: Cost recovery questionnaire and volume, revenue and costs per service - 4th cycle
 ```
 
-## Cost Recovery – 4th cycle
+## CostRecovery table
 
-The former questionnaire in the *EconomicAnalysis* class is removed.
-
-The questionnaire in the `CostRecovery` and `CostRecoveryPerService` tables 
+The questionnaire in the `CostRecovery` table
+requests information at River Basin Dsitrict level
 (see {numref}`EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram`
-and {numref}`EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram`) maintains the same simplified Yes/No approach and requests information only for three collective services (drinking water supply services, irrigation water supply services and wastewater collection and treatment services).
-
-{numref}`EconomicAnalysis_CostRecoveryTable` lists the content of the questionnaire.
-
-```{include} tables/EconomicAnalysis_CostRecoveryTable
-```
+and {numref}`EconomicAnalysis_CostRecoveryTable`).
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram.mmd
 :name: EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram
 :align: center
-:caption: CostRecovery – 4ᵗʰ cycle
+:caption: CostRecovery table - 4th cycle
 ```
+
+```{include} tables/EconomicAnalysis_CostRecovery_Table
+```
+
+## CostRecoveryPerService table
+
+The questionnaire in the `CostRecoveryPerService` table
+(see {numref}`EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram`
+and {numref}`EconomicAnalysis_CostRecoveryPerService_Table`)
+maintains the same simplified Yes/No approach and requests information
+only for three collective services (drinking water supply services,
+irrigation water supply services and wastewater collection and treatment services).
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram.mmd
 :name: EconomicAnalysis_4thCycle_CostRecoveryPerService_ClassDiagram
 :align: center
-:caption: CostRecoveryPerService – 4ᵗʰ cycle
+:caption: CostRecoveryPerService table - 4th cycle
+```
+
+```{include} tables/EconomicAnalysis_CostRecoveryPerService_Table
 ```
 
 ## Water Services Data – 4th cycle
 
-The data structure was simplified to a core set of quantitative data for a limited number of water services and water user sectors. The purpose is to obtain a consistent overview across Europe, at river basin district level.
+The data structure was simplified to a core set of quantitative data
+for a limited number of water services and water user sectors.
+The purpose is to obtain a consistent overview across Europe, at river basin district level.
 
-Information is requested:  
-* about the physical volumes of water, the revenues and the costs 
-  ({ref}`Figure 5 <Figure 5>`)
-* for three water user sectors – agriculture, industry and households 
-  ({numref}`EconomicAnalysis_WaterSectors4thcycle _Table`)
-* and for three water services – public drinking water supply services, public irrigation water supply services and sewerage services.
+Information is requested:
 
+* about the physical volumes of water, the revenues and the costs
+* for three water user sectors – agriculture, industry and households
+* and for three water services – public drinking water supply services,
+  public irrigation water supply services and sewerage services.
 
+About the **physical volumes of water** ({numref}`EconomicAnalysis_Overview_PhysicalVolume`).  
+The following flows are quantified:
 
-(Figure 5)=
-| a) | b) and c) |
-|:--:|:----------:|
-| ![](img/EconomicAnalysisPhysicalvolume.png){width="300px"} | ![](img/EconomicAnalysisRevenue.png){width="300px"} |
+* volume of water abstraction from the environment (e.g. for self-supply and for public water supply),
+* volume of water supplied by public water services, 
+* and volume of wastewater discharged to the environment by public water services.
 
-*Figure 5.Overview diagram for the requested data on volumes, revenues and costs – 4th cycle of reporting.*
+The flows represented by grey arrows in the diagram are not required
+(water returned without use, e.g. due to evaporation or losses during transport,
+reused/recycled water supplied back to the water user sectors, direct discharges by the water user sectors).
 
-<div style="display: flex; gap: 20px;">
+Note that the gross freshwater abstraction includes only
+water abstracted from inland surface and groundwater bodies –
+desalinated water and water imports are not quantified.
+The requested data are the estimated average annual volumes in million cubic metre,
+over a specified reference period, in the river basin district.
 
-<div style="flex: 1;">
-<p><strong>a) Physical volume</strong><br>
-The following flows are quantified: volume of water abstraction from the environment (e.g. for self‑supply and for public water supply), volume of water supplied by public water services, and volume of wastewater discharged to the environment by public water services.
-
-The flows represented by grey arrows in the diagram are not required (water returned without use, e.g. due to evaporation or losses during transport, reused/recycled water supplied back to the water user sectors, direct discharges by the water user sectors).
-
-Note that the gross freshwater abstraction includes only water abstracted from inland surface and groundwater bodies – desalinated water and water imports are not quantified. The requested data are the estimated average annual volumes in million cubic metres, over a specified reference period, in the river basin district.</p>
-</div>
-
-<div style="flex: 1;">
-<p><strong>b) Revenue</strong><br>
-For the volumes identified in a), the revenues from water abstraction (e.g. from environmental charges paid to the general government institutional sector as resource taxes), revenues from water supply (e.g. from volumetric service fees paid to the Water collection, treatment and supply (NACE 36.00) sector), revenues from wastewater collection and treatment (for example, from volumetric service fees paid to the Sewerage (NACE 37.00) sector) and revenues from discharges to the environment, including emissions to water (for example, from environmental charges paid to the general government, which in this case may include pollution taxes).
-
-The requested data are the estimated average annual total revenue in million units of the national currency, in the river basin district, for the volumes quantified in a).<br>
-<strong>c) Cost</strong><br>
-For the provision of the services quantified in a) and b), the total costs are to be quantified, distinguishing between CAPEX and OPEX.
-
-</p>
-</div>
-
-</div>
-
-The requested data on water volumes is detailed in ({numref}`conceptualvolume`). The relevant concepts are aligned with the OECconceptualvolumeD/Eurostat Joint Questionnaire on Inland Waters and the Eurostat Regional Water Questionnaire and defined in {numref}`EconomicAnalysis_Conceptsanddefinitions`.
-
-```{figure} img/EconomicAnalysisConceptualVolume.png
-:name: conceptualvolume
+```{figure} img/EconomicAnalysis_Overview_PhysicalVolume.png
+:name: EconomicAnalysis_Overview_PhysicalVolume
 :align: center
-:width: 100%
-Conceptual diagram for the requested data on volumes – 4th cycle of reporting.
+:width: 75%
+
+Overview diagram for the requested data on volumes - 4th cycle
 ```
 
-```{include} tables/EconomicAnalysis_WaterSectors4thcycle _Table
-```                                                                                                                                              
+About the **revenues** ({numref}`EconomicAnalysis_Overview_RevenueCost`).  
+For the volumes in {numref}`EconomicAnalysis_Overview_PhysicalVolume`,
+the revenues are quantified:
 
-```{include} tables/EconomicAnalysis_Waterservices_Table
+* from water abstraction (e.g. from environmental charges paid
+  to the general government institutional sector as resource taxes),
+* from water supply (e.g. from volumetric service fees paid
+  to the Water collection, treatment and supply (NACE 36.00) sector)
+* from wastewater collection and treatment (for example,
+  from volumetric service fees paid to the Sewerage (NACE 37.00) sector)
+* and revenues from discharges to the environment, including emissions to water
+  (for example, from environmental charges paid to the general government,
+  which in this case may include pollution taxes).
+
+The requested data are the estimated average annual total revenue
+in million units of the national currency, in the river basin district,
+for the volumes quantified in {numref}`EconomicAnalysis_Overview_PhysicalVolume`.
+
+About the **costs** ({numref}`EconomicAnalysis_Overview_RevenueCost`).  
+For the provision of the services quantified in above,
+the total costs are to be quantified, distinguishing between CAPEX and OPEX.
+
+```{figure} img/EconomicAnalysis_Overview_RevenueCost.png
+:name: EconomicAnalysis_Overview_RevenueCost
+:align: center
+:width: 75%
+
+Overview diagram for the requested data on revenues and costs - 4th cycle
+```
+
+The requested data on water volumes is detailed in {numref}`EconomicAnalysis_Conceptual_PhysicalVolume`.
+The relevant concepts are aligned with the OECD/Eurostat Joint Questionnaire on Inland Waters
+and the Eurostat Regional Water Questionnaire and defined in {numref}`EconomicAnalysis_Conceptsanddefinitions`.
+
+```{figure} img/EconomicAnalysis_Conceptual_PhysicalVolume.png
+:name: EconomicAnalysis_Conceptual_PhysicalVolume
+:align: center
+:width: 100%
+Conceptual diagram for the requested data on volumes - 4th cycle
+```
+
+```{include} tables/EconomicAnalysis_Concepts_WaterUserSectors_Table
+```
+
+```{include} tables/EconomicAnalysis_Concepts_WaterServices_Table
 ```  
 
-All the information is requested at river basin district level and must refer to the same reference year, preferably close to the programming period.
+All the information is requested at river basin district level
+and must refer to the same reference year, preferably close to the programming period.
 
-The following generic guidelines apply to the reporting of volumes:  
-• Volumes related to **water abstraction** (V1, V2, V3, V4, V5 in {numref}`conceptualvolume`) are reported based on the location of the point of abstraction. Only abstractions from freshwater surface water bodies (rivers and lakes, including reservoirs) and groundwater bodies are considered.  
-• Volumes related to **water use** (V41, V52, V53 in {numref}`conceptualvolume`) are reported based on the location of the point of use/consumption. In other words, the volumes refer to water used in the river basin district.  
-• Volumes related to **water returns** (V6 in {numref}`conceptualvolume`) are reported based on the location of the point of wastewater discharge. This includes discharges also to transitional and coastal water bodies located in the river basin district.  
+The following generic guidelines apply to the reporting of volumes:
 
-Given the guidelines above, and the fact that the data is requested at river basin district level (RBD), the following corollaries apply:  
-• The balance condition V4 ≈ V41 is not expected to hold, due to losses during transport and water returned without use (which result in V4 > V41) or due to transfers between river basin districts (which may result in V41 > V4).  
-• The balance condition V5 ≈ V52 + V53 is not expected to hold, again due to losses and transfers between river basin districts, including the cases where the user/consumer is outside the river basin district where the water is abstracted.  
-• Note that V62 and V63 refer to the volume of wastewater collected and treated by the sanitary services, and not to the amount of wastewater generated by the manufacturing industry and household sectors. Note also that the condition V62 + V63 ⪅ V6 is expected to hold, because V62 and V63 represent a partial apportionment of V6, i.e. of the total volume of treated effluents discharged in the river basin district. The equality V62 + V63 ≈ V6 is not expected to hold (it would only hold if the contribution both of urban run‑off and wastewater from other water user sectors were negligible).  
-• Finally, the condition V52 + V53 ≈ V62 + V63 is not expected to hold if the discharges include a significant amount of wastewater collected from users located outside the basin.
+* Volumes related to **water abstraction**
+  (V1, V2, V3, V4, V5 in {numref}`EconomicAnalysis_Conceptual_PhysicalVolume`)
+  are reported based on the location of the point of abstraction.
+  Only abstractions from freshwater surface water bodies (rivers and lakes, including reservoirs)
+  and groundwater bodies are considered.
+* Volumes related to **water use**
+  (V41, V52, V53 in {numref}`EconomicAnalysis_Conceptual_PhysicalVolume`)
+  are reported based on the location of the point of use/consumption.
+  In other words, the volumes refer to water used in the river basin district.
+* Volumes related to **water returns**
+  (V6 in {numref}`EconomicAnalysis_Conceptual_PhysicalVolume`)
+  are reported based on the location of the point of wastewater discharge.
+  This includes discharges also to transitional and coastal water bodies
+  located in the river basin district.  
 
-```{include} tables/EconomicAnalysis_Conceptsanddefinitions
+Given the guidelines above, and the fact that the data is requested
+at river basin district level (RBD), the following corollaries apply:
+
+* The balance condition V4 ≈ V41 is not expected to hold,
+  due to losses during transport and water returned without use (which result in V4 > V41)
+  or due to transfers between river basin districts (which may result in V41 > V4).  
+* The balance condition V5 ≈ V52 + V53 is not expected to hold,
+  again due to losses and transfers between river basin districts,
+  including the cases where the user/consumer is outside the river basin district
+  where the water is abstracted.  
+* Note that V62 and V63 refer
+  to the volume of wastewater collected and treated by the sanitary services,
+  and not to the amount of wastewater generated by the manufacturing industry and household sectors.
+  Note also that the condition V62 + V63 ⪅ V6 is expected to hold,
+  because V62 and V63 represent a partial apportionment of V6,
+  i.e. of the total volume of treated effluents discharged in the river basin district.
+  The equality V62 + V63 ≈ V6 is not expected to hold
+  (it would only hold if the contribution both of urban run‑off
+  and wastewater from other water user sectors were negligible).  
+* Finally, the condition V52 + V53 ≈ V62 + V63 is not expected to hold
+  if the discharges include a significant amount of wastewater collected
+  from users located outside the basin.
+
+```{include} tables/EconomicAnalysis_Concepts_Volumes_Table
 ```
 
-*Adapted from: Eurostat & OECD. (2024). Data Collection Manual for the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire (Version 5). Eurostat.*
+The requested data on revenues is detailed in {numref}`Economic_Analysis_ConceptualRevenue`.
+The information must refer to the same year and to the same totals reported for the volumes of water.
 
-The requested data on revenues is detailed in {numref}`Economic_Analysis_ConceptualRevenue`. The information must refer to the same year and to the same totals reported for the volumes of water.
+The following generic guidelines apply to the reporting of revenues:
 
-The following generic guidelines apply to the reporting of revenues:  
-• **Water abstraction** revenues (R1, R2, R3, R4, R5 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental/resource taxes and administrative fees paid (directly or indirectly) to the general government.  
-• **Water supply** revenues (R41, R52, R53 in {numref}`Economic_Analysis_ConceptualRevenue`) represent the gross revenue of the irrigation water service providers and the drinking water service providers from fees charged to the end‑user sector (agriculture, manufacturing industry and households). The gross revenue must include the base service fee plus any environmental or resource costs incurred during abstraction that are passed through to the consumer to ensure an adequate contribution from that sector.  
-• **Wastewater discharges** revenues (R6 in {numref}`Economic_Analysis_ConceptualRevenue`) must include all environmental taxes and pollution levies paid directly or indirectly to the government for the emission of pollutants back into the environment.  
-• **Sewerage services** revenues (R62 and R63 in {numref}`Economic_Analysis_ConceptualRevenue`) represent gross revenue for wastewater collection and treatment services. The revenue must include the service fees charged to users plus any internalised environmental charges related to the final discharge that are passed on to the households or industrial users.
+* **Water abstraction** revenues
+  (R1, R2, R3, R4, R5 in {numref}`EconomicAnalysis_Conceptual_Revenue`)
+  must include all environmental/resource taxes and administrative fees paid
+  (directly or indirectly) to the general government.  
+* **Water supply** revenues
+  (R41, R52, R53 in {numref}`EconomicAnalysis_Conceptual_Revenue`)
+  represent the gross revenue of the irrigation water service providers
+  and the drinking water service providers from fees charged to the end‑user sector
+  (agriculture, manufacturing industry and households).
+  The gross revenue must include the base service fee plus any environmental or resource costs
+  incurred during abstraction that are passed through to the consumer
+  to ensure an adequate contribution from that sector.  
+* **Wastewater discharges** revenues
+  (R6 in {numref}`EconomicAnalysis_Conceptual_Revenue`)
+  must include all environmental taxes and pollution levies
+  paid directly or indirectly to the government
+  for the emission of pollutants back into the environment.  
+* **Sewerage services** revenues
+  (R62 and R63 in {numref}`EconomicAnalysis_Conceptual_Revenue`)
+  represent gross revenue for wastewater collection and treatment services.
+  The revenue must include the service fees charged to users
+  plus any internalised environmental charges related to the final discharge
+  that are passed on to the households or industrial users.
 
-```{figure} img/EconomicAnalysisConceptualRevenue.png
-:name: Economic_Analysis_ConceptualRevenue
+```{figure} img/EconomicAnalysis_Conceptual_Revenue.png
+:name: EconomicAnalysis_Conceptual_Revenue
 :align: center
 :width: 100%
-Conceptual diagram for the requested data on revenues – 4th cycle of reporting.
+Conceptual diagram for the requested data on revenues - 4th cycle
 ```
+
 Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in {numref}`Economic_Analysis_ConceptualRevenue`, as well as the estimated global cost recovery rate.
 
 The following generic guidelines apply to the reporting of costs:  
@@ -188,7 +284,6 @@ See also in ([^3])
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_ VolumeRevenueCostPerService_ClassDiagram.mmd
 :align: center
 ```
-
 
 ```{include} tables/EconomicAnalysis_VolumesandRevenues_4thcycle
 ```
