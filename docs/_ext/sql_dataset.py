@@ -7,12 +7,11 @@ documentation of one dataset table by querying a SQLAlchemy-accessible
 database at build time:
 
     - the table name (heading)
-    - one combined table listing every field (Attribute / Type /
-      Multiplicity / Definition)
+    - one combined table listing every field (Field / Data type / M / Description)
     - the table's own description
     - the table-level quality controls (as a table, no extra heading)
     - one sub-heading per field, each followed directly by that
-      field's quality controls (as a table, no extra heading)
+      field's quality controls 
 
 Usage (MyST):
 
@@ -26,12 +25,12 @@ name is reused across dataflows (Document, dcMetadata).
 
 Expects two tables in the database:
 
-    metadata(tableName, columnName, columnPosition, columnDataType,
-             multiplicity, description, objectType, dataflowId,
-             dataflowCode)
-    qc(Table, Field, Code, "QC Name", "QC Description", Message,
-       Expression, "Type of QC", "Severity Level", "Creation Mode",
-       Status, Valid, dataflowId, dataflowCode)
+Metadata(tableName, columnName, columnPosition, columnDataType,
+         multiplicity, description, objectType, dataflowCode)
+
+Qc(table, field, shortCode, ruleName, description, message,
+   sqlSentence, type, severity, automatic, enabled, verified,
+   dataflowCode)
 """
 
 import re
@@ -170,8 +169,8 @@ class SqlDatasetDirective(SphinxDirective):
 
             table_qcs = conn.execute(
                 sqlalchemy.text(
-                    'SELECT Code, "Severity Level", Message FROM Qc '
-                    f'WHERE "Table"=:t AND "Field"=\'\' AND UPPER(Status)=\'TRUE\'{dataflow_filter_sql} ORDER BY Code'
+                    'SELECT shortCode, severity, message FROM Qc '
+                    f'WHERE "table"=:t AND "field"=\'\' AND UPPER(enabled)=\'TRUE\'{dataflow_filter_sql} ORDER BY shortCode'
                 ),
                 params,
             ).fetchall()
@@ -223,8 +222,8 @@ class SqlDatasetDirective(SphinxDirective):
             with engine.connect() as conn:
                 field_qcs = conn.execute(
                     sqlalchemy.text(
-                        'SELECT Code, "Severity Level", Message FROM Qc '
-                        f'WHERE "Table"=:t AND "Field"=:f AND UPPER(Status)=\'TRUE\'{dataflow_filter_sql} ORDER BY Code'
+                        'SELECT shortCode, severity, message FROM Qc '
+                        f'WHERE "table"=:t AND "field"=:f AND UPPER(enabled)=\'TRUE\'{dataflow_filter_sql} ORDER BY shortCode'
                     ),
                     field_qc_params,
                 ).fetchall()
