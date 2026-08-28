@@ -1,0 +1,3257 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Programme of measures &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDMeasures';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Groundwater bodies" href="WFDGroundWaterBody.html" />
+    <link rel="prev" title="Protected areas" href="WFDProtectedAreas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Programme of measures</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="programme-of-measures">
+<span id="heading-wfd-measures"></span><h1>Programme of measures<a class="headerlink" href="#programme-of-measures" title="Link to this heading">#</a></h1>
+<p>Last update: 2026-08-25</p>
+<section id="purpose-and-overview">
+<span id="heading-wfd-measures-purpose-and-overview"></span><h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>This section revises the <strong>River Basin Management Plan &amp; Programme of Measures</strong> schema
+used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
+It also presents a proposal for simplifying the electronic reporting in the 4th cycle.</p>
+<p>Not all information in the RBMPs can be accurately provided using a common European model.
+However, it is possible to improve and simplify the reporting of structured data,
+accepting that part of the relevant information will remain in documentation
+to be analysed during the Commission’s implementation assessment.</p>
+<p>Using this principle, the data model can focus on aspects that are suitable for structured reporting,
+allowing adequate comparisons between different river basin districts (RBDs).
+Specific or more detailed information can be kept in the RBMP documents,
+the analysis of which can in the future be facilitated using, for example,
+large language models (LLMs) supported by retrieval‑augmented generation (RAG) techniques.</p>
+</section>
+<section id="current-structure-3rd-cycle">
+<h2>Current structure - 3rd cycle<a class="headerlink" href="#current-structure-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>The schema used in the 3rd cycle of reporting contained 4 main groups
+(<a class="reference internal" href="#measures-rbmppom-2022-classdiagram"><span class="std std-numref">Figure 25</span></a>):</p>
+<ul class="simple">
+<li><p>summary information about the <strong>River Basin Management Plan</strong>,
+the <strong>Progress</strong> since the previous River Basin Management Plan,
+and the mechanisms of international <strong>Coordination</strong> (if applicable)</p></li>
+<li><p>information about the <strong>Programme of Measures</strong>,
+comprising a summary questionnaire of <strong>Targeted Questions</strong>
+and aggregated data about the overall <strong>Cost</strong> of measures</p></li>
+<li><p>disaggregated information was requested about each <strong>Measure</strong>
+and its classification into <strong>Key Types of Measures</strong> (KTM)
+and basic type of measures (if applicable)</p></li>
+<li><p>further information about <strong>Significant pressures and substances</strong> causing failure,
+along with their link to <strong>KTM Indicators</strong> and <strong>Indicator Gaps</strong></p></li>
+</ul>
+<figure class="align-center" id="measures-rbmppom-2022-classdiagram">
+<a class="reference internal image-reference" href="../_images/Measures_RBMPPoM_2022_ClassDiagram.png"><img alt="../_images/Measures_RBMPPoM_2022_ClassDiagram.png" src="../_images/Measures_RBMPPoM_2022_ClassDiagram.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 25 </span><span class="caption-text">River Basin Management Plan &amp; Programme of Measures table - 3rd cycle</span><a class="headerlink" href="#measures-rbmppom-2022-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rbmp-coordination-and-progress-table-3rd-cycle">
+<h2>RBMP, Coordination and Progress table - 3rd cycle<a class="headerlink" href="#rbmp-coordination-and-progress-table-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>In the 3rd cycle of reporting, this group comprised three tables, collecting summary information
+about the <strong>RBMP</strong>, the <strong>Progress</strong> since the previous <strong>RBMP</strong>, and the mechanisms of international
+<strong>Coordination</strong>, if applicable (<a class="reference internal" href="#rbdca-rbdsuca-2022-partial-classdiagram"><span class="std std-numref">Figure 26</span></a>).</p>
+<p>The data is structured as a simple questionnaire, mostly with Yes/No or multiple‑choice answers,
+accompanied by links to additional documentation (which can be uploaded or kept on national
+websites). Only one record per table is required for each River Basin District.</p>
+<p>Reporting by MS should not present technical difficulties, and there is limited scope for technical
+simplification. Nevertheless, the Commission has reviewed whether the requested data is strictly
+required and proposes the simplification detailed in the next sections.</p>
+<figure class="align-center" id="rbdca-rbdsuca-2022-partial-classdiagram">
+<a class="reference internal image-reference" href="../_images/RBDCA_RBDSUCA_2022_Partial_ClassDiagram.png"><img alt="../_images/RBDCA_RBDSUCA_2022_Partial_ClassDiagram.png" src="../_images/RBDCA_RBDSUCA_2022_Partial_ClassDiagram.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 26 </span><span class="caption-text">River Basin Management Plan, international Coordination and Progress - 3rd cycle</span><a class="headerlink" href="#rbdca-rbdsuca-2022-partial-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="costs-table-3rd-cycle">
+<h2>Costs table - 3rd cycle<a class="headerlink" href="#costs-table-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>Regarding the economic data in the programme of measure,
+the revision of the electronic reporting focuses on the main issues
+described in the Note to the CIS Working Group Economics quoted below
+<a class="footnote-reference brackets" href="#footcite-arnoldus2025" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>:</p>
+<blockquote class="epigraph">
+<div><p>“[…] Both the Commission’s 6th and 7th WFD Implementation Reports indicate persistent problems in
+the (electronic) reporting on the investments and the costs of other measures in the Programme of
+Measures (<strong>PoM</strong>).</p>
+<p>The 6th WFD Implementation Report notes that the Member States’ reporting on costs and financing of
+the <strong>PoMs</strong> appears overall patchy and that a consultant’s study estimate is an underestimation for
+the total costs, as there are significant data gaps and it excludes operational and infrastructure
+maintenance costs. The corresponding investment overview table shows indeed large gaps.
+<a class="footnote-reference brackets" href="#footcite-6thwfdimplementationreport" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p>The Commission’s evaluation of the 3rd River Basin Management Plans
+<a class="footnote-reference brackets" href="#footcite-7thwfdimplementationreport" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, as part of the 7th WFD Implementation Report,
+notes that the “third <strong>PoMs</strong> presented in the (…) RBMPs show
+that Member States continue to have different approaches to their design and reporting” and that
+“the costs and the financing of the planned measures are often missing.” Hence, the Commission
+recommends that “in order to effectively implement the <strong>PoMs</strong> to develop long‑term investment plans
+and clearly identifying the source of financing for each measure.” A good planning is also necessary
+for the acquisition of support from EU Funds, the EIB and other promotional banks.</p>
+<p><em>The challenge is thus to improve the reporting of the costs of the <strong>PoM</strong> measures, including the
+investment amounts</em>, and to specify the funding of these investments and other measures. This
+requires a clear distinction between capital costs (CAPEX) and operational costs (OPEX). […]</p>
+<p>The proposal here is to agree on a clear conceptual basis for the <strong>PoM</strong> costs.</p>
+<p>It is natural to consider the <strong>PoM</strong> as a <strong>budget of government outlays</strong> – however, there can be
+costs on other economic agents without government payment involved (cf. banning an activity).</p>
+<p>The budget orientation would imply to look at foreseen <strong>spending amounts</strong>. This has three
+consequences:</p>
+<ul class="simple">
+<li><p>‘Welfare costs’ should not be included in the reporting. However, they can be taken up as
+“negative benefits” in the <strong>CEA (cost‑effectiveness analysis)</strong>.</p></li>
+<li><p>The reporting is on investment spending (purchases / commitments) and not on capital costs
+(depreciation).</p></li>
+<li><p>To make the link with financial support from EU Funds, EIB and other promotional banks, one
+needs to distinguish OPEX and CAPEX when reporting investment cost.</p></li>
+</ul>
+<p>There is a readily available conceptual basis for the reporting on the <strong>PoM</strong> investment and other
+costs, with which the Member States are already familiar, namely the <strong>environmental protection
+expenditures</strong>. They are namely required to collect and report this data annually to Eurostat
+<a class="footnote-reference brackets" href="#footcite-eeeaccounts" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, who publishes the <strong>Environmental Protection Expenditures Accounts (EPEA)</strong>
+as one of the environmental‑economic satellite accounts to the economic National Accounts.
+The EPEA are based on a clear, publicly available protocol (following UN statistical standards),
+defining the environmental domains, spending economic sectors, and expenditure types.
+The latter includes the distinction between <strong>capital</strong> and <strong>current</strong> expenditures.
+Hence, it meets the features described in the three bullets points above.</p>
+</div></blockquote>
+<p>A brief review of the reported data confirms the issues mentioned above.</p>
+<p>In the <strong>3rd cycle</strong> of reporting, the overall cost of the <strong>PoM</strong> was reported in the <strong>Costs</strong> class
+(<a class="reference internal" href="#measures-3rdcycle-costs"><span class="std std-numref">Figure 27</span></a>). Reporting of costs was, de facto, optional –
+since all numerical attributes admitted the option <strong>–9999</strong> to denote “data not available”.</p>
+<p>Out of the 146 RBD reported by EU Member States, 24 do not have data on investments, 54 do not
+have data on operational costs and 64 do not have data on EU funds.</p>
+<figure class="align-center" id="measures-3rdcycle-costs">
+<pre  class="mermaid">
+        classDiagram
+
+class Costs {
+ + costOfMeasuresScale20152021: MSorRBD_Enum
+ + costOfMeasurePeriod20152021: YearRangeType
+ + investmentCosts20152021: NumberDecimalType
+ + costExplanation20152021Reference: ReferenceType [1..*]
+
+ + costOfMeasuresScale20212027: MSorRBD_Enum
+ + costOfMeasurePeriod20212027: YearRangeType
+ + investmentCosts20212027: NumberDecimalType
+ + annualCosts20212027: NumberDecimalType
+ + depreciation20212027: YesNoCode_Enum
+ + costExplanation20212027Reference: ReferenceType [1..*]
+
+ + euFunds20152021: NumberDecimalType
+ + euFunds20212027: NumberDecimalType
+}
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 27 </span><span class="caption-text">Class diagram for the RBMPPoM_2022 schema: Costs – 3rd cycle</span><a class="headerlink" href="#measures-3rdcycle-costs" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The variability of the geographical and temporal coverage of the reported data adds to the
+difficulty in achieving a meaningful analysis.
+<a class="reference internal" href="#measures-3rdcycle-temporalcoverage"><span class="std std-numref">Table 21</span></a> illustrates the issues regarding temporal coverage.
+<a class="reference internal" href="#measures-3rdcycle-geographicalcoverage"><span class="std std-numref">Table 22</span></a> illustrates the issue with geographical coverage.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="measures-3rdcycle-temporalcoverage" style="width: 100%">
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Temporal coverage: period to which the reported costs refer – 3rd cycle (including Norway).</span><a class="headerlink" href="#measures-3rdcycle-temporalcoverage" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>costOfMeasurePeriod20152021</p></th>
+<th class="head"><p>costOfMeasurePeriod20212027</p></th>
+<th class="head"><p>Number of RBDs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2014–2020</p></td>
+<td><p>2022–2027</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>2015–2020</p></td>
+<td><p>2021–2027</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>2015–2020</p></td>
+<td><p>2022–2027</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>2015–2021</p></td>
+<td><p>2007–2027</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>2015–2021</p></td>
+<td><p>2021–2027</p></td>
+<td><p>62</p></td>
+</tr>
+<tr class="row-odd"><td><p>2015–2021</p></td>
+<td><p>2022–2027</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-even"><td><p>2016–2021</p></td>
+<td><p>2009–2015</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016–2021</p></td>
+<td><p>2010–2015</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>2016–2021</p></td>
+<td><p>2021–2027</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016–2021</p></td>
+<td><p>2022–2027</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>2016–2021</p></td>
+<td><p>2023–2027</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016–2022</p></td>
+<td><p>2023–2027</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2016–2027</p></td>
+<td><p>2019</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017–2021</p></td>
+<td><p>2021–2027</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2017–2021</p></td>
+<td><p>2022–2027</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="measures-3rdcycle-geographicalcoverage" style="width: 100%">
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Geographic coverage: scale to which the reported costs refer – 3rd cycle (including Norway).</span><a class="headerlink" href="#measures-3rdcycle-geographicalcoverage" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>costOfMeasuresScale20152021</p></th>
+<th class="head"><p>costOfMeasuresScale20212027</p></th>
+<th class="head"><p>Number of RBDs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>National</p></td>
+<td><p>National</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-odd"><td><p>River Basin District</p></td>
+<td><p>River Basin District</p></td>
+<td><p>103</p></td>
+</tr>
+<tr class="row-even"><td><p>National</p></td>
+<td><p>River Basin District</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>River Basin District</p></td>
+<td><p>National</p></td>
+<td><p>7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="proposed-structure-4th-cycle">
+<span id="heading-wfd-measures-proposed-structure-4th-cycle"></span><h2>Proposed structure - 4th cycle<a class="headerlink" href="#proposed-structure-4th-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The former RBMP and Coordination tables are simplified
+to a single <code class="docutils literal notranslate"><span class="pre">RiverBasinManagementPlan</span></code> table,
+containing a selected subset of attributes.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Progress</span></code> table is modified to request only aggregated information
+about the overall status of the measures of the previous cycle (3rd cycle).</p></li>
+<li><p>The reporting of the Programme of Measures is also simplified.
+The <code class="docutils literal notranslate"><span class="pre">TargetedQuestions</span></code> table, containing the questionnaire at RBD level, is simplified.</p></li>
+<li><p>Information about measures is requested in a single <code class="docutils literal notranslate"><span class="pre">Measure</span></code> table.</p></li>
+<li><p>The former Costs table is removed.
+Information about the planned <code class="docutils literal notranslate"><span class="pre">ExpenditurePerMeasure</span></code>
+is reported in a separate table, if data is available.</p></li>
+<li><p>The KTM classification, KTM indicators and indicator gaps data is completely removed.</p></li>
+</ul>
+<figure class="align-center" id="measures-4thcycle-overview-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class dcMetadata{&lt;&lt;documents&gt;&gt;}
+class Reference{&lt;&lt;documents&gt;&gt;}
+class Document {&lt;&lt;documents&gt;&gt;}
+class RiverBasinManagementPlan{&lt;&lt;descriptive&gt;&gt;}
+class Progress{&lt;&lt;descriptive&gt;&gt;}
+class TargetedQuestions{&lt;&lt;descriptive&gt;&gt;}
+class Measure{&lt;&lt;descriptive&gt;&gt;}
+class ExpenditurePerMeasurePerSector{&lt;&lt;descriptive&gt;&gt;}
+
+dcMetadata ..&gt; Document
+Reference ..&gt; Document
+RiverBasinManagementPlan ..&gt; Reference
+Measure ..&gt; Reference
+
+Measure &quot;1&quot; -- &quot;0..n&quot; ExpenditurePerMeasurePerSector 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 28 </span><span class="caption-text">Programmes of measures dataflow - overview - 4th cycle</span><a class="headerlink" href="#measures-4thcycle-overview-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="descriptive-dataset-4th-cycle">
+<h2>Descriptive dataset - 4th cycle<a class="headerlink" href="#descriptive-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<section id="riverbasinmanagementplan-table">
+<h3>RiverBasinManagementPlan table<a class="headerlink" href="#riverbasinmanagementplan-table" title="Link to this heading">#</a></h3>
+<p>The simplified <code class="docutils literal notranslate"><span class="pre">RiverBasinManagementPlan</span></code> table contains a subset of the data previously requested
+in the <strong>RBMP</strong> and <strong>Coordination</strong> classes in the 3rd cycle
+(<a class="reference internal" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram"><span class="std std-numref">Figure 29</span></a>):</p>
+<ul class="simple">
+<li><p>The new <code class="docutils literal notranslate"><span class="pre">coordinationNRRReference</span></code> attribute allows the reporting of information related to
+coordination with the Nature Restoration Regulation.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pomCoordinationArt5SWMI</span></code>, <code class="docutils literal notranslate"><span class="pre">pomCoordinationIRBMPPoM</span></code>, <code class="docutils literal notranslate"><span class="pre">pomCoordinationRoofReport</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pomCoordinationFinancial</span></code> attributes are only required for international RBDs.</p></li>
+</ul>
+<figure class="align-center" id="measures-4thcycle-riverbasinmanagementplan-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class RiverBasinManagementPlan{
++ euRBDCode:  wiseIdentifier
++ rbmpName: string1000
+
++ rbmpTimetablePublicationDate: date 
++ rbmpProgrammePublicationDate: date 
++ rbmpConsultationPublicationDate: date 
++ rbmpInterimOverviewDate: date 
++ rbmpDraftVersionDate: date 
++ finalRBMPPublicationDate: date 
+
++ subPlans: YesNo
++ subPlansCoverage: SubPlansCoverage [0..1]
++ subPlansReference: referenceCode [0..n]
+
++ sea: YesNo
++ seaReference: referenceCode [0..n]
+
++ documentAvailability : YesNo
+
++ ongoingStakeholderInvolvement: OngoingStakeholderInvolvement [0..n]
++ stakeholderGroups: StakeholderGroups [0..n]
+
++ internationalCoordination: InternationalCoordination [0..n]
++ internationalCoordinationPublicParticipation: YesNo [0..1]
++ pomCoordinationArt5SWMI: Coordination
++ pomCoordinationIRBMPPoM: Coordination
++ pomCoordinationRoofReport: Coordination
++ pomCoordinationFinancial: Coordination
+
++ integrationFloodsDirective: YesNo
++ coordinationFloodsDirective: YesNoNotApplicable
++ coordinationMSFD: YesNoNotApplicable
+
++ coordinationNRRReference: referenceCode [1..n]
+}
+
+class Coordination{
+    &lt;&lt;enumeration&gt;&gt;
+    withEUMemberStates
+    withCountriesOutsideEU
+    both
+    none
+    }
+
+class InternationalCoordination{
+    &lt;&lt;enumeration&gt;&gt;
+    internationalAgreement
+    permanentCooperationBody
+    internationalRBMP
+    noFormalisedCoordination
+    }
+
+class OngoingStakeholderInvolvement{
+    &lt;&lt;enumeration&gt;&gt;
+    regularExhibitions
+    establishmentOfAdvisoryGroups
+    involvementInDrafting
+    otherOutreachActivities
+    formationOfAlliances
+    other
+    }
+
+class SubPlansCoverage{
+    &lt;&lt;enumeration&gt;&gt;
+    agriculture
+    chemicalIndustry
+    chemicalPollution
+    climateChange
+    coastalErosion
+    hydropower
+    nutrientEnrichment
+    ruralPlanning
+    transport
+    urbanPlanning
+    waterScarcityAndDroughts
+    other
+    }
+
+class StakeholderGroups{
+    &lt;&lt;enumeration&gt;&gt;
+    waterSupplyAndSanitation
+    agricultureFarmers
+    hydropowerAndEnergy
+    navigationPorts
+    fisheriesAndAquaculture
+    industry
+    ngosNatureProtection
+    consumerGroups
+    localAndRegionalAuthorities
+    other    
+    }
+
+RiverBasinManagementPlan ..&gt; SubPlansCoverage
+RiverBasinManagementPlan ..&gt; OngoingStakeholderInvolvement
+RiverBasinManagementPlan ..&gt; Coordination
+RiverBasinManagementPlan ..&gt; InternationalCoordination
+RiverBasinManagementPlan ..&gt; StakeholderGroups
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 29 </span><span class="caption-text">River Basin Management Plan table – 4th cycle</span><a class="headerlink" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="progress-table">
+<h3>Progress table<a class="headerlink" href="#progress-table" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Progress</span></code> table is modified to provide an
+overview of the proportion of the measures of the 3rd RBMPs
+that were executed, cancelled, or otherwise affected,
+as well as the obstacles encountered during the implementation
+of the 3rd RBMP Programme of Measures (<a class="reference internal" href="#measures-4thcycle-progress-classdiagram"><span class="std std-numref">Figure 30</span></a>).</p>
+<p>The only constraint is that, for each RBD,
+the sum of the values in <code class="docutils literal notranslate"><span class="pre">percentageInStatus</span></code> must be <strong>100</strong>.
+The level of detail can be adapted depending on the needs and the data available at national level.</p>
+<figure class="align-center" id="measures-4thcycle-progress-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class Progress{
+  + euRBDCode:  wiseIdentifier
+
+  + previousRBMPMeasureStatus: PlannedOngoingExecutedCancelled
+  + percentageInStatus: Percentage
+
+  + obstaclesGovernance: YesNo
+  + obstaclesDelays: YesNo
+  + obstaclesLackOfFinance: YesNo
+  + obstaclesLackOfMechanism: YesNo
+  + obstaclesMeasureNotEffective: YesNo
+  + obstaclesMeasureNotCostEffective: YesNo
+  + obstaclesExtremeEvents: YesNo
+}
+
+class PlannedOngoingExecutedCancelled{
+    &lt;&lt;enumeration&gt;&gt;
+    planned
+    ongoing
+    executed
+    cancelled
+    }
+
+Progress ..&gt;  PlannedOngoingExecutedCancelled
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 30 </span><span class="caption-text">Progress table – 4th cycle</span><a class="headerlink" href="#measures-4thcycle-progress-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A numerical example illustrates the proposed approach.
+Consider a hypothetical 3rd RBMP Programme of Measures with 10 different measures,
+which are in different statuses and may have faced different obstacles
+(<a class="reference internal" href="#measures-example-ten-measures"><span class="std std-numref">Table 23</span></a>).</p>
+<div class="pst-scrollable-table-container"><table class="table" id="measures-example-ten-measures" style="width: 100%">
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Illustrative example - hypothetical list with the status of the 10 measures of the 3rd cycle.</span><a class="headerlink" href="#measures-example-ten-measures" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Measure</p></th>
+<th class="head"><p>Status</p></th>
+<th class="head"><p>Obstacles</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>M01</p></td>
+<td><p>Ongoing</p></td>
+<td><p>No obstacles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>M02</p></td>
+<td><p>Executed</p></td>
+<td><p>No obstacles.</p></td>
+</tr>
+<tr class="row-even"><td><p>M03</p></td>
+<td><p>Executed</p></td>
+<td><p>No obstacles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>M04</p></td>
+<td><p>Executed</p></td>
+<td><p>Extreme event.</p></td>
+</tr>
+<tr class="row-even"><td><p>M05</p></td>
+<td><p>Executed</p></td>
+<td><p>Extreme event.</p></td>
+</tr>
+<tr class="row-odd"><td><p>M06</p></td>
+<td><p>Cancelled</p></td>
+<td><p>Extreme event.</p></td>
+</tr>
+<tr class="row-even"><td><p>M07</p></td>
+<td><p>Cancelled</p></td>
+<td><p>Extreme event.</p></td>
+</tr>
+<tr class="row-odd"><td><p>M08</p></td>
+<td><p>Postponed to the next cycle</p></td>
+<td><p>Delays, Lack of finance.</p></td>
+</tr>
+<tr class="row-even"><td><p>M09</p></td>
+<td><p>Postponed to the next cycle</p></td>
+<td><p>Delays, Lack of finance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>M10</p></td>
+<td><p>Cancelled</p></td>
+<td><p>Not cost effective.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The example in <a class="reference internal" href="#measures-example-progress"><span class="std std-numref">Table 24</span></a>
+illustrates how to synthesize the information in the Progress table.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="measures-example-progress" style="width: 100%">
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">Illustrative example - Progress table records for the previous example.</span><a class="headerlink" href="#measures-example-progress" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>previousRBMPMeasureStatus</p></th>
+<th class="head"><p>percentageInStatus</p></th>
+<th class="head"><p>obstaclesDelays</p></th>
+<th class="head"><p>obstaclesLackOfFinance</p></th>
+<th class="head"><p>obstaclesMeasureNotCostEffective</p></th>
+<th class="head"><p>obstaclesExtremeEvents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ongoing</p></td>
+<td><p>10</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>executed</p></td>
+<td><p>20</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>executed</p></td>
+<td><p>20</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>cancelled</p></td>
+<td><p>20</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>planned</p></td>
+<td><p>20</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>cancelled</p></td>
+<td><p>10</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="targetedquestions-table">
+<h3>TargetedQuestions table<a class="headerlink" href="#targetedquestions-table" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">TargetedQuestions</span></code> table collects summary information about the measures in the RBMP,
+and the progress since the previous cycle. For each RBMP, only one record is required.
+The data is structured as a simple questionnaire, with Yes/No or multiple-choice answers.</p>
+<p>Reporting by MS should not present technical difficulties,
+and there is limited scope for any technical simplification.
+The Commission has revised and simplified the <code class="docutils literal notranslate"><span class="pre">TargetedQuestions</span></code> table,
+keeping a subset of the questions requested in the previous cycle
+(<a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>).</p>
+<figure class="align-center" id="measures-4thcycle-targetedquestions-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class TargetedQuestions{
+    + euRBDCode: wiseIdentifier
+
+    + basicMeasuresArt113c: MeasuresChanges
+    + basicMeasuresArt113d: BasicMeasuresArt113d
+    + basicMeasuresArt113ePermit: MeasureScope
+    + basicMeasuresArt113eRegister: MeasureScope
+    + basicMeasuresArt113eThreshold: BasicMeasuresArt113eThreshold
+    + basicMeasuresArt113eImpoundment: BasicMeasuresArt113eImpoundment
+    + basicMeasuresArt113f: MeasuresChanges
+    + basicMeasuresArt113gPermit: MeasureScope
+    + basicMeasuresArt113gRegister: MeasureScope
+    + basicMeasuresArt113gThreshold: BasicMeasuresArt113gThreshold
+    + basicMeasuresArt113hRules: BasicMeasuresArt113hRules
+    + basicMeasuresArt113iPermit: YesNo 
+    + basicMeasuresArt113iRegister: YesNo 
+    + basicMeasuresArt113j: BasicMeasuresArt113j
+    + basicMeasuresArt113k: YesNo 
+
+    + waterReUseMeasure: YesNo
+    + ecologicalFlowDerived: EcologicalFlow
+    + ecologicalFlowImplemented: EcologicalFlow
+    + climateChange: YesNo
+    + climateChangeGuidance: YesNo
+    + floodsDirective: YesNo
+    + structuralMeasures: YesNo
+    + msfdCoOrdination: YesNoNotRelevant
+    + msfdAssessment: YesNoNotRelevant
+    }
+
+class MeasuresChanges{
+    &lt;&lt;enumeration&gt;&gt;
+    implementedInPreviousCycleAndNonePlanned
+    inPreviousCycleAndNewMeasuresOrChangesPlanned
+    noneInPreviousCycleButNewMeasuresOrChangesPlanned
+    noneInPreviousCycleAndNonePlanned
+    }
+
+class MeasureScope{
+    &lt;&lt;enumeration&gt;&gt;
+    surfaceWater
+    groundwater
+    bothSurfaceAndGroundwater
+    }
+
+class BasicMeasuresArt113eThreshold{
+    &lt;&lt;enumeration&gt;&gt;
+    smallAbstractionsExemptedFromControls
+    smallAbstractionDoNotRequirePermitButAreRegistered
+    noThresholdForAbstractions
+    }
+
+class BasicMeasuresArt113eImpoundment{
+    &lt;&lt;enumeration&gt;&gt;
+    registerAndConcessionAuthorisationOrPermitting
+    concessionAuthorisationOrPermitting
+    registerOfImpoundments
+    none
+    }
+
+class BasicMeasuresArt113gThreshold{
+    &lt;&lt;enumeration&gt;&gt;
+    smallDischargesExemptedFromControls
+    smallDischargesDoNotRequirePermitButAreRegistered
+    noThresholdForDischarges
+    }
+
+class BasicMeasuresArt113hRules{
+    &lt;&lt;enumeration&gt;&gt;
+    yesSameRulesInTheWholeRBD
+    yesButOnlyInNitrateVulnerableZones
+    yesButDifferentRulesInDifferentPartsOfTheRBD
+    noGeneralBindingRules
+    }
+
+class BasicMeasuresArt113j{
+    &lt;&lt;enumeration&gt;&gt;
+    prohibitionOfAllDirectDischarges
+    someDirectDischargesAreAuthorised
+    noProhibitionOfDirectDischarges
+    }
+
+class EcologicalFlow{
+    &lt;&lt;enumeration&gt;&gt;
+    yesForAllRelevantWaterBodies
+    partlyOngoingWork
+    notYetOnlyNextCycle
+    noAndNotPlanned
+}
+
+TargetedQuestions ..&gt; MeasuresChanges
+TargetedQuestions ..&gt; MeasureScope
+TargetedQuestions ..&gt; BasicMeasuresArt113eThreshold
+TargetedQuestions ..&gt; BasicMeasuresArt113eImpoundment
+TargetedQuestions ..&gt; BasicMeasuresArt113gThreshold
+TargetedQuestions ..&gt; BasicMeasuresArt113hRules
+TargetedQuestions ..&gt; BasicMeasuresArt113j
+TargetedQuestions ..&gt; EcologicalFlow
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 31 </span><span class="caption-text">TargetedQuestions table – 4th cycle</span><a class="headerlink" href="#measures-4thcycle-targetedquestions-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="measure-table">
+<h3>Measure table<a class="headerlink" href="#measure-table" title="Link to this heading">#</a></h3>
+<p>The simplified <code class="docutils literal notranslate"><span class="pre">Measure</span></code> table proposed for the 4th cycle is illustrated in
+(<a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>).</p>
+<p>For each measure:</p>
+<ul class="simple">
+<li><p>create a unique persistent European identifier <code class="docutils literal notranslate"><span class="pre">measureCode</span></code></p></li>
+<li><p>use the original descriptive <code class="docutils literal notranslate"><span class="pre">measureName</span></code> (or an English translation thereof)</p></li>
+<li><p>if needed, provide links to documentation (<code class="docutils literal notranslate"><span class="pre">measureReference</span></code>)</p></li>
+<li><p>identify the primary <code class="docutils literal notranslate"><span class="pre">measureLegalInstrument</span></code>, using a single codelist value</p></li>
+<li><p>identify the <code class="docutils literal notranslate"><span class="pre">measureType</span></code>, using a single codelist value</p></li>
+<li><p>classify the measure using a single <code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span></code> codelist value from a simplified
+classification. The closest match should be selected</p></li>
+<li><p>optionally or if applicable, identify the main pressure addressed by the measure using the
+<code class="docutils literal notranslate"><span class="pre">measurePressureType</span></code> attribute,
+at the level of detail deemed more adequate. The closest match should be selected</p></li>
+<li><p>optionally or if applicable, identify the main substance or group of substances
+addressed by the measure using the <code class="docutils literal notranslate"><span class="pre">measureSubstanceType</span></code> attribute,
+at the level of detail deemed more adequate</p></li>
+<li><p>flag the sectoral plans for which the measure might be relevant
+using the <code class="docutils literal notranslate"><span class="pre">msfdRelevance</span></code>, <code class="docutils literal notranslate"><span class="pre">floodsRelevance</span></code>, <code class="docutils literal notranslate"><span class="pre">natureRestorationRegulationRelevance</span></code>,
+<code class="docutils literal notranslate"><span class="pre">draughtManagementPlanRelevance</span></code> and <code class="docutils literal notranslate"><span class="pre">climateAdaptationPlanRelevance</span></code> attributes</p></li>
+<li><p>specify the <code class="docutils literal notranslate"><span class="pre">geographicalCoverage</span></code> and <code class="docutils literal notranslate"><span class="pre">temporalCoverage</span></code> of the measure</p></li>
+</ul>
+<figure class="align-center" id="measures-4thcycle-measure-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class Measure {
+    + measureCode: wiseIdentifier
+    + measureName: string
+    + measureNameLanguage: Language
+    + measureReference: referenceCode [0..1]
+
+    + measureType: MeasureType 
+    + mainLegalInstrument: LegalInstrument
+    + mainKeyTypeOfMeasure: MainKeyTypeOfMeasure
+
+    + mainPressureType: PressureType [0..1]
+    + mainSubstanceType: SubstanceType [0..1]
+    
+    + msfdRelevance: YesNo
+    + floodsRelevance: YesNo
+    + natureRestorationRegulationRelevance: YesNo
+    + draughtManagementPlanRelevance: YesNo
+    + climateAdaptationPlanRelevance: YesNo
+
+    + geographicalCoverage: WFDGeographicCoverage
+    + euRBDCode: wiseIdentifier [0..n]
+    + waterCategory: MeasureScope [0..1]
+    + protectedAreaType: ProtectedAreaType [0..1]
+
+    + implementationPeriod: range
+    + implementationStatus: PlannedOngoingExecutedCancelled
+}
+
+class MeasureType{
+    &lt;&lt;enumeration&gt;&gt;
+    legislativeOrRegulatory
+    administrativeOrGovernance
+    physicalOrTechnical
+    economicOrFinancial
+    knowledgeOrPreparatory
+}
+class LegalInstrument{
+    &lt;&lt;enumeration&gt;&gt;
+    birdsDirective 
+    bathingWaterDirective
+    environmentalImpactAssessmentDirective
+    environmentalQualityStandardsDirective2008 
+    environmentalQualityStandardsDirective2013 
+    floodsDirective
+    groundwaterDirective 
+    habitatsDirective 
+    industrialEmissionsDirective
+    marineStrategyFrameworkDirective 
+    natureRestorationRegulation
+    nitratesDirective 
+    plantProtectionProductsRegulation
+    recastDrinkingWaterDirective
+    recastUrbanWasteWaterTreatmentDirective
+    sevesoIIIDirective 
+    sewageSludgeDirective 
+    waterFrameworkDirective
+    waterReuseRegulation
+}
+class MainKeyTypeOfMeasure{
+    &lt;&lt;enumeration&gt;&gt;
+    «basic measure types»
+    B - Measure to implement recovery of costs for water services
+    C - Measure to promote efficient and sustainable water use
+    D - Measure to protect drinking water quality and reduce the level of treatment required
+    E - Measure to control abstraction from surface and groundwater, and impoundment of surface water
+    F - Measure to control artificial recharge or augmentation of groundwater
+    G - Measure to control point source discharges
+    H - Measure to prevent or control inputs of diffuse pollutants
+    J - Measure to prohibit direct discharges to groundwater
+    K - Measure to eliminate by Priority Substances and reduce pollution by other substances
+    L - Measure to prevent accidental pollution
+    «measure to address significant impacts on surface waters»
+    I2-2 - Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes
+    I2-3 - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes
+    I2-4 - Measure to address significant impacts on surface waters - Acidification
+    «measure to address significant pressures on surface waters»
+    P - Measure to address significant pressures on surface waters
+    «other measure types»
+    X01 - Construction or upgrades of wastewater treatment plants
+    X12 - Advisory services
+    X14 - Research, improvement of knowledge base reducing uncertainty
+    X23 - Natural water retention measures
+    X24 - Climate change adaptation measure
+}
+
+class WFDGeographicCoverage{
+    &lt;&lt;enumeration&gt;&gt;
+    national
+    riverBasinDistrict
+    waterBody
+    protectedArea    
+}
+class MeasureScope{
+    &lt;&lt;enumeration&gt;&gt;
+    rivers
+    lakes
+    transitionalWaters
+    coastalWaters
+    surfaceWater
+    groundwater
+    bothSurfaceAndGroundwater
+    }
+class ProtectedAreaType{
+    &lt;&lt;enumeration&gt;&gt;
+    bathingWaters
+    drinkingWaterProtectionArea
+    freshwaterFishDesignatedWater
+    natura2000
+    nitrateVulnerableZone
+    sensitiveArea
+    shellfishDesignatedWater
+}
+
+class PlannedOngoingExecutedCancelled{
+    &lt;&lt;enumeration&gt;&gt;
+    planned
+    ongoing
+    executed
+    cancelled
+}
+
+Measure ..&gt; MeasureType
+Measure ..&gt; LegalInstrument
+Measure ..&gt; MainKeyTypeOfMeasure
+Measure ..&gt; WFDGeographicCoverage
+Measure ..&gt; MeasureScope
+Measure ..&gt; ProtectedAreaType
+Measure ..&gt; PlannedOngoingExecutedCancelled
+
+note for MainKeyTypeOfMeasure &quot;the label is not part of the code&quot;
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 32 </span><span class="caption-text">Measure table – 4th cycle</span><a class="headerlink" href="#measures-4thcycle-measure-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>The primary <code class="docutils literal notranslate"><span class="pre">measureLegalInstrument</span></code> under which the measure was defined
+must be clearly identified.
+This avoids double reporting in other Directives:
+the measures can be reported only once under the RBMP electronic reporting.
+An updated list of EU water and other environmental legislation is provided
+(<a class="reference internal" href="#codelist-4thcycle-legalinstrument-table"><span class="std std-numref">Table 29</span></a>).</p>
+<p>The scope of some basic measures is clearly linked to the two Daughter directives:</p>
+<ul class="simple">
+<li><p>Measures to prohibit direct discharges to groundwater: <em>Groundwater Directive</em></p></li>
+<li><p>Measures to eliminate or reduce pollution by Priority Substances:
+<em>Environmental Quality Standards Directive</em></p></li>
+</ul>
+<p>These two legal instruments are part of the codelist.
+The option ‘Other’ (Other Directives mentioned in Part A of Annex VI of the WFD),
+that existed in the 3rd cycle,
+is now eliminated because it did not convey relevant information.</p>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span></code> attribute contains the classification to be used
+for both basic and supplementary measures (see <a class="reference internal" href="#codelist-4thcycle-mainkeytypeofmeasure-table"><span class="std std-numref">Table 30</span></a>).
+It simplifies, consolidates and replaces both
+the <strong>basicMeasureType</strong> and the <strong>keyTypeOfMeasure</strong> classifications used in the 2nd and 3rd cycles.</p>
+<p>The purpose of the simplified classification is:</p>
+<ul class="simple">
+<li><p>To reduce the number of classes to a manageable set (19 options).</p></li>
+<li><p>To use a single classification scheme applicable to both basic measures and supplementary
+measures.</p></li>
+<li><p>To avoid redundancy and reporting burden in the classification of the measures.</p></li>
+<li><p>To maintain the options directly linked to the basic measure types in Articles 11(3)(b) to
+11(3)(l) of the WFD – see codes B, C, D, E, F, G, H, J, K, L.</p></li>
+<li><p>To maintain the disaggregation in the measures to address significant impacts in the status of
+water as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.</p></li>
+<li><p>To allow flexibility in the reporting of the measures to address significant pressures, when
+combined with the optional mainPressureType attribute.</p></li>
+<li><p>To maintain the previous KTM that do not fit the criteria above and were reported with high
+frequency in the 3rd cycle – see codes X01, X12, X14, X23 and X24.</p></li>
+<li><p>Regarding the measures to address significant impacts in the status of water
+as per Article 11(3)(i) – see codes I2-2, I2-3 and I2-4.
+Note that only some of the impacts applicable to surface water are detailed.</p></li>
+</ul>
+</li>
+<li><p>A mapping table (<a class="reference internal" href="#measures-mainkeytypeofmeasure-mappingtable"><span class="std std-numref">Table 31</span></a>)
+if provided with the correspondence between the <code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span></code> classes
+and the previous separate classification schemes used in the 3rd cycle.</p></li>
+<li><p>In the <strong>3rd cycle</strong>, the reporting guidance stated that
+“the name [of the measure] should reflect the pressure that is being tackled by the measure”
+<a class="footnote-reference brackets" href="#footcite-wfd2022-reportingguidance" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> —
+meaning the pressure(s) should be described textually in the name of the measure.
+This recommendation was not consistently followed, and an analysis of the measure names across
+Europe does not yield useful results.</p>
+<p>It is easier to keep the <em>original name of the measure</em>,
+and to allow MS to optionally select the <code class="docutils literal notranslate"><span class="pre">mainPressureType</span></code> that the measure addresses,
+at the adequate level of detail (e.g. a generic measure may address <code class="docutils literal notranslate"><span class="pre">'P2'</span></code> (Diffuse sources), while
+a more targeted measure may address only <code class="docutils literal notranslate"><span class="pre">'P2‑5'</span></code> (Diffuse – Contaminated sites or abandoned
+industrial sites).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mainPressureType</span></code> attribute allows more clarity and flexibility and can be applied to
+supplementary measures too.
+The <code class="docutils literal notranslate"><span class="pre">mainPressureType</span></code> attribute is optional, except for measures of type <code class="docutils literal notranslate"><span class="pre">'G'</span></code> and <code class="docutils literal notranslate"><span class="pre">'H'</span></code>.
+For measures of type G and H, the Commission requires additional information to differentiate
+measures addressing issues related to Urban Waste Water - <code class="docutils literal notranslate"><span class="pre">'P1‑1'</span></code> -
+from issues related to diffuse pollution from Agriculture - <code class="docutils literal notranslate"><span class="pre">'P2-2'</span></code>.</p>
+</li>
+<li><p><em>If needed and applicable</em>, a similar approach can be used for <code class="docutils literal notranslate"><span class="pre">mainSubstanceType</span></code>,
+allowing MS to identify measures targeting specific substances or groups of substances.</p></li>
+<li><p>The geographical scope of a measure is specified in the <code class="docutils literal notranslate"><span class="pre">geographicalCoverage</span></code> attribute:</p>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">geographicalCoverage</span> <span class="pre">=</span> <span class="pre">'national'</span></code> for measures
+that target any water body affected by a given significant pressure or substance failing</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">geographicalCoverage</span> <span class="pre">=</span> <span class="pre">'riverBasinDistrict'</span></code> for measures
+that target any water body affected by a given significant pressure or substance failing
+within the RBD indicated in the <code class="docutils literal notranslate"><span class="pre">euRBDCode</span></code> attribute value</p></li>
+<li><p>if appropriate and necessary, it is possible to specify that a measure
+only applies to a specific category of water bodies,
+using the optional <code class="docutils literal notranslate"><span class="pre">waterCategory</span></code> attribute</p></li>
+<li><p>if appropriate and necessary, it is possible to specify that a measure
+only applies to a specific type of WFD protected area,
+using the optional <code class="docutils literal notranslate"><span class="pre">protectedAreaType</span></code> attribute</p></li>
+<li><p>the option <code class="docutils literal notranslate"><span class="pre">geographicalCoverage</span> <span class="pre">=</span> <span class="pre">'waterBody'</span></code> should be reserved for measures
+that target specific water bodies (for example, one river, or a set of lakes)</p></li>
+<li><p>the option <code class="docutils literal notranslate"><span class="pre">geographicalCoverage</span> <span class="pre">=</span> <span class="pre">'protectedArea'</span></code> should be reserved for measures
+that target specific protected areas
+(for example, a set of bathing waters or a specific UWWTD sensitive area)</p></li>
+<li><p>in the 2 previous cases, it is NOT requested to individually identify
+the water bodies or protected areas, respectively.</p></li>
+</ul>
+</li>
+<li><p>The temporal scope of a measure is provided in the <code class="docutils literal notranslate"><span class="pre">implementationPeriod</span></code> value.</p>
+<ul class="simple">
+<li><p>the range of years indicated in the <code class="docutils literal notranslate"><span class="pre">implementationPeriod</span></code> is used
+to check the reporting of information related to expenditures
+(e.g. if a measure is yet to start, then no past expenditures exist)</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">implementationStatus</span></code> value allows the distinction between planned and ongoing measures.<br />
+It may also be used for measures planned for the 3rd cycle
+but already executed or cancelled by the end of 2027.</p></li>
+</ul>
+</section>
+<section id="expenditurepermeasurepersector-table">
+<h3>ExpenditurePerMeasurePerSector table<a class="headerlink" href="#expenditurepermeasurepersector-table" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#measures-4thcycle-expenditurepermeasurepersector-classdiagram"><span class="std std-numref">Figure 33</span></a>
+illustrates the <code class="docutils literal notranslate"><span class="pre">ExpenditurePerMeasurePerSector</span></code> table proposed for the 4th cycle.
+The data is reported for each measure, <em>if it is available</em>: the <code class="docutils literal notranslate"><span class="pre">measureCode</span></code> identifier and the
+<code class="docutils literal notranslate"><span class="pre">expenditureDataAvailable</span></code> attribute are the only mandatory attributes.</p>
+<figure class="align-center" id="measures-4thcycle-expenditurepermeasurepersector-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class ExpenditurePerMeasurePerSector {
++ measureCode: wiseIdentifier
++ expenditureDataAvailable: YesNoNotApplicable
++ institutionalSector: SEA2010SectorCode [0..1]
+
++ totalCapitalExpenditure3rdCycle: NonNegativeNumberDecimalType [0..1]
++ totalCurrentExpenditure3rdCycle: NonNegativeNumberDecimalType [0..1]
+
++ totalCapitalExpenditure4thCycle: NonNegativeNumberDecimalType [0..1]
++ totalCurrentExpenditure4thCycle: NonNegativeNumberDecimalType [0..1]
+
++ millionUnitsOfNationalCurrency: CurrencyCode [0..1]
+}
+
+class SEA2010SectorCode{
+  &lt;&lt;enumeration&gt;&gt;
+  S.1
+  S.13
+  S.13_S.15
+  S.11_S.12
+  S.11
+  S.11001
+  S.11002_S.11003
+  S.212
+  }
+
+class CurrencyCode{
+    &lt;&lt;enumeration&gt;&gt;
+    EUR
+    CZK
+    DKK
+    HUF
+    PLN
+    RON
+    SEK
+    NOK
+    ISK
+    }
+
+ExpenditurePerMeasurePerSector ..&gt; SEA2010SectorCode
+ExpenditurePerMeasurePerSector ..&gt; CurrencyCode
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 33 </span><span class="caption-text">Expenditure per Measure per Sector table – 4th cycle of reporting</span><a class="headerlink" href="#measures-4thcycle-expenditurepermeasurepersector-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The geographical scope of the measure is inherited from the parent record
+in the <code class="docutils literal notranslate"><span class="pre">Measure</span></code> table and does not need to be reported again.
+Likewise, the temporal scope is inherited from the parent records
+and can be used to verify the reported data.</p>
+<ul>
+<li><p>An error should be raised when there is missing data for the 3rd cycle
+In pseudo-code (the &amp;&amp; operator tests whether a range of values overlaps):</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">WHERE</span><span class="w"> </span><span class="n">expenditureDataAvailable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">Measure</span><span class="p">.</span><span class="n">implementationStatus</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;executed&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ongoing&#39;</span><span class="p">,</span><span class="s1">&#39;implemented&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">Measure</span><span class="p">.</span><span class="n">implementationPeriod</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s1">&#39;[2022,2027]&#39;</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">totalCapitalExpenditure3rdCycle</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">annualCurrentExpenditure3rdCycle</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</pre></div>
+</div>
+</li>
+<li><p>An error should be raised when there is missing data for the 4th cycle
+In pseudo-code (the &amp;&amp; operator tests whether a range of values overlaps):</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">WHERE</span><span class="w"> </span><span class="n">expenditureDataAvailable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">Measure</span><span class="p">.</span><span class="n">implementationStatus</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ongoing&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;implemented&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;planned&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">Measure</span><span class="p">.</span><span class="n">implementationPeriod</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s1">&#39;[2028,2033]&#39;</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">totalCapitalExpenditure4thCycle</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span>
+<span class="k">AND</span><span class="w"> </span><span class="n">annualCurrentExpenditure4thCycle</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The attribute <code class="docutils literal notranslate"><span class="pre">millionUnitsOfNationalCurrency</span></code> was introduced to facilitate reporting by MS
+outside the Euro area, in alignment with common statistical practices.
+It also facilitates human analysis, namely the cross‑checking against the RBMP documentation.</p>
+<ul class="simple">
+<li><p>Data must be reported in Millions of Euro for Euro Area Member States,
+and in Millions of National currency for non-Euro Area countries.
+The unit multiplier is set to 6 and it is applied to all the data, so it doesn’t need to be specified.</p></li>
+<li><p>Non-Euro Area countries should use the relevant code for its national currency
+(e.g. CZK, DKK, HUF, PLN, RON, SEK) rather than common code for domestic currency (XDC).
+Euro Area countries must use EUR.</p></li>
+<li><p>Generally, the number of decimal digits is “0”.
+If a country wants to send a figure lower than 1 million, decimals may be used.
+In this case, the separator must be a dot (.).
+Example: if a country wants to report a value of 10 000 the figure 0.01 must be sent.
+If necessary the proposal can be modified to use a different multiplier (e.g. thousands).</p></li>
+</ul>
+<p>A clear separation is made between <strong>capital</strong> expenditure vs. <strong>current</strong> expenditure and between
+the 3rd cycle and the 4th cycle data. Only total values are requested.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">institutionalSector</span></code> attribute identifies the institutional sector doing the outlay. This
+aspect is explained below.</p>
+<p>The European System of Accounts (ESA 2010) has a standard classification of institutional sectors
+(see <a class="reference internal" href="#measures-esa2010-table"><span class="std std-numref">Table 25</span></a>).
+The topmost class (S.1 – Total Economy) encompasses all national institutional sectors; implicitly,
+the 3rd cycle of WFD reporting used it.</p>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="measures-esa2010-table" style="width: 100%">
+<caption><span class="caption-number">Table 25 </span><span class="caption-text">European System of Accounts (ESA 2010) sectors.</span><a class="headerlink" href="#measures-esa2010-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Definition of the ESA Sector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S.1</p></td>
+<td><p>Total economy</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.11</p></td>
+<td><p>Non-financial corporations (e.g., waste companies, manufacturers).</p></td>
+</tr>
+<tr class="row-even"><td><p>S.11001</p></td>
+<td><p>Public non-financial corporations. All non-financial corporations,
+quasi-corporations and non-profit institutions,
+recognised as independent legal entities,
+that are market producers and are subject to control by government units.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.11002</p></td>
+<td><p>National private non-financial corporations.</p></td>
+</tr>
+<tr class="row-even"><td><p>S.11003</p></td>
+<td><p>Foreign controlled non-financial corporations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.12</p></td>
+<td><p>Financial corporations (rarely main EPEA actors, but valid).</p></td>
+</tr>
+<tr class="row-even"><td><p>S.13</p></td>
+<td><p>General government. Central, state, and local government units
+(e.g., municipalities, ministries).</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.14</p></td>
+<td><p>Households. Private individuals acting as consumers.</p></td>
+</tr>
+<tr class="row-even"><td><p>S.15</p></td>
+<td><p>NPISH. Non-profit institutions serving households (e.g., environmental charities).</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.2</p></td>
+<td><p>Rest of the world. Used for reporting transfers (subsidies/grants)
+paid to or received from abroad.</p></td>
+</tr>
+<tr class="row-even"><td><p>S.21</p></td>
+<td><p>Member states and institutions and bodies of the European Union.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.212</p></td>
+<td><p>Institutions and bodies of the European Union
+(e.g., European Central Bank, European Commission).</p></td>
+</tr>
+<tr class="row-even"><td><p>S.22</p></td>
+<td><p>Non-member countries and international organisations non-resident
+in the European Union.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The dichotomous key in <a class="reference internal" href="#measures-esa2010-allocation-of-institutional-units-to-sectors"><span class="std std-numref">Figure 34</span></a>
+clarifies the allocation of units to sectors.</p>
+<figure class="align-center" id="measures-esa2010-allocation-of-institutional-units-to-sectors">
+<pre  class="mermaid">
+        flowchart TB
+
+    A[Is the unit resident?]
+
+    A --&gt;|Yes| B[Is the unit a household?]
+    A --&gt;|No| RoW[RoW]
+
+    B --&gt;|No| C[Is the unit a non-market producer?]
+    B --&gt;|Yes| Households[Households]
+
+    C --&gt;|Yes| D[Is the unit controlled by government?]
+    C --&gt;|No| E[Does the unit produce financial services?]
+
+    D --&gt;|No| NPISH[NPISH]
+    D --&gt;|Yes| GG[General government]
+
+    E --&gt;|No| NFC[Non-financial corporations]
+    E --&gt;|Yes| FC[Financial corporations]
+
+    %% --- FIX: give unique IDs to repeated decision boxes ---
+    NFC --&gt; D1[Is the unit controlled by general government?]
+    
+
+    D1 --&gt;|Yes| PNFC[Public non-financial corporations]
+    D1 --&gt;|No| PRNFC[Private non-financial corporations]
+
+    FC --&gt;D2[Is the unit controlled by general government?]
+    
+
+    D2 --&gt;|Yes| PUFC[Public financial corporations]
+    D2 --&gt;|No| PRFC[Private financial corporations]
+    </pre><figcaption>
+<p><span class="caption-number">Figure 34 </span><span class="caption-text">European System of Accounts (ESA 2010) allocation of institutional units to sectors</span><a class="headerlink" href="#measures-esa2010-allocation-of-institutional-units-to-sectors" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Environmental Protection Expenditures Accounts (EPEA) uses four groups of sectors <a class="footnote-reference brackets" href="#footcite-eurostat2017epea" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>:</p>
+<ul class="simple">
+<li><p>S13 and S15 – General government and NPISH (Non-Profit Institutions Serving Households)</p></li>
+<li><p>S11 and S12 – Corporations</p></li>
+<li><p>S14 – Households</p></li>
+<li><p>S2 – Rest of the World</p></li>
+</ul>
+<p><a class="reference internal" href="#codelist-4thcycle-sea2010sectorcode-table"><span class="std std-numref">Table 26</span></a> presents
+a proposed list of institutional sectors that can be used in the 4th cycle of reporting.
+The list should be revised and discussed with the CIS WG Economics.</p>
+<p>It is also important to provide technical guidance and examples
+on the proper reporting of expenditures.
+For example, in the context of the EPEA,
+research and development (R&amp;D) expenditure is primarily classified as current expenditure,
+while the National Accounts framework (ESA 2010) typically capitalizes R&amp;D as an investment.</p>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-sea2010sectorcode-table" style="width: 100%">
+<caption><span class="caption-number">Table 26 </span><span class="caption-text">Codelist - 4th cycle - SEA2010SectorCode</span><a class="headerlink" href="#codelist-4thcycle-sea2010sectorcode-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation *</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S.1</p></td>
+<td><p>Total economy</p></td>
+<td><p>Allows the provision of aggregated data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.13</p></td>
+<td><p>General government</p></td>
+<td><p>The “default” option, if the RBMPs only include government outlays.</p></td>
+</tr>
+<tr class="row-even"><td><p>S.13_S.15</p></td>
+<td><p>General government + NPISH</p></td>
+<td><p>Aligned with EPEA, can be used if preferred.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.11_S.12</p></td>
+<td><p>Corporations</p></td>
+<td><p>Aligned with EPEA, can be used if preferred.</p></td>
+</tr>
+<tr class="row-even"><td><p>S.11</p></td>
+<td><p>Non-financial corporations</p></td>
+<td><p>Can be used if the distinction of outlays by public and private companies is not relevant.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.11001</p></td>
+<td><p>Public non-financial corporations</p></td>
+<td><p>Can be used if the distinction of outlays by public and private companies is relevant.</p></td>
+</tr>
+<tr class="row-even"><td><p>S.11002_S.11003</p></td>
+<td><p>Private non-financial corporations</p></td>
+<td><p>Can be used if the distinction of outlays by public and private companies is relevant.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S.212</p></td>
+<td><p>Institutions and bodies of the European Union</p></td>
+<td><p>E.g. European Central Bank, European Commission</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>* The underscore ‘_’ denotes a list of code values (Code1_Code2).
+The hyphen ‘-’ denotes a range of code values (StartCode-EndCode)</p>
+<p>It is also important to address the reporting of transfers of EU Funds.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">institutionalSector</span> <span class="pre">=</span> <span class="pre">'S.212'</span></code> then the value
+represents a transfer of EU funds into the national economy.
+Depending on the purpose, it can be a capital transfer (e.g. to build a new UWWT plant),
+or a current transfer (e.g. a CAP subsidy to pay farmers to reduce or eliminate pesticides).
+It is not necessary to identify which sector receives the transfer.</p>
+<p>A numerical example can be used to illustrate the proposed approach.</p>
+<p>A new Urban Waste Water Treatment Plant required a total capital expenditure of 10M€.</p>
+<ul class="simple">
+<li><p>Scenario 1 : the General Government (S.13) built the plant using national funds.</p></li>
+<li><p>Scenario 2 : a public utility company (S.11001) built the plant,
+using 10M€ of national funds transferred by the government.</p></li>
+<li><p>Scenario 3 : the government built the plant
+using 8M€ of national funds and 2M€ from the EU Cohesion Fund.</p></li>
+<li><p>Scenario 4 : a public utility company (S.11001) built the plant,
+using 8M€ of national funds transferred by the General Government (S.13) to the company
+and 2M€ of EU funds transferred to the company via the national government.</p></li>
+<li><p>Scenario 5 : a public utility company (S.11001) built the plant,
+using 5M€ of their own funds,
+4M€ of national funds transferred by the General Government (S.13) to the company
+and 1M€ of EU funds transferred to the company via the national government.</p></li>
+</ul>
+<p><a class="reference internal" href="#measures-reportingexpenditurepersector-example"><span class="std std-numref">Table 27</span></a> illustrates
+the reporting of the different scenarios.</p>
+<p>Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view.<br />
+Likewise, scenario 3 and scenario 4 are identical.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="measures-reportingexpenditurepersector-example" style="width: 100%">
+<caption><span class="caption-number">Table 27 </span><span class="caption-text">Illustrative example with the reporting of expenditure per sector.</span><a class="headerlink" href="#measures-reportingexpenditurepersector-example" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Institutional Sector</p></th>
+<th class="head"><p>Total Capital Expenditure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>S.13 – General Government</p></td>
+<td><p>10 M€</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>S.13 – General Government</p></td>
+<td><p>10 M€</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>S.13 – General Government</p></td>
+<td><p>8 M€</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>S.212 – Institutions and bodies of the European Union</p></td>
+<td><p>2 M€</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>S.13 – General Government</p></td>
+<td><p>8 M€</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>S.212 – Institutions and bodies of the European Union</p></td>
+<td><p>2 M€</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>S.11001 – Public non-financial corporations</p></td>
+<td><p>5 M€</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>S.13 – General Government</p></td>
+<td><p>4 M€</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>S.212 – Institutions and bodies of the European Union</p></td>
+<td><p>1 M€</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Commission will provide guidance on the reporting of
+expenditure for which may be outside the scope of the EPEA.</p>
+<ul class="simple">
+<li><p>Measures to promote efficient and sustainable water use:
+<code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span> <span class="pre">=</span> <span class="pre">'C'</span></code></p></li>
+<li><p>Measure to control abstraction from surface and groundwater,
+and impoundment of surface water: <code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span> <span class="pre">=</span> <span class="pre">'E'</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="documents-dataset-4th-cycle">
+<span id="heading-wfd-measures-documents-dataset-4th-cycle"></span><h2>Documents dataset - 4th cycle<a class="headerlink" href="#documents-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Documents dataset follows the standard structure used in various WISE dataflows
+(<a class="reference internal" href="#measures-4thcycle-documents-classdiagram"><span class="std std-numref">Figure 35</span></a>):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table provides the basic Dublin Core metadata elements about the delivery.</p>
+<ul>
+<li><p>If required by the data providers,
+the <code class="docutils literal notranslate"><span class="pre">licenseDocument</span></code> attribute allows the provision
+of additional information about the dataset.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table also functions as a “manifest file”
+explaining if the delivery contains data for a given river basin district or not.</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Document</span></code> table allows the upload of documents (for example, PDFs)
+or the provision of a <code class="docutils literal notranslate"><span class="pre">hyperlink</span></code> to a document stored in a publicly accessible national web site.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Reference</span></code> table is also standard in the WISE dataflows:
+the <code class="docutils literal notranslate"><span class="pre">bookmark</span></code> it allows the identification of the chapter(s), sections(s) or page range(s)
+where the relevant information about a <code class="docutils literal notranslate"><span class="pre">subject</span></code>
+can be found within a document.</p></li>
+</ul>
+<figure class="align-center" id="measures-4thcycle-documents-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class dcMetadata {
+
+«metadata»
++ title: string
++ creatorOrganisationName: string
++ creatorElectronicMailAddress: Email
++ description: string [0..1]
++ created: date [0..1]
++ language: Language [1..n]
++ license: Licence
++ rights: string [0..1]
++ rightsHolder: string [0..1]
++ licenseDocument: documentCode [0..n]
+
+«manifest»
++ euRBDCode: wiseIdentifier
++ includesDescriptiveData: YesNo
+}
+
+class Reference {
+  + referenceCode: wiseIdentifier
+  + documentCode: documentCode
+  + bookmark: string250
+  + subject: string250 
+}
+
+class Document {
++ documentCode: wiseIdentifier
++ documentName: string250
++ hyperlink: URL [0..1]
++ documentFile: Attachment [0..1]
+}
+
+class Licence{
+  &lt;&lt;enumeration&gt;&gt;
+  CC0
+  CC_BY_4_0
+  exactMatch_CC_BY_4_0
+  narrowMatch_CC_BY_4_0
+}
+
+Reference  ..&gt; Document: documentCode
+dcMetadata ..&gt; Document: licenseDocument
+dcMetadata ..&gt; Licence: license
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 35 </span><span class="caption-text">Programmes of measures dataflow - 4th cycle - Documents</span><a class="headerlink" href="#measures-4thcycle-documents-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following criteria apply:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table must contain <em>one and only one</em> record
+for each of the country’s river basin districts, identified by the <code class="docutils literal notranslate"><span class="pre">euRBDCode</span></code>.</p></li>
+<li><p>The descriptive dataset tables are <strong>national</strong>,
+but the quality control will allow deliveries
+where some, or all, the river basin districts have <code class="docutils literal notranslate"><span class="pre">includesDescriptiveData</span> <span class="pre">=</span> <span class="pre">no</span></code>.</p></li>
+</ol>
+</section>
+<section id="codelists-4th-cycle">
+<h2>Codelists - 4th cycle<a class="headerlink" href="#codelists-4th-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">SubPlansCoverage</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram"><span class="std std-numref">Figure 29</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">OngoingStakeholderInvolvement</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram"><span class="std std-numref">Figure 29</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">Coordination</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram"><span class="std std-numref">Figure 29</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">InternationalCoordination</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram"><span class="std std-numref">Figure 29</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">StakeholderGroups</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-riverbasinmanagementplan-classdiagram"><span class="std std-numref">Figure 29</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">PlannedOngoingExecutedCancelled</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-progress-classdiagram"><span class="std std-numref">Figure 30</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">MeasuresChanges</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">MeasureScope</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">BasicMeasuresArt113eThreshold</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">BasicMeasuresArt113eImpoundment</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">BasicMeasuresArt113gThreshold</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">BasicMeasuresArt113hRules</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">BasicMeasuresArt113j</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">EcologicalFlow</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-targetedquestions-classdiagram"><span class="std std-numref">Figure 31</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">MeasureType</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">LegalInstrument</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">WFDGeographicCoverage</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">MeasureType</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-measuretype-table"><span class="std std-numref">Table 28</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">LegalInstrument</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-legalinstrument-table"><span class="std std-numref">Table 29</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">MainKeyTypeOfMeasure</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-mainkeytypeofmeasure-table"><span class="std std-numref">Table 30</span></a>.</p></li>
+<li><p>See the mapping table between the 3rd and 4th cycle classifications in <a class="reference internal" href="#measures-mainkeytypeofmeasure-mappingtable"><span class="std std-numref">Table 31</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">PressureType</span></code> codelist,
+see <a class="reference internal" href="WFDPressures.html#codelist-4thcycle-pressuretype-classdiagram"><span class="std std-numref">Figure 111</span></a> in
+the section <a class="reference internal" href="WFDPressures.html#heading-wfd-pressure-type-codelist-4th-cycle"><span class="std std-ref">PressureType codelist - 4th cycle</span></a>.</p>
+<ul>
+<li><p>See the mapping table between the 3rd and 4th cycle classifications in <a class="reference internal" href="WFDPressures.html#pressurestype-3rdcycle-4thcycle-mappingtable"><span class="std std-numref">Table 79</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">ProtectedAreaType</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-measure-classdiagram"><span class="std std-numref">Figure 32</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">SEA2010SectorCode</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-expenditurepermeasurepersector-classdiagram"><span class="std std-numref">Figure 33</span></a>.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-sea2010sectorcode-table"><span class="std std-numref">Table 26</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">CurrencyCode</span></code> codelist, see <a class="reference internal" href="#measures-4thcycle-expenditurepermeasurepersector-classdiagram"><span class="std std-numref">Figure 33</span></a>.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-measuretype-table" style="width: 100%">
+<caption><span class="caption-number">Table 28 </span><span class="caption-text">Codelist - 4th cycle - MeasureType</span><a class="headerlink" href="#codelist-4thcycle-measuretype-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Definition and examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>legislativeOrRegulatory</p></td>
+<td><p><strong>Definition</strong>:
+Measures that involve the adoption or modification of laws, by-laws,
+and binding standards to restrict activities or enforce compliance with environmental objectives.
+This includes the establishment of mandatory constraints on pollutants.</p>
+<p><strong>Examples</strong>: Legislative and regulatory measures include <em>inter alia</em>:</p>
+<p><em>Nitrates Action Plans</em>: Measures to reduce nutrient pollution from agriculture often involve regulatory changes.
+For instance, Romania applies the Nitrates Action Plan to its whole territory, imposing mandatory restrictions on fertiliser application.
+Germany adopted a revised Fertilizer Ordinance in 2020 to designate nitrate-contaminated areas and reduce fertiliser use by 20%.</p>
+<p><em>Bans on Substances</em>: Measures include prohibitions on specific hazardous substances.
+For example, the Netherlands has forbidden the use of PAH (Polycyclic Aromatic Hydrocarbons) coatings on inland ships.
+Additionally, PFOA (Perfluorooctanoic acid) has been prohibited in consumer products since 2020 to contribute to reduced emissions into water.</p>
+<p><em>Ecological Flow Standards</em>: Establishing legally binding standards for ecological flows (e -flows) to ensure sufficient water remains in rivers.
+Austria has a decree in force since 2010 setting values for biological and hydrological quality elements.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>administrativeOrGovernance</p></td>
+<td><p><strong>Definition</strong>:
+Procedural actions taken by competent authorities to manage water use, including the issuance and review of permits,
+the maintenance of registers, inspections, and the coordination of governance structures.</p>
+<p><strong>Examples</strong>: Administrative and governance measures include <em>inter alia</em>:</p>
+<p><em>Permitting and Authorisation</em>: Controlling activities through licensing systems.
+Germany reports using authorisation regimes for wastewater point source discharges in all River Basin Districts (RBDs).
+Spain manages a registry of water abstractions, although it notes challenges with data updates in the registry entries.</p>
+<p><em>Review of Permits</em>: The periodic update of existing licenses.
+France is advised to increase the frequency of its periodic review of abstraction and impoundment permits, which currently occurs once every 15 years.</p>
+<p><em>Registers</em>: Maintaining databases of physical modifications.
+Latvia maintains a register of anthropogenic barriers, listing 1137 different types of man-made dams.</p>
+<p><em>Inspections</em>: Enforcement activities to ensure compliance.
+Estonia noted that current resources for inspection and enforcement regarding agricultural pressures were insufficient.</p>
+<p><em>Advisory services</em>:
+For example, services are designed to help farmers implement environment-friendly practices,
+such as the establishment of buffer strips and sustainable nutrient management.
+Finland report measures such as farm advisory services and training as part of the efforts to address pollution from agriculture and forestry.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>physicalOrTechnical</p></td>
+<td><p><strong>Definition</strong>:<br />
+Concrete interventions involving construction, removal, or modification of infrastructure,
+as well as technical upgrades to facilities to reduce emissions or restore morphology.
+This category covers both “grey” infrastructure (e.g., wastewater plants) and “green” restoration (e.g., river continuity).</p>
+<p><strong>Examples</strong>: Physical and technical measures include <em>inter alia</em>:<br />
+<em>Wastewater Infrastructure</em>:
+Construction or upgrading of Urban Wastewater Treatment Plants (UWWTPs).
+Czechia prioritises measures related to wastewater plants and sewage systems to address point source discharges.
+Romania has invested in 68 communal platforms for manure storage.</p>
+<p><em>River Continuity and Restoration</em>:
+Physical removal of barriers or installation of passes.
+Austria reports funding for fish passes and the demolition of old dams to improve longitudinal continuity.
+Luxembourg highlights the renaturalisation of the River Pétrusse.</p>
+<p><em>Reduction of leakages and losses during water abstraction and supply</em>:
+For example: Italy supports investment in the improvement of existing irrigation infrastructure
+and on-farm irrigation installations specifically to reduce losses and increase efficiency.</p>
+<p><em>Remediation</em>:<br />
+Cleanup of contaminated sites. Czechia maps measures for the remediation of contaminated sites covering 15,772 km².</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>economicOrFinancial</p></td>
+<td><p><strong>Definition</strong>:<br />
+Instruments involving financial incentives, pricing mechanisms, taxes, or subsidies designed to influence water use behaviour or fund environmental improvements.</p>
+<p><strong>Examples</strong>: Economic and financial measures include <em>inter alia</em>:</p>
+<p><em>Water Pricing</em>: The application of tariffs for water services.
+Italy reports that current pricing structures provide some incentives for efficient water use but requires better analysis of their adequacy.
+Hungary abolished the payment exemption for agricultural water use in 2017.</p>
+<p><em>Subsidies and Compensation</em>: Payments to support voluntary measures.
+In Estonia, measures to reduce agricultural pollution are supported by the Common Agricultural Policy (CAP), involving compensation for organic farming.<br />
+Slovakia uses CAP funding to support voluntary supplementary measures in agriculture.</p>
+<p><em>Cost Recovery</em>: Mechanisms to recover costs of water services. The Netherlands reports nearly full cost
+recovery for collective water supply and sanitation services.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>knowledgeOrPreparatory</p></td>
+<td><p><strong>Definition</strong>:  Actions focused on research, data collection, and gap analysis to reduce uncertainty and inform future decision-making.</p>
+<p><strong>Examples</strong>: Knowledge and preparatory measures include <em>inter alia</em>:</p>
+<p><em>Research Studies</em>: Latvia assigned 23% of its 3rd RBMP measures to KTM14 to improve the knowledge base.<br />
+<em>Gap Analyses</em>: Poland performed a gap assessment for nutrients, estimating necessary load reductions for each surface water body.<br />
+<em>Source Identification</em>: Finland completed detailed work to identify point sources and diffuse emissions for 53 monitored substances.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-legalinstrument-table" style="width: 100%">
+<caption><span class="caption-number">Table 29 </span><span class="caption-text">Codelist - 4th cycle - LegalInstrument</span><a class="headerlink" href="#codelist-4thcycle-legalinstrument-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>ELI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>waterFrameworkDirective</p></td>
+<td><p>Directive 2000/60/EC of the European Parliament and of the Council of 23 October 2000
+establishing a framework for Community action in the field of water policy</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2000/60/2026-05-10">http://data.europa.eu/eli/dir/2000/60/2026-05-10</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>floodsDirective</p></td>
+<td><p>Directive 2007/60/EC of the European Parliament and of the Council of 23 October 2007
+on the assessment and management of flood risks</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2007/60/oj">http://data.europa.eu/eli/dir/2007/60/oj</a></p></td>
+</tr>
+<tr class="row-even"><td><p>marineStrategyFrameworkDirective</p></td>
+<td><p>Directive 2008/56/EC of the European Parliament and of the Council of 17 June 2008
+establishing a framework for community action in the field of marine environmental policy
+(Marine Strategy Framework Directive)</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2008/56/2017-06-07">http://data.europa.eu/eli/dir/2008/56/2017-06-07</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bathingWaterDirective</p></td>
+<td><p>Directive 2006/7/EC of the European Parliament and of the Council of 15 February 2006
+concerning the management of bathing water quality and repealing Directive 76/160/EEC</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2006/7/oj">http://data.europa.eu/eli/dir/2006/7/oj</a></p></td>
+</tr>
+<tr class="row-even"><td><p>recastDrinkingWaterDirective</p></td>
+<td><p>Directive (EU) 2020/2184 of the European Parliament and of the Council of 16 December 2020
+on the quality of water intended for human consumption (recast)</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2020/2184/oj">http://data.europa.eu/eli/dir/2020/2184/oj</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>environmentalImpactAssessmentDirective</p></td>
+<td><p>Directive 2011/92/EU of the European Parliament and of the Council of 13 December 2011
+on the assessment of the effects of certain public and private projects on the environment</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2011/92/2014-15-15">http://data.europa.eu/eli/dir/2011/92/2014-15-15</a></p></td>
+</tr>
+<tr class="row-even"><td><p>environmentalQualityStandardsDirective2008</p></td>
+<td><p>Directive 2008/105/EC of the European Parliament and of the Council of 16 December 2008
+on environmental quality standards in the field of water policy,
+amending and subsequently repealing Council Directives
+82/176/EEC, 83/513/EEC, 84/156/EEC, 84/491/EEC, 86/280/EEC
+and amending Directive 2000/60/EC of the European Parliament and of the Council</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2008/105">http://data.europa.eu/eli/dir/2008/105</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>environmentalQualityStandardsDirective2013</p></td>
+<td><p>Directive 2013/39/EU of the European Parliament and of the Council of 12 August 2013
+amending Directives 2000/60/EC and 2008/105/EC
+as regards priority substances in the field of water policy</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2008/105/2013-09-13">http://data.europa.eu/eli/dir/2008/105/2013-09-13</a></p></td>
+</tr>
+<tr class="row-even"><td><p>groundwaterDirective</p></td>
+<td><p>Directive 2006/118/EC of the European Parliament and of the Council of 12 December 2006
+on the protection of groundwater against pollution and deterioration</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2006/118/oj">http://data.europa.eu/eli/dir/2006/118/oj</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>birdsDirective</p></td>
+<td><p>Directive 2009/147/EC of the European Parliament and of the Council of 30 November 2009
+on the conservation of wild birds</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2009/147/2019-06-26">http://data.europa.eu/eli/dir/2009/147/2019-06-26</a></p></td>
+</tr>
+<tr class="row-even"><td><p>habitatsDirective</p></td>
+<td><p>Council Directive 92/43/EEC of 21 May 1992 on the conservation of natural habitats
+and of wild fauna and flora</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/1992/43/2025-07-14">http://data.europa.eu/eli/dir/1992/43/2025-07-14</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>industrialEmissionsDirective</p></td>
+<td><p>Directive 2010/75/EU of the European Parliament and of the Council of 24 November 2010
+on industrial emissions (integrated pollution prevention and control)</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2010/75/2024-08-04">http://data.europa.eu/eli/dir/2010/75/2024-08-04</a></p></td>
+</tr>
+<tr class="row-even"><td><p>natureRestorationRegulation</p></td>
+<td><p>Regulation (EU) 2024/1991 of the European Parliament and of the Council of 24 June 2024
+on nature restoration and amending Regulation (EU) 2022/869</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/reg/2024/1991/oj">http://data.europa.eu/eli/reg/2024/1991/oj</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>nitratesDirective</p></td>
+<td><p>Council Directive of 12 December 1991
+concerning the protection of waters against pollution
+caused by nitrates from agricultural sources (91/676/EEC)</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/1991/676/oj">http://data.europa.eu/eli/dir/1991/676/oj</a></p></td>
+</tr>
+<tr class="row-even"><td><p>plantProtectionProductsRegulation</p></td>
+<td><p>Regulation (EC) No 1107/2009 of the European Parliament
+and of the Council of 21 October 2009
+concerning the placing of plant protection products
+on the market and repealing Council Directives 79/117/EEC and 91/414/EEC</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/reg/2009/1107/2022-11-21">http://data.europa.eu/eli/reg/2009/1107/2022-11-21</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>sevesoIIIDirective</p></td>
+<td><p>Directive 2012/18/EU of the European Parliament and of the Council of 4 July 2012
+on the control of major-accident hazards involving dangerous substances,
+amending and subsequently repealing Council Directive 96/82/EC</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2012/18/oj">http://data.europa.eu/eli/dir/2012/18/oj</a></p></td>
+</tr>
+<tr class="row-even"><td><p>sewageSludgeDirective</p></td>
+<td><p>Council Directive of 12 June 1986 on the protection of the environment,
+and in particular of the soil, when sewage sludge is used in agriculture (86/278/EEC)</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/1986/278/2022-01-01">http://data.europa.eu/eli/dir/1986/278/2022-01-01</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>recastUrbanWasteWaterTreatmentDirective</p></td>
+<td><p>Directive (EU) 2024/3019 of the European Parliament and of the Council of 27 November 2024
+concerning urban wastewater treatment (recast)</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/dir/2024/3019/oj">http://data.europa.eu/eli/dir/2024/3019/oj</a></p></td>
+</tr>
+<tr class="row-even"><td><p>waterReuseRegulation</p></td>
+<td><p>Regulation (EU) 2020/741 of the European Parliament and of the Council of 25 May 2020
+on minimum requirements for water reuse</p></td>
+<td><p><a class="reference external" href="http://data.europa.eu/eli/reg/2020/741/oj">http://data.europa.eu/eli/reg/2020/741/oj</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-mainkeytypeofmeasure-table" style="width: 100%">
+<caption><span class="caption-number">Table 30 </span><span class="caption-text">Codelist - 4thCycle - MainKeyTypeOfMeasure</span><a class="headerlink" href="#codelist-4thcycle-mainkeytypeofmeasure-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">mainPressureType</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">mainSubstanceType</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>B</p></td>
+<td><p>Measure to implement recovery of costs for water services</p></td>
+<td><p>P3% or P1% or P2%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>Measure to promote efficient and sustainable water use</p></td>
+<td><p>P3%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>Measure to protect drinking water quality and reduce the level of treatment required</p></td>
+<td><p>P1% or P2% or P3%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>E</p></td>
+<td><p>Measure to control abstraction from surface and groundwater, and impoundment of surface water</p></td>
+<td><p>P3%</p></td>
+<td><p>«notApplicable»</p></td>
+</tr>
+<tr class="row-even"><td><p>F</p></td>
+<td><p>Measure to control artificial recharge or augmentation of groundwater</p></td>
+<td><p>P6%</p></td>
+<td><p>«notApplicable»</p></td>
+</tr>
+<tr class="row-odd"><td><p>G</p></td>
+<td><p>Measure to control point source discharges</p></td>
+<td><p>P1%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-even"><td><p>H</p></td>
+<td><p>Measure to prevent or control inputs of diffuse pollutants</p></td>
+<td><p>P2%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>J</p></td>
+<td><p>Measure to prohibit direct discharges to groundwater</p></td>
+<td><p>P1% or P2%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-even"><td><p>K</p></td>
+<td><p>Measure to eliminate by Priority Substances and reduce pollution by other substances</p></td>
+<td><p>P1% or P2%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>L</p></td>
+<td><p>Measure to prevent accidental pollution</p></td>
+<td><p>P1% or P2%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-even"><td><p>I2-2</p></td>
+<td><p>Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes</p></td>
+<td><p>P4-3%</p></td>
+<td><p>«notApplicable»</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2-3</p></td>
+<td><p>Measure to address significant impacts on surface waters - Altered habitats due to morphological changes</p></td>
+<td><p>P4%</p></td>
+<td><p>«notApplicable»</p></td>
+</tr>
+<tr class="row-even"><td><p>I2-4</p></td>
+<td><p>Measure to address significant impacts on surface waters - Acidification</p></td>
+<td><p>P2-7</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>P</p></td>
+<td><p>Measure to address significant pressures on surface waters</p></td>
+<td><p>P1% or P2% or P3% or P4% or P5%</p></td>
+<td><p>«conditional»</p></td>
+</tr>
+<tr class="row-even"><td><p>X01</p></td>
+<td><p>Construction or upgrades of wastewater treatment plants</p></td>
+<td><p>P1% or P2%</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>X12</p></td>
+<td><p>Advisory services</p></td>
+<td><p>«any»</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-even"><td><p>X14</p></td>
+<td><p>Research, improvement of knowledge base reducing uncertainty</p></td>
+<td><p>«any»</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-odd"><td><p>X23</p></td>
+<td><p>Natural water retention measures</p></td>
+<td><p>«any»</p></td>
+<td><p>«optional»</p></td>
+</tr>
+<tr class="row-even"><td><p>X24</p></td>
+<td><p>Climate change adaptation measure</p></td>
+<td><p>«any»</p></td>
+<td><p>«optional»</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="measures-mainkeytypeofmeasure-mappingtable" style="width: 100%">
+<caption><span class="caption-number">Table 31 </span><span class="caption-text">Mapping between the mainKeyTypeOfMeasure (4th cycle) and current basicMeasureType and keyTypeOfMeasure (2nd and 3rd cycle).</span><a class="headerlink" href="#measures-mainkeytypeofmeasure-mappingtable" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>mainKeyTypeOfMeasure (4th cycle)</p></th>
+<th class="head"><p>basicMeasureType (2nd and 3rd cycle)</p></th>
+<th class="head"><p>keyTypeOfMeasure (2nd and 3rd cycle)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>B - Measure to implement recovery of costs for water services</p></td>
+<td><p>Measure to implement recovery of costs for water services</p></td>
+<td><p>KTM9 - Water pricing policy measures for the implementation of the recovery of cost of water services from households<br />
+KTM10 - Water pricing policy measures for the implementation of the recovery of cost of water services from industry<br />
+KTM11 - Water pricing policy measures for the implementation of the recovery of cost of water services from agriculture</p></td>
+</tr>
+<tr class="row-odd"><td><p>C - Measure to promote efficient and sustainable water use</p></td>
+<td><p>Measure to promote efficient and sustainable water use</p></td>
+<td><p>KTM8 - Water efficiency, technical measures for irrigation, industry, energy and households</p></td>
+</tr>
+<tr class="row-even"><td><p>D - Measure to protect drinking water quality and reduce the level of treatment required</p></td>
+<td><p>Measure to protect drinking water quality and reduce the level of treatment required</p></td>
+<td><p>KTM13 - Drinking water protection measures (e.g. establishment of safeguard zones, buffer zones etc)</p></td>
+</tr>
+<tr class="row-odd"><td><p>E - Measure to control abstraction from surface and groundwater, and impoundment of surface water</p></td>
+<td><p>Measure to control abstraction from surface and groundwater</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>F - Measure to control artificial recharge or augmentation of groundwater</p></td>
+<td><p>Measure to control recharging of groundwater</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>G - Measure to control point source discharges</p></td>
+<td><p>Measure to control point source discharges</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>H - Measure to prevent or control inputs of diffuse pollutants</p></td>
+<td><p>Measure to prevent or control inputs of diffuse pollutants</p></td>
+<td><p>KTM17 - Measures to reduce sediment from soil erosion and surface run-off
+KTM2 - Reduce nutrient pollution from agriculture<br />
+KTM21 - Measures to prevent or control the input of pollution from urban areas, transport, and built infrastructure<br />
+KTM22 - Measures to prevent or control the input of pollution from forestry</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2-2 - Measure to address significant impacts - Altered habitats due to hydrological changes</p></td>
+<td><p>Measure to address significant impacts on the hydromorphological conditions</p></td>
+<td><p>KTM7 - Improvements in flow regime and/or establishment of ecological flows<br />
+KTM5 - Improving longitudinal continuity (e.g. establishing fish passes, demolishing old dams)<br />
+KTM6 - Improving hydromorphological conditions of water bodies other than longitudinal continuity</p></td>
+</tr>
+<tr class="row-even"><td><p>I2-4 - Measure to address significant impacts - Acidification</p></td>
+<td></td>
+<td><p>KTM25 - Measures to counteract acidification</p></td>
+</tr>
+<tr class="row-odd"><td><p>J - Measure to prohibit direct discharges to groundwater</p></td>
+<td><p>Measure to prohibit direct discharges to groundwater</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>K - Measure to eliminate by Priority Substances and reduce pollution by other substances</p></td>
+<td><p>Measure to eliminate or reduce pollution by Priority Substances</p></td>
+<td><p>KTM15 - Measures for the phasing-out of emissions, discharges and losses of Priority Hazardous Substances
+or for the reduction of emissions, discharges and losses of Priority Substances<br />
+KTM3 - Reduce pesticides pollution from agriculture</p></td>
+</tr>
+<tr class="row-odd"><td><p>L - Measure to prevent accidental pollution</p></td>
+<td><p>Measure to prevent accidental pollution</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>P - Measure to address significant pressures</p></td>
+<td></td>
+<td><p>KTM18 - Measures to prevent or control the adverse impacts of invasive alien species, and introduced diseases<br />
+KTM19 - Measures to prevent or control the adverse impacts of recreation including angling<br />
+KTM20 - Measures to prevent or control the adverse impacts of fishing and other exploitation/removal of animal and plants<br />
+KTM4 - Remediation of contaminated sites (historical pollution including sediments, groundwater, soil)</p></td>
+</tr>
+<tr class="row-odd"><td><p>X01 - Construction or upgrades of wastewater treatment plants</p></td>
+<td></td>
+<td><p>KTM1 - Construction or upgrades of wastewater treatment plants<br />
+KTM16 - Upgrades or improvements of industrial wastewater treatment plants (including farms)</p></td>
+</tr>
+<tr class="row-even"><td><p>X12 - Advisory services</p></td>
+<td></td>
+<td><p>KTM12 - Advisory services for agriculture</p></td>
+</tr>
+<tr class="row-odd"><td><p>X14 - Research, improvement of knowledge, base reducing uncertainty</p></td>
+<td></td>
+<td><p>KTM14 - Research, improvement of knowledge base reducing uncertainty</p></td>
+</tr>
+<tr class="row-even"><td><p>X23 - Natural water retention measures</p></td>
+<td></td>
+<td><p>KTM23 - Natural water retention measures</p></td>
+</tr>
+<tr class="row-odd"><td><p>X24 - Climate change adaptation measure</p></td>
+<td></td>
+<td><p>KTM24 - Adaptation to climate change</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="annexes">
+<h2>Annexes<a class="headerlink" href="#annexes" title="Link to this heading">#</a></h2>
+<section id="classification-of-environmental-protection-activities">
+<h3>Classification of environmental protection activities<a class="headerlink" href="#classification-of-environmental-protection-activities" title="Link to this heading">#</a></h3>
+<p><em>Note</em>:<br />
+The classification of environmental protection activities (CEPA 2000)
+<a class="footnote-reference brackets" href="#footcite-eurostat2017epea" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>
+is not relevant for the reporting process,
+it is only relevant for the analysis of reported data.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Click to show the CEPA 2000 table</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="measures-subsetofcepaclasses-listtable" style="width: 100%">
+<caption><span class="caption-number">Table 32 </span><span class="caption-text">Subset of CEPA classes potentially applicable to the classification of WFD Measures.</span><a class="headerlink" href="#measures-subsetofcepaclasses-listtable" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Notation</p></th>
+<th class="head"><p class="sd-card-text">Label</p></th>
+<th class="head"><p class="sd-card-text">Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 2</p></td>
+<td><p class="sd-card-text">Wastewater management</p></td>
+<td><p class="sd-card-text">Wastewater is defined as water that is of no further immediate value for the purpose for which it was used or in the pursuit of which it was produced because of quality, quantity, or time of its occurrence.<br />
+Wastewater management comprises activities and measures aimed at the prevention of pollution of surface water through the reduction of the release of wastewater into inland surface water and seawater.</p>
+<p class="sd-card-text">It includes:<br />
+• the collection, treatment of wastewater;<br />
+• monitoring and regulation activities;<br />
+• septic tanks.<br />
+Septic tanks are settling tanks through which wastewater is flowing and the suspended matter is decanted as sludge.<br />
+Organic matter (in the water and in the sludge) is partly decomposed by anaerobic bacteria and other micro-organisms.</p>
+<p class="sd-card-text">It excludes:<br />
+• actions and activities aiming to protect groundwater from pollutant infiltration and the cleaning up of water bodies after pollution (see CEPA 4).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 2.1</p></td>
+<td><p class="sd-card-text">Prevention of pollution through in-process modifications</p></td>
+<td><p class="sd-card-text">Activities and measures aimed at reducing the generation of wastewater through IPMs related to:<br />
+• cleaner and more efficient production processes and other technologies (cleaner technologies);<br />
+• the consumption or use of ‘cleaner’ (adapted) products.<br />
+It includes:<br />
+• replacing existing production processes with new processes designed to reduce water pollutants or wastewater generated during production
+(e.g., separation of networks, treatment and re-use of water used in production processes);<br />
+• modifying or adapting an existing production process or facilities to enable substitution of raw materials, catalysts and other inputs by non- or less‑polluting products.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 2.2</p></td>
+<td><p class="sd-card-text">Sewerage networks</p></td>
+<td><p class="sd-card-text">Activities aimed at the operation, maintenance and repair of sewerage networks.<br />
+Sewerage networks are the systems of collectors, pipelines, vehicles, tanks, conduits and pumps used in the process of transporting wastewater (rainwater, domestic and other wastewater) from the points of generation to either a sewage treatment plant or to a point where wastewater is discharged.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 2.3</p></td>
+<td><p class="sd-card-text">Wastewater treatment</p></td>
+<td><p class="sd-card-text">Wastewater treatment is the process which bring wastewater up to environmental standards or other quality norms. Three broad types of treatment (mechanical, biological, and advanced treatment) are defined below. Alternative definitions of types of treatment may be used, e.g. based on removal rates for biological oxygen demand</p>
+<p class="sd-card-text">• Mechanical (or physical) treatment separates wastewater into treated water and sludge. Mechanical treatment includes the use of sedimentation and the use of screens to separate large solids. Sedimentation may be assisted by chemicals or flotation (elimination of sand, oil, part of the sludge, etc.).<br />
+• Biological treatment employs aerobic or anaerobic microorganisms to treat wastewater and results in treated wastewater and separate sludge containing microbial mass and pollutants. This activity is designed to eliminate pollution from oxidisable materials through the use of bacteria: activated sludge techniques or anaerobic treatment for specific concentrated wastewater. Biodegradable materials are treated with the addition of bacteria-enriched sludge in open or closed tanks.<br />
+• Advanced treatment reduces specific constituents in wastewater not normally achieved by other treatment options. It covers all processes which are not considered to be mechanical or biological. This activity is aimed at eliminating oxidisable non -biodegradable matter at a higher level, as well as metals, nitrate, phosphorous, etc. Special equipment is required for each depollution process.<br />
+Septic tanks, their maintenance and emptying and other products for septic tanks (biological activators, etc.) are included.<br />
+Construction and operation of sewage treatment plants, and the treatment of sewage sludge for disposal or other uses (e.g. agriculture, incineration with energy recovery and biogas production) are also included.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 2.4</p></td>
+<td><p class="sd-card-text">Treatment of cooling water</p></td>
+<td><p class="sd-card-text">Treatment of cooling water designates processes which bring cooling water up to environmental standards before releasing into the environment. Cooling water is used to remove heat. This can involve air cooling (extra cost compared with water cooling), cooling towers (to the extent they are required to reduce pollution, as distinct from technical needs), cooling circuits for processing water and for condensing released vapour, equipment for enhancing the dispersion of cooling water on release, closed cooling circuits (extra cost), circuits for use of cooling water for heating purposes (extra cost).<br />
+Activities associated with the reduction of the use of cooling water and more efficient water cooling in the energy sector are included.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 2.5</p></td>
+<td><p class="sd-card-text">Measurement, control, laboratories and the like</p></td>
+<td><p class="sd-card-text">Activities aimed at monitoring the concentration of pollutants in wastewater and the quality of inland surface water and marine water at the place wastewater is discharged (analysis and measurement of pollutants, etc.)</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 2.6</p></td>
+<td><p class="sd-card-text">Other activities</p></td>
+<td><p class="sd-card-text">All other activities and measures aimed at wastewater management, including regulation and ETIGA activities specific to CEPA 2, when they can be separated from other activities belonging to CEPA 2 and from similar activities related to other environmental protection classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 4</p></td>
+<td><p class="sd-card-text">Protection and remediation of soil, groundwater and surface water</p></td>
+<td><p class="sd-card-text">Protection and remediation of soil and water concerns surface water, groundwater and marine waters. It refers to measures and activities aimed at the prevention of pollutant infiltration, cleaning up of soils and water bodies and the protection of soil from erosion and other physical degradation including salinisation. Monitoring of soil and groundwater pollution is included as well as activities f or protection and remediation of marine environment.<br />
+Excluded are wastewater management activities (see CEPA 2), activities of soil protection in forests (CReMA 11A) as well as activities aimed at the protection of biodiversity and landscape (see CEPA 6).<br />
+Aquaculture is outside the scope of environmental activities with the exception of organic aquaculture, included under CEPA 4.3.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 4.1</p></td>
+<td><p class="sd-card-text">Prevention of pollutant infiltration</p></td>
+<td><p class="sd-card-text">Activities and measures aimed at reducing or eliminating penetration of polluting substances into soil and water.</p>
+<p class="sd-card-text">It includes:<br />
+• activities related to sealing of soils of industrial plants;<br />
+• installation of catchment for pollutant run-offs and leaks;<br />
+• strengthening of storage facilities;<br />
+• transportation of pollutant products.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 4.2</p></td>
+<td><p class="sd-card-text">Cleaning up of soil and water bodies</p></td>
+<td><p class="sd-card-text">Processes to reduce pollutants in soil and water bodies either in situ or in appropiate installations.</p>
+<p class="sd-card-text">It includes:<br />
+• soil decontamination at industrial sites, landfills, black spots;<br />
+• dredging pollutants from water bodies (rivers, lakes, estuaries, etc.);<br />
+• the decontamination and cleaning up of surface water following accidental pollution e.g. through collection of pollutants or through application of chemicals;<br />
+• cleaning up oil spills on land, inland surface waters and seas - including coastal areas.</p>
+<p class="sd-card-text">It excludes:<br />
+• liming of lakes and artificial oxygenation of water bodies (see CEPA 6);<br />
+• civil protection services (classified outside of CEPA and CReMA).</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 4.3</p></td>
+<td><p class="sd-card-text">Protection of soil from erosion and other physical degradation</p></td>
+<td><p class="sd-card-text">Activities and measures aimed at protecting soil from erosion and other physical and chemical degradation of soil and water (compacting, encrusting, marine water contamination, etc.).</p>
+<p class="sd-card-text">It includes:<br />
+• activities intending to restore the protective vegetal cover of soils;<br />
+• construction of anti-erosion walls;<br />
+• organic farming as well as agricultural and grazing practices less harmful for soils  and  water bodies;<br />
+• organic aquaculture.</p>
+<p class="sd-card-text">It excludes:<br />
+• conventional agricultural production (outside the scope of CEPA or CReMA);<br />
+• protection of settlements against natural hazards such as landslides (outside the scope   of CEPA or CReMA).<br />
+Soil erosion is the detachment and movement of topsoil or soil material from the upper  part  of the profile by the action of wind or running water especially as a result of  changes  brought about by human activity (such as unsuitable or mismanaged agricultural  methods).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 4.4</p></td>
+<td><p class="sd-card-text">Prevention and remediation of soil salinity</p></td>
+<td><p class="sd-card-text">Activities and measures aimed at preventing salinisation or reducing salinity. Concrete actions will depend on climatic, geological and other country-specific factors.</p>
+<p class="sd-card-text">It includes, if undertaken for an explicit purpose of prevention and remediation of soil and groundwater salinity:<br />
+• actions to increase groundwater tables, e.g. through increased freshwater infiltration to avoid infiltration of seawater into groundwater bodies;<br />
+• lowering of groundwater tables (when groundwater contains high levels of salts) through long-term re-vegetation programmes, changes in irrigation practices, etc.</p>
+<p class="sd-card-text">It excludes:<br />
+• measures that respond to economic purposes (conventional agricultural production, reclamation of land from the sea, etc.)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 4.5</p></td>
+<td><p class="sd-card-text">Measurement, control, laboratories and the like</p></td>
+<td><p class="sd-card-text">All activities and measures aimed at monitoring the quality and pollution of soils, groundwater and surface water, measuring the extent of soil erosion and salinisation etc.</p>
+<p class="sd-card-text">It includes:<br />
+• the operation of monitoring systems;<br />
+• inventories of black spots;<br />
+• maps and databases of groundwater and surface water quality, soil pollution, erosion and salinity, etc.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 4.6</p></td>
+<td><p class="sd-card-text">Other activities</p></td>
+<td><p class="sd-card-text">All other activities and measures aimed at protecting and remediating soil, groundwater, surface water and marine waters. It includes ETIGA activities specific to the CEPA 4, when they can be separated from other activities belonging to CEPA 4 and from similar activities related to other environmental protection classes.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 6</p></td>
+<td><p class="sd-card-text">Protection of biodiversity and landscapes</p></td>
+<td><p class="sd-card-text">Biological diversity means the variability among living organisms from all sources including, inter alia, terrestrial, marine and other aquatic ecosystems and the ecological complexes of which they are part; this includes diversity within species, between species and of ecosystems.<br />
+Protection of biodiversity and landscape refers, accordingly, to measures and activities aimed at protecting and replenishment of wild fauna and flora, safeguarding and restoring their habitats, ecosystems of which they are part, natural or semi -natural landscapes. Such measures and activities are included regardless of whether they occur in areas which are classified as protected areas.<br />
+The environmental rehabilitation of abandoned mining and quarrying sites and related expenditure are included; while activities related to soil cleaning are to be reported under CEPA 4</p>
+<p class="sd-card-text">It excludes:<br />
+• the protection and rehabilitation of historic monuments or predominantly built-up landscapes;<br />
+• the control of weeds for agricultural purposes;<br />
+• the recreational structures and spaces such as urban parks and gardens, golf courses and other sports facilities;<br />
+• management of zoos, oceanarium, aquarium, and of city greenery;<br />
+• establishment and maintenance of green spaces along roads;<br />
+• ‘extraction’ activities, such as ‘hunting’ or ‘fishing’;<br />
+• farming and gardening activities, (outside the scope of CEPA or CReMA with the exception of organic farming included under CEPA 4).<br />
+Protection against forest fires falls under the scope of environmental activity. By convention, all activities and measures against forest fires are to be reported under CReMA 11A.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 6.1</p></td>
+<td><p class="sd-card-text">Protection and rehabilitation of species and habitats</p></td>
+<td><p class="sd-card-text">Activities and measures aimed at the conservation, reintroduction or recovery of wild fauna and flora, and the restoration, rehabilitation and reshaping of damaged habitats for the purpose of strengthening their natural functions. All activities and measures aimed at maintenance and replenishment of all species of wild flora or fauna (irrespective of whether threatened by extinction), including maintenance of their habitats, are covered. Activities aimed at the minimisation of the intake of wild flora and fauna (wild growing forest products are excluded) for the production purposes, through IPMs, are also covered, with the exception of activities aimed at the minimisation of the intake wild growing forest products (CReMA 11).<br />
+Management and development of protected areas, whatever their denomination, is included, i.e. areas in which economic exploitation is prohibited or in which it is subject to regulatory restrictions whose explicit goal is the conservation and protection of habitats</p>
+<p class="sd-card-text">It includes:<br />
+• conserving genetic heritage, monitoring and restricting (placing bans on) exploitation, trade, etc. of specific animal and plant species, for protection purposes;<br />
+• creation of gene reserves or banks, improvement of linear infrastructures (e.g., underground passages or bridges for animals at highways or railways, the restoration of small-scale structures like hedges or orchards, green bridges etc.), feeding of the young, management of special natural reserves (botanical conservation areas, etc.);<br />
+• re-introduction of native species and control of invasive alien species that pose a threat to native fauna, flora and habitats;<br />
+• restoration activities (replenishment of wild flora and fauna stocks)<br />
+For example: repopulation of stocks of wild fauna by introducing new individuals;<br />
+• purchase of land for protection of species and habitats<br />
+• production of fishing nets which reduce the by-catch, production of pesticides with no (lower) impact on the wild flora, algorithm to switch off the wind turbines, the installation of warning sounds to protect the bats.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 6.2</p></td>
+<td><p class="sd-card-text">Protection of natural and semi-natural landscapes</p></td>
+<td><p class="sd-card-text">Activities and measures aimed at protecting natural and semi-natural landscapes to maintain and increase their ecological value.</p>
+<p class="sd-card-text">It includes:<br />
+• the preservation of legally protected natural objects;<br />
+• expenditures incurred for the environmental rehabilitation of abandoned mining and quarrying sites;<br />
+• renaturalisation of river banks;<br />
+• burying electricity lines;<br />
+• maintenance of landscapes that are the result of traditional agricultural practices threatened by prevailing economic conditions, etc.;<br />
+• activities for the restoration of water bodies as aquatic habitats: artificial oxygenation and lime-neutralisation actions;<br />
+• biodiversity and landscape protection related to agriculture.</p>
+<p class="sd-card-text">It excludes:<br />
+• measures taken in order to protect historic monuments, measures to increase aesthetic values for economic purposes (e.g., re-landscaping to increase the value of real estates);<br />
+• protection of predominantly built-up landscapes.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 6.3</p></td>
+<td><p class="sd-card-text">Measurement, control, laboratories and the like</p></td>
+<td><p class="sd-card-text">Monitoring, analysis and inspection activities which are not classified under the preceding items. Censuses, inventories, databases of flora and fauna are included.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 6.4</p></td>
+<td><p class="sd-card-text">Other activities</p></td>
+<td><p class="sd-card-text">All other activities and measures aimed at protecting species and habitats and landscapes. It includes ETIGA activities specific to CEPA 6, when they can be separated from other activities belonging to CEPA 6 and from similar activities related to other environmental protection classes. For example: general government activities for preserving stocks through the enforcement of quotas, regulation, monitoring, control for e.g. fishing activities, the management of wild game reserves which preserves resource functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 8</p></td>
+<td><p class="sd-card-text">Research and development</p></td>
+<td><p class="sd-card-text">This class covers R&amp;D for the prevention and elimination of all forms of pollution and R&amp;D oriented towards equipment and instruments for pollution measurement and analysis. When separable, all R&amp;D activities even when referring to a specific class have to be classified under CEPA 8.<br />
+Research and development (R&amp;D) comprises “creative and systematic work undertaken in order to increase the stock of knowledge…and to devise new applications of available knowledge” (see Frascati manual, OECD 2015) in the field of environmental protection. Environmental R&amp;D is classified in accordance with the 2007 NABS (Nomenclature for the Analysis and Comparison of Scientific Programmes and Budgets).</p>
+<p class="sd-card-text">It includes:<br />
+• identification and analysis of sources of pollution, mechanisms of dispersion of pollutants in the environment as well as their effects on human beings and the biosphere.</p>
+<p class="sd-card-text">It excludes:<br />
+• R&amp;D activities related to the management of natural resources (see CReMA 15).</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 8.2</p></td>
+<td><p class="sd-card-text">Protection of water</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 8.4</p></td>
+<td><p class="sd-card-text">Protection of soil and groundwater</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 8.6</p></td>
+<td><p class="sd-card-text">Protection of species and habitats</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 8.8</p></td>
+<td><p class="sd-card-text">Other research on the environment</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 9</p></td>
+<td><p class="sd-card-text">Other environmental protection activities</p></td>
+<td><p class="sd-card-text">Other environmental protection activities refer to regulation and ETIGA activities related to environmental protection that cannot be classified elsewhere. When possible such activities should be allocated to other classes.</p>
+<p class="sd-card-text">It includes:<br />
+• activities aimed at the general support of decisions taken in the context of environmental protection activities by government or nongovernment bodies;<br />
+• regulation by government bodies;<br />
+• environmental management by businesses;<br />
+• activities not elsewhere classified.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 9.1</p></td>
+<td><p class="sd-card-text">General environmental administration and management</p></td>
+<td><p class="sd-card-text">It includes:<br />
+• regulation by the government
+• the administration, management and support to decisions regarding environmental protection by government and non-government bodies.<br />
+In turn, this includes:<br />
+• preparation of declarations or requests for permission;<br />
+• internal environmental management;<br />
+• environmental certification process (ISO 14000, environmental management);<br />
+• activities of units specialised in environmental consultancy, supervision and analysis</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 9.1.1</p></td>
+<td><p class="sd-card-text">General administration, regulation and the like</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 9.1.2</p></td>
+<td><p class="sd-card-text">Environmental management</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">CEPA 9.2</p></td>
+<td><p class="sd-card-text">Education, training and information</p></td>
+<td><p class="sd-card-text">Activities aimed at providing general environmental education or training and disseminating environmental information not elsewhere classified.</p>
+<p class="sd-card-text">It includes:<br />
+• high school programs related to environmental protection;<br />
+• university degrees or special courses specifically aimed at training for environmental protection;<br />
+• environmental reports, environmental communication, etc. are also included.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CEPA 9.4</p></td>
+<td><p class="sd-card-text">Activities not elsewhere classified</p></td>
+<td><p class="sd-card-text">This position groups together all environmental protection activities that cannot be classified under other CEPA classes.<br />
+It includes international financial aid where it may be difficult for the donor countries to attribute related expenditure to individual CEPA classes. If international aid is important in volume and/or of specific political interest, a separate 2-digit heading under CEPA 9 could be adequate for national purposes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details></section>
+<section id="mapping-between-mainkeytypeofmeasure-and-cepa-2000">
+<h3>Mapping between mainKeyTypeOfMeasure and CEPA 2000<a class="headerlink" href="#mapping-between-mainkeytypeofmeasure-and-cepa-2000" title="Link to this heading">#</a></h3>
+<p>The EPEA categorises activities using the CEPA 2000,
+the Classification of Environmental Protection Activities (<a class="reference internal" href="#measures-subsetofcepaclasses-listtable"><span class="std std-numref">Table 32</span></a>).</p>
+<p>The proposed classification of Measures using the <code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span></code> value
+(<a class="reference internal" href="#codelist-4thcycle-mainkeytypeofmeasure-table"><span class="std std-numref">Table 30</span></a>)
+is not based on the CEPA 2000 classification.</p>
+<p>Note also that CEPA strictly covers Environmental Protection (preventing pollution and degradation)
+and excludes Resource Management (saving water or energy),
+which falls under CReMA, the Classification of Resource Management Activities <a class="footnote-reference brackets" href="#footcite-eurostat2020cepa-crema" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p>
+<p>Nevertheless, it seems to be possible to map most of the <code class="docutils literal notranslate"><span class="pre">mainKeyTypeOfMeasure</span></code> classes
+to a primary CEPA 2000 class (<a class="reference internal" href="#measures-mainkeytypeofmeasure-cepa2000-listtable"><span class="std std-numref">Table 33</span></a>).</p>
+<p>The mapping and post-classification can be done by the Commission,
+using the reported data per Measure,
+to analyse and aggregate the data according CEPA classes, if that is required.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Click to show the mapping table</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="measures-mainkeytypeofmeasure-cepa2000-listtable" style="width: 100%">
+<caption><span class="caption-number">Table 33 </span><span class="caption-text">Tentative mapping between the proposed <em>mainKeyTypeOfMeasure</em> WFD Code and the CEPA 2000 classification.</span><a class="headerlink" href="#measures-mainkeytypeofmeasure-cepa2000-listtable" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">mainKeyTypeOfMeasure (4th cycle)</p></th>
+<th class="head"><p class="sd-card-text">Primary CEPA 2000 class</p></th>
+<th class="head"><p class="sd-card-text">Rationale / Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">B - Measure to implement recovery of costs for water services</p></td>
+<td><p class="sd-card-text">CEPA 9.1 (General Administration)</p></td>
+<td><p class="sd-card-text">Administrative and economic regulation activities fall under “General environmental administration.”</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">C - Measure to promote efficient and sustainable water use</p></td>
+<td><p class="sd-card-text">[CReMA 10]</p></td>
+<td><p class="sd-card-text">Technically outside CEPA. This is Resource Management, not Protection. If forced, it fits CReMA 10 (Management of Water Resources).</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">D - Measure to protect drinking water quality and reduce the level of treatment required</p></td>
+<td><p class="sd-card-text">CEPA 4.1 (Protection of soil, groundwater and surface water)</p></td>
+<td><p class="sd-card-text">Measures to prevent pollutants from entering water bodies (Source Water Protection) fall under CEPA 4.1.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">E - Measure to control abstraction from surface and groundwater, and impoundment of surface water</p></td>
+<td><p class="sd-card-text">[CReMA 10]</p></td>
+<td><p class="sd-card-text">Technically outside CEPA. Controlling abstraction is managing the stock of
+water (Resource Management).</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">F - Measure to control artificial recharge or augmentation of groundwater</p></td>
+<td><p class="sd-card-text">CEPA 4.2 or CEPA 4.4</p></td>
+<td><p class="sd-card-text">If the recharge is to remedy salinity or pollution, it is CEPA 4. If it is purely for managing water supply, it is CReMA 10.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">G - Measure to control point source discharges</p></td>
+<td><p class="sd-card-text">CEPA 2 (Wastewater Management)</p></td>
+<td><p class="sd-card-text">Control of discharges (sewerage, treatment plants) is the core definition of CEPA 2.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">H - Measure to prevent or control inputs of diffuse pollutants</p></td>
+<td><p class="sd-card-text">CEPA 4.1 (Protection of soil/water)</p></td>
+<td><p class="sd-card-text">Diffuse pollution (e.g., agricultural runoff) is usually treated as soil/water protection (CEPA 4) rather than wastewater (CEPA 2).</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">J - Measure to prohibit direct discharges to groundwater</p></td>
+<td><p class="sd-card-text">CEPA 4.1 (Protection of soil/water)</p></td>
+<td><p class="sd-card-text">Prevention of pollutant infiltration into groundwater.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">K - Measure to eliminate by Priority Substances and reduce pollution by other substances</p></td>
+<td><p class="sd-card-text">CEPA 2 or CEPA 4</p></td>
+<td><p class="sd-card-text">CEPA 2 if treating wastewater (end-of-pipe). CEPA 4 if remediating a water body or controlling sources in the soil.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">L - Measure to prevent accidental pollution</p></td>
+<td><p class="sd-card-text">CEPA 4 (Protection of soil/water)</p></td>
+<td><p class="sd-card-text">Preventing spills and infiltration into soil and water bodies.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">I2 - Measure to address significant impacts on surface waters - Altered habitats due to hydrological changes</p></td>
+<td><p class="sd-card-text">CEPA 6.1 (Biodiversity &amp; Landscapes)</p></td>
+<td><p class="sd-card-text">Restoring natural flows to support habitats is predominantly protection of biodiversity.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">I3 - Measure to address significant impacts on surface waters - Altered habitats due to morphological changes</p></td>
+<td><p class="sd-card-text">CEPA 6.1 (Biodiversity &amp; Landscapes)</p></td>
+<td><p class="sd-card-text">Measures like removing dams, restoring river banks, and re-meandering are CEPA 6.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">I4 - Measure to address significant impacts on surface waters - Acidification</p></td>
+<td><p class="sd-card-text">CEPA 4.2 (Cleaning up of water bodies)</p></td>
+<td><p class="sd-card-text">Remediation of acidified water bodies.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">P - Measure to address significant pressures on surface waters</p></td>
+<td><p class="sd-card-text">CEPA 4 (General)</p></td>
+<td><p class="sd-card-text">A broad category: usually defaults to protection of surface water (CEPA 4) unless it is clearly wastewater (CEPA 2).</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">X01 - Construction or upgrades of wastewater treatment plants</p></td>
+<td><p class="sd-card-text">CEPA 2.3 (Wastewater Management)</p></td>
+<td><p class="sd-card-text">Specific infrastructure investment for wastewater treatment.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">X12 - Advisory services</p></td>
+<td><p class="sd-card-text">CEPA 9.1 or 9.2</p></td>
+<td><p class="sd-card-text">Administration (9.1) or Education/Information (9.2) related to environmental protection.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">X14 - Research, improvement of knowledge base reducing uncertainty</p></td>
+<td><p class="sd-card-text">CEPA 8 (R&amp;D)</p></td>
+<td><p class="sd-card-text">Specific class for all environmental Research &amp; Development.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">X23 - Natural water retention measures</p></td>
+<td><p class="sd-card-text">CEPA 6 or CEPA 4</p></td>
+<td><p class="sd-card-text">“Natural” measures (e.g., wetlands restoration) are often CEPA 6 (Biodiversity). If purely for flood defence, they may be excluded from CEPA entirely (Safety).</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">X24 - Climate change adaptation measure</p></td>
+<td><p class="sd-card-text">CEPA 4 or CEPA 6</p></td>
+<td><p class="sd-card-text">Adaptation is not CEPA 1 (which is Climate Mitigation). Adaptation measures usually map to the domain protected (e.g., Water/Biodiversity).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details></section>
+</section>
+<section id="references">
+<span id="heading-wfd-measures-references"></span><h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id9">
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The original document containing this revised model
+can still be downloaded but should no longer be used.
+See <strong>PROPOSAL - Version 2026.02.17</strong> <a class="reference download internal" download="" href="../_downloads/b9bb3fe1eceee758eb5dcc91f04fcd27/WFD_4th_cycle_Measures_v20260217.pdf"><code class="xref download docutils literal notranslate"><span class="pre">PDF</span></code></a></p>
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-arnoldus2025" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>P. Arnoldus. Workstream 1: proposing a simplification and standardisation of the economic data reporting. Note to the CIS Working Group Economics, 15 December 2025. Available in Circabc. URL: <a class="reference external" href="https://circabc.europa.eu/ui/group/9ab5926d-bed4-4322-9aa7-9964bbe8312d/library/2eef1f5c-5df6-41e2-93e8-c0f427d80eb1/details">https://circabc.europa.eu/ui/group/9ab5926d-bed4-4322-9aa7-9964bbe8312d/library/2eef1f5c-5df6-41e2-93e8-c0f427d80eb1/details</a> (visited on 2026-06-26).</p>
+</aside>
+<aside class="footnote brackets" id="footcite-6thwfdimplementationreport" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>European Commission. Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions on the implementation of the Water Framework Directive (2000/60/EC), the Environmental Quality Standards Directive (2008/105/EC amended by Directive 2013/39/EU) and the Floods Directive (2007/60/EC). Implementation of planned Programmes of Measures. New Priority Substances. Preliminary Flood Risk Assessments and Areas of Potential Significant Flood Risk. 2021. 6th WFD Implementation Report, COM(2021) 970 final. URL: <a class="reference external" href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970">https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0970</a> (visited on 2026-06-26).</p>
+</aside>
+<aside class="footnote brackets" id="footcite-7thwfdimplementationreport" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>European Commission. Report from the commission to the european parliament and the council on the implementation of the water framework directive (2000/60/ec) and the floods directive (2007/60/ec). <a class="reference external" href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0002">https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0002</a>, 2025. COM(2025) 2 final.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-eeeaccounts" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>European Parliament and the Council of the European Union. Regulation (EU) No 691/2011 of the European Parliament and of the Council of 6 July 2011 on European environmental economic accounts. 2026. Consolidated version. URL: <a class="reference external" href="http://data.europa.eu/eli/reg/2011/691/2026-01-01">http://data.europa.eu/eli/reg/2011/691/2026-01-01</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-wfd2022-reportingguidance" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>European Commission and Directorate-General for Environment. CIS Guidance Document: WFD Reporting Guidance 2022. Common Implementation Strategy for the Water Framework Directive (2000/60/EC), European Commission, 2022. URL: <a class="reference external" href="https://circabc.europa.eu/rest/download/37913699-1297-4d93-8cdf-9975277bb685">https://circabc.europa.eu/rest/download/37913699-1297-4d93-8cdf-9975277bb685</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-eurostat2017epea" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<p>Eurostat. <em>Environmental Protection Expenditure Accounts Handbook: 2017 Edition</em>. European Commission, 2017. Catalogue number: KS-GQ-17-004-EN-N. URL: <a class="reference external" href="https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000">https://ec.europa.eu/eurostat/documents/3859598/7903714/KS-GQ-17-004-EN-N.pdf/7ea9c74b-eda4-4c23-b7bd-897358bfc990?t=1489135578000</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-eurostat2020cepa-crema" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">7</a><span class="fn-bracket">]</span></span>
+<p>Eurostat. Classification of Environmental Protection Activities and Expenditure (CEPA) and Classification of Resource Management Activities (CReMA) - Explanatory notes. European environmental economic accounts Technical Note EEEA/2020/03, European Commission, 2020. URL: <a class="reference external" href="https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103">https://ec.europa.eu/eurostat/documents/1798247/12177560/CEPA+and+CReMA+explanatory+notes++technical+note.pdf/b3517fb9-1cb3-7cd9-85bd-4e3a3807e28a?t=1609863934103</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="WFDProtectedAreas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Protected areas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDGroundWaterBody.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Groundwater bodies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-structure-3rd-cycle">Current structure - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rbmp-coordination-and-progress-table-3rd-cycle">RBMP, Coordination and Progress table - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costs-table-3rd-cycle">Costs table - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-structure-4th-cycle">Proposed structure - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-dataset-4th-cycle">Descriptive dataset - 4th cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riverbasinmanagementplan-table">RiverBasinManagementPlan table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#progress-table">Progress table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targetedquestions-table">TargetedQuestions table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-table">Measure table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expenditurepermeasurepersector-table">ExpenditurePerMeasurePerSector table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-dataset-4th-cycle">Documents dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codelists-4th-cycle">Codelists - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annexes">Annexes</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-environmental-protection-activities">Classification of environmental protection activities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-between-mainkeytypeofmeasure-and-cepa-2000">Mapping between mainKeyTypeOfMeasure and CEPA 2000</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDMeasures.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDMeasures.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

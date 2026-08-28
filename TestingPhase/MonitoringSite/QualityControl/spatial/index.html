@@ -1,0 +1,1664 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MonitoringSite &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TestingPhase/MonitoringSite/QualityControl/spatial/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../../../../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../DataModelReview/index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../DataModelReview/index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">MonitoringSite</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="monitoringsite">
+<h1>MonitoringSite<a class="headerlink" href="#monitoringsite" title="Link to this heading">#</a></h1>
+<section id="table-qcs">
+<h2>Table QCs<a class="headerlink" href="#table-qcs" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TU201</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The combination inspireIdLocalId + inspireIdNamespace must be unique. [TU201]</p></td>
+</tr>
+<tr class="row-odd"><td><p>TU202</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The combination thematicIdIdentifier + thematicIdIdentifierScheme must be unique. [TU202]</p></td>
+</tr>
+<tr class="row-even"><td><p>T201</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If the object has successor(s), then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value. [T201] Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>T202</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If the object is the predecessor of another object, then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value. [T202] Values: {%identifiers%} . Number of invalid values: {%numberofrecords%}</p></td>
+</tr>
+<tr class="row-even"><td><p>S204</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Only one EPSG is allowed in the table [S204]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF218_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A valid ‘eu’ thematic identifier exists in the register but was not reported (either as a spatial object or as a predecessor) [RF218_WFD]. Values: {%identifiers%}. Number of missing values: {%numberofrecords%}</p></td>
+</tr>
+<tr class="row-even"><td><p>RF218_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A valid ‘eu’ thematic identifier exists in the register but was not reported (either as a spatial object or as a predecessor) [RF218_WISE5]. Values: {%identifiers%}. Number of missing values: {%numberofrecords%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF224_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘reactivation’, it must have the same predecessors as before. Identifiers affected: {%end_result%} [RF224_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF224_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘reactivation’, it must have the same predecessors as before. Identifiers affected: {%end_result%} [RF224_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF224_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘reactivation’, it must have the same predecessors as before. Identifiers affected: {%end_result%} [RF224_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF224_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘reactivation’, it must have the same predecessors as before. Identifiers affected: {%end_result%} [RF224_WISE5]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="field-qcs">
+<h2>Field QCs<a class="headerlink" href="#field-qcs" title="Link to this heading">#</a></h2>
+<section id="inspireidlocalid">
+<h3>inspireIdLocalId<a class="headerlink" href="#inspireidlocalid" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V212</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V212]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V213</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 254. [V213]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="inspireidnamespace">
+<h3>inspireIdNamespace<a class="headerlink" href="#inspireidnamespace" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V214</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V214]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V215</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 254. [V215]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="thematicididentifier">
+<h3>thematicIdIdentifier<a class="headerlink" href="#thematicididentifier" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V250</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V250]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V251</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of thematicIdIdentifier must follow the syntax of WISE identifiers [V251]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF215_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>thematicIdIdentifier must be a valid identifier in the register if the wiseEvolutionType value is ‘deletion’, ‘noChange’ or ‘change’ [RF215_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF215_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>thematicIdIdentifier must be a valid identifier in the register if the wiseEvolutionType value is ‘deletion’, ‘noChange’ or ‘change’ [RF215_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF216_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>thematicIdIdentifier must not exist in the register unless the wiseEvolutionType value is ‘deletion’, ‘noChange’, ‘reactivation’ or ‘change’ [RF216_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF216_WISE</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>thematicIdIdentifier must not exist in the register unless the wiseEvolutionType value is ‘deletion’, ‘noChange’, ‘reactivation’ or ‘change’ [RF216_WISE]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF217_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>The monitoring site is associated with waterbody in a different category (surface water versus groundwater) than the waterbody previously reported [RF217_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF217_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>The monitoring site is associated with waterbody in a different category (surface water versus groundwater) than the waterbody previously reported [RF217_WISE5]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="thematicididentifierscheme">
+<h3>thematicIdIdentifierScheme<a class="headerlink" href="#thematicididentifierscheme" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V252</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V252]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V253</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V253]</p></td>
+</tr>
+<tr class="row-even"><td><p>R220</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if thematicIdIdentifierScheme not in (‘euMonitoringSiteCode’,’eionetMonitoringSiteCode’) [R220]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V264</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Invalid thematicIdIdentifierScheme value for this spatial object type. [V264]</p></td>
+</tr>
+<tr class="row-even"><td><p>V249</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>An ‘eu’ thematic identifier must not be replaced by an ‘eionet’ thematic identifier [V249]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V267</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>EIONET thematic identifiers must be used for all spatial objects. [V267]</p></td>
+</tr>
+<tr class="row-even"><td><p>V268</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>WFD thematic identifiers must be used for all spatial objects. [V268]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R231</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType= ‘reactivation’ is not valid if thematicIdIdentifierScheme = ‘eionetMonitoringSiteCode’ and countryCode not in (‘CH’,’LI’,’TR’,’AL’,’BA’,’ME’,’MK’,’RS’,’XK’) [R231]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="wiseevolutiontype">
+<h3>wiseEvolutionType<a class="headerlink" href="#wiseevolutiontype" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V254</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V254]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V255</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V255]</p></td>
+</tr>
+<tr class="row-even"><td><p>R206</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>inspireIdVersionId must be reported if wiseEvolutionType is ‘change’. [R206]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V260</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>These wiseEvolutionType values are no valid for monitoring sites: ‘changeExtendedArea’, ‘changeExtendedAreaAndDepth’, ‘changeExtendedDepth’, ‘changeReducedArea’, ‘changeReducedAreaAndDepth’, ‘changeReducedDepth’. [V260]</p></td>
+</tr>
+<tr class="row-even"><td><p>R220</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if thematicIdIdentifierScheme not in (‘euMonitoringSiteCode’,’eionetMonitoringSiteCode’) [R220]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R208</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>operationalActivityPeriodEnd must be reported if wiseEvolutionType is ‘deletion’’. [R208]</p></td>
+</tr>
+<tr class="row-even"><td><p>V256</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Invalid wiseEvolutionType value for this spatial object type [V256]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R224</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A spatial object with wiseEvolutionType value equal to ‘changeCode’ must not have the same predecessor of another spatial object. [R224]</p></td>
+</tr>
+<tr class="row-even"><td><p>R219</p></td>
+<td><p>WARNING</p></td>
+<td><p>Monitoring site has been reactivated. [R219]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R202</p></td>
+<td><p>ERROR</p></td>
+<td><p>beginLifespanVersion must be reported unless wiseEvolutionType is ‘creation’ or ‘noChange’. [R202]</p></td>
+</tr>
+<tr class="row-even"><td><p>R204</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The endLifespanVersion value must be reported, if the wiseEvolutionType is ‘deletion’. [R204]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R222</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>At least one predecessor of an object with wiseEvolutionType value equal to ‘splitting’ or ‘changeBothAggregationAndSplitting’ must be reported as predecessor of another spatial object. [R222]</p></td>
+</tr>
+<tr class="row-even"><td><p>R225</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site must have zero predecessors if the wiseEvolutionType value is ‘creation’ [R225]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R226</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site must have one and only one predecessor if the wiseEvolutionType value is ‘changeCode’ or ‘splitting’ [R226]</p></td>
+</tr>
+<tr class="row-even"><td><p>R227</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site must have two or more predecessors if the wiseEvolutionType value is ‘aggregation’ [R227]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R231</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType= ‘reactivation’ is not valid if thematicIdIdentifierScheme = ‘eionetMonitoringSiteCode’ and countryCode not in (‘CH’,’LI’,’TR’,’AL’,’BA’,’ME’,’MK’,’RS’,’XK’) [R231]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF203_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if a former surface water monitoring site is now reactivated as a groundwater monitoring site, or vice-versa [RF203_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF203_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if a former surface water monitoring site is now reactivated as a groundwater monitoring site, or vice-versa [RF203_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF219_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if the object does not exist in the MonitoringSite register [RF219_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF219_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if the object does not exist in the MonitoringSite register [RF219_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF220_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if the status of the object is ‘valid’ in the MonitoringSite register [RF220_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF220_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if the status of the object is ‘valid’ in the MonitoringSite register [RF220_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF221_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if the status of the object is ‘superseded’ in the MonitoringSite register [RF221_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF221_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not valid if the status of the object is ‘superseded’ in the MonitoringSite register [RF221_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF227_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not a valid option if the featureOfInterestIdentifier is different to the previous one [RF227_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF227_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>wiseEvolutionType=’reactivation’ is not a valid option if the featureOfInterestIdentifier is different to the previous one [RF227_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF222_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘deletion’, it must have the same predecessors as before [RF222_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF222_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘deletion’, it must have the same predecessors as before [RF222_WISE5]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nametext">
+<h3>nameText<a class="headerlink" href="#nametext" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V227</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V227]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V229</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 254. [V229]</p></td>
+</tr>
+<tr class="row-even"><td><p>V228</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>nameText contains invalid characters. [V228]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="namelanguage">
+<h3>nameLanguage<a class="headerlink" href="#namelanguage" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V225</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V225]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V226</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V226]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="operationalactivityperiodbegin">
+<h3>operationalActivityPeriodBegin<a class="headerlink" href="#operationalactivityperiodbegin" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V232</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V232]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V233</p></td>
+<td><p>ERROR</p></td>
+<td><p>operationalActivityPeriodBegin must not be set in the future. [V233]</p></td>
+</tr>
+<tr class="row-even"><td><p>V234</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>operationalActivityPeriodBegin must contain a valid date (YYYY-MM-DD) [V234]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R207</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>operationalActivityPeriodEnd must be greater than operationalActivityPeriodBegin. [R207]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF204_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>operationalActivityPeriodBegin for the successor can not be the same as the operationalActivityPeriodBegin of the object being replaced, except if wiseEvolutionType is ‘changeCode ’[RF204_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF204_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>operationalActivityPeriodBegin for the successor can not be the same as the operationalActivityPeriodBegin of the object being replaced, except if wiseEvolutionType is ‘changeCode’ [RF204_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF205_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>operationalActivityPeriodBegin value cannot be higher than the one stored in the registry for the same object if wiseEvolutionType value is equal to ‘change’, ‘changeCode’, ‘noChange’ or ‘reactivation’ [RF205_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF205_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>operationalActivityPeriodBegin value cannot be higher than the one stored in the registry for the same object if wiseEvolutionType value is equal to ‘change’, ‘changeCode’, ‘noChange’ or ‘reactivation’ [RF205_WFD]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="featureofinterestidentifier">
+<h3>featureOfInterestIdentifier<a class="headerlink" href="#featureofinterestidentifier" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V207</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V207]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V208</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of featureOfInterestIdentifier must follow the syntax of WISE identifiers [V208]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF200_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site has a feature of interest (waterbody) that does not exist in the register [RF200_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF200_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site has a feature of interest (waterbody) that does not exist in the register [RF200_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF201_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The featureOfInterestIdentifier is deprecated (only objects with wiseEvolutionType = ‘deletion’ can be have a deprecated featureOfInterest) [RF201_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF201_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The featureOfInterestIdentifier is deprecated (only objects with wiseEvolutionType = ‘deletion’ can be have a deprecated featureOfInterest) [RF201_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF202_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>The Monitoring Site is for deletion and the featureOfInterestIdentifier is deprecated [RF202_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF202_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>The Monitoring Site is for deletion and the featureOfInterestIdentifier is deprecated [RF202_WISE5]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="featureofinterestidentifierscheme">
+<h3>featureOfInterestIdentifierScheme<a class="headerlink" href="#featureofinterestidentifierscheme" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V209</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V209]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V210</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V210]</p></td>
+</tr>
+<tr class="row-even"><td><p>V266</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Invalid featureOfInterestIdentifierScheme value for this spatial object type. [V266]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V271</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>An EIONET thematic identifier must be used for all the spatial objects. [V271]</p></td>
+</tr>
+<tr class="row-even"><td><p>V272</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>WFD thematic identifiers must be used for all spatial objects. [V272]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mediamonitoredbiota">
+<h3>mediaMonitoredBiota<a class="headerlink" href="#mediamonitoredbiota" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V219</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V219]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V220</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V220]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mediamonitoredwater">
+<h3>mediaMonitoredWater<a class="headerlink" href="#mediamonitoredwater" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V223</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V223]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V224</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V224]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mediamonitoredsediment">
+<h3>mediaMonitoredSediment<a class="headerlink" href="#mediamonitoredsediment" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V221</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V221]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V222</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V222]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="confidentialitystatus">
+<h3>confidentialityStatus<a class="headerlink" href="#confidentialitystatus" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V204</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V204]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V205</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V205]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="supersedesidentifierscheme">
+<h3>supersedesIdentifierScheme<a class="headerlink" href="#supersedesidentifierscheme" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V245</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V245]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V247</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Invalid supersedesIdentifierScheme value for this spatial object type [V247]</p></td>
+</tr>
+<tr class="row-even"><td><p>V246</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>WFD thematic identifiers must be used for all spatial objects [V246]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V269</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>EIONET thematic identifiers must be used for all spatial objects. [V269]</p></td>
+</tr>
+<tr class="row-even"><td><p>R213</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>supersedesIdentifierScheme must be reported if supersedesIdentifier is reported. [R213]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R211</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>supersedesIdentifier must be reported if supersedesIdentifierScheme is reported. [R211]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="supersededbyidentifierscheme">
+<h3>supersededByIdentifierScheme<a class="headerlink" href="#supersededbyidentifierscheme" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V240</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V240]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V244</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>An ‘eu’ thematic identifier must not be replaced by an ‘eionet’ thematic identifier [V244]</p></td>
+</tr>
+<tr class="row-even"><td><p>R232</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Reporting of supersededByIdentifierScheme &amp; supersededByIdentifier is not allowed [R232]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="purpose">
+<h3>purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V236</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V236]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="link">
+<h3>link<a class="headerlink" href="#link" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V217</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not follow the expected syntax for a valid URL. [V217]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V273</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 2048 [V273]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="beginlifespanversion">
+<h3>beginLifespanVersion<a class="headerlink" href="#beginlifespanversion" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V201</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must contain a valid date (YYYY-MM-DD). [V201]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V200</p></td>
+<td><p>ERROR</p></td>
+<td><p>beginLifespanVersion must not be set in the future. [V200]</p></td>
+</tr>
+<tr class="row-even"><td><p>R200</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if endLifespanVersion is reported. [R200]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R201</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if inspireIdVersionId is reported. [R201]</p></td>
+</tr>
+<tr class="row-even"><td><p>R202</p></td>
+<td><p>ERROR</p></td>
+<td><p>beginLifespanVersion must be reported unless wiseEvolutionType is ‘creation’ or ‘noChange’. [R202]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R203</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>endLifespanVersion must be greater than beginLifespanVersion. [R203]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="endlifespanversion">
+<h3>endLifespanVersion<a class="headerlink" href="#endlifespanversion" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V206</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>endLifespanVersion must contain a valid date (YYYY-MM-DD). [V206]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R200</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if endLifespanVersion is reported. [R200]</p></td>
+</tr>
+<tr class="row-even"><td><p>R203</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>endLifespanVersion must be greater than beginLifespanVersion. [R203]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R204</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The endLifespanVersion value must be reported, if the wiseEvolutionType is ‘deletion’. [R204]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="inspireidversionid">
+<h3>inspireIdVersionId<a class="headerlink" href="#inspireidversionid" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R206</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>inspireIdVersionId must be reported if wiseEvolutionType is ‘change’. [R206]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V216</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 25. [V216]</p></td>
+</tr>
+<tr class="row-even"><td><p>R201</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if inspireIdVersionId is reported. [R201]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nametextinternational">
+<h3>nameTextInternational<a class="headerlink" href="#nametextinternational" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V230</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 254. [V230]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V231</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Only text with upper case letters (A to Z) and digits (0 to 9) is allowed. Spaces and hiphens can be used as separators. [V231]</p></td>
+</tr>
+<tr class="row-even"><td><p>V202</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V202]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="operationalactivityperiodend">
+<h3>operationalActivityPeriodEnd<a class="headerlink" href="#operationalactivityperiodend" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V235</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>operationalActivityPeriodEnd must contain a valid date (YYYY-MM-DD) [V235]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R208</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>operationalActivityPeriodEnd must be reported if wiseEvolutionType is ‘deletion’’. [R208]</p></td>
+</tr>
+<tr class="row-even"><td><p>R207</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>operationalActivityPeriodEnd must be greater than operationalActivityPeriodBegin. [R207]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="supersedesidentifier">
+<h3>supersedesIdentifier<a class="headerlink" href="#supersedesidentifier" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R233</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site must have zero predecessors if the wiseEvolutionType value is ‘change’ or ‘noChange’ [R233]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R212</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>supersedesIdentifier and supersedesIdentifierScheme combination must not be equal to thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself). [R212]</p></td>
+</tr>
+<tr class="row-even"><td><p>V265</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of supersedesIdentifier must follow the syntax of one WISE identifiers or a comma-separated list of WISE identifiers. [V265]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R213</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>supersedesIdentifierScheme must be reported if supersedesIdentifier is reported. [R213]</p></td>
+</tr>
+<tr class="row-even"><td><p>R211</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>supersedesIdentifier must be reported if supersedesIdentifierScheme is reported. [R211]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF212_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site has a predecessor in a different category of waterbody (surface water versus groundwater) [RF212_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF212_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The monitoring site has a predecessor in a different category of waterbody (surface water versus groundwater) [RF212_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF213_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>The monitoring site has a predecessor in a different category of surface water body [RF213_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF213_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>The monitoring site has a predecessor in a different category of surface water body [RF213_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF214_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>The monitoring site has a predecessor in a different water body [RF214_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF214_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>The monitoring site has a predecessor in a different water body [RF214_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF223_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object has a predecessor that does not exist in the register. [RF223_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF222_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘deletion’, it must have the same predecessors as before [RF222_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF222_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an object is reported as ‘deletion’, it must have the same predecessors as before [RF222_WISE5]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="thematicidentifier">
+<h3>thematicIdentifier<a class="headerlink" href="#thematicidentifier" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R212</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>supersedesIdentifier and supersedesIdentifierScheme combination must not be equal to thematicIdentifier and thematicIdentifierScheme combination (an identifier must not replace itself). [R212]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="wiseevolution">
+<h3>wiseEvolution<a class="headerlink" href="#wiseevolution" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R228</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an identifier is the predecessor of two or more objects, then those objects must have wiseEvolution equal to ‘splitting’ or ‘changeBothAggregationAndSplitting’ [R228]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="supersededbyidentifier">
+<h3>supersededByIdentifier<a class="headerlink" href="#supersededbyidentifier" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R232</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Reporting of supersededByIdentifierScheme &amp; supersededByIdentifier is not allowed [R232]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V007</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of the value must be &lt;= 500 [V007]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="geometry-point">
+<h3>geometry_point<a class="headerlink" href="#geometry-point" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S203</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The geometry must not be empty or degenerate (e.g. zero-lenth line or zero-area polygon). [S203]</p></td>
+</tr>
+<tr class="row-odd"><td><p>S206</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The coordinate reference system (CRS) is not valid. (It must be one of the following:ETRS89-GRS80 (urn:ogc:def:crs:EPSG::4258),ETRS89-LAEA</p></td>
+</tr>
+<tr class="row-even"><td><p>S205</p></td>
+<td><p>ERROR</p></td>
+<td><p>The geometry must not have anomalous geometric points, such as self-intersections [S205]</p></td>
+</tr>
+<tr class="row-odd"><td><p>S201_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>geometry_point must be covered by or be within 200 metres of the geometry of the associated water body [S201_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>S201_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>geometry_point must be covered by or be within 200 metres of the geometry of the associated water body [S201_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>S202_WFD</p></td>
+<td><p>ERROR</p></td>
+<td><p>The position of the element has changed in more than 10 km. [S202_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>S202_WISE5</p></td>
+<td><p>ERROR</p></td>
+<td><p>The position of the element has changed in more than 10 km. [S202_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>FC121</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty</p></td>
+</tr>
+<tr class="row-even"><td><p>FT122</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not follow the expected syntax for a valid multipoint {%reason%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FT123</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Unsupported SRID</p></td>
+</tr>
+<tr class="row-even"><td><p>FT124</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Geometry is not valid. Reason: {%reason%}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-qcs">Table QCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-qcs">Field QCs</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspireidlocalid">inspireIdLocalId</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspireidnamespace">inspireIdNamespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thematicididentifier">thematicIdIdentifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thematicididentifierscheme">thematicIdIdentifierScheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiseevolutiontype">wiseEvolutionType</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nametext">nameText</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namelanguage">nameLanguage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalactivityperiodbegin">operationalActivityPeriodBegin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#featureofinterestidentifier">featureOfInterestIdentifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#featureofinterestidentifierscheme">featureOfInterestIdentifierScheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediamonitoredbiota">mediaMonitoredBiota</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediamonitoredwater">mediaMonitoredWater</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediamonitoredsediment">mediaMonitoredSediment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidentialitystatus">confidentialityStatus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supersedesidentifierscheme">supersedesIdentifierScheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supersededbyidentifierscheme">supersededByIdentifierScheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link">link</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beginlifespanversion">beginLifespanVersion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endlifespanversion">endLifespanVersion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspireidversionid">inspireIdVersionId</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nametextinternational">nameTextInternational</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalactivityperiodend">operationalActivityPeriodEnd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supersedesidentifier">supersedesIdentifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thematicidentifier">thematicIdentifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiseevolution">wiseEvolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supersededbyidentifier">supersededByIdentifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-point">geometry_point</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/TestingPhase/MonitoringSite/QualityControl/spatial/index.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/TestingPhase/MonitoringSite/QualityControl/spatial/index.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

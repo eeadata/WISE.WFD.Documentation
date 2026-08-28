@@ -1,0 +1,1402 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>River basin districts and competent authorities &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDRiverBasinDistrictsAndCompetentAuthorities';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Monitoring" href="WFDMonitoring.html" />
+    <link rel="prev" title="Data model review" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">River basin districts and competent authorities</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="river-basin-districts-and-competent-authorities">
+<span id="heading-wfd-rbd-and-ca"></span><h1>River basin districts and competent authorities<a class="headerlink" href="#river-basin-districts-and-competent-authorities" title="Link to this heading">#</a></h1>
+<p>Last update: 2026-08-24</p>
+<section id="purpose-and-overview">
+<span id="heading-wfd-rbd-and-ca-purpose-and-overview"></span><h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>This section revises the River Basin Districts, Subunits and Competent Authorities classes
+used in the 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans (<a class="reference internal" href="#classdiagram-rbdsuca-2022"><span class="std std-numref">Figure 1</span></a>).
+It also revises the associated spatial data in the RiverBasinDistrict dataset
+and SubUnit dataset (<a class="reference internal" href="#rbdsu-3rdcycle-spatial"><span class="std std-numref">Figure 2</span></a>).</p>
+<figure class="align-center" id="classdiagram-rbdsuca-2022">
+<a class="reference internal image-reference" href="../_images/ClassDiagram_RBDSUCA_2022.png"><img alt="../_images/ClassDiagram_RBDSUCA_2022.png" src="../_images/ClassDiagram_RBDSUCA_2022.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">River Basin Districts, Subunits and Competent Authorities schema - 3rd cycle - Obsolete</span><a class="headerlink" href="#classdiagram-rbdsuca-2022" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="rbdsu-3rdcycle-spatial">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram
+direction TB
+
+class RiverBasinDistrict[&quot;«FeatureType»
+RiverBasinDistrict&quot;] {
++ geometry: GM_MultiSurface
++ inspireIdLocalId: String254LeadingLetterOrNum
++ inspireIdNamespace: String254LeadingLetterOrNum
++ inspireIdVersionId: String25Type [0..1]
++ thematicIdIdentifier: FeatureUniqueEUCodeType
++ thematicIdIdentifierScheme: IdentifierScheme
++ beginLifespanVersion: WiseDateTimeType [0..1]
++ endLifespanVersion: WiseDateTimeType [0..1]
++ predecessorsIdentifier: String254LeadingLetterOrNum [0..1]
++ predecessorsIdentifierScheme: IdentifierScheme [0..1]
++ successorsIdentifier: String254LeadingLetterOrNum [0..1]
++ successorsIdentifierScheme: IdentifierScheme [0..1]
++ wiseEvolutionType: WiseEvolutionTypeValue
++ nameTextInternational: String254Latin
++ nameText: String254Type
++ nameLanguage: WiseLanguageCode_Enum
++ designationPeriodBegin: WiseDateTimeType
++ designationPeriodEnd: WiseDateTimeType [0..1]
++ zoneType: ZoneTypeCode
++ legalBasisName: String254LeadingLetterOrNum [0..1]
++ legalBasisLink: URLType [0..1]
++ legalBasisLevel: LegislationLevelValue [0..1]
++ relatedZoneTransboundaryIdentifier: String254LeadingLetterOrNum [0..1]
++ relatedZoneTransboundaryIdentifierScheme: IdentifierScheme [0..1]
++ sizeValue: PositiveDecimalType [0..1]
++ sizeUom: UomSize [0..1]
++ link: URLType [0..1]
+}
+
+class FeatureCollectionRBD[&quot;«FeatureType»
+FeatureCollection&quot;] {
+}
+
+class SubUnit[&quot;«FeatureType»
+SubUnit&quot;] {
++ geometry: GM_MultiSurface
++ inspireIdLocalId: String254LeadingLetterOrNum
++ inspireIdNamespace: String254LeadingLetterOrNum
++ inspireIdVersionId: String25Type [0..1]
++ thematicIdIdentifier: FeatureUniqueEUCodeType
++ thematicIdIdentifierScheme: IdentifierScheme
++ beginLifespanVersion: WiseDateTimeType [0..1]
++ endLifespanVersion: WiseDateTimeType [0..1]
++ predecessorsIdentifier: String254LeadingLetterOrNum [0..1]
++ predecessorsIdentifierScheme: IdentifierScheme [0..1]
++ successorsIdentifier: String254LeadingLetterOrNum [0..1]
++ successorsIdentifierScheme: IdentifierScheme [0..1]
++ wiseEvolutionType: WiseEvolutionTypeValue
++ nameTextInternational: String254Latin
++ nameText: String254Type
++ nameLanguage: WiseLanguageCode_Enum
++ designationPeriodBegin: WiseDateTimeType
++ designationPeriodEnd: WiseDateTimeType [0..1]
++ zoneType: ZoneTypeCode
++ specialisedZoneType: SpecialisedZoneTypeCode
++ legalBasisName: String254LeadingLetterOrNum [0..1]
++ legalBasisLink: URLType [0..1]
++ legalBasisLevel: LegislationLevelValue [0..1]
++ relatedZoneIdentifier: FeatureUniqueEUCodeType
++ relatedZoneIdentifierScheme: IdentifierScheme
++ relatedZoneTransboundaryIdentifier: String254LeadingLetterOrNum [0..1]
++ relatedZoneTransboundaryIdentifierScheme: IdentifierScheme [0..1]
++ sizeValue: PositiveDecimalType [0..1]
++ sizeUom: UomSize [0..1]
++ link: URLType [0..1]
+}
+
+class FeatureCollectionSU[&quot;«FeatureType»
+FeatureCollection&quot;] {
+}
+
+RiverBasinDistrict &quot;1..*&quot; &lt;-- FeatureCollectionRBD : + featureMember
+SubUnit &quot;1..*&quot; &lt;-- FeatureCollectionSU : + featureMember
+    </pre><figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">RiverBasinDistrict and Subunit spatial datasets - 3rd cycle - Obsolete</span><a class="headerlink" href="#rbdsu-3rdcycle-spatial" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A proposal is presented for the electronic reporting in the 4th cycle:</p>
+<ul class="simple">
+<li><p>The reporting of the units of management (i.e. the River Basin Districts)
+and of the competent authorities is combined into a single dataflow.</p></li>
+<li><p>The overall structure of the new <strong>River Basin Districts and Competent Authorities</strong> dataflow
+is aligned with similar dataflows, e.g. under the Floods Directive <a class="footnote-reference brackets" href="#floods-directive-footnote" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>Reporting is only requested under the following conditions:</p>
+<ul>
+<li><p>If there are changes to the spatial delineation and/or the identifiers
+of one or more River Basin Districts (since the 3rd cycle), the spatial dataset must be reported.</p></li>
+<li><p>If there are changes to the competent authorities or their roles,
+the descriptive data must be reported in accordance with Article 3(8) and 3(9) of the WFD.</p></li>
+</ul>
+</li>
+<li><p>Data providers can specify which datasets are being updated (spatial data, descriptive data, or both).</p></li>
+<li><p>Information about subunits is no longer requested.</p></li>
+<li><p>The reporting of metadata has also been simplified.</p></li>
+</ul>
+</section>
+<section id="proposed-structure-4th-cycle">
+<span id="heading-wfd-rbd-and-ca-proposed-structure-4th-cycle"></span><h2>Proposed structure - 4th cycle<a class="headerlink" href="#proposed-structure-4th-cycle" title="Link to this heading">#</a></h2>
+<p>For the 4th cycle of reporting, the requested information is described below (see <a class="reference internal" href="#rbdca-4thcycle-overview-classdiagram"><span class="std std-numref">Figure 3</span></a>):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#heading-wfd-rbd-and-ca-descriptive-dataset-4th-cycle"><span class="std std-ref">Descriptive dataset - 4th cycle</span></a></p></li>
+<li><p><a class="reference internal" href="#heading-riverbasindistrict-spatial-dataset-4th-cycle"><span class="std std-ref">Spatial dataset - 4th cycle</span></a></p></li>
+<li><p><a class="reference internal" href="#heading-wfd-rbd-and-ca-documents-dataset-4th-cycle"><span class="std std-ref">Documents dataset - 4th cycle</span></a></p></li>
+</ul>
+<figure class="align-center" id="rbdca-4thcycle-overview-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class dcMetadata{&lt;&lt;documents&gt;&gt;}
+class Document {&lt;&lt;documents&gt;&gt;}
+class CompetentAuthority{&lt;&lt;descriptive&gt;&gt;}
+class RiverBasinDistrictCompetentAuthority{&lt;&lt;descriptive&gt;&gt;}
+class RiverBasinDistrict{&lt;&lt;spatial&gt;&gt;}
+
+dcMetadata ..&gt; Document
+
+CompetentAuthority &quot;1&quot; -- &quot;1..n&quot; RiverBasinDistrictCompetentAuthority 
+RiverBasinDistrictCompetentAuthority &quot;1..n&quot; -- &quot;1&quot; RiverBasinDistrict 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">River basin district and competent authorities dataflow - overview - 4th cycle</span><a class="headerlink" href="#rbdca-4thcycle-overview-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="descriptive-dataset-4th-cycle">
+<span id="heading-wfd-rbd-and-ca-descriptive-dataset-4th-cycle"></span><h2>Descriptive dataset - 4th cycle<a class="headerlink" href="#descriptive-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Descriptive dataset contains two tables (<a class="reference internal" href="#rbdca-4thcycle-descriptive"><span class="std std-numref">Figure 4</span></a>):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">CompetentAuthority</span></code> table contains basic information about each Competent Authority.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">RiverBasinDistrictCompetentAuthority</span></code> table associates
+each Competent Authority with a River Basin District
+and specifies the role(s) of the competent authority in that RBD.</p></li>
+</ul>
+<figure class="align-center" id="rbdca-4thcycle-descriptive">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+class CompetentAuthority {
+  + euCACode: wiseIdentifier
+  + competentAuthorityName: string100
+  + competentAuthorityNameNL: string100
+  + competentAuthorityNameNLLanguage: Language
+  + acronym: string100 [0..1]
+  + street: string100 [0..1]
+  + city: string100 [0..1]
+  + country: string100 [0..1]
+  + postCode: string50 [0..1]
+  + url: URL [0..1]
+}
+class RiverBasinDistrictCompetentAuthority {
+  + euRBDCode: wiseIdentifier
+  + euCACode: wiseIdentifier
+  + roleCode: Role [1..*]
+}
+
+CompetentAuthority &quot;1&quot; -- &quot;1..*&quot; RiverBasinDistrictCompetentAuthority
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">River Basin Districts and Competent Authorities - 4th cycle - Descriptive Data</span><a class="headerlink" href="#rbdca-4thcycle-descriptive" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="codelist-4thcycle-role-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class Role{
+&lt;&lt;enumeration&gt;&gt;
+pressureAndImpactAnalysis
+economicAnalysis
+monitoringOfSurfaceWater
+monitoringOfGroundwater
+assessmentOfStatusOfSurfaceWater
+assessmentOfStatusOfGroundwater
+preparationOfRBMP
+preparationOfProgrammeOfMeasures
+implementationOfMeasures
+publicParticipation
+enforcementOfRegulations
+coordinationOfImplementation
+reportingToTheEuropeanCommission
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">Codelist - 4th cycle - Role</span><a class="headerlink" href="#codelist-4thcycle-role-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="spatial-dataset-4th-cycle">
+<span id="heading-riverbasindistrict-spatial-dataset-4th-cycle"></span><h2>Spatial dataset - 4th cycle<a class="headerlink" href="#spatial-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Spatial dataset contains only the RiverBasinDistrict spatial data
+(<a class="reference internal" href="#spatial-4thcycle-riverbasindistrict-classdiagram"><span class="std std-numref">Figure 6</span></a>).<br />
+As stated before, Subunits are no longer requested in the 4th cycle of reporting.</p>
+<p>The following changes have been made to the <code class="docutils literal notranslate"><span class="pre">RiverBasinDistrict</span></code> spatial table
+(in comparison to the 3rd cycle of reporting):</p>
+<ul class="simple">
+<li><p>The attributes <code class="docutils literal notranslate"><span class="pre">sizeValue</span></code> and <code class="docutils literal notranslate"><span class="pre">sizeUom</span></code> were removed,
+because they can be derived from the reported geometry.</p></li>
+<li><p>Two attributes <code class="docutils literal notranslate"><span class="pre">relatedTransboundaryIdentifier</span></code> and <code class="docutils literal notranslate"><span class="pre">relatedTransboundaryIdentifierScheme</span></code>
+were removed, because they are not required at EU level.</p></li>
+<li><p>All the date values are requested as YYYY-MM-DD,
+because that was the format used by all the data providers in the previous cycles
+(and therefore it is not necessary to maintain more variants).
+This applies to <code class="docutils literal notranslate"><span class="pre">beginLifespanVersion</span></code>, <code class="docutils literal notranslate"><span class="pre">endLifespanVersion</span></code>, <code class="docutils literal notranslate"><span class="pre">designationPeriodBegin</span></code>, <code class="docutils literal notranslate"><span class="pre">designationPeriodEnd</span></code>.</p></li>
+<li><p>One attribute was moved from the descriptive dataset into the spatial dataset.<br />
+The <code class="docutils literal notranslate"><span class="pre">specialisedZoneType</span></code> now accepts the options <code class="docutils literal notranslate"><span class="pre">'internationalRiverBasinDistrict'</span></code> and <code class="docutils literal notranslate"><span class="pre">'nationalRiverBasinDistrict'</span></code>.</p></li>
+<li><p>The attributes <code class="docutils literal notranslate"><span class="pre">thematicIdIdentifierScheme</span></code> and <code class="docutils literal notranslate"><span class="pre">zoneType</span></code> have been kept for clarity’s sake.
+However, all records in the <code class="docutils literal notranslate"><span class="pre">RiverBasinDistrict</span></code> dataset have a constant value for these attributes.</p></li>
+<li><p>The attributes <code class="docutils literal notranslate"><span class="pre">successorsIdentifier</span></code> and <code class="docutils literal notranslate"><span class="pre">successorsIdentifierScheme</span></code>
+have been kept for clarity’s sake.
+<strong>In the reported datasets, the value of these attributes will always be NULL.</strong>
+The appropriate value will be derived and included in the published WISE datasets
+for the 1st, 2nd and 3rd cycle RiverBasinDistrict datasets.</p></li>
+</ul>
+<figure class="align-center" id="spatial-4thcycle-riverbasindistrict-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+class RiverBasinDistrict {
+  + geometry_polygon: MultiPolygon
+  + inspireIdLocalId: string254
+  + inspireIdNamespace: string254
+  + inspireIdVersionId: string25 [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + beginLifespanVersion: date [0..1]
+  + endLifespanVersion: date [0..1]
+  + predecessorsIdentifier: wiseIdentifier [0..n]
+  + predecessorsIdentifierScheme: IdentifierScheme [0..1]
+  + successorsIdentifier: wiseIdentifier [0..n]
+  + successorsIdentifierScheme: IdentifierScheme [0..1]
+  + wiseEvolutionType: WiseEvolutionType
+  + nameTextInternational: string254
+  + nameText: string254
+  + nameLanguage: Language
+  + designationPeriodBegin: date
+  + designationPeriodEnd: date [0..1]
+  + zoneType: ZoneType
+  + specialisedZoneType: SpecialisedZoneType
+  + legalBasisName: string254 [0..1]
+  + legalBasisLink: URL [0..1]
+  + legalBasisLevel: LegislationLevelValue [0..1]
+  + link: URL [0..1]
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 6 </span><span class="caption-text">Spatial dataset - RiverBasinDistrict - 4th cycle</span><a class="headerlink" href="#spatial-4thcycle-riverbasindistrict-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="documents-dataset-4th-cycle">
+<span id="heading-wfd-rbd-and-ca-documents-dataset-4th-cycle"></span><h2>Documents dataset - 4th cycle<a class="headerlink" href="#documents-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Documents dataset follows the standard structure used in various WISE dataflows (<a class="reference internal" href="#rbdca-4thcycle-documents"><span class="std std-numref">Figure 7</span></a>):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table is required and contains only one record per delivery (i.e. per country).
+It provides the basic Dublin Core metadata elements about the delivery.</p></li>
+<li><p>If required by the data providers, and especially if spatial data is being reported,
+the <code class="docutils literal notranslate"><span class="pre">licenseDocument</span></code> and the <code class="docutils literal notranslate"><span class="pre">metadataDocument</span></code> attributes allow
+the provision of additional information about the dataset.</p></li>
+<li><p>The dcMetadata table also functions as a “manifest file” explaining:</p>
+<ul>
+<li><p>if the delivery contains an update of the spatial data, set <code class="docutils literal notranslate"><span class="pre">updateSpatialData</span> <span class="pre">=</span> <span class="pre">'yes'</span></code></p></li>
+<li><p>and/or if the delivery contains an update of the competent authorities
+or their roles, set <code class="docutils literal notranslate"><span class="pre">updateCompetentAuthorities=</span> <span class="pre">'yes'</span></code></p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Document</span></code> table is standard in the WISE dataflows:
+it allows the upload of documents (for example, PDFs)
+or the provision of a hyperlink to a document stored in a publicly accessible national web site.</p></li>
+</ul>
+<figure class="align-center" id="rbdca-4thcycle-documents">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class dcMetadata {
+
+«metadata»
+  + title: string
+  + creatorOrganisationName: string
+  + creatorElectronicMailAddress: Email
+  + description: string [0..1]
+  + created: date [0..1]
+  + language: Language [1..n]
+  + license: Licence
+  + rights: string [0..1]
+  + rightsHolder: string [0..1]
+  + licenseDocument: documentCode [0..n]
+  + metadataDocument: documentCode [0..n]
+
+  «data-delivery-manifest»
+  + updateCompetentAuthorities: YesNo
+  + updateSpatialData: YesNo
+}
+class Document {
+  + documentCode: wiseIdentifier
+  + documentName: string250
+  + hyperlink: URL [0..1]
+  + documentFile: Attachment [0..1]
+}
+
+class Licence{
+  &lt;&lt;enumeration&gt;&gt;
+  CC0
+  CC_BY_4_0
+  exactMatch_CC_BY_4_0
+  narrowMatch_CC_BY_4_0
+}
+
+dcMetadata ..&gt; Document: licenseDocument
+dcMetadata ..&gt; Document: metadataDocument
+dcMetadata ..&gt; Licence: license
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 7 </span><span class="caption-text">River Basin Districts and Competent Authorities - 4th cycle - Documents</span><a class="headerlink" href="#rbdca-4thcycle-documents" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="annexes-data-analysis-3rd-cycle">
+<h2>Annexes - Data analysis - 3rd cycle<a class="headerlink" href="#annexes-data-analysis-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>This section contains some of the exploratory data analysis
+that supported the revision of the data model.</p>
+<p>It is not relevant for the understanding of the proposed model,
+but may be informative for data providers involved
+in the testing phase of the 4th cycle dataflows.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">About the EEA discodata service</p>
+<p>The example queries can be executed interactively in the EEA discodata service.<br />
+Note that some queries may timeout.<br />
+If you need to analyse the entire European dataset, download it in CSV format.<br />
+For example, the link <code class="docutils literal notranslate"><span class="pre">https://discodata.eea.europa.eu/download/WISE_WFD/v2r1/GWB_GroundWaterBody</span></code>
+downloads the data of the <code class="docutils literal notranslate"><span class="pre">[WISE_WFD].[v2r1].[GWB_GroundWaterBody]</span></code> table.</p>
+</div>
+<section id="national-and-international-rbds">
+<h3>National and international RBDs<a class="headerlink" href="#national-and-international-rbds" title="Link to this heading">#</a></h3>
+<p>The query below retrieves the information reporting during the 3rd cycle.<br />
+If the information is correct, and the delineation of the River Basin Districts did not change,
+then it is not necessary to report the RiverBasinDistrict dataset again.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-number">Example 1 </span><span class="caption-text">National and international RBDs - 3rd cycle</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">4</span><span class="w">    </span><span class="p">,[</span><span class="n">euRBDCode</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">thematicIdIdentifier</span><span class="p">]</span>
+<span class="linenos">5</span><span class="w">    </span><span class="p">,</span><span class="s1">&#39;euRBDCode&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">thematicIdIdentifierScheme</span><span class="p">]</span>
+<span class="linenos">6</span><span class="w">    </span><span class="p">,</span><span class="n">IIF</span><span class="p">([</span><span class="n">internationalRBD</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;internationalRiverBasinDistrict&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;nationalRiverBasinDistrict&#39;</span><span class="p">)</span>
+<span class="linenos">7</span><span class="w">      </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">specialisedZoneType</span><span class="p">]</span>
+<span class="linenos">8</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">RBDSUCA_RBD</span><span class="p">]</span>
+<span class="linenos">9</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="competent-authorities-and-their-roles">
+<h3>Competent authorities and their roles<a class="headerlink" href="#competent-authorities-and-their-roles" title="Link to this heading">#</a></h3>
+<p>The query below retrieves the information reporting during the 3rd cycle.<br />
+If the information is correct, and the competent authorities and their roles have not changed,
+then it is not necessary to report the information again.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Example 2 </span><span class="caption-text">Competent authorities and their roles - 3rd cycle</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="p">[</span><span class="n">euRBDCode</span><span class="p">],</span><span class="w"> </span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="p">[</span><span class="n">primeCompetentAuthority</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">euCACode</span><span class="p">],</span><span class="w"> </span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">[</span><span class="n">roleCode</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].</span><span class="w"> </span><span class="p">[</span><span class="n">v2r1</span><span class="p">].</span><span class="w"> </span><span class="p">[</span><span class="n">RBDSUCA_RBD_primeCompetentAuthority</span><span class="p">]</span><span class="w"> </span><span class="n">vBase</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">JOIN</span><span class="w"> </span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">euCACode</span><span class="p">],</span><span class="n">STRING_AGG</span><span class="p">(</span><span class="n">b</span><span class="p">.[</span><span class="n">roleCode</span><span class="p">],</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">roleCode</span><span class="p">]</span>
+<span class="linenos">11</span><span class="w">      </span><span class="k">FROM</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">        </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">euCACode</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">otherRole</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">roleCode</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">14</span><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].</span><span class="w"> </span><span class="p">[</span><span class="n">latest</span><span class="p">].</span><span class="w"> </span><span class="p">[</span><span class="n">RBDSUCA_CompetentAuthority_otherRole</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">15</span><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">otherRole</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="w">        </span><span class="k">UNION</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">euCACode</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">mainRole</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">roleCode</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">20</span><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].</span><span class="w"> </span><span class="p">[</span><span class="n">latest</span><span class="p">].</span><span class="w"> </span><span class="p">[</span><span class="n">RBDSUCA_CompetentAuthority_mainRole</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">21</span><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">mainRole</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">22</span><span class="w">        </span>
+<span class="linenos">23</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="n">vUnion</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">        </span><span class="k">JOIN</span><span class="w"> </span>
+<span class="linenos">26</span><span class="w">    </span>
+<span class="linenos">27</span><span class="w">        </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="linenos">28</span><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">VALUES</span>
+<span class="linenos">29</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;1 - Pressure and impact analysis&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;pressureAndImpactAnalysis&#39;</span><span class="p">),</span>
+<span class="linenos">30</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;2 - Economic analysis&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;economicAnalysis&#39;</span><span class="p">),</span>
+<span class="linenos">31</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;3 - Monitoring of surface water&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;monitoringOfSurfaceWater&#39;</span><span class="p">),</span>
+<span class="linenos">32</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;4 - Monitoring of groundwater&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;monitoringOfGroundwater&#39;</span><span class="p">),</span>
+<span class="linenos">33</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;5 - Assessment of status of surface water&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;assessmentOfStatusOfSurfaceWater&#39;</span><span class="p">),</span>
+<span class="linenos">34</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;6 - Assessment of status of groundwater&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;assessmentOfStatusOfGroundwater&#39;</span><span class="p">),</span>
+<span class="linenos">35</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;7 - Preparation of RBMP&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;preparationOfRBMP&#39;</span><span class="p">),</span>
+<span class="linenos">36</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;8 - Preparation of PoM&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;preparationOfPoM&#39;</span><span class="p">),</span>
+<span class="linenos">37</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;9 - Implementation of measures&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;implementationOfMeasures&#39;</span><span class="p">),</span>
+<span class="linenos">38</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;10 - Public participation&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;publicParticipation&#39;</span><span class="p">),</span>
+<span class="linenos">39</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;11 - Enforcement of regulations&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;enforcementOfRegulations&#39;</span><span class="p">),</span>
+<span class="linenos">40</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;12 - Co-ordination of implementation&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;coordinationOfImplementation&#39;</span><span class="p">),</span>
+<span class="linenos">41</span><span class="w">        </span><span class="p">(</span><span class="s1">&#39;13 - Reporting to the European Commission&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;reportingToTheEuropeanCommission&#39;</span><span class="p">)</span>
+<span class="linenos">42</span><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">originalValue</span><span class="p">,</span><span class="w"> </span><span class="n">roleCode</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">vUnion</span><span class="p">.</span><span class="n">roleCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">originalValue</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">euCACode</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">vRoles</span>
+<span class="linenos">47</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">vBase</span><span class="p">.</span><span class="n">primeCompetentAuthority</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vRoles</span><span class="p">.</span><span class="n">euCACode</span>
+<span class="linenos">48</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The original document containing this revised model
+can still be downloaded but should no longer be used.
+See <strong>PROPOSAL - Version 2026.02.13</strong> <a class="reference download internal" download="" href="../_downloads/c781bb559a8c2e7713d6ccb02ad769af/WFD_4th_cycle_RiverBasinDistrictsAndCompetentAuthorities_v20260213.pdf"><code class="xref download docutils literal notranslate"><span class="pre">PDF</span></code></a></p>
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="floods-directive-footnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>See <a class="reference external" href="https://reportnet.europa.eu/public/dataflow/1473">Floods Directive - Units of Management and Competent Authorities[2025]</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data model review</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDMonitoring.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Monitoring</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-structure-4th-cycle">Proposed structure - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-dataset-4th-cycle">Descriptive dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-dataset-4th-cycle">Spatial dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-dataset-4th-cycle">Documents dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annexes-data-analysis-3rd-cycle">Annexes - Data analysis - 3rd cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#national-and-international-rbds">National and international RBDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#competent-authorities-and-their-roles">Competent authorities and their roles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDRiverBasinDistrictsAndCompetentAuthorities.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDRiverBasinDistrictsAndCompetentAuthorities.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

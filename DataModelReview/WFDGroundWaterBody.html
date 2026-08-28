@@ -1,0 +1,3142 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Groundwater bodies &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDGroundWaterBody';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Groundwater methodologies" href="WFDGroundwaterMethodologies.html" />
+    <link rel="prev" title="Programme of measures" href="WFDMeasures.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Groundwater bodies</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="groundwater-bodies">
+<span id="heading-wfd-groundwater-bodies"></span><h1>Groundwater bodies<a class="headerlink" href="#groundwater-bodies" title="Link to this heading">#</a></h1>
+<div class="dropdown admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Updated: 2026-08-25</p>
+<ul class="simple">
+<li><p>Added the GWChemicalExemption and GWQuantitativeExemption table to the descriptive dataset.</p></li>
+<li><p>Corrected the dcMetadata table diagram and description.</p></li>
+</ul>
+<p>Updated: 2026-07-27</p>
+<ul class="simple">
+<li><p>Renamed the GWCharacterisation table to avoid collisions.</p></li>
+<li><p>Added the overview diagram</p></li>
+<li><p>Corrected the NBL query.</p></li>
+</ul>
+<p>Updated: 2026-07-23</p>
+<ul class="simple">
+<li><p>Included the Spatial dataset.</p></li>
+</ul>
+<p>Updated: 2026-07-06</p>
+<ul class="simple">
+<li><p>Changes based on feedback from WG DIS and WG Groundwater members.</p>
+<ul>
+<li><p>The “lithology” placeholder attribute was removed was removed.</p></li>
+<li><p>The GWStatus table attributes related to risk and failure were aligned with
+<a class="footnote-reference brackets" href="#footcite-cis-guidance-18" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>The gwPollutantCausingRisk and gwAtRiskQuantitative attributes were reintroduced.</p></li>
+<li><p>Quality control is introduced in the reporting of natural background levels.
+Further information about the 3rd cycle reporting of natural background levels was included
+<a class="reference internal" href="#groundwaterbody-3rdcycle-naturalbackgroundlevel-table"><span class="std std-ref">GroundWaterBody - 3rd cycle - Parameters with reported Natural Background Level</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="purpose-and-overview">
+<h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>This section revises the reporting of information related to
+<strong>Groundwater Bodies</strong> in the 2nd and 3rd cycle of reporting
+of the Water Framework Directive River Basin Management Plans.
+It also presents a proposal for simplifying
+the electronic reporting in the 4th cycle.</p>
+</section>
+<section id="current-structure-3rd-cycle">
+<span id="heading-wfd-groundwater-3rd-cycle"></span><h2>Current structure - 3rd cycle<a class="headerlink" href="#current-structure-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>In the 3rd cycle, the information about Groundwater bodies was reported in 4 separate schemas:</p>
+<ul class="simple">
+<li><p>the GWB_2022 schema, containing information about each groundwater body
+(<a class="reference internal" href="#groundwater-3rdcycle-gwb-classdiagram"><span class="std std-numref">Figure 36</span></a>)</p></li>
+<li><p>the GWMET_2022 schema, containing information about the methodologies
+(see <a class="reference internal" href="WFDGroundwaterMethodologies.html#heading-wfd-groundwater-methodologies"><span class="std std-ref">Groundwater methodologies</span></a>)</p></li>
+<li><p>the GML_GroundWaterBody_2022 schema,
+containing the GroundWaterBody spatial dataset.</p></li>
+<li><p>the GML_GroundWaterBodyHorizon_2022 schema,
+containing the ancillary GroundWaterBodyHorizon spatial dataset.</p></li>
+</ul>
+</section>
+<section id="gwb-2022-schema-3rd-cycle">
+<span id="heading-wfd-groundwater-gwb-3rd-cycle"></span><h2>GWB_2022 schema - 3rd cycle<a class="headerlink" href="#gwb-2022-schema-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>The GWB_2022 schema was already partially revised with regard to the reporting of exemptions. See:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="WFDExemptions.html#heading-wfd-exemptions-groundwater-bodies-chemical-exemptions-by-pollutant"><span class="std std-ref">Groundwater - chemical exemptions by pollutant</span></a></p></li>
+<li><p><a class="reference internal" href="WFDExemptions.html#heading-wfd-exemptions-groundwater-bodies-quantitative-exemptions"><span class="std std-ref">Groundwater - quantitative exemptions</span></a></p></li>
+<li><p><a class="reference internal" href="WFDProtectedAreas.html#heading-wfd-protected-areas-groundwater-bodies-exemptions"><span class="std std-ref">Exemptions for groundwater bodies associated with protected areas</span></a></p></li>
+</ul>
+<p>Other simplifications already discussed also apply to the GWB schema:</p>
+<ul class="simple">
+<li><p>removal of the textual reporting of “other” pollutants</p></li>
+<li><p>removal of the textual reporting of “other” pressures</p></li>
+<li><p>removal of the textual reporting of “other” impacts</p></li>
+</ul>
+<p>The Commission has revised the <strong>GroundWaterBody</strong> class,
+and removed the following elements:</p>
+<ul class="simple">
+<li><p>GWB/GroundWaterBody/gwEORiskQuantitative</p></li>
+<li><p>GWB/GroundWaterBody/gwEORiskChemical</p></li>
+</ul>
+<p>The Commission has revised the <strong>GWPollutant</strong> class,
+and removed the following elements:</p>
+<ul class="simple">
+<li><p>GWB/GroundWaterBody/GWPollutant/gwPollutantExceedancesNotCounted</p></li>
+</ul>
+<figure class="align-center" id="groundwater-3rdcycle-gwb-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+
+classDiagram
+class GWChemicalExemptionType [&quot;«XSDcomplexType»
+GWChemicalExemptionType&quot;] {
+  «XSDelement»
+  + gwChemicalExemptionType: GWChemicalExemptionType_Union_Enum
+  + gwChemicalExemptionPressure: SignificantPressureType_Enum
+}
+
+class GWPollutant [&quot;«XSDcomplexType»
+GWPollutant&quot;]{
+  «XSDelement»
+  + gwPollutantCode: ChemicalSubstances_Enum
+  + gwPollutantOther: OtherType [0..1]
+  + gwPollutantCausingRisk: YesNoUnknown_Linear_Union_Enum
+  + gwPollutantCausingFailure: YesNoCode_Enum
+  + gwPollutantUpwardTrend: YesNoUnknownUnknown_Linear_Union_Enum
+  + gwPollutantTrendReversal: YesNoUnknownNotApplicable_Code_Enum
+  + gwPollutantExceedancesNotCounted: YesNoUnknownCode_Enum
+  + gwPollutantBackgroundLevelSet: YesNoCode_Enum
+  + gwPollutantBackgroundLevelValue: ThresholdType [0..1]
+  + gwPollutantBackgroundLevelUnit: UnitOfMeasure_Enum [0..1]
+  + gwPollutantTrendReversalProcess: YesNoUnknownNotApplicableCode_Enum
+}
+
+class GWAssociatedProtectedArea [&quot;«XSDcomplexType»
+GWAssociatedProtectedArea&quot;]{
+  «XSDelement»
+  + euProtectedAreaCode: FeatureUniqueEUCodeType
+  + protectedAreaType: ProtectedGWAreaType_Enum
+  + protectedAreaObjectivesSet: ProtectedAreaObjectivesEnum [0..1]
+  + protectedAreaObjectivesMet: YesNoInformation_Union_Enum [0..1]
+  + protectedAreaComment: String1000Type [0..1]
+  + protectedAreaExemption: ExemptionType_Enum [1..*]
+}
+
+class GroundWaterBody [&quot;«XSDcomplexType»
+GroundWaterBody&quot;] {
+  «XSDelement»
+  + euGroundWaterBodyCode: FeatureUniqueEUCodeType
+  + linkSurfaceWaterBody: YesNoCode_Enum
+  + linkSurfaceWaterBodyCode: FeatureUniqueEUCodeType [0..*]
+  + linkTerrestrialEcosystem: YesNoUnknownCode_Enum
+  + geologicalFormation: GeologicalFormation_Enum
+  + groundwaterBodyTransboundary: YesNoCode_Enum
+  + gwSignificantPressureType: SignificantPressureType_Enum [1..*]
+  + gwSignificantPressureOther: String100Type [0..1]
+  + gwSignificantImpactType: SignificantImpactType_Enum [1..*]
+  + gwSignificantImpactOther: String1000Type [0..1]
+  + gwAtRiskQuantitative: YesNoCode_Enum
+  + gwReasonsForRiskQuantitative: QuantitativeFailure_Enum [0..*]
+  + gwEoRiskQuantitative: GWERiskQuantitative_Enum [0..1]
+  + gwQuantitativeStatusValue: StatusCode_Enum
+  + gwQuantitativeReasonsForFailure: QuantitativeFailure_Enum [0..*]
+  + gwQuantitativeAssessmentYear: YearRangeType
+  + gwQuantitativeAssessmentConfidence: Confidence_Enum
+  + gwQuantitativeStatusExpectedAchievementDate: GoodStatus_Enum
+  + gwQuantitativeExemptionType: ExemptionType_Enum [1..*]
+  + gwQuantitativeExemptionPressure: SignificantPressureType_Enum [0..*]
+  + gwAtRiskChemical: YesNoCode_Enum
+  + gwEoRiskChemical: EORiskChemical_Enum [0..1]
+  + gwChemicalStatusValue: StatusCode_Enum
+  + gwChemicalReasonsForFailure: ReasonsForFailure_Enum [0..*]
+  + gwChemicalAssessmentYear: YearRangeType
+  + gwChemicalAssessmentConfidence: Confidence_Enum
+  + gwChemicalStatusExpectedAchievementDate: GoodStatus_Enum
+}
+
+class GWB [&quot;«XSDcomplexType»
+GWB&quot;]{
+  «XSDelement»
+  + countryCode: CountryCode_Enum
+  + euRBDCode: FeatureUniqueEUCodeType
+}
+
+
+GWAssociatedProtectedArea --&gt; GroundWaterBody: GWAssociatedProtectedArea
+GWPollutant --&gt; GroundWaterBody: GWPollutant
+GWChemicalExemptionType --&gt; GWPollutant: GWChemicalExemptionType
+GroundWaterBody --&gt; GWB: GroundWaterBody
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 36 </span><span class="caption-text">Class diagram for the GWB_2022 schema in the 3rd cycle.</span><a class="headerlink" href="#groundwater-3rdcycle-gwb-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the 4th cycle of reporting, the data will be delivered in the Reportnet3 platform:</p>
+<ul class="simple">
+<li><p>the remaining GWMET_2022 classes and elements were reorganised
+into a relational model, as required by the migration to Reportnet3</p></li>
+<li><p>selective denormalisation was used to keep a low number of tables
+and facilitate the quality control</p></li>
+<li><p>the requirements of Directive 2006/118/EC also need to be taken into account</p></li>
+</ul>
+<blockquote class="epigraph">
+<div><p>(36) In order to ensure a level playing field in the Union and allow comparability
+of water body status between Member States, there is a need to harmonise national
+threshold values for some man-made synthetic groundwater pollutants. Threshold
+values should be established as necessary at Union level for pollutants which
+have an anthropogenic origin or for the products of their degradation or
+decomposition, provided that those pollutants and degradation products either do
+not occur naturally in groundwater, or, if identical natural counterparts exist,
+provided that their natural background levels are, at most, low. Those threshold
+values should be included in the repository of harmonised threshold values for
+man-made synthetic substances in groundwater of national, regional or local
+concern in a new Part D of Annex II to Directive 2006/118/EC. A harmonised
+threshold value for individual pharmaceuticals should be included for application
+by Member States to any pharmaceutical active substance identified as posing a
+risk at national level unless a stricter standard or threshold value has been
+set specifically for that substance at Union or national level.</p>
+<p>(37) All provisions of Directive 2006/118/EC relating to the assessment of
+groundwater chemical status should be adapted to the introduction of the third
+category of harmonised threshold values in a new Part D of Annex II to that
+Directive, in addition to the quality standards set out in Annex I to that
+Directive and the national threshold values set out in accordance with the
+methodology set out in Part A of Annex II to that Directive.</p>
+<p class="attribution">—ELI: <a class="reference external" href="http://data.europa.eu/eli/dir/2026/805/oj">http://data.europa.eu/eli/dir/2026/805/oj</a></p>
+</div></blockquote>
+</section>
+<section id="proposed-structure-4th-cycle">
+<h2>Proposed structure - 4th cycle<a class="headerlink" href="#proposed-structure-4th-cycle" title="Link to this heading">#</a></h2>
+<p>For the 4th cycle of reporting, the proposed structure combines into a single dataflow
+(see <a class="reference internal" href="#groundwater-4thcycle-overview-classdiagram"><span class="std std-numref">Figure 37</span></a>)
+the information related to groundwater:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#heading-wfd-groundwater-descriptive-4th-cycle"><span class="std std-ref">Descriptive dataset - 4th cycle</span></a></p></li>
+<li><p><a class="reference internal" href="#heading-groundwaterbody-spatial-dataset-4th-cycle"><span class="std std-ref">Spatial dataset - 4th cycle</span></a></p></li>
+<li><p><a class="reference internal" href="WFDGroundwaterMethodologies.html#heading-wfd-groundwater-methodologies-4th-cycle"><span class="std std-ref">Methodologies dataset - 4th cycle</span></a></p></li>
+<li><p><a class="reference internal" href="#heading-wfd-groundwater-documents-dataset-4th-cycle"><span class="std std-ref">Documents dataset - 4th cycle</span></a></p></li>
+</ul>
+<p>Note that, <em>if there are changes since the 3rd cycle</em>, the national spatial data related
+to river basin districts and surface water bodies
+must be reported before it can be referenced to
+in the groundwater dataflow tables.</p>
+<figure class="align-center" id="groundwater-4thcycle-overview-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+direction TB
+
+namespace DescriptiveDataset {
+
+class GWNaturalBackgroundLevel{}
+class GWLinkSurfaceWaterBody{}
+class GWCharacterisation{}
+class GWQuantitativeStatus{}
+class GWPressureImpact{}
+class GWStatus{} 
+class GWPollutant{}
+class GWGrouping{}
+class GWChemicalExemption{}
+class GWQuantitativeExemption{}
+}
+
+namespace SpatialDataset {
+class GroundWaterBodyHorizon{}
+class GroundWaterBody{}
+}
+
+namespace MethodologiesDataset {
+class GWThresholdValue{}
+class GWPressureAssessment{}
+class GWMethodologies{}
+}
+
+namespace DocumentsData {
+class dcMetadata{}
+class Reference{}
+class Document{}
+}
+
+namespace ReferenceDataset {
+class RiverBasinDistrict_4thCycle:::otherDataset{
+  
+}
+class SurfaceWaterBody_4thCycle:::otherDataset{
+  
+}
+class GroundWaterBody_3rdCycle:::otherDataset{
+  
+}
+}
+
+GWCharacterisation &quot;1&quot; -- &quot;1&quot; GWStatus    
+GWStatus &quot;1&quot; -- &quot;0..1&quot; GWQuantitativeStatus
+GWStatus &quot;1&quot; -- &quot;0..n&quot; GWPollutant
+GWStatus &quot;1&quot; -- &quot;0..n&quot; GWPressureImpact
+
+GWQuantitativeStatus ..&gt; GWGrouping
+GWPollutant ..&gt; GWGrouping
+
+GWQuantitativeStatus &quot;1&quot; -- &quot;0..n&quot; GWQuantitativeExemption
+GWPollutant &quot;1&quot; -- &quot;0..n&quot; GWChemicalExemption
+
+GWNaturalBackgroundLevel &quot;0..n&quot; -- GWCharacterisation
+GWLinkSurfaceWaterBody &quot;0..n&quot; -- GWCharacterisation
+GWLinkSurfaceWaterBody &quot;0..n&quot; ..&gt; SurfaceWaterBody_4thCycle
+
+GroundWaterBody &quot;1&quot; -- &quot;0..n&quot; GroundWaterBodyHorizon
+GroundWaterBody ..&gt; GroundWaterBody_3rdCycle
+GroundWaterBody ..&gt; RiverBasinDistrict_4thCycle
+
+GWCharacterisation ..&gt; GroundWaterBody
+GWPollutant ..&gt; GWThresholdValue
+GWPressureImpact ..&gt; GWPressureAssessment
+
+GWThresholdValue ..&gt; Reference
+GWPressureAssessment ..&gt; Reference
+GWMethodologies ..&gt; Reference
+
+Reference ..&gt; Document
+dcMetadata ..&gt; RiverBasinDistrict_4thCycle
+dcMetadata ..&gt; Document
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 37 </span><span class="caption-text">Groundwater - overview - 4th cycle</span><a class="headerlink" href="#groundwater-4thcycle-overview-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="descriptive-dataset-4th-cycle">
+<span id="heading-wfd-groundwater-descriptive-4th-cycle"></span><h2>Descriptive dataset - 4th cycle<a class="headerlink" href="#descriptive-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The proposed structure for the 4th cycle electronic reporting
+is presented in the class diagram in <a class="reference internal" href="#groundwater-4thcycle-descriptivedata-classdiagram"><span class="std std-numref">Figure 38</span></a>
+and a brief description of each table is included in <a class="reference internal" href="#groundwater-4th-cycle-brief-table-description"><span class="std std-numref">Table 34</span></a>.</p>
+<ul class="simple">
+<li><p>The core data about each groundwater body
+is reported in 3 tables: <code class="docutils literal notranslate"><span class="pre">GWCharacterisation</span></code>, <code class="docutils literal notranslate"><span class="pre">LinkSurfaceWaterBody</span></code> and <code class="docutils literal notranslate"><span class="pre">GWNaturalBackgroundLevel</span></code>.</p>
+<ul>
+<li><p>The content of this set of tables does not depend
+of the status assessment, and can be prepared in advance.</p></li>
+</ul>
+</li>
+<li><p>A second set of tables contains information about
+the chemical and quantitative status assessment
+and about pressures and impacts:
+<code class="docutils literal notranslate"><span class="pre">GWStatus</span></code>, <code class="docutils literal notranslate"><span class="pre">GWQuantitativeStatus</span></code>, <code class="docutils literal notranslate"><span class="pre">GWPollutant</span></code> and <code class="docutils literal notranslate"><span class="pre">GWPressureImpact</span></code>.</p>
+<ul>
+<li><p>The ancillary table <code class="docutils literal notranslate"><span class="pre">GWGrouping</span></code>
+supports the reporting of grouping (if used the assessment).</p></li>
+<li><p>A link to the <code class="docutils literal notranslate"><span class="pre">GWMethodologies::ThresholdValue</span></code> table clarifies
+which threshold value is applied to each pollutant.<br />
+(A list of the default EU threshold values will be provided
+where defined by the EU legislation.)</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-center" id="groundwater-4thcycle-descriptivedata-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+direction TB
+
+class GWLinkSurfaceWaterBody{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + linkType: GroundwaterSurfaceWaterLink
+}
+
+class GWNaturalBackgroundLevel{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + parameterCode: Parameter
+    + parameterValue: range [0..1]
+    + parameterUnit: UnitOfMeasure [0..1]
+}
+
+class GWCharacterisation{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + aquiferType: AquiferMediaTypeValue
+    + aquiferProductivity: AquiferProductivity
+    + groundWaterBodyTransboundary: YesNo
+    + linkSurfaceWaterBody: YesNo
+    + linkTerrestrialEcosystem: YesNoUnknown
+}
+
+class GWQuantitativeStatus{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwAtRiskQuantitative: YesNoUnknown
+    + gwQuantitativeStatusValue: QuantitativeStatus
+    + gwQuantitativeAssessmentPeriod: range
+    + gwQuantitativeAssessmentConfidence: AssessmentConfidence
+    + gwQuantitativeAssessmentMethod: AssessmentMethod [1..n]
+    + gwGroupingIdentifier: wiseIdentifier [0..n]
+}
+
+class GWPressureImpact{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwPressureType: PressureType [0..1]
+    + gwImpactType: ImpactType  [0..1]
+}
+
+class GWStatus{
+    
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwQuantitativeStatusValue: QuantitativeStatus
+    + gwChemicalStatusValue: ChemicalStatus
+
+    + gwQuantitativeStatusReasonsForRisk: ReasonForRiskOrFailure [1..n]
+    + gwQuantitativeStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
+    + gwChemicalStatusReasonsForFailure: ReasonForRiskOrFailure [1..n]
+} 
+
+class GWPollutant{
+    + euGroundWaterBodyCode: wiseIdentifier
+    + gwPollutantCode: Parameter
+    + gwPollutantCausingRisk: YesNoUnknown
+    
+    + gwThresholdIdentifier: wiseIdentifier
+    + gwPollutantCausingFailure: YesNoUnknown
+    + gwPollutantAssessmentPeriod: range
+    + gwPollutantAssessmentConfidence: AssessmentConfidence 
+    + gwPollutantAssessmentMethod: AssessmentMethod [1..n]
+    + gwGroupingIdentifier: wiseIdentifier [0..n]
+
+    + naturalBackgroundLevelSet: YesNoNotApplicable
+    + gwPollutantUpwardTrend: YesNoUnknownNotAssessed
+    + gwPollutantTrendReversal: YesNoUnknownNotApplicableNotAssessed
+    + gwPollutantTrendReversalProcess: YesNoUnknownNotApplicableNotAssessed
+
+}
+
+class GWGrouping{
+    + gwGroupingIdentifier: wiseIdentifier
+    + euGroundWaterBodyCode: wiseIdentifier
+}
+
+GWCharacterisation &quot;1&quot; -- &quot;1&quot; GWStatus    
+GWStatus &quot;1&quot; -- &quot;0..1&quot; GWQuantitativeStatus
+GWStatus &quot;1&quot; -- &quot;0..n&quot; GWPollutant
+GWStatus &quot;1&quot; -- &quot;0..n&quot; GWPressureImpact
+
+GWQuantitativeStatus ..&gt; GWGrouping: gwGroupingIdentifier
+GWPollutant ..&gt; GWGrouping: gwGroupingIdentifier
+
+GWLinkSurfaceWaterBody &quot;0..n&quot; -- GWCharacterisation: {linkSurfaceWaterBody = 'Yes'}
+GWNaturalBackgroundLevel &quot;0..n&quot; -- GWCharacterisation
+
+GWNaturalBackgroundLevel .. GWPollutant: {quality control}
+
+%% note for GWPollutant &quot;GroundwaterMethodologies::ThresholdValue.gwThresholdIdentifier&quot;
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 38 </span><span class="caption-text">Groundwater - descriptive data - 4th cycle</span><a class="headerlink" href="#groundwater-4thcycle-descriptivedata-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="groundwater-4th-cycle-brief-table-description" style="width: 100%">
+<caption><span class="caption-number">Table 34 </span><span class="caption-text">Groundwater - 4th cycle - brief table description</span><a class="headerlink" href="#groundwater-4th-cycle-brief-table-description" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Table</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GWCharacterisation</p></td>
+<td><p><em>modified</em><br />
+The <code class="docutils literal notranslate"><span class="pre">GWCharacterisation</span></code> table contains the attributes
+that describe the groundwater body
+and that do not vary with the status of the water body.
+Therefore the table can be prepared immediately,
+even if the 4th cycle RBMPs have not yet been finalised.
+All the attributes existed in the 3rd cycle reporting.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">linkSurfaceWaterBody</span></code> value
+controls the content of the <code class="docutils literal notranslate"><span class="pre">LinkSurfaceWaterBody</span></code> table.</p>
+<p>In the 3rd cycle, the reporting guidance requested description of
+“<em>the main geological formation of the aquifer type</em>”.
+The usability of the reported data was limited,
+beyond visualisation purposes.<br />
+For the 4th cycle, a suggestion is made to split
+the data in two attributes: <code class="docutils literal notranslate"><span class="pre">aquiferMediaType</span></code> and <code class="docutils literal notranslate"><span class="pre">aquiferProductivity</span></code>,
+using the separation already present
+in the published WISE_WFD database and in the WISE visualisations.<br />
+However, expert guidance must be provided,
+specially with regard to the aquifer productivity classes,
+their definition and comparability across Member States.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>GWLinkSurfaceWaterBody</p></td>
+<td><p><em>modified</em>.<br />
+If the groundwater body is linked to one or more surface water bodies,
+that relation is reported in the <code class="docutils literal notranslate"><span class="pre">GWLinkSurfaceWaterBody</span></code> table.<br />
+The <code class="docutils literal notranslate"><span class="pre">linkType</span></code> attribute specifies the type of water flow
+between the groundwater and the surface water body.</p></td>
+</tr>
+<tr class="row-even"><td><p>GWNaturalBackgroundLevel</p></td>
+<td><p><em>modified</em>
+The data related to the natural background level (NBL)
+of substances in groundwater is moved from the GWPollutant class
+into a separate GWNaturalBackgroundLevel table.
+Quality control procedures will be introduced to avoid mistakes in the reporting
+(see <a class="reference internal" href="#heading-wfd-groundwater-annexes-nbl-3rd-cycle"><span class="std std-ref">Natural background levels</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>GWStatus</p></td>
+<td><p><em>new</em><br />
+The <code class="docutils literal notranslate"><span class="pre">GWStatus</span></code> table synthesizes
+information about the status of the water body.</p>
+<p>In accordance to the overall procedure of classification tests for assessing groundwater status
+<a class="footnote-reference brackets" href="#footcite-cis-guidance-18" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+(see <a class="reference internal" href="#cis-guidance-18-figure-1-gwbclassificationprocedure"><span class="std std-numref">Figure 39</span></a>)
+the different elements causing risk must be reported.
+The option <code class="docutils literal notranslate"><span class="pre">unknown</span></code> indicates that the assessment was not done.
+The option <code class="docutils literal notranslate"><span class="pre">none</span></code> indicates that no element is causing risk.</p>
+<p>If, and only if, <code class="docutils literal notranslate"><span class="pre">chemicalStatusValue</span> <span class="pre">=</span> <span class="pre">'unknown'</span></code>
+and no assessment of the chemical status was done,
+may all corresponding rows in the <code class="docutils literal notranslate"><span class="pre">GWPollutant</span></code> table be missing.
+(An ERROR will raised by the quality control, since this is a non-compliance
+and should not be reported by mistake.)</p>
+<p>If, and only if, <code class="docutils literal notranslate"><span class="pre">quantitativeStatusValue</span> <span class="pre">=</span> <span class="pre">'unknown'</span></code>
+and no assessment of the quantitative status was done,
+may the corresponding row in the <code class="docutils literal notranslate"><span class="pre">GWQuantitativeStatus</span></code> table be missing.
+(An ERROR will raised by the quality control, since this is a non-compliance
+and should not be reported by mistake.)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>GWPollutant</p></td>
+<td><p><em>modified</em><br />
+The <code class="docutils literal notranslate"><span class="pre">GWPollutant</span></code> table contains data related to the chemical status at substance level.<br />
+The information about the assessment method, assessment confidence,
+and assessment period can be reported at pollutant level,
+allowing more flexibility in reporting different situations
+for different pollutants or indicators of pollution.
+(If the same method, confidence and period apply
+to all substances assessed for a groundwater body,
+then identical values can be reported for all substances)<br />
+The threshold value used in the assessment is specified
+in the <code class="docutils literal notranslate"><span class="pre">gwThresholdIdentifier</span></code>attribute,
+linking to the <code class="docutils literal notranslate"><span class="pre">GWMethodologies::ThresholdValue</span></code> table
+(or to the European standard if applicable).</p></td>
+</tr>
+<tr class="row-odd"><td><p>GWQuantitativeStatus</p></td>
+<td><p><em>new</em><br />
+The <code class="docutils literal notranslate"><span class="pre">GWQuantitativeStatus</span></code> table gathers
+the data related to quantitative status.<br />
+The assessment method, confidence and period
+is reported using the same pattern
+applied for groundwater pollutants.
+It is now possible to report the use of grouping
+for the quantitative status assessment.</p></td>
+</tr>
+<tr class="row-even"><td><p>GWGrouping</p></td>
+<td><p><em>new</em><br />
+If grouping was not used, this table is not necessary.<br />
+If grouping was used for the
+assessment of quantitative or chemical status,
+the <code class="docutils literal notranslate"><span class="pre">GWGrouping</span></code> table is used
+to define sets of water bodies
+that were monitored and assessed together as an ensemble.
+The same ensemble can be used for different purposes.
+The same water body can be a member of different ensembles.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">groupingIdentifier</span></code> value uniquely identifies an ensemble
+using the WISE identifier syntax.
+The <code class="docutils literal notranslate"><span class="pre">euGroundWaterBodyCode</span></code> identifies a member of the ensemble.<br />
+If an ensemble is used
+in the assessment of a given element,
+then at least one of its water bodies
+must be monitored for that element
+(i.e. must have <code class="docutils literal notranslate"><span class="pre">gwPollutantAssessmentMethod</span> <span class="pre">=</span> <span class="pre">'monitoring'</span></code>).<br />
+(To avoid mistakes and ambiguities,
+the <code class="docutils literal notranslate"><span class="pre">groupingIdentifier</span></code> value must be different
+from any known water body identifier.
+It is recommended to use a clear pattern
+to avoid conflicts with existing
+and future water body identifiers.
+For example, using a ‘_GWGROUPING’ suffix).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>GWPressureImpact</p></td>
+<td><p><em>modified</em>.<br />
+For the water bodies that do not achieve good quantitative status in 2027,
+the significant pressures causing poor quantitative status
+are reported in the <code class="docutils literal notranslate"><span class="pre">GWQuantitativeExemption</span></code> table
+(see <a class="reference internal" href="WFDExemptions.html#exemptions-4thcycle-gwquantitativeexemption-classdiagram"><span class="std std-numref">Figure 99</span></a>)
+and do not need to be reported again in the <code class="docutils literal notranslate"><span class="pre">GWPressureImpact</span></code> table.</p>
+<p>For water bodies that do not achieve good chemical status in 2027,
+the significant pressures are reported in the <code class="docutils literal notranslate"><span class="pre">GWChemicalExemption</span></code> table
+(see <a class="reference internal" href="WFDExemptions.html#exemptions-4thcycle-gwchemicalexemption-classdiagram"><span class="std std-numref">Figure 98</span></a>)
+and do not need to be reported again in the <code class="docutils literal notranslate"><span class="pre">GWPressureImpact</span></code> table.</p>
+<p>For cases where a pressure is not causing failure,
+but still causes an impact that needs to be managed,
+the <code class="docutils literal notranslate"><span class="pre">GWPressureImpact</span></code> table should be used.</p>
+<p>Note that the reporting of pressures and impacts
+is combined into a single <code class="docutils literal notranslate"><span class="pre">GWPressureImpact</span></code> table.
+In the 3rd cycle, the XML structure did not allow
+a specific pressure to be link to a given impact.
+In the proposed structure, this is possible (but not mandatory).<br />
+Illustrative examples will be provided.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="cis-guidance-18-figure-1-gwbclassificationprocedure">
+<a class="reference internal image-reference" href="../_images/CIS_Guidance_18_Figure_1_GWBClassificationProcedure.png"><img alt="../_images/CIS_Guidance_18_Figure_1_GWBClassificationProcedure.png" src="../_images/CIS_Guidance_18_Figure_1_GWBClassificationProcedure.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 39 </span><span class="caption-text">Overall procedure of classification tests for assessing groundwater status <a class="footnote-reference brackets" href="#footcite-cis-guidance-18" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#cis-guidance-18-figure-1-gwbclassificationprocedure" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="exemptions">
+<h3>Exemptions<a class="headerlink" href="#exemptions" title="Link to this heading">#</a></h3>
+<p>Refer to the documentation about exemptions, specifically:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="WFDExemptions.html#heading-wfd-exemptions-groundwater-bodies-chemical-exemptions-by-pollutant"><span class="std std-ref">Groundwater - chemical exemptions by pollutant</span></a></p></li>
+<li><p><a class="reference internal" href="WFDExemptions.html#heading-wfd-exemptions-groundwater-bodies-quantitative-exemptions"><span class="std std-ref">Groundwater - quantitative exemptions</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="methodologies-dataset-4th-cycle">
+<h2>Methodologies dataset - 4th cycle<a class="headerlink" href="#methodologies-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>Refer to the <a class="reference internal" href="WFDGroundwaterMethodologies.html#heading-wfd-groundwater-methodologies"><span class="std std-ref">Groundwater methodologies</span></a>section.</p>
+</section>
+<section id="spatial-dataset-4th-cycle">
+<span id="heading-groundwaterbody-spatial-dataset-4th-cycle"></span><h2>Spatial dataset - 4th cycle<a class="headerlink" href="#spatial-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Spatial dataset contains the GroundWaterBody spatial data
+and, optionally, the GroundWaterBodyHorizon spatial data
+(<a class="reference internal" href="#spatial-4thcycle-groundwaterbody-groundwaterbodyhorizon-classdiagram"><span class="std std-numref">Figure 40</span></a>).</p>
+<figure class="align-center" id="spatial-4thcycle-groundwaterbody-groundwaterbodyhorizon-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+ 
+classDiagram
+direction LR
+class GroundWaterBody {
+  + geometry_polygon: MultiPolygon [0..1]
+  
+  + inspireIdLocalId: string254
+  + inspireIdNamespace: string254
+  + inspireIdVersionId: string25 [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + beginLifespanVersion: date [0..1]
+  + endLifespanVersion: date [0..1]
+  + predecessorsIdentifier: wiseIdentifier [0..n]
+  + predecessorsIdentifierScheme: IdentifierScheme [0..1]
+  + successorsIdentifier: wiseIdentifier [0..n]
+  + successorsIdentifierScheme: IdentifierScheme [0..1]
+  + wiseEvolutionType: WiseEvolutionType
+  + nameTextInternational: string254
+  + nameText: string254
+  + nameLanguage: Language
+  + designationPeriodBegin: date
+  + designationPeriodEnd: date [0..1]
+  + zoneType: ZoneType
+  + specialisedZoneType: SpecialisedZoneType
+  + legalBasisName: string254 [0..1]
+  + legalBasisLink: URL [0..1]
+  + legalBasisLevel: LegislationLevelValue [0..1]
+  + relatedZoneIdentifier: wiseIdentifier
+  + relatedZoneIdentifierScheme: IdentifierScheme
+  + link: URL [0..1]
+  + horizons: int [1..n]
+}
+
+
+class GroundWaterBodyHorizon {
+  + geometry_polygon: MultiPolygon [0..1]
+  + thematicIdIdentifier: wiseIdentifier
+  + thematicIdIdentifierScheme: IdentifierScheme
+  + horizon: int
+}
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 40 </span><span class="caption-text">Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle</span><a class="headerlink" href="#spatial-4thcycle-groundwaterbody-groundwaterbodyhorizon-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following changes have been made to the <code class="docutils literal notranslate"><span class="pre">GroundWaterBody</span></code> spatial table
+(in comparison to the 3rd cycle of reporting):</p>
+<ul class="simple">
+<li><p>The attributes <code class="docutils literal notranslate"><span class="pre">sizeValue</span></code> and <code class="docutils literal notranslate"><span class="pre">sizeUom</span></code> were removed,
+because they can be derived from the reported geometry.</p></li>
+<li><p>Two attributes <code class="docutils literal notranslate"><span class="pre">relatedTransboundaryIdentifier</span></code> and <code class="docutils literal notranslate"><span class="pre">relatedTransboundaryIdentifierScheme</span></code>
+were removed, because they are not required at EU level.</p></li>
+<li><p>All the date values are requested as YYYY-MM-DD,
+because that was the format used by all the data providers in the previous cycles
+(and therefore it is not necessary to maintain more variants).
+This applies to <code class="docutils literal notranslate"><span class="pre">beginLifespanVersion</span></code>, <code class="docutils literal notranslate"><span class="pre">endLifespanVersion</span></code>, <code class="docutils literal notranslate"><span class="pre">designationPeriodBegin</span></code>, <code class="docutils literal notranslate"><span class="pre">designationPeriodEnd</span></code>.</p></li>
+<li><p>The attributes <code class="docutils literal notranslate"><span class="pre">successorsIdentifier</span></code> and <code class="docutils literal notranslate"><span class="pre">successorsIdentifierScheme</span></code>
+have been kept for clarity’s sake.
+<strong>In the reported datasets, the value of these attributes will always be NULL.</strong>
+The appropriate value will be derived and included in the published WISE datasets
+for the 1st, 2nd and 3rd cycle GroundWaterBody datasets.</p></li>
+<li><p>The quality control tests enforced in the 3rd cycle of reporting
+will continue to be applied in the 4th cycle.</p></li>
+<li><p>Additionally:</p>
+<ul>
+<li><p>The geometry is reported in the <code class="docutils literal notranslate"><span class="pre">GroundWaterBody</span></code> table,
+if none of the national groundwater bodies has multiple horizons.
+In this case, the <code class="docutils literal notranslate"><span class="pre">GroundWaterBodyHorizon</span></code> is not reported.</p></li>
+<li><p>The geometry is reported in the <code class="docutils literal notranslate"><span class="pre">GroundWaterBodyHorizon</span></code> table,
+if at least one of the national groundwater bodies has multiple horizons.
+In this case, geometry is not reported in the <code class="docutils literal notranslate"><span class="pre">GroundWaterBody</span></code> table.</p></li>
+</ul>
+</li>
+</ul>
+<p>The structure of the <code class="docutils literal notranslate"><span class="pre">GroundWaterBodyHorizon</span></code> spatial table was not modified.</p>
+</section>
+<section id="documents-dataset-4th-cycle">
+<span id="heading-wfd-groundwater-documents-dataset-4th-cycle"></span><h2>Documents dataset - 4th cycle<a class="headerlink" href="#documents-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Documents dataset follows the standard structure used in various WISE dataflows
+(<a class="reference internal" href="#groundwater-4thcycle-documents-classdiagram"><span class="std std-numref">Figure 41</span></a>):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table provides the basic Dublin Core metadata elements about the delivery.</p>
+<ul>
+<li><p>If required by the data providers, and especially if spatial data is being reported,
+the <code class="docutils literal notranslate"><span class="pre">licenseDocument</span></code> and the <code class="docutils literal notranslate"><span class="pre">metadataDocument</span></code> attributes
+allow the provision of additional information about the dataset.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table also functions as a “manifest file”
+explaining if the delivery contains data for a given river basin district or not.</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Document</span></code> table allows the upload of documents (for example, PDFs)
+or the provision of a <code class="docutils literal notranslate"><span class="pre">hyperlink</span></code> to a document stored in a publicly accessible national web site.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Reference</span></code> table is also standard in the WISE dataflows:
+the <code class="docutils literal notranslate"><span class="pre">bookmark</span></code> it allows the identification of the chapter(s), sections(s) or page range(s)
+where the relevant information about a <code class="docutils literal notranslate"><span class="pre">subject</span></code>
+can be found within a document.</p></li>
+</ul>
+<figure class="align-center" id="groundwater-4thcycle-documents-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class dcMetadata {
+
+«metadata»
++ title: string
++ creatorOrganisationName: string
++ creatorElectronicMailAddress: Email
++ description: string [0..1]
++ created: date [0..1]
++ language: Language [1..n]
++ license: Licence
++ rights: string [0..1]
++ rightsHolder: string [0..1]
++ licenseDocument: documentCode [0..n]
++ metadataDocument: documentCode [0..n]
+
+«manifest»
++ euRBDCode: wiseIdentifier
++ includesSpatialData: YesNo
++ includesGroundWaterBodyHorizons: YesNo
++ includesDescritiveData: YesNo
+}
+
+class Reference {
+  + referenceCode: wiseIdentifier
+  + documentCode: documentCode
+  + bookmark: string250
+  + subject: string250 
+}
+
+class Document {
++ documentCode: wiseIdentifier
++ documentName: string250
++ hyperlink: URL [0..1]
++ documentFile: Attachment [0..1]
+}
+
+class Licence{
+  &lt;&lt;enumeration&gt;&gt;
+  CC0
+  CC_BY_4_0
+  exactMatch_CC_BY_4_0
+  narrowMatch_CC_BY_4_0
+}
+
+Reference  ..&gt; Document: documentCode
+dcMetadata ..&gt; Document: licenseDocument
+dcMetadata ..&gt; Document: metadataDocument
+dcMetadata ..&gt; Licence: license
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 41 </span><span class="caption-text">Groundwater - 4th cycle - Documents</span><a class="headerlink" href="#groundwater-4thcycle-documents-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following criteria apply:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table must contain <em>one and only one</em> record
+for each of the country’s river basin districts, identified by the <code class="docutils literal notranslate"><span class="pre">euRBDCode</span></code> value.</p></li>
+<li><p>The spatial dataset is <strong>national</strong>.
+The <code class="docutils literal notranslate"><span class="pre">includesSpatialData</span></code> value and the <code class="docutils literal notranslate"><span class="pre">includesGroundWaterBodyHorizons</span></code> value
+must be the same for all river basin districts.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">includesSpatialData</span> <span class="pre">=</span> <span class="pre">'no'</span></code> then no spatial data is expected,
+and the quality control of the descriptive dataset will run
+against the last technically accepted delivery of groundwater bodies spatial data.</p></li>
+<li><p>For countries reporting under the WFD,
+the last technically accepted delivery of groundwater bodies spatial data
+is <strong>always the data reported in the 3rd cycle</strong>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">includesSpatialData</span> <span class="pre">=</span> <span class="pre">'yes'</span> <span class="pre">AND</span> <span class="pre">includesGroundWaterBodyHorizons</span> <span class="pre">=</span> <span class="pre">'no'</span></code>,
+the geometry is reported ONLY in the GroundWaterBody spatial dataset.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">includesSpatialData</span> <span class="pre">=</span> <span class="pre">'yes'</span> <span class="pre">AND</span> <span class="pre">includesGroundWaterBodyHorizons</span> <span class="pre">=</span> <span class="pre">'yes'</span></code>,
+the geometry is reported ONLY in the GroundWaterBodyHorizons spatial dataset.</p></li>
+<li><p>The descriptive dataset is also <strong>national</strong>,
+but the quality control will allow deliveries
+where some, or all, the river basin districts have <code class="docutils literal notranslate"><span class="pre">includesDescriptiveData</span> <span class="pre">=</span> <span class="pre">'no'</span></code>.</p></li>
+<li><p>For countries reporting under the WFD,
+the quality control will raise an <strong>ERROR</strong>,
+if some, or all, the river basin districts have <code class="docutils literal notranslate"><span class="pre">includesDescriptiveData</span> <span class="pre">=</span> <span class="pre">'no'</span></code>.</p></li>
+<li><p>Note that the Methodologies dataset tables must always be reported
+for the  river basin districts where <code class="docutils literal notranslate"><span class="pre">includesDescriptiveData</span> <span class="pre">=</span> <span class="pre">'yes'</span></code></p></li>
+</ol>
+</section>
+<section id="codelists-4th-cycle">
+<span id="heading-wfd-groundwater-codelist-4th-cycle"></span><h2>Codelists - 4th cycle<a class="headerlink" href="#codelists-4th-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">AquiferMediaTypeValue</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-aquifermediatypevalue-aquiferproductivity-classdiagram"><span class="std std-numref">Figure 42</span></a>.<br />
+The codelist was realigned with the INSPIRE codelist to allow more flexibility.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-aquifermediatypevalue-table"><span class="std std-numref">Table 35</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">AquiferProductivity</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-aquifermediatypevalue-aquiferproductivity-classdiagram"><span class="std std-numref">Figure 42</span></a>.<br />
+The codelist allows the reporting of aquifer productivity
+independently of the aquifer media values.<br />
+Further technical guidance on concepts, classification schemes and class boundaries
+is needed.<a class="footnote-reference brackets" href="#footcite-gsi2026aquifer" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-aquiferproductivity-table"><span class="std std-numref">Table 36</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">AssessmentMethod</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-assessmentmethod-assessmentconfidence-classdiagram"><span class="std std-numref">Figure 43</span></a>.<br />
+The codelist is used to report
+the assessment method for the chemical status and for the quantitative status.<br />
+The same codelist is used for surface water bodies,
+for the assessment method of ecological status or potential,
+and for the assessment method of chemical status.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-assessmentmethod-table"><span class="std std-numref">Table 37</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">AssessmentConfidence</span></code> codelist,
+see also <a class="reference internal" href="#codelist-4thcycle-assessmentmethod-assessmentconfidence-classdiagram"><span class="std std-numref">Figure 43</span></a>.<br />
+The codelist allow the reporting of
+the level of confidence in the results of the status assessment.<br />
+The same codelist is used for surface water bodies.
+See also <a class="footnote-reference brackets" href="#footcite-mastrandrea2010guidance" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#footcite-mastrandrea2011ipcc" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>  <a class="footnote-reference brackets" href="#footcite-kause2022confidence" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-assessmentconfidence-table"><span class="std std-numref">Table 38</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">GroundwaterSurfaceWaterLink</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-groundwatersurfacewaterlink-classdiagram"><span class="std std-numref">Figure 44</span></a>.<br />
+The codelist is used to report
+the type of link between a given groundwater body and a given surface water body.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-groundwatersurfacewaterlink-table"><span class="std std-numref">Table 39</span></a>.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">ReasonForRiskOrFailure</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-reasonforriskorfailure-classdiagram"><span class="std std-numref">Figure 45</span></a>.</p>
+<ul>
+<li><p>See the definitions in <a class="reference internal" href="#codelist-4thcycle-reasonforriskorfailure-table"><span class="std std-numref">Table 40</span></a>.</p></li>
+<li><p>For groundwater bodies in poor quantitative status,
+the codelist values are used
+in the <code class="docutils literal notranslate"><span class="pre">gwQuantitativeReasonsForFailure</span></code> attribute
+to provide further information about one or more causes of failure
+(the most frequent cause will be likely be <code class="docutils literal notranslate"><span class="pre">'waterBalance'</span></code>).<br />
+For groundwater bodies in good or unknown quantitative status,
+the option <code class="docutils literal notranslate"><span class="pre">notApplicable</span></code> must be used.</p></li>
+<li><p>For groundwater bodies failing to achieve good chemical status,
+the codelist values are used
+in the <code class="docutils literal notranslate"><span class="pre">gwChemicalReasonsForFailure</span></code> attribute
+to provide further information about one or more causes of failure
+(the most frequent cause will be likely be <code class="docutils literal notranslate"><span class="pre">'generalQualityAssessment'</span></code>).<br />
+For groundwater bodies in good or unknown quantitative status,
+the option <code class="docutils literal notranslate"><span class="pre">notApplicable</span></code> must be used.
+For groundwater bodies in good or unknown chemical status,
+the option <code class="docutils literal notranslate"><span class="pre">notApplicable</span></code> must be used.</p></li>
+<li><p>For groundwater bodies where good quantitative status is at risk,
+the codelist values are used
+in the <code class="docutils literal notranslate"><span class="pre">gwQuantitativeReasonsForRisk</span></code> attribute
+to provide further information about one or more causes of risk.
+For groundwater bodies where <code class="docutils literal notranslate"><span class="pre">gwAtRiskQuantitative</span> <span class="pre">=</span> <span class="pre">'no'</span></code>
+the option <code class="docutils literal notranslate"><span class="pre">notApplicable</span></code> must be used.</p></li>
+</ul>
+</li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">PressureType</span></code> codelist,
+see <a class="reference internal" href="WFDPressures.html#codelist-4thcycle-pressuretype-classdiagram"><span class="std std-numref">Figure 111</span></a> in
+the section <a class="reference internal" href="WFDPressures.html#heading-wfd-pressure-type-codelist-4th-cycle"><span class="std std-ref">PressureType codelist - 4th cycle</span></a></p></li>
+</ul>
+<figure class="align-center" id="codelist-4thcycle-aquifermediatypevalue-aquiferproductivity-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class AquiferMediaTypeValue{
+&lt;&lt;enumeration&gt;&gt;
+compound
+fractured
+karstic
+karsticAndFractured
+porous
+porousAndFractured
+other
+unknown
+}
+
+class AquiferProductivity{
+&lt;&lt;enumeration&gt;&gt;
+high
+moderate
+low
+insignificant
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 42 </span><span class="caption-text">AquiferMediaTypeValue codelist and AquiferProductivity codelist - 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-aquifermediatypevalue-aquiferproductivity-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-aquifermediatypevalue-table" style="width: 100%">
+<caption><span class="caption-number">Table 35 </span><span class="caption-text">Codelist - 4th cycle - AquiferMediaTypeValue</span><a class="headerlink" href="#codelist-4thcycle-aquifermediatypevalue-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>URI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>compound</p></td>
+<td><p>Compound</p></td>
+<td><p>A combination of a porous, karstic and/or fractured aquifer.</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/compound">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/compound</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>fractured</p></td>
+<td><p>Fractured</p></td>
+<td><p>Fractured aquifers are rocks in which the primary porosity is negligible and the water circulation is through the secondary porosity (fractures, faults, joints, bedding planes).</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/fractured">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/fractured</a></p></td>
+</tr>
+<tr class="row-even"><td><p>karstic</p></td>
+<td><p>Karstic</p></td>
+<td><p>Karstic aquifers are fractured aquifers where the cracks and fractures have been enlarged by solution, forming large channels or even caverns.</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/karstic">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/karstic</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>karsticAndFractured</p></td>
+<td><p>Karstic and fractured</p></td>
+<td><p>A combination of karstic and fractured aquifer.</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/karsticAndFractured">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/karsticAndFractured</a></p></td>
+</tr>
+<tr class="row-even"><td><p>porous</p></td>
+<td><p>Porous</p></td>
+<td><p>Porous aquifers are unconsolidated or consolidated deposits where water circulates through pores between the grains.</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/porous">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/porous</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>porousAndFractured</p></td>
+<td><p>Porous and fractured</p></td>
+<td><p>A combination of porous and fractured aquifer.</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/porousAndFractured">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/porousAndFractured</a></p></td>
+</tr>
+<tr class="row-even"><td><p>other</p></td>
+<td><p>Other</p></td>
+<td><p>Other aquifer media types not covered by the other values.</p></td>
+<td><p><a class="reference external" href="https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/other">https://inspire.ec.europa.eu/codelist/AquiferMediaTypeValue/other</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-aquiferproductivity-table" style="width: 100%">
+<caption><span class="caption-number">Table 36 </span><span class="caption-text">Codelist - 4th cycle - AquiferProductivity</span><a class="headerlink" href="#codelist-4thcycle-aquiferproductivity-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>high</p></td>
+<td><p>High productivity</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-odd"><td><p>moderate</p></td>
+<td><p>Moderate productivity</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-even"><td><p>low</p></td>
+<td><p>Low productivity</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-odd"><td><p>insignificant</p></td>
+<td><p>Insignificant productivity</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-even"><td><p>unknown</p></td>
+<td><p>Unknown</p></td>
+<td><p>No information is available about the aquifer’s productivity</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="codelist-4thcycle-assessmentmethod-assessmentconfidence-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class AssessmentMethod{
+&lt;&lt;enumeration&gt;&gt;
+  monitoring
+  grouping
+  remoteSensing
+  modelling
+  expertJudgement
+  notApplicable
+}
+
+class AssessmentConfidence{
+&lt;&lt;enumeration&gt;&gt;
+  high
+  medium
+  low
+  unknown
+  notApplicable
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 43 </span><span class="caption-text">AssessmentMethod codelist and AssessmentConfidence codelist - 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-assessmentmethod-assessmentconfidence-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-assessmentmethod-table" style="width: 100%">
+<caption><span class="caption-number">Table 37 </span><span class="caption-text">Codelist - 4th cycle - AssessmentMethod</span><a class="headerlink" href="#codelist-4thcycle-assessmentmethod-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>monitoring</p></td>
+<td><p>Monitoring</p></td>
+<td><p>The status assessment used monitoring data
+collected at the water body being assessed.</p></td>
+<td><p>This includes monitoring through conventional <em>in situ</em> sampling
+(including grab sampling, continuous sampling, passive sampling,
+eDNA sampling, etc.).</p></td>
+</tr>
+<tr class="row-odd"><td><p>grouping</p></td>
+<td><p>Grouping</p></td>
+<td><p>The status assessment used monitoring data from <em>other</em> similar water body(ies).</p></td>
+<td><p>Choose only ‘grouping’ if no monitoring data for the water body
+was used in the assessment,
+and only monitoring data from other similar water bodies was used.<br />
+Choose ‘monitoring’ AND ‘grouping’ if the monitoring data for the water body
+was supplemented with monitoring data from other water bodies.</p></td>
+</tr>
+<tr class="row-even"><td><p>remoteSensing</p></td>
+<td><p>Remote sensing</p></td>
+<td><p>The status assessment was supported by
+Earth observation/remote sensing monitoring techniques.</p></td>
+<td><p>This option can be combined with any of the following options:
+‘monitoring’, ‘grouping’,’modelling’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>modelling</p></td>
+<td><p>Modelling</p></td>
+<td><p>The status assessment was based on modelling and/or statistical analysis.</p></td>
+<td><p>This option can be combined with any of the following options:
+‘monitoring’, ‘grouping’,’remoteSensing’.</p></td>
+</tr>
+<tr class="row-even"><td><p>expertJudgement</p></td>
+<td><p>Expert judgement</p></td>
+<td><p>The status assessment was based on expert judgement.</p></td>
+<td><p>Select this option if there is no monitoring data available in this water body,
+and if monitoring data from other water were also not used,
+and if monitoring using remote sensing techniques was also not used.<br />
+This option can NOT be combined with any other option.</p></td>
+</tr>
+<tr class="row-odd"><td><p>notApplicable</p></td>
+<td><p>Not applicable</p></td>
+<td><p>This option is only valid if there was no assessment of the status
+(i.e. if the status is ‘unknown’).</p></td>
+<td><p>This option can NOT be combined with any other option.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-assessmentconfidence-table" style="width: 100%">
+<caption><span class="caption-number">Table 38 </span><span class="caption-text">Codelist - 4thCycle - AssessmentConfidence</span><a class="headerlink" href="#codelist-4thcycle-assessmentconfidence-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>high</p></td>
+<td><p>High confidence</p></td>
+<td><p>«to-be-provided»</p></td>
+<td><p>E.g. good monitoring data and a good conceptual model or
+understanding of the system based on information on its natural characteristics
+and its pressures</p></td>
+</tr>
+<tr class="row-odd"><td><p>medium</p></td>
+<td><p>Medium confidence</p></td>
+<td><p>«to-be-provided»</p></td>
+<td><p>E.g. limited or insufficiently robust monitoring data
+and expert judgement plays a significant role in assessment of status.</p></td>
+</tr>
+<tr class="row-even"><td><p>low</p></td>
+<td><p>Low confidence</p></td>
+<td><p>«to-be-provided»</p></td>
+<td><p>E.g. no monitoring data, or no conceptual model or understanding of the system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>unknown</p></td>
+<td><p>Unknown</p></td>
+<td><p>No information about the confidence level of the status assessment.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>notApplicable</p></td>
+<td><p>Not applicable</p></td>
+<td><p>Select this option if the status was not assessed.</p></td>
+<td><p>This option is only valid if the status is ‘unknown’.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="codelist-4thcycle-groundwatersurfacewaterlink-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class GroundwaterSurfacewaterLink{
+&lt;&lt;enumeration&gt;&gt;
+groundwaterDischargesToSurfaceWater
+surfaceWaterRechargesGroundwater
+bidirectionalWaterExchange
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 44 </span><span class="caption-text">GroundwaterSurfaceWaterLink codelist - 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-groundwatersurfacewaterlink-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-groundwatersurfacewaterlink-table" style="width: 100%">
+<caption><span class="caption-number">Table 39 </span><span class="caption-text">Codelist - 4th cycle - GroundwaterSurfaceWaterLink</span><a class="headerlink" href="#codelist-4thcycle-groundwatersurfacewaterlink-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groundwaterToSurfaceWater</p></td>
+<td><p>Groundwater discharges to surface water</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-odd"><td><p>surfaceWaterToGroundwater</p></td>
+<td><p>Surface water recharge groundwater</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-even"><td><p>bidirectionalWaterExchange</p></td>
+<td><p>Bidirectional water exchange</p></td>
+<td><p>«to-be-provided»</p></td>
+</tr>
+<tr class="row-odd"><td><p>unknown</p></td>
+<td><p>Unknown</p></td>
+<td><p>Use this option in the information requested is not known.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="codelist-4thcycle-reasonforriskorfailure-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class ReasonForRiskOrFailure{
+&lt;&lt;enumeration&gt;&gt;
+salineOrOtherIntrusion
+surfaceWater
+groundWaterDependentTerrestrialEcosystem
+drinkingWaterProtectionArea
+generalWaterQualityAssessment
+waterBalance
+none
+unknown
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 45 </span><span class="caption-text">ReasonForFailure codelist - 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-reasonforriskorfailure-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-reasonforriskorfailure-table" style="width: 100%">
+<caption><span class="caption-number">Table 40 </span><span class="caption-text">Codelist - 4th cycle - ReasonForRiskOrFailure</span><a class="headerlink" href="#codelist-4thcycle-reasonforriskorfailure-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Definition <a class="footnote-reference brackets" href="#footcite-cis-guidance-18" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#footcite-gw-dependent-terrestrial-ecosystems" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>surfaceWater</p></td>
+<td><p>Surface water</p></td>
+<td><p>Failure to achieve Environmental Objectives (Article 4 WFD)
+for associated surface water bodies,
+resulting from anthropogenic water level alteration or change in flow conditions;
+significant diminution of the status of surface waters
+resulting from anthropogenic water level alteration or change in flow conditions.</p></td>
+<td><p>This option is only valid if <code class="docutils literal notranslate"><span class="pre">GroundWaterBody.linkToSurfaceWaterBody</span> <span class="pre">=</span> <span class="pre">'yes'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>groundWaterDependentTerrestrialEcosystem</p></td>
+<td><p>Groundwater-dependent terrestrial ecosystems</p></td>
+<td><p>Significant damage to groundwater-dependent terrestrial ecosystems
+resulting from an anthropogenic water level alteration.</p></td>
+<td><p>This option is only valid if <code class="docutils literal notranslate"><span class="pre">GroundWaterBody.linkTerrestrialEcosystem</span> <span class="pre">=</span> <span class="pre">'yes'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>salineOrOtherIntrusion</p></td>
+<td><p>Saline or other intrusion</p></td>
+<td><p>Regional saline or other intrusions
+resulting from anthropogenically induced sustained changes in flow direction.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>waterBalance</p></td>
+<td><p>Water balance</p></td>
+<td><p>Exceedance of available groundwater resource by long-term annual average rate of abstraction,
+which may result in a decrease of groundwater levels.</p></td>
+<td><p>This option is NOT a valid <code class="docutils literal notranslate"><span class="pre">gwChemicalReasonsForFailure</span></code> value.</p></td>
+</tr>
+<tr class="row-even"><td><p>drinkingWaterProtectionArea</p></td>
+<td><p>Drinking water protected area</p></td>
+<td><p>Deterioration in quality of waters for human consumption.</p></td>
+<td><p>This option is only valid if there are Drinking Water Protection Areas
+associated with the water body.
+This option is NOT a valid <code class="docutils literal notranslate"><span class="pre">gwQuantitativeReasonsForFailure</span></code> value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>generalWaterQualityAssessment</p></td>
+<td><p>General water quality assessment</p></td>
+<td><p>Significant impairment of human uses and/or significant environmental risk
+from pollutants across the groundwater body.</p></td>
+<td><p>This option is NOT a valid <code class="docutils literal notranslate"><span class="pre">gwQuantitativeReasonsForFailure</span></code> value.</p></td>
+</tr>
+<tr class="row-even"><td><p>notApplicable</p></td>
+<td><p>Not applicable</p></td>
+<td><p>This option MUST be used if the status is ‘good’ or ‘unknown’.</p></td>
+<td><p>This option can NOT be combined with any other option.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-todo admonition" id="id10">
+<p class="admonition-title">Todo</p>
+<p>Groundwater - Topics that require discussion and clarification.</p>
+<ul class="simple">
+<li><p>Revision of the <strong>ImpactType</strong> codelist.</p></li>
+<li><p>Mapping tables to 3rd cycle codelists</p></li>
+</ul>
+</div>
+</section>
+<section id="data-analysis-3rd-cycle">
+<span id="heading-wfd-groundwater-annexes-3rd-cycle"></span><h2>Data analysis - 3rd cycle<a class="headerlink" href="#data-analysis-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>This section contains some of the exploratory data analysis
+that supported the revision of the data model.</p>
+<p>It is not relevant for the understanding of the proposed model,
+but may be informative for data providers involved
+in the testing phase of the 4th cycle dataflows.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">About the EEA discodata service</p>
+<p>The example queries can be executed interactively in the EEA discodata service.<br />
+Note that some queries may timeout.<br />
+If you need to analyse the entire European dataset, download it in CSV format.<br />
+For example, the link <code class="docutils literal notranslate"><span class="pre">https://discodata.eea.europa.eu/download/WISE_WFD/v2r1/GWB_GroundWaterBody</span></code>
+downloads the data of the <code class="docutils literal notranslate"><span class="pre">[WISE_WFD].[v2r1].[GWB_GroundWaterBody]</span></code> table.</p>
+</div>
+<section id="geological-formation">
+<h3>Geological formation<a class="headerlink" href="#geological-formation" title="Link to this heading">#</a></h3>
+<p>The WFD2016 and WFD2022 <em>geologicalFormation</em> attribute values
+are clearly similar to the <em>Aquifer Type Code</em> attribute
+(<a class="reference internal" href="#ihme1500-internationalhydrogeologicalmapofeurope-table"><span class="std std-numref">Table 41</span></a>)
+in the International Hydrogeological Map of Europe 1:1,500,000 (IHME1500),
+although there is no reference to that source
+is made in the WFD Reporting Guidance documents.</p>
+<p>A provisional spatial analysis of the two datasets
+(using only the topmost horizons)
+reveals limited agreement between the classifications.<br />
+In <a class="reference internal" href="#aquifertypeswfdversusihme"><span class="std std-numref">Figure 46</span></a>,
+the rows represent the reported WFD geological formation
+and the columns represent the IHME aquifer type.
+The values show the percentage of the area of each WFD geological formation
+classified under each IHME aquifer type. For example:</p>
+<ul class="simple">
+<li><p>48% of the area reported as ‘Fissured aquifers including karst - highly productive’
+under WFD is similarly classified under IHME</p></li>
+<li><p>33% of the area reported as ‘Fissured aquifers including karst - moderately productive’
+under WFD is classified under IHME as ‘Practically non-aquiferous rocks, porous or fissured’.</p></li>
+</ul>
+<p>In practice, this means that an existing pan-European hydrogeological map (IHME1500)
+can not be easily used to replace the information reported under WFD,
+but it also highlights the need for better clarification
+of the aquifer type and aquifer productivity values to be used in the 4th cycle.</p>
+<figure class="align-center" id="aquifertypeswfdversusihme">
+<a class="reference internal image-reference" href="../_images/AquiferTypesWFDversusIHME.png"><img alt="../_images/AquiferTypesWFDversusIHME.png" src="../_images/AquiferTypesWFDversusIHME.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 46 </span><span class="caption-text">WFD geological formation and IHME1500 aquifer type.</span><a class="headerlink" href="#aquifertypeswfdversusihme" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">See detailed description</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="ihme1500-internationalhydrogeologicalmapofeurope-table">
+<caption><span class="caption-number">Table 41 </span><span class="caption-text">International Hydrogeological Map of Europe 1:1,500,000 - Attributes</span><a class="headerlink" href="#ihme1500-internationalhydrogeologicalmapofeurope-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 65.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Column</p></th>
+<th class="head"><p class="sd-card-text">Description</p></th>
+<th class="head"><p class="sd-card-text">Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">AQUIF_CODE</p></td>
+<td><p class="sd-card-text"><strong>Aquifer Type Code</strong><br />
+Code of the six classes of aquifer types specifying productivity and rock type of aquifers supplemented by areas covered by water or ice.
+Classification according to the Standard Legend for Hydrogeological Maps (SLHyM).</p>
+<p class="sd-card-text">1: Highly productive porous aquifers,<br />
+2: Low and moderately productive porous aquifers<br />
+3: Highly productive fissured aquifers (including karstified rocks)<br />
+4: Low and moderately productive fissured aquifers (including karstified rocks)<br />
+5: Locally aquiferous rocks, porous or fissured<br />
+6: Practically non-aquiferous rocks, porous or fissured<br />
+200: Inland water<br />
+300: Snow field / ice field</p>
+<p class="sd-card-text">Remark: Aquifer type 1 and 2 include less frequently fissured-porous aquifers and aquifer type 3 and 4 include less frequently porous-fissured aquifers.</p>
+</td>
+<td><p class="sd-card-text">5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">AQUIF_NAME</p></td>
+<td><p class="sd-card-text"><strong>Aquifer Type</strong><br />
+Clear name of the six aquifer codes.</p></td>
+<td><p class="sd-card-text">Highly productive porous aquifers</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SALTINTRUS</p></td>
+<td><p class="sd-card-text"><strong>Seawater Intrusion</strong><br />
+Aquifers influenced by seawater intrusion.<br />
+0: No influence<br />
+1: Seawater intrusion</p></td>
+<td><p class="sd-card-text">0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LEVEL1</p></td>
+<td><p class="sd-card-text"><strong>Lithology Level 1</strong><br />
+Lithological description of mapping units
+after revision of the original map unit specifications.<br />
+Method: Geometrical aggregation, translation of original lithological descriptions into a uniform lithological taxonomy scheme.<br />
+Litho1 encompasses 229 classes of lithological descriptions.</p></td>
+<td><p class="sd-card-text">Quartzites, sandstones, shales, volcanic rocks</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">LEVEL2</p></td>
+<td><p class="sd-card-text"><strong>Lithology Level 2</strong><br />
+Generalisation of LEVEL1 by further grouping of class descriptions.<br />
+Method: Aggregation allowing only for primary and secondary consolidated and/or primary and secondary unconsolidated lithological components in each class description. Each class name starts with the primary consolidated lithological compound (if present).<br />
+Litho2 encompasses 86 lithological classes.</p></td>
+<td><p class="sd-card-text">Quartzites, sandstones</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LEVEL3</p></td>
+<td><p class="sd-card-text"><strong>Lithology Level 3</strong><br />
+Generalisation of LEVEL2 by further grouping of class descriptions.<br />
+Method: Aggregation allowing only for primary consolidated and/or primary unconsolidated lithological components in each class description. Each class name starts with the consolidated lithological compound (if present).<br />
+Litho3 encompasses 29 lithological classes.</p></td>
+<td><p class="sd-card-text">Quartzites</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">LEVEL4</p></td>
+<td><p class="sd-card-text"><strong>Lithology Level 4</strong><br />
+Aggregation forming 10 petrographic “supergroups”</p></td>
+<td><p class="sd-card-text">Metamorphic rocks</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LEVEL5</p></td>
+<td><p class="sd-card-text"><strong>Lithology Level 5</strong><br />
+Ternary class division referring to the degree of rock consolidation</p></td>
+<td><p class="sd-card-text">Consolidated materials</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="sd-card-text">Copyright: IHME1500 v1.2 © BGR &amp; UNESCO 2019</p>
+<p class="sd-card-text">Citation: BGR &amp; UNESCO (eds.) (2019): International Hydrogeological Map of Europe 1:1,500,000 (IHME1500). Digital map data v1.2. Hannover/Paris</p>
+<p class="sd-card-text">Source: Documentation of the digital vector dataset. Description of the attribute tables. Shapefile: ihme1500__ec4060_v12_poly</p>
+</div>
+</details></section>
+<section id="aquifer-productivity">
+<h3>Aquifer productivity<a class="headerlink" href="#aquifer-productivity" title="Link to this heading">#</a></h3>
+<p>See <a class="reference internal" href="#cis-guidance-2-figure-9"><span class="std std-numref">Figure 47</span></a>: the CIS Guidance Document 2 does not provide quantitative guidelines,
+beyond the mention to the 10 m3/d threshold for drinking water abstraction.
+Does then the classification  <code class="docutils literal notranslate"><span class="pre">geologicalFormation</span> <span class="pre">=</span> <span class="pre">'Insignificant</span> <span class="pre">aquifers'</span></code>
+mean that the aquifer is not relevant in terms of potential yield,
+but is significant due to dependent surface water bodies,
+or groundwater dependent ecosystem?
+This should be clarified in the codelist definitions.</p>
+<figure class="align-center" id="cis-guidance-2-figure-9">
+<a class="reference internal image-reference" href="../_images/CIS_Guidance_2_Figure_9.png"><img alt="../_images/CIS_Guidance_2_Figure_9.png" src="../_images/CIS_Guidance_2_Figure_9.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 47 </span><span class="caption-text">Criteria for definition of an aquifer (CIS Document 2).</span><a class="headerlink" href="#cis-guidance-2-figure-9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>National documents vary, when addressing productivity in terms of potential long-term abstraction rate.</p>
+<blockquote class="epigraph">
+<div><p><em>Example</em> - Ireland 2026 <a class="footnote-reference brackets" href="#footcite-gsi2026aquifer" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
+<p>“Yield is one of the main concerns in aquifer development projects,
+yields from existing wells are conceptually linked with the main aquifer categories:</p>
+<ul class="simple">
+<li><p>Regionally important (R) aquifers should have (or be capable of having)
+a large number of ‘excellent’ yields: in excess of approximately 400 m3/d.</p></li>
+<li><p>Locally important (L) aquifers are capable of ‘good’ well yields 100-400 m3/d.</p></li>
+<li><p>Poor (P) aquifers would generally have ‘moderate’ or ‘low’ well yields - less than 100 m3/d.”</p></li>
+</ul>
+</div></blockquote>
+<blockquote class="epigraph">
+<div><p><em>Example</em> - Scotland 2004 <a class="footnote-reference brackets" href="#footcite-macdonald2004gis" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>:</p>
+<p>“Productivity classes are a measure of the expected (i.e. potential)
+long-term abstraction rate of groundwater
+from a typical borehole at an individual abstraction site.”</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Class</p></th>
+<th class="head"><p>Range</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Very high</p></td>
+<td><p>(20,)</p></td>
+<td><p>L/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>High</p></td>
+<td><p>(10,20]</p></td>
+<td><p>L/s</p></td>
+</tr>
+<tr class="row-even"><td><p>Moderate</p></td>
+<td><p>(1,10]</p></td>
+<td><p>L/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>Low</p></td>
+<td><p>(0.1,1]</p></td>
+<td><p>L/s</p></td>
+</tr>
+<tr class="row-even"><td><p>Very low</p></td>
+<td><p>(0,0.1]</p></td>
+<td><p>L/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></blockquote>
+</section>
+<section id="reasons-for-failure">
+<span id="heading-wfd-groundwater-annexes-reason-for-failure-3rd-cycle"></span><h3>Reasons for failure<a class="headerlink" href="#reasons-for-failure" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-number">Example 17 </span><span class="caption-text">[gwChemicalStatusValue] vs [gwChemicalReasonsForFailure] - 3rd cycle</span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">gwChemicalStatusValue</span><span class="p">]</span>
+<span class="linenos">4</span><span class="w">  </span><span class="p">,[</span><span class="n">gwChemicalReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">5</span><span class="w">  </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">numberOfGroundWaterBodies</span>
+<span class="linenos">6</span><span class="w">  </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">numberOfCountries</span>
+<span class="linenos">7</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_gwChemicalReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">8</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">9</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">gwChemicalStatusValue</span><span class="p">],[</span><span class="n">gwChemicalReasonsForFailure</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-number">Example 18 </span><span class="caption-text">Number of reasons for chemical failure - 3rd cycle</span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfReasonsForFailure</span><span class="p">],</span>
+<span class="linenos"> 3</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfGroundWaterBodies</span><span class="p">],</span>
+<span class="linenos"> 4</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 6</span><span class="p">(</span>
+<span class="linenos"> 7</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">gwChemicalReasonsForFailure</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfReasonsForFailure</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_gwChemicalReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">10</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="linenos">11</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">12</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">a</span>
+<span class="linenos">13</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfReasonsForFailure</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-number">Example 19 </span><span class="caption-text">[gwQuantitativeStatusValue] vs [gwQuantitativeReasonsForFailure] - 3rd cycle</span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">gwQuantitativeStatusValue</span><span class="p">]</span>
+<span class="linenos">4</span><span class="w">  </span><span class="p">,[</span><span class="n">gwQuantitativeReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">5</span><span class="w">  </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">numberOfGroundWaterBodies</span>
+<span class="linenos">6</span><span class="w">  </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">numberOfCountries</span>
+<span class="linenos">7</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_gwQuantitativeReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">8</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">9</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">gwQuantitativeStatusValue</span><span class="p">],[</span><span class="n">gwQuantitativeReasonsForFailure</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-number">Example 20 </span><span class="caption-text">Number of reasons for quantitative failure - 3rd cycle</span><a class="headerlink" href="#id17" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfReasonsForFailure</span><span class="p">],</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">numberOfGroundWaterBodies</span><span class="p">,</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">numberOfCountries</span>
+<span class="linenos"> 6</span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 7</span><span class="p">(</span>
+<span class="linenos"> 8</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">gwQuantitativeReasonsForFailure</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">10</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_gwQuantitativeReasonsForFailure</span><span class="p">]</span>
+<span class="linenos">11</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="linenos">12</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">13</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">a</span>
+<span class="linenos">14</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfReasonsForFailure</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="natural-background-levels">
+<span id="heading-wfd-groundwater-annexes-nbl-3rd-cycle"></span><h3>Natural background levels<a class="headerlink" href="#natural-background-levels" title="Link to this heading">#</a></h3>
+<p>In the 3rd cycle, natural background levels (NBL)
+were reported for 8608 water bodies (38.6%) and over 90 substances.</p>
+<p>An exploratory analysis shows the expected high frequency of reporting of NBLs for metals and metalloids
+(e.g. arsenic, cadmium or lead), major ions and nutrients
+(e.g. chloride, sulphate, ammonium or nitrate)
+and physico-chemical parameters like electrical conductivity
+(likely as an indicator of saline intrusion).</p>
+<p>Other parameters are unexpected (chlorite and phenols) and may be due to reporting errors.</p>
+<p>More importantly, the values reported
+are sometimes physically impossible (e.g. above 1000mg/L)
+or clearly unlikely.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">See table</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="groundwaterbody-3rdcycle-naturalbackgroundlevel-table">
+<caption><span class="caption-number">Table 42 </span><span class="caption-text">GroundWaterBody - 3rd cycle - Parameters with reported Natural Background Level</span><a class="headerlink" href="#groundwaterbody-3rdcycle-naturalbackgroundlevel-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">parameterGroup</p></th>
+<th class="head"><p class="sd-card-text">parameter</p></th>
+<th class="head"><p class="sd-card-text">Countries</p></th>
+<th class="head"><p class="sd-card-text">WaterBodies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_18785-72-3 - Sulphate</p></td>
+<td><p class="sd-card-text">19</p></td>
+<td><p class="sd-card-text">4444</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_16887-00-6 - Chloride</p></td>
+<td><p class="sd-card-text">20</p></td>
+<td><p class="sd-card-text">4433</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_14798-03-9 - Ammonium</p></td>
+<td><p class="sd-card-text">17</p></td>
+<td><p class="sd-card-text">4328</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_14797-55-8 - Nitrate</p></td>
+<td><p class="sd-card-text">11</p></td>
+<td><p class="sd-card-text">4217</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_14265-44-2 - Phosphate</p></td>
+<td><p class="sd-card-text">10</p></td>
+<td><p class="sd-card-text">407</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_14797-65-0 - Nitrite</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">186</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_16984-48-8 - Fluoride</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">88</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_7440-09-7 - Potassium</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">80</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_7440-23-5 - Sodium</p></td>
+<td><p class="sd-card-text">8</p></td>
+<td><p class="sd-card-text">59</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_7723-14-0 - Total phosphorus</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">51</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_7439-95-4 - Magnesium</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">28</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_7440-70-2 - Calcium</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">28</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Major Ions and Nutrients</p></td>
+<td><p class="sd-card-text">CAS_71-52-3 - Hydrogen Carbonate (Bicarbonate) HCO3</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-38-2 - Arsenic and its compounds</p></td>
+<td><p class="sd-card-text">18</p></td>
+<td><p class="sd-card-text">4514</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-43-9 - Cadmium and its compounds</p></td>
+<td><p class="sd-card-text">13</p></td>
+<td><p class="sd-card-text">4301</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7439-92-1 - Lead and its compounds</p></td>
+<td><p class="sd-card-text">11</p></td>
+<td><p class="sd-card-text">4257</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-02-0 - Nickel and its compounds</p></td>
+<td><p class="sd-card-text">15</p></td>
+<td><p class="sd-card-text">4170</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7439-97-6 - Mercury and its compounds</p></td>
+<td><p class="sd-card-text">10</p></td>
+<td><p class="sd-card-text">4155</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-66-6 - Zinc and its compounds</p></td>
+<td><p class="sd-card-text">8</p></td>
+<td><p class="sd-card-text">3954</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-47-3 - Chromium and its compounds</p></td>
+<td><p class="sd-card-text">8</p></td>
+<td><p class="sd-card-text">3947</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-50-8 - Copper and its compounds</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">3906</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-48-4 - Cobalt and its compounds</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">3772</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-62-2 - Vanadium and its compounds</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">3772</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-42-8 - Boron</p></td>
+<td><p class="sd-card-text">7</p></td>
+<td><p class="sd-card-text">139</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7429-90-5 - Aluminium and its compounds</p></td>
+<td><p class="sd-card-text">7</p></td>
+<td><p class="sd-card-text">135</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7439-89-6 - Iron and its compounds</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">128</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7439-96-5 - Manganese and its compounds</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">118</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7782-49-2 - Selenium and its compounds</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">79</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-61-1 - Uranium</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">74</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-39-3 - Barium</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">71</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7439-98-7 - Molybdenum and its compounds</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">70</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-28-0 - Thallium</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">70</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_7440-36-0 - Antimony</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Metals and Metalloids</p></td>
+<td><p class="sd-card-text">CAS_18540-29-9 - Chromium (VI)</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Physicochemical Parameters</p></td>
+<td><p class="sd-card-text">EEA_3142-01-6 - Electrical conductivity</p></td>
+<td><p class="sd-card-text">14</p></td>
+<td><p class="sd-card-text">4179</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Physicochemical Parameters</p></td>
+<td><p class="sd-card-text">EEA_3152-01-0 - pH</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">27</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Physicochemical Parameters</p></td>
+<td><p class="sd-card-text">EEA_3121-01-5 - Water temperature</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">Other parameter</p></td>
+<td><p class="sd-card-text">CAS_14998-27-7 - Chlorite</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">138</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">Other parameter</p></td>
+<td><p class="sd-card-text">CAS_64743-03-9 - Phenols</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">10</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1231244-60-2 - Metazachlor OA</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">70</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_172960-62-2 - Metazachlor ESA</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">70</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_67129-08-2 - Metazachlor</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">70</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_108-95-2 - Phenol</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">49</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_122-34-9 - Simazine</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">27</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_5915-41-3 - Terbuthylazine</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">27</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1031-07-8 - Endosulfan sulfate</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1066-51-9 - Aminomethylphosphonic acid (AMPA)</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1071-83-6 - Glyphosate</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_118-74-1 - Hexachlorobenzene</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_152019-73-3 - Metolachlor OA</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1582-09-8 - Trifluralin</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_15972-60-8 - Alachlor</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1912-24-9 - Atrazine</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_2212-67-1 - Molinate</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_2921-88-2 - Chlorpyrifos</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_298-00-0 - Parathion-methyl</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_309-00-2 - Aldrin</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_330-54-1 - Diuron</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_33213-65-9 - Beta-Endosulfan</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_34123-59-6 - Isoproturon</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_3424-82-6 - o,p’-DDE</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_465-73-6 - Isodrin</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_470-90-6 - Chlorfenvinphos</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_50-29-3 - DDT, p,p’</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_53-19-0 - o,p’-DDD</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_56-38-2 - Parathion</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_60-57-1 - Dieldrin</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_608-73-1 - Hexachlorocyclohexane</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_608-93-5 - Pentachlorobenzene</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_72-20-8 - Endrin</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_72-55-9 - p,p’-DDE</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_76-44-8 - Heptachlor</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_87-86-5 - Pentachlorophenol</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_959-98-8 - Alpha-Endosulfan</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_32-03-1 - Total DDT (DDT, p,p’ + DDT, o,p’ + DDE, p,p’ + DDD, p,p’)</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">26</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_34-01-5 - Pesticides (Active substances in pesticides, including their relevant metabolites, degradation and reaction products)</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">17</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_67-66-3 - Trichloromethane</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_3133-06-0 - Total organic carbon (TOC)</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_14866-68-3 - Chlorates</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_6190-65-4 - Desethylatrazine</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_33-42-1 - Total trichloroethylene + tetrachloroethylene</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_50-32-8 - Benzo(a)pyrene</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_33-19-2 - Mono basic phenols</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_124-48-1 - Dibromochlorometane</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_127-18-4 - Tetrachloroethylene</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_1333-82-0 - Chromium trioxide (CrO3)</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_79-01-6 - Trichloroethylene</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_86-73-7 - Fluorene</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">CAS_886-50-0 - Terbutryn</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_3133-04-8 - CODMn</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_33-05-6 - BTEX</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">undefined</p></td>
+<td><p class="sd-card-text">EEA_33-29-4 - Surfactants (anionic)</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-number">Example 21 </span><span class="caption-text">Substances for which natural background levels were reported - 3rd cycle</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span><span class="k">SELECT</span><span class="w"> </span><span class="k">ISNULL</span><span class="p">(</span><span class="n">b</span><span class="p">.[</span><span class="n">parameterGroup</span><span class="p">],</span><span class="s1">&#39;undefined&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">parameterGroup</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="p">,[</span><span class="n">gwPollutantCode</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">parameter</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nCountries</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nWaterBodies</span>
+<span class="linenos"> 6</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_GWPollutant</span><span class="p">]</span><span class="w"> </span><span class="n">a</span>
+<span class="linenos"> 7</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos"> 8</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">VALUES</span>
+<span class="linenos">10</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_18540-29-9&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chromium VI&#39;</span><span class="p">),</span>
+<span class="linenos">11</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7429-90-5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Aluminium and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">12</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7439-89-6&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Iron and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">13</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7439-92-1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Lead and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">14</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7439-96-5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Manganese and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">15</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7439-97-6&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mercury and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">16</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7439-98-7&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Molybdenum and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">17</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-02-0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Nickel and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">18</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-28-0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Thallium&#39;</span><span class="p">),</span>
+<span class="linenos">19</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-36-0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Antimony&#39;</span><span class="p">),</span>
+<span class="linenos">20</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-38-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Arsenic and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">21</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-39-3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Barium&#39;</span><span class="p">),</span>
+<span class="linenos">22</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-42-8&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Boron&#39;</span><span class="p">),</span>
+<span class="linenos">23</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-43-9&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cadmium and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">24</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-47-3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chromium and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">25</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-48-4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cobalt and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">26</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-50-8&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Copper and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">27</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-61-1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Uranium&#39;</span><span class="p">),</span>
+<span class="linenos">28</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-62-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Vanadium and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">29</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-66-6&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Zinc and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">30</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Metals and Metalloids&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7782-49-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Selenium and its compounds&#39;</span><span class="p">),</span>
+<span class="linenos">31</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_14265-44-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Phosphate&#39;</span><span class="p">),</span>
+<span class="linenos">32</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_14797-55-8&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Nitrate&#39;</span><span class="p">),</span>
+<span class="linenos">33</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_14797-65-0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Nitrite&#39;</span><span class="p">),</span>
+<span class="linenos">34</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_14798-03-9&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Ammonium&#39;</span><span class="p">),</span>
+<span class="linenos">35</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_16887-00-6&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chloride&#39;</span><span class="p">),</span>
+<span class="linenos">36</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_16984-48-8&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fluoride&#39;</span><span class="p">),</span>
+<span class="linenos">37</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_18785-72-3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sulphate&#39;</span><span class="p">),</span>
+<span class="linenos">38</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_71-52-3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hydrogen Carbonate Bicarbonate HCO3&#39;</span><span class="p">),</span>
+<span class="linenos">39</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7439-95-4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Magnesium&#39;</span><span class="p">),</span>
+<span class="linenos">40</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-09-7&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Potassium&#39;</span><span class="p">),</span>
+<span class="linenos">41</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-23-5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sodium&#39;</span><span class="p">),</span>
+<span class="linenos">42</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7440-70-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Calcium&#39;</span><span class="p">),</span>
+<span class="linenos">43</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Major Ions and Nutrients&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_7723-14-0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Total phosphorus&#39;</span><span class="p">),</span>
+<span class="linenos">44</span><span class="w">  </span>
+<span class="linenos">45</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Other parameter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_14998-27-7&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chlorite&#39;</span><span class="p">),</span>
+<span class="linenos">46</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Other parameter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAS_64743-03-9&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Phenols&#39;</span><span class="p">),</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Physico-chemical Parameters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EEA_3121-01-5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Water temperature&#39;</span><span class="p">),</span>
+<span class="linenos">49</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Physico-chemical Parameters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EEA_3142-01-6&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electrical conductivity&#39;</span><span class="p">),</span>
+<span class="linenos">50</span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Physico-chemical Parameters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EEA_3152-01-0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pH&#39;</span><span class="p">)</span>
+<span class="linenos">51</span><span class="w">  </span>
+<span class="linenos">52</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="n">parameterGroup</span><span class="p">,</span><span class="w"> </span><span class="n">parameterCode</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">b</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">gwPollutantCode</span><span class="p">]</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">parameterCode</span><span class="o">+</span><span class="s1">&#39; - %&#39;</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">gwPollutantBackgroundLevelSet</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;yes&#39;</span><span class="w"> </span>
+<span class="linenos">57</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span>
+<span class="linenos">58</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">59</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">gwPollutantCode</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;EEA_00-00-0 - Other parameter&#39;</span>
+<span class="linenos">60</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">gwPollutantCode</span><span class="p">]</span>
+<span class="linenos">61</span><span class="w">    </span><span class="p">,</span><span class="n">b</span><span class="p">.[</span><span class="n">parameterGroup</span><span class="p">]</span>
+<span class="linenos">62</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">desc</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">gwPollutantCode</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id13">
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-cis-guidance-18" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>,<a role="doc-backlink" href="#id8">4</a>)</span>
+<p>European Commission and Directorate-General for Environment. Guidance document No 18: Guidance on groundwater status and trend assessment. Common Implementation Strategy for the Water Framework Directive (2000/60/EC), European Commission, 2009. URL: <a class="reference external" href="https://circabc.europa.eu/rest/download/7a95729a-44e9-4996-b993-7a95a58fc75a">https://circabc.europa.eu/rest/download/7a95729a-44e9-4996-b993-7a95a58fc75a</a>, <a class="reference external" href="https://doi.org/doi/10.2779/77587">doi:doi/10.2779/77587</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-gsi2026aquifer" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id11">2</a>)</span>
+<p>Geological Survey Ireland. Aquifer classification. <a class="reference external" href="https://www.gsi.ie/en-ie/programmes-and-projects/groundwater/activities/understanding-ireland-groundwater/aquifer-classification/Pages/Aquifer-classification-how-to.aspx">https://www.gsi.ie/en-ie/programmes-and-projects/groundwater/activities/understanding-ireland-groundwater/aquifer-classification/Pages/Aquifer-classification-how-to.aspx</a>, 2026. Division of Department of Climate, Energy and the Environment.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-mastrandrea2010guidance" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<p>M. D. Mastrandrea, C. B. Field, T. F. Stocker, O. Edenhofer, K. L. Ebi, D. J. Frame, H. Held, E. Kriegler, K. J. Mach, P. R. Matschoss, and G. K. Plattner. Guidance note for lead authors of the IPCC fifth assessment report on consistent treatment of uncertainties. Technical Report, Intergovernmental Panel on Climate Change (IPCC), 2010. URL: <a class="reference external" href="https://www.ipcc.ch/site/assets/uploads/2017/08/AR5_Uncertainty_Guidance_Note.pdf">https://www.ipcc.ch/site/assets/uploads/2017/08/AR5_Uncertainty_Guidance_Note.pdf</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-mastrandrea2011ipcc" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">4</a><span class="fn-bracket">]</span></span>
+<p>M. D. Mastrandrea, K. J. Mach, G. K. Plattner, and others. The IPCC AR5 guidance note on consistent treatment of uncertainties: a common approach across the working groups. <em>Climatic Change</em>, 108:675, 2011. <a class="reference external" href="https://doi.org/10.1007/s10584-011-0178-6">doi:10.1007/s10584-011-0178-6</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-kause2022confidence" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">5</a><span class="fn-bracket">]</span></span>
+<p>A. Kause, W. Bruine de Bruin, J. Persson, and others. Confidence levels and likelihood terms in IPCC reports: a survey of experts from different scientific disciplines. <em>Climatic Change</em>, 173:2, 2022. <a class="reference external" href="https://doi.org/10.1007/s10584-022-03382-3">doi:10.1007/s10584-022-03382-3</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-gw-dependent-terrestrial-ecosystems" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">6</a><span class="fn-bracket">]</span></span>
+<p>European Commission and Directorate-General for Environment. Technical report on groundwater dependent terrestrial ecosystems . Technical report. No 6. Technical Report, European Commission, 2012. URL: <a class="reference external" href="https://data.europa.eu/doi/10.2779/93018">https://data.europa.eu/doi/10.2779/93018</a>, <a class="reference external" href="https://doi.org/doi/10.2779/93018">doi:doi/10.2779/93018</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-macdonald2004gis" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">7</a><span class="fn-bracket">]</span></span>
+<p>A. M. MacDonald, D. F. Ball, and B. É. Ó Dochartaigh. A GIS of aquifer productivity in Scotland: explanatory notes. Technical Report Commissioned Report CR/04/047N, British Geological Survey, 2004. URL: <a class="reference external" href="https://nora.nerc.ac.uk/id/eprint/504764/1/CR-04-047N_SEPA\%20Aq\%20productivity.pdf">https://nora.nerc.ac.uk/id/eprint/504764/1/CR-04-047N_SEPA\%20Aq\%20productivity.pdf</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="WFDMeasures.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Programme of measures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDGroundwaterMethodologies.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Groundwater methodologies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-structure-3rd-cycle">Current structure - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gwb-2022-schema-3rd-cycle">GWB_2022 schema - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-structure-4th-cycle">Proposed structure - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-dataset-4th-cycle">Descriptive dataset - 4th cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemptions">Exemptions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodologies-dataset-4th-cycle">Methodologies dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-dataset-4th-cycle">Spatial dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-dataset-4th-cycle">Documents dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codelists-4th-cycle">Codelists - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-3rd-cycle">Data analysis - 3rd cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geological-formation">Geological formation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aquifer-productivity">Aquifer productivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reasons-for-failure">Reasons for failure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-background-levels">Natural background levels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDGroundWaterBody.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDGroundWaterBody.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

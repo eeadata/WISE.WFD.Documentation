@@ -1,0 +1,2272 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exemptions &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDExemptions';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Economic analysis" href="WFDEconomicAnalysis.html" />
+    <link rel="prev" title="Surface water methodologies" href="WFDSurfaceWaterMethodologies.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Exemptions</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exemptions">
+<span id="heading-wfd-exemptions"></span><h1>Exemptions<a class="headerlink" href="#exemptions" title="Link to this heading">#</a></h1>
+<div class="dropdown admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Updated: 2026-08-25</p>
+<ul class="simple">
+<li><p>Moved the protected area exemptions to the WFD Protected Area dataflow section.</p></li>
+</ul>
+</div>
+<section id="purpose-and-overview">
+<span id="heading-wfd-exemptions-purpose-and-overview"></span><h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>This section revises the reporting of information related to Exemptions
+in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
+It also presents a proposal for simplifying the electronic reporting in the 4th cycle.</p>
+</section>
+<section id="current-structure-3rd-cycle">
+<span id="heading-wfd-exemptions-reporting-of-exemptions-3rd-cycle"></span><h2>Current structure - 3rd cycle<a class="headerlink" href="#current-structure-3rd-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The information related to exemptions in the surface water methodologies schema
+(SWExemption class, see <a class="reference internal" href="#exemptions-3rdcycle-swmet-classdiagram"><span class="std std-numref">Figure 91</span></a>)
+will not be requested in the 4th cycle structured data reporting
+(i.e. it is provided only in the RBMP documents).</p></li>
+<li><p>The information related to exemptions in the groundwater water methodologies schema
+(GWExemption class, see <a class="reference internal" href="#exemptions-3rdcycle-gwmet-classdiagram"><span class="std std-numref">Figure 92</span></a>).
+will not be requested in the 4th cycle structured data reporting
+(i.e. it is provided only in the RBMP documents).</p></li>
+</ul>
+<figure class="align-center" id="exemptions-3rdcycle-swmet-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram 
+class SWExemptions [&quot;«XSDcomplexType»
+SWMET::SWExemptions&quot;]{
+  «XSDelement»
+  + swExemption44Impact: SignificantImpactType_Enum [1..*]
+  + swExemption44Driver: Driver_Enum [1..*]
+  + swExemption45Impact: SignificantImpactType_Enum [1..*]
+  + swExemption45Driver: Driver_Enum [1..*]
+  + swDisproportionateCost: YesNoCode_Enum
+  + swDisproportionateCostScale: GeographicalScale_Enum [0..*]
+  + swDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
+  + swDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
+  + swDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
+  + swTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
+  + swNaturalConditions: SWNaturalConditions_Enum [1..*]
+  + swExemption46: Exemption46_Enum [1..*]
+  + swExemption47: Exemption47_Enum [1..*]
+  + swExemptionsTransboundary: YesNoNotApplicable_Union_Enum
+  + swExemptionsReference: ReferenceType [1..*]
+  + driversSWExemptionsReference: ReferenceType [1..*]
+}
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 91 </span><span class="caption-text">SWMET schema, SWExemptions class - 3rd cycle - OBSOLETE</span><a class="headerlink" href="#exemptions-3rdcycle-swmet-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="exemptions-3rdcycle-gwmet-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram 
+class GWExemptions[&quot;«XSDcomplexType» 
+GWMET::GWExemptions&quot;]{
+  «XSDelement»
+  + gwExemption44Impact: SignificantImpactType_Enum [1..*]
+  + gwExemption44Driver: Driver_Enum [1..*]
+  + gwExemption45Impact: SignificantImpactType_Enum [1..*]
+  + gwExemption45Driver: Driver_Enum [1..*]
+  + gwDisproportionateCost: YesNoCode_Enum
+  + gwDisproportionateCostScale: GeographicalScale_Enum [0..*]
+  + gwDisproportionateCostAnalysis: DisproportionateCostAnalysis_Enum [0..*]
+  + gwDisproportionateCostAlternativeFinancing: DisproportionateCostAlternativeFinancing_Enum [0..*]
+  + gwDisproportionateCostOtherEULegislation: YesNoCode_Enum [0..1]
+  + gwTechnicalInfeasibility: TechnicalInfeasibility_Enum [1..*]
+  + gwNaturalConditions: GWNaturalConditions_Enum [1..*]
+  + gwExemption46: Exemption46_Enum [1..*]
+  + gwExemption47: Exemption47_Enum [1..*]
+  + gwExemptionsTransboundary: YesNoNotApplicable_Union_Enum
+  + gwExemptionsReference: ReferenceType [1..*]
+  + driversGWExemptionsReference: ReferenceType [1..*]
+}
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 92 </span><span class="caption-text">GWMET schema, GWExemptions class - 3rd cycle - OBSOLETE</span><a class="headerlink" href="#exemptions-3rdcycle-gwmet-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="proposed-structure-4th-cycle">
+<span id="heading-wfd-exemptions-reporting-of-exemptions-4th-cycle"></span><h2>Proposed structure - 4th cycle<a class="headerlink" href="#proposed-structure-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The duplicate reporting of the ecological exemptions -
+both at surface water body level <em>and</em> at quality element level -
+is removed in the revised model for the 4th cycle reporting</p>
+<p>The reporting of ecological, chemical and quantitative exemptions
+is aligned into tables with a similar structure:</p>
+<ul class="simple">
+<li><p>The water body to which the exemption applies is always identified.</p></li>
+<li><p>For ecological exemptions, the quality element is identified.</p></li>
+<li><p>For chemical exemptions, the substance is identified.</p></li>
+<li><p>For exemptions associated with protected areas
+where specific objectives were set but not met,
+the type of protected area is identified,
+but the identification of the specific protected area
+is only requested for Natura2000 sites.</p></li>
+</ul>
+<p>The remaining attributes (see <a class="reference internal" href="#exemptionabstractclass"><span class="std std-numref">Figure 93</span></a>) identify:</p>
+<ul class="simple">
+<li><p>the exemption type (<code class="docutils literal notranslate"><span class="pre">exemptionType</span></code>),</p></li>
+<li><p>the reason why the exemption is applied (<code class="docutils literal notranslate"><span class="pre">exemptionRationale</span></code>),</p></li>
+<li><p>the expected exemption period (<code class="docutils literal notranslate"><span class="pre">exemptionPeriod</span></code>) until good status is achieved,</p></li>
+<li><p>and the significant pressure causing failure, if applicable (<code class="docutils literal notranslate"><span class="pre">exemptionPressureType</span></code>).</p></li>
+</ul>
+<p>Reference to additional information in the RBMPs documentation can be provided via the <code class="docutils literal notranslate"><span class="pre">exemptionReference</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">exemptionPeriod</span></code> replaces the following attributes requested in the 3rd cycle:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">swEcologicalStatusOrPotentialExpectedAchievementDate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">swChemicalStatusExpectedAchievementDate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gwChemicalStatusExpectedAchievementDate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gwQuantitativeStatusExpectedAchievementDate</span></code>
+See <a class="reference internal" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram"><span class="std std-numref">Figure 101</span></a>.</p></li>
+</ul>
+<figure class="align-center" id="exemptionabstractclass">
+<pre  class="mermaid">
+        %%{init: {'theme': 'neutral'}}%%
+classDiagram
+class Exemption [&quot;«Abstract»
+Exemption&quot;]{
+    / exemptionType : ExemptionType
+    + exemptionRationale : ExemptionRationale [1..n]
+    + exemptionPeriod : ExemptionPeriod
+    + exemptionReference : referenceIdentifier [0..1]
+    + exemptionPressureType : PressureType [0..n]
+}
+    </pre><figcaption>
+<p><span class="caption-number">Figure 93 </span><span class="caption-text">Exemption - 4th cycle - Abstract pattern for illustrative purposes</span><a class="headerlink" href="#exemptionabstractclass" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="surface-water-ecological-exemptions-by-quality-element">
+<span id="heading-wfd-exemptions-surface-water-bodies-ecological-exemptions-by-quality-element"></span><h2>Surface water  - ecological exemptions by quality element<a class="headerlink" href="#surface-water-ecological-exemptions-by-quality-element" title="Link to this heading">#</a></h2>
+<p>Ecological exemptions are only reported at quality element level, avoiding duplication.<br />
+Ecological exemptions are reported using the table in <a class="reference internal" href="#exemptions-4thcycle-swecologicalexemption-classdiagram"><span class="std std-numref">Figure 94</span></a>.</p>
+<figure class="align-center" id="exemptions-4thcycle-swecologicalexemption-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+class SWEcologicalExemption{
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + qeCode: QualityElement 
+    / exemptionType: ExemptionType
+    + exemptionRationale: ExemptionRationale [1..n]
+    + exemptionPeriod: ExemptionPeriod
+    + exemptionReference: referenceCode [0..1]
+    + significantPressureType: PressureType [1..n]
+}
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 94 </span><span class="caption-text">Surface Water Body - Ecological Exemption - 4th cycle</span><a class="headerlink" href="#exemptions-4thcycle-swecologicalexemption-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The diagram below presents the applicability criteria for the different exemption types (<a class="reference internal" href="#exemptions-ecologicalexemption-flowchart"><span class="std std-numref">Figure 95</span></a>).</p>
+<figure class="align-center" id="exemptions-ecologicalexemption-flowchart">
+<pre  class="mermaid">
+        ---
+config:
+  layout: dagre
+  theme: neutral
+---
+flowchart LR
+
+%% Ecological Status Exemptions - Quality Elements
+title&#64;{ shape: braces, label: &quot;Surface Water &lt;br/&gt;Ecological Status Exemptions &lt;br/&gt; at Quality Element level, &lt;br/&gt; for QE1% and QE3%&quot; }
+
+%% Defining the nodes
+		
+initial([start])
+final([end])
+
+%% duplicate nodes for just for flowchart readability
+hasNoApplicableExemption_1(&quot;no exemption &lt;br/&gt; applicable&quot;):::stateRed
+hasNoApplicableExemption_2(&quot;no exemption &lt;br/&gt; required&quot;):::stateBlue
+hasNoApplicableExemption_3(&quot;no exemption &lt;br/&gt; applicable&quot;):::stateRed
+hasNoApplicableExemption_4(&quot;no exemption &lt;br/&gt; applicable&quot;):::stateRed
+
+hasExemption44n(&quot;Article 4(4) &lt;br/&gt; Extension of deadline &lt;br/&gt; (natural conditions)&quot;):::state
+hasExemption45(&quot;Article 4(5) &lt;br/&gt; Less stringent objectives&quot;):::state
+hasExemption46(&quot;Article 4(6) &lt;br/&gt; Temporary deterioration&quot;):::state
+
+hasExemption47(&quot;Article 4(7) &lt;br/&gt; New modification/project&quot;):::state
+hasExemption47a(&quot;Article 4(7a) &lt;br/&gt; Short-term impact&quot;):::state
+hasExemption47b(&quot;Article 4(7b) &lt;br/&gt; Relocation of water or sediment&quot;):::state
+hasExemption154(&quot;UWWTD Article 15(4) &lt;br/&gt; Domestic wastewater load &lt;br/&gt;from new/refurbished UWWT&quot;):::state
+
+%% Defining the decisions
+
+isStatusIn2027{&quot;Ecological Status &lt;br/&gt; or Potential &lt;br/&gt; in 2027?&quot;}
+isDeteriorationExpected{&quot;Deterioration &lt;br/&gt; expected &lt;br/&gt; beyond 2027?&quot;}
+isDeteriorationObserved{&quot;Deterioration &lt;br/&gt; observed &lt;br/&gt; in 2027 or earlier?&quot;}
+isDeteriorationCause{&quot;Is deterioration &lt;br/&gt; caused by?&quot;}
+isGoodStatusAchievable{&quot;Is good status &lt;br/&gt; achievable?&quot;}
+isUnfeasibleOrCostly{&quot;Are measures &lt;br/&gt; unfeasible or &lt;br/&gt; disproportionately costly?&quot;}
+isDelayDueToNaturalConditions{&quot;Delay due &lt;br/&gt;to natural conditions?&quot;}
+
+%% Flow to TERMINATORS
+
+initial --&gt; isStatusIn2027
+hasNoApplicableExemption_1 --&gt; final
+hasNoApplicableExemption_2 --&gt; final
+hasNoApplicableExemption_3 --&gt; final
+hasNoApplicableExemption_4 --&gt; final
+
+hasExemption47 --&gt; final 
+hasExemption47a --&gt; final 
+hasExemption47b --&gt; final 
+hasExemption154 --&gt; final 
+hasExemption46 --&gt; final 
+hasExemption45 --&gt; final 
+hasExemption44n --&gt; final 
+
+%% THE IMPORTANT PART STARTS HERE
+
+%% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
+isStatusIn2027 ==&gt;|&quot;unknown&quot;|hasNoApplicableExemption_1
+
+%% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
+isStatusIn2027 ==&gt;|&quot;not failing &lt;br/&gt;[ high &lt;br/&gt; OR maximum &lt;br/&gt; OR good ]&quot;|isDeteriorationExpected
+isDeteriorationExpected ==&gt;|no|hasNoApplicableExemption_2
+
+%% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
+isDeteriorationExpected ==&gt; |yes|isDeteriorationCause
+
+isDeteriorationCause ==&gt; |&quot;[new modification &lt;br/&gt; OR sustainable human development]&quot;|hasExemption47
+isDeteriorationCause ==&gt; |&quot;[short-term impact]&quot;|hasExemption47a
+isDeteriorationCause ==&gt; |&quot;[relocation of &lt;br/&gt;water or sediment]&quot;|hasExemption47b
+isDeteriorationCause ==&gt; |&quot;[increased load &lt;br/&gt;from new/refurbished UWWT]&quot;|hasExemption154
+isDeteriorationCause ==&gt; |&quot;[other causes]&quot;|hasNoApplicableExemption_3
+
+%% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
+isStatusIn2027 ==&gt;|&quot;failing &lt;br/&gt; [moderate OR &lt;br/&gt; poor OR &lt;br/&gt; bad OR &lt;br/&gt;lessThanGood ]&quot;|isDeteriorationObserved
+isDeteriorationObserved ==&gt;|&quot;yes &lt;br/&gt;[other causes]&quot;|isDeteriorationCause
+isDeteriorationObserved ==&gt;|&quot;yes &lt;br/&gt;[accidents &lt;br/&gt;OR force majeure &lt;br/&gt;OR natural causes]&quot;|hasExemption46
+isDeteriorationObserved ==&gt;|no|isGoodStatusAchievable
+
+%% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
+isGoodStatusAchievable ==&gt;|no|isUnfeasibleOrCostly
+isUnfeasibleOrCostly ==&gt; |yes|hasExemption45
+isUnfeasibleOrCostly ==&gt; |no|hasNoApplicableExemption_4
+
+%% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
+isGoodStatusAchievable ==&gt;|yes|isDelayDueToNaturalConditions
+isDelayDueToNaturalConditions ==&gt;|no|hasNoApplicableExemption_4
+isDelayDueToNaturalConditions ==&gt;|yes|hasExemption44n
+
+%% styling
+classDef state stroke-width:4px,fill:transparent
+classDef stateRed stroke:red,fill:transparent
+classDef stateBlue stroke:blue,fill:transparent
+    </pre><figcaption>
+<p><span class="caption-number">Figure 95 </span><span class="caption-text">Surface Water Body - Ecological Exemption Decision Tree - 4th cycle</span><a class="headerlink" href="#exemptions-ecologicalexemption-flowchart" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following conditions apply:</p>
+<ol class="arabic simple">
+<li><p>Ecological exemptions are not reported for Territorial Waters.</p></li>
+<li><p>Ecological exemptions are not reported for hydromorphological quality elements.</p></li>
+<li><p>Ecological exemptions are not reported for QE3-3
+(see <a class="reference internal" href="#heading-wfd-exemptions-surface-water-bodies-chemical-exemptions-by-pollutant"><span class="std std-ref">Surface water - chemical exemptions by pollutant</span></a>).</p></li>
+<li><p>Ecological exemptions are not reported for quality elements not used in the ecological status assessment
+(because they are not applicable to a given water category or a given national type).</p></li>
+<li><p>Reporting is mandatory for biological quality elements in moderate, poor or bad status or potential.</p></li>
+<li><p>Reporting is mandatory for physico-chemical quality elements is less than good status or potential.</p></li>
+<li><p>Exemptions are not applicable to quality elements with unknown status.</p></li>
+<li><p>For short-term impacts over biological quality elements, the maximum exemption period is three years.</p></li>
+<li><p>For short-term impacts over physico-chemical quality elements, the maximum exemption period is one year.</p></li>
+<li><p>Exemptions related to relocation of water or sediment are not applicable to biological quality elements.</p></li>
+<li><p>Exemptions under the Groundwater Directive are not allowed for surface waters.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">See code</p>
+<ol class="arabic simple">
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">waterBodyCategory</span> <span class="pre">=</span> <span class="pre">'TeW'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">LIKE</span> <span class="pre">'QE2%'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">=</span> <span class="pre">'QE3-3'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeStatusOrPotentialValue</span> <span class="pre">=</span> <span class="pre">'notApplicable'</span></code></p></li>
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">LIKE</span> <span class="pre">'QE1%'</span> <span class="pre">AND</span> <span class="pre">qeStatusOrPotentialValue</span> <span class="pre">in</span> <span class="pre">('3','4','5')</span></code></p></li>
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">LIKE</span> <span class="pre">'QE3%'</span> <span class="pre">AND</span> <span class="pre">qeStatusOrPotentialValue</span> <span class="pre">=</span> <span class="pre">'3'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeStatusOrPotentialValue</span> <span class="pre">=</span> <span class="pre">'unknown'</span> <span class="pre">AND</span> <span class="pre">ISNULL(exemptionType,'')</span> <span class="pre">=!</span> <span class="pre">'notApplicable'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">LIKE</span> <span class="pre">'QE1%'</span> <span class="pre">AND</span> <span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47a_shortTermImpact'</span> <span class="pre">AND</span> <span class="pre">exemptionPeriod</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">('upToOneYear','upToThreeYears','until2027')</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">LIKE</span> <span class="pre">'QE3%'</span> <span class="pre">AND</span> <span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47a_shortTermImpact'</span> <span class="pre">AND</span> <span class="pre">exemptionPeriod</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">('upToOneYear','until2027')</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">LIKE</span> <span class="pre">'QE1%'</span> <span class="pre">AND</span> <span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47b_relocationOfWaterOrSediment'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'gwdArticle63_exemptionOfMeasures'</span></code></p></li>
+</ol>
+</div>
+</section>
+<section id="surface-water-chemical-exemptions-by-pollutant">
+<span id="heading-wfd-exemptions-surface-water-bodies-chemical-exemptions-by-pollutant"></span><h2>Surface water - chemical exemptions by pollutant<a class="headerlink" href="#surface-water-chemical-exemptions-by-pollutant" title="Link to this heading">#</a></h2>
+<p>Chemical exemptions are reported using the table
+in <a class="reference internal" href="#exemptions-4thcycle-swchemicalexemption-classdiagram"><span class="std std-numref">Figure 96</span></a>.<br />
+In the 4th cycle of reporting, exemptions associated with river basin specific pollutants
+are reported as as chemical exemptions,
+and not as exemptions associated with the quality element “QE3-3 - River Basin Specific Pollutants”.</p>
+<figure class="align-center" id="exemptions-4thcycle-swchemicalexemption-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+class SWChemicalExemption{
+    + euSurfaceWaterBodyCode: wiseIdentifier
+    + swPollutantCode: Substance
+    / exemptionType: ExemptionType
+    + exemptionRationale: ExemptionRationale [1..n]
+    + exemptionPeriod: ExemptionPeriod
+    + exemptionReference: referenceCode [0..1]
+    + significantPressureType: PressureType [1..n]
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 96 </span><span class="caption-text">Surface Water Body - Chemical Exemption - 4th cycle</span><a class="headerlink" href="#exemptions-4thcycle-swchemicalexemption-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The diagram below presents the applicability criteria for the different exemption types (<a class="reference internal" href="#exemptions-chemicalexemption-flowchart"><span class="std std-numref">Figure 97</span></a>).</p>
+<ul class="simple">
+<li><p>In 2027, exemptions are not yet required, if the pollutant is causing failure to achieve good status AND:</p>
+<ul>
+<li><p>the pollutant is a 2026 Priority Substance,</p></li>
+<li><p>the pollutant is a 2008 or 2013 Priority Substance for which the EQS was made more strict in 2026</p></li>
+</ul>
+</li>
+<li><p>Article 4(7) exemptions may be applicable for indirect deterioration of chemical status,
+where it is the indirect result of modifications to physical characteristics (Article 4(7), first indent).</p></li>
+</ul>
+<figure class="align-center" id="exemptions-chemicalexemption-flowchart">
+<pre  class="mermaid">
+        ---
+config:
+  layout: dagre
+  theme: neutral
+---
+flowchart LR
+
+%% Surface Water Chemical Exemptions and Groundwater Chemical Exemptions
+title&#64;{ shape: braces, label: &quot;Surface Water &lt;br/&gt;Chemical Exemptions &lt;br/&gt;and Groundwater &lt;br/&gt;Chemical Exemptions&quot; }
+
+%% Defining the nodes
+		
+initial([start])
+final([end])
+
+%% duplicate nodeS for just for flowchart readability
+hasNoApplicableExemption_1(&quot;no exemption &lt;br/&gt;required&quot;):::stateBlue
+hasNoApplicableExemption_2(&quot;no exemption &lt;br/&gt;applicable&quot;):::stateRed
+hasNoApplicableExemption_3(&quot;no exemption &lt;br/&gt;required&quot;):::stateBlue
+hasNoApplicableExemption_4(&quot;no exemption &lt;br/&gt;applicable&quot;):::stateRed
+hasNoApplicableExemption_5(&quot;no exemption &lt;br/&gt;applicable&quot;):::stateRed
+hasNoApplicableExemption_6(&quot;no exemption &lt;br/&gt;applicable&quot;):::stateRed
+
+hasExemption44(&quot;Article 4(4) &lt;br/&gt; Extension of deadline &lt;br/&gt; (natural conditions)&quot;):::state
+hasExemption45(&quot;Article 4(5) &lt;br/&gt; Less stringent objectives&quot;):::state
+hasExemption46(&quot;Article 4(6) &lt;br/&gt; Temporary deterioration&quot;):::state
+
+hasExemption47(&quot;Article 4(7) &lt;br/&gt; New modification/project&quot;):::state
+hasExemption47a(&quot;Article 4(7a) &lt;br/&gt; Short-term impact&quot;):::state
+hasExemption47b(&quot;Article 4(7b) &lt;br/&gt; Relocation of water or sediment&quot;):::state
+hasExemption154(&quot;UWWTD Article 15(4) &lt;br/&gt; Domestic wastewater load &lt;br/&gt;from new/refurbished UWWT&quot;):::state
+
+%% Defining the decisions
+
+%% WE NEED THE LISTS!
+is2026Substance{&quot;2026 &lt;br/&gt;priority substance?&quot;}
+is2013Substance{&quot;2013 &lt;br/&gt;priority substance?&quot;}
+
+isCausingFailureIn2027{&quot;Causing failure &lt;br/&gt; in 2027?&quot;}
+isDeteriorationExpected{&quot;Deterioration &lt;br/&gt;expected &lt;br/&gt; beyond 2027?&quot;}
+isDeteriorationObserved{&quot;Deterioration &lt;br/&gt;observed &lt;br/&gt; in 2027 or earlier?&quot;}
+isDeteriorationCause{&quot;Is deterioration &lt;br/&gt; caused by?&quot;}
+isGoodStatusAchievable{&quot;Is good status &lt;br/&gt; achievable?&quot;}
+isUnfeasibleOrCostly{&quot;Are measures &lt;br/&gt;unfeasible or &lt;br/&gt;disproportionately costly?&quot;}
+isDelayDueToNaturalConditions{&quot;Delay due &lt;br/&gt;to natural conditions?&quot;}
+isDelayDueToFeasibilityOrCost{&quot;Delay due &lt;br/&gt;to technical feasibility &lt;br/&gt;OR disproportionate cost?&quot;}
+
+%% Flow to TERMINATORS
+
+initial --&gt; is2026Substance
+hasNoApplicableExemption_1 --&gt; final
+hasNoApplicableExemption_2 --&gt; final
+hasNoApplicableExemption_3 --&gt; final
+hasNoApplicableExemption_4 --&gt; final
+hasNoApplicableExemption_5 --&gt; final
+hasNoApplicableExemption_6 --&gt; final
+
+hasExemption47 --&gt; final 
+hasExemption47a --&gt; final 
+hasExemption47b --&gt; final 
+hasExemption154 --&gt; final 
+hasExemption46 --&gt; final 
+hasExemption45 --&gt; final 
+hasExemption44 --&gt; final 
+
+%% THE IMPORTANT PART STARTS HERE
+
+%% EXEMPTIONS DON'T APPLY TO 2026 SUBSTANCES
+is2026Substance ==&gt; |yes| hasNoApplicableExemption_1
+is2026Substance ==&gt; |no| isCausingFailureIn2027
+
+%% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
+isCausingFailureIn2027 ==&gt; |unknown| hasNoApplicableExemption_2
+
+%% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
+isCausingFailureIn2027 ==&gt; |no| isDeteriorationExpected
+isDeteriorationExpected ==&gt; |no| hasNoApplicableExemption_3
+
+%% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
+isDeteriorationExpected ==&gt; |yes|isDeteriorationCause
+
+isDeteriorationCause ==&gt; |&quot;[new modification &lt;br/&gt; OR sustainable human development]&quot;|hasExemption47
+isDeteriorationCause ==&gt; |&quot;[short-term impact]&quot;|hasExemption47a
+isDeteriorationCause ==&gt; |&quot;[relocation of &lt;br/&gt;water or sediment]&quot;|hasExemption47b
+isDeteriorationCause ==&gt; |&quot;[increased load &lt;br/&gt;from new/refurbished UWWT]&quot;|hasExemption154
+isDeteriorationCause ==&gt; |&quot;[other causes]&quot;|hasNoApplicableExemption_4
+
+%% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
+isCausingFailureIn2027 ==&gt; |yes| isDeteriorationObserved
+isDeteriorationObserved ==&gt;|&quot;yes &lt;br/&gt;[other causes]&quot;|isDeteriorationCause
+isDeteriorationObserved ==&gt;|&quot;yes &lt;br/&gt;[accidents &lt;br/&gt;OR force majeure &lt;br/&gt;OR natural causes]&quot;|hasExemption46
+isDeteriorationObserved ==&gt;|no|isGoodStatusAchievable
+
+%% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
+isGoodStatusAchievable ==&gt;|no|isUnfeasibleOrCostly
+isUnfeasibleOrCostly ==&gt; |yes|hasExemption45
+isUnfeasibleOrCostly ==&gt; |no|hasNoApplicableExemption_5
+
+%% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
+isGoodStatusAchievable ==&gt; |yes| isDelayDueToNaturalConditions
+isDelayDueToNaturalConditions ==&gt; |yes| hasExemption44
+
+%% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - ONLY FOR 2013 SUBSTANCES
+isDelayDueToNaturalConditions ==&gt; |no| isDelayDueToFeasibilityOrCost
+isDelayDueToFeasibilityOrCost ==&gt; |yes| is2013Substance
+
+is2013Substance ==&gt; |yes| hasExemption44
+is2013Substance ==&gt; |no| hasNoApplicableExemption_6
+
+isDelayDueToFeasibilityOrCost ==&gt; |no| hasNoApplicableExemption_6
+
+%% styling
+classDef state stroke-width:4px,fill:transparent
+classDef stateRed stroke:red,fill:transparent
+classDef stateBlue stroke:blue,fill:transparent
+    </pre><figcaption>
+<p><span class="caption-number">Figure 97 </span><span class="caption-text">Surface Water Body - Chemical Exemption Decision Tree - 4th cycle</span><a class="headerlink" href="#exemptions-chemicalexemption-flowchart" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following conditions apply:</p>
+<ol class="arabic simple">
+<li><p>Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance
+and the pollutant is causing failure to achieve good status.</p></li>
+<li><p>Reporting is mandatory if the pollutant is a river basin specific pollutant
+causing failure to achieve good status.</p></li>
+<li><p>Exemptions are not applicable to pollutants with unknown status.</p></li>
+<li><p>In 2027, exemptions are not yet required, if the pollutant is
+a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
+and the pollutant is causing failure to achieve good status.</p></li>
+<li><p>In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost
+are only applicable if the pollutant is
+a 2013 Priority Substance (or a substance for which a stricter EQS was set in 2013).</p></li>
+<li><p>For short-term impacts, the maximum exemption period is one year.</p></li>
+<li><p>Exemptions under the Groundwater Directive are not allowed for surface waters.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">See code</p>
+<ol class="arabic simple">
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">swPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-2008-or-2013-priority-substances})</span> <span class="pre">AND</span> <span class="pre">swPollutantCausingFailure</span> <span class="pre">in</span> <span class="pre">'3'</span></code></p></li>
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">swPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-river-basin-specific-pollutants})</span> <span class="pre">AND</span> <span class="pre">swPollutantCausingFailure</span> <span class="pre">in</span> <span class="pre">'3'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">swPollutantCausingFailure</span> <span class="pre">=</span> <span class="pre">'unknown'</span> <span class="pre">AND</span> <span class="pre">ISNULL(exemptionType,'')</span> <span class="pre">=!</span> <span class="pre">'notApplicable'</span></code></p></li>
+<li><p>Not required: <code class="docutils literal notranslate"><span class="pre">swPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-2026-priority-substances})</span> <span class="pre">AND</span> <span class="pre">exemptionType</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">swPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-2013-priority-substances})</span> <span class="pre">AND</span> <span class="pre">ExemptionRationale</span> <span class="pre">IN</span> <span class="pre">('article44_technicalFeasibility','article44_disproportionateCost')</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47a_shortTermImpact'</span> <span class="pre">AND</span> <span class="pre">exemptionPeriod</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">('upToOneYear','until2027')</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'gwdArticle63_exemptionOfMeasures'</span></code></p></li>
+</ol>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Exemptions - <a class="reference internal" href="#heading-wfd-exemptions-surface-water-bodies-chemical-exemptions-by-pollutant"><span class="std std-ref">Surface water - chemical exemptions by pollutant</span></a></p>
+<p>EEA Water to provide list of substances under each of the categories (e.g. 2026 PS, 2013 PS, 2008 PS, has2026EQS).</p>
+</div>
+</section>
+<section id="surface-water-protected-area-exemptions">
+<h2>Surface water - protected area exemptions<a class="headerlink" href="#surface-water-protected-area-exemptions" title="Link to this heading">#</a></h2>
+<p>See the section about the WFD Protected Area dataflow: <a class="reference internal" href="WFDProtectedAreas.html#heading-wfd-protected-areas-surface-water-bodies-exemptions"><span class="std std-ref">Exemptions for surface water bodies associated with protected areas</span></a></p>
+</section>
+<section id="groundwater-chemical-exemptions-by-pollutant">
+<span id="heading-wfd-exemptions-groundwater-bodies-chemical-exemptions-by-pollutant"></span><h2>Groundwater - chemical exemptions by pollutant<a class="headerlink" href="#groundwater-chemical-exemptions-by-pollutant" title="Link to this heading">#</a></h2>
+<p>Chemical exemptions are reported using the table in <a class="reference internal" href="#exemptions-4thcycle-gwchemicalexemption-classdiagram"><span class="std std-numref">Figure 98</span></a>.</p>
+<figure class="align-center" id="exemptions-4thcycle-gwchemicalexemption-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+class GWChemicalExemption{
+	+ euGroundWaterBodyCode: wiseIdentifier
+	+ gwPollutantCode: Parameter
+	/ exemptionType: ExemptionType
+	+ exemptionRationale: ExemptionRationale [1..n]
+	+ exemptionPeriod: ExemptionPeriod
+	+ exemptionReference: referenceCode [0..1]
+	+ significantPressureType: PressureType [1..n]
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 98 </span><span class="caption-text">Groundwater Body - Chemical Exemption - 4th cycle</span><a class="headerlink" href="#exemptions-4thcycle-gwchemicalexemption-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following conditions apply:</p>
+<ol class="arabic simple">
+<li><p>Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance
+and the pollutant is causing failure to achieve good status.</p></li>
+<li><p>Reporting is mandatory if the pollutant is a groundwater pollutant
+(or indicator of pollution) causing failure to achieve good status.</p></li>
+<li><p>Exemptions are not applicable to pollutants with unknown status.</p></li>
+<li><p>In 2027, exemptions are not yet required, if the pollutant is
+a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
+and the pollutant is causing failure to achieve good status.</p></li>
+<li><p>In 2027, Article 4(4) exemptions due to technical feasibility or disproportionate cost
+are only applicable if the pollutant is
+a 2013 Priority Substance (or a substance for which a stricter EQS was set in 2013).</p></li>
+<li><p>For short-term impacts, the maximum exemption period is one year.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">See code</p>
+<ol class="arabic simple">
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">gwPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-2008-or-2013-priority-substances})</span> <span class="pre">AND</span> <span class="pre">gwPollutantCausingFailure</span> <span class="pre">in</span> <span class="pre">'3'</span></code></p></li>
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">gwPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-other-groundwater-pollutants})</span> <span class="pre">AND</span> <span class="pre">gwPollutantCausingFailure</span> <span class="pre">in</span> <span class="pre">'3'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">gwPollutantCausingFailure</span> <span class="pre">=</span> <span class="pre">'unknown'</span> <span class="pre">AND</span> <span class="pre">ISNULL(exemptionType,'')</span> <span class="pre">=!</span> <span class="pre">'notApplicable'</span></code></p></li>
+<li><p>Not required: <code class="docutils literal notranslate"><span class="pre">gwPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-2026-priority-substances})</span> <span class="pre">AND</span> <span class="pre">exemptionType</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">gwPollutantCode</span> <span class="pre">in</span> <span class="pre">({list-of-2013-priority-substances})</span> <span class="pre">AND</span> <span class="pre">ExemptionRationale</span> <span class="pre">IN</span> <span class="pre">('article44_technicalFeasibility','article44_disproportionateCost')</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47a_shortTermImpact'</span> <span class="pre">AND</span> <span class="pre">exemptionPeriod</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">('upToOneYear','until2027')</span></code></p></li>
+</ol>
+</div>
+<p>Article 4(7) exemptions may be applicable for indirect deterioration of chemical status,
+where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent).</p>
+<p>With the necessary adaptations,
+the diagram with the criteria applicable to surface water chemical exemptions
+(<a class="reference internal" href="#exemptions-chemicalexemption-flowchart"><span class="std std-numref">Figure 97</span></a>)
+is also applicable to groundwater pollutants and indicators of pollution.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Exemptions - <a class="reference internal" href="#heading-wfd-exemptions-groundwater-bodies-chemical-exemptions-by-pollutant"><span class="std std-ref">Groundwater - chemical exemptions by pollutant</span></a></p>
+<p>DG ENV to provide draft flowchart and quality control criteria:</p>
+<ul class="simple">
+<li><p>for the cases where GWD Article 6(3) is applicable</p></li>
+</ul>
+</div>
+</section>
+<section id="groundwater-quantitative-exemptions">
+<span id="heading-wfd-exemptions-groundwater-bodies-quantitative-exemptions"></span><h2>Groundwater - quantitative exemptions<a class="headerlink" href="#groundwater-quantitative-exemptions" title="Link to this heading">#</a></h2>
+<p>Quantitative exemptions are reported using the table in <a class="reference internal" href="#exemptions-4thcycle-gwquantitativeexemption-classdiagram"><span class="std std-numref">Figure 99</span></a>.</p>
+<figure class="align-center" id="exemptions-4thcycle-gwquantitativeexemption-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+class GWQuantitativeExemption{
+	+ euGroundWaterBodyCode: wiseIdentifier
+	/ exemptionType: ExemptionType
+	+ exemptionRationale: ExemptionRationale [1..n]
+	+ exemptionPeriod: ExemptionPeriod
+	+ exemptionReference: referenceCode [0..1]
+	+ significantPressureType: PressureType [1..n]
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 99 </span><span class="caption-text">Groundwater Body - Quantitative Exemption - 4th cycle</span><a class="headerlink" href="#exemptions-4thcycle-gwquantitativeexemption-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following conditions apply:</p>
+<ol class="arabic simple">
+<li><p>Reporting is mandatory if the water body is in poor quantitative status</p></li>
+<li><p>Exemptions are not applicable to water bodies with unknown quantitative status.</p></li>
+<li><p>For short-term impacts, the maximum exemption period is one year.</p></li>
+<li><p>Exemptions related to relocation of water or sediment are not applicable quantitative status.</p></li>
+<li><p>Exemptions related to the recast UWWTD are not applicable quantitative status.</p></li>
+<li><p>Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">See code</p>
+<ol class="arabic simple">
+<li><p>Mandatory: <code class="docutils literal notranslate"><span class="pre">gwQuantitativeStatusValue</span> <span class="pre">=</span> <span class="pre">'3'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">gwQuantitativeStatusValue</span> <span class="pre">=</span> <span class="pre">'unknown'</span> <span class="pre">AND</span> <span class="pre">ISNULL(exemptionType,'')</span> <span class="pre">=!</span> <span class="pre">'notApplicable'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47a_shortTermImpact'</span> <span class="pre">AND</span> <span class="pre">exemptionPeriod</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">('upToOneYear','until2027')</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'article47b_relocationOfWaterOrSediment'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'uwwtdArticle154_domesticUrbanWasteWater'</span></code></p></li>
+<li><p>Not allowed: <code class="docutils literal notranslate"><span class="pre">exemptionType</span> <span class="pre">=</span> <span class="pre">'gwdArticle63_exemptionOfMeasures'</span></code></p></li>
+</ol>
+</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Exemptions - Exemptions under the Groundwater Directive Article 6(3) are not allowed for quantitative status.<br />
+ENV to confirm that this exclusion also applies in the 4th cycle.</p>
+</div>
+<p>The diagram below presents the applicability criteria for the different exemption types
+(<a class="reference internal" href="#exemptions-quantitativeexemption-flowchart"><span class="std std-numref">Figure 100</span></a>).</p>
+<figure class="align-center" id="exemptions-quantitativeexemption-flowchart">
+<pre  class="mermaid">
+        ---
+config:
+  layout: dagre
+  theme: neutral
+---
+
+flowchart LR
+
+%% Groundwater Quantitative Status Exemptions
+title&#64;{ shape: braces, label: &quot;Groundwater Quantitative &lt;br/&gt;Status Exemptions&quot; }
+
+%% Defining the nodes
+		
+initial([start])
+final([end])
+
+%% duplicate nodeS for just for flowchart readability
+hasNoApplicableExemption_1(&quot;no exemption &lt;br/&gt;applicable&quot;):::stateRed
+hasNoApplicableExemption_2(&quot;no exemption &lt;br/&gt;required&quot;):::stateBlue
+hasNoApplicableExemption_3(&quot;no exemption &lt;br/&gt;applicable&quot;):::stateRed
+
+hasExemption44n(&quot;Article 4(4) &lt;br/&gt; Extension of deadline (natural conditions)&quot;):::state
+hasExemption45(&quot;Article 4(5) &lt;br/&gt; Less stringent objectives&quot;):::state
+hasExemption46(&quot;Article 4(6) &lt;br/&gt; Temporary deterioration&quot;):::state
+hasExemption47(&quot;Article 4(7) &lt;br/&gt; New modification/project&quot;):::state
+hasExemption47a(&quot;Article 4(7a) &lt;br/&gt; Short-term impact&quot;):::state
+
+%% Defining the decisions
+
+isQuantitativeStatusIn2027{&quot;Quantitative Status &lt;br/&gt;in 2027?&quot;}
+isDeteriorationExpected{&quot;Deterioration &lt;br/&gt;expected &lt;br/&gt;beyond 2027?&quot;}
+isDeteriorationObserved{&quot;Deterioration &lt;br/&gt;observed &lt;br/&gt;in 2027 or earlier?&quot;}
+isDeteriorationCause{&quot;Is deterioration &lt;br/&gt; caused by?&quot;}
+isGoodStatusAchievable{&quot;Is good status &lt;br/&gt;achievable?&quot;}
+isUnfeasibleOrCostly{&quot;Are measures &lt;br/&gt;unfeasible or &lt;br/&gt;disproportionately costly?&quot;}
+isDelayDueToNaturalConditions{&quot;Delay due &lt;br/&gt;to natural conditions?&quot;}
+
+%% Flow to TERMINATORS
+
+initial --&gt; isQuantitativeStatusIn2027
+hasNoApplicableExemption_1 --&gt; final
+hasNoApplicableExemption_2 --&gt; final
+hasNoApplicableExemption_3 --&gt; final
+hasExemption47 --&gt; final 
+hasExemption47a --&gt; final 
+hasExemption46 --&gt; final 
+hasExemption45 --&gt; final 
+hasExemption44n --&gt; final 
+
+%% THE IMPORTANT PART STARTS HERE
+
+%% NO EXEMPTION POSSIBLE - If the status is unknown, then exemptions cannot be reported
+isQuantitativeStatusIn2027 ==&gt;|unknown|hasNoApplicableExemption_1
+
+%% NO EXEMPTION NEEDED - if the status is not failing and no deterioration is expected, then no exemption is needed
+isQuantitativeStatusIn2027 ==&gt;|not failing|isDeteriorationExpected
+isDeteriorationExpected ==&gt;|no|hasNoApplicableExemption_2
+
+%% ARTICLE 4(7) - DETERIORATION DUE TO NEW MODIFICATION OR PROJECT
+isDeteriorationExpected ==&gt; |yes|isDeteriorationCause
+isDeteriorationCause ==&gt; |&quot;[new modification &lt;br/&gt; OR sustainable human development]&quot;|hasExemption47
+isDeteriorationCause ==&gt; |&quot;[short-term impact]&quot;|hasExemption47a
+
+%% ARTICLE 4(6) - DETERIORATION DUE TO ACCIDENTS OR FORCE MAJEURE OR NATURAL CAUSES
+isQuantitativeStatusIn2027 ==&gt;|failing|isDeteriorationObserved
+isDeteriorationObserved ==&gt;|&quot;yes &lt;br/&gt;[other causes]&quot;|isDeteriorationCause
+isDeteriorationObserved ==&gt;|&quot;yes &lt;br/&gt;[accidents &lt;br/&gt;OR force majeure &lt;br/&gt;OR natural causes]&quot;|hasExemption46
+isDeteriorationObserved ==&gt;|no|isGoodStatusAchievable
+
+%% ARTICLE 4(5) - LESS STRINGENT OBJECTIVES
+isGoodStatusAchievable ==&gt;|no|isUnfeasibleOrCostly
+isUnfeasibleOrCostly ==&gt; |yes|hasExemption45
+isUnfeasibleOrCostly ==&gt; |no|hasNoApplicableExemption_3
+
+%% ARTICLE 4(4) EXTENSION OF DEADLINE - NATURAL CONDITIONS
+isGoodStatusAchievable ==&gt;|yes|isDelayDueToNaturalConditions
+
+%% ARTICLE 4(5) EXTENSION OF DEADLINE - FEASIBILITY OR COST - NO EXEMPTION POSSIBLE
+isDelayDueToNaturalConditions ==&gt;|no|hasNoApplicableExemption_3
+isDelayDueToNaturalConditions ==&gt;|yes|hasExemption44n
+
+%% styling
+classDef state stroke-width:4px,fill:transparent
+classDef stateRed stroke:red,fill:transparent
+classDef stateBlue stroke:blue,fill:transparent
+    </pre><figcaption>
+<p><span class="caption-number">Figure 100 </span><span class="caption-text">Surface Water Body - Quantitative Exemption Decision Tree - 4th cycle</span><a class="headerlink" href="#exemptions-quantitativeexemption-flowchart" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="groundwater-protected-area-exemptions">
+<h2>Groundwater - protected area exemptions<a class="headerlink" href="#groundwater-protected-area-exemptions" title="Link to this heading">#</a></h2>
+<p>See the section about the WFD Protected Area dataflow: <a class="reference internal" href="WFDProtectedAreas.html#heading-wfd-protected-areas-groundwater-bodies-exemptions"><span class="std std-ref">Exemptions for groundwater bodies associated with protected areas</span></a>.</p>
+</section>
+<section id="codelists-4th-cycle">
+<span id="heading-wfd-exemptions-codelists-associated-with-the-reporting-of-exemptions"></span><h2>Codelists - 4th cycle<a class="headerlink" href="#codelists-4th-cycle" title="Link to this heading">#</a></h2>
+<p>Codelists associated with the reporting of exemptions are presented in <a class="reference internal" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram"><span class="std std-numref">Figure 101</span></a>.</p>
+<figure class="align-center" id="codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+class ExemptionType{
+    &lt;&lt;enumeration&gt;&gt;
+    article44_extensionOfDeadline
+    article45_lessStringentObjectives
+    article46_temporaryDeterioration
+    article47_newModificationOrProject
+    article47a_shortTermImpact
+    article47b_relocationOfWaterOrSediment
+    uwwtdArticle154_domesticUrbanWasteWater
+    gwdArticle63_exemptionOfMeasures
+    notApplicable
+    }
+
+class ExemptionRationale{
+    &lt;&lt;enumeration&gt;&gt;
+    article44_technicalFeasibility
+    article44_disproportionateCost
+    article44_naturalConditions
+    article45_feasibility
+    article45_disproportionateCost
+    article46_naturalCauses
+    article46_forceMajeure
+    article46_accidents
+    article47_newModification
+    article47_sustainableHumanDevelopment
+    gwdArticle63_accidentsExceptionalCircumstances
+    gwdArticle63_artificialRechargeAugmentation
+    gwdArticle63_directDischarges
+    gwdArticle63_interventionInSurfaceWaters
+    gwdArticle63_measuresDisproportionateCost
+    gwdArticle63_measuresIncreaseRisk
+    gwdArticle63_smallDischarges
+    notApplicable
+    }
+	
+class ExemptionPeriod{
+    &lt;&lt;enumeration&gt;&gt;
+    upToOneYear
+    upToThreeYears
+    until2027
+    until2033
+    until2039
+    lessStringentObjective
+    indeterminate
+    notApplicable
+    }
+
+    
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 101 </span><span class="caption-text">Codelists associated with the Exemption classes - 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following conditions apply:</p>
+<ol class="arabic simple">
+<li><p>the allowable values for the exemption rationale depend on the exemption type</p></li>
+<li><p>the allowable values for the exemption period depend on the exemption type</p></li>
+</ol>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>Exemptions - <a class="reference internal" href="#heading-wfd-exemptions-codelists-associated-with-the-reporting-of-exemptions"><span class="std std-ref">Codelists - 4th cycle</span></a></p>
+<p>DG ENV to provide table with valid combinations
+of <code class="docutils literal notranslate"><span class="pre">ExemptionType</span></code> and <code class="docutils literal notranslate"><span class="pre">ExemptionRationale</span></code> <em>vs.</em> <code class="docutils literal notranslate"><span class="pre">ExemptionPeriod</span></code>
+See <strong>EMPTY TEMPLATE</strong> <a class="reference download internal" download="" href="../_downloads/fb8f449b5bc4dfc2cd61795fa6d3cc76/Exemptions_QualityChecks.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">EXCEL</span></code></a></p>
+</div>
+</section>
+<section id="clarifications-requested-by-member-states">
+<span id="heading-wfd-exemptions-clarifications"></span><h2>Clarifications requested by Member States<a class="headerlink" href="#clarifications-requested-by-member-states" title="Link to this heading">#</a></h2>
+<section id="exemptions-under-article-4-7a-short-term-impact">
+<span id="heading-wfd-exemptions-clarifications-article47a"></span><h3>Exemptions under Article 4(7a) - short term-impact<a class="headerlink" href="#exemptions-under-article-4-7a-short-term-impact" title="Link to this heading">#</a></h3>
+<p>Introduced by the <em>Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy</em>.</p>
+<blockquote class="epigraph">
+<div><p>“7a.   Member States will not be in breach of this Directive when any negative short-term impact on one or more quality elements of a body of water caused by a new project or a modification to an existing project in that body of water is no longer detectable after one year or, for biological quality elements, after a maximum of three years beyond initiation of the execution of the project, and all the following conditions are met:</p>
+<p>(a) the negative impact is not the result of direct discharges, emissions or losses of a pollutant;</p>
+<p>(b) the potential for the negative impact to occur is reliably assessed ex ante by a competent authority, and it is concluded that there would be no negative impact for the body of water concerned or any connected body of water after one year or, for biological quality elements, after a maximum of three years;</p>
+<p>(c) an ex post verification is carried out;</p>
+<p>(d) all practicable measures are taken to mitigate any negative impacts on the body and any connected bodies of water; and</p>
+<p>(e) a summary of the main activities carried out in accordance with this paragraph, the relevant ex post verification results, and the measures taken to mitigate negative impacts, is included in the river basin management plan required under Article 13.</p>
+<p>For the purposes of carrying out the ex -post verification under point (c) of the first subparagraph, existing monitoring arrangements set up pursuant to Annex V may be used and, where necessary, they shall be supplemented by additional ad-hoc monitoring.”</p>
+<p class="attribution">—ELI: <a class="reference external" href="http://data.europa.eu/eli/dir/2026/805/oj">http://data.europa.eu/eli/dir/2026/805/oj</a></p>
+</div></blockquote>
+<p><strong>Actions taken:</strong></p>
+<ul class="simple">
+<li><p>A new value <code class="docutils literal notranslate"><span class="pre">article47a_shortTermImpact</span></code> was added to the <code class="docutils literal notranslate"><span class="pre">ExemptionType</span></code> codelist.<br />
+See <a class="reference internal" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram"><span class="std std-numref">Figure 101</span></a>.</p></li>
+<li><p>Two new values <code class="docutils literal notranslate"><span class="pre">upToOneYear</span></code> and <code class="docutils literal notranslate"><span class="pre">upToThreeYears</span></code> were added to the <code class="docutils literal notranslate"><span class="pre">ExemptionPeriod</span></code> codelist.
+See <a class="reference internal" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram"><span class="std std-numref">Figure 101</span></a>.</p></li>
+</ul>
+<p><strong>Quality checks to be implemented:</strong></p>
+<ul class="simple">
+<li><p>For biological quality elements, the maximum exemption period is 3 years.</p></li>
+<li><p>For other exemptions, the maximum exemption period is 1 year.</p></li>
+</ul>
+</section>
+<section id="exemptions-under-article-4-7b-relocation-of-water-or-sediment">
+<span id="heading-wfd-exemptions-clarifications-article47b"></span><h3>Exemptions under Article 4(7b) - relocation of water or sediment<a class="headerlink" href="#exemptions-under-article-4-7b-relocation-of-water-or-sediment" title="Link to this heading">#</a></h3>
+<p>Introduced by the <em>Directive (EU) 2026/805 of the European Parliament and of the Council of 30 March 2026 amending Directive 2000/60/EC establishing a framework for Community action in the field of water policy, Directive 2006/118/EC on the protection of groundwater against pollution and deterioration and Directive 2008/105/EC on environmental quality standards in the field of water policy</em>.</p>
+<blockquote class="epigraph">
+<div><p>“7b. Member States will not be in breach of this Directive when deterioration occurs in the status of a receiving body of surface water as a result of relocating, by human activity, water or sediment from the same or another body of surface water, or from a body of groundwater to the receiving body of surface water, without causing a net increase in pollutant load, and all the following conditions are met:</p>
+<p>(a) all practicable steps, in particular the treatment of the water or sediment, if feasible, to minimise the transfer of pollutant load are taken to mitigate the adverse impact on the status of the bodies of water impacted by the relocation;</p>
+<p>(b) the composition of the water or sediments to be relocated is established, and the relocation does not increase the overall risk to human health and the environment compared to the existing risk prior to the relocation;</p>
+<p>(c) the receiving body of surface water is confirmed as already not being in good chemical status with respect to most of the pollutants relocated, and in particular with respect to the most persistent and bioaccumulative pollutants relocated, and the ecological status or potential of the receiving body of water is not expected to fall into a lower class as a result of the relocation of those pollutants;</p>
+<p>(d) the relocation shall not result in an increase in the purification treatment required for the production of drinking water;</p>
+<p>(e) within the receiving body of water, a zone where relocation is prohibited has been established around any abstraction point for water intended for human consumption;</p>
+<p>(f) there are no significantly better environmental options for reasons of technical feasibility or disproportionate cost;</p>
+<p>(g) the relocation is subject to prior regulation or authorisation; and</p>
+<p>(h) a summary, including information related to points (a) to (g) of this paragraph and the reasons for the relocation, is included in the river basin management plan required under Article 13.”</p>
+<p class="attribution">—ELI: <a class="reference external" href="http://data.europa.eu/eli/dir/2026/805/oj">http://data.europa.eu/eli/dir/2026/805/oj</a></p>
+</div></blockquote>
+<p><strong>Actions taken:</strong></p>
+<ul class="simple">
+<li><p>A new value <code class="docutils literal notranslate"><span class="pre">article47b_relocationOfWaterOrSediment</span></code> was added to the <code class="docutils literal notranslate"><span class="pre">ExemptionType</span></code> codelist.
+See <a class="reference internal" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram"><span class="std std-numref">Figure 101</span></a>.</p></li>
+</ul>
+<p><strong>Quality checks to be implemented:</strong></p>
+<ul class="simple">
+<li><p>Not applicable to biological quality element exemptions.</p></li>
+<li><p>Not applicable to quantitative exemptions</p></li>
+<li><p>If applied to chemical exemptions,
+the receiving water body must be confirmed as already not being in good chemical status,
+in particular with respect to the most persistent and bioaccumulative pollutants relocated.</p></li>
+</ul>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>Exemptions - <a class="reference internal" href="#heading-wfd-exemptions-clarifications-article47b"><span class="std std-ref">Exemptions under Article 4(7b) - relocation of water or sediment</span></a></p>
+<p>Reporting guidance to be provided by DG ENV.<br />
+Quality control specification to be verified by DG ENV.</p>
+<ul class="simple">
+<li><p>¿Must additional <code class="docutils literal notranslate"><span class="pre">ExemptionRationale</span></code> values be added?</p></li>
+<li><p>¿Should be linked to the most persistent and bioaccumulative pollutants relocated?</p></li>
+<li><p>¿Pollutant must already be causing failure to achieve good status?</p></li>
+</ul>
+</div>
+</section>
+<section id="exemptions-under-article-15-4-of-the-recast-urban-waste-water-treatment-directive">
+<span id="heading-wfd-exemptions-clarifications-uwwtdarticle154"></span><h3>Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive<a class="headerlink" href="#exemptions-under-article-15-4-of-the-recast-urban-waste-water-treatment-directive" title="Link to this heading">#</a></h3>
+<blockquote class="epigraph">
+<div><p>The recast Urban Waste Water Treatment Directive was adopted 27/11/2024
+and MS need to transpose the revised provisions by 31 July 2027.</p>
+<p>Article 15(4) includes a new exemption from the obligations under the WFD
+if a water body deteriorates status or does not achieve good status as a result of:</p>
+<ul class="simple">
+<li><p>increased loads of domestic wastewater treated by a new/refurbished urban wastewater treatment plant,
+otherwise untreated (NOT industrial wastewater).</p></li>
+<li><p>The increase is subject to prior authorisation setting out all technically feasible
+mitigation measures to minimize the negative impact of the UWWTP on water status</p></li>
+<li><p>all technically feasible mitigating measures are implemented to minimise
+the negative impact of other activities causing similar pressures in the same water bodies</p></li>
+<li><p>There are no better environmental means that are not disproportionately costly
+(eg alternative points of discharge)</p></li>
+<li><p>The authorisation and its conditions are referred to in the RBMP</p></li>
+</ul>
+<p class="attribution">—<em>Clarification provided by the Commission in 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22</em></p>
+</div></blockquote>
+<p><strong>Actions taken:</strong></p>
+<ul class="simple">
+<li><p>A new code <code class="docutils literal notranslate"><span class="pre">uwwtdArticle154_domesticUrbanWasteWater</span></code> was added to the <code class="docutils literal notranslate"><span class="pre">ExemptionType</span></code> codelist.
+See <a class="reference internal" href="#codelist-4thcycle-exemptiontype-exemptionrationale-exemptionperiod-classdiagram"><span class="std std-numref">Figure 101</span></a>.</p></li>
+<li><p>The <a class="reference internal" href="#exemptions-ecologicalexemption-flowchart"><span class="std std-ref">Surface Water Body - Ecological Exemption Decision Tree - 4th cycle</span></a> was updated.</p></li>
+<li><p>The <a class="reference internal" href="#exemptions-chemicalexemption-flowchart"><span class="std std-ref">Surface Water Body - Chemical Exemption Decision Tree - 4th cycle</span></a> was updated.</p></li>
+</ul>
+<p><strong>Quality checks to be implemented:</strong></p>
+<ul class="simple">
+<li><p>Not applicable to quantitative exemptions.</p></li>
+</ul>
+</section>
+<section id="exemptions-related-to-protected-areas">
+<span id="heading-wfd-exemptions-clarification-protected-areas"></span><h3>Exemptions related to Protected Areas<a class="headerlink" href="#exemptions-related-to-protected-areas" title="Link to this heading">#</a></h3>
+<blockquote class="epigraph">
+<div><ul class="simple">
+<li><p>Where objectives are set in terms of WFD quality /quantity status elements
+(eg stricter quality standards are set for ‘good’ status in view of protecting certain species),
+exemptions from good status can be applied.</p></li>
+<li><p>If no such objectives have been set
+and protected areas objectives are only set under other legislation,
+it’s not possible/necessary to exempt
+from compliance with those objectives:
+non compliance would imply a breach of those other directives
+(and of WFD by virtue of Art 4(1)(c ) WFD)</p></li>
+</ul>
+<p class="attribution">—<em>Clarification provided by the Commission in 2026-05-13 in reply to the clarification request during the WG DIS meeting on 2026-04-22.</em></p>
+</div></blockquote>
+<p><strong>Actions taken:</strong></p>
+<ul class="simple">
+<li><p>No action required.</p></li>
+</ul>
+</section>
+<section id="exemptions-related-to-river-basin-specific-pollutants">
+<span id="heading-wfd-exemptions-clarification-rbsp"></span><h3>Exemptions related to River Basin Specific Pollutants<a class="headerlink" href="#exemptions-related-to-river-basin-specific-pollutants" title="Link to this heading">#</a></h3>
+<blockquote class="epigraph">
+<div><ul class="simple">
+<li><p>Pending</p></li>
+</ul>
+<p class="attribution">—<em>Clarification to provided by the Commission reply to the clarification request during the WG DIS meeting on 2026-04-22.</em></p>
+</div></blockquote>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>Exemptions - <a class="reference internal" href="#heading-wfd-exemptions-clarification-rbsp"><span class="std std-ref">Exemptions related to River Basin Specific Pollutants</span></a></p>
+<p>Clarification to provided by the Commission
+in reply to the Member States’ clarification request during the WG DIS meeting on 2026-04-22.</p>
+</div>
+</section>
+</section>
+<section id="annexes-data-analysis-3rd-cycle">
+<span id="heading-wfd-exemption-annexes-3rd-cycle"></span><h2>Annexes - Data analysis - 3rd cycle<a class="headerlink" href="#annexes-data-analysis-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>This section contains some of the exploratory data analysis
+that supported the revision of the data model.</p>
+<p>It is not relevant for the understanding of the proposed model,
+but may be informative for data providers involved
+in the testing phase of the 4th cycle dataflows.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">About the EEA discodata service</p>
+<p>The example queries can be executed interactively in the EEA discodata service.<br />
+Note that some queries may timeout.<br />
+If you need to analyse the entire European dataset, download it in CSV format.<br />
+For example, the link <code class="docutils literal notranslate"><span class="pre">https://discodata.eea.europa.eu/download/WISE_WFD/v2r1/GWB_GroundWaterBody</span></code>
+downloads the data of the <code class="docutils literal notranslate"><span class="pre">[WISE_WFD].[v2r1].[GWB_GroundWaterBody]</span></code> table.</p>
+</div>
+<section id="surface-water-ecological-exemptions-at-water-body-3rd-cycle">
+<h3>Surface water - ecological exemptions at water body - 3rd cycle<a class="headerlink" href="#surface-water-ecological-exemptions-at-water-body-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>In the 3rd cycle, the reporting of ecological exemptions was requested:</p>
+<ul class="simple">
+<li><p>directly at surface water body level, in the SWEcologicalExemptionType class</p></li>
+<li><p>also at quality element level, in the qeEcologicalExemptionType element of the QualityElement class.</p></li>
+</ul>
+<p>In 96.5% of the cases, the data reported is redundant with regard to the reporting at quality element level.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-number">Example 29 </span><span class="caption-text">Surface water - duplication between ecological exemptions at water body level <em>vs.</em> at quality element level - 3rd cycle</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">  </span><span class="cm">/**</span>
+<span class="linenos"> 2</span><span class="cm">    &quot;Duplicate&quot; reporting of ecological exemptions </span>
+<span class="linenos"> 3</span><span class="cm">    at surface water body level and at quality element level </span>
+<span class="linenos"> 4</span><span class="cm">    in the 3rd cycle reporting</span>
+<span class="linenos"> 5</span><span class="cm">  **/</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="c1">--  https://discodata.eea.europa.eu</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionTypeTable</span><span class="p">],</span>
+<span class="linenos">10</span><span class="w">  </span><span class="k">COUNT</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfRecords</span><span class="p">],</span>
+<span class="linenos">11</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfSurfaceWaterBodies</span><span class="p">],</span>
+<span class="linenos">12</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos">13</span><span class="w">  </span><span class="k">FROM</span>
+<span class="linenos">14</span><span class="w">  </span><span class="p">(</span>
+<span class="linenos">15</span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">],</span>
+<span class="linenos">17</span><span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionType</span><span class="p">],</span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">IIF</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Both&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">19</span><span class="w">      </span><span class="n">IIF</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;QE&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">20</span><span class="w">        </span><span class="n">IIF</span><span class="p">(</span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SWB&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;None&#39;</span><span class="p">)))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionTypeTable</span><span class="p">]</span>
+<span class="linenos">21</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos">22</span><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">23</span><span class="w">        </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">24</span><span class="w">        </span><span class="p">,[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionType_QE</span><span class="p">]</span>
+<span class="linenos">25</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType</span><span class="p">]</span>
+<span class="linenos">26</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">27</span><span class="w">      </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">28</span><span class="w">      </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">29</span><span class="w">      </span><span class="p">)</span><span class="w"> </span><span class="n">qe</span>
+<span class="linenos">30</span><span class="w">  </span><span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span>
+<span class="linenos">31</span><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">32</span><span class="w">        </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">33</span><span class="w">        </span><span class="p">,[</span><span class="n">swEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionType_SWB</span><span class="p">]</span>
+<span class="linenos">34</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_SWEcologicalExemptionType</span><span class="p">]</span>
+<span class="linenos">35</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">36</span><span class="w">      </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">swEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">37</span><span class="w">      </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">38</span><span class="w">      </span><span class="p">)</span><span class="w"> </span><span class="n">swb</span>
+<span class="linenos">39</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">qe</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">40</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">qe</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">41</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">t</span>
+<span class="linenos">42</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionTypeTable</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><p>Based on the analysis of the remaining 3.5% of cases, it is likely that
+the missing quality element level exemption
+is simply a reporting error not detected by the quality control.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">Example 30 </span><span class="caption-text">Surface water - mismatch between ecological exemptions at water body level <em>vs.</em> at quality element level - 3rd cycle</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">  </span><span class="cm">/**</span>
+<span class="linenos"> 2</span><span class="cm">    Analysis of the cases where </span>
+<span class="linenos"> 3</span><span class="cm">    ecological exemptions reported at surface water body level</span>
+<span class="linenos"> 4</span><span class="cm">    do not match an exemption reported at quality element level </span>
+<span class="linenos"> 5</span><span class="cm">    in the 3rd cycle reporting</span>
+<span class="linenos"> 6</span><span class="cm">  **/</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="c1">--  https://discodata.eea.europa.eu</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">],</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">swEcologicalStatusOrPotentialValue</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">swEcologicalStatusOrPotentialValue</span><span class="p">])</span><span class="w"> </span>
+<span class="linenos">13</span><span class="w">      </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">swEcologicalStatusOrPotentialValue</span><span class="p">],</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">],</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionType</span><span class="p">],</span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">IIF</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Both&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">16</span><span class="w">      </span><span class="n">IIF</span><span class="p">(</span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;QE&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">17</span><span class="w">        </span><span class="n">IIF</span><span class="p">(</span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SWB&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;None&#39;</span><span class="p">)))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionTypeTable</span><span class="p">],</span><span class="w">  </span>
+<span class="linenos">18</span><span class="w">    </span><span class="p">[</span><span class="n">numberOfQualityElementWithExemptions</span><span class="p">],</span>
+<span class="linenos">19</span><span class="w">    </span><span class="p">[</span><span class="n">numberOfQualityElementExemptionTypes</span><span class="p">]</span>
+<span class="linenos">20</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">22</span><span class="w">        </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">23</span><span class="w">        </span><span class="p">,[</span><span class="n">swEcologicalStatusOrPotentialValue</span><span class="p">]</span>
+<span class="linenos">24</span><span class="w">        </span><span class="p">,[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionType_QE</span><span class="p">]</span>
+<span class="linenos">25</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType</span><span class="p">]</span>
+<span class="linenos">26</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">27</span><span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">28</span><span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">29</span><span class="w">      </span><span class="p">)</span><span class="w"> </span><span class="n">qe</span>
+<span class="linenos">30</span><span class="w">  </span><span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span>
+<span class="linenos">31</span><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">32</span><span class="w">        </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">33</span><span class="w">        </span><span class="p">,[</span><span class="n">swEcologicalStatusOrPotentialValue</span><span class="p">]</span>
+<span class="linenos">34</span><span class="w">        </span><span class="p">,[</span><span class="n">swEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">exemptionType_SWB</span><span class="p">]</span>
+<span class="linenos">35</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_SWEcologicalExemptionType</span><span class="p">]</span>
+<span class="linenos">36</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">37</span><span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">swEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">38</span><span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">39</span><span class="w">      </span><span class="p">)</span><span class="w"> </span><span class="n">swb</span>
+<span class="linenos">40</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">qe</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">41</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">exemptionType_SWB</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">],</span>
+<span class="linenos">46</span><span class="w">        </span><span class="k">COUNT</span><span class="w"> </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">qeCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfQualityElementWithExemptions</span><span class="p">],</span>
+<span class="linenos">47</span><span class="w">          </span><span class="k">COUNT</span><span class="w"> </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfQualityElementExemptionTypes</span><span class="p">]</span>
+<span class="linenos">48</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType</span><span class="p">]</span>
+<span class="linenos">49</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">50</span><span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">51</span><span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">52</span><span class="w">      </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">53</span><span class="w">      </span><span class="p">)</span><span class="w"> </span><span class="n">swb_with_qe_exemption</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">swb_with_qe_exemption</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swb</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">qe</span><span class="p">.[</span><span class="n">exemptionType_QE</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span>
+<span class="linenos">58</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfQualityElementExemptionTypes</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+<span class="linenos">59</span><span class="w">  </span><span class="c1">-- AND swb.[swEcologicalStatusOrPotentialValue] IN (&#39;1&#39;,&#39;2&#39;)</span>
+<span class="linenos">60</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfQualityElementExemptionTypes</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="surface-water-ecological-exemptions-at-quality-element-level-3rd-cycle">
+<h3>Surface water - ecological exemptions at quality element level - 3rd cycle<a class="headerlink" href="#surface-water-ecological-exemptions-at-quality-element-level-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>In 98.9% of the cases, only one type of exemption was reported per quality element and water body.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-number">Example 31 </span><span class="caption-text">Surface water - ecological exemptions at quality element level - 3rd cycle</span><a class="headerlink" href="#id9" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">--  https://discodata.eea.europa.eu</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">],</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfRecords</span><span class="p">],</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfWaterBodies</span><span class="p">],</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">10</span><span class="w">        </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos">11</span><span class="w">        </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">12</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_QualityElement_qeEcologicalExemptionType</span><span class="p">]</span>
+<span class="linenos">13</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">14</span><span class="w">      </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">qeEcologicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">15</span><span class="w">      </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">16</span><span class="w">      </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">],[</span><span class="n">qeCode</span><span class="p">])</span><span class="w"> </span><span class="n">t</span>
+<span class="linenos">17</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">18</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="surface-water-chemical-exemptions-by-pollutant-and-water-body-3rd-cycle">
+<h3>Surface water - chemical exemptions by pollutant and water body - 3rd cycle<a class="headerlink" href="#surface-water-chemical-exemptions-by-pollutant-and-water-body-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>In 99.1% of the cases, only one type of exemption was reported per priority substance and water body.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-number">Example 32 </span><span class="caption-text">Surface water - chemical exemptions by pollutant and water body - 3rd cycle</span><a class="headerlink" href="#id10" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">],</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfRecords</span><span class="p">],</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfWaterBodies</span><span class="p">],</span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">10</span><span class="w">      </span><span class="p">,[</span><span class="n">swPrioritySubstanceCode</span><span class="p">]</span>
+<span class="linenos">11</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">swChemicalExemptionTypeGroup</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_SWPrioritySubstance_SWChemicalExemptionType</span><span class="p">]</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">swChemicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="linenos">17</span><span class="w">      </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">18</span><span class="w">      </span><span class="p">,[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">19</span><span class="w">      </span><span class="p">,[</span><span class="n">swPrioritySubstanceCode</span><span class="p">])</span><span class="w"> </span><span class="n">t</span>
+<span class="linenos">20</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">21</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="groundwater-chemical-exemptions-by-pollutant-and-water-body-3rd-cycle">
+<h3>Groundwater - chemical exemptions by pollutant and water body - 3rd cycle<a class="headerlink" href="#groundwater-chemical-exemptions-by-pollutant-and-water-body-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>In 99.5% of the cases, only one type of exemption was reported per pollutant and water body.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-number">Example 33 </span><span class="caption-text">Groundwater - chemical exemptions by pollutant and water body - 3rd cycle</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">],</span>
+<span class="linenos"> 4</span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfRecords</span><span class="p">],</span>
+<span class="linenos"> 5</span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfWaterBodies</span><span class="p">],</span>
+<span class="linenos"> 6</span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 8</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="p">,[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">10</span><span class="w">        </span><span class="p">,[</span><span class="n">gwPollutantCode</span><span class="p">]</span><span class="o">+</span><span class="k">isnull</span><span class="p">([</span><span class="n">gwPollutantOther</span><span class="p">],</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">pollutantCode</span><span class="p">]</span>
+<span class="linenos">11</span><span class="w">        </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">gwChemicalExemptionTypeGroup</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_GWPollutant_GWChemicalExemptionType</span><span class="p">]</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">gwChemicalExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="linenos">17</span><span class="w">        </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">18</span><span class="w">        </span><span class="p">,[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">19</span><span class="w">        </span><span class="p">,[</span><span class="n">gwPollutantCode</span><span class="p">]</span><span class="o">+</span><span class="k">isnull</span><span class="p">([</span><span class="n">gwPollutantOther</span><span class="p">],</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">t</span>
+<span class="linenos">20</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">21</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="groundwater-quantitative-exemptions-by-water-body-3rd-cycle">
+<h3>Groundwater - quantitative exemptions by water body - 3rd cycle<a class="headerlink" href="#groundwater-quantitative-exemptions-by-water-body-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>In 93.7% of the cases, only one type of exemption was reported per water body.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-number">Example 34 </span><span class="caption-text">Groundwater - quantitative exemptions by water body - 3rd cycle</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">--   https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">],</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfRecords</span><span class="p">],</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfWaterBodies</span><span class="p">],</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="k">COUNT</span><span class="w">  </span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 7</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="p">,[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">gwQuantitativeExemptionTypeGroup</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">10</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_gwQuantitativeExemptionType</span><span class="p">]</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">hasDescriptiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">gwQuantitativeExemptionTypeGroup</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="linenos">15</span><span class="w">        </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">16</span><span class="w">        </span><span class="p">,[</span><span class="n">euGroundWaterBodyCode</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">t</span>
+<span class="linenos">17</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span>
+<span class="linenos">18</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfExemptionTypes</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="surface-water-exemptions-by-associated-protected-area-and-water-body-3rd-cycle">
+<h3>Surface water - exemptions by associated protected area and water body - 3rd cycle<a class="headerlink" href="#surface-water-exemptions-by-associated-protected-area-and-water-body-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>This information is only reported for drinking waters, shellfish designated waters, and Natura 2000 protected sites included in the WFD register of protected areas, <em>if specific objectives have been set for the associated surface water body</em>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="surface-water-protected-area-exemptions-3rdcycle-table">
+<caption><span class="caption-number">Table 59 </span><span class="caption-text">Surface water - exemptions by associated protected area and water body - 3rd cycle</span><a class="headerlink" href="#surface-water-protected-area-exemptions-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Exemption</p></th>
+<th class="head"><p>Countries</p></th>
+<th class="head"><p>WaterBodies</p></th>
+<th class="head"><p>ProtectedAreas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Article 4(4) - Disproportionate cost</p></td>
+<td><p>2</p></td>
+<td><p>336</p></td>
+<td><p>87</p></td>
+</tr>
+<tr class="row-odd"><td><p>Article 4(4) - Natural conditions</p></td>
+<td><p>4</p></td>
+<td><p>193</p></td>
+<td><p>190</p></td>
+</tr>
+<tr class="row-even"><td><p>Article 4(4) - Technical feasibility</p></td>
+<td><p>4</p></td>
+<td><p>426</p></td>
+<td><p>123</p></td>
+</tr>
+<tr class="row-odd"><td><p>Article 4(5) - Disproportionate cost</p></td>
+<td><p>1</p></td>
+<td><p>72</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>Article 4(5) - Technical feasibility</p></td>
+<td><p>2</p></td>
+<td><p>74</p></td>
+<td><p>14</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-number">Example 35 </span><span class="caption-text">Surface water - exemptions by associated protected area and water body - 3rd cycle</span><a class="headerlink" href="#id13" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">--   https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaExemption</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">Countries</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">WaterBodies</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">[</span><span class="n">euProtectedAreaCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">ProtectedAreas</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_SWAssociatedProtectedArea_protectedAreaExemption</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span>
+<span class="linenos"> 8</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="linenos"> 9</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaType</span><span class="p">]</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Natura 2000 protected site&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Drinking water protection area&#39;</span><span class="p">,</span><span class="s1">&#39;Shellfish designated water&#39;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaExemption</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">11</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaObjectivesMet</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;No&#39;</span>
+<span class="linenos">12</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaExemption</span><span class="p">],[</span><span class="n">protectedAreaObjectivesMet</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="groundwater-exemptions-by-associated-protected-area-and-water-body-3rd-cycle">
+<h3>Groundwater - exemptions by associated protected area and water body - 3rd cycle<a class="headerlink" href="#groundwater-exemptions-by-associated-protected-area-and-water-body-3rd-cycle" title="Link to this heading">#</a></h3>
+<p>This information is only reported for drinking waters and Natura 2000 protected sites
+included in the WFD register of protected areas,
+<em>if specific objectives have been set for the associated groundwater body</em>.</p>
+<p>Exemptions were reported for a total of 198 water bodies associated
+with a total of 273 protected areas, in 9 countries.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="groundwater-protected-area-exemptions-3rdcycle-table">
+<caption><span class="caption-number">Table 60 </span><span class="caption-text">Groundwater - exemptions by associated protected area and water body - 3rd cycle</span><a class="headerlink" href="#groundwater-protected-area-exemptions-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Exemption</p></th>
+<th class="head"><p>Countries</p></th>
+<th class="head"><p>WaterBodies</p></th>
+<th class="head"><p>ProtectedAreas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Article 4(4) - Disproportionate cost</p></td>
+<td><p>2</p></td>
+<td><p>32</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>Article 4(4) - Natural conditions</p></td>
+<td><p>8</p></td>
+<td><p>122</p></td>
+<td><p>182</p></td>
+</tr>
+<tr class="row-even"><td><p>Article 4(4) - Technical feasibility</p></td>
+<td><p>5</p></td>
+<td><p>63</p></td>
+<td><p>76</p></td>
+</tr>
+<tr class="row-odd"><td><p>Article 4(5) - Disproportionate cost</p></td>
+<td><p>1</p></td>
+<td><p>14</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-even"><td><p>Article 4(5) - Technical feasibility</p></td>
+<td><p>2</p></td>
+<td><p>18</p></td>
+<td><p>18</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-number">Example 36 </span><span class="caption-text">Groundwater - exemptions by associated protected area and water body - 3rd cycle</span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">--   https://discodata.eea.europa.eu/</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaExemption</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">Exemption</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">Countries</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">[</span><span class="n">euGroundWaterBodyCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">WaterBodies</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">[</span><span class="n">euProtectedAreaCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">ProtectedAreas</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">GWB_GroundWaterBody_GWAssociatedProtectedArea_protectedAreaExemption</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span>
+<span class="linenos"> 9</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="linenos">10</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaType</span><span class="p">]</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Natura 2000 protected site&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Drinking water protection area&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaExemption</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;None&#39;</span>
+<span class="linenos">12</span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaObjectivesMet</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;No&#39;</span>
+<span class="linenos">13</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">protectedAreaExemption</span><span class="p">],[</span><span class="n">protectedAreaObjectivesMet</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="references">
+<span id="heading-wfd-wfd-exemptions-references"></span><h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="WFDSurfaceWaterMethodologies.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Surface water methodologies</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDEconomicAnalysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Economic analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-structure-3rd-cycle">Current structure - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-structure-4th-cycle">Proposed structure - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-ecological-exemptions-by-quality-element">Surface water  - ecological exemptions by quality element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-chemical-exemptions-by-pollutant">Surface water - chemical exemptions by pollutant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-protected-area-exemptions">Surface water - protected area exemptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-chemical-exemptions-by-pollutant">Groundwater - chemical exemptions by pollutant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-quantitative-exemptions">Groundwater - quantitative exemptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-protected-area-exemptions">Groundwater - protected area exemptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codelists-4th-cycle">Codelists - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clarifications-requested-by-member-states">Clarifications requested by Member States</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemptions-under-article-4-7a-short-term-impact">Exemptions under Article 4(7a) - short term-impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemptions-under-article-4-7b-relocation-of-water-or-sediment">Exemptions under Article 4(7b) - relocation of water or sediment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemptions-under-article-15-4-of-the-recast-urban-waste-water-treatment-directive">Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemptions-related-to-protected-areas">Exemptions related to Protected Areas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemptions-related-to-river-basin-specific-pollutants">Exemptions related to River Basin Specific Pollutants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annexes-data-analysis-3rd-cycle">Annexes - Data analysis - 3rd cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-ecological-exemptions-at-water-body-3rd-cycle">Surface water - ecological exemptions at water body - 3rd cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-ecological-exemptions-at-quality-element-level-3rd-cycle">Surface water - ecological exemptions at quality element level - 3rd cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-chemical-exemptions-by-pollutant-and-water-body-3rd-cycle">Surface water - chemical exemptions by pollutant and water body - 3rd cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-chemical-exemptions-by-pollutant-and-water-body-3rd-cycle">Groundwater - chemical exemptions by pollutant and water body - 3rd cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-quantitative-exemptions-by-water-body-3rd-cycle">Groundwater - quantitative exemptions by water body - 3rd cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-water-exemptions-by-associated-protected-area-and-water-body-3rd-cycle">Surface water - exemptions by associated protected area and water body - 3rd cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-exemptions-by-associated-protected-area-and-water-body-3rd-cycle">Groundwater - exemptions by associated protected area and water body - 3rd cycle</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDExemptions.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDExemptions.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

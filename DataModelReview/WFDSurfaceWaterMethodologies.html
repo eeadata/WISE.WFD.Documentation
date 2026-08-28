@@ -1,0 +1,2331 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Surface water methodologies &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDSurfaceWaterMethodologies';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exemptions" href="WFDExemptions.html" />
+    <link rel="prev" title="Surface water bodies" href="WFDSurfaceWaterBody.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Surface water methodologies</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="surface-water-methodologies">
+<span id="heading-wfd-surface-water-methodologies"></span><h1>Surface water methodologies<a class="headerlink" href="#surface-water-methodologies" title="Link to this heading">#</a></h1>
+<div class="dropdown admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Updated: 2026-07-23</p>
+<ul class="simple">
+<li><p>Added the quality control specification provided by ENV.</p></li>
+<li><p>Removed the Documents section:
+the surface water methodologies are integrated
+into the surface water dataflow.</p></li>
+</ul>
+<p>Updated: 2026-07-16</p>
+<ul class="simple">
+<li><p>Corrected the multiplicity of naturalAWBHMWB in the SWType table.</p></li>
+</ul>
+<p>Updated: 2026-07-08</p>
+<ul class="simple">
+<li><p>Changes based on further input from DG ENV and WG DIS.</p>
+<ul>
+<li><p>The SWTargetedQuestions table was modified.</p></li>
+<li><p>The SWThresholdValue table was simplified and aligned with GWThresholdValue.</p></li>
+<li><p>The QE3Classification table was modified  to support the use of 5 classes.</p></li>
+<li><p>The QE2Classification table was created to support the use of 5 classes.</p></li>
+<li><p>The QE1Classification table was simplified.</p></li>
+<li><p>The association table QEClassification_SWType was modified
+to allow the specification of the intercalibration type.</p></li>
+<li><p>The BiologicalQualityElement enumeration was added to highlight the exclusion of QE1-2 and QE1-5.</p></li>
+<li><p>SWType table now includes the specification of the applicable QE elements.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="purpose-and-overview">
+<span id="heading-wfd-surface-water-methodologies-purpose-and-overview"></span><h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>This section:</p>
+<ul class="simple">
+<li><p>revises the information related to <strong>Surface water methodologies</strong>
+in the 2nd and 3rd cycle of reporting of the
+Water Framework Directive River Basin Management Plans</p></li>
+<li><p>presents a simplified proposal for the electronic reporting in the 4th cycle,
+as a separate dataset within the <strong>Surface water</strong> dataflow,
+to allow the cross-check between the methodologies data
+and the data reported at water body level</p></li>
+</ul>
+</section>
+<section id="swmet-2022-schema-3rd-cycle">
+<span id="heading-wfd-surface-water-methodologies-reporting-of-surface-water-methodologies-3rd-cycle"></span><h2>SWMET_2022 schema - 3rd cycle<a class="headerlink" href="#swmet-2022-schema-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>The SWMET_2022 schema defined the required data about surface water methodologies.
+For review purposes, the schema was divided in two groups:</p>
+<ul class="simple">
+<li><p>a group of six classes requesting generic information
+at river basin district level (<a class="reference internal" href="#surfacewatermethodologies-3rdcycle-swmet-part1-classdiagram"><span class="std std-numref">Figure 71</span></a>)</p></li>
+<li><p>a group of six classes requesting more technical information,
+about national types, thresholds, etc (<a class="reference internal" href="#surfacewatermethodologies-3rdcycle-swmet-part2-classdiagram"><span class="std std-numref">Figure 72</span></a>)</p></li>
+</ul>
+<section id="generic-information">
+<h3>Generic information<a class="headerlink" href="#generic-information" title="Link to this heading">#</a></h3>
+<p>This section describes the revision of the following classes:
+<strong>SWExemptions</strong>,
+<strong>SWMethodologies</strong>,
+<strong>SWTargetedQ</strong>,
+<strong>SWChemicalStatusClassificationRBD</strong>,
+<strong>SWManagementObjectives</strong> and
+<strong>SWPressures</strong>.</p>
+<figure class="align-center" id="surfacewatermethodologies-3rdcycle-swmet-part1-classdiagram">
+<pre  class="mermaid">
+        %%{init: {'theme': 'default'}}%%
+classDiagram
+
+class SWMET {
+  + countryCode
+  + euRBDCode
+  + dcMetadata
+  + SWMethodologies
+  + SWTargetedQ
+  + SWChemicalStatusClassificationRBD
+  + SWManagementObjectives
+  + SWPressures
+  + SWExemptions
+}
+
+class SWMethodologies {
+  + typologyMethodologyReference[*]
+  + smallWBsMethodologyReference[*]
+  + minimumCatchmentAreaRivers
+  + minimumSurfaceAreaLakes
+  + otherMinimumCriteria
+  + iRBDTypologyCoOrdinationReference[*]
+  + hmwbMethodologyReference[*]
+}
+
+class SWTargetedQ {
+  + oneOutAllOut
+  + groupingExtrapolation
+  + gepDefined
+  + gepLevel
+  + gepApproach
+  + gepBiology
+  + mitigationMeasures[*]
+  + bqeForMEPGEP[*]
+  + gesGepComparison
+  + ecologicalStatusMethodReference[*]
+  + gepMethodReference[*]
+  + driversFailureEcologicalStatusPotentialReference[*]
+}
+
+class SWChemicalStatusClassificationRBD {
+  + approachSWBNotMonitoredChemicalReference[*]
+  + limitOfQuantification
+  + backgroundConcentrations
+  + backgroundConcentrationsReference[*]
+  + bioavailability
+  + bioavailabilityReference[*]
+  + longTermTrendAnalysis
+  + longTermTrendAnalysisReference[*]
+  + mixingZoneMethodology
+  + alternativeMixingZoneMethodologyReference[*]
+  + mixingZoneMeasures
+  + mixingZoneMeasuresReductionReference[*]
+  + chemicalStatusReference[*]
+}
+
+class SWManagementObjectives {
+  + managementObjectivesNutrients
+  + managementObjectivesNutrientsQuantitativeN
+  + managementObjectivesNutrientsQuantitativeP
+  + managementObjectivesContinuity
+  + managementObjectivesContinuityQuantitative
+  + managementObjectivesReference[*]
+  + waterResourcePlans
+  + waterResourcePlansReference[*]
+}
+
+class SWPressures {
+  + swPressuresNotAssessed[*]
+  + swSignificantPressurePointSourceTools
+  + swSignificantPressureDiffuseSourceTools
+  + swSignificantPressureWaterAbstractionTools
+  + swSignificantPressureWaterFlowTools
+  + swSignificantPressureOtherSourceTools
+  + swSignificanceDefinition
+  + swSignificanceLinkFailure
+  + swPressuresReference[*]
+}
+
+class SWExemptions {
+  + swExemption44Impact[*]
+  + swExemption44Driver[*]
+  + swExemption45Impact[*]
+  + swExemption45Driver[*]
+  + swDisproportionateCost
+  + swDisproportionateCostScale[*]
+  + swDisproportionateCostAnalysis[*]
+  + swDisproportionateCostAlternativeFinancing[*]
+  + swDisproportionateCostOtherEULegislation
+  + swTechnicalInfeasibility[*]
+  + swNaturalConditions[*]
+  + swExemption46[*]
+  + swExemption47[*]
+  + swExemptionsTransboundary
+  + swExemptionsReference[*]
+  + driversSWExemptionsReference[*]
+}
+
+
+SWMET &quot;1&quot; *-- &quot;1&quot; SWMethodologies
+SWMET &quot;1&quot; *-- &quot;1&quot; SWTargetedQ
+SWMET &quot;1&quot; *-- &quot;1&quot; SWChemicalStatusClassificationRBD
+SWMET &quot;1&quot; *-- &quot;1&quot; SWManagementObjectives
+SWMET &quot;1&quot; *-- &quot;1&quot; SWPressures
+SWMET &quot;1&quot; *-- &quot;1&quot; SWExemptions
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 71 </span><span class="caption-text">SWMET_2022 schema - generic data - 3rd cycle.</span><a class="headerlink" href="#surfacewatermethodologies-3rdcycle-swmet-part1-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The SWMET_2022 schema was already partially revised (see <a class="reference internal" href="WFDExemptions.html#heading-wfd-exemptions-reporting-of-exemptions-3rd-cycle"><span class="std std-ref">Current structure - 3rd cycle</span></a>).
+Specifically, the <strong>SWExemptions</strong> data (<a class="reference internal" href="WFDExemptions.html#exemptions-3rdcycle-swmet-classdiagram"><span class="std std-numref">Figure 91</span></a>)
+will not be requested in the 4th cycle reporting.</p>
+<p>The Commission has revised and simplified the <strong>SWMethodologies</strong> class,
+keeping only a subset of the elements requested in the 3rd cycle.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWMethodologies/typologyMethodologyReference</p></li>
+<li><p>SWMET/SWMethodologies/smallWBsMethodologyReference</p></li>
+<li><p>SWMET/SWMethodologies/otherMinimumCriteria</p></li>
+<li><p>SWMET/SWMethodologies/iRBDTypologyCoOrdinationReference</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The revised <strong>SWTargetedQ</strong> class was altered (2023-06-26).</p>
+</div>
+<p>The Commission has revised and simplified the <strong>SWTargetedQ</strong> class,
+keeping only a subset of the elements requested in the 3rd cycle.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWTargetedQ/oneOutAllOut</p></li>
+<li><p>SWMET/SWTargetedQ/groupingExtrapolation</p></li>
+<li><p>SWMET/SWTargetedQ/gepDefined</p></li>
+<li><p>SWMET/SWTargetedQ/gepLevel</p></li>
+<li><p>SWMET/SWTargetedQ/gepBiology</p></li>
+<li><p>SWMET/SWTargetedQ/driversFailureEcologicalStatusPotentialReference</p></li>
+<li><p>SWMET/SWTargetedQ/mitigationMeasures</p></li>
+</ul>
+<p>The following elements will be requested at water category level
+(i.e. separately for rivers, lakes, transitional and coastal waters):</p>
+<ul class="simple">
+<li><p>SWMET/SWTargetedQ/gepApproach</p></li>
+<li><p>SWMET/SWTargetedQ/bqeForMEPGEP</p></li>
+</ul>
+<p>The Commission has revised and simplified the <strong>SWChemicalStatusClassificationRBD</strong>
+class, keeping only a subset of the elements requested in the 3rd cycle.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWChemicalStatusClassificationRBD/approachSWBNotMonitoredChemicalReference</p></li>
+<li><p>SWMET/SWChemicalStatusClassificationRBD/mixingZoneMeasuresReductionReference</p></li>
+<li><p>SWMET/SWChemicalStatusClassificationRBD/chemicalStatusReference</p></li>
+</ul>
+<p>The Commission has revised and simplified the <strong>SWManagementObjectives</strong> class,
+keeping only a subset of the elements requested in the 3rd cycle.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWManagementObjectives/managementObjectivesContinuityQuantitative</p></li>
+</ul>
+<p>The Commission has revised <strong>SWPressures</strong> class. The following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWPressures/swPressuresReference</p></li>
+<li><p>SWMET/SWPressures/swSignificantPressureOtherSourceTools</p></li>
+<li><p>SWMET/SWPressures/swPressuresNotAssessed</p></li>
+</ul>
+<p>The structure of the <strong>SWPressures</strong> class was also revised.</p>
+</section>
+<section id="technical-information">
+<h3>Technical information<a class="headerlink" href="#technical-information" title="Link to this heading">#</a></h3>
+<p>The full review of the classes and elements
+depicted in <a class="reference internal" href="#surfacewatermethodologies-3rdcycle-swmet-part2-classdiagram"><span class="std std-numref">Figure 72</span></a>
+is pending.</p>
+<p>The preliminary technical analysis suggests the changes described below.</p>
+<p>In the <strong>SWRBSP</strong> class, the following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWRBSP/rbspOther</p></li>
+<li><p>SWMET/SWRBSP/rbspScale</p></li>
+</ul>
+<p>In the <strong>SWPrioritySubstance</strong> class, the following elements were removed
+(because they are not required or can be derived in the revised model):</p>
+<ul class="simple">
+<li><p>SWMET/SWPrioritySubstance/psScale</p></li>
+<li><p>SWMET/SWPrioritySubstance/psStatusAssessment</p></li>
+<li><p>SWMET/SWPrioritySubstance/psStandardsUsed</p></li>
+</ul>
+<p>The <strong>SWRBSP</strong> and <strong>SWPrioritySubstance</strong> tables have similar structure and content.
+A single table, similar to the <code class="docutils literal notranslate"><span class="pre">GWThresholdValue</span></code> table can be used
+for both types of substances.</p>
+<p>In the <strong>SWPhysicoChemicalQE</strong> class, the following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/SWPhysicoChemicalQE/physChemParameterOther</p></li>
+</ul>
+<p>A single threshold value, for the boundary between ‘good’ and ‘moderate’ status,
+was requested for physico-chemical elements.
+This approach was inadequate for several reasons:</p>
+<ul class="simple">
+<li><p>the datatype used in the 3rd cycle did not allow the reporting of intervals,
+specially disjoint intervals (e.g. for parameters like pH)</p></li>
+<li><p>the boundary between ‘good’ and ‘high’ (or ‘maximum’) potential
+was not recorded</p></li>
+</ul>
+<p>Starting in 2028, monitoring results for physico-chemical parameters
+will be reported biennially to the EEA and the Commission.
+Knowledge of the classification boundaries will be necessary
+for the status classes applicable to physico-chemical elements,
+i.a. to allow a more adequate visualisation of progress over time.
+Therefore, the data structure should allow the reporting of the boundaries
+for different classes.
+The datatype used for the reporting of thresholds and intervals will also be corrected.</p>
+<p>In the <strong>BQEMethod</strong> class, the following elements were removed:</p>
+<ul class="simple">
+<li><p>SWMET/BQEMethod/bqePercentageOfTypes</p></li>
+<li><p>SWMET/BQEMethod/bqeSensitivityImpactOther
+A unique identifier must be introduced, as well as an optional reference
+to supporting documentation.
+A clear separation between the original name (in the national language)
+and a technically meaningful translation to English should also be made.</p></li>
+</ul>
+<figure class="align-center" id="surfacewatermethodologies-3rdcycle-swmet-part2-classdiagram">
+<pre  class="mermaid">
+        %%{init: {'theme': 'default'}}%%
+classDiagram
+
+class SWMET {
+  + countryCode
+  + euRBDCode
+  + dcMetadata
+  + SWType[*]
+  + BQEMethod[*]
+  + SWSupportingQE[1..9]
+  + SWPhysicoChemicalQE[*]
+  + SWRBSP[*]
+  + SWPrioritySubstance[*]
+}
+
+class SWType {
+  + swTypeCode
+  + swTypeDescription
+  + swIntercalibrationType[*]
+  + swTypeCategory
+  + swTypeSpecificReferenceConditionsForBQEs
+  + swTypeSpecificHyMoConditions
+  + swTypeSpecificPhysChemConditions
+}
+
+class BQEMethod {
+  + bqeMethodName
+  + bqeCode
+  + bqeCategoryRW
+  + bqeCategoryLW
+  + bqeCategoryTW
+  + bqeCategoryCW
+  + bqePercentageOfTypes
+  + bqeSensitivityImpactNutrients
+  + bqeSensitivityImpactOrganic
+  + bqeSensitivityImpactChemical
+  + bqeSensitivityImpactSaline
+  + bqeSensitivityImpactAcidification
+  + bqeSensitivityImpactTemperature
+  + bqeSensitivityImpactHydrological
+  + bqeSensitivityImpactMorphological
+  + bqeSensitivityImpactOther[*]
+}
+
+class SWSupportingQE {
+  + supportingQECode
+  + supportingQESensitivityBQE
+}
+
+class SWPhysicoChemicalQE {
+  + physChemParameter
+  + physChemParameterOther
+  + physChemCategoryRW
+  + physChemCategoryLW
+  + physChemCategoryTW
+  + physChemCategoryCW
+  + physChemTypeCode [1..*]
+  + physChemValue
+  + physChemUnit
+  + physChemStandardType
+  + physChemGMBoundary
+}
+
+class SWRBSP {
+  + rbspCode
+  + rbspOther
+  + rbspMatrix
+  + rbspCategoryRW
+  + rbspCategoryLW
+  + rbspCategoryTW
+  + rbspCategoryCW
+  + rbspStandardType
+  + rbspValue
+  + rbspUnit
+  + rbspScale
+  + rbspTechGuidance
+  + rbspAnalyticalMethod
+  + rbspAnalyticalMethodBAT
+}
+
+class SWPrioritySubstance {
+  + psCode
+  + psStatusAssessment
+  + psMatrix
+  + psStandardsUsed
+  + psCategoryRW
+  + psCategoryLW
+  + psCategoryTW
+  + psCategoryCW
+  + psCategoryTeW
+  + psStandardType
+  + psValue
+  + psUnit
+  + psScale
+  + psAnalyticalMethod
+  + psAnalyticalMethodBAT
+}
+
+SWMET &quot;1&quot; *-- &quot;*&quot; SWType
+SWMET &quot;1&quot; *-- &quot;*&quot; BQEMethod
+SWMET &quot;1&quot; *-- &quot;1..9&quot; SWSupportingQE
+SWMET &quot;1&quot; *-- &quot;*&quot; SWPhysicoChemicalQE
+SWMET &quot;1&quot; *-- &quot;*&quot; SWRBSP
+SWMET &quot;1&quot; *-- &quot;*&quot; SWPrioritySubstance
+    </pre><figcaption>
+<p><span class="caption-number">Figure 72 </span><span class="caption-text">SWMET_2022 schema - technical data - 3rd cycle.</span><a class="headerlink" href="#surfacewatermethodologies-3rdcycle-swmet-part2-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Starting in 2028, monitoring results for biological elements
+will be reported every three years to the EEA and the Commission.
+In the 3rd cycle, information about class boundaries for biological elements was not reported.
+Given the variety and complexity of the biological quality elements,
+the range of of values must be normalised to allow some standardisation of the reporting.</p>
+<p>In the EIONET WISE-2 Biology dataflow, a <strong>BiologyEQRClassificationProcedure</strong> table
+(<a class="reference internal" href="#surfacewatermethodologies-3rdcycle-wise2-classdiagram"><span class="std std-numref">Figure 73</span></a>)
+tried to capture this information using the concept of Ecological Quality Ratio (EQR).</p>
+<p>The current review of the WFD data model, and the recent changes to the WFD reporting requirements,
+provide an opportunity to align the WISE-2 and the WFD reporting, avoiding future duplications
+and inconsistencies in the reporting of the biological quality elements classification.</p>
+<figure class="align-center" id="surfacewatermethodologies-3rdcycle-wise2-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram
+
+class BiologyEQRClassificationProcedure[&quot;WISE2::BiologyEQRClassificationProcedure&quot;]{
++ countryCode: Country
++ parameterWaterBodyCategory: WaterBodyCategory
++ parameterNCSWaterBodyType: string
++ parameterNaturalAWBHMWB: NaturalAWBHMWB
++ observedPropertyDeterminandBiologyEQRCode: BiologicalQualityElement
++ procedureClassificationSystem: ClassificationSystem
++ parameterBoundaryValueClasses12: float
++ parameterBoundaryValueClasses23: float
++ parameterBoundaryValueClasses34: float
++ parameterBoundaryValueClasses45: float
++ resultObservationStatus: ObservationStatus
++ remarks: string [0..1]
+}
+
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 73 </span><span class="caption-text">WISE2 Biology - BiologyEQRClassificationProcedure table.</span><a class="headerlink" href="#surfacewatermethodologies-3rdcycle-wise2-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="methodologies-dataset-4th-cycle">
+<span id="heading-wfd-surfacewater-methodologies-4th-cycle"></span><h2>Methodologies dataset - 4th cycle<a class="headerlink" href="#methodologies-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The revised structure for the surface water methodologies reporting
+is presented in this section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SWMethodologies</span></code>, <code class="docutils literal notranslate"><span class="pre">SWManagementObjectives</span></code> and <code class="docutils literal notranslate"><span class="pre">SWChemicalStatusClassification</span></code>
+tables have a structure similar to the corresponding classes
+in the 3rd cycle reporting, minus the attributes removed by the Commission’s review.
+See <a class="reference internal" href="#surfacewatermethodologies-4thcycle-swmethodologies-swmanagementobjectives-swchemicalstatusclassification-classdiagram"><span class="std std-numref">Figure 74</span></a>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-swmethodologies-swmanagementobjectives-swchemicalstatusclassification-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWMethodologies {
+  + euRBDCode: wiseIdentifier
+  + minimumCatchmentAreaRivers: nonNegativeValue
+  + minimumSurfaceAreaLakes: nonNegativeValue
+  + hmwbMethodologyReference: referenceCode [1..n]
+}
+
+class SWManagementObjectives {
+  + euRBDCode: wiseIdentifier
+  + managementObjectivesNutrients: YesNo
+  + managementObjectivesNutrientsQuantitativeN: YesNo
+  + managementObjectivesNutrientsQuantitativeP: YesNo
+  + managementObjectivesContinuity: YesNo
+  + managementObjectivesReference: referenceCode [1..n]
+  + waterResourcePlans: YesNoRBMP
+  + waterResourcePlansReference: referenceCode [1..n]
+}
+
+class SWChemicalStatusClassification {
+  + euRBDCode: wiseIdentifier
+  + limitOfQuantification: YesNo
+  + backgroundConcentrations: YesNo
+  + backgroundConcentrationsReference: referenceCode [0..n]
+  + bioavailability: YesNo
+  + bioavailabilityReference: referenceCode [0..n]
+  + longTermTrendAnalysis: YesNo
+  + longTermTrendAnalysisReference: referenceCode [0..n]
+  + mixingZoneMethodology: YesNo
+  + alternativeMixingZoneMethodologyReference: referenceCode [0..n]
+  + mixingZoneMeasure: MixingZoneMeasure [0..n]
+}
+
+class MixingZoneMeasure{
+&lt;&lt;enumeration&gt;&gt;
+measureArticle113k
+reviewOfPermitsIED
+priorRegulationsArticle113g
+other
+notApplicable
+}
+
+class YesNoRBMP{
+&lt;&lt;enumeration&gt;&gt;
+yes
+no
+RBMP}
+
+SWChemicalStatusClassification ..&gt; MixingZoneMeasure: mixingZoneMeasure
+SWManagementObjectives ..&gt; YesNoRBMP: waterResourcePlans
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 74 </span><span class="caption-text">Surface water methodologies - SWMethodologies, SWManagementObjectives, SWChemicalStatusClassification - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-swmethodologies-swmanagementobjectives-swchemicalstatusclassification-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="swtargetedquestions-table">
+<span id="heading-wfd-surface-water-methodologies-swtargetedquestions-4th-cycle"></span><h3>SWTargetedQuestions table<a class="headerlink" href="#swtargetedquestions-table" title="Link to this heading">#</a></h3>
+<p>In the table <code class="docutils literal notranslate"><span class="pre">SWTargetedQuestions</span></code> (<a class="reference internal" href="#surfacewatermethodologies-4thcycle-swtargetedquestions-classdiagram"><span class="std std-numref">Figure 75</span></a>)
+the questions regarding the approach used for the definition of good ecological potential (GEP)
+differentiate between rivers, lakes, transitional and coastal waters.</p>
+<p>If, for a given water category,
+biological quality elements have been included in the definition of GEP,
+then a list of the BQEs included must be provided.
+For example, <code class="docutils literal notranslate"><span class="pre">bqeForMEPGEPRW</span></code> must be reported if, and only if,
+<code class="docutils literal notranslate"><span class="pre">gepApproachRW</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">('mitigationMeasuresPragueApproachWithoutBQE','gepHasNotBeenDefined')</span></code>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-swtargetedquestions-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWTargetedQuestions{
+  + euRBDCode: wiseIdentifier
+  + gepApproachRW: GEPApproach
+  + bqeForMEPGEPRW: BiologicalQualityElement [0..n]
+  + gepApproachLW: GEPApproach
+  + bqeForMEPGEPLW: BiologicalQualityElement [0..n]
+  + gepApproachTW: GEPApproach
+  + bqeForMEPGEPTW: BiologicalQualityElement [0..n]
+  + gepApproachCW: GEPApproach
+  + bqeForMEPGEPCW: BiologicalQualityElement [0..n]
+  + ecologicalStatusMethodReference: referenceCode [1..n]
+  + gepMethodReference: referenceCode [1..n]
+}
+
+class GEPApproach {
+&lt;&lt;enumeration&gt;&gt;
+cisGuidanceReferenceApproach
+mitigationMeasuresPragueApproachWithBQE
+mitigationMeasuresPragueApproachWithoutBQE
+hybridApproachReferencePrague
+sameAssessmentAsNaturalWB
+gepHasNotBeenDefined
+}
+
+SWTargetedQuestions ..&gt; GEPApproach
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 75 </span><span class="caption-text">Surface water methodologies - SWTargetedQuestions - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-swtargetedquestions-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="swpressureassessment-table">
+<span id="heading-wfd-surface-water-methodologies-swpressureassessment-4th-cycle"></span><h3>SWPressureAssessment table<a class="headerlink" href="#swpressureassessment-table" title="Link to this heading">#</a></h3>
+<p>The table <code class="docutils literal notranslate"><span class="pre">SWPressureAssessment</span></code> (<a class="reference internal" href="#surfacewatermethodologies-4thcycle-swpressureassessment-classdiagram"><span class="std std-numref">Figure 76</span></a>)
+uses a different approach:</p>
+<ul class="simple">
+<li><p>the reporting of “pressures not assessed” is eliminated,
+because the data was difficult to analyse and contained inconsistencies</p></li>
+<li><p>instead, for each pressure (or group of pressures),
+three attributes are requested
+(<code class="docutils literal notranslate"><span class="pre">swPressureAssessmentMethod</span></code>,<code class="docutils literal notranslate"><span class="pre">swSignificanceDefinition</span></code>,<code class="docutils literal notranslate"><span class="pre">swSignificanceLinkFailure</span></code>)</p></li>
+<li><p>given that the pressure codelist is hierarchical,
+the granularity of the reporting is selected by Member States</p></li>
+<li><p>the quality control procedure will verify that different levels
+are not selected simultaneously for any given RBD</p></li>
+</ul>
+<p>For more information see <a class="reference internal" href="WFDPressures.html#heading-wfd-pressure-type-codelist-4th-cycle"><span class="std std-ref">PressureType codelist - 4th cycle</span></a>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-swpressureassessment-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWPressureAssessment{
+  + euRBDCode: wiseIdentifier
+  + swPressure: PressureType
+  + swPressureAssessmentMethod: PressureAssessmentMethod
+  + swSignificanceDefinition: YesNoNotApplicable
+  + swSignificanceLinkFailure: YesNoNotApplicable
+}
+
+class PressureAssessmentMethod{
+  &lt;&lt;enumeration&gt;&gt;
+  numericalTools
+  expertJudgement
+  combinationOfBoth
+  notAssessed 
+}
+
+SWPressureAssessment ..&gt; PressureAssessmentMethod 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 76 </span><span class="caption-text">Surface water methodologies - SWPressureAssessment - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-swpressureassessment-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="swthresholdvalue-table">
+<span id="heading-wfd-surface-water-methodologies-swthresholdvalue-4th-cycle"></span><h3>SWThresholdValue table<a class="headerlink" href="#swthresholdvalue-table" title="Link to this heading">#</a></h3>
+<p>The reporting of thresholds for priority substances and for RBSPs
+is combined into a single <code class="docutils literal notranslate"><span class="pre">SWThresholdValue</span></code> table
+(see <a class="reference internal" href="#surfacewatermethodologies-4thcycle-swthresholdvalue-classdiagram"><span class="std std-numref">Figure 77</span></a>).
+The <code class="docutils literal notranslate"><span class="pre">GWThresholdValue</span></code> table, in the groundwater methodologies dataset, has a similar structure
+(see <a class="reference internal" href="WFDGroundwaterMethodologies.html#heading-wfd-groundwater-methodologies-gwthresholdvalue-table"><span class="std std-ref">GWThresholdValue table</span></a>).</p>
+<p>The associations between the <code class="docutils literal notranslate"><span class="pre">SWThresholdValue</span></code> table and other tables are depicted in
+<a class="reference internal" href="#surfacewatermethodologies-4thcycle-swthresholdvalue-associations-classdiagram"><span class="std std-numref">Figure 78</span></a>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-swthresholdvalue-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWThresholdValue{
++ swThresholdIdentifier: wiseIdentifier
++ parameterCode: Parameter
++ eqsStandardType: StandardType
++ chemicalMatrix: ChemicalMatrixType 
+
++ thresholdValueRange: range
++ thresholdValueUnit: UnitOfMeasure
+
+«compliance-with-criteria»
++ analyticalMethod: YesNo
++ analyticalMethodBAT: YesNoNotApplicable
+
+«reference»
++ swThresholdReference: referenceCode [0..n]
+}
+
+class SWPollutant [&quot;SurfaceWaterDataset::SWPollutant&quot;]:::otherDataset{
+  + euSurfaceWaterBodyCode
+  + swPollutantCode
+  + swThresholdIdentifier [1..n]
+  + swThresholdExceedance [0..n]
+}
+
+SWThresholdValue &lt;.. SWPollutant: swThresholdIdentifier
+SWThresholdValue &lt;.. SWPollutant: swThresholdExceedance
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 77 </span><span class="caption-text">Surface water methodologies - SWThresholdValue - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-swthresholdvalue-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-swthresholdvalue-associations-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType {
+  + swTypeIdentifier: wiseIdentifier
+}
+
+class SWPollutant [&quot;SurfaceWaterDataset::SWPollutant&quot;]:::otherDataset{
+  + euSurfaceWaterBodyCode
+  + swPollutantCode
+  + swThresholdIdentifier [1..n]
+  + swThresholdExceedance [0..n]
+}
+
+class SWThresholdValue{
+  + swThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+}
+
+class SWThreshold_SWType{
+  + swThresholdIdentifier: wiseIdentifier
+  + swTypeIdentifier: wiseIdentifier
+}
+
+class SWNaturalBackgroundLevel{
+  + swTypeIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + parameterValue: range  
+  + parameterUnit: UnitOfMeasure
+}
+
+SWPollutant ..&gt; SWThresholdValue: swThresholdIdentifier
+SWPollutant ..&gt; SWThresholdValue: swThresholdExceedance
+SWThresholdValue &quot;1&quot; -- &quot;0..n&quot; SWThreshold_SWType 
+SWThreshold_SWType &quot;0..n&quot; -- &quot;1&quot; SWType 
+SWType &quot;1&quot; -- &quot;1..n&quot; SWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 78 </span><span class="caption-text">Surface water methodologies - SWThresholdValue associations with other tables - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-swthresholdvalue-associations-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qe3classification-table">
+<span id="heading-wfd-surface-water-methodologies-qe3classification-4th-cycle"></span><h3>QE3Classification table<a class="headerlink" href="#qe3classification-table" title="Link to this heading">#</a></h3>
+<p>The reporting of thresholds and class boundaries for physico-chemical quality elements
+requires a new <code class="docutils literal notranslate"><span class="pre">QE3Classification</span></code> table
+(see <a class="reference internal" href="#surfacewatermethodologies-4thcycle-qe3classification-classdiagram"><span class="std std-numref">Figure 79</span></a>).</p>
+<p>Formally, the classes ‘poor’ and ‘bad’ status are not defined for physico-chemical quality elements.
+The optional attributes <code class="docutils literal notranslate"><span class="pre">classPoor</span></code> and <code class="docutils literal notranslate"><span class="pre">classBad</span></code> allow the reporting of the classification ranges
+for those classes.</p>
+<p>The associations between the <code class="docutils literal notranslate"><span class="pre">QE3Classification</span></code> table and other tables are depicted in
+<a class="reference internal" href="#surfacewatermethodologies-4thcycle-qe3classification-associations-classdiagram"><span class="std std-numref">Figure 80</span></a>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-qe3classification-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class QE3Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: PhysicoChemicalQualityElement
++ parameterCode: Parameter
++ parameterUnit: UnitOfMeasure
++ standardType: StandardType
++ classHighOrMax: range
++ classGood: range
++ classModerate: range
++ classPoor: range [0..1]
++ classBad: range [0..1]
+
+«reference»
++ qeClassificationReference: referenceCode [0..n]
+}
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 79 </span><span class="caption-text">Surface water methodologies - QE3Classification - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-qe3classification-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-qe3classification-associations-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType:::partial{
++ swTypeIdentifier: wiseIdentifier
+}
+
+class SWQualityElement[&quot;SurfaceWaterDataset::SWQualityElement&quot;]:::otherDataset{
++ euSurfaceWaterBodyCode: wiseIdentifier
++ qeCode: QualityElement
++ qeClassificationIdentifier: wiseIdentifier
+}
+
+class QE3Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: PhysicoChemicalQualityElement
++ parameterCode: Parameter
++ parameterUnit: UnitOfMeasure
+}
+
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
+}
+
+class SWNaturalBackgroundLevel{
++ swTypeIdentifier: wiseIdentifier
++ parameterCode: Parameter
++ parameterValue: range  
++ parameterUnit: UnitOfMeasure
+}
+
+SWQualityElement ..&gt; QE3Classification
+QE3Classification &quot;1&quot; -- &quot;0..n&quot; QEClassification_SWType
+QEClassification_SWType &quot;0..n&quot; -- &quot;1&quot; SWType
+SWType &quot;1&quot; -- &quot;0..n&quot; SWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 80 </span><span class="caption-text">Surface water methodologies - QE3Classification associations with other tables - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-qe3classification-associations-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qe2classification-table">
+<span id="heading-wfd-surface-water-methodologies-qe2classification-4th-cycle"></span><h3>QE2Classification table<a class="headerlink" href="#qe2classification-table" title="Link to this heading">#</a></h3>
+<p>The reporting of thresholds and class boundaries for physico-chemical quality elements
+requires a new <code class="docutils literal notranslate"><span class="pre">QE2Classification</span></code> table
+(see <a class="reference internal" href="#surfacewatermethodologies-4thcycle-qe2classification-classdiagram"><span class="std std-numref">Figure 81</span></a>).</p>
+<p>Formally, the classes ‘poor’ and ‘bad’ status are not defined for hydromorphological quality elements.
+The attributes <code class="docutils literal notranslate"><span class="pre">classPoor</span></code> and <code class="docutils literal notranslate"><span class="pre">classBad</span></code> be used to allow the use of those classes.</p>
+<ul class="simple">
+<li><p>if <code class="docutils literal notranslate"><span class="pre">classPoor</span> <span class="pre">=</span> <span class="pre">'yes'</span></code>,
+then the value <code class="docutils literal notranslate"><span class="pre">qeStatusOrPotentialValue</span> <span class="pre">=</span> <span class="pre">'4'</span></code> can be reported,
+for that qeClassificationIdentifier and qeCode,
+in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">classBad</span> <span class="pre">=</span> <span class="pre">'yes'</span></code>,
+then the value <code class="docutils literal notranslate"><span class="pre">qeStatusOrPotentialValue</span> <span class="pre">=</span> <span class="pre">'5'</span></code> can be reported,
+for that qeClassificationIdentifier and qeCode,
+in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table.</p></li>
+<li><p>if the only the standard 3 classes are being used,
+specify <code class="docutils literal notranslate"><span class="pre">classPoor</span> <span class="pre">=</span> <span class="pre">'no'</span></code> and <code class="docutils literal notranslate"><span class="pre">classBad</span> <span class="pre">=</span> <span class="pre">'no'</span></code>.</p></li>
+<li><p>the combination <code class="docutils literal notranslate"><span class="pre">classPoor</span> <span class="pre">=</span> <span class="pre">'no'</span> <span class="pre">AND</span> <span class="pre">classBad</span> <span class="pre">=</span> <span class="pre">'yes'</span></code> is not valid</p></li>
+</ul>
+<p>The associations between the <code class="docutils literal notranslate"><span class="pre">QE2Classification</span></code> table and other tables are depicted in
+<a class="reference internal" href="#surfacewatermethodologies-4thcycle-qe2classification-associations-classdiagram"><span class="std std-numref">Figure 82</span></a>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-qe2classification-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class QE2Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: HydromorphologicalQualityElement
++ classPoor: YesNo
++ classBad: YesNo
+
+«reference»
++ qeClassificationReference: referenceCode [0..n]
+}
+
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lightyellow,stroke:#000;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 81 </span><span class="caption-text">Surface water methodologies - QE2Classification - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-qe2classification-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-qe2classification-associations-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType:::partial{
++ swTypeIdentifier: wiseIdentifier
+}
+
+class SWQualityElement[&quot;SurfaceWaterDataset::SWQualityElement&quot;]:::otherDataset{
++ euSurfaceWaterBodyCode: wiseIdentifier
++ qeCode: QualityElement
++ qeClassificationIdentifier: wiseIdentifier
+}
+
+class QE2Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: HydroMorphologicalQualityElement
+
+}
+
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
+}
+
+
+SWQualityElement ..&gt; QE2Classification
+QE2Classification &quot;1&quot; -- &quot;0..n&quot; QEClassification_SWType
+QEClassification_SWType &quot;0..n&quot; -- &quot;1&quot; SWType
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 82 </span><span class="caption-text">Surface water methodologies - QE2Classification associations with other tables - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-qe2classification-associations-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qe1classification-and-bqemethod-table">
+<span id="heading-wfd-surface-water-methodologies-qe1classification-bqemethod-4th-cycle"></span><h3>QE1Classification and BQEMethod table<a class="headerlink" href="#qe1classification-and-bqemethod-table" title="Link to this heading">#</a></h3>
+<p>The reporting of class boundaries for biological quality elements
+requires a new <code class="docutils literal notranslate"><span class="pre">QE1Classification</span></code> table
+(see <a class="reference internal" href="#surfacewatermethodologies-4thcycle-bqemethod-qe1classification-classdiagram"><span class="std std-numref">Figure 83</span></a>).
+The table “replaces” the WISE2 Biology - BiologyEQRClassificationProcedure table.
+All boundaries are reported using EQRs.</p>
+<p>The associations between the <code class="docutils literal notranslate"><span class="pre">QE1Classification</span></code> table and other tables are depicted in
+<a class="reference internal" href="#surfacewatermethodologies-4thcycle-bqemethod-qe1classification-associations-classdiagram"><span class="std std-numref">Figure 84</span></a>.</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-bqemethod-qe1classification-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class BQEMethod{
++ bqeMethodIdentifier: wiseIdentifier
++ bqeCode: BiologicalQualityElement
++ bqeMethodName: string
++ bqeMethodNameLanguage: Language
++ bqeMethodReference: referenceCode [0..n]
+
+«sensitivity»
++ bqeSensitivityImpactNutrients: YesNo
++ bqeSensitivityImpactOrganic: YesNo
++ bqeSensitivityImpactChemical: YesNo
++ bqeSensitivityImpactSaline: YesNo
++ bqeSensitivityImpactAcidification: YesNo
++ bqeSensitivityImpactTemperature: YesNo
++ bqeSensitivityImpactHydrological: YesNo
++ bqeSensitivityImpactMorphological: YesNo
+}
+
+class QE1Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: BiologicalQualityElement
++ parameterUnit: UnitOfMeasure
++ classHighOrMax: range
++ classGood: range
++ classModerate: range
++ classPoor: range
++ classBad: range
+«scope-and-references»
++ bqeMethodIdentifier: wiseIdentifier 
++ qeClassificationReference: referenceCode [0..n]
+}
+
+class BiologicalQualityElement{
+&lt;&lt;enumeration&gt;&gt;
+  QE1-1 - Phytoplankton
+  QE1-2-1 - Macroalgae
+  QE1-2-2 - Angiosperms
+  QE1-2-3 - Macrophytes
+  QE1-2-4 - Phytobenthos
+  QE1-3 - Benthic invertebrates
+  QE1-4 - Fish
+}
+
+BQEMethod &lt;.. QE1Classification
+BQEMethod ..&gt; BiologicalQualityElement
+QE1Classification ..&gt; BiologicalQualityElement
+
+note for BiologicalQualityElement &quot;the label is not part of the code&quot;
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 83 </span><span class="caption-text">Surface water methodologies - BQEMethod and QE1Classification - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-bqemethod-qe1classification-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-bqemethod-qe1classification-associations-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType {
++ swTypeIdentifier: wiseIdentifier
+}
+
+class SWQualityElement[&quot;SurfaceWaterDataset::SWQualityElement&quot;]:::otherDataset{
++ euSurfaceWaterBodyCode: wiseIdentifier
++ qeCode: QualityElement
++ qeClassificationIdentifier: wiseIdentifier
+}
+
+class BQEMethod{
++ bqeMethodIdentifier: wiseIdentifier
++ bqeCode: BiologicalQualityElement
+}
+
+class QE1Classification{
++ qeClassificationIdentifier: wiseIdentifier
++ qeCode: BiologicalQualityElement
++ bqeMethodIdentifier: wiseIdentifier 
+}
+
+class QEClassification_SWType{
++ qeClassificationIdentifier: wiseIdentifier
++ swTypeIdentifier: wiseIdentifier
++ swIntercalibrationType: IntercalibrationType [1..n]
+}
+
+SWQualityElement ..&gt; QE1Classification: qeClassificationIdentifier
+
+BQEMethod &quot;1&quot; -- &quot;1..n&quot; QE1Classification 
+QE1Classification &quot;1&quot; -- &quot;0..n&quot; QEClassification_SWType
+QEClassification_SWType &quot;0..n&quot; -- &quot;1&quot; SWType 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef otherDataset fill:lavender,stroke:#000;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 84 </span><span class="caption-text">Surface water methodologies - BQEMethod and QE1Classification associations - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-bqemethod-qe1classification-associations-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="swtype-table">
+<span id="heading-wfd-surface-water-methodologies-swtype-4th-cycle"></span><h3>SWType table<a class="headerlink" href="#swtype-table" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">SWType</span></code> table contains information about
+the national surface water types
+defined in accordance to Annex II of the WFD.
+This table is central to the surface water methodologies
+(see <a class="reference internal" href="#surfacewatermethodologies-4thcycle-swtype-classdiagram"><span class="std std-numref">Figure 85</span></a>).</p>
+<p>For each national surface water type, the quality elements
+which used in the ecological status assessment
+are declared in the <code class="docutils literal notranslate"><span class="pre">SWType</span></code> table.
+Only the applicable quality elements
+are reported in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table.
+The purpose is to minimise reporting burden
+and to avoid the ambiguities observed in the 3rd cycle reporting
+(see <a class="reference internal" href="WFDSurfaceWaterBody.html#heading-wfd-surface-water-bodies-annexes"><span class="std std-ref">Data analysis - 3rd cycle</span></a>).</p>
+<figure class="align-center" id="surfacewatermethodologies-4thcycle-swtype-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class SWType{
+    + swTypeIdentifier: wiseIdentifier
+    + surfaceWaterBodyCategory: WaterBodyCategory
+    + naturalAWBHMWB: NaturalAWBHMWB [1..n]
+    + swIntercalibrationType: IntercalibrationType [1..n]
+    + swTypeCode: string100
+    + swTypeDescription: string
+    + swTypeDescriptionLanguage: Language
+
+    + swTypeReference: referenceCode [0..n]
+
+    «quality-elements»
+    + QE1_1:     ApplicableInapplicableNotUsed
+    + QE1_2_1:   ApplicableInapplicableNotUsed
+    + QE1_2_2:   ApplicableInapplicableNotUsed
+    + QE1_2_3:   ApplicableInapplicableNotUsed
+    + QE1_2_4:   ApplicableInapplicableNotUsed
+    + QE1_3:     ApplicableInapplicableNotUsed
+    + QE1_4:     ApplicableInapplicableNotUsed
+    + QE2_1:     ApplicableInapplicableNotUsed
+    + QE2_2:     ApplicableInapplicableNotUsed
+    + QE2_3:     ApplicableInapplicableNotUsed
+    + QE3_1_1:   ApplicableInapplicableNotUsed
+    + QE3_1_2:   ApplicableInapplicableNotUsed
+    + QE3_1_3:   ApplicableInapplicableNotUsed
+    + QE3_1_4:   ApplicableInapplicableNotUsed
+    + QE3_1_5:   ApplicableInapplicableNotUsed
+    + QE3_1_6_1: ApplicableInapplicableNotUsed
+    + QE3_1_6_2: ApplicableInapplicableNotUsed
+}
+
+class SWQualityElement[&quot;SurfaceWaterDataset::SWQualityElement&quot;]:::partial{ 
+}
+
+class SWPollutant[&quot;SurfaceWaterDataset::SWPollutant&quot;]:::partial{ 
+}
+
+SWQualityElement ..&gt; QE1Classification: qeClassificationIdentifier
+SWQualityElement ..&gt; QE3Classification: qeClassificationIdentifier
+
+
+QE1Classification -- &quot;0..n&quot; QEClassification_SWType
+QE3Classification -- &quot;0..n&quot; QEClassification_SWType   
+QEClassification_SWType &quot;0..n&quot; -- SWType 
+
+
+SWPollutant ..&gt; SWThresholdValue: swThresholdIdentifier
+SWThresholdValue -- &quot;0..n&quot; SWThreshold_SWType 
+SWThreshold_SWType &quot;0..n&quot; -- SWType
+SWType &quot;1&quot; -- &quot;1..n&quot; SWNaturalBackgroundLevel
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+classDef partial fill:lavender,stroke:#000;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 85 </span><span class="caption-text">Surface water methodologies - SWType - 4th cycle.</span><a class="headerlink" href="#surfacewatermethodologies-4thcycle-swtype-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#swtype-qe-validoptions"><span class="std std-numref">Figure 86</span></a> illustrates the valid options
+for each quality element, depending on the water category.</p>
+<figure class="align-center" id="swtype-qe-validoptions">
+<a class="reference internal image-reference" href="../_images/SWType_QE_ValidOptions.png"><img alt="../_images/SWType_QE_ValidOptions.png" src="../_images/SWType_QE_ValidOptions.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 86 </span><span class="caption-text">SWType quality elements - valid options – 4th cycle.</span><a class="headerlink" href="#swtype-qe-validoptions" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Depending on the water body category,
+some quality elements may be reported as <code class="docutils literal notranslate"><span class="pre">notUsed</span></code>:</p>
+<ul class="simple">
+<li><p>For rivers:</p>
+<ul>
+<li><p>QE1-2-1 - Macroalgae</p></li>
+<li><p>QE1-2-2 - Angiosperms</p></li>
+<li><p>QE3-1-1 - Transparency conditions</p></li>
+</ul>
+</li>
+<li><p>For lakes:</p>
+<ul>
+<li><p>QE1-2-1 - Macroalgae</p></li>
+<li><p>QE1-2-2 - Angiosperms</p></li>
+<li><p>QE2-2 - River continuity conditions</p></li>
+</ul>
+</li>
+<li><p>For transitional waters:</p>
+<ul>
+<li><p>QE1-2-3 - Macrophytes</p></li>
+<li><p>QE1-2-4 - Phytobenthos</p></li>
+<li><p>QE2-2 - River continuity conditions</p></li>
+<li><p>QE3-1-5 - Acidification status</p></li>
+</ul>
+</li>
+<li><p>For coastal waters:</p>
+<ul>
+<li><p>QE1-4 - Fish</p></li>
+<li><p>QE1-2-3 - Macrophytes</p></li>
+<li><p>QE1-2-4 - Phytobenthos</p></li>
+<li><p>QE2-2 - River continuity conditions</p></li>
+<li><p>QE3-1-5 - Acidification status</p></li>
+</ul>
+</li>
+</ul>
+<p>In exceptional cases,
+some biological quality elements may be reported as ‘inapplicable’
+(see e.g. Part 3 of Annex 1 <a class="footnote-reference brackets" href="#footcite-intercalibration-2024" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>).</p>
+<p><a class="reference internal" href="#swtype-qe-defaultoption"><span class="std std-numref">Figure 87</span></a> illustrates the default option
+for each quality element, depending on the water category.</p>
+<figure class="align-center" id="swtype-qe-defaultoption">
+<a class="reference internal image-reference" href="../_images/SWType_QE_DefaultOption.png"><img alt="../_images/SWType_QE_DefaultOption.png" src="../_images/SWType_QE_DefaultOption.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 87 </span><span class="caption-text">SWType quality elements - default option – 4th cycle.</span><a class="headerlink" href="#swtype-qe-defaultoption" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">'applicable'</span></code> if the quality element is applicable
+and should therefore be used in the assessment
+provided that it is relevant to monitor
+(all quality elements are relevant to monitor in the surveillance monitoring network and
+only the most sensitive to the pressures are to monitor in the operational monitoring network).<br />
+<a class="reference internal" href="#swtype-qc-applicable"><span class="std std-numref">Figure 88</span></a> illustrates the quality control: only warnings are issued.</p>
+<figure class="align-center" id="swtype-qc-applicable">
+<a class="reference internal image-reference" href="../_images/SWType_QC_applicable.png"><img alt="../_images/SWType_QC_applicable.png" src="../_images/SWType_QC_applicable.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 88 </span><span class="caption-text">SWType quality elements - quality controls if ‘applicable’ is selected – 4th cycle.</span><a class="headerlink" href="#swtype-qc-applicable" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">'inapplicable'</span></code>, if the quality element status is never assessed
+for the water bodies belonging to a given national surface water body type
+(see e.g. Part 3 of Annex 1 <a class="footnote-reference brackets" href="#footcite-intercalibration-2024" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>).
+This should normally be justified in the framework of the intercalibration decision.
+Otherwise, this will trigger a <em>warning</em> (<a class="reference internal" href="#swtype-qc-inapplicable"><span class="std std-numref">Figure 89</span></a>).</p>
+<ul class="simple">
+<li><p>It is not possible to mark all biological quality elements as ‘inapplicable’:
+a quality control <em>blocker</em> will be raised.</p></li>
+<li><p>It is not possible to mark all physico-chemical quality elements as ‘inapplicable’:
+a quality control <em>blocker</em> will be raised.</p></li>
+<li><p>If all hydromorphological quality elements are reported as ‘inapplicable’:
+a quality control <em>error</em> will be raised.</p></li>
+</ul>
+<figure class="align-center" id="swtype-qc-inapplicable">
+<a class="reference internal image-reference" href="../_images/SWType_QC_inapplicable.png"><img alt="../_images/SWType_QC_inapplicable.png" src="../_images/SWType_QC_inapplicable.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 89 </span><span class="caption-text">SWType quality elements - quality controls if ‘inapplicable’ is selected – 4th cycle.</span><a class="headerlink" href="#swtype-qc-inapplicable" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">'notUsed'</span></code>, for the cases
+where the WFD does not foresee the use of a given quality element
+for a given water category (e.g. acidification in coastal waters)
+and therefore the quality element was not used in the assessment.</p>
+<ul class="simple">
+<li><p>In transitional and coastal waters,
+it is not possible to mark both macroalgae and angiosperms as ‘notUsed’:
+a quality control <em>blocker</em> will be raised (<a class="reference internal" href="#swtype-qc-notused"><span class="std std-numref">Figure 90</span></a>).</p></li>
+<li><p>In rivers and lakes,
+it is not possible to mark both macrophytes and phytobenthos as ‘notUsed’:
+a quality control <em>blocker</em> will be raised.</p></li>
+<li><p>It is not possible to mark both nitrogen and phosphorus conditions as ‘notUsed’:
+a quality control <em>blocker</em> will be raised.</p></li>
+</ul>
+<figure class="align-center" id="swtype-qc-notused">
+<a class="reference internal image-reference" href="../_images/SWType_QC_notUsed.png"><img alt="../_images/SWType_QC_notUsed.png" src="../_images/SWType_QC_notUsed.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 90 </span><span class="caption-text">SWType quality elements - quality controls if ‘notUsed’ is selected – 4th cycle.</span><a class="headerlink" href="#swtype-qc-notused" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<p>The data reported in the <code class="docutils literal notranslate"><span class="pre">SWType</span></code> table controls the data that must be reported
+in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table, for the water bodies of that national type.
+For example:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">surfaceWaterBodyCategory</span> <span class="pre">=</span> <span class="pre">'CW'</span></code>, it is expected that <code class="docutils literal notranslate"><span class="pre">QE2_2</span> <span class="pre">=</span> <span class="pre">'notUsed'</span></code>.
+Therefore, in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table,
+the value <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">=</span> <span class="pre">'QE2-2'</span></code> will never occur for coastal water bodies.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">surfaceWaterBodyCategory</span> <span class="pre">=</span> <span class="pre">'CW'</span></code>, it is expected that <code class="docutils literal notranslate"><span class="pre">QE1_4</span> <span class="pre">=</span> <span class="pre">'notUsed'</span></code>.
+Therefore, in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table,
+the value <code class="docutils literal notranslate"><span class="pre">qeCode</span> <span class="pre">=</span> <span class="pre">'QE1-4'</span></code> will never occur for coastal water bodies.</p></li>
+</ul>
+<p>Another example:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">[surfaceWaterBodyCategory]</span> <span class="pre">=</span> <span class="pre">'RW'</span></code>, it is possible to set <code class="docutils literal notranslate"><span class="pre">[QE1_1]</span> <span class="pre">=</span> <span class="pre">'notUsed'</span></code>.
+In that case, in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table,
+the value <code class="docutils literal notranslate"><span class="pre">[qeCode]</span> <span class="pre">=</span> <span class="pre">'QE1-1'</span></code> will never occur for rivers belonging to that national type.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">[surfaceWaterBodyCategory]</span> <span class="pre">=</span> <span class="pre">'RW'</span></code>, it is possible to set <code class="docutils literal notranslate"><span class="pre">[QE1_1]</span> <span class="pre">=</span> <span class="pre">'applicable'</span></code>.
+In that case, in the <code class="docutils literal notranslate"><span class="pre">SWQualityElement</span></code> table,
+the value <code class="docutils literal notranslate"><span class="pre">[qeCode]</span> <span class="pre">=</span> <span class="pre">'QE1-1'</span></code> must be reported for rivers belonging to that national type.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The attribute names use the underscore character (<code class="docutils literal notranslate"><span class="pre">_</span></code>)
+instead of the hyphen character (<code class="docutils literal notranslate"><span class="pre">-</span></code>) for technical reasons.</p>
+</div>
+</section>
+</section>
+<section id="codelists-4th-cycle">
+<span id="heading-wfd-surface-water-methodologies-codelists-4th-cycle"></span><h2>Codelists - 4th cycle<a class="headerlink" href="#codelists-4th-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">GEPApproach</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-gepapproach-table"><span class="std std-numref">Table 56</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">MixingZoneMeasure</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-mixingzonemeasure-table"><span class="std std-numref">Table 57</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">PressureAssessmentMethod</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-pressureassessmentmethod-table"><span class="std std-numref">Table 58</span></a>.</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">GEPApproach codelist</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-gepapproach-table" style="width: 100%">
+<caption><span class="caption-number">Table 56 </span><span class="caption-text">Codelist - 4th cycle - GEPApproach</span><a class="headerlink" href="#codelist-4thcycle-gepapproach-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Notation</p></th>
+<th class="head"><p class="sd-card-text">Label</p></th>
+<th class="head"><p class="sd-card-text">Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">cisGuidanceReferenceApproach</p></td>
+<td><p class="sd-card-text">CIS Guidance 37 reference approach</p></td>
+<td><p class="sd-card-text">Reference approach as explained in CIS Guidance 37 <a class="footnote-reference brackets" href="#footcite-cis-guidance-37" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">mitigationMeasuresPragueApproachWithBQE</p></td>
+<td><p class="sd-card-text">Mitigation measures (Prague) approach with BQE</p></td>
+<td><p class="sd-card-text">Mitigation measures (Prague) approach as explained in CIS Guidance 37, including
+an assessment of biological quality elements that would be applicable to natural water bodies.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">mitigationMeasuresPragueApproachWithoutBQE</p></td>
+<td><p class="sd-card-text">Mitigation measures (Prague) approach without BQE</p></td>
+<td><p class="sd-card-text">Mitigation measures (Prague) approach, but not yet including
+any biological quality elements in the assessment.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">hybridApproachReferencePrague</p></td>
+<td><p class="sd-card-text">Hybrid CIS Guidance Reference approach / Prague approach</p></td>
+<td><p class="sd-card-text">Hybrid between the CIS Guidance 37 reference approach and the mitigation measures (Prague) approach.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">sameAssessmentAsNaturalWB</p></td>
+<td><p class="sd-card-text">Same assessment system as for natural water bodies</p></td>
+<td><p class="sd-card-text">The exact same assessment system as for natural water bodies is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">gepHasNotBeenDefined</p></td>
+<td><p class="sd-card-text">GEP has not been defined</p></td>
+<td><p class="sd-card-text">Good ecological potential has not been not defined for this water category.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">MixingZoneMeasure codelist</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-mixingzonemeasure-table" style="width: 100%">
+<caption><span class="caption-number">Table 57 </span><span class="caption-text">Codelist – 4th cycle - MixingZoneMeasure</span><a class="headerlink" href="#codelist-4thcycle-mixingzonemeasure-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Notation</p></th>
+<th class="head"><p class="sd-card-text">Label</p></th>
+<th class="head"><p class="sd-card-text">Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">measureArticle113k</p></td>
+<td><p class="sd-card-text">Measures according to Article 11(3)(k) of the WFD</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">reviewOfPermits</p></td>
+<td><p class="sd-card-text">Review of permits referred to in the IPPC Directive</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">priorRegulationsArticle113g</p></td>
+<td><p class="sd-card-text">Prior regulations referred to in Article 11(3)(g) of the WFD</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">other</p></td>
+<td><p class="sd-card-text">Other</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">notApplicable</p></td>
+<td><p class="sd-card-text">Not applicable</p></td>
+<td><p class="sd-card-text">Use this option if mixing zones were not defined.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">PressureAssessmentMethod codelist</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-pressureassessmentmethod-table" style="width: 100%">
+<caption><span class="caption-number">Table 58 </span><span class="caption-text">Codelist - 4th cycle - PressureAssessmentMethod</span><a class="headerlink" href="#codelist-4thcycle-pressureassessmentmethod-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Notation</p></th>
+<th class="head"><p class="sd-card-text">Label</p></th>
+<th class="head"><p class="sd-card-text">Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">numericalTools</p></td>
+<td><p class="sd-card-text">Numerical Tools</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">expertJudgement</p></td>
+<td><p class="sd-card-text">Expert Judgement</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">combinationOfBoth</p></td>
+<td><p class="sd-card-text">Combination of Both</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">notAssessed</p></td>
+<td><p class="sd-card-text">Not Assessed</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details></section>
+<section id="references">
+<span id="heading-wfd-wfd-surface-water-methodologies-references"></span><h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-intercalibration-2024" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>European Union. Commission Decision (EU) 2024/721 of 27 February 2024 establishing, pursuant to Directive 2000/60/EC of the European Parliament and of the Council, the values of the Member State monitoring system classifications as a result of the intercalibration exercise and repealing Commission Decision (EU) 2018/229. 2024. URL: <a class="reference external" href="http://data.europa.eu/eli/dec/2024/721/oj">http://data.europa.eu/eli/dec/2024/721/oj</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-cis-guidance-37" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>European Commission and Directorate-General for Environment. CIS Guidance Document No. 37: Steps for defining and assessing ecological potential for improving comparability of Heavily Modified Water Bodies. Common Implementation Strategy for the Water Framework Directive (2000/60/EC), European Commission, 2019. URL: <a class="reference external" href="https://circabc.europa.eu/rest/download/e6036f6b-b277-4b0f-9ca3-861b4d1262a9">https://circabc.europa.eu/rest/download/e6036f6b-b277-4b0f-9ca3-861b4d1262a9</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="WFDSurfaceWaterBody.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Surface water bodies</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDExemptions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exemptions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmet-2022-schema-3rd-cycle">SWMET_2022 schema - 3rd cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-information">Generic information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-information">Technical information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodologies-dataset-4th-cycle">Methodologies dataset - 4th cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swtargetedquestions-table">SWTargetedQuestions table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swpressureassessment-table">SWPressureAssessment table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swthresholdvalue-table">SWThresholdValue table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qe3classification-table">QE3Classification table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qe2classification-table">QE2Classification table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qe1classification-and-bqemethod-table">QE1Classification and BQEMethod table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swtype-table">SWType table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codelists-4th-cycle">Codelists - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDSurfaceWaterMethodologies.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDSurfaceWaterMethodologies.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

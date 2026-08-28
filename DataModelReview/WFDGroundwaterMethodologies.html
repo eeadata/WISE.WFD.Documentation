@@ -1,0 +1,1420 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Groundwater methodologies &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDGroundwaterMethodologies';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Surface water bodies" href="WFDSurfaceWaterBody.html" />
+    <link rel="prev" title="Groundwater bodies" href="WFDGroundWaterBody.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Groundwater methodologies</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="groundwater-methodologies">
+<span id="heading-wfd-groundwater-methodologies"></span><h1>Groundwater methodologies<a class="headerlink" href="#groundwater-methodologies" title="Link to this heading">#</a></h1>
+<div class="dropdown admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Updated: 2026-07-23</p>
+<ul class="simple">
+<li><p>Removed the Documents section:
+the groundwater methodologies are integrated
+into the groundwater dataflow.</p></li>
+</ul>
+<p>Updated: 2026-07-06</p>
+<ul class="simple">
+<li><p>Changes based on feedback from WG DIS and WG Groundwater members.</p>
+<ul>
+<li><p>Removal of the GWType related classes.</p></li>
+<li><p>Correction of the GWThresholdValue description.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="purpose-and-overview">
+<span id="heading-wfd-groundwater-methodologies-purpose-and-overview"></span><h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>This section:</p>
+<ul class="simple">
+<li><p>revises the information related to <strong>Groundwater methodologies</strong>
+in the 2nd and 3rd cycle of reporting of the
+Water Framework Directive River Basin Management Plans</p></li>
+<li><p>presents a simplified proposal for the electronic reporting in the 4th cycle
+as a separate dataset within the <strong>Groundwater</strong> dataflow,
+to allow the cross-check between the methodologies data
+and the data reported at water body level</p></li>
+</ul>
+</section>
+<section id="gwmet-2022-schema-3rd-cycle">
+<span id="heading-wfd-groundwater-methodologies-reporting-of-groundwater-methodologies-gwmet-schema-3rd-cycle"></span><h2>GWMET_2022 schema - 3rd cycle<a class="headerlink" href="#gwmet-2022-schema-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>The GWMET_2022 schema defined the required data about  about the groundwater methodologies (<a class="reference internal" href="#classdiagram-gwmet-2022"><span class="std std-numref">Figure 48</span></a>).</p>
+<figure class="align-center" id="classdiagram-gwmet-2022">
+<a class="reference internal image-reference" href="../_images/ClassDiagram_GWMET_2022.png"><img alt="../_images/ClassDiagram_GWMET_2022.png" src="../_images/ClassDiagram_GWMET_2022.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 48 </span><span class="caption-text">GWMET_2022 Schema - 3rd cycle</span><a class="headerlink" href="#classdiagram-gwmet-2022" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The GWMET_2022 schema was already partially revised
+(see <a class="reference internal" href="WFDExemptions.html#heading-wfd-exemptions-reporting-of-exemptions-3rd-cycle"><span class="std std-ref">Current structure - 3rd cycle</span></a>).
+Specifically, the GWExemptions data (<a class="reference internal" href="WFDExemptions.html#exemptions-3rdcycle-gwmet-classdiagram"><span class="std std-numref">Figure 92</span></a>)
+is no longer requested in the 4th cycle.</p>
+<p><a class="reference internal" href="#groundwatermethodologies-3rdcycle-gwmet-classdiagram"><span class="std std-numref">Figure 49</span></a> shows a simplified diagram
+to help focus the discussion on the remaining issues.</p>
+<figure class="align-center" id="groundwatermethodologies-3rdcycle-gwmet-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: default
+---
+classDiagram
+
+class GWMethodologies {
+  + gwCharacterisationReference: ReferenceType [1..*]
+  + diminutionDamage: YesNoNotApplicable_Union_Enum
+  + methodCriterionExtentExceedance: MethodCriterionExtentExceedance_Enum
+  + proportionExceedanceAllowed: NumberDecimal0100Type [0..1]
+  + impactsGWAbstractionBalance: YesNoCode_Enum
+  + impactsGWAbstractionSWObjective: YesNoCode_Enum
+  + impactsGWAbstractionSWDiminutionStatus: YesNoCode_Enum
+  + impactsGWAbstractionDamageGWDE: YesNoCode_Enum
+  + impactsGWAbstractionSalineIntrusion: YesNoCode_Enum
+  + availableGroundwaterResource: YesNoPartially_Union_Enum
+  + needsTerritorialEcosystems: YesNoNotApplicable_Union_Enum
+  + balanceRechargeAbstraction: BalanceRechargeAbstraction_Enum
+  + trendAssessmentPerformed: YesNoCode_Enum
+  + trendAssessmentMethodology: YesNoCode_Enum [0..1]
+  + timeSeries: YearRangeType [0..1]
+  + statisticalElements: StatisticalElements_Enum [0..1]
+  + additionalTrendAssessment: YesNoCode_Enum
+  + trendReversalMethodology: YesNoCode_Enum
+  + thresholdValueElementProtectionEcosystem: YesNoCode_Enum
+  + thresholdValueElementProtectionGWDE: YesNoCode_Enum
+  + thresholdValueElementProtectionUses: YesNoCode_Enum
+  + thresholdValueElementSalineIntrusion: YesNoCode_Enum
+  + thresholdValueBackgroundLevels: ThresholdValueBackgroundLevels_Enum
+  + transboundaryGWBPresent: YesNoCode_Enum
+  + transboundaryThresholdValues: YesNoCode_Enum
+  + gwMethodologiesChemicalStatusClassificationReference: ReferenceType [1..*]
+  + gwMethodologiesQuantitativeClassificationReference: ReferenceType [1..*]
+  + gwMethodologiesTransboundaryReference: ReferenceType [0..*]
+}
+
+class GWPressures{
+  + gwPressuresNotAssessed: SignificantPressureType_Enum [1..*]
+  + gwSignificantPressurePointSourceTools: SignificantPressureTools_Enum
+  + gwSignificantPressureDiffuseSourceTools: SignificantPressureTools_Enum
+  + gwSignificantPressureWaterAbstractionTools: SignificantPressureTools_Enum
+  + gwSignificantPressureArtificialRecharge: SignificantPressureTools_Enum
+  + gwSignificantPressureOtherSourceTools: SignificantPressureTools_Enum
+  + gwSignificanceDefinition: YesNoCode_Enum
+  + gwSignificanceLinkFailure: YesNoCode_Enum
+  + gwPressuresReference: ReferenceType [1..*]
+}
+
+
+class ThresholdValue{
+  + pollutantIndicatorCode: ChemicalSubstances_Union_Enum
+  + pollutantIndicatorCodeOther: OtherType [0..1]
+  + thresholdValueRange: ThresholdType [0..1]
+  + thresholdValueUnit: UnitOfMeasure_Enum
+  + thresholdValueDerivedFromCV: YesNoCode_Enum
+  + cvDrinkingWaterValueRange: ThresholdType [0..1]
+  + cvDrinkingWaterValueUnit: UnitOfMeasure_Enum [0..1]
+  + cvIrrigationValueRange: ThresholdType [0..1]
+  + cvIrrigationValueUnit: UnitOfMeasure_Enum [0..1]
+  + cvIndustryValueRange: ThresholdType [0..1]
+  + cvIndustryValueUnit: UnitOfMeasure_Enum [0..1]
+  + cvOtherValueRange: ThresholdType [0..1]
+  + cvOtherValueUnit: UnitOfMeasure_Enum [0..1]
+  + thresholdValueScale: GeographicalScale_Enum
+  + startingPointTrendReversal: ThresholdType
+}
+
+
+class GWMET {
+  + countryCode: CountryCode_Enum
+  + euRBDCode: FeatureUniqueEUCodeType
+}
+
+GWMethodologies &lt;-- GWMET : 1..1
+GWPressures &lt;-- GWMET : 1..1
+ThresholdValue &lt;-- GWMET : *..0
+    </pre><figcaption>
+<p><span class="caption-number">Figure 49 </span><span class="caption-text">Class diagram for the GWMET_2022 schema in the 3rd cycle.</span><a class="headerlink" href="#groundwatermethodologies-3rdcycle-gwmet-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Commission has revised and simplified the <strong>GWMethodologies</strong> class,
+keeping only a subset of the elements requested in the 3rd cycle.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>GWMET/GWMethodologies/diminutionDamage</p></li>
+<li><p>GWMET/GWMethodologies/methodCriterionExtentExceedance</p></li>
+<li><p>GWMET/GWMethodologies/proportionExceedanceAllowed</p></li>
+<li><p>GWMET/GWMethodologies/impactsGWAbstractionBalance</p></li>
+<li><p>GWMET/GWMethodologies/impactsGWAbstractionSWObjective</p></li>
+<li><p>GWMET/GWMethodologies/impactsGWAbstractionSWDiminutionStatus</p></li>
+<li><p>GWMET/GWMethodologies/impactsGWAbstractionDamageGWDE</p></li>
+<li><p>GWMET/GWMethodologies/impactsGWAbstractionSalineIntrusion</p></li>
+<li><p>GWMET/GWMethodologies/availableGroundwaterResource</p></li>
+<li><p>GWMET/GWMethodologies/needsTerritorialEcosystems</p></li>
+<li><p>GWMET/GWMethodologies/balanceRechargeAbstraction</p></li>
+<li><p>GWMET/GWMethodologies/gwMethodologiesChemicalStatusClassificationReference</p></li>
+<li><p>GWMET/GWMethodologies/gwMethodologiesQuantitativeClassificationReference</p></li>
+<li><p>GWMET/GWMethodologies/gwMethodologiesTransboundaryReference</p></li>
+<li><p>GWMET/GWMethodologies/transboundaryGWBPresent</p></li>
+<li><p>GWMET/GWMethodologies/trendAssessmentMethodology</p></li>
+</ul>
+<p>The following elements were moved or revised:</p>
+<ul class="simple">
+<li><p>GWMET/GWMethodologies/trendAssessmentStatisticalElements</p></li>
+<li><p>GWMET/GWMethodologies/thresholdValueBackgroundLevels</p></li>
+</ul>
+<p>The Commission has revised and simplified the <strong>ThresholdValue</strong> class,
+keeping only a subset of the elements requested in the 3rd cycle.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>GWMET/ThresholdValue/pollutantIndicatorCodeOther</p></li>
+<li><p>GWMET/ThresholdValue/thresholdValueDerivedFromCV</p></li>
+<li><p>GWMET/ThresholdValue/cvDrinkingWaterValueRange</p></li>
+<li><p>GWMET/ThresholdValue/cvDrinkingWaterValueUnit</p></li>
+<li><p>GWMET/ThresholdValue/cvIrrigationValueRange</p></li>
+<li><p>GWMET/ThresholdValue/cvIrrigationValueUnit</p></li>
+<li><p>GWMET/ThresholdValue/cvIndustryValueRange</p></li>
+<li><p>GWMET/ThresholdValue/cvIndustryValueUnit</p></li>
+<li><p>GWMET/ThresholdValue/cvOtherValueRange</p></li>
+<li><p>GWMET/ThresholdValue/cvOtherValueUnit</p></li>
+<li><p>GWMET/ThresholdValue/thresholdValueScale</p></li>
+</ul>
+<p>The Commission has revised <strong>GWPressures</strong> class.
+The following elements were removed:</p>
+<ul class="simple">
+<li><p>GWMET/GWPressures/gwSignificantPressureOtherSourceTools</p></li>
+<li><p>GWMET/GWPressures/gwPressuresNotAssessed</p></li>
+<li><p>GWMET/GWPressures/gwPressuresReference</p></li>
+</ul>
+<p>The structure of the <strong>GWPressures</strong> class was also revised.</p>
+</section>
+<section id="methodologies-dataset-4th-cycle">
+<span id="heading-wfd-groundwater-methodologies-4th-cycle"></span><h2>Methodologies dataset - 4th cycle<a class="headerlink" href="#methodologies-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>This section shows the proposed structure for the groundwater methodologies reporting.</p>
+<section id="gwmethodologies-table">
+<h3>GWMethodologies table<a class="headerlink" href="#gwmethodologies-table" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GWMethodologies</span></code> table has a structure similar to the corresponding class
+in the 3rd cycle reporting, minus the attributes removed by the Commission’s review
+(see <a class="reference internal" href="#groundwatermethodologies-4thcycle-gwmethodologies-classdiagram"><span class="std std-numref">Figure 50</span></a>).</p>
+<figure class="align-center" id="groundwatermethodologies-4thcycle-gwmethodologies-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+
+class GWMethodologies {
+  + euRBDCode: wiseIdentifier
+  + gwCharacterisationReference: referenceCode
+  + trendAssessmentPerformed: YesNo
+  + trendAssessmentTimeSeries: range [0..1]
+  + trendAssessmentStatisticalMethod: TrendStatisticalMethod [0..1]
+  + additionalTrendAssessment: YesNo
+  + trendReversalMethodology: YesNo
+  + thresholdValueElementProtectionEcosystem: YesNo
+  + transboundaryThresholdValues: YesNoNotApplicable
+  + thresholdValueElementProtectionGWDE: YesNo
+  + thresholdValueElementProtectionUses: YesNo
+  + thresholdValueElementSalineIntrusion: YesNo
+}
+
+class TrendStatisticalMethod{
+  &lt;&lt;enumeration&gt;&gt;
+  statisticalSignificanceTrendDetection
+  confidenceIntervalTrendMagnitude
+  none
+}
+
+GWMethodologies .. TrendStatisticalMethod 
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lightyellow,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 50 </span><span class="caption-text">Groundwater methodologies - GWMethodologies table - 4th cycle</span><a class="headerlink" href="#groundwatermethodologies-4thcycle-gwmethodologies-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gwpressureassessment-table">
+<h3>GWPressureAssessment table<a class="headerlink" href="#gwpressureassessment-table" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GWPressureAssessment</span></code> table has a modified structure
+(see <a class="reference internal" href="#groundwatermethodologies-4thcycle-gwpressureassessment-classdiagram"><span class="std std-numref">Figure 51</span></a>):</p>
+<ul class="simple">
+<li><p>the reporting of “pressures not assessed” is eliminated,
+because the data was difficult to analyse and contained inconsistencies</p></li>
+<li><p>instead, for each pressure (or group of pressures),
+three attributes are requested
+(<code class="docutils literal notranslate"><span class="pre">gwPressureAssessmentMethod</span></code>,<code class="docutils literal notranslate"><span class="pre">gwSignificanceDefinition</span></code>,<code class="docutils literal notranslate"><span class="pre">gwSignificanceLinkFailure</span></code>)</p></li>
+<li><p>given that the pressure codelist is hierarchical,
+the granularity of the reporting is selected by Member States</p></li>
+<li><p>the quality control procedure will verify that different levels
+are not selected simultaneously for any given RBD</p></li>
+</ul>
+<p>For more information see <a class="reference internal" href="WFDPressures.html#heading-wfd-pressure-type-codelist-4th-cycle"><span class="std std-ref">PressureType codelist - 4th cycle</span></a>.</p>
+<figure class="align-center" id="groundwatermethodologies-4thcycle-gwpressureassessment-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+
+class GWPressureAssessment{
+  + euRBDCode: wiseIdentifier
+  + gwPressure: PressureType
+  + gwPressureAssessmentMethod: PressureAssessmentMethod
+  + gwSignificanceDefinition: YesNoNotApplicable
+  + gwSignificanceLinkFailure: YesNoNotApplicable
+}
+
+class PressureAssessmentMethod{
+&lt;&lt;enumeration&gt;&gt;
+  numericalTools
+  expertJudgement
+  combinationOfBoth
+  notAssessed 
+}
+
+GWPressureAssessment ..&gt; PressureAssessmentMethod 
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lightyellow,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 51 </span><span class="caption-text">Groundwater methodologies - GWPressureAssessment table - 4th cycle</span><a class="headerlink" href="#groundwatermethodologies-4thcycle-gwpressureassessment-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gwthresholdvalue-table">
+<span id="heading-wfd-groundwater-methodologies-gwthresholdvalue-table"></span><h3>GWThresholdValue table<a class="headerlink" href="#gwthresholdvalue-table" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GWThresholdValue</span></code> table has a structure similar to the corresponding class
+in the 3rd cycle reporting, minus the attributes removed by the Commission’s review
+(see <a class="reference internal" href="#groundwatermethodologies-4thcycle-gwthresholdvalue-classdiagram"><span class="std std-numref">Figure 52</span></a>).
+Note that:</p>
+<ul class="simple">
+<li><p>a unique <code class="docutils literal notranslate"><span class="pre">gwThresholdIdentifier</span></code> was introduced to avoid ambiguity</p></li>
+<li><p>duplicate records will be detected
+(i.e. records with identical values for all attributes, except the identifier)</p></li>
+</ul>
+<figure class="align-center" id="groundwatermethodologies-4thcycle-gwthresholdvalue-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+  themeVariables:
+    noteBkgColor: LightYellow
+    noteTextColor: black 
+---
+classDiagram
+class GWThresholdValue{
+  + gwThresholdIdentifier: wiseIdentifier
+  + parameterCode: Parameter
+  + thresholdValueRange: range
+  + thresholdValueUnit: UnitOfMeasure
+
+  + startingPointTrendReversal: range [0..1]
+  «reference»
+  + gwThresholdReference: referenceCode [0..n]
+}
+
+class GWPollutant [&quot;GroundWaterDataset::GWPollutant&quot;]:::otherDataset{
+  + euGroundWaterBodyCode
+  + gwPollutantCode
+  + gwThresholdIdentifier
+}
+
+GWThresholdValue &lt;.. GWPollutant: gwThresholdIdentifier
+
+classDef default fill:white,stroke:#000;
+classDef otherDataset fill:lavender,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 52 </span><span class="caption-text">Groundwater methodologies - GWThresholdValue table - 4th cycle</span><a class="headerlink" href="#groundwatermethodologies-4thcycle-gwthresholdvalue-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="codelists-4th-cycle">
+<span id="heading-wfd-groundwater-methodologies-codelists-4th-cycle"></span><h2>Codelists - 4th cycle<a class="headerlink" href="#codelists-4th-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">PressureAssessmentMethod</span></code> codelist,
+see <a class="reference internal" href="WFDSurfaceWaterMethodologies.html#codelist-4thcycle-pressureassessmentmethod-table"><span class="std std-numref">Table 58</span></a>.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">TrendStatisticalMethod</span></code> codelist,
+see <a class="reference internal" href="#codelist-4thcycle-trendstatisticalmethod-table"><span class="std std-numref">Table 43</span></a>.</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">TrendStatisticalMethod codelist</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table table-left" id="codelist-4thcycle-trendstatisticalmethod-table" style="width: 100%">
+<caption><span class="caption-number">Table 43 </span><span class="caption-text">Codelist - 4th cycle - TrendStatisticalMethod</span><a class="headerlink" href="#codelist-4thcycle-trendstatisticalmethod-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Notation</p></th>
+<th class="head"><p class="sd-card-text">Label</p></th>
+<th class="head"><p class="sd-card-text">Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">statisticalSignificanceTrendDetection</p></td>
+<td><p class="sd-card-text">Statistical significance</p></td>
+<td><p class="sd-card-text">The existence of a significant trend was assessed using statistical tests.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">confidenceIntervalTrendMagnitude</p></td>
+<td><p class="sd-card-text">Confidence interval</p></td>
+<td><p class="sd-card-text">The existence of a significant trend was assessed using statistical tests,
+the magnitude of the trend was quantified and
+the uncertainty was assessed using confidence intervals.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">none</p></td>
+<td><p class="sd-card-text">None</p></td>
+<td><p class="sd-card-text">The trend assessment did not use statistical methods (i.e. expert judgement only)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details></section>
+<section id="annexes-data-analysis-3rd-cycle">
+<h2>Annexes - Data analysis - 3rd cycle<a class="headerlink" href="#annexes-data-analysis-3rd-cycle" title="Link to this heading">#</a></h2>
+<section id="trendassessmentmethodology">
+<h3>trendAssessmentMethodology<a class="headerlink" href="#trendassessmentmethodology" title="Link to this heading">#</a></h3>
+<p>The WFD2022 guidance document definitions for the
+trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements elements
+of the GWMethodologies class are transcribed in
+<a class="reference internal" href="#trendassessmentmethodology-definition-3rdcycle"><span class="std std-numref">Table 44</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="trendassessmentmethodology-definition-3rdcycle" style="width: 100%">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text">Definitions for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3rd cycle.</span><a class="headerlink" href="#trendassessmentmethodology-definition-3rdcycle" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 40.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Guidance</p></th>
+<th class="head"><p>Option</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trendAssessmentPerformed</p></td>
+<td><p>Required.<br />
+Indicate whether trend assessment in groundwater pollutants was performed.</p></td>
+<td><p>‘Yes’<br />
+‘No’</p></td>
+</tr>
+<tr class="row-odd"><td><p>trendAssessmentMethodology</p></td>
+<td><p>Conditional.<br />
+If trend assessment in groundwater pollutants was performed,
+indicate whether a methodology for identifying
+significant and upward trends in any pollutant’s concentration has been applied.</p></td>
+<td><p>‘Yes’<br />
+‘No’</p></td>
+</tr>
+<tr class="row-even"><td><p>statisticalElements</p></td>
+<td><p>Conditional.<br />
+If trend assessment in groundwater pollutants was performed,
+select from the enumeration list which statistical element was used.</p></td>
+<td><p>‘Statistical significance’<br />
+‘Confidence intervals’<br />
+‘None’</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The reported data for combinations of the three elements is presented in
+<a class="reference internal" href="#trendassessmentmethodology-reported-data-3rdcycle"><span class="std std-numref">Table 45</span></a>.</p>
+<p>The first four records may be interpreted as:</p>
+<ul class="simple">
+<li><p>in 95 river basin districts, trends were assessed
+and a test for statistical significance of an upward trend was used<br />
+(e.g. using a linear regression t-test or a non-parametric Mann-Kendall test)</p></li>
+<li><p>in 36 river basin districts, trends were not assessed</p></li>
+<li><p>in 16 river basin districts, trends were assessed
+and the magnitude of significant upward trends
+was quantified using confidence intervals</p></li>
+<li><p>in 2 river basin districts, trends were assessed
+but no methodology for detecting <em>significant</em> upward trends exists,
+and no statistical element was used (i.e. only expert judgement was used?)</p></li>
+</ul>
+<p>The last two records are difficult to interpret, and possibly result from reporting mistakes:</p>
+<ul class="simple">
+<li><p>in 6 river basin districts trends were assessed,
+a methodology for detecting <em>significant</em> upward trends was applied,
+but somehow no statistical element was used</p></li>
+<li><p>in 1 river basin districts trends were assessed,
+a methodology for detecting <em>significant</em> upward trends was not applied,
+but somehow statistical significance was determined</p></li>
+</ul>
+<p>In conclusion:</p>
+<ul class="simple">
+<li><p>the trendAssessmentMethodology element appears to be redundant
+with respect to the statisticalElements element,
+and may be removed to simplify the reporting and avoid mistakes</p></li>
+<li><p>the meaning of the statisticalElements element should be made clearer
+to both data provider and end-users, to facilitate the interpretation</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="trendassessmentmethodology-reported-data-3rdcycle">
+<caption><span class="caption-number">Table 45 </span><span class="caption-text">Reported data for trendAssessmentPerformed, trendAssessmentMethodology and statisticalElements – 3rd cycle.</span><a class="headerlink" href="#trendassessmentmethodology-reported-data-3rdcycle" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>trendAssessmentPerformed</p></th>
+<th class="head"><p>trendAssessmentMethodology</p></th>
+<th class="head"><p>statisticalElements</p></th>
+<th class="head"><p>numberOfRBDs</p></th>
+<th class="head"><p>numberOfCountries</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Statistical significance</p></td>
+<td><p>95</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>No</p></td>
+<td><p>«null»</p></td>
+<td><p>«null»</p></td>
+<td><p>36</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Confidence intervals</p></td>
+<td><p>16</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>None</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>None</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>Statistical significance</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="references">
+<span id="heading-wfd-groundwater-methodologies-references"></span><h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="WFDGroundWaterBody.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Groundwater bodies</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDSurfaceWaterBody.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Surface water bodies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gwmet-2022-schema-3rd-cycle">GWMET_2022 schema - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodologies-dataset-4th-cycle">Methodologies dataset - 4th cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gwmethodologies-table">GWMethodologies table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gwpressureassessment-table">GWPressureAssessment table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gwthresholdvalue-table">GWThresholdValue table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codelists-4th-cycle">Codelists - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annexes-data-analysis-3rd-cycle">Annexes - Data analysis - 3rd cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trendassessmentmethodology">trendAssessmentMethodology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDGroundwaterMethodologies.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDGroundwaterMethodologies.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

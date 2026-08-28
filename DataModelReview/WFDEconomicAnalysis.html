@@ -1,0 +1,2174 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Economic analysis &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDEconomicAnalysis';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data model review - known issues" href="KnownIssues.html" />
+    <link rel="prev" title="Exemptions" href="WFDExemptions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDGrouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Economic analysis</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="economic-analysis">
+<span id="heading-wfd-economic-analysis"></span><h1>Economic analysis<a class="headerlink" href="#economic-analysis" title="Link to this heading">#</a></h1>
+<p>Last update: 2026-05-08</p>
+<section id="purpose-and-overview">
+<h2>Purpose and overview<a class="headerlink" href="#purpose-and-overview" title="Link to this heading">#</a></h2>
+<p>The document revises the <strong>Economic Analysis &amp; Services</strong> classes used in the 3rd cycle of reporting
+of the Water Framework Directive River Basin Management Plans (<a class="reference internal" href="#economicanalysis-3rdcycle-classdiagram"><span class="std std-numref">Figure 102</span></a>)
+and presents a proposal for the electronic reporting in the 4th cycle.</p>
+<figure class="align-center" id="economicanalysis-3rdcycle-classdiagram">
+<pre  class="mermaid">
+        classDiagram
+    direction TB
+
+    class EconomicAnalysis {
+        + updatedEconomicAnalysis: YesNoPartially_Union_Enum
+        + economicAnalysisReference: ReferenceType [0..*]
+        + costEffectiveness: CostEffectiveness_Enum
+        + costEffectivenessReference: ReferenceType [0..*]
+        + article9DrinkingWater: YesNoCode_Enum
+        + article9Wastewater: YesNoCode_Enum
+        + article9Irrigation: YesNoCode_Enum
+        + article9SelfAbstraction: YesNoCode_Enum
+        + article9WaterStorage: YesNoCode_Enum
+        + article9FloodProtection: YesNoCode_Enum
+        + article9Navigation: YesNoCode_Enum
+        + article9Other: string1000
+        + article94: YesNoCode_Enum
+        + article94Reference: ReferenceType [0..*]
+        + costRecoveryReference: ReferenceType [1..*]
+    }
+
+    class Service {
+        + service: ServiceType_Enum
+        + serviceOther: string1000 [0..1]
+        + serviceCostInstrument: YesNoPartially_Union_Enum
+        + serviceCostInstrumentReference: ReferenceType [0..*]
+        + serviceVolumetricCharges: YesNoPartially_Union_Enum
+        + servicePriceLevel: ThresholdType
+        + serviceFinancialCostIncluded: YesNoPartially_Union_Enum
+        + serviceFinancialCostCalculation: YesNoPartially_Union_Enum
+        + serviceFinancialCostRecovery: NumberPercentageAboveType
+        + serviceEnvironmentalCharge: YesNoCode_Enum
+        + serviceEnvironmentalChargeScale: MSorRBD_Enum [0..1]
+        + serviceEnvironmentalChargeRevenues: NumberDecimalType [0..1]
+        + serviceEnvironmentalChargeRevenuesUse: YesNoPartially_Union_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCost: YesNoCode_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCostSignificance: YesNoCode_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCostInternalisation: YesNoPartially_Union_Enum [0..1]
+        + serviceExternalEnvironmentalResourceCostJustification: string2500 [0..1]
+        + serviceWaterUseHouseholds: YesNoCode_Enum
+        + serviceWaterUseAgriculture: YesNoCode_Enum
+        + serviceWaterUseIndustry: YesNoCode_Enum
+        + serviceWaterUseOther: string1000 [0..1]
+        + serviceWaterUseContribution: YesNoCode_Enum
+    }
+
+    class RBMPPoM {
+        + countryCode: CountryCode_Enum
+        + euRBDCode: FeatureUniqueEUCodeType
+    }
+
+    EconomicAnalysis --&gt; RBMPPoM: 1..1
+    Service --&gt; RBMPPoM: 1..*
+    </pre><figcaption>
+<p><span class="caption-number">Figure 102 </span><span class="caption-text">Partial diagram for Economic Analysis and Water Services (RBMPPoM_2022) schema - 3rd cycle</span><a class="headerlink" href="#economicanalysis-3rdcycle-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="proposed-structure-4th-cycle">
+<h2>Proposed structure - 4th cycle<a class="headerlink" href="#proposed-structure-4th-cycle" title="Link to this heading">#</a></h2>
+<p>For the 4th cycle of reporting, the requested information detailed in (see also <a class="reference internal" href="#economicanalysis-4thcycle-overview-classdiagram"><span class="std std-numref">Figure 103</span></a>):</p>
+<figure class="align-center" id="economicanalysis-4thcycle-overview-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+
+classDiagram
+    direction TB
+
+class dcMetadata{&lt;&lt;documents&gt;&gt;}
+class Document {&lt;&lt;documents&gt;&gt;}
+
+class CostRecovery {&lt;&lt;descriptive&gt;&gt;}
+class CostRecoveryPerService {&lt;&lt;descriptive&gt;&gt;}
+class VolumeRevenueCostPerService {&lt;&lt;descriptive&gt;&gt;}
+
+dcMetadata ..&gt; Document
+CostRecovery &quot;0..1&quot; -- &quot;0..n&quot; dcMetadata
+CostRecovery &quot;1&quot; -- &quot;n&quot; CostRecoveryPerService
+CostRecovery &quot;1&quot; -- &quot;n&quot; VolumeRevenueCostPerService
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 103 </span><span class="caption-text">WFD Economic Analysis dataflow - 4th cycle</span><a class="headerlink" href="#economicanalysis-4thcycle-overview-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>The former questionnaire in the <em>EconomicAnalysis</em> class is removed.</p></li>
+<li><p>The questionnaires in the new <code class="docutils literal notranslate"><span class="pre">CostRecovery</span></code> and <code class="docutils literal notranslate"><span class="pre">CostRecoveryPerService</span></code> tables maintains
+the same simplified Yes/No approach and requests information only for three collective services
+(drinking water supply services, irrigation water supply services and
+wastewater collection and treatment services).</p></li>
+<li><p>The <em>Service</em> table is removed. Information about volumes, revenues and costs is requested
+in the <code class="docutils literal notranslate"><span class="pre">VolumeRevenueCostPerService</span></code> table, using the standard structure for statistical data
+commonly used by Eurostat.</p></li>
+</ul>
+</section>
+<section id="descriptive-data-4th-cycle">
+<h2>Descriptive data - 4th cycle<a class="headerlink" href="#descriptive-data-4th-cycle" title="Link to this heading">#</a></h2>
+<section id="costrecovery-table">
+<h3>CostRecovery table<a class="headerlink" href="#costrecovery-table" title="Link to this heading">#</a></h3>
+<p>The questionnaire in the <code class="docutils literal notranslate"><span class="pre">CostRecovery</span></code> table
+requests information at River Basin District level.
+See <a class="reference internal" href="#economicanalysis-4thcycle-costrecovery-classdiagram"><span class="std std-numref">Figure 104</span></a>
+and <a class="reference internal" href="#economicanalysis-costrecovery-table"><span class="std std-numref">Table 61</span></a>.</p>
+<figure class="align-center" id="economicanalysis-4thcycle-costrecovery-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+    direction TB
+
+class CostRecovery {
+    + euRBDCode: wiseIdentifier
+
+    «adequate-contribution»
+
+    + adequateContributionAccount: YesNo
+    + adequateContributionSectoral: YesNo
+
+    «polluter-pays-principle»
+
+    + pppAccount: YesNo
+    + pppERCBased: YesNo
+    + pppTargetPolluters: YesNo 
+
+    «incentives»
+    + incentivesAccount: YesNo 
+    + incentivesEmpiricalInformation: YesNo 
+    + incentivesDifferentiated: YesNo [0..1]
+    + incentivesWaterScarcityUse: YesNo 
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 104 </span><span class="caption-text">CostRecovery table - 4th cycle</span><a class="headerlink" href="#economicanalysis-4thcycle-costrecovery-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-costrecovery-table" style="width: 100%">
+<caption><span class="caption-number">Table 61 </span><span class="caption-text">Questionnaire about <em>CostRecovery</em> - 4th cycle</span><a class="headerlink" href="#economicanalysis-costrecovery-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>euRBDCode</p></td>
+<td><p>Identifier of the River Basin District</p></td>
+</tr>
+<tr class="row-odd"><td><p>adequateContributionAccount</p></td>
+<td><p>Is there an account of adequate contribution to service costs?</p></td>
+</tr>
+<tr class="row-even"><td><p>adequateContributionSectoral</p></td>
+<td><p>Is such an account based on sectoral cost recovery rates?</p></td>
+</tr>
+<tr class="row-odd"><td><p>pppAccount</p></td>
+<td><p>Is there an account of the application of the Polluter Pays Principle (PPP)?</p></td>
+</tr>
+<tr class="row-even"><td><p>pppERCBased</p></td>
+<td><p>Is the account based on estimates of Environmental &amp; Resource Costs (ERC)?</p></td>
+</tr>
+<tr class="row-odd"><td><p>pppTargetPolluters</p></td>
+<td><p>Does the account describe how charges target relevant polluters?</p></td>
+</tr>
+<tr class="row-even"><td><p>incentivesAccount</p></td>
+<td><p>Is there an account of adequate incentives of the pricing instruments?</p></td>
+</tr>
+<tr class="row-odd"><td><p>incentivesEmpiricalInformation</p></td>
+<td><p>Is the account based on empirical information on tariff schemes?</p></td>
+</tr>
+<tr class="row-even"><td><p>incentivesDifferentiated</p></td>
+<td><p>If incentivesEmpiricalInformation = ‘Yes’, is the information differentiated over sectors or services?</p></td>
+</tr>
+<tr class="row-odd"><td><p>incentivesWaterScarcityUse</p></td>
+<td><p>Is there information on economic instruments used for water scarcity?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="costrecoveryperservice-table">
+<h3>CostRecoveryPerService table<a class="headerlink" href="#costrecoveryperservice-table" title="Link to this heading">#</a></h3>
+<p>The questionnaire in the <code class="docutils literal notranslate"><span class="pre">CostRecoveryPerService</span></code> table
+maintains the same simplified Yes/No approach and requests information
+only for three collective services (drinking water supply services,
+irrigation water supply services and wastewater collection and treatment services).
+See <a class="reference internal" href="#economicanalysis-4thcycle-costrecoveryperservice-classdiagram"><span class="std std-numref">Figure 105</span></a>
+and <a class="reference internal" href="#economicanalysis-costrecoveryperservice-table"><span class="std std-numref">Table 62</span></a>.</p>
+<figure class="align-center" id="economicanalysis-4thcycle-costrecoveryperservice-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+    direction TB
+
+class CostRecoveryPerService {
+    + euRBDCode: wiseIdentifier 
+    + waterService: WFDWaterService
+
+    «cost-recovery-principle-application»
+
+    + costRecoveryFull: YesNoNotApplicable
+    + costRecoveryCorroborated: YesNo [0..1]
+
+    «justification»
+
+    + nationalMethodologyApplied: YesNo [0..1]
+    + justificationLessFullRecovery: YesNo [0..1]
+    + justificationFactor: string [0..1]
+    + justificationSectoralInformation: YesNo [0..1]
+
+    «exemption»
+
+    + article94Exemption: YesNo [0..1]
+    + article94Justification: YesNo [0..1]
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 105 </span><span class="caption-text">CostRecoveryPerService table - 4th cycle</span><a class="headerlink" href="#economicanalysis-4thcycle-costrecoveryperservice-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-costrecoveryperservice-table" style="width: 100%">
+<caption><span class="caption-number">Table 62 </span><span class="caption-text">Questionnaire about <em>CostRecoveryPerService</em> - 4th cycle</span><a class="headerlink" href="#economicanalysis-costrecoveryperservice-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>euRBDCode</p></td>
+<td><p>Identifier of the River Basin District</p></td>
+</tr>
+<tr class="row-odd"><td><p>waterService</p></td>
+<td><p>Information is requested for each of the following services:<br />
+‘irrigationWaterService’, ‘drinkingWaterService’, ‘sewerageService’.</p></td>
+</tr>
+<tr class="row-even"><td><p>costRecoveryFull</p></td>
+<td><p>Does the RBMP report whether cost recovery is (nearly) full?<br />
+Note: the option ‘notApplicable’ is only valid
+for waterService = ‘irrigationWaterService’
+(if that service does not exist in the River Basin District).</p></td>
+</tr>
+<tr class="row-odd"><td><p>costRecoveryCorroborated</p></td>
+<td><p>Is the extent of cost recovery corroborated with rate calculations?</p></td>
+</tr>
+<tr class="row-even"><td><p>nationalMethodologyApplied</p></td>
+<td><p>Is there a national methodology applied in these calculations?</p></td>
+</tr>
+<tr class="row-odd"><td><p>justificationCostRecovery</p></td>
+<td><p>If costRecoveryFull = ‘no’, is there a justification based on mitigation factors (Art 9(1))?</p></td>
+</tr>
+<tr class="row-even"><td><p>justificationFactor</p></td>
+<td><p>If justificationCostRecovery = ‘yes’, report the mitigation factors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>justificationSectoralInfo</p></td>
+<td><p>If justificationCostRecovery = ‘yes’, does this justification use sectoral information?</p></td>
+</tr>
+<tr class="row-even"><td><p>article94Exemption</p></td>
+<td><p>Does the RBMP mention the “established practices” exemption (Art 9(4))?</p></td>
+</tr>
+<tr class="row-odd"><td><p>article94Justification</p></td>
+<td><p>If article94Exemption = ‘yes’, is there a justification for this exemption?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="data-at-water-service-level-overview">
+<h3>Data at water service level - overview<a class="headerlink" href="#data-at-water-service-level-overview" title="Link to this heading">#</a></h3>
+<p>The data structure was simplified to a core set of quantitative data
+for a limited number of water services and water user sectors.
+The purpose is to obtain a consistent overview across Europe, at river basin district level.</p>
+<p>Information is requested:</p>
+<ul class="simple">
+<li><p>about the physical volumes of water, the revenues and the costs</p></li>
+<li><p>for three water user sectors – agriculture, industry and households
+(see <a class="reference internal" href="#economicanalysis-concepts-waterusersectors-table"><span class="std std-numref">Table 63</span></a>)</p></li>
+<li><p>and for three water services – public drinking water supply services,
+public irrigation water supply services and sewerage services
+(see <a class="reference internal" href="#economicanalysis-concepts-waterservices-table"><span class="std std-numref">Table 64</span></a>).</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-concepts-waterusersectors-table" style="width: 100%">
+<caption><span class="caption-number">Table 63 </span><span class="caption-text">Concepts and definitions applicable to water user sectors – 4th cycle</span><a class="headerlink" href="#economicanalysis-concepts-waterusersectors-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Water user sector</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>AGRICULTURE</strong></p></td>
+<td><p><em>Includes:</em><br />
+NACE 01 – Crop and animal production, hunting and related service activities<br />
+<em>Excludes:</em><br />
+NACE 02 – Forestry and logging<br />
+NACE 03 – Fishing and aquaculture</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MANUFACTURING INDUSTRY</strong></p></td>
+<td><p><em>Includes:</em><br />
+NACE 10–33 – Manufacturing industry (NACE Section C)<br />
+<em>Excludes:</em><br />
+NACE 05–09 – Mining and quarrying<br />
+NACE 35 – Electricity, gas, steam and air conditioning supply<br />
+NACE 36 – Water collection, treatment and supply<br />
+NACE 37 – Sewerage<br />
+NACE 38 – Waste collection, recovery and disposal activities;
+waste management and remediation activities<br />
+NACE 39 – Remediation activities and other waste management service activities<br />
+NACE 41–43 – Construction</p></td>
+<td><p>By definition, the volume of <strong>water abstraction</strong> by the MANUFACTURING INDUSTRY (NACE 10–33)
+sector for self‑supply excludes water abstraction by NACE 36 entities.<br />
+For the 4th cycle of electronic reporting under the WFD, the volume of <strong>water use</strong>
+by the MANUFACTURING INDUSTRY sector refers only to drinking water
+provided via public water supply (V52).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>HOUSEHOLDS</strong></p></td>
+<td><p>Aligned with the <em>OECD/Eurostat Joint Questionnaire on Inland Waters</em>,
+the term “Households” refers to the resident population
+as final users of supplied water and generators of domestic wastewater.<br />
+Households are consumption units, not economic production units,
+hence there is no applicable NACE code.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-concepts-waterservices-table" style="width: 100%">
+<caption><span class="caption-number">Table 64 </span><span class="caption-text">Concepts and definitions applicable to water services – 4th cycle</span><a class="headerlink" href="#economicanalysis-concepts-waterservices-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Water service</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>DRINKING WATER SERVICE</strong></p></td>
+<td><p>Water supplied by economic units engaged in collection, purification and distribution of water,
+i.e. under NACE Code 36.00 (Water collection, treatment and supply).<br />
+The term “public” means publicly accessible service –
+provided either by public or private operators – not “public sector”.<br />
+The term “Public water supply” is equivalent to collective water supply.</p></td>
+<td><p>For the purposes of the 4th cycle of electronic reporting,
+note the restriction to “drinking water supply”.<br />
+<strong>Synonyms:</strong><br />
+• PUBLIC DRINKING WATER SUPPLY<br />
+• COLLECTIVE DRINKING WATER SUPPLY</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>IRRIGATION WATER SERVICE</strong></p></td>
+<td><p>Same as above.</p></td>
+<td><p>For the purposes of the 4th cycle of electronic reporting,
+note the restriction to “irrigation water supply”.<br />
+<strong>Synonyms:</strong><br />
+• PUBLIC IRRIGATION WATER SUPPLY<br />
+• COLLECTIVE IRRIGATION WATER SUPPLY</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SEWERAGE SERVICE</strong></p></td>
+<td><p>Wastewater collection, treatment and discharge services
+provided by economic units under NACE Code 37.00 (Sewerage).<br />
+Operation of sewer systems or sewage treatment facilities;
+collecting and transporting of human or industrial wastewater from one or several users,
+as well as rain water by means of sewerage networks, collectors, tanks
+and other means of transport (sewage vehicles etc.);
+emptying and cleaning of cesspools and septic tanks, sinks and pits from sewage;
+and treating wastewater (physical, chemical and biological processes
+like dilution, screening, filtering, sedimentation, etc.).</p></td>
+<td><p>For the purposes of the 4th cycle of electronic reporting,
+note the restriction to the treatment of urban wastewater.<br />
+<strong>Synonyms:</strong><br />
+• SANITARY SERVICE<br />
+• COLLECTION, TREATMENT AND DISCHARGE OF URBAN WASTE WATER</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-center" id="economicanalysis-overview-physicalvolumerevenuecost" style="width: 100%">
+<caption><span class="caption-number">Table 65 </span><span class="caption-text">Overview diagram for the requested data on volumes, revenues and costs - 4th cycle</span><a class="headerlink" href="#economicanalysis-overview-physicalvolumerevenuecost" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>a)</strong></p></td>
+<td><p><strong>b)</strong> and <strong>c)</strong></p></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="../_images/EconomicAnalysis_Overview_PhysicalVolume.png"><img alt="../_images/EconomicAnalysis_Overview_PhysicalVolume.png" class="align-center" src="../_images/EconomicAnalysis_Overview_PhysicalVolume.png" style="width: 70%;" />
+</a>
+</td>
+<td><a class="reference internal image-reference" href="../_images/EconomicAnalysis_Overview_RevenueCost.png"><img alt="../_images/EconomicAnalysis_Overview_RevenueCost.png" class="align-center" src="../_images/EconomicAnalysis_Overview_RevenueCost.png" style="width: 70%;" />
+</a>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>a) physical volumes of water</strong><br />
+The following flows are quantified:</p>
+<ul class="simple">
+<li><p>volume of water abstraction from the environment (e.g. for self-supply and for public water supply),</p></li>
+<li><p>volume of water supplied by public water services,</p></li>
+<li><p>and volume of wastewater discharged to the environment by public water services.</p></li>
+</ul>
+<p>The flows represented by grey arrows in the diagram are not required
+(water returned without use, e.g. due to evaporation or losses during transport,
+reused/recycled water supplied back to the water user sectors,
+direct discharges by the water user sectors).</p>
+<p>Note that the gross freshwater abstraction includes only
+water abstracted from inland surface and groundwater bodies –
+desalinated water and water imports are not quantified.
+The requested data are the estimated average annual volumes in million cubic metre,
+over a specified reference period, in the river basin district.</p>
+</td>
+<td><p><strong>b) revenues</strong><br />
+For the volumes in <strong>a)</strong>, the revenues are quantified:</p>
+<ul class="simple">
+<li><p>from water abstraction (e.g. from environmental charges paid
+to the general government institutional sector as resource taxes),</p></li>
+<li><p>from water supply (e.g. from volumetric service fees paid
+to the Water collection, treatment and supply (NACE 36.00) sector)</p></li>
+<li><p>from wastewater collection and treatment (for example,
+from volumetric service fees paid to the Sewerage (NACE 37.00) sector)</p></li>
+<li><p>and revenues from discharges to the environment, including emissions to water
+(for example, from environmental charges paid to the general government,
+which in this case may include pollution taxes).</p></li>
+</ul>
+<p>The requested data are the estimated average annual total revenue
+in million units of the national currency, in the river basin district,
+for the volumes quantified in <strong>a)</strong>.</p>
+<p><strong>c) costs</strong><br />
+For the provision of the services quantified in <strong>b)</strong>,
+the total costs are to be quantified, distinguishing between CAPEX and OPEX.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The requested data on water volumes is detailed in <a class="reference internal" href="#economicanalysis-conceptual-physicalvolume"><span class="std std-numref">Figure 106</span></a>.
+The relevant concepts are aligned with the OECD/Eurostat Joint Questionnaire on Inland Waters
+and the Eurostat Regional Water Questionnaire and defined in <a class="reference internal" href="#economicanalysis-concepts-volumes-table"><span class="std std-numref">Table 66</span></a>.</p>
+<figure class="align-center" id="economicanalysis-conceptual-physicalvolume">
+<a class="reference internal image-reference" href="../_images/EconomicAnalysis_Conceptual_PhysicalVolume.png"><img alt="../_images/EconomicAnalysis_Conceptual_PhysicalVolume.png" src="../_images/EconomicAnalysis_Conceptual_PhysicalVolume.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 106 </span><span class="caption-text">Conceptual diagram for the requested data on volumes - 4th cycle</span><a class="headerlink" href="#economicanalysis-conceptual-physicalvolume" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-concepts-volumes-table" style="width: 100%">
+<caption><span class="caption-number">Table 66 </span><span class="caption-text">Concepts and definitions for requested data on volumes – 4th cycle of reporting.</span><a class="headerlink" href="#economicanalysis-concepts-volumes-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Diagram</p></th>
+<th class="head"><p>Concept</p></th>
+<th class="head"><p>Relevant concepts</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>V1, V2, V3</strong></p></td>
+<td><p><em>Water abstraction – for self‑supply</em></p></td>
+<td><p>“Self‑supply” refers to the abstraction of water directly by the user for their own final use,
+rather than obtaining water from a public water supplier or another user.<br />
+Self‑supply occurs when an entity (e.g., a farm, industrial facility, household, or institution)
+withdraws water from the environment – such as from a well, borehole, river, lake, or spring –
+to meet its own operational or domestic needs.<br />
+It is reported separately from “public water supply” and “other supply”
+in the OECD/Eurostat Joint Questionnaire.</p></td>
+<td><p>The volumes are reported in the river basin district where the point of abstraction is located.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>V4</strong></p></td>
+<td><p><em>Water abstraction – for other water supply - irrigation water</em></p></td>
+<td><p>Volume of water abstracted for the purpose of collective irrigation water supply.<br />
+Note that the balance condition <strong>V4 ≈ V41</strong> is not expected to hold,
+due to losses during transport and water returned without use (which result in V4 &gt; V41)
+or due to transfers between river basin districts (which may result in V41 &gt; V4).</p></td>
+<td><p>The volumes are reported in the river basin district where the point of abstraction is located.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>V41</strong></p></td>
+<td><p><em>Water use – from other water supply - irrigation water</em></p></td>
+<td><p>To maintain alignment with the OECD/Eurostat Joint Questionnaire,
+“Other water supply - irrigation water” refers to the portion of water supplied to agriculture
+that is not counted under either “self‑supply” or “public water supply”.<br />
+This includes all irrigation systems operations that are
+not individual (on‑farm) irrigation systems, and may also include
+some water originating from self‑supply that is subsequently distributed to other users.<br />
+See <a class="reference internal" href="#economicanalysis-concepts-waterusersectors-table"><span class="std std-numref">Table 63</span></a>
+for the definition of the water user sector Agriculture.</p></td>
+<td><p>The volumes are reported in the river basin district where the point of use/consumption is located.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>V5</strong></p></td>
+<td><p><em>Water abstraction – for public water supply - drinking water</em></p></td>
+<td><p>Volume of water abstracted for the purpose of collective drinking water supply.<br />
+Note that the balance condition <strong>V5 ≈ V52 + V53</strong> is not expected to hold,
+due to losses and transfers, including cases
+where the user/consumer is outside the river basin district where the water is abstracted.</p></td>
+<td><p>The volumes are reported in the river basin district where the point of abstraction is located.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>V52, V53</strong></p></td>
+<td><p><em>Water use – from public water supply - drinking water</em></p></td>
+<td><p>Water supplied by economic units engaged in collection, purification and distribution of water.
+“Public” means publicly accessible service — provided either by public or private operators —
+not “public sector”.<br />
+“Public water supply” = “drinking water supply”.<br />
+See <a class="reference internal" href="#economicanalysis-concepts-waterusersectors-table"><span class="std std-numref">Table 63</span></a> for the definition
+of the water user sectors: Manufacturing Industry (V52) and Households (V53).<br />
+<strong>Excludes:</strong><br />
+– Non‑drinking water (i.e. unsafe for human consumption)<br />
+– Treatment of wastewater done solely to prevent pollution<br />
+– Operation of systems for agricultural irrigation (e.g., irrigation canals) —
+this falls under “Other supply” in the OECD/Eurostat Joint Questionnaire
+and under “Other water supply – irrigation water” in the 4th cycle of WFD reporting<br />
+– Deliveries of water from one public supplier to another (to avoid double counting)</p></td>
+<td><p>Note that the desalination of marine water to produce water
+as the principal product is included in the
+Public Water Supply definition
+and reporting under the OECD/Eurostat Joint Questionnaire (see ABS_PWS).
+However, for the 4th cycle of electronic reporting under the WFD,
+the volumes reported for ‘Water use - from public water supply - drinking water’
+(see V52 and V53) do not include desalinated water.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>V6</strong></p></td>
+<td><p><em>Water returns – Discharge of treated effluents</em></p></td>
+<td><p>The volume of wastewater that has undergone a treatment process
+in an urban wastewater treatment plant (UWWTP)
+and is subsequently released back into the environment —
+typically into rivers, lakes, transitional waters, coastal waters,
+or infiltrated into the soil or groundwater.<br />
+This return flow is measured after the application of the highest treatment level
+that the wastewater receives.<br />
+Note the restriction to urban wastewater, defined as the mix of domestic wastewater,
+urban run‑off, and non‑domestic wastewater collected in sewerage networks
+and conveyed to treatment plants.<br />
+It includes wastewater from households and services, stormwater entering combined sewers,
+and wastewater from other urban sources discharged into the public sewer system.</p></td>
+<td><p>The volumes are reported in the river basin district where the point of discharge is located.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>V62, V63</strong></p></td>
+<td><p><em>Sewerage – Collection and treatment of wastewater</em></p></td>
+<td><p>See <a class="reference internal" href="#economicanalysis-concepts-waterusersectors-table"><span class="std std-numref">Table 63</span></a>
+for the definition of the water user sector
+Manufacturing Industry (for V62) and Households (for V63).<br />
+The following definitions from the OECD/Eurostat Joint Questionnaire
+are relevant for the correct apportionment of the volume reported under V6:<br />
+– “Treatment in UWWTPs – Total inflow” (TRT_URB_IF)<br />
+– “Generation of Wastewater – Manufacturing Industry” (GEN_MAN)<br />
+– “Generation of Wastewater – Private Households” (GEN_HH)<br />
+Total inflow refers to the total volume of wastewater
+entering wastewater treatment plants (WWTPs).
+This includes all wastewater collected and conveyed to the plant
+before any treatment is applied.<br />
+– It covers inflows to urban wastewater treatment plants (UWWTPs) as well as other WWTPs.<br />
+– It also includes wastewater transported periodically
+by trucks from independent storage tanks to UWWTPs.<br />
+– Inflow volume is reported prior to determining the treatment level (primary, secondary, or tertiary).</p></td>
+<td><p>The volumes are reported as an apportionment of the
+volume of treated effluents discharged in the river basin district.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Adapted from <a class="footnote-reference brackets" href="#footcite-eurostat-oecd-2024-inland-waters-manual" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>All the information is requested at river basin district level
+and must refer to the same reference year, preferably close to the programming period.</p>
+<p>The following generic guidelines apply to the reporting of volumes:</p>
+<ul class="simple">
+<li><p>Volumes related to <strong>water abstraction</strong>
+(V1, V2, V3, V4, V5 in <a class="reference internal" href="#economicanalysis-conceptual-physicalvolume"><span class="std std-numref">Figure 106</span></a>)
+are reported based on the location of the point of abstraction.
+Only abstractions from freshwater surface water bodies (rivers and lakes, including reservoirs)
+and groundwater bodies are considered.</p></li>
+<li><p>Volumes related to <strong>water use</strong>
+(V41, V52, V53 in <a class="reference internal" href="#economicanalysis-conceptual-physicalvolume"><span class="std std-numref">Figure 106</span></a>)
+are reported based on the location of the point of use/consumption.
+In other words, the volumes refer to water used in the river basin district.</p></li>
+<li><p>Volumes related to <strong>water returns</strong>
+(V6 in <a class="reference internal" href="#economicanalysis-conceptual-physicalvolume"><span class="std std-numref">Figure 106</span></a>)
+are reported based on the location of the point of wastewater discharge.
+This includes discharges also to transitional and coastal water bodies
+located in the river basin district.</p></li>
+</ul>
+<p>Given the guidelines above, and the fact that the data is requested
+at river basin district level (RBD), the following corollaries apply:</p>
+<ul class="simple">
+<li><p>The balance condition <strong>V4 ≈ V41</strong> is not expected to hold,
+due to losses during transport and water returned without use (which result in V4 &gt; V41)
+or due to transfers between river basin districts (which may result in V41 &gt; V4).</p></li>
+<li><p>The balance condition <strong>V5 ≈ V52 + V53</strong> is not expected to hold,
+again due to losses and transfers between river basin districts,
+including the cases where the user/consumer is outside the river basin district
+where the water is abstracted.</p></li>
+<li><p>Note that V62 and V63 refer
+to the volume of wastewater collected and treated by the sanitary services,
+and not to the amount of wastewater generated by the manufacturing industry and household sectors.
+Note also that the condition <strong>V62 + V63 ⪅ V6</strong> is expected to hold,
+because V62 and V63 represent a partial apportionment of V6,
+i.e. of the total volume of treated effluents discharged in the river basin district.
+The equality <strong>V62 + V63 ≈ V6</strong> is not expected to hold
+(it would only hold if the contribution both of urban run‑off
+and wastewater from other water user sectors were negligible).</p></li>
+<li><p>Finally, the condition <strong>V52 + V53 ≈ V62 + V63</strong> is not expected to hold
+if the discharges include a significant amount of wastewater collected
+from users located outside the basin.</p></li>
+</ul>
+<p>The requested data on revenues is detailed in <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>.
+The information must refer to the same year and to the same totals reported for the volumes of water.</p>
+<p>The following generic guidelines apply to the reporting of revenues:</p>
+<ul class="simple">
+<li><p><strong>Water abstraction</strong> revenues
+(R1, R2, R3, R4, R5 in <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>)
+must include all environmental/resource taxes and administrative fees paid
+(directly or indirectly) to the general government.</p></li>
+<li><p><strong>Water supply</strong> revenues
+(R41, R52, R53 in <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>)
+represent the gross revenue of the irrigation water service providers
+and the drinking water service providers from fees charged to the end‑user sector
+(agriculture, manufacturing industry and households).
+The gross revenue must include the base service fee plus any environmental or resource costs
+incurred during abstraction that are passed through to the consumer
+to ensure an adequate contribution from that sector.</p></li>
+<li><p><strong>Wastewater discharges</strong> revenues
+(R6 in <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>)
+must include all environmental taxes and pollution levies
+paid directly or indirectly to the government
+for the emission of pollutants back into the environment.</p></li>
+<li><p><strong>Sewerage services</strong> revenues
+(R62 and R63 in <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>)
+represent gross revenue for wastewater collection and treatment services.
+The revenue must include the service fees charged to users
+plus any internalised environmental charges related to the final discharge
+that are passed on to the households or industrial users.</p></li>
+</ul>
+<figure class="align-center" id="economicanalysis-conceptual-revenue">
+<a class="reference internal image-reference" href="../_images/EconomicAnalysis_Conceptual_Revenue.png"><img alt="../_images/EconomicAnalysis_Conceptual_Revenue.png" src="../_images/EconomicAnalysis_Conceptual_Revenue.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 107 </span><span class="caption-text">Conceptual diagram for the requested data on revenues - 4th cycle</span><a class="headerlink" href="#economicanalysis-conceptual-revenue" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Regarding the costs, the data is again requested for the same year
+for which volumes and revenues are reported.
+The total costs, OPEX and CAPEX should be reported for each of the three services
+in <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>, as well as the estimated global cost recovery rate.</p>
+<p>The following generic guidelines apply to the reporting of costs:</p>
+<ul class="simple">
+<li><p>Grant‑financed assets should be included in capital expenditure (CAPEX)
+estimates for the water service that acquires and owns the asset,
+and regardless of the source of funding <a class="footnote-reference brackets" href="#capex" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>Environmental taxes should be included in the current expenditure (OPEX)
+estimates for the water services <a class="footnote-reference brackets" href="#opex" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p></li>
+</ul>
+</section>
+<section id="volumerevenuecostperservice-table">
+<h3>VolumeRevenueCostPerService table<a class="headerlink" href="#volumerevenuecostperservice-table" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#economicanalysis-4thcycle-volumerevenuecostperservice-classdiagram"><span class="std std-numref">Figure 108</span></a> presents
+the standardised structure for the reporting of volumes, revenues and costs per water service,
+using the <code class="docutils literal notranslate"><span class="pre">ServiceVolumeRevenueCost</span></code> table. The column names reflect the SDMX designations
+(geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat.</p>
+<ul class="simple">
+<li><p>Volumes must be reported in million cubic metre, revenues and costs
+must be reported in million units of national currency
+(except for the cost recovery rate, which is reported as a percentage).</p></li>
+<li><p>The dimension codes for the reporting of costs per water service
+are presented in <a class="reference internal" href="#codelist-4thcycle-economicanalysis-dimension-costs-table"><span class="std std-numref">Table 67</span></a>.</p></li>
+<li><p>The dimension codes for the reporting of volumes and revenues
+are presented in <a class="reference internal" href="#codelist-4thcycle-economicanalysis-dimension-volumesrevenues-table"><span class="std std-numref">Table 68</span></a>.</p></li>
+</ul>
+<figure class="align-center" id="economicanalysis-4thcycle-volumerevenuecostperservice-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+    direction TB
+
+    class VolumeRevenueCostPerService {
+        + geo: wiseIdentifier 
+        + time: gYear
+        + dimension: VolumeRevenueCost 
+        + obs_value: nonNegativeValue
+        + obs_unit: UnitOfMeasure 
+        + obs_status: ObservationStatus [0..1]
+        + obs_comment: string4000 [0..1]
+    }
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+    </pre><figcaption>
+<p><span class="caption-number">Figure 108 </span><span class="caption-text">VolumeRevenueCostPerService table - volume, revenue and costs per water service – 4th cycle</span><a class="headerlink" href="#economicanalysis-4thcycle-volumerevenuecostperservice-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table" id="codelist-4thcycle-economicanalysis-dimension-costs-table" style="width: 100%">
+<caption><span class="caption-number">Table 67 </span><span class="caption-text">Dimension codes for the reporting of costs per water service – 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-economicanalysis-dimension-costs-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimension</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CST_IRR_TOT</p></td>
+<td><p>Irrigation water services – Total cost</p></td>
+</tr>
+<tr class="row-odd"><td><p>CST_IRR_CAP</p></td>
+<td><p>Irrigation water services – Capital expenditure</p></td>
+</tr>
+<tr class="row-even"><td><p>CST_IRR_OPE</p></td>
+<td><p>Irrigation water services – Operational expenditure</p></td>
+</tr>
+<tr class="row-odd"><td><p>CST_IRR_CRR</p></td>
+<td><p>Irrigation water services – Cost recovery rate</p></td>
+</tr>
+<tr class="row-even"><td><p>CST_DRI_TOT</p></td>
+<td><p>Drinking water services – Total cost</p></td>
+</tr>
+<tr class="row-odd"><td><p>CST_DRI_CAP</p></td>
+<td><p>Drinking water services – Capital expenditure</p></td>
+</tr>
+<tr class="row-even"><td><p>CST_DRI_OPE</p></td>
+<td><p>Drinking water services – Operational expenditure</p></td>
+</tr>
+<tr class="row-odd"><td><p>CST_DRI_CRR</p></td>
+<td><p>Drinking water services – Cost recovery rate</p></td>
+</tr>
+<tr class="row-even"><td><p>CST_WWT_TOT</p></td>
+<td><p>Sewerage services – Total cost</p></td>
+</tr>
+<tr class="row-odd"><td><p>CST_WWT_CAP</p></td>
+<td><p>Sewerage services – Capital expenditure</p></td>
+</tr>
+<tr class="row-even"><td><p>CST_WWT_OPE</p></td>
+<td><p>Sewerage services – Operational expenditure</p></td>
+</tr>
+<tr class="row-odd"><td><p>CST_WWT_CRR</p></td>
+<td><p>Sewerage services – Cost recovery rate</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="codelist-4thcycle-economicanalysis-dimension-volumesrevenues-table" style="width: 100%">
+<caption><span class="caption-number">Table 68 </span><span class="caption-text">Dimension codes for the reporting of volumes and revenues - 4th cycle</span><a class="headerlink" href="#codelist-4thcycle-economicanalysis-dimension-volumesrevenues-table" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 35.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Diagram <a class="footnote-reference brackets" href="#diagram-footnote" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p></th>
+<th class="head"><p>Dimension</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>From</p></th>
+<th class="head"><p>To</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V1</p></td>
+<td><p>VOL_ABS_SS_AGR_IR</p></td>
+<td><p>Volume – Water abstraction – self‑supply for the agriculture sector</p></td>
+<td><p>Environment (inland waters)</p></td>
+<td><p>Agriculture (NACE 01)</p></td>
+</tr>
+<tr class="row-odd"><td><p>V2</p></td>
+<td><p>VOL_ABS_SS_IND_C</p></td>
+<td><p>Volume – Water abstraction – for self‑supply for the manufacturing industry sector</p></td>
+<td><p>Environment (inland waters)</p></td>
+<td><p>Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-even"><td><p>V3</p></td>
+<td><p>VOL_ABS_SS_HH</p></td>
+<td><p>Volume – Water abstraction – for self‑supply for households</p></td>
+<td><p>Environment (inland waters)</p></td>
+<td><p>Households</p></td>
+</tr>
+<tr class="row-odd"><td><p>V4</p></td>
+<td><p>VOL_ABS_OS_AGR_IR</p></td>
+<td><p>Volume – Water abstraction – for other water supply of irrigation water</p></td>
+<td><p>Environment (inland waters)</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+</tr>
+<tr class="row-even"><td><p>V5</p></td>
+<td><p>VOL_ABS_PWS_DRI</p></td>
+<td><p>Volume – Water abstraction – for public water supply of drinking water</p></td>
+<td><p>Environment (inland waters)</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+</tr>
+<tr class="row-odd"><td><p>V41</p></td>
+<td><p>VOL_USE_OS_AGR_IR</p></td>
+<td><p>Volume – Water use – for other water supply of irrigation water</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+<td><p>Agriculture (NACE 01)</p></td>
+</tr>
+<tr class="row-even"><td><p>V52</p></td>
+<td><p>VOL_USE_PWS_DRI_IND_C</p></td>
+<td><p>Volume – Water use – from public water supply of drinking water to the manufacturing industry sector</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+<td><p>Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-odd"><td><p>V53</p></td>
+<td><p>VOL_USE_PWS_DRI_HH</p></td>
+<td><p>Volume – Water use – from public water supply of drinking water to households</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+<td><p>Households</p></td>
+</tr>
+<tr class="row-even"><td><p>V62</p></td>
+<td><p>VOL_WWT_IND_C</p></td>
+<td><p>Volume – Sewerage – Collection and treatment of wastewater from the manufacturing industry</p></td>
+<td><p>Manufacturing industry (NACE 10–33)</p></td>
+<td><p>Sewerage (NACE 37)</p></td>
+</tr>
+<tr class="row-odd"><td><p>V63</p></td>
+<td><p>VOL_WWT_HH</p></td>
+<td><p>Volume – Sewerage – Collection and treatment of wastewater from households</p></td>
+<td><p>Households</p></td>
+<td><p>Sewerage (NACE 37)</p></td>
+</tr>
+<tr class="row-even"><td><p>V6</p></td>
+<td><p>VOL_DIS_TWW</p></td>
+<td><p>Volume – Water returns – Discharge of treated effluents</p></td>
+<td><p>Sewerage (NACE 37)</p></td>
+<td><p>Environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>R1</p></td>
+<td><p>REV_ABS_SS_AGR_IR</p></td>
+<td><p>Revenue – Water abstraction – from self‑supply for the agriculture sector</p></td>
+<td><p>Agriculture (NACE 01)</p></td>
+<td><p>General government*</p></td>
+</tr>
+<tr class="row-even"><td><p>R2</p></td>
+<td><p>REV_ABS_SS_IND_C</p></td>
+<td><p>Revenue – Water abstraction – from self‑supply for the manufacturing industry sector</p></td>
+<td><p>Manufacturing industry (NACE 10–33)</p></td>
+<td><p>General government*</p></td>
+</tr>
+<tr class="row-odd"><td><p>R3</p></td>
+<td><p>REV_ABS_SS_HH</p></td>
+<td><p>Revenue – Water abstraction – from self‑supply for households</p></td>
+<td><p>Households</p></td>
+<td><p>General government*</p></td>
+</tr>
+<tr class="row-even"><td><p>R4</p></td>
+<td><p>REV_ABS_OS_AGR_IR</p></td>
+<td><p>Revenue – Water abstraction – from other water supply of irrigation water</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+<td><p>General government*</p></td>
+</tr>
+<tr class="row-odd"><td><p>R5</p></td>
+<td><p>REV_ABS_PWS_DRI</p></td>
+<td><p>Revenue – Water abstraction – from public water supply of drinking water</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+<td><p>General government*</p></td>
+</tr>
+<tr class="row-even"><td><p>R41</p></td>
+<td><p>REV_USE_OS_AGR_IR</p></td>
+<td><p>Revenue – Water use – from other water supply of irrigation water</p></td>
+<td><p>Agriculture (NACE 01)</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+</tr>
+<tr class="row-odd"><td><p>R52</p></td>
+<td><p>REV_USE_PWS_DRI_IND_C</p></td>
+<td><p>Revenue – Water use – from public water supply of drinking water to the manufacturing industry sector</p></td>
+<td><p>Manufacturing industry (NACE 10–33)</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+</tr>
+<tr class="row-even"><td><p>R53</p></td>
+<td><p>REV_USE_PWS_DRI_HH</p></td>
+<td><p>Revenue – Water use – from public water supply of drinking water to households</p></td>
+<td><p>Households</p></td>
+<td><p>Water collection, treatment and supply (NACE 36)</p></td>
+</tr>
+<tr class="row-odd"><td><p>R62</p></td>
+<td><p>REV_WWT_IND_C</p></td>
+<td><p>Revenue – Sewerage – from collection and treatment of wastewater from the manufacturing industry</p></td>
+<td><p>Manufacturing industry (NACE 10–33)</p></td>
+<td><p>Sewerage (NACE 37)</p></td>
+</tr>
+<tr class="row-even"><td><p>R63</p></td>
+<td><p>REV_WWT_HH</p></td>
+<td><p>Revenue – Sewerage – from collection and treatment of wastewater from households</p></td>
+<td><p>Households</p></td>
+<td><p>Sewerage (NACE 37)</p></td>
+</tr>
+<tr class="row-odd"><td><p>R6</p></td>
+<td><p>REV_DIS_TWW</p></td>
+<td><p>Revenue – Water returns – Discharge of treated effluents</p></td>
+<td><p>Sewerage (NACE 37)</p></td>
+<td><p>General government <a class="footnote-reference brackets" href="#general-government-footnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="documents-dataset-4th-cycle">
+<span id="heading-wfd-economic-analysis-documents-dataset-4th-cycle"></span><h2>Documents dataset - 4th cycle<a class="headerlink" href="#documents-dataset-4th-cycle" title="Link to this heading">#</a></h2>
+<p>The Documents dataset follows the standard structure used in various WISE dataflows
+(<a class="reference internal" href="#economicanalysis-4thcycle-documents-classdiagram"><span class="std std-numref">Figure 109</span></a>):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table provides the basic Dublin Core metadata elements about the delivery.</p>
+<ul>
+<li><p>If required by the data providers,
+the <code class="docutils literal notranslate"><span class="pre">licenseDocument</span></code> attribute allow the provision
+of additional information about the dataset.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table also functions as a “manifest file”
+explaining if the delivery contains data for a given river basin district or not.</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Document</span></code> table allows the upload of documents (for example, PDFs)
+or the provision of a <code class="docutils literal notranslate"><span class="pre">hyperlink</span></code> to a document stored in a publicly accessible national web site.</p></li>
+</ul>
+<figure class="align-center" id="economicanalysis-4thcycle-documents-classdiagram">
+<pre  class="mermaid">
+        ---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction LR
+
+class dcMetadata {
+
+«metadata»
++ title: string
++ creatorOrganisationName: string
++ creatorElectronicMailAddress: Email
++ description: string [0..1]
++ created: date [0..1]
++ language: Language [1..n]
++ license: Licence
++ rights: string [0..1]
++ rightsHolder: string [0..1]
++ licenseDocument: documentCode [0..n]
+
+«manifest»
++ euRBDCode: wiseIdentifier
++ includesDescriptiveData: YesNo
+}
+
+class Document {
++ documentCode: wiseIdentifier
++ documentName: string250
++ hyperlink: URL [0..1]
++ documentFile: Attachment [0..1]
+}
+
+class Licence{
+  &lt;&lt;enumeration&gt;&gt;
+  CC0
+  CC_BY_4_0
+  exactMatch_CC_BY_4_0
+  narrowMatch_CC_BY_4_0
+}
+
+dcMetadata ..&gt; Document: licenseDocument
+dcMetadata ..&gt; Licence: license
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
+
+    </pre><figcaption>
+<p><span class="caption-number">Figure 109 </span><span class="caption-text">WFD EconomicAnalysis dataflow - 4th cycle - Documents</span><a class="headerlink" href="#economicanalysis-4thcycle-documents-classdiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The following criteria apply:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dcMetadata</span></code> table must contain <em>one and only one</em> record
+for each of the country’s river basin districts, identified by the <code class="docutils literal notranslate"><span class="pre">euRBDCode</span></code>.</p></li>
+<li><p>The descriptive dataset tables are <strong>national</strong>,
+but the quality control will allow deliveries
+where some of the river basin districts have <code class="docutils literal notranslate"><span class="pre">includesDescriptiveData</span> <span class="pre">=</span> <span class="pre">no</span></code>.</p></li>
+</ol>
+</section>
+<section id="annexes-ancillary-data-sources">
+<h2>Annexes - Ancillary data sources<a class="headerlink" href="#annexes-ancillary-data-sources" title="Link to this heading">#</a></h2>
+<p>Information about annual volumes is reported voluntarily by MS
+under the OECD/Eurostat Joint Questionnaire
+on Inland Waters and Eurostat Regional Water Questionnaire <a class="footnote-reference brackets" href="#nwat" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#rwat" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
+Although the questionnaires have a much higher level of detail
+than required for the 4th cycle of electronic reporting,
+it is important that MS provide consistent data,
+which may allow more detailed analysis to be performed if necessary.</p>
+<p><a class="reference internal" href="#economicanalysis-oecdeurostat-annualfreshwaterabstraction"><span class="std std-numref">Table 69</span></a>,
+<a class="reference internal" href="#economicanalysis-oecdeurostat-waterusebysupplycategory"><span class="std std-numref">Table 70</span></a> and
+<a class="reference internal" href="#economicanalysis-oecdeurostat-wastewater"><span class="std std-numref">Table 71</span></a> provide an overview
+of some of the OECD/Eurostat Joint Questionnaire tables and dimensions
+that are directly related to the data requested for the WFD 4th cycle of reporting.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-oecdeurostat-annualfreshwaterabstraction" style="width: 100%">
+<caption><span class="caption-number">Table 69 </span><span class="caption-text">Annual freshwater abstraction by source (dimension 1) and by sector (dimension 2).</span><a class="headerlink" href="#economicanalysis-oecdeurostat-annualfreshwaterabstraction" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimension 1</p></th>
+<th class="head"><p>Dimension 2</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FSW</p></td>
+<td><p>ABST</p></td>
+<td><p><strong>Fresh surface water total gross abstraction (NACE 01–99)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>FSW</p></td>
+<td><p>ABS_PWS</p></td>
+<td><p>→ by Public water supply</p></td>
+</tr>
+<tr class="row-even"><td><p>FSW</p></td>
+<td><p>ABS_AGR</p></td>
+<td><p>→ by Agriculture, forestry, fishing (NACE 01–03)</p></td>
+</tr>
+<tr class="row-odd"><td><p>FSW</p></td>
+<td><p>ABS_AGR_IR</p></td>
+<td><p>→ → of which for irrigation</p></td>
+</tr>
+<tr class="row-even"><td><p>FSW</p></td>
+<td><p>ABS_IND</p></td>
+<td><p>→ by Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-odd"><td><p>FSW</p></td>
+<td><p>ABS_HH</p></td>
+<td><p>→ by Private households</p></td>
+</tr>
+<tr class="row-even"><td><p>FGW</p></td>
+<td><p>ABST</p></td>
+<td><p><strong>Fresh groundwater total gross abstraction (NACE 01–99)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>FGW</p></td>
+<td><p>ABS_PWS</p></td>
+<td><p>→ by Public water supply</p></td>
+</tr>
+<tr class="row-even"><td><p>FGW</p></td>
+<td><p>ABS_AGR</p></td>
+<td><p>→ by Agriculture, forestry, fishing (NACE 01–03)</p></td>
+</tr>
+<tr class="row-odd"><td><p>FGW</p></td>
+<td><p>ABS_AGR_IR</p></td>
+<td><p>→ → of which for irrigation</p></td>
+</tr>
+<tr class="row-even"><td><p>FGW</p></td>
+<td><p>ABS_IND</p></td>
+<td><p>→ by Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-odd"><td><p>FGW</p></td>
+<td><p>ABS_HH</p></td>
+<td><p>→ by Private households</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-oecdeurostat-waterusebysupplycategory" style="width: 100%">
+<caption><span class="caption-number">Table 70 </span><span class="caption-text">Water use by supply category (dimension 1) and by sector (dimension 2).</span><a class="headerlink" href="#economicanalysis-oecdeurostat-waterusebysupplycategory" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimension 1</p></th>
+<th class="head"><p>Dimension 2</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PWS</p></td>
+<td><p>TOTAL_HH</p></td>
+<td><p><strong>Public water supply – TOTAL (NACE 01–99)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>PWS</p></td>
+<td><p>A</p></td>
+<td><p>→ Agriculture, forestry, fishing (NACE 01–03)</p></td>
+</tr>
+<tr class="row-even"><td><p>PWS</p></td>
+<td><p>C</p></td>
+<td><p>→ Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWS</p></td>
+<td><p>EP_HH</p></td>
+<td><p>→ Private households</p></td>
+</tr>
+<tr class="row-even"><td><p>SOWS</p></td>
+<td><p>TOTAL_HH</p></td>
+<td><p><strong>Self and other water supply – TOTAL (NACE 01–99)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>SOWS</p></td>
+<td><p>A</p></td>
+<td><p>→ Agriculture, forestry, fishing (NACE 01–03)</p></td>
+</tr>
+<tr class="row-even"><td><p>SOWS</p></td>
+<td><p>C</p></td>
+<td><p>→ Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SOWS</p></td>
+<td><p>EP_HH</p></td>
+<td><p>→ Private households</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="economicanalysis-oecdeurostat-wastewater" style="width: 100%">
+<caption><span class="caption-number">Table 71 </span><span class="caption-text">Generation, treatment and discharges of wastewater: volumes (dimension 1).</span><a class="headerlink" href="#economicanalysis-oecdeurostat-wastewater" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimension 1</p></th>
+<th class="head"><p>Dimension 2</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>GEN_PS</p></td>
+<td><p><strong>GENERATION OF WASTEWATER – POINT SOURCES – Total (NACE 01–99)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>VOL_WW</p></td>
+<td><p>GEN_AGR</p></td>
+<td><p>Agriculture, forestry, fishing (NACE 01–03)</p></td>
+</tr>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>GEN_IND</p></td>
+<td><p>Industry – total (NACE 05–43)</p></td>
+</tr>
+<tr class="row-odd"><td><p>VOL_WW</p></td>
+<td><p>GEN_MAN</p></td>
+<td><p>→ Manufacturing industry (NACE 10–33)</p></td>
+</tr>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>GEN_DOM</p></td>
+<td><p>Domestic sources – total</p></td>
+</tr>
+<tr class="row-odd"><td><p>VOL_WW</p></td>
+<td><p>GEN_HH</p></td>
+<td><p>→ Private households</p></td>
+</tr>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>GEN_URB</p></td>
+<td><p>Urban wastewater – total generated</p></td>
+</tr>
+<tr class="row-odd"><td><p>VOL_WW</p></td>
+<td><p>TRT_URB_IF</p></td>
+<td><p>Treatment in WWTPs – total inflow</p></td>
+</tr>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>GEN_IND_XURB</p></td>
+<td><p>Industrial wastewater (not part of Urban WWV) – total generated</p></td>
+</tr>
+<tr class="row-odd"><td><p>VOL_WW</p></td>
+<td><p>DIS_IND_IW</p></td>
+<td><p>→ Discharges to inland waters – Total</p></td>
+</tr>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>DIS_IND_IW_AT</p></td>
+<td><p>→ → of which: Discharges to inland waters after treatment</p></td>
+</tr>
+<tr class="row-odd"><td><p>VOL_WW</p></td>
+<td><p>DIS_IND_IW_NT</p></td>
+<td><p>→ → of which: Discharges to inland waters without treatment</p></td>
+</tr>
+<tr class="row-even"><td><p>VOL_WW</p></td>
+<td><p>DIS</p></td>
+<td><p>Total discharges of WWTPs (urban and other) – after treatment</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id8">
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The original document containing this revised model
+can still be downloaded but should no longer be used.
+See <strong>PROPOSAL - Version 2026.02.20</strong>
+<a class="reference download internal" download="" href="../_downloads/a05027bb610259290578f1ef2aa36bc0/WFD_4th_cycle_EconomicAnalysis_v20260220.pdf"><code class="xref download docutils literal notranslate"><span class="pre">PDF</span></code></a></p>
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-eurostat-oecd-2024-inland-waters-manual" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Eurostat and OECD. <em>Data Collection Manual for the OECD/Eurostat Joint Questionnaire on Inland Waters and Eurostat Regional Water Questionnaire</em>. Eurostat, Luxembourg, version 5 edition, 2024.</p>
+</aside>
+<aside class="footnote brackets" id="capex" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>According to Eurostat’s methodological frameworks,
+specifically the Environmental Protection Expenditure Accounts (EPEA)
+and the European System of Accounts (ESA 2010),
+grant-financed assets should be included in capital expenditure (CAPEX) estimates
+for the sector that acquires and owns the asset.
+In Eurostat statistics, CAPEX is primarily measured as Gross Fixed Capital Formation (GFCF).
+GFCF consists of resident producers’ acquisitions, less disposals, of fixed assets during a given period.
+The recording of an asset’s acquisition in GFCF is based
+on the change of ownership and the total value of the asset at the time of purchase.
+It does not depend on whether the purchase was funded through internal cash flow, loans, or external grants.</p>
+</aside>
+<aside class="footnote brackets" id="opex" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Current expenditure includes intermediate consumption (goods and services used in production),
+compensation of employees, and other taxes on production.
+Taxes such as those on water abstraction or pollution discharges are considered “taxes on production”
+because they are unrequited payments to the government linked to the ongoing activity of the utility.</p>
+</aside>
+<aside class="footnote brackets" id="diagram-footnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Codes used in the diagrams of <a class="reference internal" href="#economicanalysis-conceptual-physicalvolume"><span class="std std-numref">Figure 106</span></a> and <a class="reference internal" href="#economicanalysis-conceptual-revenue"><span class="std std-numref">Figure 107</span></a>.</p>
+</aside>
+<aside class="footnote brackets" id="general-government-footnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Includes both direct and indirect payments to the general government institutional sector.
+May also include payments to private sector owners.</p>
+</aside>
+<aside class="footnote brackets" id="nwat" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p>See <a class="reference external" href="https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm">https://ec.europa.eu/eurostat/cache/metadata/en/env_nwat_esms.htm</a></p>
+</aside>
+<aside class="footnote brackets" id="rwat" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>See <a class="reference external" href="https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm">https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm</a></p>
+</aside>
+</aside>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="WFDExemptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exemptions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="KnownIssues.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data model review - known issues</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-overview">Purpose and overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-structure-4th-cycle">Proposed structure - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-data-4th-cycle">Descriptive data - 4th cycle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#costrecovery-table">CostRecovery table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#costrecoveryperservice-table">CostRecoveryPerService table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-at-water-service-level-overview">Data at water service level - overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volumerevenuecostperservice-table">VolumeRevenueCostPerService table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-dataset-4th-cycle">Documents dataset - 4th cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annexes-ancillary-data-sources">Annexes - Ancillary data sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDEconomicAnalysis.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDEconomicAnalysis.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

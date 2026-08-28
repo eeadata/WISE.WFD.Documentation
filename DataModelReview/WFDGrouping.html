@@ -1,0 +1,1614 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Grouping &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DataModelReview/WFDGrouping';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pressures and impacts" href="WFDPressures.html" />
+    <link rel="prev" title="Data model review - known issues" href="KnownIssues.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="WFDRiverBasinDistrictsAndCompetentAuthorities.html">River basin districts and competent authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedAreas.html">Protected areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMeasures.html">Programme of measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundWaterBody.html">Groundwater bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDGroundwaterMethodologies.html">Groundwater methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterBody.html">Surface water bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDSurfaceWaterMethodologies.html">Surface water methodologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDExemptions.html">Exemptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDEconomicAnalysis.html">Economic analysis</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Data model review - known issues</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDPressures.html">Pressures and impacts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Data model review</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Grouping</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="grouping">
+<span id="heading-wfd-grouping"></span><h1>Grouping<a class="headerlink" href="#grouping" title="Link to this heading">#</a></h1>
+<section id="annexes-data-analysis-3rd-cycle">
+<h2>Annexes - Data analysis - 3rd cycle<a class="headerlink" href="#annexes-data-analysis-3rd-cycle" title="Link to this heading">#</a></h2>
+<p>This section contains some of the exploratory data analysis
+that supported the revision of the data model.</p>
+<p>It is not relevant for the understanding of the proposed model,
+but may be informative for data providers involved
+in the testing phase of the 4th cycle dataflows.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">About the EEA discodata service</p>
+<p>The example queries can be executed interactively in the EEA discodata service.<br />
+Note that some queries may timeout.<br />
+If you need to analyse the entire European dataset, download it in CSV format.<br />
+For example, the link <code class="docutils literal notranslate"><span class="pre">https://discodata.eea.europa.eu/download/WISE_WFD/v2r1/GWB_GroundWaterBody</span></code>
+downloads the data of the <code class="docutils literal notranslate"><span class="pre">[WISE_WFD].[v2r1].[GWB_GroundWaterBody]</span></code> table.</p>
+</div>
+<p>The data for this section can be derived from the following tables:</p>
+<ul class="simple">
+<li><p>[WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_QualityElement]</p></li>
+<li><p>[WISE_WFD].[v2r1].[SWB_SurfaceWaterBody_QualityElement_qeGrouping]</p></li>
+<li><p>[WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring]</p></li>
+<li><p>Published WISE Spatial datasets</p></li>
+</ul>
+<p>To simplify the analysis, the information
+was extracted into a graph structure
+with <em>nodes</em> representing water bodies,
+and <em>edges</em> representing the link
+between monitored water bodies and
+the water bodies with grouping.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show description</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-number">Example 37 </span><span class="caption-text">Grouping - description of the tables used for analysis</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">fromNodeId</span><span class="p">]</span><span class="w">   </span><span class="c1">-- water body providing the monitoring data</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">toNodeId</span><span class="p">]</span><span class="w">     </span><span class="c1">-- water body being assessed</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span><span class="w">       </span><span class="c1">-- quality element being assessed </span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">edges</span><span class="p">]</span>
+
+<span class="c1">-- Water bodies as &quot;nodes&quot;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span><span class="w">    </span><span class="c1">-- country code</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">nodeId</span><span class="p">]</span><span class="w">         </span><span class="c1">-- water body identifier</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">waterCategory</span><span class="p">]</span><span class="w">  </span><span class="c1">-- RW, LW, TW, CW</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">lat</span><span class="p">]</span><span class="w">            </span><span class="c1">-- latitude in WGS84</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">lon</span><span class="p">]</span><span class="w">            </span><span class="c1">-- longitude in WGS84</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">outDegree</span><span class="p">]</span><span class="w">      </span><span class="c1">-- number of water body X QE using monitoring data from this water body</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">inDegree</span><span class="p">]</span><span class="w">       </span><span class="c1">-- number of water body X QE providing monitoring data for the assessment of this water body</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">nodes</span><span class="p">]</span>
+
+<span class="c1">-- &quot;nodes&quot; with qeStatus plus derived information</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span><span class="w">      </span><span class="c1">-- country code</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">nodeId</span><span class="p">]</span><span class="w">           </span><span class="c1">-- water body identifier</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">waterCategory</span><span class="p">]</span><span class="w">    </span><span class="c1">-- water body category</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span><span class="w">           </span><span class="c1">-- quality element code</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">qeStatus</span><span class="p">]</span><span class="w">         </span><span class="c1">-- quality element status (&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;,&#39;unknown&#39;,...)</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">assessmentMethod</span><span class="p">]</span><span class="w"> </span><span class="c1">-- assessment method</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">outDegree</span><span class="p">]</span><span class="w">        </span><span class="c1">-- number of water bodies that are assessed based on data from this water body for the quality element</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">inDegree</span><span class="p">]</span><span class="w">         </span><span class="c1">-- number of water bodies provide data for the assessment of this water body and quality element</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">isMonitored</span><span class="p">]</span><span class="w">      </span><span class="c1">-- Monitoring schema: 1 if the water body is monitored for the quality element, 0 otherwise,</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">nodes_qeStatus</span><span class="p">]</span>
+
+<span class="c1">-- data from the Monitoring schema reporting</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span><span class="w"> </span><span class="c1">-- country code</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">nodeId</span><span class="p">]</span><span class="w">      </span><span class="c1">-- water body identifier</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span><span class="w">      </span><span class="c1">-- quality element code</span>
+<span class="w">      </span><span class="p">,[</span><span class="n">isMonitored</span><span class="p">]</span><span class="w"> </span><span class="c1">-- Monitoring schema: 1 if the water body is monitored for the quality element, 0 otherwise </span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">nodes_qeCode_isMonitored</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="grouping-and-quality-elements">
+<span id="heading-wfd-quality-elements-grouping"></span><h2>Grouping and quality elements<a class="headerlink" href="#grouping-and-quality-elements" title="Link to this heading">#</a></h2>
+<blockquote class="epigraph">
+<div><p>“Reporting on the status assessment of Quality Elements (QEs)
+is expected not only where monitoring results are available for specific water bodies
+but also for all water bodies for which this information is available (e.g. through grouping).
+A status value should, therefore, be given for each of the relevant QEs
+that have been assessed for the water body
+and subsequently used to classify the ecological status or potential of the water body.”
+– From the WFD Reporting Guidance 2022</p>
+</div></blockquote>
+</section>
+<section id="grouping-with-water-bodies-that-were-not-assessed-by-monitoring">
+<h2>Grouping with water bodies that were not assessed by monitoring<a class="headerlink" href="#grouping-with-water-bodies-that-were-not-assessed-by-monitoring" title="Link to this heading">#</a></h2>
+<blockquote class="epigraph">
+<div><p>“Schema element: qeGrouping<br />
+Guidance on completion of schema element: Conditional.
+If no monitoring data is available for this quality element in this surface water body
+and status has been derived through grouping
+by extrapolating monitoring data from other surface water bodies,
+indicate the codes of the surface water bodies which have been monitored
+and used for the classification of this water body.
+For example, if the status of surface water body A has been determined
+by extrapolating monitoring data from surface water bodies B and C,
+then the euSurfaceWaterBodyCode for surface water bodies B and C should be reported in this element.
+Quality checks: Conditional check: Report if and only if qeMonitoringResults is ‘Grouping’.
+Within-schema check: Each water body code reported must be identical to a thematicIdIdentifier
+reported for surface water bodies in spatial data.
+Cross-schema check: The SurfaceWaterBodyCode belongs to a different RBD.
+Please check that for that euSurfaceWaterBodyCode and qeCode, the value of qeMonitoringResults is ‘Grouping’.
+Cross-schema check: If a euSurfaceWaterBodyCode is valid and belongs to the same RBD,
+then the following condition must be true: for that euSurfaceWaterBodyCode and qeCode,
+the value of qeMonitoringResults must be ‘Grouping’.”
+– From the WFD Reporting Guidance 2022</p>
+</div></blockquote>
+<p>The “Cross-schema check” specifications are incorrect
+and inconsistent with the “Guidance on completion of schema element”
+that requires the extrapolation to be made from a water body
+with qeMonitoringResults = ‘Monitoring’ (and not ‘Grouping’).
+The implementation of the quality control (i.e. the code base) was imperfect:</p>
+<ul class="simple">
+<li><p>For grouping across water bodies in different river basin districts,
+only an indicative ERROR could be flagged (because the reporting was done at RBD scale).
+The resulting inconsistencies affect 11861 of 230115 records (5.2%), mostly in Greece.</p></li>
+<li><p>For grouping with water bodies in the same river basin district,
+the inconsistencies affect only 669 records (0.3%).
+The cause was possibly a failure in the quality control process,
+but it is not possible to trace it back at this point.</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show results</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table" id="grouping-water-bodies-inconsistencies-due-to-quality-control-3rdcycle-table">
+<caption><span class="caption-number">Table 72 </span><span class="caption-text">Grouping - inconsistencies due to inadequate quality control - 3rd cycle</span><a class="headerlink" href="#grouping-water-bodies-inconsistencies-due-to-quality-control-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">country</p></th>
+<th class="head"><p class="sd-card-text">qeCode</p></th>
+<th class="head"><p class="sd-card-text">wb in different RBD</p></th>
+<th class="head"><p class="sd-card-text">wb in same RBD</p></th>
+<th class="head"><p class="sd-card-text">water bodies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">BE</p></td>
+<td><p class="sd-card-text">QE1-1 - Phytoplankton</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">BE</p></td>
+<td><p class="sd-card-text">QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">BG</p></td>
+<td><p class="sd-card-text">QE1-2-3 - Macrophytes</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">BG</p></td>
+<td><p class="sd-card-text">QE1-2-4 - Phytobenthos</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">BG</p></td>
+<td><p class="sd-card-text">QE1-4 - Fish</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-1 - Phytoplankton</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-2-1 - Macroalgae</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-2-2 - Angiosperms</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">9</p></td>
+<td><p class="sd-card-text">9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-2-3 - Macrophytes</p></td>
+<td><p class="sd-card-text">1577</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1578</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-2-4 - Phytobenthos</p></td>
+<td><p class="sd-card-text">985</p></td>
+<td><p class="sd-card-text">26</p></td>
+<td><p class="sd-card-text">1011</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-3 - Benthic invertebrates</p></td>
+<td><p class="sd-card-text">1155</p></td>
+<td><p class="sd-card-text">59</p></td>
+<td><p class="sd-card-text">1214</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE1-4 - Fish</p></td>
+<td><p class="sd-card-text">1100</p></td>
+<td><p class="sd-card-text">53</p></td>
+<td><p class="sd-card-text">1153</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE2-2 - River continuity conditions</p></td>
+<td><p class="sd-card-text">1801</p></td>
+<td><p class="sd-card-text">78</p></td>
+<td><p class="sd-card-text">1879</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE2-3 - Morphological conditions</p></td>
+<td><p class="sd-card-text">977</p></td>
+<td><p class="sd-card-text">104</p></td>
+<td><p class="sd-card-text">1081</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE3-1-1 - Transparency conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">76</p></td>
+<td><p class="sd-card-text">76</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE3-1-3 - Oxygenation conditions</p></td>
+<td><p class="sd-card-text">931</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">937</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p class="sd-card-text">931</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">937</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p class="sd-card-text">821</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">827</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">EL</p></td>
+<td><p class="sd-card-text">QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p class="sd-card-text">1574</p></td>
+<td><p class="sd-card-text">22</p></td>
+<td><p class="sd-card-text">1596</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE1-2-3 - Macrophytes</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">13</p></td>
+<td><p class="sd-card-text">13</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE1-2-4 - Phytobenthos</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE1-3 - Benthic invertebrates</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE1-4 - Fish</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE2-3 - Morphological conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE3-1-3 - Oxygenation conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE3-1-4 - Salinity conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE3-1-5 - Acidification status</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">ES</p></td>
+<td><p class="sd-card-text">QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">HR</p></td>
+<td><p class="sd-card-text">QE1-2-1 - Macroalgae</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IE</p></td>
+<td><p class="sd-card-text">QE1-2 - Other aquatic flora</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">36</p></td>
+<td><p class="sd-card-text">36</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE1-2-3 - Macrophytes</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE1-2-4 - Phytobenthos</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE1-3 - Benthic invertebrates</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">7</p></td>
+<td><p class="sd-card-text">8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE1-4 - Fish</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE2-1 - Hydrological or tidal regime</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE2-2 - River continuity conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE2-3 - Morphological conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE3-1-2 - Thermal conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE3-1-3 - Oxygenation conditions</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE3-1-5 - Acidification status</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">IT</p></td>
+<td><p class="sd-card-text">QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">7</p></td>
+<td><p class="sd-card-text">10</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LT</p></td>
+<td><p class="sd-card-text">QE2-2 - River continuity conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">LT</p></td>
+<td><p class="sd-card-text">QE3-1-3 - Oxygenation conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LV</p></td>
+<td><p class="sd-card-text">QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">LV</p></td>
+<td><p class="sd-card-text">QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SE</p></td>
+<td><p class="sd-card-text">QE1-1 - Phytoplankton</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">7</p></td>
+<td><p class="sd-card-text">7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SE</p></td>
+<td><p class="sd-card-text">QE1-4 - Fish</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SE</p></td>
+<td><p class="sd-card-text">QE3-1-1 - Transparency conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SE</p></td>
+<td><p class="sd-card-text">QE3-1-5 - Acidification status</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">58</p></td>
+<td><p class="sd-card-text">58</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SE</p></td>
+<td><p class="sd-card-text">QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">14</p></td>
+<td><p class="sd-card-text">14</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SK</p></td>
+<td><p class="sd-card-text">QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-number">Example 38 </span><span class="caption-text">Grouping - inconsistencies due to inadequate quality control - 3rd cycle</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="w">      </span><span class="p">,</span><span class="k">SUM</span><span class="p">(</span><span class="n">IIF</span><span class="p">([</span><span class="n">to_euRBDCode</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">[</span><span class="n">from_euRBDCode</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberInDifferentBasin</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">      </span><span class="p">,</span><span class="k">SUM</span><span class="p">(</span><span class="n">IIF</span><span class="p">([</span><span class="n">to_euRBDCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">from_euRBDCode</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberInSameBasin</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">totalNumber</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span>
+<span class="linenos"> 7</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="c1">-- toNode</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">       </span><span class="n">a</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">10</span><span class="w">      </span><span class="p">,</span><span class="n">a</span><span class="p">.[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">      </span><span class="p">,</span><span class="n">a</span><span class="p">.[</span><span class="n">euRBDCode</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">to_euRBDCode</span><span class="p">]</span>
+<span class="linenos">13</span><span class="w">      </span><span class="p">,</span><span class="n">a</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">to_euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">14</span><span class="w">      </span><span class="p">,</span><span class="n">a</span><span class="p">.[</span><span class="n">surfaceWaterBodyCategory</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">to_surfaceWaterBodyCategory</span><span class="p">]</span>
+<span class="linenos">15</span><span class="w">      </span><span class="p">,</span><span class="n">a</span><span class="p">.[</span><span class="n">qeMonitoringResults</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">to_qeMonitoringResults</span><span class="p">]</span>
+<span class="linenos">16</span><span class="w">      </span><span class="p">,</span><span class="n">a</span><span class="p">.[</span><span class="n">qeGrouping</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">to_qeGrouping</span><span class="p">]</span>
+<span class="linenos">17</span><span class="w">      </span>
+<span class="linenos">18</span><span class="w">      </span><span class="c1">-- fromNode</span>
+<span class="linenos">19</span><span class="w">      </span><span class="p">,</span><span class="n">b</span><span class="p">.[</span><span class="n">euRBDCode</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">from_euRBDCode</span><span class="p">]</span>
+<span class="linenos">20</span><span class="w">      </span><span class="p">,</span><span class="n">b</span><span class="p">.[</span><span class="n">surfaceWaterBodyCategory</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">from_surfaceWaterBodyCategory</span><span class="p">]</span>
+<span class="linenos">21</span><span class="w">      </span><span class="p">,</span><span class="n">b</span><span class="p">.[</span><span class="n">qeCode</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">from_qeCode</span><span class="p">]</span>
+<span class="linenos">22</span><span class="w">      </span><span class="p">,</span><span class="n">b</span><span class="p">.[</span><span class="n">qeMonitoringResults</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">from_qeMonitoringResults</span><span class="p">]</span>
+<span class="linenos">23</span><span class="w">      </span><span class="p">,</span><span class="n">b</span><span class="p">.[</span><span class="n">qeGrouping</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">from_qeGrouping</span><span class="p">]</span>
+<span class="linenos">24</span><span class="w">      </span>
+<span class="linenos">25</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_WFD</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_QualityElement_qeGrouping</span><span class="p">]</span><span class="w"> </span><span class="n">a</span>
+<span class="linenos">26</span><span class="w">  </span>
+<span class="linenos">27</span><span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_SOW</span><span class="p">].[</span><span class="n">v2r1</span><span class="p">].[</span><span class="n">SWB_SurfaceWaterBody_QualityElement_qeGrouping</span><span class="p">]</span><span class="w"> </span><span class="n">b</span>
+<span class="linenos">28</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">29</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">qeGrouping</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.[</span><span class="n">euSurfaceWaterBodyCode</span><span class="p">]</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">qeCode</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos">31</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span>
+<span class="linenos">32</span><span class="w">    </span>
+<span class="linenos">33</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">cYear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">hasDescriptiveData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">34</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.[</span><span class="n">qeMonitoringResults</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Grouping&#39;</span><span class="w"> </span>
+<span class="linenos">35</span><span class="w">  </span><span class="c1">--AND a.[qeCode] != &#39;QE3-3 - River Basin Specific Pollutants&#39;</span>
+<span class="linenos">36</span><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">a</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">from_qeMonitoringResults</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;Monitoring&#39;</span>
+<span class="linenos">39</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos">40</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">qeCode</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><section id="inconsistencies-with-the-data-in-the-monitoring-schema">
+<h3>Inconsistencies with the data in the Monitoring schema<a class="headerlink" href="#inconsistencies-with-the-data-in-the-monitoring-schema" title="Link to this heading">#</a></h3>
+<p>The information provided in the Monitoring schema
+might have provided an alternative data source
+to understand which water bodies where actually monitored.</p>
+<p>However, in that specific case there was no quality control specified
+between the grouping data and the Monitoring schema data.</p>
+<p>Therefore, and as the results of the <a class="reference internal" href="#grouping-water-bodies-inconsistencies-with-the-monitoring-schema-data-3rdcycle-table"><span class="std std-numref">Table 73</span></a>
+show, the inconsistencies between the grouping data and the monitoring schema data are high.
+According to the grouping data, 3550 monitored water bodies had their data
+extrapolated for the assessment of water bodies not monitored.
+However, for 2225 of those water bodies (62%)
+there is no evidence (in the Monitoring schema) of the water body having been monitored
+for (at least one of) the expected Quality Element.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="grouping-water-bodies-inconsistencies-with-the-monitoring-schema-data-3rdcycle-table">
+<caption><span class="caption-number">Table 73 </span><span class="caption-text">Grouping - inconsistencies with the Monitoring schema data - 3rd cycle</span><a class="headerlink" href="#grouping-water-bodies-inconsistencies-with-the-monitoring-schema-data-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>qeCode</p></th>
+<th class="head"><p>countries</p></th>
+<th class="head"><p>waterBodies</p></th>
+<th class="head"><p>with inconsistency</p></th>
+<th class="head"><p>percentage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>QE1-1 - Phytoplankton</p></td>
+<td><p>13</p></td>
+<td><p>247</p></td>
+<td><p>29</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE1-2 - Other aquatic flora</p></td>
+<td><p>4</p></td>
+<td><p>45</p></td>
+<td><p>22</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-even"><td><p>QE1-2-1 - Macroalgae</p></td>
+<td><p>3</p></td>
+<td><p>29</p></td>
+<td><p>3</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE1-2-2 - Angiosperms</p></td>
+<td><p>3</p></td>
+<td><p>44</p></td>
+<td><p>5</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p>QE1-2-3 - Macrophytes</p></td>
+<td><p>11</p></td>
+<td><p>684</p></td>
+<td><p>125</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE1-2-4 - Phytobenthos</p></td>
+<td><p>11</p></td>
+<td><p>1643</p></td>
+<td><p>351</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p>QE1-3 - Benthic invertebrates</p></td>
+<td><p>15</p></td>
+<td><p>1875</p></td>
+<td><p>306</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE1-4 - Fish</p></td>
+<td><p>14</p></td>
+<td><p>1022</p></td>
+<td><p>108</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>QE2-1 - Hydrological or tidal regime</p></td>
+<td><p>6</p></td>
+<td><p>250</p></td>
+<td><p>12</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE2-2 - River continuity conditions</p></td>
+<td><p>7</p></td>
+<td><p>325</p></td>
+<td><p>99</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>QE2-3 - Morphological conditions</p></td>
+<td><p>8</p></td>
+<td><p>441</p></td>
+<td><p>126</p></td>
+<td><p>28</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE3-1-1 - Transparency conditions</p></td>
+<td><p>8</p></td>
+<td><p>66</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-even"><td><p>QE3-1-2 - Thermal conditions</p></td>
+<td><p>7</p></td>
+<td><p>386</p></td>
+<td><p>171</p></td>
+<td><p>44</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE3-1-3 - Oxygenation conditions</p></td>
+<td><p>16</p></td>
+<td><p>1616</p></td>
+<td><p>1034</p></td>
+<td><p>63</p></td>
+</tr>
+<tr class="row-even"><td><p>QE3-1-4 - Salinity conditions</p></td>
+<td><p>9</p></td>
+<td><p>374</p></td>
+<td><p>161</p></td>
+<td><p>43</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE3-1-5 - Acidification status</p></td>
+<td><p>11</p></td>
+<td><p>644</p></td>
+<td><p>369</p></td>
+<td><p>57</p></td>
+</tr>
+<tr class="row-even"><td><p>QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p>16</p></td>
+<td><p>1717</p></td>
+<td><p>1058</p></td>
+<td><p>61</p></td>
+</tr>
+<tr class="row-odd"><td><p>QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p>17</p></td>
+<td><p>1800</p></td>
+<td><p>1189</p></td>
+<td><p>66</p></td>
+</tr>
+<tr class="row-even"><td><p>QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p>13</p></td>
+<td><p>1820</p></td>
+<td><p>544</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>«all»</p></td>
+<td><p>19</p></td>
+<td><p>3550</p></td>
+<td><p>2225</p></td>
+<td><p>62</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Example 39 </span><span class="caption-text">Grouping_water_bodies_grouped_with_themselves_3rdCycle_Table</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfCountries</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">nodeId</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">numberOfWaterBodies</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">IIF</span><span class="p">([</span><span class="n">isMonitored</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,[</span><span class="n">nodeId</span><span class="p">],</span><span class="k">NULL</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">number_withInconsistency</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">IIF</span><span class="p">([</span><span class="n">isMonitored</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,[</span><span class="n">nodeId</span><span class="p">],</span><span class="k">NULL</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">[</span><span class="n">nodeId</span><span class="p">])</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">percentage_withInconsistency</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">nodes_qeStatus</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">([</span><span class="n">outDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">inDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">outDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">qeCode</span><span class="p">]</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ROLLUP</span>
+<span class="linenos">10</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">qeCode</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><section id="basic-errors">
+<h4>Basic errors<a class="headerlink" href="#basic-errors" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table" id="grouping-water-bodies-grouped-with-themselves-3rdcycle-table">
+<caption><span class="caption-number">Table 74 </span><span class="caption-text">Grouping - water bodies grouped with themselves - 3rd cycle</span><a class="headerlink" href="#grouping-water-bodies-grouped-with-themselves-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>countryCode</p></th>
+<th class="head"><p>from</p></th>
+<th class="head"><p>to</p></th>
+<th class="head"><p>qeCode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IE</p></td>
+<td><p>IEWE_160_0700</p></td>
+<td><p>IEWE_160_0700</p></td>
+<td><p>QE1-2 - Other aquatic flora</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>QE3-1-3 - Oxygenation conditions</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>QE3-1-6-1 - Nitrogen conditions</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>QE3-1-6-2 - Phosphorus conditions</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>ITF015RWN011012156SABATO18SS3</p></td>
+<td><p>ITF015RWN011012156SABATO18SS3</p></td>
+<td><p>QE1-2-4 - Phytobenthos</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>ITF015RWN011012156SABATO18SS3</p></td>
+<td><p>ITF015RWN011012156SABATO18SS3</p></td>
+<td><p>QE1-3 - Benthic invertebrates</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Example 40 </span><span class="caption-text">Grouping - water bodies grouped with themselves - 3rd cycle</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">2</span><span class="w">      </span><span class="p">,[</span><span class="n">fromNodeId</span><span class="p">]</span>
+<span class="linenos">3</span><span class="w">      </span><span class="p">,[</span><span class="n">toNodeId</span><span class="p">]</span>
+<span class="linenos">4</span><span class="w">      </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos">5</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">edges</span><span class="p">]</span>
+<span class="linenos">6</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">fromNodeId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">toNodeId</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><div class="pst-scrollable-table-container"><table class="table" id="grouping-water-bodies-both-receiving-and-providing-data-for-a-qe-3rdcycle-table">
+<caption><span class="caption-number">Table 75 </span><span class="caption-text">Grouping - water bodies both receiving and providing data of a given quality element - 3rd cycle</span><a class="headerlink" href="#grouping-water-bodies-both-receiving-and-providing-data-for-a-qe-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>nodeId</p></th>
+<th class="head"><p>waterCategory</p></th>
+<th class="head"><p>qeCode</p></th>
+<th class="head"><p>qeStatus</p></th>
+<th class="head"><p>outDegree</p></th>
+<th class="head"><p>inDegree</p></th>
+<th class="head"><p>isMonitored</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IE</p></td>
+<td><p>IESW_060_0100</p></td>
+<td><p>TW</p></td>
+<td><p>QE1-2 - Other aquatic flora</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IE</p></td>
+<td><p>IEWE_160_0700</p></td>
+<td><p>CW</p></td>
+<td><p>QE1-2 - Other aquatic flora</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT09CI_R000OM173CA</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT09CI_R000OM173CA</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-3 - Oxygenation conditions</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT09CI_R000OM173CA</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-5 - Acidification status</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-2 - Thermal conditions</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-3 - Oxygenation conditions</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE1-3 - Benthic invertebrates</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT10N0100121AF</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>CW</p></td>
+<td><p>QE3-1-6-2 - Phosphorus conditions</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>CW</p></td>
+<td><p>QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>CW</p></td>
+<td><p>QE3-1-3 - Oxygenation conditions</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT19CW04794</p></td>
+<td><p>CW</p></td>
+<td><p>QE3-1-6-1 - Nitrogen conditions</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>IT</p></td>
+<td><p>ITF015RWN011012156SABATO18SS3</p></td>
+<td><p>RW</p></td>
+<td><p>QE1-3 - Benthic invertebrates</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>ITF015RWN011012156SABATO18SS3</p></td>
+<td><p>RW</p></td>
+<td><p>QE1-2-4 - Phytobenthos</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>HR</p></td>
+<td><p>HRJMO013</p></td>
+<td><p>CW</p></td>
+<td><p>QE1-2-1 - Macroalgae</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>IT09CI_R000OM173CA</p></td>
+<td><p>RW</p></td>
+<td><p>QE3-3 - River Basin Specific Pollutants</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-number">Example 41 </span><span class="caption-text">Grouping - water bodies both receiving and providing data - 3rd cycle</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="p">,[</span><span class="n">nodeId</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="w">      </span><span class="p">,[</span><span class="n">waterCategory</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">      </span><span class="p">,[</span><span class="n">qeCode</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="p">,[</span><span class="n">qeStatus</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="p">,[</span><span class="n">outDegree</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="p">,[</span><span class="n">inDegree</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="w">      </span><span class="p">,[</span><span class="n">isMonitored</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_Sandbox</span><span class="p">].[</span><span class="n">tmp_grouping</span><span class="p">].[</span><span class="n">nodes_qeStatus</span><span class="p">]</span>
+<span class="linenos">10</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">outDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">inDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="linenos">11</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">isMonitored</span><span class="p">],[</span><span class="n">nodeId</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="subset-of-countries-for-further-analysis">
+<h3>Subset of countries for further analysis<a class="headerlink" href="#subset-of-countries-for-further-analysis" title="Link to this heading">#</a></h3>
+<p>The proportion of problematic records is relatively low:
+1081 out of 88156 records (1.2%) and 343 out of 16958 water bodies (2%).</p>
+<p>Nevertheless, a decision was taken to further analyse
+only a subset of 8 countries that have data regarding grouping
+where none of above issues was detected.</p>
+<p>From the subset of countries:</p>
+<ol class="arabic simple">
+<li><p>Austria, Romania and Portugal have the highest absolute number of water bodies
+where grouping was applied,</p></li>
+<li><p>Austria uses several monitored water bodies for the assessment of a given water body.
+Other countries reported similar approaches (EL,ES,IT,SE,SK),
+but were not included in the subset, due to data quality issues.</p></li>
+<li><p>The remaining countries use only one monitored water body for each water body assessed via grouping.
+Monitored water bodies may supply data for the assessment of several non-monitored water bodies.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show results</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="pst-scrollable-table-container"><table class="table" id="grouping-countries-with-grouping-and-no-issues-3rdcycle-table">
+<caption><span class="caption-number">Table 76 </span><span class="caption-text">Grouping - Countries with grouping data, and no detected issues - 3rd cycle</span><a class="headerlink" href="#grouping-countries-with-grouping-and-no-issues-3rdcycle-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">country</p></th>
+<th class="head"><p class="sd-card-text">qeCount</p></th>
+<th class="head"><p class="sd-card-text">wbMonitoring</p></th>
+<th class="head"><p class="sd-card-text">wbGrouping</p></th>
+<th class="head"><p class="sd-card-text">wbEither</p></th>
+<th class="head"><p class="sd-card-text">maxOutDegree</p></th>
+<th class="head"><p class="sd-card-text">maxInDegree</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">AT</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">1278</p></td>
+<td><p class="sd-card-text">8002</p></td>
+<td><p class="sd-card-text">8076</p></td>
+<td><p class="sd-card-text">1718</p></td>
+<td><p class="sd-card-text">25</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">CZ</p></td>
+<td><p class="sd-card-text">11</p></td>
+<td><p class="sd-card-text">24</p></td>
+<td><p class="sd-card-text">29</p></td>
+<td><p class="sd-card-text">53</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">DK</p></td>
+<td><p class="sd-card-text">9</p></td>
+<td><p class="sd-card-text">10</p></td>
+<td><p class="sd-card-text">13</p></td>
+<td><p class="sd-card-text">23</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">HU</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">72</p></td>
+<td><p class="sd-card-text">78</p></td>
+<td><p class="sd-card-text">149</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">NL</p></td>
+<td><p class="sd-card-text">11</p></td>
+<td><p class="sd-card-text">31</p></td>
+<td><p class="sd-card-text">61</p></td>
+<td><p class="sd-card-text">88</p></td>
+<td><p class="sd-card-text">14</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">PT</p></td>
+<td><p class="sd-card-text">16</p></td>
+<td><p class="sd-card-text">148</p></td>
+<td><p class="sd-card-text">228</p></td>
+<td><p class="sd-card-text">376</p></td>
+<td><p class="sd-card-text">7</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">RO</p></td>
+<td><p class="sd-card-text">15</p></td>
+<td><p class="sd-card-text">318</p></td>
+<td><p class="sd-card-text">1497</p></td>
+<td><p class="sd-card-text">1760</p></td>
+<td><p class="sd-card-text">145</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SI</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Show code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-number">Example 42 </span><span class="caption-text">Grouping - Countries with available data, and no detected issues - 3rd cycle</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">qeCode</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">qeCount</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">IIF</span><span class="p">([</span><span class="n">outDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nodeId</span><span class="p">,</span><span class="k">NULL</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">wbMonitoring</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">IIF</span><span class="p">([</span><span class="n">inDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nodeId</span><span class="p">,</span><span class="k">NULL</span><span class="p">))</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">wbGrouping</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">nodeId</span><span class="p">)</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">wbEither</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="p">,</span><span class="k">MAX</span><span class="p">(</span><span class="n">outDegree</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">maxOutDegree</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="p">,</span><span class="k">MAX</span><span class="p">(</span><span class="n">inDegree</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">maxInDegree</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">nodes_qeStatus</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span>
+<span class="linenos">10</span><span class="w">  </span><span class="p">(</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+<span class="linenos">12</span><span class="w">          </span><span class="c1">-- ,COUNT(*) as [count]</span>
+<span class="linenos">13</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_Sandbox</span><span class="p">].[</span><span class="n">tmp_grouping</span><span class="p">].[</span><span class="n">nodes_qeStatus</span><span class="p">]</span>
+<span class="linenos">14</span><span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="p">([</span><span class="n">outDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">inDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">-- error</span>
+<span class="linenos">15</span><span class="w">      </span><span class="k">OR</span><span class="w"> </span><span class="p">([</span><span class="n">outDegree</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">assessmentMethod</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;Monitoring&#39;</span><span class="p">)</span><span class="w">  </span><span class="c1">-- also an error</span>
+<span class="linenos">16</span><span class="w">      </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<span class="linenos">17</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="n">countryCode</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="KnownIssues.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data model review - known issues</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDPressures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pressures and impacts</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annexes-data-analysis-3rd-cycle">Annexes - Data analysis - 3rd cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-quality-elements">Grouping and quality elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-with-water-bodies-that-were-not-assessed-by-monitoring">Grouping with water bodies that were not assessed by monitoring</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inconsistencies-with-the-data-in-the-monitoring-schema">Inconsistencies with the data in the Monitoring schema</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-errors">Basic errors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subset-of-countries-for-further-analysis">Subset of countries for further analysis</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/DataModelReview/WFDGrouping.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/DataModelReview/WFDGrouping.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

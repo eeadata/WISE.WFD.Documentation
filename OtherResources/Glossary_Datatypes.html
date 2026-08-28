@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Attribute types (datatypes) &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'OtherResources/Glossary_Datatypes';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../DataModelReview/index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../DataModelReview/index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../TestingPhase/index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Attribute types (datatypes)</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="attribute-types-datatypes">
+<span id="glossary-datatypes"></span><h1>Attribute types (datatypes)<a class="headerlink" href="#attribute-types-datatypes" title="Link to this heading">#</a></h1>
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h2>
+<dl class="glossary">
+<dt id="term-AquiferMediaTypeValue">AquiferMediaTypeValue<a class="headerlink" href="#term-AquiferMediaTypeValue" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">AquiferMediaTypeValue</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-AssessmentConfidence">AssessmentConfidence<a class="headerlink" href="#term-AssessmentConfidence" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">AssessmentConfidence</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-AssessmentMethod">AssessmentMethod<a class="headerlink" href="#term-AssessmentMethod" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">AssessmentMethod</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Attachment">Attachment<a class="headerlink" href="#term-Attachment" title="Link to this term">#</a></dt><dd><p>File uploaded directly into Reportnet3.
+The file can have a maximum of 100 MB.
+The valid filename extensions are
+‘pdf’ (Portable Document Format),’xlsx’ (Excel) or ‘docx’ (Word).
+In a WISE dataflow, files are always uploaded
+to the <code class="docutils literal notranslate"><span class="pre">documentFile</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">Document</span></code> table.</p>
+</dd>
+<dt id="term-BiologicalQualityElement">BiologicalQualityElement<a class="headerlink" href="#term-BiologicalQualityElement" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">BiologicalQualityElement</span></code> controlled list of values,
+which is a subset of the <a class="reference internal" href="#term-QualityElement"><span class="xref std std-term">QualityElement</span></a> controlled list of values.</p>
+</dd>
+<dt id="term-ChemicalMatrixType">ChemicalMatrixType<a class="headerlink" href="#term-ChemicalMatrixType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ChemicalMatrixType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ChemicalPurpose">ChemicalPurpose<a class="headerlink" href="#term-ChemicalPurpose" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ChemicalPurpose</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ChemicalStatus">ChemicalStatus<a class="headerlink" href="#term-ChemicalStatus" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ChemicalStatus</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ClassificationSystem">ClassificationSystem  <a class="headerlink" href="#term-ClassificationSystem" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ClassificationSystem</span></code> controlled list of values.
+See <a class="reference external" href="https://dd.eionet.europa.eu/vocabulary/wise/ClassificationSystem">https://dd.eionet.europa.eu/vocabulary/wise/ClassificationSystem</a></p>
+</dd>
+<dt id="term-ConfidentialityStatus">ConfidentialityStatus<a class="headerlink" href="#term-ConfidentialityStatus" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ConfidentialityStatus</span></code> controlled list of values.
+<a class="footnote-reference brackets" href="#footcite-sdmxclconfstatus2014" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-sdmxconfidentialityguideline2018" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-Country">Country<a class="headerlink" href="#term-Country" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">Country</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-date">date<a class="headerlink" href="#term-date" title="Link to this term">#</a></dt><dd><p>Date in the format yyyy-mm-dd.</p>
+</dd>
+<dt id="term-documentCode">documentCode<a class="headerlink" href="#term-documentCode" title="Link to this term">#</a></dt><dd><p>Character string following the <a class="reference internal" href="#term-wiseIdentifier"><span class="xref std std-term">wiseIdentifier</span></a> syntax
+that uniquely identifies a document provided in a data delivery.</p>
+</dd>
+<dt id="term-EcologicalStatus">EcologicalStatus<a class="headerlink" href="#term-EcologicalStatus" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">EcologicalStatus</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Email">Email<a class="headerlink" href="#term-Email" title="Link to this term">#</a></dt><dd><p>Character string with a maximum length of 250 characters.
+Validate using REGEX pattern.</p>
+</dd>
+<dt id="term-EnvironmentalQualityStandard">EnvironmentalQualityStandard<a class="headerlink" href="#term-EnvironmentalQualityStandard" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">EnvironmentalQualityStandard</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ExemptionPeriod">ExemptionPeriod<a class="headerlink" href="#term-ExemptionPeriod" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ExemptionPeriod</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ExemptionRationale">ExemptionRationale<a class="headerlink" href="#term-ExemptionRationale" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ExemptionRationale</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ExemptionType">ExemptionType<a class="headerlink" href="#term-ExemptionType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ExemptionType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-GroundwaterSurfaceWaterLink">GroundwaterSurfaceWaterLink<a class="headerlink" href="#term-GroundwaterSurfaceWaterLink" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">GroundwaterSurfaceWaterLink</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-gYear">gYear<a class="headerlink" href="#term-gYear" title="Link to this term">#</a></dt><dd><p>Gregorian year.</p>
+</dd>
+<dt id="term-IdentifierScheme">IdentifierScheme<a class="headerlink" href="#term-IdentifierScheme" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">IdentifierScheme</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ImpactType">ImpactType<a class="headerlink" href="#term-ImpactType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ImpactType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-IntercalibrationType">IntercalibrationType<a class="headerlink" href="#term-IntercalibrationType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">IntercalibrationType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Language">Language<a class="headerlink" href="#term-Language" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">Language</span></code> controlled list of values.<br />
+WISE dataflows use a subset of the ISO 639-2 alpha-3 code
+for the representation of names of languages <a class="footnote-reference brackets" href="#footcite-iso639-2" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-LegislationLevelValue">LegislationLevelValue<a class="headerlink" href="#term-LegislationLevelValue" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">LegislationLevelValue</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Licence">Licence<a class="headerlink" href="#term-Licence" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">Licence</span></code> controlled list of values.<br />
+Because all WFD datasets fall under the HVD regulation
+<a class="footnote-reference brackets" href="#footcite-hvdregulation" id="id18" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>, the <code class="docutils literal notranslate"><span class="pre">Licence</span></code> options are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>notation</p></th>
+<th class="head"><p>label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'CC0'</span></code></p></td>
+<td><p><a class="reference external" href="http://publications.europa.eu/resource/authority/licence/CC0">http://publications.europa.eu/resource/authority/licence/CC0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'CC_BY_4_0'</span></code></p></td>
+<td><p><a class="reference external" href="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0">http://publications.europa.eu/resource/authority/licence/CC_BY_4_0</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'exactMatch_CC_BY_4_0'</span></code></p></td>
+<td><p>skos:exactMatch <a class="reference external" href="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0">http://publications.europa.eu/resource/authority/licence/CC_BY_4_0</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'narrowMatch_CC_BY_4_0'</span></code></p></td>
+<td><p>skos:narrowMatch <a class="reference external" href="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0">http://publications.europa.eu/resource/authority/licence/CC_BY_4_0</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt id="term-LineString">LineString<a class="headerlink" href="#term-LineString" title="Link to this term">#</a></dt><dd><p>A LineString is a 1-dimensional line formed by a contiguous sequence of line segments.
+Each line segment is defined by two <a class="reference internal" href="#term-Point"><span class="xref std std-term">Point</span></a>,
+with the end point of one segment forming the start point of the next segment.
+<a class="footnote-reference brackets" href="#footcite-postgis-ogcgeometry" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-geojson" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a><br />
+In the <strong>WISE</strong> spatial datasets, a valid LineString is <strong>simple</strong>
+(does not have self-intersections),
+does not have zero-length line segments, and has 1 or more line segments.</p>
+</dd>
+<dt id="term-LithologyValue">LithologyValue<a class="headerlink" href="#term-LithologyValue" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">LithologyValue</span></code> controlled list of values. <em>To be defined</em>.</p>
+</dd>
+<dt id="term-MitigationMeasure">MitigationMeasure<a class="headerlink" href="#term-MitigationMeasure" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">MitigationMeasure</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-MixingZoneMeasure">MixingZoneMeasure<a class="headerlink" href="#term-MixingZoneMeasure" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">MixingZoneMeasure</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-MonitoringCycle">MonitoringCycle<a class="headerlink" href="#term-MonitoringCycle" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">MonitoringCycle</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-MonitoringFrequency">MonitoringFrequency<a class="headerlink" href="#term-MonitoringFrequency" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">MonitoringFrequency</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-MultiLineString">MultiLineString<a class="headerlink" href="#term-MultiLineString" title="Link to this term">#</a></dt><dd><p>A MultiLineString is a collection of <a class="reference internal" href="#term-LineString"><span class="xref std std-term">LineString</span></a>.
+<a class="footnote-reference brackets" href="#footcite-postgis-ogcgeometry" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-geojson" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-MultiPoint">MultiPoint<a class="headerlink" href="#term-MultiPoint" title="Link to this term">#</a></dt><dd><p>A MultiPoint is a collection of Points.
+<a class="footnote-reference brackets" href="#footcite-postgis-ogcgeometry" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-geojson" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-MultiPolygon">MultiPolygon<a class="headerlink" href="#term-MultiPolygon" title="Link to this term">#</a></dt><dd><p>A MultiPolygon is a collection of non-overlapping, non-adjacent <a class="reference internal" href="#term-Polygon"><span class="xref std std-term">Polygon</span></a>.
+Polygons in the collection may touch only at a finite number of points.
+<a class="footnote-reference brackets" href="#footcite-postgis-ogcgeometry" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-geojson" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-NaturalAWBHMWB">NaturalAWBHMWB<a class="headerlink" href="#term-NaturalAWBHMWB" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">NaturalAWBHMWB</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-nonNegativeValue">nonNegativeValue<a class="headerlink" href="#term-nonNegativeValue" title="Link to this term">#</a></dt><dd><p>Non-negative numeric value.</p>
+</dd>
+<dt id="term-ObservationStatus">ObservationStatus<a class="headerlink" href="#term-ObservationStatus" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ObservationStatus</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Parameter">Parameter<a class="headerlink" href="#term-Parameter" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> controlled list of values.
+Depending of the scope in which it is being used,
+the subset of allowed values may be restricted by the quality control.</p>
+</dd>
+<dt id="term-Percentage">Percentage<a class="headerlink" href="#term-Percentage" title="Link to this term">#</a></dt><dd><p>Integer value in the interval [0,100].</p>
+</dd>
+<dt id="term-PercentageInterval">PercentageInterval<a class="headerlink" href="#term-PercentageInterval" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">PercentageInterval</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Point">Point<a class="headerlink" href="#term-Point" title="Link to this term">#</a></dt><dd><p>A Point is a 0-dimensional geometry that represents a single location in coordinate space.
+A Point has an x-coordinate value, a y-coordinate value.
+<a class="footnote-reference brackets" href="#footcite-postgis-ogcgeometry" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-geojson" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a><br />
+In the <strong>WISE</strong> spatial datasets, a valid point does not have a z-coordinate value.</p>
+</dd>
+<dt id="term-Polygon">Polygon<a class="headerlink" href="#term-Polygon" title="Link to this term">#</a></dt><dd><p>A Polygon is a 2-dimensional planar region, delimited by an exterior boundary (the shell)
+and zero or more interior boundaries (holes). Each boundary is a LinearRing (a closed simple <a class="reference internal" href="#term-LineString"><span class="xref std std-term">LineString</span></a>).
+<a class="footnote-reference brackets" href="#footcite-postgis-ogcgeometry" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-geojson" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-PressureAssessmentMethod">PressureAssessmentMethod<a class="headerlink" href="#term-PressureAssessmentMethod" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">PressureAssessmentMethod</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-PressureType">PressureType<a class="headerlink" href="#term-PressureType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">PressureType</span></code> controlled list of values.<br />
+This is a hierarchical list.</p>
+</dd>
+<dt id="term-QualityElement">QualityElement<a class="headerlink" href="#term-QualityElement" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">QualityElement</span></code> controlled list of values,
+which is a subset of the <a class="reference internal" href="#term-Parameter"><span class="xref std std-term">Parameter</span></a> controlled list of values.</p>
+</dd>
+<dt id="term-QuantitativeStatus">QuantitativeStatus<a class="headerlink" href="#term-QuantitativeStatus" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">QuantitativeStatus</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-range">range<a class="headerlink" href="#term-range" title="Link to this term">#</a></dt><dd><p>Range of values. The data type follows the Postgre range type implementation
+of the ISO 80000-2:2019(E) standard.
+<a class="footnote-reference brackets" href="#footcite-postgresql-rangetypes" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+<a class="footnote-reference brackets" href="#footcite-iso80000-2-2019" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-ReasonForFailure">ReasonForFailure <a class="headerlink" href="#term-ReasonForFailure" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ReasonForFailure</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-referenceCode">referenceCode<a class="headerlink" href="#term-referenceCode" title="Link to this term">#</a></dt><dd><p>Character string following the <a class="reference internal" href="#term-wiseIdentifier"><span class="xref std std-term">wiseIdentifier</span></a> syntax
+that uniquely identifies a document reference
+(e.g. a chapter, bookmark, page, etc.)
+within a document provided in a data delivery.</p>
+</dd>
+<dt id="term-ReservoirType">ReservoirType<a class="headerlink" href="#term-ReservoirType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ReservoirType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-Role">Role<a class="headerlink" href="#term-Role" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">Role</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-SpecialisedZoneType">SpecialisedZoneType<a class="headerlink" href="#term-SpecialisedZoneType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">SpecialisedZoneType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-string">string<a class="headerlink" href="#term-string" title="Link to this term">#</a></dt><dd><p>Character string. A maximum of 4000 characters is allowed,
+unless otherwise specified by indicating the number of characters.
+UTF8 encoding is mandatory.</p>
+</dd>
+<dt id="term-UnitOfMeasure">UnitOfMeasure<a class="headerlink" href="#term-UnitOfMeasure" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">UnitOfMeasure</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-URL">URL<a class="headerlink" href="#term-URL" title="Link to this term">#</a></dt><dd><p>Character string with a maximum of 2100 characters.
+Validate using REGEX pattern.</p>
+</dd>
+<dt id="term-VolumeRevenueCost">VolumeRevenueCost<a class="headerlink" href="#term-VolumeRevenueCost" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">VolumeRevenueCost</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-WaterBodyCategory">WaterBodyCategory<a class="headerlink" href="#term-WaterBodyCategory" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">WaterBodyCategory</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-WFDMonitoringPurpose">WFDMonitoringPurpose<a class="headerlink" href="#term-WFDMonitoringPurpose" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">WFDMonitoringPurpose</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-WFDWaterService">WFDWaterService<a class="headerlink" href="#term-WFDWaterService" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">WFDWaterService</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-WiseEvolutionType">WiseEvolutionType<a class="headerlink" href="#term-WiseEvolutionType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">WiseEvolutionType</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-wiseIdentifier">wiseIdentifier<a class="headerlink" href="#term-wiseIdentifier" title="Link to this term">#</a></dt><dd><p>String with a maximum of 42 characters. A WISE identifier:</p>
+<ul class="simple">
+<li><p>must start with the ISO 3166-1 alpha-2 country code,
+except for Greece (‘EL’) and the United Kingdom (‘UK’)</p></li>
+<li><p>must use only upper case letters [A to Z] and digits [0 to 9]</p></li>
+<li><p>may use the underscore character (‘_’) or the hyphen character (‘-‘)
+as separator characters within the identifier
+(but not immediately after the country code, and not at the end of the code)</p></li>
+<li><p>must not have consecutive separator characters</p></li>
+<li><p>be unique at national level, within the context to which they apply</p></li>
+</ul>
+<p>Valid examples: FR123, FR1_XYZ1234_1, FR1-XYZ1234-1, FR1XYZ12341.<br />
+<em>Invalid</em> examples: FR1__XYZ1234__1, FRa123, FR123_.</p>
+</dd>
+<dt id="term-WisePurposeOfCollectionValue">WisePurposeOfCollectionValue<a class="headerlink" href="#term-WisePurposeOfCollectionValue" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">WisePurposeOfCollectionValue</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-YesNo">YesNo<a class="headerlink" href="#term-YesNo" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">YesNo</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-YesNoNotApplicable">YesNoNotApplicable<a class="headerlink" href="#term-YesNoNotApplicable" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">YesNoNotApplicable</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-YesNoRBMP">YesNoRBMP<a class="headerlink" href="#term-YesNoRBMP" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">YesNoRBMP</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-YesNoUnknownInapplicable">YesNoUnknownInapplicable<a class="headerlink" href="#term-YesNoUnknownInapplicable" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">YesNoNotApplicable</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-YesNoUnknownNotApplicableNotAssessed">YesNoUnknownNotApplicableNotAssessed<a class="headerlink" href="#term-YesNoUnknownNotApplicableNotAssessed" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">YesNoUnknownNotApplicableNotAssessed</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-YesNoUnknownNotAssessed">YesNoUnknownNotAssessed<a class="headerlink" href="#term-YesNoUnknownNotAssessed" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">YesNoUnknownNotAssessed</span></code> controlled list of values.</p>
+</dd>
+<dt id="term-ZoneType">ZoneType<a class="headerlink" href="#term-ZoneType" title="Link to this term">#</a></dt><dd><p>Value from the <code class="docutils literal notranslate"><span class="pre">ZoneType</span></code> controlled list of values.</p>
+</dd>
+</dl>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id19">
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-postgresql-rangetypes" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>PostgreSQL Global Development Group. <em>Documentation: 18: 8.17. Range Types</em>. 2026. PostgreSQL documentation, accessed 2026-06-25. URL: <a class="reference external" href="https://www.postgresql.org/docs/current/rangetypes.html">https://www.postgresql.org/docs/current/rangetypes.html</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-iso80000-2-2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>International Organization for Standardization. ISO 80000-2:2019 - Quantities and units - Part 2: Mathematics. Technical Report ISO 80000-2:2019, International Organization for Standardization, 2019. International Standard; standard page: https://www.iso.org/standard/64973.html. URL: <a class="reference external" href="https://cdn.standards.iteh.ai/samples/64973/329519100abd447ea0d49747258d1094/ISO-80000-2-2019.pdf">https://cdn.standards.iteh.ai/samples/64973/329519100abd447ea0d49747258d1094/ISO-80000-2-2019.pdf</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-postgis-ogcgeometry" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id7">3</a>,<a role="doc-backlink" href="#id9">4</a>,<a role="doc-backlink" href="#id11">5</a>,<a role="doc-backlink" href="#id13">6</a>)</span>
+<p>PostGIS Project. <em>Using PostGIS: Data Management. 4.1.1. OGC Geometry</em>. 2026. PostGIS 3.6 manual, Chapter 4. URL: <a class="reference external" href="https://postgis.net/docs/manual-3.6/using_postgis_dbmanagement.html">https://postgis.net/docs/manual-3.6/using_postgis_dbmanagement.html</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-geojson" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id8">3</a>,<a role="doc-backlink" href="#id10">4</a>,<a role="doc-backlink" href="#id12">5</a>,<a role="doc-backlink" href="#id14">6</a>)</span>
+<p>H. Butler, M. Daly, A. Doyle, and S. Gillies. The GeoJSON Format. RFC 7946, Internet Engineering Task Force, 2016. URL: <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7946">https://datatracker.ietf.org/doc/html/rfc7946</a>, <a class="reference external" href="https://doi.org/10.17487/RFC7946">doi:10.17487/RFC7946</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-sdmxclconfstatus2014" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">5</a><span class="fn-bracket">]</span></span>
+<p>SDMX Statistical Working Group. SDMX Cross-Domain Code Lists: CL_CONF_STATUS (Code list for Confidentiality Status). Standard Codelist, Statistical Data and Metadata eXchange (SDMX), 2014. Official cross-domain code list providing coded information about data sensitivity and suppression mechanisms. URL: <a class="reference external" href="https://sdmx.org/wp-content/uploads/CL_CONF_STATUS_v1_1_26-6-2014.doc">https://sdmx.org/wp-content/uploads/CL_CONF_STATUS_v1_1_26-6-2014.doc</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-sdmxconfidentialityguideline2018" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">6</a><span class="fn-bracket">]</span></span>
+<p>SDMX Statistical Working Group. Guidelines for Confidentiality and Embargo in SDMX. Content-Oriented Guideline, Statistical Data and Metadata eXchange (SDMX), 2018. Part of the SDMX Content-Oriented Guidelines framework; details use cases for data protection and data suppression mechanisms. URL: <a class="reference external" href="https://sdmx.org/wp-content/uploads/Guidelines_on_Confidentiality_and_Embargo.docx">https://sdmx.org/wp-content/uploads/Guidelines_on_Confidentiality_and_Embargo.docx</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-iso639-2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">7</a><span class="fn-bracket">]</span></span>
+<p>Library of Congress, Network Development and MARC Standards Office. Iso 639-2 language code list. Technical Report, Library of Congress, 1998. ISO 639-2:1998, Codes for the representation of names of languages – Part 2: Alpha-3 code. URL: <a class="reference external" href="https://www.loc.gov/standards/iso639-2/php/code_list.php">https://www.loc.gov/standards/iso639-2/php/code_list.php</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-hvdregulation" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">8</a><span class="fn-bracket">]</span></span>
+<p>European Union. Commission Implementing Regulation (EU) 2023/138 of 21 December 2022 laying down a list of specific high-value datasets and the arrangements for their publication and re-use. 2022. URL: <a class="reference external" href="http://data.europa.eu/eli/reg_impl/2023/138/oj">http://data.europa.eu/eli/reg_impl/2023/138/oj</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">Glossary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/OtherResources/Glossary_Datatypes.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/OtherResources/Glossary_Datatypes.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
