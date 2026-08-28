@@ -1,0 +1,40 @@
+```{list-table} Questionnaire about *CostRecovery* - 4th cycle
+:name: EconomicAnalysis_CostRecovery_Table
+:width: 100%
+:widths: 30 70
+:header-rows: 1
+
+* - Column
+  - Definition
+
+* - euRBDCode
+  - Identifier of the River Basin District
+
+* - adequateContributionAccount
+  - Is there an account of adequate contribution to service costs?
+
+* - adequateContributionSectoral
+  - Is such an account based on sectoral cost recovery rates?
+
+* - pppAccount
+  - Is there an account of the application of the Polluter Pays Principle (PPP)?
+
+* - pppERCBased
+  - Is the account based on estimates of Environmental & Resource Costs (ERC)?
+
+* - pppTargetPolluters
+  - Does the account describe how charges target relevant polluters?
+
+* - incentivesAccount
+  - Is there an account of adequate incentives of the pricing instruments?
+
+* - incentivesEmpiricalInformation
+  - Is the account based on empirical information on tariff schemes?
+
+* - incentivesDifferentiated
+  - If incentivesEmpiricalInformation = 'Yes', is the information differentiated over sectors or services?
+
+* - incentivesWaterScarcityUse
+  - Is there information on economic instruments used for water scarcity?
+
+```

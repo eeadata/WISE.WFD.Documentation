@@ -21,19 +21,10 @@ class dcMetadata {
 + rights: string [0..1]
 + rightsHolder: string [0..1]
 + licenseDocument: documentCode [0..n]
-+ metadataDocument: documentCode [0..n]
 
 «manifest»
 + euRBDCode: wiseIdentifier
-+ includesSpatialData: YesNo
 + includesDescriptiveData: YesNo
-}
-
-class Reference {
-  + referenceCode: wiseIdentifier
-  + documentCode: documentCode
-  + bookmark: string250
-  + subject: string250 
 }
 
 class Document {
@@ -51,9 +42,7 @@ class Licence{
   narrowMatch_CC_BY_4_0
 }
 
-Reference  ..> Document: documentCode
 dcMetadata ..> Document: licenseDocument
-dcMetadata ..> Document: metadataDocument
 dcMetadata ..> Licence: license
 
 classDef default fill:white,stroke:#000;

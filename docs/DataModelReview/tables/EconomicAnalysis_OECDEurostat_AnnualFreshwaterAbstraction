@@ -1,0 +1,47 @@
+```{list-table} Annual freshwater abstraction by source (dimension 1) and by sector (dimension 2).
+:name: EconomicAnalysis_OECDEurostat_AnnualFreshwaterAbstraction
+:widths: 20 20 60
+:width: 100%
+:header-rows: 1
+
+* - Dimension 1
+  - Dimension 2
+  - Description
+
+* - FSW
+  - ABST
+  - **Fresh surface water total gross abstraction (NACE 01–99)**
+* - FSW
+  - ABS_PWS
+  - → by Public water supply
+* - FSW
+  - ABS_AGR
+  - → by Agriculture, forestry, fishing (NACE 01–03)
+* - FSW
+  - ABS_AGR_IR
+  - → → of which for irrigation
+* - FSW
+  - ABS_IND
+  - → by Manufacturing industry (NACE 10–33)
+* - FSW
+  - ABS_HH
+  - → by Private households
+* - FGW
+  - ABST
+  - **Fresh groundwater total gross abstraction (NACE 01–99)**
+* - FGW
+  - ABS_PWS
+  - → by Public water supply
+* - FGW
+  - ABS_AGR
+  - → by Agriculture, forestry, fishing (NACE 01–03)
+* - FGW
+  - ABS_AGR_IR
+  - → → of which for irrigation
+* - FGW
+  - ABS_IND
+  - → by Manufacturing industry (NACE 10–33)
+* - FGW
+  - ABS_HH
+  - → by Private households
+```
