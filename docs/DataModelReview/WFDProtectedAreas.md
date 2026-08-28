@@ -371,7 +371,7 @@ The following criteria apply:
 
 04. The descriptive dataset tables are also **national**,
     but the quality control will allow deliveries
-    where some, or all, the river basin districts have `includesDescriptiveData = no`.
+    where some, or all, of the river basin districts have `includesDescriptiveData = no`.
 
 ## Annexes - Data analysis - 3rd cycle
 
