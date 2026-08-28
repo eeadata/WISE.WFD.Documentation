@@ -4,6 +4,11 @@
 ```{warning}
 :class: dropdown
 
+Updated: 2026-08-25
+
+* Added the GWChemicalExemption and GWQuantitativeExemption table to the descriptive dataset.
+* Corrected the dcMetadata table diagram and description.
+
 Updated: 2026-07-27 
 
 * Renamed the GWCharacterisation table to avoid collisions.
@@ -57,7 +62,7 @@ The GWB_2022 schema was already partially revised with regard to the reporting o
 
 * {ref}`heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant`
 * {ref}`heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions`
-* {ref}`heading_wfd_exemptions_groundwater_bodies_protected_area_exemptions`
+* {ref}`heading_wfd_protected_areas_groundwater_bodies_exemptions`
 
 Other simplifications already discussed also apply to the GWB schema:
 
@@ -327,6 +332,17 @@ and a brief description of each table is included in {numref}`Groundwater_4th_cy
 Overall procedure of classification tests for assessing groundwater status {footcite}`CIS_Guidance_18`.
 ```
 
+### Exemptions
+
+Refer to the documentation about exemptions, specifically:
+
+* {ref}`heading_wfd_exemptions_groundwater_bodies_chemical_exemptions_by_pollutant`
+* {ref}`heading_wfd_exemptions_groundwater_bodies_quantitative_exemptions`
+
+## Methodologies dataset - 4th cycle
+
+Refer to the {ref}`heading_wfd_groundwater_methodologies`section.
+
 (heading_groundwaterbody_spatial_dataset_4th_cycle)=
 ## Spatial dataset - 4th cycle
 
@@ -338,7 +354,6 @@ and, optionally, the GroundWaterBodyHorizon spatial data
 :name: Spatial_4thCycle_GroundWaterBody_GroundWaterBodyHorizon_ClassDiagram
 :caption: Spatial dataset - GroundWaterBody and GroundWaterBodyHorizon - 4th cycle
 :align: center
-:zoom:
 ```
 
 The following changes have been made to the `GroundWaterBody` spatial table
@@ -385,7 +400,7 @@ The Documents dataset follows the standard structure used in various WISE datafl
 * The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
   
   - If required by the data providers, and especially if spatial data is being reported,
-    the `licenseDocument` and the `metadataDocument` attributes 
+    the `licenseDocument` and the `metadataDocument` attributes
     allow the provision of additional information about the dataset.
   - The `dcMetadata` table also functions as a "manifest file"
     explaining if the delivery contains data for a given river basin district or not.
@@ -402,20 +417,19 @@ The Documents dataset follows the standard structure used in various WISE datafl
 :name: Groundwater_4thCycle_Documents_ClassDiagram
 :caption: Groundwater - 4th cycle - Documents
 :align: center
-:zoom:
 ```
 
 The following criteria apply:
 
 01. The `dcMetadata` table must contain *one and only one* record
-    for each of the country's river basin districts, identified by the `euRBDCode`.
+    for each of the country's river basin districts, identified by the `euRBDCode` value.
 
 02. The spatial dataset is **national**.
-    The `includesSpatialData` and the `includesGroundWaterBodyHorizons` value
+    The `includesSpatialData` value and the `includesGroundWaterBodyHorizons` value
     must be the same for all river basin districts.
 
 03. If `includesSpatialData = 'no'` then no spatial data is expected,
-    and the quality control of the monitoring dataset will run
+    and the quality control of the descriptive dataset will run
     against the last technically accepted delivery of groundwater bodies spatial data.
 
 04. For countries reporting under the WFD,
@@ -423,18 +437,21 @@ The following criteria apply:
     is **always the data reported in the 3rd cycle**.
 
 05. If `includesSpatialData = 'yes' AND includesGroundWaterBodyHorizons = 'no'`,
-    the geometry is reported in the GroundWaterBody spatial dataset.
+    the geometry is reported ONLY in the GroundWaterBody spatial dataset.
 
 06. If `includesSpatialData = 'yes' AND includesGroundWaterBodyHorizons = 'yes'`,
     the geometry is reported ONLY in the GroundWaterBodyHorizons spatial dataset.
 
 07. The descriptive dataset is also **national**,
     but the quality control will allow deliveries
-    where some, or all, the river basin districts have `includesGroundwaterAndMethodologiesData = no`.
+    where some, or all, the river basin districts have `includesDescriptiveData = 'no'`.
 
 08. For countries reporting under the WFD,
     the quality control will raise an **ERROR**,
-    if some, or all, the river basin districts have `includesGroundwaterAndMethodologiesData = no`.
+    if some, or all, the river basin districts have `includesDescriptiveData = 'no'`.
+
+09. Note that the Methodologies dataset tables must always be reported
+    for the  river basin districts where `includesDescriptiveData = 'yes'`
 
 (heading_wfd_groundwater_codelist_4th_cycle)=
 ## Codelists - 4th cycle

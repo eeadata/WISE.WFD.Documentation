@@ -1,0 +1,23 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+direction TB
+
+class dcMetadata{<<documents>>}
+class Document {<<documents>>}
+class CompetentAuthority{<<descriptive>>}
+class RiverBasinDistrictCompetentAuthority{<<descriptive>>}
+class RiverBasinDistrict{<<spatial>>}
+
+dcMetadata ..> Document
+
+CompetentAuthority "1" -- "1..n" RiverBasinDistrictCompetentAuthority 
+RiverBasinDistrictCompetentAuthority "1..n" -- "1" RiverBasinDistrict 
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
