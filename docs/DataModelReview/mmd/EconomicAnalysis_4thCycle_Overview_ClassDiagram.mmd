@@ -1,0 +1,25 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+
+classDiagram
+    direction TB
+
+class dcMetadata{<<documents>>}
+class Document {<<documents>>}
+
+class CostRecovery {<<descriptive>>}
+class CostRecoveryPerService {<<descriptive>>}
+class VolumeRevenueCostPerService {<<descriptive>>}
+
+dcMetadata ..> Document
+CostRecovery "0..1" -- "0..n" dcMetadata
+CostRecovery "1" -- "n" CostRecoveryPerService
+CostRecovery "1" -- "n" VolumeRevenueCostPerService
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

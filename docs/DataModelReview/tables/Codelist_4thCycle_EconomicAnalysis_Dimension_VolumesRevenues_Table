@@ -1,9 +1,10 @@
-```{list-table} Dimension codes for the reporting of volumes and revenues – 4th cycle of reporting
-:name: EconomicAnalysis_VolumesandRevenues_4thcycle
+```{list-table} Dimension codes for the reporting of volumes and revenues - 4th cycle
+:name: Codelist_4thCycle_EconomicAnalysis_Dimension_VolumesRevenues_Table
 :width: 100%
+:widths: 15 20 35 15 15
 :header-rows: 1
 
-* - Diagram
+* - Diagram [^diagram_footnote]
   - Dimension
   - Description
   - From
@@ -139,4 +140,10 @@
   - REV_DIS_TWW
   - Revenue – Water returns – Discharge of treated effluents
   - Sewerage (NACE 37)
-  - General government*
+  - General government [^general_government_footnote]
+```
+
+[^general_government_footnote]: Includes both direct and indirect payments to the general government institutional sector.
+May also include payments to private sector owners.
+
+[^diagram_footnote]: Codes used in the diagrams of {numref}`EconomicAnalysis_Conceptual_PhysicalVolume` and {numref}`EconomicAnalysis_Conceptual_Revenue`.
