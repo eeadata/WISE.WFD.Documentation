@@ -19,7 +19,6 @@ and presents a proposal for the electronic reporting in the 4th cycle.
 
 For the 4th cycle of reporting, the requested information detailed in (see also {numref}`EconomicAnalysis_4thCycle_Overview_ClassDiagram`):
 
-
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_Overview_ClassDiagram.mmd
 :name: EconomicAnalysis_4thCycle_Overview_ClassDiagram
 :align: center
@@ -42,7 +41,7 @@ For the 4th cycle of reporting, the requested information detailed in (see also 
 ### CostRecovery table
 
 The questionnaire in the `CostRecovery` table
-requests information at River Basin District level. 
+requests information at River Basin District level.
 See {numref}`EconomicAnalysis_4thCycle_CostRecovery_ClassDiagram`
 and {numref}`EconomicAnalysis_CostRecovery_Table`.
 
@@ -82,7 +81,7 @@ The purpose is to obtain a consistent overview across Europe, at river basin dis
 Information is requested:
 
 * about the physical volumes of water, the revenues and the costs
-* for three water user sectors – agriculture, industry and households 
+* for three water user sectors – agriculture, industry and households
   (see {numref}`EconomicAnalysis_Concepts_WaterUserSectors_Table`)
 * and for three water services – public drinking water supply services,
   public irrigation water supply services and sewerage services
@@ -120,7 +119,8 @@ Information is requested:
 
     The flows represented by grey arrows in the diagram are not required
     (water returned without use, e.g. due to evaporation or losses during transport,
-    reused/recycled water supplied back to the water user sectors, direct discharges by the water user sectors).
+    reused/recycled water supplied back to the water user sectors,
+    direct discharges by the water user sectors).
 
     Note that the gross freshwater abstraction includes only
     water abstracted from inland surface and groundwater bodies –
@@ -161,8 +161,6 @@ and the Eurostat Regional Water Questionnaire and defined in {numref}`EconomicAn
 :width: 70%
 Conceptual diagram for the requested data on volumes - 4th cycle
 ```
-
-
 
 ```{include} tables/EconomicAnalysis_Concepts_Volumes_Table
 ```
@@ -246,7 +244,10 @@ The following generic guidelines apply to the reporting of revenues:
 Conceptual diagram for the requested data on revenues - 4th cycle
 ```
 
-Regarding the costs, the data is again requested for the same year for which volumes and revenues are reported. The total costs, OPEX and CAPEX should be reported for each of the three services in {numref}`EconomicAnalysis_Conceptual_Revenue`, as well as the estimated global cost recovery rate.
+Regarding the costs, the data is again requested for the same year
+for which volumes and revenues are reported.
+The total costs, OPEX and CAPEX should be reported for each of the three services
+in {numref}`EconomicAnalysis_Conceptual_Revenue`, as well as the estimated global cost recovery rate.
 
 The following generic guidelines apply to the reporting of costs:
 
@@ -256,7 +257,7 @@ The following generic guidelines apply to the reporting of costs:
 * Environmental taxes should be included in the current expenditure (OPEX)
   estimates for the water services [^OPEX].
 
-[^CAPEX]: According to Eurostat’s methodological frameworks, 
+[^CAPEX]: According to Eurostat’s methodological frameworks,
 specifically the Environmental Protection Expenditure Accounts (EPEA)
 and the European System of Accounts (ESA 2010),
 grant-financed assets should be included in capital expenditure (CAPEX) estimates
@@ -274,16 +275,19 @@ because they are unrequited payments to the government linked to the ongoing act
 
 ### VolumeRevenueCostPerService table
 
-{numref}`EconomicAnalysis_4thCycle_VolumeRevenueCostPerService_ClassDiagram` presents the standardised structure for the reporting of volumes, revenues and costs per water service, using the `ServiceVolumeRevenueCost` table. The column names reflect the SDMX designations (geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat.
+{numref}`EconomicAnalysis_4thCycle_VolumeRevenueCostPerService_ClassDiagram` presents
+the standardised structure for the reporting of volumes, revenues and costs per water service,
+using the `ServiceVolumeRevenueCost` table. The column names reflect the SDMX designations
+(geo, time, dimension, obs_value, obs_unit, obs_status, obs_comment) typically used by Eurostat.
 
-* Volumes must be reported in million cubic metre, revenues and costs 
-  must be reported in million units of national currency 
+* Volumes must be reported in million cubic metre, revenues and costs
+  must be reported in million units of national currency
   (except for the cost recovery rate, which is reported as a percentage).
 
-* The dimension codes for the reporting of costs per water service 
+* The dimension codes for the reporting of costs per water service
   are presented in {numref}`Codelist_4thCycle_EconomicAnalysis_Dimension_Costs_Table`.
 
-* The dimension codes for the reporting of volumes and revenues 
+* The dimension codes for the reporting of volumes and revenues
   are presented in {numref}`Codelist_4thCycle_EconomicAnalysis_Dimension_VolumesRevenues_Table`.
 
 ```{mermaid} /DataModelReview/mmd/EconomicAnalysis_4thCycle_VolumeRevenueCostPerService_ClassDiagram.mmd
@@ -297,7 +301,6 @@ because they are unrequited payments to the government linked to the ongoing act
 
 ```{include} tables/Codelist_4thCycle_EconomicAnalysis_Dimension_VolumesRevenues_Table
 ```
-
 
 (heading_wfd_economic_analysis_documents_dataset_4th_cycle)=
 ## Documents dataset - 4th cycle
@@ -335,15 +338,17 @@ The following criteria apply:
 
 Information about annual volumes is reported voluntarily by MS
 under the OECD/Eurostat Joint Questionnaire
-on Inland Waters and Eurostat Regional Water Questionnaire [^NWAT] [^RWAT]. 
-Although the questionnaires have a much higher level of detail 
+on Inland Waters and Eurostat Regional Water Questionnaire [^NWAT] [^RWAT].
+Although the questionnaires have a much higher level of detail
 than required for the 4th cycle of electronic reporting,
 it is important that MS provide consistent data,
 which may allow more detailed analysis to be performed if necessary.
 
 {numref}`EconomicAnalysis_OECDEurostat_AnnualFreshwaterAbstraction`,
 {numref}`EconomicAnalysis_OECDEurostat_WaterUseBySupplyCategory` and
-{numref}`EconomicAnalysis_OECDEurostat_WasteWater` provide an overview of some of the OECD/Eurostat Joint Questionnaire tables and dimensions that are directly related to the data requested for the WFD 4th cycle of reporting.
+{numref}`EconomicAnalysis_OECDEurostat_WasteWater` provide an overview
+of some of the OECD/Eurostat Joint Questionnaire tables and dimensions
+that are directly related to the data requested for the WFD 4th cycle of reporting.
 
 ```{include} tables/EconomicAnalysis_OECDEurostat_AnnualFreshwaterAbstraction
 ```
@@ -358,8 +363,10 @@ which may allow more detailed analysis to be performed if necessary.
 
 [^RWAT]: See [https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm](https://ec.europa.eu/eurostat/cache/metadata/en/env_rwat_esms.htm)
 
-
 ## References
+
+```{footbibliography}
+```
 
 ```{warning}
 The original document containing this revised model

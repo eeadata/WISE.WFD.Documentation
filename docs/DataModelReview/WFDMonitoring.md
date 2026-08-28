@@ -651,7 +651,7 @@ by water body category **and country**, in water, according to the data availabl
   SELECT [parameterCode],[waterBodyCategory]
       ,count(*) as [numberOfRecords]
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
-      ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
+      ,count(distinct [waterBodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
   FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
   WHERE [hasDescriptiveData] = 1
@@ -778,7 +778,7 @@ by water body category **and country**, in water, according to the data availabl
   SELECT [parameterCode]
       ,count(*) as [numberOfRecords]
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
-      ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
+      ,count(distinct [waterBodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
   FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
   WHERE [hasDescriptiveData] = 1
@@ -805,7 +805,7 @@ by water body category **and country**, in water, according to the data availabl
   SELECT [parameterCode]
       ,count(*) as [numberOfRecords]
       ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
-      ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
+      ,count(distinct [waterBodyCode]) as [numberOfWaterBodies]
       ,count(distinct [countryCode]) as [numberOfCountries]
   FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] WITH (NOLOCK)
   WHERE [hasDescriptiveData] = 1
@@ -1122,7 +1122,7 @@ At least the use of the 'QE3-3 - River Basin Specific Pollutants' should be avoi
 SELECT COALESCE(b.[qeCode], a.[parameterCode]) AS [qeCode]
     ,count(*) as [numberOfRecords]
     ,count(distinct [euMonitoringSiteCode]) as [numberOfSites]
-    ,count(distinct [waterbodyCode]) as [numberOfWaterBodies]
+    ,count(distinct [waterBodyCode]) as [numberOfWaterBodies]
     ,count(distinct [countryCode]) as [numberOfCountries]
 FROM [WISE_WFD].[v2r1].[Monitoring_MonitoringSite_ChemicalEcologicalQuantitativeMonitoring] a
 LEFT JOIN 

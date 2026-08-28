@@ -13,18 +13,22 @@ Updated: 2026-08-25
 (heading_wfd_exemptions_purpose_and_overview)=
 ## Purpose and overview
 
-This section revises the reporting of information related to Exemptions 
+This section revises the reporting of information related to Exemptions
 in the 2nd and 3rd cycle of reporting of the Water Framework Directive River Basin Management Plans.
 It also presents a proposal for simplifying the electronic reporting in the 4th cycle.
 
 (heading_wfd_exemptions_reporting_of_exemptions_3rd_cycle)=
 ## Current structure - 3rd cycle
 
-* The information related to exemptions in the surface water methodologies schema (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_ClassDiagram`)
-  will not be requested in the 4th cycle structured data reporting (i.e. it is provided only in the RBMP documents).
+* The information related to exemptions in the surface water methodologies schema
+  (SWExemption class, see {numref}`Exemptions_3rdCycle_SWMET_ClassDiagram`)
+  will not be requested in the 4th cycle structured data reporting
+  (i.e. it is provided only in the RBMP documents).
   
-* The information related to exemptions in the groundwater water methodologies schema (GWExemption class, see {numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`).
-  will not be requested in the 4th cycle structured data reporting (i.e. it is provided only in the RBMP documents).
+* The information related to exemptions in the groundwater water methodologies schema
+  (GWExemption class, see {numref}`Exemptions_3rdCycle_GWMET_ClassDiagram`).
+  will not be requested in the 4th cycle structured data reporting
+  (i.e. it is provided only in the RBMP documents).
   
 ```{mermaid}  /DataModelReview/mmd/Exemptions_3rdCycle_SWMET_ClassDiagram.mmd
 :name: Exemptions_3rdCycle_SWMET_ClassDiagram
@@ -172,8 +176,10 @@ The diagram below presents the applicability criteria for the different exemptio
 ```
 
 The following conditions apply:
-01. Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance and the pollutant is causing failure to achieve good status.
-02. Reporting is mandatory if the pollutant is a river basin specific pollutant causing failure to achieve good status.
+01. Reporting is mandatory if the pollutant is a 2008 or 2013 Priority Substance
+    and the pollutant is causing failure to achieve good status.
+02. Reporting is mandatory if the pollutant is a river basin specific pollutant
+    causing failure to achieve good status.
 03. Exemptions are not applicable to pollutants with unknown status.
 04. In 2027, exemptions are not yet required, if the pollutant is
     a 2026 Priority Substance (or a substance for which a stricter EQS was set in 2023)
@@ -240,7 +246,8 @@ The following conditions apply:
 06. Not allowed: `exemptionType = 'article47a_shortTermImpact' AND exemptionPeriod NOT IN ('upToOneYear','until2027')`
 ```
 
-Article 4(7) exemptions may be applicable for indirect deterioration of chemical status, where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent).
+Article 4(7) exemptions may be applicable for indirect deterioration of chemical status,
+where it is the indirect result of alterations to levels of groundwater (Article 4(7), first indent).
 
 With the necessary adaptations,
 the diagram with the criteria applicable to surface water chemical exemptions
@@ -417,7 +424,8 @@ Quality control specification to be verified by DG ENV.
 ### Exemptions under Article 15(4) of the recast Urban Waste Water Treatment Directive
 
 ```{epigraph}
-The recast Urban Waste Water Treatment Directive was adopted 27/11/2024 and MS need to transpose the revised provisions by 31 July 2027.
+The recast Urban Waste Water Treatment Directive was adopted 27/11/2024
+and MS need to transpose the revised provisions by 31 July 2027.
  
 Article 15(4) includes a new exemption from the obligations under the WFD 
 if a water body deteriorates status or does not achieve good status as a result of:
@@ -451,7 +459,8 @@ if a water body deteriorates status or does not achieve good status as a result 
 
 ```{epigraph}
 - Where objectives are set in terms of WFD quality /quantity status elements 
-  (eg stricter quality standards are set for ‘good’ status in view of protecting certain species), exemptions from good status can be applied. 
+  (eg stricter quality standards are set for ‘good’ status in view of protecting certain species),
+  exemptions from good status can be applied. 
 - If no such objectives have been set 
   and protected areas objectives are only set under other legislation, 
   it’s not possible/necessary to exempt 

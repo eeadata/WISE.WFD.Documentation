@@ -13,11 +13,11 @@ class CompetentAuthority {
   + competentAuthorityNameNL: string100
   + competentAuthorityNameNLLanguage: Language
   + acronym: string100 [0..1]
-  + street: string100
-  + city: string100
-  + country: string100
-  + postCode: string50
-  + url: URL
+  + street: string100 [0..1]
+  + city: string100 [0..1]
+  + country: string100 [0..1]
+  + postCode: string50 [0..1]
+  + url: URL [0..1]
 }
 class RiverBasinDistrictCompetentAuthority {
   + euRBDCode: wiseIdentifier

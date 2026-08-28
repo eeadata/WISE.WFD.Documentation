@@ -3,7 +3,7 @@
 (heading_wfd_impact_type_codelist_4th_cycle)=
 ## ImpactType codelist - 4th cycle
 
-The `ImpactType` codelist is under review. 
+The `ImpactType` codelist is under review.
 
 ```{mermaid} /DataModelReview/mmd/Codelist_4thCycle_ImpactType_ClassDiagram.mmd
 :name: Codelist_4thCycle_ImpactType_ClassDiagram
