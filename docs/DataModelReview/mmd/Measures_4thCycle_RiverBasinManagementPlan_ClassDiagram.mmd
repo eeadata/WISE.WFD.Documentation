@@ -28,7 +28,7 @@ class RiverBasinManagementPlan{
 
 + documentAvailability : YesNo
 
-+ ongoingStakeholderInvolvement: OngoingStakeholderInvolvement [0..n]
++ ongoingStakeholderInvolvement: StakeholderInvolvement [0..n]
 + stakeholderGroups: StakeholderGroups [0..n]
 
 + internationalCoordination: InternationalCoordination [0..n]
@@ -47,9 +47,9 @@ class RiverBasinManagementPlan{
 
 class Coordination{
     <<enumeration>>
-    withEUMemberStates
-    withCountriesOutsideEU
-    both
+    withOtherMemberStates
+    withMemberStatesAndNonMemberStates
+    withNonMemberStates
     none
     }
 
@@ -61,13 +61,12 @@ class InternationalCoordination{
     noFormalisedCoordination
     }
 
-class OngoingStakeholderInvolvement{
+class StakeholderInvolvement{
     <<enumeration>>
     regularExhibitions
-    establishmentOfAdvisoryGroups
+    advisoryGroups
     involvementInDrafting
-    otherOutreachActivities
-    formationOfAlliances
+    fomationOfAlliances
     other
     }
 
@@ -90,14 +89,14 @@ class SubPlansCoverage{
 class StakeholderGroups{
     <<enumeration>>
     waterSupplyAndSanitation
-    agricultureFarmers
-    hydropowerAndEnergy
-    navigationPorts
+    agricultureAndFarmers
+    energyAndHydropower
+    navigationAndPorts
     fisheriesAndAquaculture
     industry
-    ngosNatureProtection
+    ngosAndNatureProtection
     consumerGroups
-    localAndRegionalAuthorities
+    localAndRegionalAuthorities    
     other    
     }
 

@@ -12,19 +12,19 @@ class TargetedQuestions{
     + euRBDCode: wiseIdentifier
 
     + basicMeasuresArt113c: MeasuresChanges
-    + basicMeasuresArt113d: BasicMeasuresArt113d
+    + basicMeasuresArt113d: MeasuresArt113d
     + basicMeasuresArt113ePermit: MeasureScope
     + basicMeasuresArt113eRegister: MeasureScope
-    + basicMeasuresArt113eThreshold: BasicMeasuresArt113eThreshold
-    + basicMeasuresArt113eImpoundment: BasicMeasuresArt113eImpoundment
+    + basicMeasuresArt113eThreshold: MeasuresArt113eThreshold
+    + basicMeasuresArt113eImpoundment: MeasuresArt113eImpoundment
     + basicMeasuresArt113f: MeasuresChanges
     + basicMeasuresArt113gPermit: MeasureScope
     + basicMeasuresArt113gRegister: MeasureScope
-    + basicMeasuresArt113gThreshold: BasicMeasuresArt113gThreshold
-    + basicMeasuresArt113hRules: BasicMeasuresArt113hRules
+    + basicMeasuresArt113gThreshold: MeasuresArt113gThreshold
+    + basicMeasuresArt113hRules: MeasuresArt113hRules
     + basicMeasuresArt113iPermit: YesNo 
     + basicMeasuresArt113iRegister: YesNo 
-    + basicMeasuresArt113j: BasicMeasuresArt113j
+    + basicMeasuresArt113j: MeasuresArt113j
     + basicMeasuresArt113k: YesNo 
 
     + waterReUseMeasure: YesNo
@@ -53,14 +53,22 @@ class MeasureScope{
     bothSurfaceAndGroundwater
     }
 
-class BasicMeasuresArt113eThreshold{
+class MeasuresArt113d{
+    <<enumeration>>
+    yesSafeguardZonesExistAndNoChangesPlanned
+    yesSafeguardZonesExistButSignificantChangesPlanned
+    noSafeguardZonesExistButArePlannedForThisCycle
+    noSafeguardZonesExistAndNoneArePlanned
+}
+
+class MeasuresArt113eThreshold{
     <<enumeration>>
     smallAbstractionsExemptedFromControls
     smallAbstractionDoNotRequirePermitButAreRegistered
     noThresholdForAbstractions
     }
 
-class BasicMeasuresArt113eImpoundment{
+class MeasuresArt113eImpoundment{
     <<enumeration>>
     registerAndConcessionAuthorisationOrPermitting
     concessionAuthorisationOrPermitting
@@ -68,14 +76,14 @@ class BasicMeasuresArt113eImpoundment{
     none
     }
 
-class BasicMeasuresArt113gThreshold{
+class MeasuresArt113gThreshold{
     <<enumeration>>
     smallDischargesExemptedFromControls
     smallDischargesDoNotRequirePermitButAreRegistered
     noThresholdForDischarges
     }
 
-class BasicMeasuresArt113hRules{
+class MeasuresArt113hRules{
     <<enumeration>>
     yesSameRulesInTheWholeRBD
     yesButOnlyInNitrateVulnerableZones
@@ -83,7 +91,7 @@ class BasicMeasuresArt113hRules{
     noGeneralBindingRules
     }
 
-class BasicMeasuresArt113j{
+class MeasuresArt113j{
     <<enumeration>>
     prohibitionOfAllDirectDischarges
     someDirectDischargesAreAuthorised
@@ -100,11 +108,12 @@ class EcologicalFlow{
 
 TargetedQuestions ..> MeasuresChanges
 TargetedQuestions ..> MeasureScope
-TargetedQuestions ..> BasicMeasuresArt113eThreshold
-TargetedQuestions ..> BasicMeasuresArt113eImpoundment
-TargetedQuestions ..> BasicMeasuresArt113gThreshold
-TargetedQuestions ..> BasicMeasuresArt113hRules
-TargetedQuestions ..> BasicMeasuresArt113j
+TargetedQuestions ..> MeasuresArt113d
+TargetedQuestions ..> MeasuresArt113eThreshold
+TargetedQuestions ..> MeasuresArt113eImpoundment
+TargetedQuestions ..> MeasuresArt113gThreshold
+TargetedQuestions ..> MeasuresArt113hRules
+TargetedQuestions ..> MeasuresArt113j
 TargetedQuestions ..> EcologicalFlow
 
 classDef default fill:white,stroke:#000;
