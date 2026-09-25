@@ -1,0 +1,70 @@
+/* =========================
+   Responsive table container
+========================= */
+
+.pst-scrollable-table-container {
+    overflow-x: hidden; /* hide horizontal scroll on desktop */
+}
+
+@media (max-width: 768px) {
+    .pst-scrollable-table-container {
+        overflow-x: auto; /* enable horizontal scroll on mobile */
+    }
+}
+
+
+/* =========================
+   Table base styles
+========================= */
+
+.pst-scrollable-table-container table {
+    width: 100%;
+    display: table;
+    table-layout: fixed; /* prevent overflow */
+    white-space: normal;
+}
+
+
+/* =========================
+   Table cells
+========================= */
+
+.pst-scrollable-table-container table th,
+.pst-scrollable-table-container table td {
+    vertical-align: top !important; /* align content to top */
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+
+/* Remove extra top spacing inside cells */
+.pst-scrollable-table-container table td > *:first-child {
+    margin-top: 0;
+}
+
+
+/* =========================
+   Table headers
+========================= */
+
+.pst-scrollable-table-container table.docutils th {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================
+   Headings wrapping
+========================= */
+
+.wy-nav-content h1,
+.wy-nav-content h2,
+.wy-nav-content h3,
+.wy-nav-content h4,
+.wy-nav-content h5,
+.wy-nav-content h6 {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
