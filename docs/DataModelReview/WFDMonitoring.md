@@ -446,7 +446,7 @@ The Documents dataset follows the standard structure used in various WISE datafl
 * The `Document` table allows the upload of documents (for example, PDFs)
   or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
 
-* The `Reference` table is also standard in the WISE dataflows:
+* The `DocumentReference` table is also standard in the WISE dataflows:
   the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
   where the relevant information about a `subject`
   can be found within a document.

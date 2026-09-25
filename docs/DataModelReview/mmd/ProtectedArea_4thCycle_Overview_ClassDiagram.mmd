@@ -9,7 +9,7 @@ classDiagram
 direction TB
 
 class dcMetadata{<<documents>>}
-class Reference{<<documents>>}
+class DocumentReference{<<documents>>}
 class Document {<<documents>>}
 
 class GWAssociatedProtectedArea{<<descriptive>>}
@@ -22,9 +22,9 @@ class WFDProtectedArea:::otherDataset{<<reference>>}
 class Natura2000:::otherDataset{<<reference>>}
 
 dcMetadata ..> Document
-Reference ..> Document
-SWAssociatedProtectedArea ..> Reference 
-GWAssociatedProtectedArea ..> Reference 
+DocumentReference ..> Document
+SWAssociatedProtectedArea ..> DocumentReference 
+GWAssociatedProtectedArea ..> DocumentReference 
 
 SWAssociatedProtectedArea ..> WFDProtectedArea 
 GWAssociatedProtectedArea ..> WFDProtectedArea 

@@ -51,7 +51,7 @@ class BQEMethod{}
 
 namespace DocumentsData {
 class dcMetadata{}
-class Reference{}
+class DocumentReference{}
 class Document{}
 }
 
@@ -101,12 +101,12 @@ SWPollutant ..> SWThresholdValue
 SWPressureImpact ..> SWPressureAssessment
 SWCharacterisation ..> SurfaceWaterBody
 
-SWMethodologies ..> Reference
-SWManagementObjectives ..> Reference
-SWChemicalStatusClassification ..> Reference
-SWTargetedQuestions ..> Reference
+SWMethodologies ..> DocumentReference
+SWManagementObjectives ..> DocumentReference
+SWChemicalStatusClassification ..> DocumentReference
+SWTargetedQuestions ..> DocumentReference
 
-Reference ..> Document
+DocumentReference ..> Document
 dcMetadata ..> RiverBasinDistrict_4thCycle
 dcMetadata ..> Document
 

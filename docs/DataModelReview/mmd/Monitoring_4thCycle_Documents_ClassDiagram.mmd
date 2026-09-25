@@ -29,7 +29,7 @@ class dcMetadata {
 + includesMonitoringData: YesNo
 }
 
-class Reference {
+class DocumentReference {
   + referenceCode: wiseIdentifier
   + documentCode: documentCode
   + bookmark: string250
@@ -51,9 +51,10 @@ class Licence{
   narrowMatch_CC_BY_4_0
 }
 
-Reference  ..> Document: documentCode
+DocumentReference  ..> Document: documentCode
 dcMetadata ..> Document: licenseDocument
 dcMetadata ..> Document: metadataDocument
 dcMetadata ..> Licence: license
+
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

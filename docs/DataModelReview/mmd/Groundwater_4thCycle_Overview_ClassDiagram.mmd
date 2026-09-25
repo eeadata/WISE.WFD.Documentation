@@ -38,7 +38,7 @@ class GWMethodologies{}
 
 namespace DocumentsData {
 class dcMetadata{}
-class Reference{}
+class DocumentReference{}
 class Document{}
 }
 
@@ -77,11 +77,11 @@ GWCharacterisation ..> GroundWaterBody
 GWPollutant ..> GWThresholdValue
 GWPressureImpact ..> GWPressureAssessment
 
-GWThresholdValue ..> Reference
-GWPressureAssessment ..> Reference
-GWMethodologies ..> Reference
+GWThresholdValue ..> DocumentReference
+GWPressureAssessment ..> DocumentReference
+GWMethodologies ..> DocumentReference
 
-Reference ..> Document
+DocumentReference ..> Document
 dcMetadata ..> RiverBasinDistrict_4thCycle
 dcMetadata ..> Document
 

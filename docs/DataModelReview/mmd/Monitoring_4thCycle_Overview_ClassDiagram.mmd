@@ -9,7 +9,7 @@ classDiagram
 direction TB
 
 class dcMetadata{<<documents>>}
-class Reference{<<documents>>}
+class DocumentReference{<<documents>>}
 class Document {<<documents>>}
 class Monitoring{<<descriptive>>}
 class MonitoringPurpose{<<descriptive>>}
@@ -17,8 +17,8 @@ class MonitoringProgrammes{<<descriptive>>}
 class MonitoringSite{<<spatial>>}
 
 dcMetadata ..> Document
-Reference ..> Document
-MonitoringProgrammes ..> Reference 
+DocumentReference ..> Document
+MonitoringProgrammes ..> DocumentReference 
 
 MonitoringSite "1" -- "1..3" MonitoringPurpose 
 Monitoring "0..n"-- "1" MonitoringSite 
