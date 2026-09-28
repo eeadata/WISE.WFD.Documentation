@@ -1,0 +1,34 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+    direction TB
+
+class CostRecoveryPerService {
+    + euRBDCode: wiseIdentifier 
+    + waterService: WFDWaterService
+
+    «cost-recovery-principle-application»
+
+    + costRecoveryFull: YesNoNotApplicable
+    + costRecoveryCorroborated: YesNo [0..1]
+
+    «justification»
+
+    + nationalMethodologyApplied: YesNo [0..1]
+    + justificationLessFullRecovery: YesNo [0..1]
+    + justificationFactor: string [0..1]
+    + justificationSectoralInformation: YesNo [0..1]
+
+    «exemption»
+
+    + article94Exemption: YesNo [0..1]
+    + article94Justification: YesNo [0..1]
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;

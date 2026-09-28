@@ -1,0 +1,44 @@
+```{list-table} Questionnaire about *CostRecoveryPerService* - 4th cycle
+:name: EconomicAnalysis_CostRecoveryPerService_Table
+:width: 100%
+:widths: 30 70
+:header-rows: 1
+
+* - Column
+  - Definition
+
+* - euRBDCode
+  - Identifier of the River Basin District
+
+* - waterService
+  - Information is requested for each of the following services:  
+    'irrigationWaterService', 'drinkingWaterService', 'sewerageService'.
+
+* - costRecoveryFull
+  - Does the RBMP report whether cost recovery is (nearly) full?  
+    Note: the option 'notApplicable' is only valid 
+    for waterService = 'irrigationWaterService' 
+    (if that service does not exist in the River Basin District).
+
+* - costRecoveryCorroborated
+  - Is the extent of cost recovery corroborated with rate calculations?
+
+* - nationalMethodologyApplied
+  - Is there a national methodology applied in these calculations?
+
+* - justificationCostRecovery
+  - If costRecoveryFull = 'no', is there a justification based on mitigation factors (Art 9(1))?
+
+* - justificationFactor
+  - If justificationCostRecovery = 'yes', report the mitigation factors.
+
+* - justificationSectoralInfo
+  - If justificationCostRecovery = 'yes', does this justification use sectoral information?
+
+* - article94Exemption
+  - Does the RBMP mention the "established practices" exemption (Art 9(4))?
+
+* - article94Justification
+  - If article94Exemption = 'yes', is there a justification for this exemption?
+
+```

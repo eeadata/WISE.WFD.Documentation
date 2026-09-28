@@ -11,7 +11,7 @@ config:
 classDiagram
 direction TB
 
-namespace GroundWaterDataset {
+namespace DescriptiveDataset {
 
 class GWNaturalBackgroundLevel{}
 class GWLinkSurfaceWaterBody{}
@@ -21,6 +21,8 @@ class GWPressureImpact{}
 class GWStatus{} 
 class GWPollutant{}
 class GWGrouping{}
+class GWChemicalExemption{}
+class GWQuantitativeExemption{}
 }
 
 namespace SpatialDataset {
@@ -59,6 +61,9 @@ GWStatus "1" -- "0..n" GWPressureImpact
 
 GWQuantitativeStatus ..> GWGrouping
 GWPollutant ..> GWGrouping
+
+GWQuantitativeStatus "1" -- "0..n" GWQuantitativeExemption
+GWPollutant "1" -- "0..n" GWChemicalExemption
 
 GWNaturalBackgroundLevel "0..n" -- GWCharacterisation
 GWLinkSurfaceWaterBody "0..n" -- GWCharacterisation

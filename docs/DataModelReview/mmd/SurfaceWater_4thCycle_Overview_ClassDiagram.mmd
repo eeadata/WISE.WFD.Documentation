@@ -11,7 +11,7 @@ config:
 classDiagram
 direction LR
 
-namespace SurfaceWaterDataset {
+namespace DescriptiveDataset {
 class SWPressureImpact{}
 class SWHeavilyModifiedWaterBody{}
 class SWCharacterisation{}
@@ -20,6 +20,9 @@ class SWStatus{}
 class SWQualityElement{}
 class SWGrouping{}
 class SWPollutant{}
+
+class SWEcologicalExemption{}
+class SWChemicalExemption{}
 }
 
 namespace SpatialDataset {
@@ -67,6 +70,9 @@ SWCharacterisation "1" -- "1" SWStatus
 SWStatus "1" -- "0..1" SWQualityElement
 SWStatus "1" -- "0..n" SWPollutant
 SWStatus "1" -- "0..n" SWPressureImpact
+
+SWQualityElement "1" -- "0..n" SWEcologicalExemption
+SWPollutant "1" -- "0..n" SWChemicalExemption
 
 SWThresholdValue -- "1..n" SWThreshold_SWType
 SWThreshold_SWType "1..n" -- SWType

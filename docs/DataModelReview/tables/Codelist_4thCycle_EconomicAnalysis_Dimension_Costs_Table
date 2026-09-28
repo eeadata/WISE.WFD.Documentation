@@ -1,0 +1,34 @@
+```{list-table} Dimension codes for the reporting of costs per water service – 4th cycle
+:name: Codelist_4thCycle_EconomicAnalysis_Dimension_Costs_Table
+:width: 100%
+:widths: 25 75
+:header-rows: 1
+
+* - Dimension
+  - Description
+* - CST_IRR_TOT
+  - Irrigation water services – Total cost
+* - CST_IRR_CAP
+  - Irrigation water services – Capital expenditure
+* - CST_IRR_OPE
+  - Irrigation water services – Operational expenditure
+* - CST_IRR_CRR
+  - Irrigation water services – Cost recovery rate
+* - CST_DRI_TOT
+  - Drinking water services – Total cost
+* - CST_DRI_CAP
+  - Drinking water services – Capital expenditure
+* - CST_DRI_OPE
+  - Drinking water services – Operational expenditure
+* - CST_DRI_CRR
+  - Drinking water services – Cost recovery rate
+* - CST_WWT_TOT
+  - Sewerage services – Total cost
+* - CST_WWT_CAP
+  - Sewerage services – Capital expenditure
+* - CST_WWT_OPE
+  - Sewerage services – Operational expenditure
+* - CST_WWT_CRR
+  - Sewerage services – Cost recovery rate
+
+```

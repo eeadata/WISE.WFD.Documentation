@@ -1,0 +1,45 @@
+```{list-table} Concepts and definitions applicable to water user sectors – 4th cycle
+:name: EconomicAnalysis_Concepts_WaterUserSectors_Table
+:width: 100%
+:widths: 20 50 30
+:header-rows: 1
+
+* - Water user sector
+  - Definition
+  - Notes
+
+* - **AGRICULTURE**
+  - *Includes:*  
+    NACE 01 – Crop and animal production, hunting and related service activities  
+    *Excludes:*  
+    NACE 02 – Forestry and logging  
+    NACE 03 – Fishing and aquaculture
+  - 
+
+* - **MANUFACTURING INDUSTRY**
+  - *Includes:*  
+    NACE 10–33 – Manufacturing industry (NACE Section C)  
+    *Excludes:*  
+    NACE 05–09 – Mining and quarrying  
+    NACE 35 – Electricity, gas, steam and air conditioning supply  
+    NACE 36 – Water collection, treatment and supply  
+    NACE 37 – Sewerage  
+    NACE 38 – Waste collection, recovery and disposal activities;
+    waste management and remediation activities  
+    NACE 39 – Remediation activities and other waste management service activities  
+    NACE 41–43 – Construction
+  - By definition, the volume of **water abstraction** by the MANUFACTURING INDUSTRY (NACE 10–33) 
+    sector for self‑supply excludes water abstraction by NACE 36 entities.  
+    For the 4th cycle of electronic reporting under the WFD, the volume of **water use** 
+    by the MANUFACTURING INDUSTRY sector refers only to drinking water
+    provided via public water supply (V52).
+
+* - **HOUSEHOLDS**
+  - Aligned with the *OECD/Eurostat Joint Questionnaire on Inland Waters*,
+    the term "Households" refers to the resident population
+    as final users of supplied water and generators of domestic wastewater.  
+    Households are consumption units, not economic production units,
+    hence there is no applicable NACE code.
+  - 
+  ```
+  

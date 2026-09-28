@@ -458,7 +458,6 @@ for each quality element, depending on the water category.
 SWType quality elements - default option – 4th cycle.
 ```
 
-
 * Select `'applicable'` if the quality element is applicable
   and should therefore be used in the assessment
   provided that it is relevant to monitor

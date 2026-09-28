@@ -1,8 +1,9 @@
 (heading_wfd_measures)=
 # Programme of measures
 
-Last update: 2026-07-24
+Last update: 2026-08-25
 
+(heading_wfd_measures_purpose_and_overview)=
 ## Purpose and overview
 
 This section revises the **River Basin Management Plan & Programme of Measures** schema
@@ -119,7 +120,7 @@ consequences:
 There is a readily available conceptual basis for the reporting on the **PoM** investment and other
 costs, with which the Member States are already familiar, namely the **environmental protection
 expenditures**. They are namely required to collect and report this data annually to Eurostat
-{footcite}`EEEAccounts`, who publishes the **Environmental Protection Expenditures Accounts (EPEA)** 
+{footcite}`EEEAccounts`, who publishes the **Environmental Protection Expenditures Accounts (EPEA)**
 as one of the environmental‑economic satellite accounts to the economic National Accounts.
 The EPEA are based on a clear, publicly available protocol (following UN statistical standards),
 defining the environmental domains, spending economic sectors, and expenditure types. 
@@ -181,6 +182,7 @@ difficulty in achieving a meaningful analysis.
 | River Basin District | National | 7 |
 ```
 
+(heading_wfd_measures_proposed_structure_4th_cycle)=
 ## Proposed structure - 4th cycle
 
 * The former RBMP and Coordination tables are simplified
@@ -201,7 +203,15 @@ difficulty in achieving a meaningful analysis.
   
 * The KTM classification, KTM indicators and indicator gaps data is completely removed.
 
-## RiverBasinManagementPlan table - 4th cycle
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Overview_ClassDiagram.mmd
+:name: Measures_4thCycle_Overview_ClassDiagram
+:caption:  Programmes of measures dataflow - overview - 4th cycle
+:align: center
+```
+
+## Descriptive dataset - 4th cycle
+
+### RiverBasinManagementPlan table
 
 The simplified `RiverBasinManagementPlan` table contains a subset of the data previously requested
 in the **RBMP** and **Coordination** classes in the 3rd cycle
@@ -218,7 +228,7 @@ in the **RBMP** and **Coordination** classes in the 3rd cycle
 :align: center
 ```
 
-## Progress table - 4th cycle
+### Progress table
 
 The `Progress` table is modified to provide an
 overview of the proportion of the measures of the 3rd RBMPs
@@ -277,7 +287,7 @@ illustrates how to synthesize the information in the Progress table.
 | cancelled | 10 | No | No | Yes | No |
 ```
 
-## TargetedQuestions table - 4th cycle
+### TargetedQuestions table
 
 The `TargetedQuestions` table collects summary information about the measures in the RBMP,
 and the progress since the previous cycle. For each RBMP, only one record is required.
@@ -295,7 +305,7 @@ keeping a subset of the questions requested in the previous cycle
 :align: center
 ```
 
-## Measure table - 4th cycle
+### Measure table
 
 The simplified `Measure` table proposed for the 4th cycle is illustrated in
 ({numref}`Measures_4thCycle_Measure_ClassDiagram`).
@@ -431,7 +441,7 @@ For each measure:
   It may also be used for measures planned for the 3rd cycle
   but already executed or cancelled by the end of 2027.
 
-## ExpenditurePerMeasurePerSector table - 4th cycle
+### ExpenditurePerMeasurePerSector table
 
 {numref}`Measures_4thCycle_ExpenditurePerMeasurePerSector_ClassDiagram`
 illustrates the `ExpenditurePerMeasurePerSector` table proposed for the 4th cycle.
@@ -503,8 +513,8 @@ the 3rd cycle of WFD reporting used it.
 ```{include} /DataModelReview/tables/Measures_ESA2010_Table
 ```
 
-The dichotomous key in {numref}`Measures_ESA2010_Allocation_of_institutional_units_to_sectors` clarifies the allocation of units to
-sectors.
+The dichotomous key in {numref}`Measures_ESA2010_Allocation_of_institutional_units_to_sectors`
+clarifies the allocation of units to sectors.
 
 ```{mermaid} /DataModelReview/mmd/Measures_ESA2010_Allocation_of_institutional_units_to_sectors.mmd
 :name: Measures_ESA2010_Allocation_of_institutional_units_to_sectors
@@ -531,6 +541,7 @@ while the National Accounts framework (ESA 2010) typically capitalizes R&D as an
 
 ```{include} /DataModelReview/tables/Codelist_4thCycle_SEA2010SectorCode_Table
 ```
+
 It is also important to address the reporting of transfers of EU Funds.
 
 If `institutionalSector = 'S.212'` then the value
@@ -556,7 +567,8 @@ A new Urban Waste Water Treatment Plant required a total capital expenditure of 
   4M€ of national funds transferred by the General Government (S.13) to the company
   and 1M€ of EU funds transferred to the company via the national government.
 
-{numref}`Measures_ReportingExpenditurePerSector_Example` illustrates the reporting of the different scenarios.
+{numref}`Measures_ReportingExpenditurePerSector_Example` illustrates
+the reporting of the different scenarios.
 
 Note that scenario 1 and scenario 2 are identical from a reporting point‑of‑view.  
 Likewise, scenario 3 and scenario 4 are identical.
@@ -585,6 +597,43 @@ expenditure for which may be outside the scope of the EPEA.
   `mainKeyTypeOfMeasure = 'C'`
 * Measure to control abstraction from surface and groundwater,
   and impoundment of surface water: `mainKeyTypeOfMeasure = 'E'`
+
+(heading_wfd_measures_documents_dataset_4th_cycle)=
+## Documents dataset - 4th cycle
+
+The Documents dataset follows the standard structure used in various WISE dataflows
+({numref}`Measures_4thCycle_Documents_ClassDiagram`):
+
+* The `dcMetadata` table provides the basic Dublin Core metadata elements about the delivery.
+  
+  - If required by the data providers,
+    the `licenseDocument` attribute allows the provision
+    of additional information about the dataset.
+  - The `dcMetadata` table also functions as a "manifest file"
+    explaining if the delivery contains data for a given river basin district or not.
+
+* The `Document` table allows the upload of documents (for example, PDFs)
+  or the provision of a `hyperlink` to a document stored in a publicly accessible national web site.
+
+* The `Reference` table is also standard in the WISE dataflows:
+  the `bookmark` it allows the identification of the chapter(s), sections(s) or page range(s)
+  where the relevant information about a `subject`
+  can be found within a document.
+
+```{mermaid} /DataModelReview/mmd/Measures_4thCycle_Documents_ClassDiagram.mmd
+:name: Measures_4thCycle_Documents_ClassDiagram
+:caption: Programmes of measures dataflow - 4th cycle - Documents
+:align: center
+```
+
+The following criteria apply:
+
+01. The `dcMetadata` table must contain *one and only one* record
+    for each of the country's river basin districts, identified by the `euRBDCode`.
+
+02. The descriptive dataset tables are **national**,
+    but the quality control will allow deliveries
+    where some, or all, the river basin districts have `includesDescriptiveData = no`.
 
 ## Codelists - 4th cycle
 

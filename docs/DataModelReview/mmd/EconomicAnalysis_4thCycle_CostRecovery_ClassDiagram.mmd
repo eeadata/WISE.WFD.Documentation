@@ -1,0 +1,33 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: dagre
+  theme: neutral
+---
+classDiagram
+    direction TB
+
+class CostRecovery {
+    + euRBDCode: wiseIdentifier
+
+    «adequate-contribution»
+
+    + adequateContributionAccount: YesNo
+    + adequateContributionSectoral: YesNo
+
+    «polluter-pays-principle»
+
+    + pppAccount: YesNo
+    + pppERCBased: YesNo
+    + pppTargetPolluters: YesNo 
+
+    «incentives»
+    + incentivesAccount: YesNo 
+    + incentivesEmpiricalInformation: YesNo 
+    + incentivesDifferentiated: YesNo [0..1]
+    + incentivesWaterScarcityUse: YesNo 
+}
+
+classDef default fill:white,stroke:#000;
+classDef forFixing fill:white,stroke:#f00;
