@@ -189,6 +189,10 @@ class SqlDatasetDirective(SphinxDirective):
         top_section = nodes.section(ids=[id_prefix])
         top_section += nodes.title(text=table_name)
 
+        # --- table description (now comes first, right under the title) ---
+        if description:
+            top_section += nodes.paragraph(text=description)
+
         # --- combined all-fields table (Attribute | Type | M | Definition) ---
         if fields:
             top_section += _build_table(
@@ -199,10 +203,6 @@ class SqlDatasetDirective(SphinxDirective):
                 ],
                 widths=[18, 15, 7, 60],
             )
-
-        # --- table description ---
-        if description:
-            top_section += nodes.paragraph(text=description)
 
         # --- table-level QCs (no heading) ---
         if table_qcs:
