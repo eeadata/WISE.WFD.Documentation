@@ -1,0 +1,2900 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>River Basin Districts and Competent Authorities &#8212; WISE.WFD.Documentation  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=2fdf4863" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TestingPhase/WFDRiverBasinDistrictsAndCompetentAuthorities';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Monitoring" href="WFDMonitoring.html" />
+    <link rel="prev" title="Testing phase" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wise.svg" class="logo__image only-light" alt="WISE WFD Documentation"/>
+    <img src="../_static/wise.svg" class="logo__image only-dark pst-js-only" alt="WISE WFD Documentation"/>
+  
+  
+    <p class="title logo__title">Water Framework Directive</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="ms-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../DataModelReview/index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../DataModelReview/index.html">
+    Data model review
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Testing phase
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/index.html">
+    Getting started
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">River Basin Districts and Competent Authorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDMonitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WFDProtectedArea.html">Protected Area</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="KnownIssues.html">Testing phase - known issues</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Testing phase</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">River Basin Districts and Competent Authorities</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="river-basin-districts-and-competent-authorities">
+<span id="heading-wfd-rbd-and-ca-testing-phase"></span><h1>River Basin Districts and Competent Authorities<a class="headerlink" href="#river-basin-districts-and-competent-authorities" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The definitions are being reviewed.</p>
+</div>
+<p>Last update: 2026-08-21</p>
+<section id="descriptive-dataset">
+<h2>Descriptive dataset<a class="headerlink" href="#descriptive-dataset" title="Link to this heading">#</a></h2>
+<p>See additional information in the <em>data model review documentation</em>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../DataModelReview/WFDRiverBasinDistrictsAndCompetentAuthorities.html#heading-wfd-rbd-and-ca-descriptive-dataset-4th-cycle"><span class="std std-ref">Descriptive dataset - 4th cycle</span></a></p></li>
+</ul>
+<section id="sql-competentauthority">
+<h3>CompetentAuthority<a class="headerlink" href="#sql-competentauthority" title="Link to this heading">#</a></h3>
+<p>Descriptive table listing the competent authorities responsible for the application of the WFD rules within each River Basin District.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 15.0%" />
+<col style="width: 7.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>M</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>euCACode</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Unique identifier for the Competent Authority.</p></td>
+</tr>
+<tr class="row-odd"><td><p>competentAuthorityName</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>100</p></td>
+<td><p>[1]</p></td>
+<td><p>Official name of the Competent Authority in English. Only Latin characters are allowed.</p></td>
+</tr>
+<tr class="row-even"><td><p>competentAuthorityNameNL</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>100</p></td>
+<td><p>[1]</p></td>
+<td><p>Official name of the Competent Authority in the Member State’s national language.</p></td>
+</tr>
+<tr class="row-odd"><td><p>competentAuthorityNameNLLanguage</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Language">Language</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Language used for reporting the competentAuthorityNameNL value.</p></td>
+</tr>
+<tr class="row-even"><td><p>acronym</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>100</p></td>
+<td><p>[0..1]</p></td>
+<td><p>Acronym for the Competent Authority (if it exists).</p></td>
+</tr>
+<tr class="row-odd"><td><p>street</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>100</p></td>
+<td><p>[1]</p></td>
+<td><p>Street name where the Competent Authority is located. Only Latin characters are allowed.</p></td>
+</tr>
+<tr class="row-even"><td><p>city</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>100</p></td>
+<td><p>[1]</p></td>
+<td><p>City where the Competent Authority is located. Only Latin characters are allowed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>country</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>100</p></td>
+<td><p>[1]</p></td>
+<td><p>Country where the Competent Authority is located in English. Only Latin characters are allowed.</p></td>
+</tr>
+<tr class="row-even"><td><p>postCode</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>50</p></td>
+<td><p>[1]</p></td>
+<td><p>Postcode address of the Competent Authority. Only Latin characters are allowed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>url</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-URL">URL</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Website address of the Competent Authority.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TU0003</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Uniqueness and multiplicity constraints - The field euCACode is unique within table [TU0003]</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC0005</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>All euCACode reported in RiverBasinDistrictCompetentAuthority must exist on table CompetentAuthority. [XC0005] Missing values: {%IDENTIFIERS%}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="sql-competentauthority-eucacode">
+<h4>euCACode<a class="headerlink" href="#sql-competentauthority-eucacode" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0023</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 42 [V0023]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0024</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0024]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0025</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not match the pattern to be used for a WISE Identifier. [V0025]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-competentauthorityname">
+<h4>competentAuthorityName<a class="headerlink" href="#sql-competentauthority-competentauthorityname" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0011</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 100 [V0011]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0039</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0039]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0045</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Valid characters are any of the latin alphabet, digits and “’(),-./:;_ only. [V0045]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-competentauthoritynamenl">
+<h4>competentAuthorityNameNL<a class="headerlink" href="#sql-competentauthority-competentauthoritynamenl" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0012</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 100 [V0012]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0072</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0072]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-competentauthoritynamenllanguage">
+<h4>competentAuthorityNameNLLanguage<a class="headerlink" href="#sql-competentauthority-competentauthoritynamenllanguage" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0013</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0013]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0073</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0073]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-acronym">
+<h4>acronym<a class="headerlink" href="#sql-competentauthority-acronym" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 100  [V0002]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-street">
+<h4>street<a class="headerlink" href="#sql-competentauthority-street" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0027</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 100 [V0027]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-city">
+<h4>city<a class="headerlink" href="#sql-competentauthority-city" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0006</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 100 [V0006]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0046</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Valid characters are any of the latin alphabet, digits and “’(),-./:;_ only. [V0046]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-country">
+<h4>country<a class="headerlink" href="#sql-competentauthority-country" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0014</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 100 [V0014]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-postcode">
+<h4>postCode<a class="headerlink" href="#sql-competentauthority-postcode" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0026</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 50 [V0026]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-competentauthority-url">
+<h4>url<a class="headerlink" href="#sql-competentauthority-url" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0038</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not follow the expected syntax for a valid URL [V0038]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0068</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 2100. [V0068]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="sql-riverbasindistrictcompetentauthority">
+<h3>RiverBasinDistrictCompetentAuthority<a class="headerlink" href="#sql-riverbasindistrictcompetentauthority" title="Link to this heading">#</a></h3>
+<p>Descriptive table linking a River Basin District to its competent authority/authorities and their role.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 15.0%" />
+<col style="width: 7.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>M</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>euRBDCode</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Unique identifier for the River Basin District.</p></td>
+</tr>
+<tr class="row-odd"><td><p>euCACode</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Unique identifier for the Competent Authority.</p></td>
+</tr>
+<tr class="row-even"><td><p>roleCode</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Role">Role</a></p></td>
+<td><p>[1..n]</p></td>
+<td><p>Roles undertaken by the Competent Authority in the implementation of the Water Framework Directive. A competent authority is defined as being the authority with the responsibility for either the implementation of the different stages of the Water Framework Directive or for reporting to the European Commission. If more than one role is reported, values need to be separated by a semicolon followed by a whitespace. e.g., ‘value1; value2; value3’.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>T0010</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>All roles must be reported for each RBD. Some roles are missing for some RBDs: {%RBDs%}. [T0010]</p></td>
+</tr>
+<tr class="row-odd"><td><p>TU0002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The combination euCACode, euRBDCode must be unique. [TU0002]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="sql-riverbasindistrictcompetentauthority-eurbdcode">
+<h4>euRBDCode<a class="headerlink" href="#sql-riverbasindistrictcompetentauthority-eurbdcode" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0007</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 42 [V0007]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0010</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not match the pattern to be used for a WISE Identifier. [V0010]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0033</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0033]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrictcompetentauthority-eucacode">
+<h4>euCACode<a class="headerlink" href="#sql-riverbasindistrictcompetentauthority-eucacode" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0001</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 42 [V0001]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0005</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not match the pattern to be used for a WISE Identifier. [V0005]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0032</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0032]</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC0004</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>euCACode must exist on table CompetentAuthorities. [XC0004]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrictcompetentauthority-rolecode">
+<h4>roleCode<a class="headerlink" href="#sql-riverbasindistrictcompetentauthority-rolecode" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0022</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0022]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0031</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0031]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0075</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Duplicate roleCode. [V0075]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="spatial-dataset">
+<h2>Spatial dataset<a class="headerlink" href="#spatial-dataset" title="Link to this heading">#</a></h2>
+<p>See additional information in the <em>data model review documentation</em>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../DataModelReview/WFDRiverBasinDistrictsAndCompetentAuthorities.html#heading-riverbasindistrict-spatial-dataset-4th-cycle"><span class="std std-ref">Spatial dataset - 4th cycle</span></a></p></li>
+</ul>
+<section id="sql-riverbasindistrict">
+<h3>RiverBasinDistrict<a class="headerlink" href="#sql-riverbasindistrict" title="Link to this heading">#</a></h3>
+<p>Spatial dataset of the River Basin Districts (and sub-units) established under Article 3 of the WFD.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 15.0%" />
+<col style="width: 7.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>M</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>geometry_polygon</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-MultiPolygon">MultiPolygon</a></p></td>
+<td><p>[1]</p></td>
+<td><p>The geometry representing the spatial extent of the spatial object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>inspireIdLocalId</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>254</p></td>
+<td><p>[1]</p></td>
+<td><p>A local identifier, assigned by the data provider. The local identifier is unique within the namespace, that is, no other spatial object carries the same unique identifier. It is the responsibility of the data provider to guarantee uniqueness of the local identifier within the namespace. It is recommended that Data Providers reporting under WFD use a localId value identical to the thematicIdIdentifier value.</p></td>
+</tr>
+<tr class="row-even"><td><p>inspireIdNamespace</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>254</p></td>
+<td><p>[1]</p></td>
+<td><p>Namespace uniquely identifying the data source of the spatial object. For Data Providers in countries not implementing the INSPIRE Directive, the country code can be used as placeholder.</p></td>
+</tr>
+<tr class="row-odd"><td><p>inspireIdVersionId</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>25</p></td>
+<td><p>[0..1]</p></td>
+<td><p>The identifier of the particular version of the spatial object, with a maximum length of 25 characters. The maximum length has been selected to allow for time stamps based on ISO 8601, for example, ‘2007-02-12T12:12:12+05:30’ as the version identifier.</p></td>
+</tr>
+<tr class="row-even"><td><p>thematicIdIdentifier</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Unique identifier used to identify the spatial object within the specified identification scheme. Unique European identifier of the river basin district.</p></td>
+</tr>
+<tr class="row-odd"><td><p>thematicIdIdentifierScheme</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-IdentifierScheme">IdentifierScheme</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Identifier defining the scheme used to assign the identifier. Data Providers reporting under WFD must use the value ‘euRBDCode’. Other Data Providers must use the value ‘eionetRBDCode’.</p></td>
+</tr>
+<tr class="row-even"><td><p>beginLifespanVersion</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-date">date</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Date at which this version of the spatial object was inserted or changed in the spatial data set. The beginLifespanVersion value must be provided if the endLifespanVersion value is provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>endLifespanVersion</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-date">date</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Date at which this version of the spatial object was superseded or retired in the spatial data set. The endLifespanVersion value is only requested for objects that have been retired (without any replacement).</p></td>
+</tr>
+<tr class="row-even"><td><p>predecessorsIdentifier</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[0..n]</p></td>
+<td><p>In a genealogy, the object(s) replaced by the current object. . The predecessorsIdentifier value is a comma-separated list with the thematicIdIdentifier value of the existing object(s) that were replaced. The value must be reported if, and only if, the object replaces one or more objects that were previously reported. Data Providers should report a comma-separated list with the thematicIdIdentifier of the object(s) that have been replaced. This attribute does not apply to the case where a newer version of the same object is being reported. In other others, an object never replaces itself. The number of predecessors depends on the wiseEvolutionType value. The objects reported as predecessors must exist in the WISE register.</p></td>
+</tr>
+<tr class="row-odd"><td><p>predecessorsIdentifierScheme</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-IdentifierScheme">IdentifierScheme</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Identifier defining the scheme used to assign the identifier value(s) in the predecessorsIdentifier value. The value is mandatory if, and only if, one or more predecessors are reported. All predecessors must belong to the same identifier scheme. The value must be reported if, and only if, the predecessorsIdentifier is reported. The predecessorsIdentifierScheme value is identical to the thematicIdIdentifierScheme. In other words, the object being reported can only replace another object in the same identifier scheme.</p></td>
+</tr>
+<tr class="row-even"><td><p>successorsIdentifier</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[0..n]</p></td>
+<td><p>In a genealogy, the newly active object(s) that replaces (replace) the current object. The successorsIdentifier value is a comma-separated list with the thematicIdIdentifier of the object(s) that replace the current object. This attribute is **NOT** reported in the 4th cycle spatial datasets. It will be derived by the EEA and populated in the European datasets for the 1st, 2nd, and 3rd cycle of reporting of the WFD River Basin Management Plans, for the objects that have being replaced in subsequent reporting cycles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>successorsIdentifierScheme</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-IdentifierScheme">IdentifierScheme</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Identifier defining the scheme used to assign the identifier value(s) in the successorsIdentifier attribute. The attribute is mandatory, if and only if one or more successors exist.</p></td>
+</tr>
+<tr class="row-even"><td><p>wiseEvolutionType</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-WiseEvolutionType">WiseEvolutionType</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Type of event that produced or modified the version of the object being reported (for example ‘noChange’, ‘creation’, ‘deletion’, ‘aggregation’). The wiseEvolutionType value determines the acceptable number of identifiers in the predecessorsIdentifier attribute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>nameTextInternational</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>254</p></td>
+<td><p>[1]</p></td>
+<td><p>Name, in English. English exonym, or understandable English version of the name of the geographical feature or spatial object. . For this attribute, the language code is ‘eng’ (by definition) and is not reported. If an English version does not exist, then provide a transliteration of the national name to the ISO basic Latin alphabet (which uses the same 26 letters that comprise the English alphabet).</p></td>
+</tr>
+<tr class="row-even"><td><p>nameText</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>254</p></td>
+<td><p>[1]</p></td>
+<td><p>Name, in the national language. National language endonym, or national language version of the name of the geographical feature or spatial object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>nameLanguage</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Language">Language</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Language code of the language used in the nameText value. Use the ISO 639-2/B code of the national language used for the object’s geographical name.</p></td>
+</tr>
+<tr class="row-even"><td><p>designationPeriodBegin</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-date">date</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Beginning of period defining when the management, restriction or regulation zone was legally designated or became effective in the real world.</p></td>
+</tr>
+<tr class="row-odd"><td><p>designationPeriodEnd</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-date">date</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>End of the period defining when the management, restriction or regulation zone was legally designated or became effective in the real world. Data Providers are requested to report this information if and only if the object has wiseEvolutionType = ‘deletion’.</p></td>
+</tr>
+<tr class="row-even"><td><p>zoneType</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-ZoneType">ZoneType</a></p></td>
+<td><p>[1]</p></td>
+<td><p>High-level classification defining the type of Management, Restriction or Regulation Zone. Report zoneType = ‘riverBsinDistrict’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>specialisedZoneType</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-SpecialisedZoneType">SpecialisedZoneType</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Valid options are ‘internationalRiverBasinDistrict’ or ‘nationalRiverBasinDistrict’</p></td>
+</tr>
+<tr class="row-even"><td><p>legalBasisName</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>254</p></td>
+<td><p>[0..1]</p></td>
+<td><p>Legislative instrument defining the management, restriction or regulation zone.</p></td>
+</tr>
+<tr class="row-odd"><td><p>legalBasisLink</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-URL">URL</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Link to an online authoritative version of the document.</p></td>
+</tr>
+<tr class="row-even"><td><p>legalBasisLevel</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-LegislationLevelValue">LegislationLevelValue</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>The level at which the legislative instrument is adopted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>link</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-URL">URL</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Hyperlink to where additional information about the object is available in the internet. Report only if a stable and resolvable URL can be provided to the specific object being reported, for example a public API endpoint. Do not provide generic URLs to institutional internet domains, sites or webpages.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>T002_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A valid ‘eu’ thematic identifier exists in the register but was not reported in the Geopackage file (either as a spatial object or as a predecessor) [T002_WFD]. Number of missing identifiers: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>T002_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A valid ‘eu’ thematic identifier exists in the register but was not reported in the Geopackage file (either as a spatial object or as a predecessor) [T002_WISE5]. Number of missing identifiers: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-even"><td><p>T228</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If the object has successor(s), then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value  [T228]: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>T229</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If the object is the predecessor of another object, then the deleted object should not be reported. Only the successor object(s) must be reported, with their appropriate predecessor(s) and wiseEvolutionType value [T229]: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-even"><td><p>T230</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>One SRID can be used only. SRIDs used: {%srid_list%}. [T230]</p></td>
+</tr>
+<tr class="row-odd"><td><p>TU002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The field inspireIdLocalId must be unique within table. [TU002]</p></td>
+</tr>
+<tr class="row-even"><td><p>TU005</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The field thematicIdIdentifier must be unique within table. [TU005]</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The table must be empty if dcMetadata.updateSpatialData is ‘no’. [XC002]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="sql-riverbasindistrict-geometry-polygon">
+<h4>geometry_polygon<a class="headerlink" href="#sql-riverbasindistrict-geometry-polygon" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Unsupported SRID. [S002]</p></td>
+</tr>
+<tr class="row-odd"><td><p>S005</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The coordinate reference system (CRS) is not valid. [S005]</p></td>
+</tr>
+<tr class="row-even"><td><p>S006</p></td>
+<td><p>ERROR</p></td>
+<td><p>The geometry must not have anomalous geometric points, such as self-intersections. [S006]. {%reason%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>S010</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not follow the expected syntax for a valid multipolygon {%reason%}. [S010]</p></td>
+</tr>
+<tr class="row-even"><td><p>S011</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Geometry is not valid. Reason: {%reason%}. [S011]</p></td>
+</tr>
+<tr class="row-odd"><td><p>S013</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The geometry must not be empty or degenerate (e.g. zero-lenth line or zero-area polygon). [S013]</p></td>
+</tr>
+<tr class="row-even"><td><p>S016</p></td>
+<td><p>ERROR</p></td>
+<td><p>The geometry of the river basin districts must not overlap each other. (Errors are greater than the spatial tolerance value: overlapping &gt;= 625 square metres) [S016]. Overlapping: {%overlapsWith%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>S017</p></td>
+<td><p>WARNING</p></td>
+<td><p>The geometry of the river basin districts must not overlap each other. (Errors are within the spatial tolerance value: overlapping &lt; 625 square metres). [S017]. Overlapping: {%overlapsWith%}</p></td>
+</tr>
+<tr class="row-even"><td><p>S018</p></td>
+<td><p>WARNING</p></td>
+<td><p>The river basin district must be within the national territory (with a 200 metre tolerance buffer) [S018]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V067</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V067]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-inspireidlocalid">
+<h4>inspireIdLocalId<a class="headerlink" href="#sql-riverbasindistrict-inspireidlocalid" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of inspireIdLocalId must be less than or equal to 254 characters. [V002]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V015</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V015]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-inspireidnamespace">
+<h4>inspireIdNamespace<a class="headerlink" href="#sql-riverbasindistrict-inspireidnamespace" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V003</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of inspireIdNamespace must be less than or equal to 254 characters. [V003]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V019</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V019]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-inspireidversionid">
+<h4>inspireIdVersionId<a class="headerlink" href="#sql-riverbasindistrict-inspireidversionid" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if the inspireIdVersionId is reported. [R002]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R022</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The inspireIdVersionId value must be reported, if the wiseEvolutionType value is ‘change’. [R022]</p></td>
+</tr>
+<tr class="row-even"><td><p>V004</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of inspireIdVersionId must be less than or equal to 25 characters. [V004]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-thematicididentifier">
+<h4>thematicIdIdentifier<a class="headerlink" href="#sql-riverbasindistrict-thematicididentifier" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R015</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdIdentifier and thematicIdIdentifierScheme combination (an identifier must not replace itself). [R015]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R029</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an identifier is the predecessor of two or more objects, then those objects must have wiseEvolution in (‘splitting’,’changeBothAggregationAndSplitting’). [R029]</p></td>
+</tr>
+<tr class="row-even"><td><p>R039</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematicIdIdentifier value must be reported if the thematicIdIdentifierScheme value is reported. [R039]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R040</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematicIdIdentifierScheme value must be reported, if the thematicIdIdentifier value is reported. [R040]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF004_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematic identifier must not exist in the register unless the wiseEvolutionType value is ‘noChange’ or ‘change’. [RF004_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF004_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematic identifier must not exist in the register unless the wiseEvolutionType value is ‘noChange’ or ‘change’. [RF004_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF019_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematic identifier must be a valid identifier in the register if wiseEvolutionType value is ‘noChange’ or ‘change’. [RF019_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF019_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematic identifier must be a valid identifier in the register if wiseEvolutionType value is ‘noChange’ or ‘change’. [RF019_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF021_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of thematicIdIdentifier exists in the reference table as ‘superseded’ and it cannot be reused. [RF021_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF021_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of thematicIdIdentifier exists in the reference table as ‘superseded’ and it cannot be reused. [RF021_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>V005</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not match the pattern to be used for a WISE Identifier. [V005]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V024</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V024]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-thematicididentifierscheme">
+<h4>thematicIdIdentifierScheme<a class="headerlink" href="#sql-riverbasindistrict-thematicididentifierscheme" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R015</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdIdentifier and thematicIdIdentifierScheme combination (an identifier must not replace itself). [R015]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R039</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematicIdIdentifier value must be reported if the thematicIdIdentifierScheme value is reported. [R039]</p></td>
+</tr>
+<tr class="row-even"><td><p>R040</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The thematicIdIdentifierScheme value must be reported, if the thematicIdIdentifier value is reported. [R040]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V016</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V016]</p></td>
+</tr>
+<tr class="row-even"><td><p>V049</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of thematicIdIdentifierScheme does not exist in codelist IdentifierScheme. [V049]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V076</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>thematicIdIdentifierScheme must be ‘euRBDCode’ if reporting under ‘WFD’ and ‘eionetRBDCode’ if reporting under ‘WISE5’. [V076]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-beginlifespanversion">
+<h4>beginLifespanVersion<a class="headerlink" href="#sql-riverbasindistrict-beginlifespanversion" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if the inspireIdVersionId is reported. [R002]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R003</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must not be after endLifespanVersion. [R003]</p></td>
+</tr>
+<tr class="row-even"><td><p>R013</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if the endLifespanVersion is reported. [R013]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R024</p></td>
+<td><p>ERROR</p></td>
+<td><p>beginLifespanVersion must be reported unless wiseEvolutionType is ‘creation’ or ‘noChange’. [R024]</p></td>
+</tr>
+<tr class="row-even"><td><p>V006</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be a valid date (YYYY-MM-DD) [V006]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-endlifespanversion">
+<h4>endLifespanVersion<a class="headerlink" href="#sql-riverbasindistrict-endlifespanversion" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R003</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must not be after endLifespanVersion. [R003]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R013</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>beginLifespanVersion must be reported if the endLifespanVersion is reported. [R013]</p></td>
+</tr>
+<tr class="row-even"><td><p>V039</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>endLifespanVersion must be a valid date (YYYY-MM-DD). [V039]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-predecessorsidentifier">
+<h4>predecessorsIdentifier<a class="headerlink" href="#sql-riverbasindistrict-predecessorsidentifier" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R011</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have zero predecessors if the wiseEvolutionType value is ‘creation’. [R011]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R014</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>predecessorsIdentifier must be reported if predecessorsIdentifierScheme is reported. [R014]</p></td>
+</tr>
+<tr class="row-even"><td><p>R015</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdIdentifier and thematicIdIdentifierScheme combination (an identifier must not replace itself). [R015]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R016</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The predecessorsIdentifierScheme value must be reported if the predecessorsIdentifier value is reported. [R016]</p></td>
+</tr>
+<tr class="row-even"><td><p>R026</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have one and only one predecessor, if the wiseEvolutionType value is ‘changeCode’ or ‘splitting’. [R026]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R027</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have two or more predecessors if the wiseEvolutionType value is ‘aggregation’ or ‘changeBothAggregationAndSplitting’. [R027]</p></td>
+</tr>
+<tr class="row-even"><td><p>R028</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have zero predecessors, if the wiseEvolutionType value is ‘change’ or ‘noChange’. [R028]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R029</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If an identifier is the predecessor of two or more objects, then those objects must have wiseEvolution in (‘splitting’,’changeBothAggregationAndSplitting’). [R029]</p></td>
+</tr>
+<tr class="row-even"><td><p>R032</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>At least one predecessor of an object with wiseEvolutionType value equal to ‘splitting’ or ‘changeBothAggregationAndSplitting’ must be reported as predecessor of another spatial object with wiseEvolutionType value equal to ‘splitting’ or ‘changeBothAggregationAndSplitting’. [R032]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R035</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>There are RBD with the same predecessor and different designationPeriodBegin value: {%RECORDS%}. [R035]</p></td>
+</tr>
+<tr class="row-even"><td><p>R045</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>RBD must have predecessors if the wiseEvolutionType is not ‘change’ or ‘noChange’ or ‘creation’. [R045]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R046</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A spatial object with wiseEvolutionType value equal to ‘changeCode’ must not have the same predecessor of another spatial object. [R046]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF008_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object has a predecessor that does not exist in the register. [RF008_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF008_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object has a predecessor that does not exist in the register. [RF008_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>V040</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not match the pattern to be used for a WISE Identifier. Several identifiers can be reported separated by comma. [V040]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-predecessorsidentifierscheme">
+<h4>predecessorsIdentifierScheme<a class="headerlink" href="#sql-riverbasindistrict-predecessorsidentifierscheme" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R014</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>predecessorsIdentifier must be reported if predecessorsIdentifierScheme is reported. [R014]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R015</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The predecessorsIdentifier and predecessorsIdentifierScheme combination must not be equal to the thematicIdIdentifier and thematicIdIdentifierScheme combination (an identifier must not replace itself). [R015]</p></td>
+</tr>
+<tr class="row-even"><td><p>R016</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The predecessorsIdentifierScheme value must be reported if the predecessorsIdentifier value is reported. [R016]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V050</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of predecessorsIdentifierScheme does not exist in codelist IdentifierScheme. [V050]</p></td>
+</tr>
+<tr class="row-even"><td><p>V073</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The only valid value for predecessorsIdentifierScheme must be ‘euRBDCode’ if reporting under ‘WFD’ and ‘eionetRBDCode’ if reporting under ‘WISE5’ [V073]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-successorsidentifier">
+<h4>successorsIdentifier<a class="headerlink" href="#sql-riverbasindistrict-successorsidentifier" title="Link to this heading">#</a></h4>
+</section>
+<section id="sql-riverbasindistrict-successorsidentifierscheme">
+<h4>successorsIdentifierScheme<a class="headerlink" href="#sql-riverbasindistrict-successorsidentifierscheme" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V051</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of predecessorsIdentifierScheme does not exist in codelist IdentifierScheme. [V051]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-wiseevolutiontype">
+<h4>wiseEvolutionType<a class="headerlink" href="#sql-riverbasindistrict-wiseevolutiontype" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R011</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have zero predecessors if the wiseEvolutionType value is ‘creation’. [R011]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R022</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The inspireIdVersionId value must be reported, if the wiseEvolutionType value is ‘change’. [R022]</p></td>
+</tr>
+<tr class="row-even"><td><p>R024</p></td>
+<td><p>ERROR</p></td>
+<td><p>beginLifespanVersion must be reported unless wiseEvolutionType is ‘creation’ or ‘noChange’. [R024]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R026</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have one and only one predecessor, if the wiseEvolutionType value is ‘changeCode’ or ‘splitting’. [R026]</p></td>
+</tr>
+<tr class="row-even"><td><p>R027</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have two or more predecessors if the wiseEvolutionType value is ‘aggregation’ or ‘changeBothAggregationAndSplitting’. [R027]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R028</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The object must have zero predecessors, if the wiseEvolutionType value is ‘change’ or ‘noChange’. [R028]</p></td>
+</tr>
+<tr class="row-even"><td><p>R032</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>At least one predecessor of an object with wiseEvolutionType value equal to ‘splitting’ or ‘changeBothAggregationAndSplitting’ must be reported as predecessor of another spatial object with wiseEvolutionType value equal to ‘splitting’ or ‘changeBothAggregationAndSplitting’. [R032]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R045</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>RBD must have predecessors if the wiseEvolutionType is not ‘change’ or ‘noChange’ or ‘creation’. [R045]</p></td>
+</tr>
+<tr class="row-even"><td><p>R046</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>A spatial object with wiseEvolutionType value equal to ‘changeCode’ must not have the same predecessor of another spatial object. [R046]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF012_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘deletion’,’change’,’noChange’) then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the object in the register. [RF012_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF012_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘deletion’,’change’,’noChange’) then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the object in the register. [RF012_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF013_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘splitting’,’aggregation’,’changeBothAggregationAndSplitting’,’changeExtendedArea’,’changeReducedArea’), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor in the reference table. [RF013_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF013_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘splitting’,’aggregation’,’changeBothAggregationAndSplitting’,’changeExtendedArea’,’changeReducedArea’), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor in the reference table. [RF013_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF014_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType is ‘changeCode’ then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor in the register. [RF014_WFD]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF014_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType is ‘changeCode’ then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor in the register. [RF014_WISE5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V017</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V017]</p></td>
+</tr>
+<tr class="row-even"><td><p>V027</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of predecessorsIdentifierScheme does not exist in codelist wiseEvolutionType. [V027]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V068</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>River Basin Districts cannot be reported as deletion. [V068]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-nametextinternational">
+<h4>nameTextInternational<a class="headerlink" href="#sql-riverbasindistrict-nametextinternational" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V007</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of nameTextInternational must be less than or equal to 254 characters. [V007]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V023</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V023]</p></td>
+</tr>
+<tr class="row-even"><td><p>V025</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Only text with upper case letters (A to Z) and digits (0 to 9) is allowed. Spaces and hiphens can be used as separators. [V025]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-nametext">
+<h4>nameText<a class="headerlink" href="#sql-riverbasindistrict-nametext" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V001</p></td>
+<td><p>ERROR</p></td>
+<td><p>nameText contains invalid characters. [V001]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V008</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of nameText must be less than or equal to 254 characters. [V008]</p></td>
+</tr>
+<tr class="row-even"><td><p>V022</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V022]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-namelanguage">
+<h4>nameLanguage<a class="headerlink" href="#sql-riverbasindistrict-namelanguage" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V018</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V018]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V028</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of nameLanguage does not exist in codelist Language. [V028]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-designationperiodbegin">
+<h4>designationPeriodBegin<a class="headerlink" href="#sql-riverbasindistrict-designationperiodbegin" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R004</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>designationPeriodBegin date must not be after designationPeriodEnd. [R004]</p></td>
+</tr>
+<tr class="row-odd"><td><p>R035</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>There are RBD with the same predecessor and different designationPeriodBegin value: {%RECORDS%}. [R035]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF012_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘deletion’,’change’,’noChange’) then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the object in the register. [RF012_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF012_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘deletion’,’change’,’noChange’) then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the object in the register. [RF012_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF013_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘splitting’,’aggregation’,’changeBothAggregationAndSplitting’,’changeExtendedArea’,’changeReducedArea’), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor in the reference table. [RF013_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF013_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType in (‘splitting’,’aggregation’,’changeBothAggregationAndSplitting’,’changeExtendedArea’,’changeReducedArea’), the designationPeriodBegin value must be higher than the designationPeriodBegin value of the predecessor in the reference table. [RF013_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>RF014_WFD</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType is ‘changeCode’ then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor in the register. [RF014_WFD]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF014_WISE5</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If wiseEvolutionType is ‘changeCode’ then the designationPeriodBegin value must be equal to the designationPeriodBegin value of the predecessor in the register. [RF014_WISE5]</p></td>
+</tr>
+<tr class="row-even"><td><p>V009</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>designationPeriodBegin must be a valid date (YYYY-MM-DD) [V009]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V021</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V021]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-designationperiodend">
+<h4>designationPeriodEnd<a class="headerlink" href="#sql-riverbasindistrict-designationperiodend" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R004</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>designationPeriodBegin date must not be after designationPeriodEnd. [R004]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V010</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>designationPeriodEnd must be a valid date (YYYY-MM-DD). [V010]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-zonetype">
+<h4>zoneType<a class="headerlink" href="#sql-riverbasindistrict-zonetype" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V020</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty. [V020]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V029</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of zoneType does not exist in codelist ZoneType. [V029]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-specialisedzonetype">
+<h4>specialisedZoneType<a class="headerlink" href="#sql-riverbasindistrict-specialisedzonetype" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V077</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V077]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V078</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V078]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-legalbasisname">
+<h4>legalBasisName<a class="headerlink" href="#sql-riverbasindistrict-legalbasisname" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V011</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of legalBasisName must be less than or equal to 254 characters. [V011]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-legalbasislink">
+<h4>legalBasisLink<a class="headerlink" href="#sql-riverbasindistrict-legalbasislink" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V012</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not follow the expected syntax for a valid URL. [V012]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V069</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of legalBasisLink must be less than or equal to 2100 characters. [V069]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-legalbasislevel">
+<h4>legalBasisLevel<a class="headerlink" href="#sql-riverbasindistrict-legalbasislevel" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V033</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value of legalBasislevel does not exist in codelist LegalBasisLevel. [V033]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-riverbasindistrict-link">
+<h4>link<a class="headerlink" href="#sql-riverbasindistrict-link" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V014</p></td>
+<td><p>ERROR</p></td>
+<td><p>The value does not follow the expected syntax for a valid URL. [V014]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V043</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length of link must be less than or equal to 2100 characters. [V043]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="documents-dataset">
+<h2>Documents dataset<a class="headerlink" href="#documents-dataset" title="Link to this heading">#</a></h2>
+<p>See additional information in the <em>data model review documentation</em>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../DataModelReview/WFDRiverBasinDistrictsAndCompetentAuthorities.html#heading-wfd-rbd-and-ca-documents-dataset-4th-cycle"><span class="std std-ref">Documents dataset - 4th cycle</span></a></p></li>
+</ul>
+<section id="sql-dcmetadata">
+<h3>dcMetadata<a class="headerlink" href="#sql-dcmetadata" title="Link to this heading">#</a></h3>
+<p>Metadata about the delivery, following the WISE common metadata model (Dublin Core based).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 15.0%" />
+<col style="width: 7.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>M</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>title</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Name given to the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>creatorOrganisationName</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Name of the organization doing the reporting.</p></td>
+</tr>
+<tr class="row-even"><td><p>creatorElectronicMailAddress</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Email">Email</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Email address of the point of contact in the organisation responsible for the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>description</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Description of the dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p>created</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-date">date</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Date of creation of the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>language</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Language">Language</a></p></td>
+<td><p>[1..n]</p></td>
+<td><p>Code of the dataset’s language/s from the ‘Language’ codelist.</p></td>
+</tr>
+<tr class="row-even"><td><p>license</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Licence">Licence</a></p></td>
+<td><p>[1]</p></td>
+<td><p>A legal document giving official permission to do something with the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>rights</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Information about rights held in and over the resource. If necessary, provide the attribution text required by the licence, or other relevant information.</p></td>
+</tr>
+<tr class="row-even"><td><p>rightsHolder</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>A person or organization owning or managing rights over the resource. This element can be provided if the rights holder reserved rights (e.g. should to be contacted for specific uses), or if the rights holder is not the organisation responsible for the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>licenseDocument</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-documentCode">documentCode</a></p></td>
+<td><p>[0..n]</p></td>
+<td><p>Document(s) about licensing information. It must be reported if license IN (‘exactMatch_CC_BY_4_0’, ‘narrowMatch_CC_BY_4_0’).</p></td>
+</tr>
+<tr class="row-even"><td><p>metadataDocument</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-documentCode">documentCode</a></p></td>
+<td><p>[0..n]</p></td>
+<td><p>Document(s) about metadata information. Reported if updateSpatialData = ‘yes’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>updateCompetentAuthorities</p></td>
+<td><p>SpecialValue</p></td>
+<td><p>[1]</p></td>
+<td><p>Choose ‘yes’ if the competent authorities are being updated. Choose ‘no’ if the competent authorities are not being updated. Valid values: ‘yes’ or ‘no’.</p></td>
+</tr>
+<tr class="row-even"><td><p>updateSpatialData</p></td>
+<td><p>SpecialValue</p></td>
+<td><p>[1]</p></td>
+<td><p>Choose ‘yes’ if the spatial data is being updated. Choose ‘no’ if the spatial data is not being updated. Valid values: ‘yes’ or ‘no’.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RF9999</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The following reference tables have to be updated: {%REFERENCE_TABLES%} . [RF9999] Please, contact helpdesk.</p></td>
+</tr>
+<tr class="row-odd"><td><p>T0007</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Mandatory table has no records [T0007]</p></td>
+</tr>
+<tr class="row-even"><td><p>T0009</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The table dcMetadata must have one record only. [T0009]</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC0017</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Table RiverBasinDistrictCompetentAuthority must not contain records if dcMetadata.updateCompetentAuthorities is ‘no’. [XC0017]</p></td>
+</tr>
+<tr class="row-even"><td><p>XC0020</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Table CompetentAuthority must not contain records if dcMetadata.updateCompetentAuthorities is ‘no’. [XC0020]</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC0030</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If dcMetadata.updateCompetentAuthorities is ‘yes’ and dcMetadata.updateSpatialData is ‘yes’, all thematicIdIdentifier in Spatial Data must be reported in RiverBasinDistrictCompetentAuthority [XC0030]. Number of missing values: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-even"><td><p>XC0031</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If dcMetadata.updateCompetentAuthorities is ‘yes’ and dcMetadata.updateSpatialData is ‘no’, all thematicIdIdentifier in Reference Table [RiverBasinDistrictWFD] must be reported [XC0031]. Number of missing values: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC0032</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If dcMetadata.updateSpatialData is ‘yes’, all RBD in the reference table RiverBasinDistrictWFD must be reported in Spatial Data. [XC0032] Number of missing values: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%}</p></td>
+</tr>
+<tr class="row-even"><td><p>XC0033</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Table RiverBasinDistrictCompetentAuthority must contain records if dcMetadata.updateCompetentAuthorities is ‘yes’. [XC0033]</p></td>
+</tr>
+<tr class="row-odd"><td><p>XC0034</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>If dcMetadata.updateSpatialData is ‘yes’, all RBD in the reference table RiverBasinDistrictWISE5 must be reported in Spatial Data. [XC0034] Number of missing values: {%NUMBEROFRECORDS%}. Missing identifiers: {%IDENTIFIERS%}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="sql-dcmetadata-title">
+<h4>title<a class="headerlink" href="#sql-dcmetadata-title" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0061</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 4000 [V0061]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0072</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0072]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-creatororganisationname">
+<h4>creatorOrganisationName<a class="headerlink" href="#sql-dcmetadata-creatororganisationname" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0055</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 4000 [V0055]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0063</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0063]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-creatorelectronicmailaddress">
+<h4>creatorElectronicMailAddress<a class="headerlink" href="#sql-dcmetadata-creatorelectronicmailaddress" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0054</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0054]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0069</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 250 [V0069]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-description">
+<h4>description<a class="headerlink" href="#sql-dcmetadata-description" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0056</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 4000 [V0056]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-created">
+<h4>created<a class="headerlink" href="#sql-dcmetadata-created" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0062</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>“created” must contain a valid date in the ISO 8601 format YYYY-MM-DD. [V0062]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-language">
+<h4>language<a class="headerlink" href="#sql-dcmetadata-language" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0023</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0023]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0053</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Duplicate language value [V0053]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0064</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0064]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-license">
+<h4>license<a class="headerlink" href="#sql-dcmetadata-license" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R0002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>licenseDocument must be reported if license IN (‘exactMatch_CC_BY_4_0’, ‘narrowMatch_CC_BY_4_0’). [R0002]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0058</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 2100 [V0058]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0065</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0065]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0074</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0074]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-rights">
+<h4>rights<a class="headerlink" href="#sql-dcmetadata-rights" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0059</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 4000 [V0059]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-rightsholder">
+<h4>rightsHolder<a class="headerlink" href="#sql-dcmetadata-rightsholder" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0060</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 4000 [V0060]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-licensedocument">
+<h4>licenseDocument<a class="headerlink" href="#sql-dcmetadata-licensedocument" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R0002</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>licenseDocument must be reported if license IN (‘exactMatch_CC_BY_4_0’, ‘narrowMatch_CC_BY_4_0’). [R0002]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0052</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Duplicate licenseDocument. [V0052] </p></td>
+</tr>
+<tr class="row-even"><td><p>V0076</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0076]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-metadatadocument">
+<h4>metadataDocument<a class="headerlink" href="#sql-dcmetadata-metadatadocument" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R0003</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>metadataDocument must be reported if updateSpatialData = ‘yes’. [R0003]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0051</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Duplicate metadataDocument. [V0051]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0077</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0077]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-updatecompetentauthorities">
+<h4>updateCompetentAuthorities<a class="headerlink" href="#sql-dcmetadata-updatecompetentauthorities" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0021</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0021]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0070</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0070]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0080</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>updateCompetentAuthorities must be ‘yes’ if reporting under ‘WFD’. [V0080]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0081</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>updateCompetentAuthorities must be ‘no’ if reporting under ‘WISE5’. [V0081]</p></td>
+</tr>
+<tr class="row-even"><td><p>XC0027</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Table CompetentAuthority must contain records if dcMetadata.updateCompetentAuthorities is ‘yes’. [XC0027]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-dcmetadata-updatespatialdata">
+<h4>updateSpatialData<a class="headerlink" href="#sql-dcmetadata-updatespatialdata" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R0003</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>metadataDocument must be reported if updateSpatialData = ‘yes’. [R0003]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0022</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value is not a valid member of the referenced list. [V0022]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0073</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0073]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0079</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must be ‘yes’ when reporting under ‘WISE5’. [V0079]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="sql-document">
+<h3>Document<a class="headerlink" href="#sql-document" title="Link to this heading">#</a></h3>
+<p>Documents (files or hyperlinks) referenced from the dcMetadata or from the descriptive dataset.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 15.0%" />
+<col style="width: 7.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>M</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>documentCode</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-wiseIdentifier">wiseIdentifier</a></p></td>
+<td><p>[1]</p></td>
+<td><p>Unique identifier for each document.</p></td>
+</tr>
+<tr class="row-odd"><td><p>documentName</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-string">string</a>250</p></td>
+<td><p>[1]</p></td>
+<td><p>Name of the document.</p></td>
+</tr>
+<tr class="row-even"><td><p>hyperlink</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-URL">URL</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>URL of the document if available on the internet. Either the hyperlink or the documentFile must be provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>documentFile</p></td>
+<td><p><a class="reference internal" href="../OtherResources/Glossary_Datatypes.html#term-Attachment">Attachment</a></p></td>
+<td><p>[0..1]</p></td>
+<td><p>Document file as an attachment uploaded in Reportnet. Either the hyperlink or the documentFile must be provided.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TU0001</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Uniqueness and multiplicity constraints - The field documentCode is unique within table [TU0001]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="sql-document-documentcode">
+<h4>documentCode<a class="headerlink" href="#sql-document-documentcode" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0017</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0017]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0019</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 42 [V0019]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0082</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not match the pattern to be used for a WISE Identifier. [V0082]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-document-documentname">
+<h4>documentName<a class="headerlink" href="#sql-document-documentname" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0018</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value must not be missing or empty [V0018]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0020</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 250 [V0020]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-document-hyperlink">
+<h4>hyperlink<a class="headerlink" href="#sql-document-hyperlink" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R0001</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Either hyperlink or documentFile must be reported, but not both. [R0001]</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0016</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The value does not follow the expected syntax for a valid URL [V0016]</p></td>
+</tr>
+<tr class="row-even"><td><p>V0066</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>The length must be less than or equal to 2100. [V0066]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sql-document-documentfile">
+<h4>documentFile<a class="headerlink" href="#sql-document-documentfile" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 15.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R0001</p></td>
+<td><p>BLOCKER</p></td>
+<td><p>Either hyperlink or documentFile must be reported, but not both. [R0001]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Testing phase</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WFDMonitoring.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Monitoring</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-dataset">Descriptive dataset</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority">CompetentAuthority</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-eucacode">euCACode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-competentauthorityname">competentAuthorityName</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-competentauthoritynamenl">competentAuthorityNameNL</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-competentauthoritynamenllanguage">competentAuthorityNameNLLanguage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-acronym">acronym</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-street">street</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-city">city</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-country">country</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-postcode">postCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-competentauthority-url">url</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrictcompetentauthority">RiverBasinDistrictCompetentAuthority</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrictcompetentauthority-eurbdcode">euRBDCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrictcompetentauthority-eucacode">euCACode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrictcompetentauthority-rolecode">roleCode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-dataset">Spatial dataset</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict">RiverBasinDistrict</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-geometry-polygon">geometry_polygon</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-inspireidlocalid">inspireIdLocalId</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-inspireidnamespace">inspireIdNamespace</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-inspireidversionid">inspireIdVersionId</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-thematicididentifier">thematicIdIdentifier</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-thematicididentifierscheme">thematicIdIdentifierScheme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-beginlifespanversion">beginLifespanVersion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-endlifespanversion">endLifespanVersion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-predecessorsidentifier">predecessorsIdentifier</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-predecessorsidentifierscheme">predecessorsIdentifierScheme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-successorsidentifier">successorsIdentifier</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-successorsidentifierscheme">successorsIdentifierScheme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-wiseevolutiontype">wiseEvolutionType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-nametextinternational">nameTextInternational</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-nametext">nameText</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-namelanguage">nameLanguage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-designationperiodbegin">designationPeriodBegin</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-designationperiodend">designationPeriodEnd</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-zonetype">zoneType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-specialisedzonetype">specialisedZoneType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-legalbasisname">legalBasisName</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-legalbasislink">legalBasisLink</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-legalbasislevel">legalBasisLevel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-riverbasindistrict-link">link</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-dataset">Documents dataset</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata">dcMetadata</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-title">title</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-creatororganisationname">creatorOrganisationName</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-creatorelectronicmailaddress">creatorElectronicMailAddress</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-description">description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-created">created</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-language">language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-license">license</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-rights">rights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-rightsholder">rightsHolder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-licensedocument">licenseDocument</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-metadatadocument">metadataDocument</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-updatecompetentauthorities">updateCompetentAuthorities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-dcmetadata-updatespatialdata">updateSpatialData</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-document">Document</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-document-documentcode">documentCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-document-documentname">documentName</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-document-hyperlink">hyperlink</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-document-documentfile">documentFile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/WISE.WFD.Documentation/edit/main/docs/TestingPhase/WFDRiverBasinDistrictsAndCompetentAuthorities.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/TestingPhase/WFDRiverBasinDistrictsAndCompetentAuthorities.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
