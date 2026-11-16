@@ -7,16 +7,22 @@ config:
 ---
 classDiagram
 class GWAssociatedProtectedArea{
-	+ euGroundWaterBodyCode: wiseIdentifier
-	+ euProtectedAreaType: ProtectedAreaType
-	+ euProtectedAreaCode: wiseIdentifier [0..1]
-	+ protectedAreaObjectivesSet: YesNo
-	+ protectedAreaObjectivesMet: YesNoUnknownInapplicable
+    + euGroundwaterBodyCode : wiseIdentifier
+    + euProtectedAreaType : ProtectedAreaType 
+    + euProtectedAreaCode : natura2000Identifier [0..1]
+    + protectedAreaObjectivesSet : YesNo
+    + protectedAreaObjectivesMet : YesNoUnknownInapplicable
 	/ exemptionType: ExemptionType [0..1]
 	+ exemptionRationale: ExemptionRationale [0..n]
 	+ exemptionPeriod: ExemptionPeriod [0..1]
 	+ exemptionReference: referenceCode [0..1]
-	   } 
+    }
+
+ class ProtectedAreaType{
+    <<enumeration>>
+    drinkingWaterProtectionArea
+    natura2000
+    }
 
 classDef default fill:white,stroke:#000;
 classDef forFixing fill:white,stroke:#f00;

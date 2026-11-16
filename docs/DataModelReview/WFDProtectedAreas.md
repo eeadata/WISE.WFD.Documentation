@@ -227,7 +227,8 @@ of surface water bodies with specific objectives related to protected areas:
 * For shellfish designated areas, report *only* if specific objectives have been set.
 * For drinking water protection areas, report *only* if specific objectives have been set.
 * For Natura2000 sites, report if specific objectives have been set *or*
-  if the Natura2000 site is not part of the "pre-filled" list (to be provided).
+  if the Natura2000 site is not part of the provisional "pre-filled" list
+  (see {ref}`heading_wfd_protected_areas_special_case_the_natura2000_protected_sites`).
 
 ```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_SWAssociatedProtectedArea_ClassDiagram.mmd
 :name: ProtectedArea_4thCycle_SWAssociatedProtectedArea_ClassDiagram
@@ -238,8 +239,10 @@ of surface water bodies with specific objectives related to protected areas:
 {numref}`ProtectedArea_4thCycle_GWAssociatedProtectedArea_ClassDiagram` illustrates the reporting
 of groundwater bodies with specific objectives associated with protected areas:
 
-* For shellfish designated areas, report *only* if specific objectives have been set.
 * For drinking water protection areas, report *only* if specific objectives have been set.
+* For Natura2000 sites, report if specific objectives have been set *or*
+  if the Natura2000 site is not part of the provisional "pre-filled" list
+  (see {ref}`heading_wfd_protected_areas_special_case_the_natura2000_protected_sites`).
 
 ```{mermaid} /DataModelReview/mmd/ProtectedArea_4thCycle_GWAssociatedProtectedArea_ClassDiagram.mmd
 :name: ProtectedArea_4thCycle_GWAssociatedProtectedArea_ClassDiagram
@@ -250,8 +253,10 @@ of groundwater bodies with specific objectives associated with protected areas:
 The following conditions will raise a quality control *blocker*:
 
 * `euProtectedAreaType = 'shellfishDesignatedWater' AND protectedAreaObjectivesSet = 'no'`
-* `euProtectedAreaType = 'drinkingWaterProtectionArea' AND protectedAreaObjectivesSet = 'no'`
+  (aplicable to `SWAssociatedProtectedArea` only)
 * `euProtectedAreaType = 'shellfishDesignatedWater' AND euProtectedAreaCode IS NOT NULL`
+  (aplicable to `SWAssociatedProtectedArea` only)
+* `euProtectedAreaType = 'drinkingWaterProtectionArea' AND protectedAreaObjectivesSet = 'no'`
 * `euProtectedAreaType = 'drinkingWaterProtectionArea' AND euProtectedAreaCode IS NOT NULL`
 * `euProtectedAreaType = 'natura2000' AND euProtectedAreaCode IS NULL`
 * `protectedAreaObjectivesSet = 'yes' AND protectedAreaObjectivesMet = 'inapplicable'`
@@ -259,11 +264,11 @@ The following conditions will raise a quality control *blocker*:
 The following checks against other datasets will also raise a quality control *blocker*:
 
 * if `euProtectedAreaType = 'shellfishDesignatedWater'`
-  but there is no drinking water protected area associated with that water body
+  but there is no shellfish designated water associated with that water body
 * if `euProtectedAreaType = 'drinkingWaterProtectionArea'`
   but there is no drinking water protected area associated with that water body
 * if `euProtectedAreaType = 'natura2000'`
-  but there is corresponding Natura2000 identifier in
+  but there is no corresponding Natura2000 identifier in
   https://dd.eionet.europa.eu/vocabulary/biodiversity/n2000sites
 
 (heading_wfd_protected_areas_surface_water_bodies_exemptions)=

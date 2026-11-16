@@ -11,13 +11,12 @@ direction TB
 class GWAssociatedProtectedArea{
  + euGroundwaterBodyCode : wiseIdentifier
  + euProtectedAreaType : ProtectedAreaType 
-
- - protectedAreaObjectivesSet : Yes
- + protectedAreaObjectivesMet : YesNoUnknown
+ + euProtectedAreaCode : natura2000Identifier [0..1]
+ + protectedAreaObjectivesSet : YesNo
+ + protectedAreaObjectivesMet : YesNoUnknownInapplicable
     }
  class ProtectedAreaType{
     <<enumeration>>
-    shellfishDesignatedWater
     drinkingWaterProtectionArea
-
+    natura2000
     }
