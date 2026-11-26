@@ -407,6 +407,14 @@ and to avoid the ambiguities observed in the 3rd cycle reporting
 {numref}`SWType_QE_ValidOptions` illustrates the valid options
 for each quality element, depending on the water category.
 
+```{Warning}
+TO BE CORRECTED:
+The option 'notUsed' is valid for macrophytes and phytobenthos in lakes, subject to the condition:
+
+"In rivers and lakes, it is not possible to mark both macrophytes and phytobenthos as ‘notUsed’: a quality control blocker will be raised."
+
+```
+
 ```{figure} img/SWType_QE_ValidOptions.png
 :name: SWType_QE_ValidOptions
 :align: center
