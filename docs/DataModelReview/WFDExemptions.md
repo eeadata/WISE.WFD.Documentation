@@ -192,8 +192,8 @@ The following conditions apply:
 
 ```{admonition} See code
 :class: dropdown
-01. Mandatory: `swPollutantCode in ({list-of-2008-or-2013-priority-substances}) AND swPollutantCausingFailure in '3'`
-02. Mandatory: `swPollutantCode in ({list-of-river-basin-specific-pollutants}) AND swPollutantCausingFailure in '3'`
+01. Mandatory: `swPollutantCode in ({list-of-2008-or-2013-priority-substances}) AND swPollutantCausingFailure in 'yes'`
+02. Mandatory: `swPollutantCode in ({list-of-river-basin-specific-pollutants}) AND swPollutantCausingFailure in 'yes'`
 03. Not allowed: `swPollutantCausingFailure = 'unknown' AND ISNULL(exemptionType,'') =! 'notApplicable'`
 04. Not required: `swPollutantCode in ({list-of-2026-priority-substances}) AND exemptionType IS NOT NULL`
 05. Not allowed: `swPollutantCode in ({list-of-2013-priority-substances}) AND ExemptionRationale IN ('article44_technicalFeasibility','article44_disproportionateCost')`
