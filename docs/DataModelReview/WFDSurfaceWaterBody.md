@@ -293,11 +293,6 @@ The quality control criteria have been defined, and will be refined as needed.
   `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')`
 
 * If ecological status is high,
-  the status of all applicable quality elements must all be high.
-  The following clause will raise a *blocker*:  
-  `SWStatus.swEcologicalStatusOrPotentialValue = '1' AND qeStatusOrPotentialValue in ('2','3','4','5')`
-
-* If ecological status is high,
   at least one hydromorphological quality element (QE2%) must be assessed.
 
 * If ecological status is high,
@@ -321,7 +316,7 @@ The quality control criteria have been defined, and will be refined as needed.
 * If ecological status is poor,
   the status of all applicable biological quality elements must be at least poor.
   The following clause will raise a *blocker*:  
-  `swEcologicalStatusOrPotentialValue = '5' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('5')`
+  `swEcologicalStatusOrPotentialValue = '4' AND qeCode LIKE 'QE1%' AND qeStatusOrPotentialValue in ('5')`
 
 * If all applicable quality elements have 'unknown' status,
   then the ecological status must also be 'unknown'.
