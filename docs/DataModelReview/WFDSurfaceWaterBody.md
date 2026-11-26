@@ -430,7 +430,7 @@ with the "one-out-all-out" principle. Some examples:
 
 * if all applicable quality elements have `qeStatusOrPotentialValue = 'unknown'`,
   and an artificial water body has `swEcologicalStatusOrPotentialValue = 'unknown'`,
-  then a quality control *warning* will be raised.
+  then it is OK.
 
 Note that the quality control does not verify
 if the reported ecological potential at water body level is worse
