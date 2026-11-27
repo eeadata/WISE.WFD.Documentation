@@ -271,7 +271,7 @@ The following conditions apply:
   FROM SurfaceWaterBody AS t
   JOIN SWType AS ref
   ON t.swTypeIdentifier = ref.swTypeIdentifier
-  WHERE NOT (t.naturalAWBHMWB = ANY(string_to_array(t.naturalAWBHMWB, ';')))
+  WHERE NOT (t.naturalAWBHMWB = ANY(string_to_array(ref.naturalAWBHMWB, ';')))
   ```
 
 (heading_wfd_surface_water_bodies_ecological_status_4th_cycle)=
